@@ -12,6 +12,36 @@ lever is a stress testing tool for [java-tron].
 
 ### Run a private blockchain of java-tron
 
-### Run a wallet-cli
+Read the [Start Private Blockchain]. Two accounts need to be reserved, one for initiating the transfer and one for receiving the transfer amount.
+
+[Start Private Blockchain]:http://wiki.tron.network/en/latest/start_private_blockchain.html
 
 ### Jmeter
+
+1. Install Jmeter.
+
+2. Generate jar:
+
+```shell
+> ./gradlew build
+> ./gradlew clean shadowJar -PmainClass=org.tron.program.RpcHunterSendCoin
+> cp build/libs/org.tron.program.RpcHunterSendCoin jmeter/lib/ext/org.tron.program.RpcHunterSendCoin
+> jmeter/bin/jmeter
+
+```
+
+3. Configuration
+
+Jmeter:
+
+[File] -> [Open] -> Select lever/src/main/resources/jmeter-setting.jmx
+
+Modify [Thread Group] -> [Java Request]
+
+**toAddress**: Receiver address.
+**amount**: Number of transfers(SUN).
+**privateKey**: Transferor private key.
+
+Show:
+
+<img src="/github/images/test-result.png?raw=true">
