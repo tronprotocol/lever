@@ -38,9 +38,9 @@ Jmeter:
 
 Modify [Thread Group] -> [Java Request]
 
-**toAddress**: Receiver address.
-**amount**: Number of transfers(SUN).
-**privateKey**: Transferor private key.
+1. **toAddress**: Receiver address.
+2. **amount**: Number of transfers(SUN).
+3. **privateKey**: Transferor private key.
 
 Show:
 
