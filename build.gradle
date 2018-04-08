@@ -1,0 +1,109 @@
+group 'org.tron'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'com.google.protobuf'
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+sourceCompatibility = 1.8
+mainClassName = "org.tron.program.RpcHunterListAccount"
+if (project.hasProperty("mainClass")) {
+    mainClassName = mainClass
+}
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+        }
+    }
+    ext {
+        grpcVersion = '1.6.1'
+        protobufVersion = '3.3.0'
+        protobufGradlePluginVersion = '0.8.0'
+    }
+
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.3'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+    }
+}
+
+dependencies {
+    compile group: 'org.apache.jmeter', name: 'ApacheJMeter_java', version: '4.0'
+
+    // google grpc
+    compile group: 'io.grpc', name: 'grpc-netty', version: '1.9.0'
+    compile group: 'io.grpc', name: 'grpc-protobuf', version: '1.9.0'
+    compile group: 'io.grpc', name: 'grpc-stub', version: '1.9.0'
+
+    compile group: 'com.googlecode.protobuf-java-format', name: 'protobuf-java-format', version: '1.4'
+
+    compile group: 'com.typesafe', name: 'config', version: '1.3.2'
+
+    compile "com.madgag.spongycastle:core:1.53.0.0"
+    compile "com.madgag.spongycastle:prov:1.53.0.0"
+
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+    compile "org.projectlombok:lombok:1.16.18"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+sourceSets {
+    main {
+        proto {
+            srcDir 'src/main/protocol'
+        }
+        java {
+            srcDir 'src/main/gen'
+            srcDir 'src/main/java'
+        }
+    }
+
+}
+
+protobuf {
+    generatedFilesBaseDir = "$projectDir/src/"
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.5.1-1"
+
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.9.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    outputSubDir = "gen"
+                }
+            }
+        }
+        all()*.plugins {
+            grpc {
+                outputSubDir = "gen"
+            }
+        }
+    }
+}
+
+shadowJar {
+    zip64 true
+    baseName = mainClassName
+    classifier = null
+    version = null
+}
