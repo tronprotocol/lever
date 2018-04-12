@@ -23,10 +23,12 @@ Read the [Start Private Blockchain]. Two accounts need to be reserved, one for i
 2. Generate jar:
 
 ```shell
-> ./gradlew build
-> ./gradlew clean shadowJar -PmainClass=org.tron.program.RpcHunterSendCoin
-> cp build/libs/org.tron.program.RpcHunterSendCoin jmeter/lib/ext/org.tron.program.RpcHunterSendCoin
-> jmeter/bin/jmeter
+$ git clone https://github.com/tronprotocol/lever.git
+$ cd lever
+$ ./gradlew build
+$ ./gradlew clean shadowJar -PmainClass=org.tron.program.RpcHunterSendCoin
+$ cp build/libs/org.tron.program.RpcHunterSendCoin jmeter/lib/ext/org.tron.program.RpcHunterSendCoin
+$ jmeter/bin/jmeter
 
 ```
 
