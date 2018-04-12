@@ -1,19 +1,26 @@
 package org.tron.service;
 
+import static org.tron.core.config.Parameter.CommonConstant.TARGET_GRPC_ADDRESS;
+
 import com.google.protobuf.ByteString;
-import java.math.BigInteger;
+import com.typesafe.config.Config;
 import java.util.Optional;
+import lombok.extern.slf4j.Slf4j;
 import org.tron.api.GrpcAPI.AccountList;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
+import org.tron.core.config.Configuration;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol.Transaction;
 
+@Slf4j
 public class WalletClient {
 
   private GrpcClient rpcCli;
   private ECKey ecKey;
+
+  private Config config = Configuration.getByPath("config.conf");
 
   public WalletClient() {
 
@@ -30,7 +37,13 @@ public class WalletClient {
   }
 
   public void init() {
-    rpcCli = new GrpcClient("47.93.33.201:50051");
+    if (!config.hasPath(TARGET_GRPC_ADDRESS)) {
+      logger.error("no target: {} = ip:host", TARGET_GRPC_ADDRESS);
+      return;
+    }
+    String target = config.getString(TARGET_GRPC_ADDRESS);
+    logger.info("target: {}" + target);
+    rpcCli = new GrpcClient(target);
   }
 
   public Optional<AccountList> listAccounts() {
