@@ -20,7 +20,7 @@ public class RpcHunterSendCoin extends AbstractJavaSamplerClient{
     Arguments arguments = new Arguments();
     arguments.addArgument("toAddress", "27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS");
     arguments.addArgument("amount", "1");
-    arguments.addArgument("privateKey", "32012d7b024b2e62e0ca145f137bcfd2468cac99a1880b275e2e499b23af265c");
+    arguments.addArgument("privateKey", "effa55b420a2fe39e3f73d14b8c46824fd0d5ee210840b9c27b2e2f42a09f1f9");
     return arguments;
   }
 
@@ -59,7 +59,7 @@ public class RpcHunterSendCoin extends AbstractJavaSamplerClient{
     Arguments arguments = new Arguments();
     arguments.addArgument("toAddress", "27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS");
     arguments.addArgument("amount", "1");
-    arguments.addArgument("privateKey", "32012d7b024b2e62e0ca145f137bcfd2468cac99a1880b275e2e499b23af265c");
+    arguments.addArgument("privateKey", "effa55b420a2fe39e3f73d14b8c46824fd0d5ee210840b9c27b2e2f42a09f1f9");
     JavaSamplerContext context = new JavaSamplerContext(arguments);
     RpcHunterSendCoin hunter = new RpcHunterSendCoin();
     hunter.setupTest(context);
