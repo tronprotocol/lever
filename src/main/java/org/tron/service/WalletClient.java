@@ -58,9 +58,7 @@ public class WalletClient {
     if (transaction == null || transaction.getRawData().getContractCount() == 0) {
       return false;
     }
-    System.out.println(2);
     transaction = signTransaction(transaction);
-    System.out.println(3);
     return rpcCli.broadcastTransaction(transaction);
   }
 

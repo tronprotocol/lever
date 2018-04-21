@@ -1,20 +1,5 @@
 package org.tron.api;
 
-import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
-
 /**
  * <pre>
  * the api of tron's network such as node list.
@@ -61,7 +46,7 @@ public final class NetworkGrpc {
    */
   public static abstract class NetworkImplBase implements io.grpc.BindableService {
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .build();
     }
@@ -82,7 +67,7 @@ public final class NetworkGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected NetworkStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new NetworkStub(channel, callOptions);
@@ -104,7 +89,7 @@ public final class NetworkGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected NetworkBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new NetworkBlockingStub(channel, callOptions);
@@ -126,7 +111,7 @@ public final class NetworkGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected NetworkFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new NetworkFutureStub(channel, callOptions);
@@ -147,8 +132,8 @@ public final class NetworkGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         default:
@@ -156,8 +141,8 @@ public final class NetworkGrpc {
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -171,12 +156,12 @@ public final class NetworkGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     NetworkBaseDescriptorSupplier() {}
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
       return org.tron.api.GrpcAPI.getDescriptor();
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("Network");
     }
@@ -196,7 +181,7 @@ public final class NetworkGrpc {
       this.methodName = methodName;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }
