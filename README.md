@@ -46,7 +46,7 @@ grpc.address = "127.0.0.1:50051" # target gRPC server address
 
 `lever/src/main/resources/jmeter-setting.jmx`：
 
-10 threads run 1800 seconds：
+10 threads running for 1800 seconds：
 
 ```xml
   <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
