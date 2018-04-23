@@ -93,3 +93,5 @@ Transaction arguments(put your arguments: `Argument.value` to this file):
   <stringProp name="classname">org.tron.program.RpcHunterSendCoin</stringProp>
 </JavaSampler>
 ```
+
+You can use [generate-account-tool](https://github.com/sasaxie/generate-account-tool) to generate your account and put it to java-tron's config.conf: `genesis.block.assets`, `genesis.block.witnesses`, `localwitness`
