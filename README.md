@@ -20,7 +20,9 @@ Read the [Start Private Blockchain]. Two accounts need to be reserved, one for i
 
 1. Install Jmeter.
 
-2. Generate jar and run test:
+### lever
+
+1. Generate jar and run test:
 
 ```shell
 $ git clone https://github.com/tronprotocol/lever.git
@@ -34,7 +36,7 @@ $ ﻿./jmeter -n -t /jmeter-setting.jmx -l test_result.jtl -e -o /resultReport
 
 ```
 
-3. Configuration
+2. Configuration
 
 `lever/src/main/resources/config.conf`：
 
