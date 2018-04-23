@@ -38,11 +38,15 @@ $ ﻿./jmeter -n -t /jmeter-setting.jmx -l test_result.jtl -e -o /resultReport
 
 2. Configuration
 
+2.1 config.conf
+
 `lever/src/main/resources/config.conf`：
 
 ```shell
 grpc.address = "127.0.0.1:50051" # target gRPC server address
 ```
+
+2.2 jmeter-setting.jmx
 
 `lever/src/main/resources/jmeter-setting.jmx`：
 
@@ -61,4 +65,31 @@ grpc.address = "127.0.0.1:50051" # target gRPC server address
     <stringProp name="ThreadGroup.duration">1800</stringProp>
     <stringProp name="ThreadGroup.delay"></stringProp>
   </ThreadGroup>
+```
+
+Transaction arguments(put your arguments: `Argument.value` to this file):
+
+```xml
+<JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request" enabled="true">
+  <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+    <collectionProp name="Arguments.arguments">
+      <elementProp name="toAddress" elementType="Argument">
+        <stringProp name="Argument.name">toAddress</stringProp>
+        <stringProp name="Argument.value">27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS</stringProp>
+        <stringProp name="Argument.metadata">=</stringProp>
+      </elementProp>
+      <elementProp name="amount" elementType="Argument">
+        <stringProp name="Argument.name">amount</stringProp>
+        <stringProp name="Argument.value">1</stringProp>
+        <stringProp name="Argument.metadata">=</stringProp>
+      </elementProp>
+      <elementProp name="privateKey" elementType="Argument">
+        <stringProp name="Argument.name">privateKey</stringProp>
+        <stringProp name="Argument.value">effa55b420a2fe39e3f73d14b8c46824fd0d5ee210840b9c27b2e2f42a09f1f9</stringProp>
+        <stringProp name="Argument.metadata">=</stringProp>
+      </elementProp>
+    </collectionProp>
+  </elementProp>
+  <stringProp name="classname">org.tron.program.RpcHunterSendCoin</stringProp>
+</JavaSampler>
 ```
