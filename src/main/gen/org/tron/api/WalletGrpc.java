@@ -1,10 +1,18 @@
 package org.tron.api;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
@@ -20,7 +28,7 @@ public final class WalletGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAccountMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetAccountMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
       org.tron.protos.Protocol.Account> METHOD_GET_ACCOUNT = getGetAccountMethod();
 
@@ -34,7 +42,7 @@ public final class WalletGrpc {
     if ((getGetAccountMethod = WalletGrpc.getGetAccountMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getGetAccountMethod = WalletGrpc.getGetAccountMethod) == null) {
-          WalletGrpc.getGetAccountMethod = getGetAccountMethod =
+          WalletGrpc.getGetAccountMethod = getGetAccountMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Account, org.tron.protos.Protocol.Account>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -52,7 +60,7 @@ public final class WalletGrpc {
      return getGetAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getCreateTransactionMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getCreateTransactionMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.TransferContract,
       org.tron.protos.Protocol.Transaction> METHOD_CREATE_TRANSACTION = getCreateTransactionMethod();
 
@@ -66,7 +74,7 @@ public final class WalletGrpc {
     if ((getCreateTransactionMethod = WalletGrpc.getCreateTransactionMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getCreateTransactionMethod = WalletGrpc.getCreateTransactionMethod) == null) {
-          WalletGrpc.getCreateTransactionMethod = getCreateTransactionMethod =
+          WalletGrpc.getCreateTransactionMethod = getCreateTransactionMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.TransferContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -84,7 +92,7 @@ public final class WalletGrpc {
      return getCreateTransactionMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getBroadcastTransactionMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getBroadcastTransactionMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Protocol.Transaction,
       org.tron.api.GrpcAPI.Return> METHOD_BROADCAST_TRANSACTION = getBroadcastTransactionMethod();
 
@@ -98,7 +106,7 @@ public final class WalletGrpc {
     if ((getBroadcastTransactionMethod = WalletGrpc.getBroadcastTransactionMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getBroadcastTransactionMethod = WalletGrpc.getBroadcastTransactionMethod) == null) {
-          WalletGrpc.getBroadcastTransactionMethod = getBroadcastTransactionMethod =
+          WalletGrpc.getBroadcastTransactionMethod = getBroadcastTransactionMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Transaction, org.tron.api.GrpcAPI.Return>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -116,7 +124,7 @@ public final class WalletGrpc {
      return getBroadcastTransactionMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getListAccountsMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getListAccountsMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.api.GrpcAPI.AccountList> METHOD_LIST_ACCOUNTS = getListAccountsMethod();
 
@@ -130,7 +138,7 @@ public final class WalletGrpc {
     if ((getListAccountsMethod = WalletGrpc.getListAccountsMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getListAccountsMethod = WalletGrpc.getListAccountsMethod) == null) {
-          WalletGrpc.getListAccountsMethod = getListAccountsMethod =
+          WalletGrpc.getListAccountsMethod = getListAccountsMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.AccountList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -148,7 +156,7 @@ public final class WalletGrpc {
      return getListAccountsMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getUpdateAccountMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getUpdateAccountMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.AccountUpdateContract,
       org.tron.protos.Protocol.Transaction> METHOD_UPDATE_ACCOUNT = getUpdateAccountMethod();
 
@@ -162,7 +170,7 @@ public final class WalletGrpc {
     if ((getUpdateAccountMethod = WalletGrpc.getUpdateAccountMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getUpdateAccountMethod = WalletGrpc.getUpdateAccountMethod) == null) {
-          WalletGrpc.getUpdateAccountMethod = getUpdateAccountMethod =
+          WalletGrpc.getUpdateAccountMethod = getUpdateAccountMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.AccountUpdateContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -180,7 +188,7 @@ public final class WalletGrpc {
      return getUpdateAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getCreateAccountMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getCreateAccountMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.AccountCreateContract,
       org.tron.protos.Protocol.Transaction> METHOD_CREATE_ACCOUNT = getCreateAccountMethod();
 
@@ -194,7 +202,7 @@ public final class WalletGrpc {
     if ((getCreateAccountMethod = WalletGrpc.getCreateAccountMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getCreateAccountMethod = WalletGrpc.getCreateAccountMethod) == null) {
-          WalletGrpc.getCreateAccountMethod = getCreateAccountMethod =
+          WalletGrpc.getCreateAccountMethod = getCreateAccountMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.AccountCreateContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -212,7 +220,7 @@ public final class WalletGrpc {
      return getCreateAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getVoteWitnessAccountMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getVoteWitnessAccountMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.VoteWitnessContract,
       org.tron.protos.Protocol.Transaction> METHOD_VOTE_WITNESS_ACCOUNT = getVoteWitnessAccountMethod();
 
@@ -226,7 +234,7 @@ public final class WalletGrpc {
     if ((getVoteWitnessAccountMethod = WalletGrpc.getVoteWitnessAccountMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getVoteWitnessAccountMethod = WalletGrpc.getVoteWitnessAccountMethod) == null) {
-          WalletGrpc.getVoteWitnessAccountMethod = getVoteWitnessAccountMethod =
+          WalletGrpc.getVoteWitnessAccountMethod = getVoteWitnessAccountMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.VoteWitnessContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -244,7 +252,7 @@ public final class WalletGrpc {
      return getVoteWitnessAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getCreateAssetIssueMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getCreateAssetIssueMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.AssetIssueContract,
       org.tron.protos.Protocol.Transaction> METHOD_CREATE_ASSET_ISSUE = getCreateAssetIssueMethod();
 
@@ -258,7 +266,7 @@ public final class WalletGrpc {
     if ((getCreateAssetIssueMethod = WalletGrpc.getCreateAssetIssueMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getCreateAssetIssueMethod = WalletGrpc.getCreateAssetIssueMethod) == null) {
-          WalletGrpc.getCreateAssetIssueMethod = getCreateAssetIssueMethod =
+          WalletGrpc.getCreateAssetIssueMethod = getCreateAssetIssueMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.AssetIssueContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -276,7 +284,7 @@ public final class WalletGrpc {
      return getCreateAssetIssueMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getListWitnessesMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getListWitnessesMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.api.GrpcAPI.WitnessList> METHOD_LIST_WITNESSES = getListWitnessesMethod();
 
@@ -290,7 +298,7 @@ public final class WalletGrpc {
     if ((getListWitnessesMethod = WalletGrpc.getListWitnessesMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getListWitnessesMethod = WalletGrpc.getListWitnessesMethod) == null) {
-          WalletGrpc.getListWitnessesMethod = getListWitnessesMethod =
+          WalletGrpc.getListWitnessesMethod = getListWitnessesMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.WitnessList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -308,7 +316,7 @@ public final class WalletGrpc {
      return getListWitnessesMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getUpdateWitnessMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getUpdateWitnessMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.WitnessUpdateContract,
       org.tron.protos.Protocol.Transaction> METHOD_UPDATE_WITNESS = getUpdateWitnessMethod();
 
@@ -322,7 +330,7 @@ public final class WalletGrpc {
     if ((getUpdateWitnessMethod = WalletGrpc.getUpdateWitnessMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getUpdateWitnessMethod = WalletGrpc.getUpdateWitnessMethod) == null) {
-          WalletGrpc.getUpdateWitnessMethod = getUpdateWitnessMethod =
+          WalletGrpc.getUpdateWitnessMethod = getUpdateWitnessMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.WitnessUpdateContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -340,7 +348,7 @@ public final class WalletGrpc {
      return getUpdateWitnessMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getCreateWitnessMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getCreateWitnessMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.WitnessCreateContract,
       org.tron.protos.Protocol.Transaction> METHOD_CREATE_WITNESS = getCreateWitnessMethod();
 
@@ -354,7 +362,7 @@ public final class WalletGrpc {
     if ((getCreateWitnessMethod = WalletGrpc.getCreateWitnessMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getCreateWitnessMethod = WalletGrpc.getCreateWitnessMethod) == null) {
-          WalletGrpc.getCreateWitnessMethod = getCreateWitnessMethod =
+          WalletGrpc.getCreateWitnessMethod = getCreateWitnessMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.WitnessCreateContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -372,7 +380,7 @@ public final class WalletGrpc {
      return getCreateWitnessMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getTransferAssetMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getTransferAssetMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.TransferAssetContract,
       org.tron.protos.Protocol.Transaction> METHOD_TRANSFER_ASSET = getTransferAssetMethod();
 
@@ -386,7 +394,7 @@ public final class WalletGrpc {
     if ((getTransferAssetMethod = WalletGrpc.getTransferAssetMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getTransferAssetMethod = WalletGrpc.getTransferAssetMethod) == null) {
-          WalletGrpc.getTransferAssetMethod = getTransferAssetMethod =
+          WalletGrpc.getTransferAssetMethod = getTransferAssetMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.TransferAssetContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -404,7 +412,7 @@ public final class WalletGrpc {
      return getTransferAssetMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getParticipateAssetIssueMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getParticipateAssetIssueMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.ParticipateAssetIssueContract,
       org.tron.protos.Protocol.Transaction> METHOD_PARTICIPATE_ASSET_ISSUE = getParticipateAssetIssueMethod();
 
@@ -418,7 +426,7 @@ public final class WalletGrpc {
     if ((getParticipateAssetIssueMethod = WalletGrpc.getParticipateAssetIssueMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getParticipateAssetIssueMethod = WalletGrpc.getParticipateAssetIssueMethod) == null) {
-          WalletGrpc.getParticipateAssetIssueMethod = getParticipateAssetIssueMethod =
+          WalletGrpc.getParticipateAssetIssueMethod = getParticipateAssetIssueMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Contract.ParticipateAssetIssueContract, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -436,7 +444,7 @@ public final class WalletGrpc {
      return getParticipateAssetIssueMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getListNodesMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getListNodesMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.api.GrpcAPI.NodeList> METHOD_LIST_NODES = getListNodesMethod();
 
@@ -450,7 +458,7 @@ public final class WalletGrpc {
     if ((getListNodesMethod = WalletGrpc.getListNodesMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getListNodesMethod = WalletGrpc.getListNodesMethod) == null) {
-          WalletGrpc.getListNodesMethod = getListNodesMethod =
+          WalletGrpc.getListNodesMethod = getListNodesMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.NodeList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -468,7 +476,7 @@ public final class WalletGrpc {
      return getListNodesMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAssetIssueListMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetAssetIssueListMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.api.GrpcAPI.AssetIssueList> METHOD_GET_ASSET_ISSUE_LIST = getGetAssetIssueListMethod();
 
@@ -482,7 +490,7 @@ public final class WalletGrpc {
     if ((getGetAssetIssueListMethod = WalletGrpc.getGetAssetIssueListMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getGetAssetIssueListMethod = WalletGrpc.getGetAssetIssueListMethod) == null) {
-          WalletGrpc.getGetAssetIssueListMethod = getGetAssetIssueListMethod =
+          WalletGrpc.getGetAssetIssueListMethod = getGetAssetIssueListMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.AssetIssueList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -500,7 +508,7 @@ public final class WalletGrpc {
      return getGetAssetIssueListMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAssetIssueByAccountMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetAssetIssueByAccountMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
       org.tron.api.GrpcAPI.AssetIssueList> METHOD_GET_ASSET_ISSUE_BY_ACCOUNT = getGetAssetIssueByAccountMethod();
 
@@ -514,7 +522,7 @@ public final class WalletGrpc {
     if ((getGetAssetIssueByAccountMethod = WalletGrpc.getGetAssetIssueByAccountMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getGetAssetIssueByAccountMethod = WalletGrpc.getGetAssetIssueByAccountMethod) == null) {
-          WalletGrpc.getGetAssetIssueByAccountMethod = getGetAssetIssueByAccountMethod =
+          WalletGrpc.getGetAssetIssueByAccountMethod = getGetAssetIssueByAccountMethod = 
               io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Account, org.tron.api.GrpcAPI.AssetIssueList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -532,7 +540,7 @@ public final class WalletGrpc {
      return getGetAssetIssueByAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAssetIssueByNameMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetAssetIssueByNameMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
       org.tron.protos.Contract.AssetIssueContract> METHOD_GET_ASSET_ISSUE_BY_NAME = getGetAssetIssueByNameMethod();
 
@@ -546,7 +554,7 @@ public final class WalletGrpc {
     if ((getGetAssetIssueByNameMethod = WalletGrpc.getGetAssetIssueByNameMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getGetAssetIssueByNameMethod = WalletGrpc.getGetAssetIssueByNameMethod) == null) {
-          WalletGrpc.getGetAssetIssueByNameMethod = getGetAssetIssueByNameMethod =
+          WalletGrpc.getGetAssetIssueByNameMethod = getGetAssetIssueByNameMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Contract.AssetIssueContract>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -564,7 +572,7 @@ public final class WalletGrpc {
      return getGetAssetIssueByNameMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetNowBlockMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetNowBlockMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.Block> METHOD_GET_NOW_BLOCK = getGetNowBlockMethod();
 
@@ -578,7 +586,7 @@ public final class WalletGrpc {
     if ((getGetNowBlockMethod = WalletGrpc.getGetNowBlockMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getGetNowBlockMethod = WalletGrpc.getGetNowBlockMethod) == null) {
-          WalletGrpc.getGetNowBlockMethod = getGetNowBlockMethod =
+          WalletGrpc.getGetNowBlockMethod = getGetNowBlockMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -596,7 +604,7 @@ public final class WalletGrpc {
      return getGetNowBlockMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetBlockByNumMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetBlockByNumMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
       org.tron.protos.Protocol.Block> METHOD_GET_BLOCK_BY_NUM = getGetBlockByNumMethod();
 
@@ -610,7 +618,7 @@ public final class WalletGrpc {
     if ((getGetBlockByNumMethod = WalletGrpc.getGetBlockByNumMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getGetBlockByNumMethod = WalletGrpc.getGetBlockByNumMethod) == null) {
-          WalletGrpc.getGetBlockByNumMethod = getGetBlockByNumMethod =
+          WalletGrpc.getGetBlockByNumMethod = getGetBlockByNumMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -628,7 +636,7 @@ public final class WalletGrpc {
      return getGetBlockByNumMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getTotalTransactionMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getTotalTransactionMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.api.GrpcAPI.NumberMessage> METHOD_TOTAL_TRANSACTION = getTotalTransactionMethod();
 
@@ -642,7 +650,7 @@ public final class WalletGrpc {
     if ((getTotalTransactionMethod = WalletGrpc.getTotalTransactionMethod) == null) {
       synchronized (WalletGrpc.class) {
         if ((getTotalTransactionMethod = WalletGrpc.getTotalTransactionMethod) == null) {
-          WalletGrpc.getTotalTransactionMethod = getTotalTransactionMethod =
+          WalletGrpc.getTotalTransactionMethod = getTotalTransactionMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.NumberMessage>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -827,7 +835,7 @@ public final class WalletGrpc {
       asyncUnimplementedUnaryCall(getTotalTransactionMethod(), responseObserver);
     }
 
-    @Override public final io.grpc.ServerServiceDefinition bindService() {
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getGetAccountMethod(),
@@ -985,7 +993,7 @@ public final class WalletGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected WalletStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new WalletStub(channel, callOptions);
@@ -1164,7 +1172,7 @@ public final class WalletGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected WalletBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new WalletBlockingStub(channel, callOptions);
@@ -1323,7 +1331,7 @@ public final class WalletGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected WalletFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new WalletFutureStub(channel, callOptions);
@@ -1524,8 +1532,8 @@ public final class WalletGrpc {
       this.methodId = methodId;
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_ACCOUNT:
@@ -1613,8 +1621,8 @@ public final class WalletGrpc {
       }
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -1628,12 +1636,12 @@ public final class WalletGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     WalletBaseDescriptorSupplier() {}
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
       return org.tron.api.GrpcAPI.getDescriptor();
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("Wallet");
     }
@@ -1653,7 +1661,7 @@ public final class WalletGrpc {
       this.methodName = methodName;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }

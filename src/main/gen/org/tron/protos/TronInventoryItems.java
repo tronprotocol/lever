@@ -53,7 +53,7 @@ public final class TronInventoryItems {
       items_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -64,7 +64,7 @@ public final class TronInventoryItems {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -200,8 +200,8 @@ public final class TronInventoryItems {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -219,7 +219,7 @@ public final class TronInventoryItems {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -319,7 +319,7 @@ public final class TronInventoryItems {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -405,7 +405,7 @@ public final class TronInventoryItems {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -418,12 +418,12 @@ public final class TronInventoryItems {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -489,7 +489,7 @@ public final class TronInventoryItems {
        * <code>int32 type = 1;</code>
        */
       public Builder setType(int value) {
-
+        
         type_ = value;
         onChanged();
         return this;
@@ -498,7 +498,7 @@ public final class TronInventoryItems {
        * <code>int32 type = 1;</code>
        */
       public Builder clearType() {
-
+        
         type_ = 0;
         onChanged();
         return this;
@@ -559,7 +559,7 @@ public final class TronInventoryItems {
        * <code>repeated bytes items = 2;</code>
        */
       public Builder addAllItems(
-          Iterable<? extends com.google.protobuf.ByteString> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureItemsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, items_);
@@ -613,7 +613,7 @@ public final class TronInventoryItems {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<InventoryItems> getParserForType() {
       return PARSER;
     }
@@ -626,7 +626,7 @@ public final class TronInventoryItems {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_InventoryItems_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_InventoryItems_fieldAccessorTable;
 
@@ -637,7 +637,7 @@ public final class TronInventoryItems {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\035core/TronInventoryItems.proto\022\010protoco" +
       "l\"-\n\016InventoryItems\022\014\n\004type\030\001 \001(\005\022\r\n\005ite" +
       "ms\030\002 \003(\014BP\n\017org.tron.protosB\022TronInvento" +
@@ -661,7 +661,7 @@ public final class TronInventoryItems {
     internal_static_protocol_InventoryItems_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_InventoryItems_descriptor,
-        new String[] { "Type", "Items", });
+        new java.lang.String[] { "Type", "Items", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

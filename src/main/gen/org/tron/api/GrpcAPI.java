@@ -45,7 +45,7 @@ public final class GrpcAPI {
       blockHash_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -56,7 +56,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -167,8 +167,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -186,7 +186,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -285,7 +285,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -364,7 +364,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -377,12 +377,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -440,7 +440,7 @@ public final class GrpcAPI {
        * <code>int64 block_num = 1;</code>
        */
       public Builder setBlockNum(long value) {
-
+        
         blockNum_ = value;
         onChanged();
         return this;
@@ -449,7 +449,7 @@ public final class GrpcAPI {
        * <code>int64 block_num = 1;</code>
        */
       public Builder clearBlockNum() {
-
+        
         blockNum_ = 0L;
         onChanged();
         return this;
@@ -469,7 +469,7 @@ public final class GrpcAPI {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         blockHash_ = value;
         onChanged();
         return this;
@@ -478,7 +478,7 @@ public final class GrpcAPI {
        * <code>bytes block_hash = 2;</code>
        */
       public Builder clearBlockHash() {
-
+        
         blockHash_ = getDefaultInstance().getBlockHash();
         onChanged();
         return this;
@@ -521,7 +521,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<BlockReference> getParserForType() {
       return PARSER;
     }
@@ -557,7 +557,7 @@ public final class GrpcAPI {
       result_ = false;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -568,7 +568,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -658,8 +658,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -675,7 +675,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -772,7 +772,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -848,7 +848,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -861,12 +861,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -921,7 +921,7 @@ public final class GrpcAPI {
        * <code>bool result = 1;</code>
        */
       public Builder setResult(boolean value) {
-
+        
         result_ = value;
         onChanged();
         return this;
@@ -930,7 +930,7 @@ public final class GrpcAPI {
        * <code>bool result = 1;</code>
        */
       public Builder clearResult() {
-
+        
         result_ = false;
         onChanged();
         return this;
@@ -973,7 +973,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<Return> getParserForType() {
       return PARSER;
     }
@@ -991,7 +991,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Account accounts = 1;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Account>
+    java.util.List<org.tron.protos.Protocol.Account> 
         getAccountsList();
     /**
      * <code>repeated .protocol.Account accounts = 1;</code>
@@ -1004,7 +1004,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Account accounts = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.AccountOrBuilder>
+    java.util.List<? extends org.tron.protos.Protocol.AccountOrBuilder> 
         getAccountsOrBuilderList();
     /**
      * <code>repeated .protocol.Account accounts = 1;</code>
@@ -1028,7 +1028,7 @@ public final class GrpcAPI {
       accounts_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1039,7 +1039,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1106,7 +1106,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Account accounts = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.AccountOrBuilder>
+    public java.util.List<? extends org.tron.protos.Protocol.AccountOrBuilder> 
         getAccountsOrBuilderList() {
       return accounts_;
     }
@@ -1162,8 +1162,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -1179,7 +1179,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1277,7 +1277,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -1367,7 +1367,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -1380,12 +1380,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1417,7 +1417,7 @@ public final class GrpcAPI {
               accountsBuilder_ = null;
               accounts_ = other.accounts_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              accountsBuilder_ =
+              accountsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAccountsFieldBuilder() : null;
             } else {
@@ -1591,7 +1591,7 @@ public final class GrpcAPI {
        * <code>repeated .protocol.Account accounts = 1;</code>
        */
       public Builder addAllAccounts(
-          Iterable<? extends org.tron.protos.Protocol.Account> values) {
+          java.lang.Iterable<? extends org.tron.protos.Protocol.Account> values) {
         if (accountsBuilder_ == null) {
           ensureAccountsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1648,7 +1648,7 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Account accounts = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.AccountOrBuilder>
+      public java.util.List<? extends org.tron.protos.Protocol.AccountOrBuilder> 
            getAccountsOrBuilderList() {
         if (accountsBuilder_ != null) {
           return accountsBuilder_.getMessageOrBuilderList();
@@ -1674,12 +1674,12 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Account accounts = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Account.Builder>
+      public java.util.List<org.tron.protos.Protocol.Account.Builder> 
            getAccountsBuilderList() {
         return getAccountsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Account, org.tron.protos.Protocol.Account.Builder, org.tron.protos.Protocol.AccountOrBuilder>
+          org.tron.protos.Protocol.Account, org.tron.protos.Protocol.Account.Builder, org.tron.protos.Protocol.AccountOrBuilder> 
           getAccountsFieldBuilder() {
         if (accountsBuilder_ == null) {
           accountsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -1730,7 +1730,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<AccountList> getParserForType() {
       return PARSER;
     }
@@ -1748,7 +1748,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Witness witnesses = 1;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Witness>
+    java.util.List<org.tron.protos.Protocol.Witness> 
         getWitnessesList();
     /**
      * <code>repeated .protocol.Witness witnesses = 1;</code>
@@ -1761,7 +1761,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Witness witnesses = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.WitnessOrBuilder>
+    java.util.List<? extends org.tron.protos.Protocol.WitnessOrBuilder> 
         getWitnessesOrBuilderList();
     /**
      * <code>repeated .protocol.Witness witnesses = 1;</code>
@@ -1785,7 +1785,7 @@ public final class GrpcAPI {
       witnesses_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1796,7 +1796,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1863,7 +1863,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Witness witnesses = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.WitnessOrBuilder>
+    public java.util.List<? extends org.tron.protos.Protocol.WitnessOrBuilder> 
         getWitnessesOrBuilderList() {
       return witnesses_;
     }
@@ -1919,8 +1919,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -1936,7 +1936,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2034,7 +2034,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -2124,7 +2124,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2137,12 +2137,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2174,7 +2174,7 @@ public final class GrpcAPI {
               witnessesBuilder_ = null;
               witnesses_ = other.witnesses_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              witnessesBuilder_ =
+              witnessesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getWitnessesFieldBuilder() : null;
             } else {
@@ -2348,7 +2348,7 @@ public final class GrpcAPI {
        * <code>repeated .protocol.Witness witnesses = 1;</code>
        */
       public Builder addAllWitnesses(
-          Iterable<? extends org.tron.protos.Protocol.Witness> values) {
+          java.lang.Iterable<? extends org.tron.protos.Protocol.Witness> values) {
         if (witnessesBuilder_ == null) {
           ensureWitnessesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2405,7 +2405,7 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Witness witnesses = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.WitnessOrBuilder>
+      public java.util.List<? extends org.tron.protos.Protocol.WitnessOrBuilder> 
            getWitnessesOrBuilderList() {
         if (witnessesBuilder_ != null) {
           return witnessesBuilder_.getMessageOrBuilderList();
@@ -2431,12 +2431,12 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Witness witnesses = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Witness.Builder>
+      public java.util.List<org.tron.protos.Protocol.Witness.Builder> 
            getWitnessesBuilderList() {
         return getWitnessesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Witness, org.tron.protos.Protocol.Witness.Builder, org.tron.protos.Protocol.WitnessOrBuilder>
+          org.tron.protos.Protocol.Witness, org.tron.protos.Protocol.Witness.Builder, org.tron.protos.Protocol.WitnessOrBuilder> 
           getWitnessesFieldBuilder() {
         if (witnessesBuilder_ == null) {
           witnessesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -2487,7 +2487,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<WitnessList> getParserForType() {
       return PARSER;
     }
@@ -2505,7 +2505,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.AssetIssueContract assetIssue = 1;</code>
      */
-    java.util.List<org.tron.protos.Contract.AssetIssueContract>
+    java.util.List<org.tron.protos.Contract.AssetIssueContract> 
         getAssetIssueList();
     /**
      * <code>repeated .protocol.AssetIssueContract assetIssue = 1;</code>
@@ -2518,7 +2518,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.AssetIssueContract assetIssue = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Contract.AssetIssueContractOrBuilder>
+    java.util.List<? extends org.tron.protos.Contract.AssetIssueContractOrBuilder> 
         getAssetIssueOrBuilderList();
     /**
      * <code>repeated .protocol.AssetIssueContract assetIssue = 1;</code>
@@ -2542,7 +2542,7 @@ public final class GrpcAPI {
       assetIssue_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2553,7 +2553,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -2620,7 +2620,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.AssetIssueContract assetIssue = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Contract.AssetIssueContractOrBuilder>
+    public java.util.List<? extends org.tron.protos.Contract.AssetIssueContractOrBuilder> 
         getAssetIssueOrBuilderList() {
       return assetIssue_;
     }
@@ -2676,8 +2676,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -2693,7 +2693,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2791,7 +2791,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -2881,7 +2881,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2894,12 +2894,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2931,7 +2931,7 @@ public final class GrpcAPI {
               assetIssueBuilder_ = null;
               assetIssue_ = other.assetIssue_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              assetIssueBuilder_ =
+              assetIssueBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAssetIssueFieldBuilder() : null;
             } else {
@@ -3105,7 +3105,7 @@ public final class GrpcAPI {
        * <code>repeated .protocol.AssetIssueContract assetIssue = 1;</code>
        */
       public Builder addAllAssetIssue(
-          Iterable<? extends org.tron.protos.Contract.AssetIssueContract> values) {
+          java.lang.Iterable<? extends org.tron.protos.Contract.AssetIssueContract> values) {
         if (assetIssueBuilder_ == null) {
           ensureAssetIssueIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3162,7 +3162,7 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.AssetIssueContract assetIssue = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Contract.AssetIssueContractOrBuilder>
+      public java.util.List<? extends org.tron.protos.Contract.AssetIssueContractOrBuilder> 
            getAssetIssueOrBuilderList() {
         if (assetIssueBuilder_ != null) {
           return assetIssueBuilder_.getMessageOrBuilderList();
@@ -3188,12 +3188,12 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.AssetIssueContract assetIssue = 1;</code>
        */
-      public java.util.List<org.tron.protos.Contract.AssetIssueContract.Builder>
+      public java.util.List<org.tron.protos.Contract.AssetIssueContract.Builder> 
            getAssetIssueBuilderList() {
         return getAssetIssueFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Contract.AssetIssueContract, org.tron.protos.Contract.AssetIssueContract.Builder, org.tron.protos.Contract.AssetIssueContractOrBuilder>
+          org.tron.protos.Contract.AssetIssueContract, org.tron.protos.Contract.AssetIssueContract.Builder, org.tron.protos.Contract.AssetIssueContractOrBuilder> 
           getAssetIssueFieldBuilder() {
         if (assetIssueBuilder_ == null) {
           assetIssueBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -3244,7 +3244,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<AssetIssueList> getParserForType() {
       return PARSER;
     }
@@ -3262,7 +3262,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Block block = 1;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Block>
+    java.util.List<org.tron.protos.Protocol.Block> 
         getBlockList();
     /**
      * <code>repeated .protocol.Block block = 1;</code>
@@ -3275,7 +3275,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Block block = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder>
+    java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder> 
         getBlockOrBuilderList();
     /**
      * <code>repeated .protocol.Block block = 1;</code>
@@ -3299,7 +3299,7 @@ public final class GrpcAPI {
       block_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3310,7 +3310,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3377,7 +3377,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Block block = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder>
+    public java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder> 
         getBlockOrBuilderList() {
       return block_;
     }
@@ -3433,8 +3433,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -3450,7 +3450,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -3548,7 +3548,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -3638,7 +3638,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3651,12 +3651,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3688,7 +3688,7 @@ public final class GrpcAPI {
               blockBuilder_ = null;
               block_ = other.block_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              blockBuilder_ =
+              blockBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getBlockFieldBuilder() : null;
             } else {
@@ -3862,7 +3862,7 @@ public final class GrpcAPI {
        * <code>repeated .protocol.Block block = 1;</code>
        */
       public Builder addAllBlock(
-          Iterable<? extends org.tron.protos.Protocol.Block> values) {
+          java.lang.Iterable<? extends org.tron.protos.Protocol.Block> values) {
         if (blockBuilder_ == null) {
           ensureBlockIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3919,7 +3919,7 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Block block = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder>
+      public java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder> 
            getBlockOrBuilderList() {
         if (blockBuilder_ != null) {
           return blockBuilder_.getMessageOrBuilderList();
@@ -3945,12 +3945,12 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Block block = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Block.Builder>
+      public java.util.List<org.tron.protos.Protocol.Block.Builder> 
            getBlockBuilderList() {
         return getBlockFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Block, org.tron.protos.Protocol.Block.Builder, org.tron.protos.Protocol.BlockOrBuilder>
+          org.tron.protos.Protocol.Block, org.tron.protos.Protocol.Block.Builder, org.tron.protos.Protocol.BlockOrBuilder> 
           getBlockFieldBuilder() {
         if (blockBuilder_ == null) {
           blockBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -4001,7 +4001,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<BlockList> getParserForType() {
       return PARSER;
     }
@@ -4019,7 +4019,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Transaction transaction = 1;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Transaction>
+    java.util.List<org.tron.protos.Protocol.Transaction> 
         getTransactionList();
     /**
      * <code>repeated .protocol.Transaction transaction = 1;</code>
@@ -4032,7 +4032,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Transaction transaction = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder>
+    java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
         getTransactionOrBuilderList();
     /**
      * <code>repeated .protocol.Transaction transaction = 1;</code>
@@ -4056,7 +4056,7 @@ public final class GrpcAPI {
       transaction_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4067,7 +4067,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -4134,7 +4134,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Transaction transaction = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder>
+    public java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
         getTransactionOrBuilderList() {
       return transaction_;
     }
@@ -4190,8 +4190,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -4207,7 +4207,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -4305,7 +4305,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -4395,7 +4395,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4408,12 +4408,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4445,7 +4445,7 @@ public final class GrpcAPI {
               transactionBuilder_ = null;
               transaction_ = other.transaction_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              transactionBuilder_ =
+              transactionBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTransactionFieldBuilder() : null;
             } else {
@@ -4619,7 +4619,7 @@ public final class GrpcAPI {
        * <code>repeated .protocol.Transaction transaction = 1;</code>
        */
       public Builder addAllTransaction(
-          Iterable<? extends org.tron.protos.Protocol.Transaction> values) {
+          java.lang.Iterable<? extends org.tron.protos.Protocol.Transaction> values) {
         if (transactionBuilder_ == null) {
           ensureTransactionIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4676,7 +4676,7 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Transaction transaction = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder>
+      public java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
            getTransactionOrBuilderList() {
         if (transactionBuilder_ != null) {
           return transactionBuilder_.getMessageOrBuilderList();
@@ -4702,12 +4702,12 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Transaction transaction = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Transaction.Builder>
+      public java.util.List<org.tron.protos.Protocol.Transaction.Builder> 
            getTransactionBuilderList() {
         return getTransactionFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction, org.tron.protos.Protocol.Transaction.Builder, org.tron.protos.Protocol.TransactionOrBuilder>
+          org.tron.protos.Protocol.Transaction, org.tron.protos.Protocol.Transaction.Builder, org.tron.protos.Protocol.TransactionOrBuilder> 
           getTransactionFieldBuilder() {
         if (transactionBuilder_ == null) {
           transactionBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -4758,7 +4758,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TransactionList> getParserForType() {
       return PARSER;
     }
@@ -4776,7 +4776,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Node nodes = 1;</code>
      */
-    java.util.List<org.tron.api.GrpcAPI.Node>
+    java.util.List<org.tron.api.GrpcAPI.Node> 
         getNodesList();
     /**
      * <code>repeated .protocol.Node nodes = 1;</code>
@@ -4789,7 +4789,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Node nodes = 1;</code>
      */
-    java.util.List<? extends org.tron.api.GrpcAPI.NodeOrBuilder>
+    java.util.List<? extends org.tron.api.GrpcAPI.NodeOrBuilder> 
         getNodesOrBuilderList();
     /**
      * <code>repeated .protocol.Node nodes = 1;</code>
@@ -4817,7 +4817,7 @@ public final class GrpcAPI {
       nodes_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4828,7 +4828,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -4895,7 +4895,7 @@ public final class GrpcAPI {
     /**
      * <code>repeated .protocol.Node nodes = 1;</code>
      */
-    public java.util.List<? extends org.tron.api.GrpcAPI.NodeOrBuilder>
+    public java.util.List<? extends org.tron.api.GrpcAPI.NodeOrBuilder> 
         getNodesOrBuilderList() {
       return nodes_;
     }
@@ -4951,8 +4951,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -4968,7 +4968,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -5066,7 +5066,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -5160,7 +5160,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -5173,12 +5173,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5210,7 +5210,7 @@ public final class GrpcAPI {
               nodesBuilder_ = null;
               nodes_ = other.nodes_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              nodesBuilder_ =
+              nodesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getNodesFieldBuilder() : null;
             } else {
@@ -5384,7 +5384,7 @@ public final class GrpcAPI {
        * <code>repeated .protocol.Node nodes = 1;</code>
        */
       public Builder addAllNodes(
-          Iterable<? extends org.tron.api.GrpcAPI.Node> values) {
+          java.lang.Iterable<? extends org.tron.api.GrpcAPI.Node> values) {
         if (nodesBuilder_ == null) {
           ensureNodesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5441,7 +5441,7 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Node nodes = 1;</code>
        */
-      public java.util.List<? extends org.tron.api.GrpcAPI.NodeOrBuilder>
+      public java.util.List<? extends org.tron.api.GrpcAPI.NodeOrBuilder> 
            getNodesOrBuilderList() {
         if (nodesBuilder_ != null) {
           return nodesBuilder_.getMessageOrBuilderList();
@@ -5467,12 +5467,12 @@ public final class GrpcAPI {
       /**
        * <code>repeated .protocol.Node nodes = 1;</code>
        */
-      public java.util.List<org.tron.api.GrpcAPI.Node.Builder>
+      public java.util.List<org.tron.api.GrpcAPI.Node.Builder> 
            getNodesBuilderList() {
         return getNodesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.api.GrpcAPI.Node, org.tron.api.GrpcAPI.Node.Builder, org.tron.api.GrpcAPI.NodeOrBuilder>
+          org.tron.api.GrpcAPI.Node, org.tron.api.GrpcAPI.Node.Builder, org.tron.api.GrpcAPI.NodeOrBuilder> 
           getNodesFieldBuilder() {
         if (nodesBuilder_ == null) {
           nodesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -5523,7 +5523,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<NodeList> getParserForType() {
       return PARSER;
     }
@@ -5570,7 +5570,7 @@ public final class GrpcAPI {
     private Node() {
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5581,7 +5581,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -5691,8 +5691,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -5711,7 +5711,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -5809,7 +5809,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -5897,7 +5897,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -5910,12 +5910,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6044,7 +6044,7 @@ public final class GrpcAPI {
        * <code>.protocol.Address address = 1;</code>
        */
       public org.tron.api.GrpcAPI.Address.Builder getAddressBuilder() {
-
+        
         onChanged();
         return getAddressFieldBuilder().getBuilder();
       }
@@ -6063,7 +6063,7 @@ public final class GrpcAPI {
        * <code>.protocol.Address address = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.api.GrpcAPI.Address, org.tron.api.GrpcAPI.Address.Builder, org.tron.api.GrpcAPI.AddressOrBuilder>
+          org.tron.api.GrpcAPI.Address, org.tron.api.GrpcAPI.Address.Builder, org.tron.api.GrpcAPI.AddressOrBuilder> 
           getAddressFieldBuilder() {
         if (addressBuilder_ == null) {
           addressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -6113,7 +6113,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<Node> getParserForType() {
       return PARSER;
     }
@@ -6159,7 +6159,7 @@ public final class GrpcAPI {
       port_ = 0;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6170,7 +6170,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -6281,8 +6281,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -6300,7 +6300,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -6398,7 +6398,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -6481,7 +6481,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -6494,12 +6494,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6560,7 +6560,7 @@ public final class GrpcAPI {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         host_ = value;
         onChanged();
         return this;
@@ -6569,7 +6569,7 @@ public final class GrpcAPI {
        * <code>bytes host = 1;</code>
        */
       public Builder clearHost() {
-
+        
         host_ = getDefaultInstance().getHost();
         onChanged();
         return this;
@@ -6586,7 +6586,7 @@ public final class GrpcAPI {
        * <code>int32 port = 2;</code>
        */
       public Builder setPort(int value) {
-
+        
         port_ = value;
         onChanged();
         return this;
@@ -6595,7 +6595,7 @@ public final class GrpcAPI {
        * <code>int32 port = 2;</code>
        */
       public Builder clearPort() {
-
+        
         port_ = 0;
         onChanged();
         return this;
@@ -6638,7 +6638,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<Address> getParserForType() {
       return PARSER;
     }
@@ -6668,7 +6668,7 @@ public final class GrpcAPI {
     private EmptyMessage() {
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6679,7 +6679,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6747,8 +6747,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -6762,7 +6762,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -6856,7 +6856,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -6929,7 +6929,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -6942,12 +6942,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7025,7 +7025,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<EmptyMessage> getParserForType() {
       return PARSER;
     }
@@ -7061,7 +7061,7 @@ public final class GrpcAPI {
       num_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7072,7 +7072,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -7162,8 +7162,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -7179,7 +7179,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7276,7 +7276,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -7352,7 +7352,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -7365,12 +7365,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7425,7 +7425,7 @@ public final class GrpcAPI {
        * <code>int64 num = 1;</code>
        */
       public Builder setNum(long value) {
-
+        
         num_ = value;
         onChanged();
         return this;
@@ -7434,7 +7434,7 @@ public final class GrpcAPI {
        * <code>int64 num = 1;</code>
        */
       public Builder clearNum() {
-
+        
         num_ = 0L;
         onChanged();
         return this;
@@ -7477,7 +7477,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<NumberMessage> getParserForType() {
       return PARSER;
     }
@@ -7513,7 +7513,7 @@ public final class GrpcAPI {
       value_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7524,7 +7524,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -7614,8 +7614,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -7631,7 +7631,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7727,7 +7727,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -7803,7 +7803,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -7816,12 +7816,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7879,7 +7879,7 @@ public final class GrpcAPI {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         value_ = value;
         onChanged();
         return this;
@@ -7888,7 +7888,7 @@ public final class GrpcAPI {
        * <code>bytes value = 1;</code>
        */
       public Builder clearValue() {
-
+        
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
@@ -7931,7 +7931,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<BytesMessage> getParserForType() {
       return PARSER;
     }
@@ -7973,7 +7973,7 @@ public final class GrpcAPI {
       endInMilliseconds_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7984,7 +7984,7 @@ public final class GrpcAPI {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -8095,8 +8095,8 @@ public final class GrpcAPI {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -8114,7 +8114,7 @@ public final class GrpcAPI {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -8214,7 +8214,7 @@ public final class GrpcAPI {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -8293,7 +8293,7 @@ public final class GrpcAPI {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -8306,12 +8306,12 @@ public final class GrpcAPI {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -8369,7 +8369,7 @@ public final class GrpcAPI {
        * <code>int64 beginInMilliseconds = 1;</code>
        */
       public Builder setBeginInMilliseconds(long value) {
-
+        
         beginInMilliseconds_ = value;
         onChanged();
         return this;
@@ -8378,7 +8378,7 @@ public final class GrpcAPI {
        * <code>int64 beginInMilliseconds = 1;</code>
        */
       public Builder clearBeginInMilliseconds() {
-
+        
         beginInMilliseconds_ = 0L;
         onChanged();
         return this;
@@ -8395,7 +8395,7 @@ public final class GrpcAPI {
        * <code>int64 endInMilliseconds = 2;</code>
        */
       public Builder setEndInMilliseconds(long value) {
-
+        
         endInMilliseconds_ = value;
         onChanged();
         return this;
@@ -8404,7 +8404,7 @@ public final class GrpcAPI {
        * <code>int64 endInMilliseconds = 2;</code>
        */
       public Builder clearEndInMilliseconds() {
-
+        
         endInMilliseconds_ = 0L;
         onChanged();
         return this;
@@ -8447,7 +8447,7 @@ public final class GrpcAPI {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TimeMessage> getParserForType() {
       return PARSER;
     }
@@ -8460,72 +8460,72 @@ public final class GrpcAPI {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_BlockReference_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_BlockReference_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Return_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Return_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_AccountList_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_AccountList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_WitnessList_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_WitnessList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_AssetIssueList_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_AssetIssueList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_BlockList_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_BlockList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_TransactionList_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_TransactionList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_NodeList_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_NodeList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Node_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Node_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Address_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Address_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_EmptyMessage_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_EmptyMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_NumberMessage_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_NumberMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_BytesMessage_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_BytesMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_TimeMessage_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_TimeMessage_fieldAccessorTable;
 
@@ -8536,7 +8536,7 @@ public final class GrpcAPI {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\rapi/api.proto\022\010protocol\032\017core/Tron.pro" +
       "to\032\023core/Contract.proto\032\034google/api/anno" +
       "tations.proto\"7\n\016BlockReference\022\021\n\tblock" +
@@ -8608,7 +8608,7 @@ public final class GrpcAPI {
       "tblockbynum:\001*\022h\n\020TotalTransaction\022\026.pro" +
       "tocol.EmptyMessage\032\027.protocol.NumberMess" +
       "age\"#\202\323\344\223\002\035\"\030/wallet/totaltransaction:\001*" +
-      "2\243\010\n\016WalletSolidity\0224\n\nGetAccount\022\021.prot" +
+      "2\245\010\n\016WalletSolidity\0224\n\nGetAccount\022\021.prot" +
       "ocol.Account\032\021.protocol.Account\"\000\022?\n\014Lis" +
       "tAccounts\022\026.protocol.EmptyMessage\032\025.prot" +
       "ocol.AccountList\"\000\022@\n\rListWitnesses\022\026.pr" +
@@ -8632,18 +8632,18 @@ public final class GrpcAPI {
       "tTransactionsByTimestamp\022\025.protocol.Time" +
       "Message\032\031.protocol.TransactionList\"\000\022I\n\027" +
       "getTransactionsFromThis\022\021.protocol.Accou" +
-      "nt\032\031.protocol.TransactionList\"\000\022E\n\025getTr" +
-      "ansactionsToThis\022\021.protocol.Account\032\027.pr" +
-      "otocol.NumberMessage\"\0002\231\002\n\010Database\022G\n\021g" +
-      "etBlockReference\022\026.protocol.EmptyMessage" +
-      "\032\030.protocol.BlockReference\"\000\022M\n\024GetDynam" +
-      "icProperties\022\026.protocol.EmptyMessage\032\033.p" +
-      "rotocol.DynamicProperties\"\000\0228\n\013GetNowBlo" +
-      "ck\022\026.protocol.EmptyMessage\032\017.protocol.Bl" +
-      "ock\"\000\022;\n\rGetBlockByNum\022\027.protocol.Number" +
-      "Message\032\017.protocol.Block\"\0002\t\n\007NetworkBA\n" +
-      "\014org.tron.apiB\007GrpcAPIZ(github.com/tronp" +
-      "rotocol/grpc-gateway/apib\006proto3"
+      "nt\032\031.protocol.TransactionList\"\000\022G\n\025getTr" +
+      "ansactionsToThis\022\021.protocol.Account\032\031.pr" +
+      "otocol.TransactionList\"\0002\231\002\n\010Database\022G\n" +
+      "\021getBlockReference\022\026.protocol.EmptyMessa" +
+      "ge\032\030.protocol.BlockReference\"\000\022M\n\024GetDyn" +
+      "amicProperties\022\026.protocol.EmptyMessage\032\033" +
+      ".protocol.DynamicProperties\"\000\0228\n\013GetNowB" +
+      "lock\022\026.protocol.EmptyMessage\032\017.protocol." +
+      "Block\"\000\022;\n\rGetBlockByNum\022\027.protocol.Numb" +
+      "erMessage\032\017.protocol.Block\"\0002\t\n\007NetworkB" +
+      "A\n\014org.tron.apiB\007GrpcAPIZ(github.com/tro" +
+      "nprotocol/grpc-gateway/apib\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8665,85 +8665,85 @@ public final class GrpcAPI {
     internal_static_protocol_BlockReference_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockReference_descriptor,
-        new String[] { "BlockNum", "BlockHash", });
+        new java.lang.String[] { "BlockNum", "BlockHash", });
     internal_static_protocol_Return_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protocol_Return_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Return_descriptor,
-        new String[] { "Result", });
+        new java.lang.String[] { "Result", });
     internal_static_protocol_AccountList_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_protocol_AccountList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AccountList_descriptor,
-        new String[] { "Accounts", });
+        new java.lang.String[] { "Accounts", });
     internal_static_protocol_WitnessList_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_protocol_WitnessList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_WitnessList_descriptor,
-        new String[] { "Witnesses", });
+        new java.lang.String[] { "Witnesses", });
     internal_static_protocol_AssetIssueList_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_protocol_AssetIssueList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AssetIssueList_descriptor,
-        new String[] { "AssetIssue", });
+        new java.lang.String[] { "AssetIssue", });
     internal_static_protocol_BlockList_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_protocol_BlockList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockList_descriptor,
-        new String[] { "Block", });
+        new java.lang.String[] { "Block", });
     internal_static_protocol_TransactionList_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_protocol_TransactionList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransactionList_descriptor,
-        new String[] { "Transaction", });
+        new java.lang.String[] { "Transaction", });
     internal_static_protocol_NodeList_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_protocol_NodeList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_NodeList_descriptor,
-        new String[] { "Nodes", });
+        new java.lang.String[] { "Nodes", });
     internal_static_protocol_Node_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_protocol_Node_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Node_descriptor,
-        new String[] { "Address", });
+        new java.lang.String[] { "Address", });
     internal_static_protocol_Address_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_protocol_Address_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Address_descriptor,
-        new String[] { "Host", "Port", });
+        new java.lang.String[] { "Host", "Port", });
     internal_static_protocol_EmptyMessage_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_protocol_EmptyMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_EmptyMessage_descriptor,
-        new String[] { });
+        new java.lang.String[] { });
     internal_static_protocol_NumberMessage_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_protocol_NumberMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_NumberMessage_descriptor,
-        new String[] { "Num", });
+        new java.lang.String[] { "Num", });
     internal_static_protocol_BytesMessage_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_protocol_BytesMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BytesMessage_descriptor,
-        new String[] { "Value", });
+        new java.lang.String[] { "Value", });
     internal_static_protocol_TimeMessage_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_protocol_TimeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TimeMessage_descriptor,
-        new String[] { "BeginInMilliseconds", "EndInMilliseconds", });
+        new java.lang.String[] { "BeginInMilliseconds", "EndInMilliseconds", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);

@@ -1,10 +1,18 @@
 package org.tron.api;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
@@ -23,7 +31,7 @@ public final class DatabaseGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetBlockReferenceMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetBlockReferenceMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.api.GrpcAPI.BlockReference> METHOD_GET_BLOCK_REFERENCE = getGetBlockReferenceMethod();
 
@@ -37,7 +45,7 @@ public final class DatabaseGrpc {
     if ((getGetBlockReferenceMethod = DatabaseGrpc.getGetBlockReferenceMethod) == null) {
       synchronized (DatabaseGrpc.class) {
         if ((getGetBlockReferenceMethod = DatabaseGrpc.getGetBlockReferenceMethod) == null) {
-          DatabaseGrpc.getGetBlockReferenceMethod = getGetBlockReferenceMethod =
+          DatabaseGrpc.getGetBlockReferenceMethod = getGetBlockReferenceMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.BlockReference>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -55,7 +63,7 @@ public final class DatabaseGrpc {
      return getGetBlockReferenceMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetDynamicPropertiesMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetDynamicPropertiesMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.DynamicProperties> METHOD_GET_DYNAMIC_PROPERTIES = getGetDynamicPropertiesMethod();
 
@@ -69,7 +77,7 @@ public final class DatabaseGrpc {
     if ((getGetDynamicPropertiesMethod = DatabaseGrpc.getGetDynamicPropertiesMethod) == null) {
       synchronized (DatabaseGrpc.class) {
         if ((getGetDynamicPropertiesMethod = DatabaseGrpc.getGetDynamicPropertiesMethod) == null) {
-          DatabaseGrpc.getGetDynamicPropertiesMethod = getGetDynamicPropertiesMethod =
+          DatabaseGrpc.getGetDynamicPropertiesMethod = getGetDynamicPropertiesMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.DynamicProperties>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -87,7 +95,7 @@ public final class DatabaseGrpc {
      return getGetDynamicPropertiesMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetNowBlockMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetNowBlockMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.Block> METHOD_GET_NOW_BLOCK = getGetNowBlockMethod();
 
@@ -101,7 +109,7 @@ public final class DatabaseGrpc {
     if ((getGetNowBlockMethod = DatabaseGrpc.getGetNowBlockMethod) == null) {
       synchronized (DatabaseGrpc.class) {
         if ((getGetNowBlockMethod = DatabaseGrpc.getGetNowBlockMethod) == null) {
-          DatabaseGrpc.getGetNowBlockMethod = getGetNowBlockMethod =
+          DatabaseGrpc.getGetNowBlockMethod = getGetNowBlockMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -119,7 +127,7 @@ public final class DatabaseGrpc {
      return getGetNowBlockMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetBlockByNumMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetBlockByNumMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
       org.tron.protos.Protocol.Block> METHOD_GET_BLOCK_BY_NUM = getGetBlockByNumMethod();
 
@@ -133,7 +141,7 @@ public final class DatabaseGrpc {
     if ((getGetBlockByNumMethod = DatabaseGrpc.getGetBlockByNumMethod) == null) {
       synchronized (DatabaseGrpc.class) {
         if ((getGetBlockByNumMethod = DatabaseGrpc.getGetBlockByNumMethod) == null) {
-          DatabaseGrpc.getGetBlockByNumMethod = getGetBlockByNumMethod =
+          DatabaseGrpc.getGetBlockByNumMethod = getGetBlockByNumMethod = 
               io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
@@ -212,7 +220,7 @@ public final class DatabaseGrpc {
       asyncUnimplementedUnaryCall(getGetBlockByNumMethod(), responseObserver);
     }
 
-    @Override public final io.grpc.ServerServiceDefinition bindService() {
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getGetBlockReferenceMethod(),
@@ -261,7 +269,7 @@ public final class DatabaseGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected DatabaseStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new DatabaseStub(channel, callOptions);
@@ -318,7 +326,7 @@ public final class DatabaseGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected DatabaseBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new DatabaseBlockingStub(channel, callOptions);
@@ -371,7 +379,7 @@ public final class DatabaseGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected DatabaseFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new DatabaseFutureStub(channel, callOptions);
@@ -431,8 +439,8 @@ public final class DatabaseGrpc {
       this.methodId = methodId;
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_BLOCK_REFERENCE:
@@ -456,8 +464,8 @@ public final class DatabaseGrpc {
       }
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -471,12 +479,12 @@ public final class DatabaseGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     DatabaseBaseDescriptorSupplier() {}
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
       return org.tron.api.GrpcAPI.getDescriptor();
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("Database");
     }
@@ -496,7 +504,7 @@ public final class DatabaseGrpc {
       this.methodName = methodName;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }

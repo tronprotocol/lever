@@ -55,7 +55,7 @@ public final class Contract {
       ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -66,7 +66,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -206,8 +206,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -226,7 +226,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -326,7 +326,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -408,7 +408,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -421,12 +421,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -505,7 +505,7 @@ public final class Contract {
         if (value == null) {
           throw new NullPointerException();
         }
-
+        
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -514,7 +514,7 @@ public final class Contract {
        * <code>.protocol.AccountType type = 1;</code>
        */
       public Builder clearType() {
-
+        
         type_ = 0;
         onChanged();
         return this;
@@ -534,7 +534,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         accountName_ = value;
         onChanged();
         return this;
@@ -543,7 +543,7 @@ public final class Contract {
        * <code>bytes account_name = 2;</code>
        */
       public Builder clearAccountName() {
-
+        
         accountName_ = getDefaultInstance().getAccountName();
         onChanged();
         return this;
@@ -563,7 +563,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -572,7 +572,7 @@ public final class Contract {
        * <code>bytes owner_address = 3;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -615,7 +615,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<AccountCreateContract> getParserForType() {
       return PARSER;
     }
@@ -661,7 +661,7 @@ public final class Contract {
       ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -672,7 +672,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -783,8 +783,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -802,7 +802,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -900,7 +900,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -983,7 +983,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -996,12 +996,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1062,7 +1062,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         accountName_ = value;
         onChanged();
         return this;
@@ -1071,7 +1071,7 @@ public final class Contract {
        * <code>bytes account_name = 1;</code>
        */
       public Builder clearAccountName() {
-
+        
         accountName_ = getDefaultInstance().getAccountName();
         onChanged();
         return this;
@@ -1091,7 +1091,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -1100,7 +1100,7 @@ public final class Contract {
        * <code>bytes owner_address = 2;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -1143,7 +1143,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<AccountUpdateContract> getParserForType() {
       return PARSER;
     }
@@ -1191,7 +1191,7 @@ public final class Contract {
       amount_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1202,7 +1202,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1334,8 +1334,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -1355,7 +1355,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1456,7 +1456,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -1538,7 +1538,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -1551,12 +1551,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1620,7 +1620,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -1629,7 +1629,7 @@ public final class Contract {
        * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -1649,7 +1649,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         toAddress_ = value;
         onChanged();
         return this;
@@ -1658,7 +1658,7 @@ public final class Contract {
        * <code>bytes to_address = 2;</code>
        */
       public Builder clearToAddress() {
-
+        
         toAddress_ = getDefaultInstance().getToAddress();
         onChanged();
         return this;
@@ -1675,7 +1675,7 @@ public final class Contract {
        * <code>int64 amount = 3;</code>
        */
       public Builder setAmount(long value) {
-
+        
         amount_ = value;
         onChanged();
         return this;
@@ -1684,7 +1684,7 @@ public final class Contract {
        * <code>int64 amount = 3;</code>
        */
       public Builder clearAmount() {
-
+        
         amount_ = 0L;
         onChanged();
         return this;
@@ -1727,7 +1727,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TransferContract> getParserForType() {
       return PARSER;
     }
@@ -1781,7 +1781,7 @@ public final class Contract {
       amount_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1792,7 +1792,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1945,8 +1945,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -1968,7 +1968,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2071,7 +2071,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -2156,7 +2156,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2169,12 +2169,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2241,7 +2241,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         assetName_ = value;
         onChanged();
         return this;
@@ -2250,7 +2250,7 @@ public final class Contract {
        * <code>bytes asset_name = 1;</code>
        */
       public Builder clearAssetName() {
-
+        
         assetName_ = getDefaultInstance().getAssetName();
         onChanged();
         return this;
@@ -2270,7 +2270,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -2279,7 +2279,7 @@ public final class Contract {
        * <code>bytes owner_address = 2;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -2299,7 +2299,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         toAddress_ = value;
         onChanged();
         return this;
@@ -2308,7 +2308,7 @@ public final class Contract {
        * <code>bytes to_address = 3;</code>
        */
       public Builder clearToAddress() {
-
+        
         toAddress_ = getDefaultInstance().getToAddress();
         onChanged();
         return this;
@@ -2325,7 +2325,7 @@ public final class Contract {
        * <code>int64 amount = 4;</code>
        */
       public Builder setAmount(long value) {
-
+        
         amount_ = value;
         onChanged();
         return this;
@@ -2334,7 +2334,7 @@ public final class Contract {
        * <code>int64 amount = 4;</code>
        */
       public Builder clearAmount() {
-
+        
         amount_ = 0L;
         onChanged();
         return this;
@@ -2377,7 +2377,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TransferAssetContract> getParserForType() {
       return PARSER;
     }
@@ -2439,7 +2439,7 @@ public final class Contract {
       count_ = 0;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2450,7 +2450,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -2628,8 +2628,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -2651,7 +2651,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2756,7 +2756,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -2848,7 +2848,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2861,12 +2861,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2941,7 +2941,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -2950,7 +2950,7 @@ public final class Contract {
        * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -3011,7 +3011,7 @@ public final class Contract {
        * <code>repeated bytes vote_address = 2;</code>
        */
       public Builder addAllVoteAddress(
-          Iterable<? extends com.google.protobuf.ByteString> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureVoteAddressIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, voteAddress_);
@@ -3039,7 +3039,7 @@ public final class Contract {
        * <code>bool support = 3;</code>
        */
       public Builder setSupport(boolean value) {
-
+        
         support_ = value;
         onChanged();
         return this;
@@ -3048,7 +3048,7 @@ public final class Contract {
        * <code>bool support = 3;</code>
        */
       public Builder clearSupport() {
-
+        
         support_ = false;
         onChanged();
         return this;
@@ -3065,7 +3065,7 @@ public final class Contract {
        * <code>int32 count = 5;</code>
        */
       public Builder setCount(int value) {
-
+        
         count_ = value;
         onChanged();
         return this;
@@ -3074,7 +3074,7 @@ public final class Contract {
        * <code>int32 count = 5;</code>
        */
       public Builder clearCount() {
-
+        
         count_ = 0;
         onChanged();
         return this;
@@ -3117,7 +3117,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<VoteAssetContract> getParserForType() {
       return PARSER;
     }
@@ -3140,7 +3140,7 @@ public final class Contract {
     /**
      * <code>repeated .protocol.VoteWitnessContract.Vote votes = 2;</code>
      */
-    java.util.List<org.tron.protos.Contract.VoteWitnessContract.Vote>
+    java.util.List<org.tron.protos.Contract.VoteWitnessContract.Vote> 
         getVotesList();
     /**
      * <code>repeated .protocol.VoteWitnessContract.Vote votes = 2;</code>
@@ -3153,7 +3153,7 @@ public final class Contract {
     /**
      * <code>repeated .protocol.VoteWitnessContract.Vote votes = 2;</code>
      */
-    java.util.List<? extends org.tron.protos.Contract.VoteWitnessContract.VoteOrBuilder>
+    java.util.List<? extends org.tron.protos.Contract.VoteWitnessContract.VoteOrBuilder> 
         getVotesOrBuilderList();
     /**
      * <code>repeated .protocol.VoteWitnessContract.Vote votes = 2;</code>
@@ -3184,7 +3184,7 @@ public final class Contract {
       support_ = false;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3195,7 +3195,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3292,7 +3292,7 @@ public final class Contract {
         voteCount_ = 0L;
       }
 
-      @Override
+      @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -3303,7 +3303,7 @@ public final class Contract {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3414,8 +3414,8 @@ public final class Contract {
         return size;
       }
 
-      @Override
-      public boolean equals(final Object obj) {
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
          return true;
         }
@@ -3433,7 +3433,7 @@ public final class Contract {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -3532,7 +3532,7 @@ public final class Contract {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @Override
+      @java.lang.Override
       protected Builder newBuilderForType(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
@@ -3611,7 +3611,7 @@ public final class Contract {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
+            java.lang.Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -3624,12 +3624,12 @@ public final class Contract {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, Object value) {
+            int index, java.lang.Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
+            java.lang.Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3690,7 +3690,7 @@ public final class Contract {
           if (value == null) {
     throw new NullPointerException();
   }
-
+  
           voteAddress_ = value;
           onChanged();
           return this;
@@ -3699,7 +3699,7 @@ public final class Contract {
          * <code>bytes vote_address = 1;</code>
          */
         public Builder clearVoteAddress() {
-
+          
           voteAddress_ = getDefaultInstance().getVoteAddress();
           onChanged();
           return this;
@@ -3716,7 +3716,7 @@ public final class Contract {
          * <code>int64 vote_count = 2;</code>
          */
         public Builder setVoteCount(long value) {
-
+          
           voteCount_ = value;
           onChanged();
           return this;
@@ -3725,7 +3725,7 @@ public final class Contract {
          * <code>int64 vote_count = 2;</code>
          */
         public Builder clearVoteCount() {
-
+          
           voteCount_ = 0L;
           onChanged();
           return this;
@@ -3768,7 +3768,7 @@ public final class Contract {
         return PARSER;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Parser<Vote> getParserForType() {
         return PARSER;
       }
@@ -3800,7 +3800,7 @@ public final class Contract {
     /**
      * <code>repeated .protocol.VoteWitnessContract.Vote votes = 2;</code>
      */
-    public java.util.List<? extends org.tron.protos.Contract.VoteWitnessContract.VoteOrBuilder>
+    public java.util.List<? extends org.tron.protos.Contract.VoteWitnessContract.VoteOrBuilder> 
         getVotesOrBuilderList() {
       return votes_;
     }
@@ -3879,8 +3879,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -3900,7 +3900,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -4003,7 +4003,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -4101,7 +4101,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4114,12 +4114,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4154,7 +4154,7 @@ public final class Contract {
               votesBuilder_ = null;
               votes_ = other.votes_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              votesBuilder_ =
+              votesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getVotesFieldBuilder() : null;
             } else {
@@ -4207,7 +4207,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -4216,7 +4216,7 @@ public final class Contract {
        * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -4360,7 +4360,7 @@ public final class Contract {
        * <code>repeated .protocol.VoteWitnessContract.Vote votes = 2;</code>
        */
       public Builder addAllVotes(
-          Iterable<? extends org.tron.protos.Contract.VoteWitnessContract.Vote> values) {
+          java.lang.Iterable<? extends org.tron.protos.Contract.VoteWitnessContract.Vote> values) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4417,7 +4417,7 @@ public final class Contract {
       /**
        * <code>repeated .protocol.VoteWitnessContract.Vote votes = 2;</code>
        */
-      public java.util.List<? extends org.tron.protos.Contract.VoteWitnessContract.VoteOrBuilder>
+      public java.util.List<? extends org.tron.protos.Contract.VoteWitnessContract.VoteOrBuilder> 
            getVotesOrBuilderList() {
         if (votesBuilder_ != null) {
           return votesBuilder_.getMessageOrBuilderList();
@@ -4443,12 +4443,12 @@ public final class Contract {
       /**
        * <code>repeated .protocol.VoteWitnessContract.Vote votes = 2;</code>
        */
-      public java.util.List<org.tron.protos.Contract.VoteWitnessContract.Vote.Builder>
+      public java.util.List<org.tron.protos.Contract.VoteWitnessContract.Vote.Builder> 
            getVotesBuilderList() {
         return getVotesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Contract.VoteWitnessContract.Vote, org.tron.protos.Contract.VoteWitnessContract.Vote.Builder, org.tron.protos.Contract.VoteWitnessContract.VoteOrBuilder>
+          org.tron.protos.Contract.VoteWitnessContract.Vote, org.tron.protos.Contract.VoteWitnessContract.Vote.Builder, org.tron.protos.Contract.VoteWitnessContract.VoteOrBuilder> 
           getVotesFieldBuilder() {
         if (votesBuilder_ == null) {
           votesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -4473,7 +4473,7 @@ public final class Contract {
        * <code>bool support = 3;</code>
        */
       public Builder setSupport(boolean value) {
-
+        
         support_ = value;
         onChanged();
         return this;
@@ -4482,7 +4482,7 @@ public final class Contract {
        * <code>bool support = 3;</code>
        */
       public Builder clearSupport() {
-
+        
         support_ = false;
         onChanged();
         return this;
@@ -4525,7 +4525,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<VoteWitnessContract> getParserForType() {
       return PARSER;
     }
@@ -4567,7 +4567,7 @@ public final class Contract {
       url_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4578,7 +4578,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -4689,8 +4689,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -4708,7 +4708,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -4806,7 +4806,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -4885,7 +4885,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4898,12 +4898,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4964,7 +4964,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -4973,7 +4973,7 @@ public final class Contract {
        * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -4993,7 +4993,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         url_ = value;
         onChanged();
         return this;
@@ -5002,7 +5002,7 @@ public final class Contract {
        * <code>bytes url = 2;</code>
        */
       public Builder clearUrl() {
-
+        
         url_ = getDefaultInstance().getUrl();
         onChanged();
         return this;
@@ -5045,7 +5045,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<WitnessCreateContract> getParserForType() {
       return PARSER;
     }
@@ -5087,7 +5087,7 @@ public final class Contract {
       updateUrl_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5098,7 +5098,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -5209,8 +5209,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -5228,7 +5228,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -5326,7 +5326,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -5405,7 +5405,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -5418,12 +5418,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5484,7 +5484,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -5493,7 +5493,7 @@ public final class Contract {
        * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -5513,7 +5513,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         updateUrl_ = value;
         onChanged();
         return this;
@@ -5522,7 +5522,7 @@ public final class Contract {
        * <code>bytes update_url = 12;</code>
        */
       public Builder clearUpdateUrl() {
-
+        
         updateUrl_ = getDefaultInstance().getUpdateUrl();
         onChanged();
         return this;
@@ -5565,7 +5565,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<WitnessUpdateContract> getParserForType() {
       return PARSER;
     }
@@ -5661,7 +5661,7 @@ public final class Contract {
       url_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5672,7 +5672,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -5972,8 +5972,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -6009,7 +6009,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -6128,7 +6128,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -6234,7 +6234,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -6247,12 +6247,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -6340,7 +6340,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -6349,7 +6349,7 @@ public final class Contract {
        * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -6369,7 +6369,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         name_ = value;
         onChanged();
         return this;
@@ -6378,7 +6378,7 @@ public final class Contract {
        * <code>bytes name = 2;</code>
        */
       public Builder clearName() {
-
+        
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
@@ -6395,7 +6395,7 @@ public final class Contract {
        * <code>int64 total_supply = 4;</code>
        */
       public Builder setTotalSupply(long value) {
-
+        
         totalSupply_ = value;
         onChanged();
         return this;
@@ -6404,7 +6404,7 @@ public final class Contract {
        * <code>int64 total_supply = 4;</code>
        */
       public Builder clearTotalSupply() {
-
+        
         totalSupply_ = 0L;
         onChanged();
         return this;
@@ -6421,7 +6421,7 @@ public final class Contract {
        * <code>int32 trx_num = 6;</code>
        */
       public Builder setTrxNum(int value) {
-
+        
         trxNum_ = value;
         onChanged();
         return this;
@@ -6430,7 +6430,7 @@ public final class Contract {
        * <code>int32 trx_num = 6;</code>
        */
       public Builder clearTrxNum() {
-
+        
         trxNum_ = 0;
         onChanged();
         return this;
@@ -6447,7 +6447,7 @@ public final class Contract {
        * <code>int32 num = 8;</code>
        */
       public Builder setNum(int value) {
-
+        
         num_ = value;
         onChanged();
         return this;
@@ -6456,7 +6456,7 @@ public final class Contract {
        * <code>int32 num = 8;</code>
        */
       public Builder clearNum() {
-
+        
         num_ = 0;
         onChanged();
         return this;
@@ -6473,7 +6473,7 @@ public final class Contract {
        * <code>int64 start_time = 9;</code>
        */
       public Builder setStartTime(long value) {
-
+        
         startTime_ = value;
         onChanged();
         return this;
@@ -6482,7 +6482,7 @@ public final class Contract {
        * <code>int64 start_time = 9;</code>
        */
       public Builder clearStartTime() {
-
+        
         startTime_ = 0L;
         onChanged();
         return this;
@@ -6499,7 +6499,7 @@ public final class Contract {
        * <code>int64 end_time = 10;</code>
        */
       public Builder setEndTime(long value) {
-
+        
         endTime_ = value;
         onChanged();
         return this;
@@ -6508,7 +6508,7 @@ public final class Contract {
        * <code>int64 end_time = 10;</code>
        */
       public Builder clearEndTime() {
-
+        
         endTime_ = 0L;
         onChanged();
         return this;
@@ -6525,7 +6525,7 @@ public final class Contract {
        * <code>int32 decay_ratio = 15;</code>
        */
       public Builder setDecayRatio(int value) {
-
+        
         decayRatio_ = value;
         onChanged();
         return this;
@@ -6534,7 +6534,7 @@ public final class Contract {
        * <code>int32 decay_ratio = 15;</code>
        */
       public Builder clearDecayRatio() {
-
+        
         decayRatio_ = 0;
         onChanged();
         return this;
@@ -6551,7 +6551,7 @@ public final class Contract {
        * <code>int32 vote_score = 16;</code>
        */
       public Builder setVoteScore(int value) {
-
+        
         voteScore_ = value;
         onChanged();
         return this;
@@ -6560,7 +6560,7 @@ public final class Contract {
        * <code>int32 vote_score = 16;</code>
        */
       public Builder clearVoteScore() {
-
+        
         voteScore_ = 0;
         onChanged();
         return this;
@@ -6580,7 +6580,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         description_ = value;
         onChanged();
         return this;
@@ -6589,7 +6589,7 @@ public final class Contract {
        * <code>bytes description = 20;</code>
        */
       public Builder clearDescription() {
-
+        
         description_ = getDefaultInstance().getDescription();
         onChanged();
         return this;
@@ -6609,7 +6609,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         url_ = value;
         onChanged();
         return this;
@@ -6618,7 +6618,7 @@ public final class Contract {
        * <code>bytes url = 21;</code>
        */
       public Builder clearUrl() {
-
+        
         url_ = getDefaultInstance().getUrl();
         onChanged();
         return this;
@@ -6661,7 +6661,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<AssetIssueContract> getParserForType() {
       return PARSER;
     }
@@ -6723,7 +6723,7 @@ public final class Contract {
       amount_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6734,7 +6734,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -6895,8 +6895,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -6918,7 +6918,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7021,7 +7021,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -7106,7 +7106,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -7119,12 +7119,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7191,7 +7191,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -7200,7 +7200,7 @@ public final class Contract {
        * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -7220,7 +7220,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         toAddress_ = value;
         onChanged();
         return this;
@@ -7229,7 +7229,7 @@ public final class Contract {
        * <code>bytes to_address = 2;</code>
        */
       public Builder clearToAddress() {
-
+        
         toAddress_ = getDefaultInstance().getToAddress();
         onChanged();
         return this;
@@ -7257,7 +7257,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         assetName_ = value;
         onChanged();
         return this;
@@ -7270,7 +7270,7 @@ public final class Contract {
        * <code>bytes asset_name = 3;</code>
        */
       public Builder clearAssetName() {
-
+        
         assetName_ = getDefaultInstance().getAssetName();
         onChanged();
         return this;
@@ -7295,7 +7295,7 @@ public final class Contract {
        * <code>int64 amount = 4;</code>
        */
       public Builder setAmount(long value) {
-
+        
         amount_ = value;
         onChanged();
         return this;
@@ -7308,7 +7308,7 @@ public final class Contract {
        * <code>int64 amount = 4;</code>
        */
       public Builder clearAmount() {
-
+        
         amount_ = 0L;
         onChanged();
         return this;
@@ -7351,7 +7351,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<ParticipateAssetIssueContract> getParserForType() {
       return PARSER;
     }
@@ -7393,7 +7393,7 @@ public final class Contract {
       script_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7404,7 +7404,7 @@ public final class Contract {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -7515,8 +7515,8 @@ public final class Contract {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -7534,7 +7534,7 @@ public final class Contract {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7632,7 +7632,7 @@ public final class Contract {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -7711,7 +7711,7 @@ public final class Contract {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -7724,12 +7724,12 @@ public final class Contract {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7790,7 +7790,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         ownerAddress_ = value;
         onChanged();
         return this;
@@ -7799,7 +7799,7 @@ public final class Contract {
        * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
-
+        
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
         onChanged();
         return this;
@@ -7819,7 +7819,7 @@ public final class Contract {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         script_ = value;
         onChanged();
         return this;
@@ -7828,7 +7828,7 @@ public final class Contract {
        * <code>bytes script = 2;</code>
        */
       public Builder clearScript() {
-
+        
         script_ = getDefaultInstance().getScript();
         onChanged();
         return this;
@@ -7871,7 +7871,7 @@ public final class Contract {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<DeployContract> getParserForType() {
       return PARSER;
     }
@@ -7884,62 +7884,62 @@ public final class Contract {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_AccountCreateContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_AccountCreateContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_AccountUpdateContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_AccountUpdateContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_TransferContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_TransferContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_TransferAssetContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_TransferAssetContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_VoteAssetContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_VoteAssetContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_VoteWitnessContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_VoteWitnessContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_VoteWitnessContract_Vote_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_VoteWitnessContract_Vote_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_WitnessCreateContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_WitnessCreateContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_WitnessUpdateContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_WitnessUpdateContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_AssetIssueContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_AssetIssueContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_ParticipateAssetIssueContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_ParticipateAssetIssueContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_DeployContract_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_DeployContract_fieldAccessorTable;
 
@@ -7950,7 +7950,7 @@ public final class Contract {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\023core/Contract.proto\022\010protocol\032\017core/Tr" +
       "on.proto\"i\n\025AccountCreateContract\022#\n\004typ" +
       "e\030\001 \001(\0162\025.protocol.AccountType\022\024\n\014accoun" +
@@ -8002,73 +8002,73 @@ public final class Contract {
     internal_static_protocol_AccountCreateContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AccountCreateContract_descriptor,
-        new String[] { "Type", "AccountName", "OwnerAddress", });
+        new java.lang.String[] { "Type", "AccountName", "OwnerAddress", });
     internal_static_protocol_AccountUpdateContract_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protocol_AccountUpdateContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AccountUpdateContract_descriptor,
-        new String[] { "AccountName", "OwnerAddress", });
+        new java.lang.String[] { "AccountName", "OwnerAddress", });
     internal_static_protocol_TransferContract_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_protocol_TransferContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransferContract_descriptor,
-        new String[] { "OwnerAddress", "ToAddress", "Amount", });
+        new java.lang.String[] { "OwnerAddress", "ToAddress", "Amount", });
     internal_static_protocol_TransferAssetContract_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_protocol_TransferAssetContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransferAssetContract_descriptor,
-        new String[] { "AssetName", "OwnerAddress", "ToAddress", "Amount", });
+        new java.lang.String[] { "AssetName", "OwnerAddress", "ToAddress", "Amount", });
     internal_static_protocol_VoteAssetContract_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_protocol_VoteAssetContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_VoteAssetContract_descriptor,
-        new String[] { "OwnerAddress", "VoteAddress", "Support", "Count", });
+        new java.lang.String[] { "OwnerAddress", "VoteAddress", "Support", "Count", });
     internal_static_protocol_VoteWitnessContract_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_protocol_VoteWitnessContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_VoteWitnessContract_descriptor,
-        new String[] { "OwnerAddress", "Votes", "Support", });
+        new java.lang.String[] { "OwnerAddress", "Votes", "Support", });
     internal_static_protocol_VoteWitnessContract_Vote_descriptor =
       internal_static_protocol_VoteWitnessContract_descriptor.getNestedTypes().get(0);
     internal_static_protocol_VoteWitnessContract_Vote_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_VoteWitnessContract_Vote_descriptor,
-        new String[] { "VoteAddress", "VoteCount", });
+        new java.lang.String[] { "VoteAddress", "VoteCount", });
     internal_static_protocol_WitnessCreateContract_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_protocol_WitnessCreateContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_WitnessCreateContract_descriptor,
-        new String[] { "OwnerAddress", "Url", });
+        new java.lang.String[] { "OwnerAddress", "Url", });
     internal_static_protocol_WitnessUpdateContract_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_protocol_WitnessUpdateContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_WitnessUpdateContract_descriptor,
-        new String[] { "OwnerAddress", "UpdateUrl", });
+        new java.lang.String[] { "OwnerAddress", "UpdateUrl", });
     internal_static_protocol_AssetIssueContract_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_protocol_AssetIssueContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AssetIssueContract_descriptor,
-        new String[] { "OwnerAddress", "Name", "TotalSupply", "TrxNum", "Num", "StartTime", "EndTime", "DecayRatio", "VoteScore", "Description", "Url", });
+        new java.lang.String[] { "OwnerAddress", "Name", "TotalSupply", "TrxNum", "Num", "StartTime", "EndTime", "DecayRatio", "VoteScore", "Description", "Url", });
     internal_static_protocol_ParticipateAssetIssueContract_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_protocol_ParticipateAssetIssueContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ParticipateAssetIssueContract_descriptor,
-        new String[] { "OwnerAddress", "ToAddress", "AssetName", "Amount", });
+        new java.lang.String[] { "OwnerAddress", "ToAddress", "AssetName", "Amount", });
     internal_static_protocol_DeployContract_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_protocol_DeployContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DeployContract_descriptor,
-        new String[] { "OwnerAddress", "Script", });
+        new java.lang.String[] { "OwnerAddress", "Script", });
     org.tron.protos.Protocol.getDescriptor();
   }
 
