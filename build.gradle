@@ -64,7 +64,7 @@ dependencies {
 sourceSets {
     main {
         proto {
-            srcDir 'src/main/protocol'
+            srcDir 'src/main/protos'
         }
         java {
             srcDir 'src/main/gen'
