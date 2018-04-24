@@ -49,7 +49,7 @@ public class RpcHunterSendCoin extends AbstractJavaSamplerClient{
 
     boolean b = walletClient.sendCoin(to, amountValue);
 
-    System.out.println(b);
+    System.out.println("" + b + ";" + System.currentTimeMillis()/1000);
     sampleResult.sampleEnd();
     sampleResult.setSuccessful(b);
     return sampleResult;
