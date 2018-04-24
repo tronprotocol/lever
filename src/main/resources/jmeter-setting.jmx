@@ -18,10 +18,10 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">1800</stringProp>
+        <stringProp name="ThreadGroup.duration">7200</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
@@ -174,7 +174,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="toAddress" elementType="Argument">
                 <stringProp name="Argument.name">toAddress</stringProp>
-                <stringProp name="Argument.value">a04948c2e8a756d9437037dcd8c7e0c73d560ca38d</stringProp>
+                <stringProp name="Argument.value">27Vm12vh5Mm9HzPSWBDvbZu1U25xvyFvexF</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="amount" elementType="Argument">
@@ -191,6 +191,15 @@
           </elementProp>
           <stringProp name="classname">org.tron.program.RpcHunterSendCoin</stringProp>
         </JavaSampler>
+        <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <doubleProp>
+            <name>throughput</name>
+            <value>60.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+          <intProp name="calcMode">1</intProp>
+        </ConstantThroughputTimer>
         <hashTree/>
       </hashTree>
     </hashTree>
