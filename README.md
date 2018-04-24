@@ -94,4 +94,17 @@ Transaction arguments(put your arguments: `Argument.value` to this file):
 </JavaSampler>
 ```
 
+Throughout setting(60/s):
+
+```xml
+<ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+  <doubleProp>
+    <name>throughput</name>
+    <value>60.0</value>
+    <savedValue>0.0</savedValue>
+  </doubleProp>
+  <intProp name="calcMode">1</intProp>
+</ConstantThroughputTimer>
+```
+
 You can use [generate-account-tool](https://github.com/sasaxie/generate-account-tool) to generate your account and put it to java-tron's config.conf: `genesis.block.assets`, `genesis.block.witnesses`, `localwitness`
