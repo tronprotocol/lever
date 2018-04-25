@@ -18,9 +18,9 @@ public class RpcHunterSendCoin extends AbstractJavaSamplerClient{
   @Override
   public Arguments getDefaultParameters() {
     Arguments arguments = new Arguments();
-    arguments.addArgument("toAddress", "27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS");
+    arguments.addArgument("toAddress", "27ZESitosJfKouTBrGg6Nk5yEjnJHXMbkZp");
     arguments.addArgument("amount", "1");
-    arguments.addArgument("privateKey", "effa55b420a2fe39e3f73d14b8c46824fd0d5ee210840b9c27b2e2f42a09f1f9");
+    arguments.addArgument("privateKey", "cbe57d98134c118ed0d219c0c8bc4154372c02c1e13b5cce30dd22ecd7bed19e");
     return arguments;
   }
 
@@ -57,9 +57,9 @@ public class RpcHunterSendCoin extends AbstractJavaSamplerClient{
 
   public static void main(String[] args) {
     Arguments arguments = new Arguments();
-    arguments.addArgument("toAddress", "27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS");
+    arguments.addArgument("toAddress", "27ZESitosJfKouTBrGg6Nk5yEjnJHXMbkZp");
     arguments.addArgument("amount", "1");
-    arguments.addArgument("privateKey", "effa55b420a2fe39e3f73d14b8c46824fd0d5ee210840b9c27b2e2f42a09f1f9");
+    arguments.addArgument("privateKey", "cbe57d98134c118ed0d219c0c8bc4154372c02c1e13b5cce30dd22ecd7bed19e");
     JavaSamplerContext context = new JavaSamplerContext(arguments);
     RpcHunterSendCoin hunter = new RpcHunterSendCoin();
     hunter.setupTest(context);
