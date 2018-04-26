@@ -3,7 +3,6 @@ package org.tron.common.utils;
 import static org.tron.common.crypto.Hash.sha256;
 
 import com.google.protobuf.ByteString;
-import java.security.MessageDigest;
 import java.security.SignatureException;
 import java.util.Arrays;
 import java.util.List;
@@ -118,12 +117,12 @@ public class TransactionUtils {
     return false;
   }
 
-  public static Transaction sign(Transaction transaction, ECKey myKey, MessageDigest sha256digest) {
+  public static Transaction sign(Transaction transaction, ECKey myKey) {
     ByteString lockSript = ByteString.copyFrom(myKey.getAddress());
     Transaction.Builder transactionBuilderSigned = transaction.toBuilder();
 
     if (transaction.getRawData().getType() == Transaction.TransactionType.ContractType) {
-      byte[] hash = sha256digest.digest(transaction.getRawData().toByteArray());
+      byte[] hash = sha256(transaction.getRawData().toByteArray());
       List<Contract> listContract = transaction.getRawData().getContractList();
       for (int i = 0; i < listContract.size(); i++) {
         ECDSASignature signature = myKey.sign(hash);
