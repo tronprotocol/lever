@@ -78,7 +78,7 @@ public class SendCoinLoop {
 }
 
 class Task implements Runnable {
-  private static final byte[] TO_ADDRESS = Base58.decodeFromBase58Check("27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS");
+  private static final byte[] TO_ADDRESS = Base58.decodeFromBase58Check("27ZESitosJfKouTBrGg6Nk5yEjnJHXMbkZp");
   private static final Long AMOUNT = 1L;
   private static LongAdder trueCount = new LongAdder();
   private static LongAdder falseCount = new LongAdder();
