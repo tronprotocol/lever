@@ -59,7 +59,8 @@ public class WalletClient {
       return false;
     }
 
-    return true;
+    transaction = signTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction);
   }
 
   public static Contract.TransferContract createTransferContract(byte[] to, byte[] owner,

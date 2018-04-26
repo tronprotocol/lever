@@ -18,51 +18,86 @@ package org.tron.program;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.RateLimiter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.LongAdder;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import org.tron.common.utils.Base58;
 import org.tron.service.WalletClient;
 
 public class SendCoinLoop {
   private static final String PRIVATE_KEY = "cbe57d98134c118ed0d219c0c8bc4154372c02c1e13b5cce30dd22ecd7bed19e";
-  private static final int THREAD_COUNT = 400;
+  private static final int THREAD_COUNT = 10;
 
-  private static WalletClient walletClient;
+  private static List<WalletClient> walletClients = new ArrayList<>();
 
   public static void main(String[] args) {
     if (args.length < 2) {
       return;
     }
 
-    long amount = new Long(args[0]);
+    long runSeconds = new Long(args[0]);
     double tps = new Double(args[1]);
 
-    walletClient = new WalletClient(PRIVATE_KEY);
-    walletClient.init();
+    walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
+      WalletClient walletClient = new WalletClient(PRIVATE_KEY);
+      walletClient.init();
+      return walletClient;
+    })
+    .collect(Collectors.toList());
 
-    rateLimiter(walletClient, amount, tps);
+    rateLimiter(runSeconds, tps);
+    System.exit(0);
   }
 
-  public static void rateLimiter(final WalletClient walletClient, long amount, double tps) {
+  public static void rateLimiter(long runSeconds, double tps) {
     ListeningExecutorService executorService = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(THREAD_COUNT));
 
     RateLimiter limiter = RateLimiter.create(tps);
 
-    for (int c = 0; c < amount; ++c) {
+    long startTimeSeconds = System.currentTimeMillis() / 1000;
+    int flag = 0;
+
+    System.out.println(startTimeSeconds + ", " + runSeconds);
+
+    while ((System.currentTimeMillis() / 1000) - startTimeSeconds <= runSeconds) {
       limiter.acquire();
-      executorService.execute(new Task(walletClient));
+      executorService.execute(new Task(walletClients.get(flag % THREAD_COUNT)));
+      flag++;
+      if (flag > 10) {
+        flag = 0;
+      }
     }
 
+    executorService.shutdown();
   }
 }
 
 class Task implements Runnable {
-  private static final byte[] TO_ADDRESS = Base58.decodeFromBase58Check("27ZESitosJfKouTBrGg6Nk5yEjnJHXMbkZp");
+  private static final byte[] TO_ADDRESS = Base58.decodeFromBase58Check("27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS");
   private static final Long AMOUNT = 1L;
-  private static long trueCount = 0;
-  private static long falseCount = 0;
-  private static long currentCount = 0;
-
+  private static LongAdder trueCount = new LongAdder();
+  private static LongAdder falseCount = new LongAdder();
+  private static LongAdder currentCount = new LongAdder();
+  private static ConcurrentHashMap<Long, LongAdder> resultMap = new ConcurrentHashMap<>();
+  public static final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
   private WalletClient walletClient;
+
+  static {
+    service.scheduleAtFixedRate(() -> {
+      System.out.println(
+          "current: " + currentCount.longValue()
+              + ", true: " + trueCount.longValue()
+              + ", false: " + falseCount.longValue()
+              + ", timestamp: " + (System.currentTimeMillis() / 1000)
+              + ", map: " + resultMap);
+    }, 5, 5, TimeUnit.SECONDS);
+  }
 
   public Task(final WalletClient walletClient) {
     this.walletClient = walletClient;
@@ -70,42 +105,22 @@ class Task implements Runnable {
 
   @Override
   public void run() {
-    boolean b = walletClient.sendCoin(TO_ADDRESS, AMOUNT);
+    try {
+      boolean b = walletClient.sendCoin(TO_ADDRESS, AMOUNT);
 
-    if (b) {
-      increaseTrueCount();
-    } else {
-      increaseFalseCount();
+      if (b) {
+        trueCount.increment();
+      } else {
+        falseCount.increment();
+      }
+
+      currentCount.increment();
+
+      long currentMinutes = System.currentTimeMillis() / 1000L / 60;
+
+      resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
+    } catch (ArrayIndexOutOfBoundsException e) {
+      e.printStackTrace();
     }
-
-    increaseCurrentCount();
-
-    if (getCurrentCount() % 1000 == 0) {
-      System.out.println("current: " + getCurrentCount() + ", true: " + getTrueCount() + ", false: " + getFalseCount() + ", timestamp: " + System.currentTimeMillis() / 1000);
-    }
-  }
-
-  public synchronized void increaseTrueCount() {
-    ++trueCount;
-  }
-
-  public synchronized void increaseFalseCount() {
-    ++falseCount;
-  }
-
-  public synchronized void increaseCurrentCount() {
-    ++currentCount;
-  }
-
-  public synchronized long getTrueCount() {
-    return trueCount;
-  }
-
-  public synchronized long getFalseCount() {
-    return falseCount;
-  }
-
-  public synchronized long getCurrentCount() {
-    return currentCount;
   }
 }
