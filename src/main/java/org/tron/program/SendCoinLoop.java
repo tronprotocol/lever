@@ -69,7 +69,7 @@ public class SendCoinLoop {
       limiter.acquire();
       executorService.execute(new Task(walletClients.get(flag % THREAD_COUNT)));
       flag++;
-      if (flag > 10) {
+      if (flag > THREAD_COUNT) {
         flag = 0;
       }
     }

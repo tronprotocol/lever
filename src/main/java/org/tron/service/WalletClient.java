@@ -4,6 +4,8 @@ import static org.tron.core.config.Parameter.CommonConstant.TARGET_GRPC_ADDRESS;
 
 import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.tron.api.GrpcAPI.AccountList;
@@ -19,11 +21,15 @@ public class WalletClient {
 
   private GrpcClient rpcCli;
   private ECKey ecKey;
-
+  private MessageDigest sha256digest;
   private Config config = Configuration.getByPath("config.conf");
 
   public WalletClient() {
-
+    try {
+      sha256digest = MessageDigest.getInstance("SHA-256");
+    } catch (NoSuchAlgorithmException e) {
+      throw new RuntimeException(e); // Can't happen.
+    }
   }
 
   public WalletClient(String priKey) {
@@ -34,6 +40,11 @@ public class WalletClient {
       ex.printStackTrace();
     }
     this.ecKey = temKey;
+    try {
+      sha256digest = MessageDigest.getInstance("SHA-256");
+    } catch (NoSuchAlgorithmException e) {
+      throw new RuntimeException(e); // Can't happen.
+    }
   }
 
   public void init() {
@@ -80,7 +91,7 @@ public class WalletClient {
       return null;
     }
     transaction = TransactionUtils.setTimestamp(transaction);
-    return TransactionUtils.sign(transaction, this.ecKey);
+    return TransactionUtils.sign(transaction, this.ecKey , this.sha256digest);
   }
 
   public byte[] getAddress() {
