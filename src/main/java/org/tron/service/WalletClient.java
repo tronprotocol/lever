@@ -58,8 +58,8 @@ public class WalletClient {
     if (transaction == null || transaction.getRawData().getContractCount() == 0) {
       return false;
     }
-    transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+
+    return true;
   }
 
   public static Contract.TransferContract createTransferContract(byte[] to, byte[] owner,
