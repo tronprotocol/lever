@@ -12,19 +12,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package org.tron.program;
 
-import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.RateLimiter;
-import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import org.tron.common.utils.Base58;
 import org.tron.service.WalletClient;
 
 public class SendCoinLoop {
   private static final String PRIVATE_KEY = "cbe57d98134c118ed0d219c0c8bc4154372c02c1e13b5cce30dd22ecd7bed19e";
+  private static final int THREAD_COUNT = 400;
 
   private static WalletClient walletClient;
 
@@ -43,19 +43,19 @@ public class SendCoinLoop {
   }
 
   public static void rateLimiter(final WalletClient walletClient, long amount, double tps) {
-    ListeningExecutorService executorService = MoreExecutors.listeningDecorator(Executors.newCachedThreadPool());
+    ListeningExecutorService executorService = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(THREAD_COUNT));
 
     RateLimiter limiter = RateLimiter.create(tps);
 
     for (int c = 0; c < amount; ++c) {
       limiter.acquire();
-      executorService.submit(new Task(walletClient));
+      executorService.execute(new Task(walletClient));
     }
 
   }
 }
 
-class Task implements Callable {
+class Task implements Runnable {
   private static final byte[] TO_ADDRESS = Base58.decodeFromBase58Check("27ZESitosJfKouTBrGg6Nk5yEjnJHXMbkZp");
   private static final Long AMOUNT = 1L;
   private static long trueCount = 0;
@@ -69,7 +69,7 @@ class Task implements Callable {
   }
 
   @Override
-  public Object call() throws Exception {
+  public void run() {
     boolean b = walletClient.sendCoin(TO_ADDRESS, AMOUNT);
 
     if (b) {
@@ -83,8 +83,6 @@ class Task implements Callable {
     if (getCurrentCount() % 1000 == 0) {
       System.out.println("current: " + getCurrentCount() + ", true: " + getTrueCount() + ", false: " + getFalseCount() + ", timestamp: " + System.currentTimeMillis() / 1000);
     }
-
-    return b;
   }
 
   public synchronized void increaseTrueCount() {
