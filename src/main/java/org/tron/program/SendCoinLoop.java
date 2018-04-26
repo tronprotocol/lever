@@ -119,7 +119,7 @@ class Task implements Runnable {
       long currentMinutes = System.currentTimeMillis() / 1000L / 60;
 
       resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
-    } catch (ArrayIndexOutOfBoundsException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }
