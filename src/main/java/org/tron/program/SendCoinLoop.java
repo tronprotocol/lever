@@ -52,7 +52,6 @@ public class SendCoinLoop {
     .collect(Collectors.toList());
 
     rateLimiter(runSeconds, tps);
-    System.exit(0);
   }
 
   public static void rateLimiter(long runSeconds, double tps) {
