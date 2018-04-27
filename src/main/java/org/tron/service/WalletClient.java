@@ -2,6 +2,7 @@ package org.tron.service;
 
 import static org.tron.core.config.Parameter.CommonConstant.TARGET_GRPC_ADDRESS;
 
+import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
 import java.util.Optional;
@@ -12,6 +13,7 @@ import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
 import org.tron.core.config.Configuration;
 import org.tron.protos.Contract;
+import org.tron.protos.Contract.TransferContract;
 import org.tron.protos.Protocol.Transaction;
 
 @Slf4j
@@ -54,7 +56,7 @@ public class WalletClient {
     byte[] owner = getAddress();
 
     Contract.TransferContract contract = createTransferContract(to, owner, amount);
-    Transaction transaction = rpcCli.createTransaction(contract);
+    Transaction transaction = createTransaction(contract);
     if (transaction == null || transaction.getRawData().getContractCount() == 0) {
       return false;
     }
@@ -85,5 +87,22 @@ public class WalletClient {
 
   public byte[] getAddress() {
     return ecKey.getAddress();
+  }
+
+  public static Transaction createTransaction(TransferContract contract) {
+    Transaction.Builder transactionBuilder = Transaction.newBuilder();
+    Transaction.Contract.Builder contractBuilder = Transaction.Contract.newBuilder();
+    try {
+      Any anyTo = Any.pack(contract);
+      contractBuilder.setParameter(anyTo);
+    } catch (Exception e) {
+      return null;
+    }
+    contractBuilder.setType(Transaction.Contract.ContractType.TransferContract);
+    transactionBuilder.getRawDataBuilder().addContract(contractBuilder);
+    transactionBuilder.getRawDataBuilder().setType(Transaction.TransactionType.ContractType);
+    Transaction transaction = transactionBuilder.build();
+
+    return transaction;
   }
 }
