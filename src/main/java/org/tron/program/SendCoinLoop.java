@@ -21,6 +21,7 @@ import com.google.common.util.concurrent.RateLimiter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -56,24 +57,24 @@ public class SendCoinLoop {
 
   public static void rateLimiter(long runSeconds, double tps) {
     ListeningExecutorService executorService = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(THREAD_COUNT));
-
+    CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
+    Long startTimeMs = new Long(System.currentTimeMillis());
     RateLimiter limiter = RateLimiter.create(tps);
 
-    long startTimeSeconds = System.currentTimeMillis() / 1000;
-    int flag = 0;
-
-    System.out.println(startTimeSeconds + ", " + runSeconds);
-
-    while ((System.currentTimeMillis() / 1000) - startTimeSeconds <= runSeconds) {
-      limiter.acquire();
-      executorService.execute(new Task(walletClients.get(flag % THREAD_COUNT)));
-      flag++;
-      if (flag > THREAD_COUNT) {
-        flag = 0;
-      }
+    long runMs = runSeconds * 1000;
+    for (int i = 0; i < THREAD_COUNT; ++i) {
+      executorService.execute(new Task(walletClients.get(i % THREAD_COUNT), runMs, limiter, startTimeMs));
+      latch.countDown();
     }
 
-    executorService.shutdown();
+    try {
+      latch.await();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } finally {
+      System.out.println(111);
+      executorService.shutdown();
+    }
   }
 }
 
@@ -86,6 +87,9 @@ class Task implements Runnable {
   private static ConcurrentHashMap<Long, LongAdder> resultMap = new ConcurrentHashMap<>();
   public static final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
   private WalletClient walletClient;
+  private RateLimiter limiter;
+  private long runMs;
+  private Long startTimeMs;
 
   static {
     service.scheduleAtFixedRate(() -> {
@@ -98,26 +102,33 @@ class Task implements Runnable {
     }, 5, 5, TimeUnit.SECONDS);
   }
 
-  public Task(final WalletClient walletClient) {
+  public Task(final WalletClient walletClient, long runMs, RateLimiter limiter, Long startTimeMs) {
     this.walletClient = walletClient;
+    this.limiter = limiter;
+    this.runMs = runMs;
+    this.startTimeMs = startTimeMs;
   }
 
   @Override
   public void run() {
     try {
-      boolean b = walletClient.sendCoin(TO_ADDRESS, AMOUNT);
+      while (System.currentTimeMillis() - this.startTimeMs < this.runMs) {
 
-      if (b) {
-        trueCount.increment();
-      } else {
-        falseCount.increment();
+        limiter.acquire();
+        boolean b = walletClient.sendCoin(TO_ADDRESS, AMOUNT);
+
+        if (b) {
+          trueCount.increment();
+        } else {
+          falseCount.increment();
+        }
+
+        currentCount.increment();
+
+        long currentMinutes = System.currentTimeMillis() / 1000L / 60;
+
+        resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
       }
-
-      currentCount.increment();
-
-      long currentMinutes = System.currentTimeMillis() / 1000L / 60;
-
-      resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
     } catch (Exception e) {
       e.printStackTrace();
     }
