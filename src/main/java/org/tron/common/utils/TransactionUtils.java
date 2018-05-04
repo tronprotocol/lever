@@ -121,14 +121,13 @@ public class TransactionUtils {
     ByteString lockSript = ByteString.copyFrom(myKey.getAddress());
     Transaction.Builder transactionBuilderSigned = transaction.toBuilder();
 
-    if (transaction.getRawData().getType() == Transaction.TransactionType.ContractType) {
-      byte[] hash = sha256(transaction.getRawData().toByteArray());
-      List<Contract> listContract = transaction.getRawData().getContractList();
-      for (int i = 0; i < listContract.size(); i++) {
-        ECDSASignature signature = myKey.sign(hash);
-        ByteString bsSign = ByteString.copyFrom(signature.toByteArray());
-        transactionBuilderSigned.addSignature(bsSign);//Each contract may be signed with a different private key in the future.
-      }
+    byte[] hash = sha256(transaction.getRawData().toByteArray());
+    List<Contract> listContract = transaction.getRawData().getContractList();
+    for (int i = 0; i < listContract.size(); i++) {
+      ECDSASignature signature = myKey.sign(hash);
+      ByteString bsSign = ByteString.copyFrom(signature.toByteArray());
+      transactionBuilderSigned.addSignature(
+          bsSign);//Each contract may be signed with a different private key in the future.
     }
 
     transaction = transactionBuilderSigned.build();

@@ -72,7 +72,6 @@ public class SendCoinLoop {
     } catch (InterruptedException e) {
       e.printStackTrace();
     } finally {
-      System.out.println(111);
       executorService.shutdown();
     }
   }
