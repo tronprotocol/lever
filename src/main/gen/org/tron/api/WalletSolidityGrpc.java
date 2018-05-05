@@ -28,7 +28,7 @@ public final class WalletSolidityGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAccountMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetAccountMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
       org.tron.protos.Protocol.Account> METHOD_GET_ACCOUNT = getGetAccountMethod();
 
@@ -60,30 +60,30 @@ public final class WalletSolidityGrpc {
      return getGetAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getListAccountsMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.AccountList> METHOD_LIST_ACCOUNTS = getListAccountsMethod();
+  @java.lang.Deprecated // Use {@link #getListAccountsMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.AccountList> METHOD_LIST_ACCOUNTS = getListAccountsMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.AccountList> getListAccountsMethod;
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.AccountList> getListAccountsMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.AccountList> getListAccountsMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage, GrpcAPI.AccountList> getListAccountsMethod;
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.AccountList> getListAccountsMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.AccountList> getListAccountsMethod;
     if ((getListAccountsMethod = WalletSolidityGrpc.getListAccountsMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getListAccountsMethod = WalletSolidityGrpc.getListAccountsMethod) == null) {
           WalletSolidityGrpc.getListAccountsMethod = getListAccountsMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.EmptyMessage, GrpcAPI.AccountList>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.AccountList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "ListAccounts"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.EmptyMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.AccountList.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.AccountList.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("ListAccounts"))
                   .build();
           }
@@ -92,30 +92,30 @@ public final class WalletSolidityGrpc {
      return getListAccountsMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getListWitnessesMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.WitnessList> METHOD_LIST_WITNESSES = getListWitnessesMethod();
+  @java.lang.Deprecated // Use {@link #getListWitnessesMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.WitnessList> METHOD_LIST_WITNESSES = getListWitnessesMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.WitnessList> getListWitnessesMethod;
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.WitnessList> getListWitnessesMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.WitnessList> getListWitnessesMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage, GrpcAPI.WitnessList> getListWitnessesMethod;
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.WitnessList> getListWitnessesMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.WitnessList> getListWitnessesMethod;
     if ((getListWitnessesMethod = WalletSolidityGrpc.getListWitnessesMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getListWitnessesMethod = WalletSolidityGrpc.getListWitnessesMethod) == null) {
           WalletSolidityGrpc.getListWitnessesMethod = getListWitnessesMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.EmptyMessage, GrpcAPI.WitnessList>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.WitnessList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "ListWitnesses"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.EmptyMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.WitnessList.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.WitnessList.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("ListWitnesses"))
                   .build();
           }
@@ -124,30 +124,30 @@ public final class WalletSolidityGrpc {
      return getListWitnessesMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAssetIssueListMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.AssetIssueList> METHOD_GET_ASSET_ISSUE_LIST = getGetAssetIssueListMethod();
+  @java.lang.Deprecated // Use {@link #getGetAssetIssueListMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.AssetIssueList> METHOD_GET_ASSET_ISSUE_LIST = getGetAssetIssueListMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.AssetIssueList> getGetAssetIssueListMethod;
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueListMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.AssetIssueList> getGetAssetIssueListMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage, GrpcAPI.AssetIssueList> getGetAssetIssueListMethod;
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueListMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueListMethod;
     if ((getGetAssetIssueListMethod = WalletSolidityGrpc.getGetAssetIssueListMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetAssetIssueListMethod = WalletSolidityGrpc.getGetAssetIssueListMethod) == null) {
           WalletSolidityGrpc.getGetAssetIssueListMethod = getGetAssetIssueListMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.EmptyMessage, GrpcAPI.AssetIssueList>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.AssetIssueList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetAssetIssueList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.EmptyMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.AssetIssueList.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.AssetIssueList.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetAssetIssueList"))
                   .build();
           }
@@ -156,30 +156,30 @@ public final class WalletSolidityGrpc {
      return getGetAssetIssueListMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAssetIssueListByTimestampMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
-      GrpcAPI.AssetIssueList> METHOD_GET_ASSET_ISSUE_LIST_BY_TIMESTAMP = getGetAssetIssueListByTimestampMethod();
+  @java.lang.Deprecated // Use {@link #getGetAssetIssueListByTimestampMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
+      org.tron.api.GrpcAPI.AssetIssueList> METHOD_GET_ASSET_ISSUE_LIST_BY_TIMESTAMP = getGetAssetIssueListByTimestampMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
-      GrpcAPI.AssetIssueList> getGetAssetIssueListByTimestampMethod;
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
+      org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueListByTimestampMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
-      GrpcAPI.AssetIssueList> getGetAssetIssueListByTimestampMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.NumberMessage, GrpcAPI.AssetIssueList> getGetAssetIssueListByTimestampMethod;
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
+      org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueListByTimestampMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage, org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueListByTimestampMethod;
     if ((getGetAssetIssueListByTimestampMethod = WalletSolidityGrpc.getGetAssetIssueListByTimestampMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetAssetIssueListByTimestampMethod = WalletSolidityGrpc.getGetAssetIssueListByTimestampMethod) == null) {
           WalletSolidityGrpc.getGetAssetIssueListByTimestampMethod = getGetAssetIssueListByTimestampMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.NumberMessage, GrpcAPI.AssetIssueList>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.NumberMessage, org.tron.api.GrpcAPI.AssetIssueList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetAssetIssueListByTimestamp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.NumberMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.NumberMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.AssetIssueList.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.AssetIssueList.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetAssetIssueListByTimestamp"))
                   .build();
           }
@@ -188,22 +188,22 @@ public final class WalletSolidityGrpc {
      return getGetAssetIssueListByTimestampMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAssetIssueByAccountMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetAssetIssueByAccountMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.AssetIssueList> METHOD_GET_ASSET_ISSUE_BY_ACCOUNT = getGetAssetIssueByAccountMethod();
+      org.tron.api.GrpcAPI.AssetIssueList> METHOD_GET_ASSET_ISSUE_BY_ACCOUNT = getGetAssetIssueByAccountMethod();
 
   private static volatile io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.AssetIssueList> getGetAssetIssueByAccountMethod;
+      org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueByAccountMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.AssetIssueList> getGetAssetIssueByAccountMethod() {
-    io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account, GrpcAPI.AssetIssueList> getGetAssetIssueByAccountMethod;
+      org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueByAccountMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account, org.tron.api.GrpcAPI.AssetIssueList> getGetAssetIssueByAccountMethod;
     if ((getGetAssetIssueByAccountMethod = WalletSolidityGrpc.getGetAssetIssueByAccountMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetAssetIssueByAccountMethod = WalletSolidityGrpc.getGetAssetIssueByAccountMethod) == null) {
           WalletSolidityGrpc.getGetAssetIssueByAccountMethod = getGetAssetIssueByAccountMethod = 
-              io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Account, GrpcAPI.AssetIssueList>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Account, org.tron.api.GrpcAPI.AssetIssueList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetAssetIssueByAccount"))
@@ -211,7 +211,7 @@ public final class WalletSolidityGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.Account.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.AssetIssueList.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.AssetIssueList.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetAssetIssueByAccount"))
                   .build();
           }
@@ -220,28 +220,28 @@ public final class WalletSolidityGrpc {
      return getGetAssetIssueByAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetAssetIssueByNameMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.BytesMessage,
+  @java.lang.Deprecated // Use {@link #getGetAssetIssueByNameMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
       org.tron.protos.Contract.AssetIssueContract> METHOD_GET_ASSET_ISSUE_BY_NAME = getGetAssetIssueByNameMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.BytesMessage,
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
       org.tron.protos.Contract.AssetIssueContract> getGetAssetIssueByNameMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.BytesMessage,
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
       org.tron.protos.Contract.AssetIssueContract> getGetAssetIssueByNameMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.BytesMessage, org.tron.protos.Contract.AssetIssueContract> getGetAssetIssueByNameMethod;
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Contract.AssetIssueContract> getGetAssetIssueByNameMethod;
     if ((getGetAssetIssueByNameMethod = WalletSolidityGrpc.getGetAssetIssueByNameMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetAssetIssueByNameMethod = WalletSolidityGrpc.getGetAssetIssueByNameMethod) == null) {
           WalletSolidityGrpc.getGetAssetIssueByNameMethod = getGetAssetIssueByNameMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.BytesMessage, org.tron.protos.Contract.AssetIssueContract>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Contract.AssetIssueContract>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetAssetIssueByName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.BytesMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.BytesMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Contract.AssetIssueContract.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetAssetIssueByName"))
@@ -252,28 +252,28 @@ public final class WalletSolidityGrpc {
      return getGetAssetIssueByNameMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetNowBlockMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
+  @java.lang.Deprecated // Use {@link #getGetNowBlockMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.Block> METHOD_GET_NOW_BLOCK = getGetNowBlockMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.Block> getGetNowBlockMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.Block> getGetNowBlockMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block> getGetNowBlockMethod;
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block> getGetNowBlockMethod;
     if ((getGetNowBlockMethod = WalletSolidityGrpc.getGetNowBlockMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetNowBlockMethod = WalletSolidityGrpc.getGetNowBlockMethod) == null) {
           WalletSolidityGrpc.getGetNowBlockMethod = getGetNowBlockMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetNowBlock"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.EmptyMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.Block.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetNowBlock"))
@@ -284,28 +284,28 @@ public final class WalletSolidityGrpc {
      return getGetNowBlockMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetBlockByNumMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
+  @java.lang.Deprecated // Use {@link #getGetBlockByNumMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
       org.tron.protos.Protocol.Block> METHOD_GET_BLOCK_BY_NUM = getGetBlockByNumMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
       org.tron.protos.Protocol.Block> getGetBlockByNumMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
       org.tron.protos.Protocol.Block> getGetBlockByNumMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block> getGetBlockByNumMethod;
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block> getGetBlockByNumMethod;
     if ((getGetBlockByNumMethod = WalletSolidityGrpc.getGetBlockByNumMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetBlockByNumMethod = WalletSolidityGrpc.getGetBlockByNumMethod) == null) {
           WalletSolidityGrpc.getGetBlockByNumMethod = getGetBlockByNumMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetBlockByNum"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.NumberMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.NumberMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.Block.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetBlockByNum"))
@@ -316,30 +316,30 @@ public final class WalletSolidityGrpc {
      return getGetBlockByNumMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getTotalTransactionMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.NumberMessage> METHOD_TOTAL_TRANSACTION = getTotalTransactionMethod();
+  @java.lang.Deprecated // Use {@link #getTotalTransactionMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.NumberMessage> METHOD_TOTAL_TRANSACTION = getTotalTransactionMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.NumberMessage> getTotalTransactionMethod;
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.NumberMessage> getTotalTransactionMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
-      GrpcAPI.NumberMessage> getTotalTransactionMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage, GrpcAPI.NumberMessage> getTotalTransactionMethod;
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.NumberMessage> getTotalTransactionMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.NumberMessage> getTotalTransactionMethod;
     if ((getTotalTransactionMethod = WalletSolidityGrpc.getTotalTransactionMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getTotalTransactionMethod = WalletSolidityGrpc.getTotalTransactionMethod) == null) {
           WalletSolidityGrpc.getTotalTransactionMethod = getTotalTransactionMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.EmptyMessage, GrpcAPI.NumberMessage>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.NumberMessage>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "TotalTransaction"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.EmptyMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.NumberMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.NumberMessage.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("TotalTransaction"))
                   .build();
           }
@@ -348,28 +348,28 @@ public final class WalletSolidityGrpc {
      return getTotalTransactionMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetTransactionByIdMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.BytesMessage,
+  @java.lang.Deprecated // Use {@link #getGetTransactionByIdMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
       org.tron.protos.Protocol.Transaction> METHOD_GET_TRANSACTION_BY_ID = getGetTransactionByIdMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.BytesMessage,
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
       org.tron.protos.Protocol.Transaction> getGetTransactionByIdMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.BytesMessage,
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
       org.tron.protos.Protocol.Transaction> getGetTransactionByIdMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.BytesMessage, org.tron.protos.Protocol.Transaction> getGetTransactionByIdMethod;
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Protocol.Transaction> getGetTransactionByIdMethod;
     if ((getGetTransactionByIdMethod = WalletSolidityGrpc.getGetTransactionByIdMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetTransactionByIdMethod = WalletSolidityGrpc.getGetTransactionByIdMethod) == null) {
           WalletSolidityGrpc.getGetTransactionByIdMethod = getGetTransactionByIdMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.BytesMessage, org.tron.protos.Protocol.Transaction>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Protocol.Transaction>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetTransactionById"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.BytesMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.BytesMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.Transaction.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetTransactionById"))
@@ -380,30 +380,30 @@ public final class WalletSolidityGrpc {
      return getGetTransactionByIdMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetTransactionsByTimestampMethod()} instead.
-  public static final io.grpc.MethodDescriptor<GrpcAPI.TimeMessage,
-      GrpcAPI.TransactionList> METHOD_GET_TRANSACTIONS_BY_TIMESTAMP = getGetTransactionsByTimestampMethod();
+  @java.lang.Deprecated // Use {@link #getGetTransactionsByTimestampMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.TimeMessage,
+      org.tron.api.GrpcAPI.TransactionList> METHOD_GET_TRANSACTIONS_BY_TIMESTAMP = getGetTransactionsByTimestampMethod();
 
-  private static volatile io.grpc.MethodDescriptor<GrpcAPI.TimeMessage,
-      GrpcAPI.TransactionList> getGetTransactionsByTimestampMethod;
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.TimeMessage,
+      org.tron.api.GrpcAPI.TransactionList> getGetTransactionsByTimestampMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<GrpcAPI.TimeMessage,
-      GrpcAPI.TransactionList> getGetTransactionsByTimestampMethod() {
-    io.grpc.MethodDescriptor<GrpcAPI.TimeMessage, GrpcAPI.TransactionList> getGetTransactionsByTimestampMethod;
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.TimeMessage,
+      org.tron.api.GrpcAPI.TransactionList> getGetTransactionsByTimestampMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.TimeMessage, org.tron.api.GrpcAPI.TransactionList> getGetTransactionsByTimestampMethod;
     if ((getGetTransactionsByTimestampMethod = WalletSolidityGrpc.getGetTransactionsByTimestampMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetTransactionsByTimestampMethod = WalletSolidityGrpc.getGetTransactionsByTimestampMethod) == null) {
           WalletSolidityGrpc.getGetTransactionsByTimestampMethod = getGetTransactionsByTimestampMethod = 
-              io.grpc.MethodDescriptor.<GrpcAPI.TimeMessage, GrpcAPI.TransactionList>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.TimeMessage, org.tron.api.GrpcAPI.TransactionList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetTransactionsByTimestamp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.TimeMessage.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.TimeMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.TransactionList.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.TransactionList.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetTransactionsByTimestamp"))
                   .build();
           }
@@ -412,22 +412,22 @@ public final class WalletSolidityGrpc {
      return getGetTransactionsByTimestampMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetTransactionsFromThisMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetTransactionsFromThisMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.TransactionList> METHOD_GET_TRANSACTIONS_FROM_THIS = getGetTransactionsFromThisMethod();
+      org.tron.api.GrpcAPI.TransactionList> METHOD_GET_TRANSACTIONS_FROM_THIS = getGetTransactionsFromThisMethod();
 
   private static volatile io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.TransactionList> getGetTransactionsFromThisMethod;
+      org.tron.api.GrpcAPI.TransactionList> getGetTransactionsFromThisMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.TransactionList> getGetTransactionsFromThisMethod() {
-    io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account, GrpcAPI.TransactionList> getGetTransactionsFromThisMethod;
+      org.tron.api.GrpcAPI.TransactionList> getGetTransactionsFromThisMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account, org.tron.api.GrpcAPI.TransactionList> getGetTransactionsFromThisMethod;
     if ((getGetTransactionsFromThisMethod = WalletSolidityGrpc.getGetTransactionsFromThisMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetTransactionsFromThisMethod = WalletSolidityGrpc.getGetTransactionsFromThisMethod) == null) {
           WalletSolidityGrpc.getGetTransactionsFromThisMethod = getGetTransactionsFromThisMethod = 
-              io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Account, GrpcAPI.TransactionList>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Account, org.tron.api.GrpcAPI.TransactionList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetTransactionsFromThis"))
@@ -435,7 +435,7 @@ public final class WalletSolidityGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.Account.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.TransactionList.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.TransactionList.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetTransactionsFromThis"))
                   .build();
           }
@@ -444,22 +444,22 @@ public final class WalletSolidityGrpc {
      return getGetTransactionsFromThisMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @Deprecated // Use {@link #getGetTransactionsToThisMethod()} instead.
+  @java.lang.Deprecated // Use {@link #getGetTransactionsToThisMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.TransactionList> METHOD_GET_TRANSACTIONS_TO_THIS = getGetTransactionsToThisMethod();
+      org.tron.api.GrpcAPI.TransactionList> METHOD_GET_TRANSACTIONS_TO_THIS = getGetTransactionsToThisMethod();
 
   private static volatile io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.TransactionList> getGetTransactionsToThisMethod;
+      org.tron.api.GrpcAPI.TransactionList> getGetTransactionsToThisMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account,
-      GrpcAPI.TransactionList> getGetTransactionsToThisMethod() {
-    io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account, GrpcAPI.TransactionList> getGetTransactionsToThisMethod;
+      org.tron.api.GrpcAPI.TransactionList> getGetTransactionsToThisMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Protocol.Account, org.tron.api.GrpcAPI.TransactionList> getGetTransactionsToThisMethod;
     if ((getGetTransactionsToThisMethod = WalletSolidityGrpc.getGetTransactionsToThisMethod) == null) {
       synchronized (WalletSolidityGrpc.class) {
         if ((getGetTransactionsToThisMethod = WalletSolidityGrpc.getGetTransactionsToThisMethod) == null) {
           WalletSolidityGrpc.getGetTransactionsToThisMethod = getGetTransactionsToThisMethod = 
-              io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Account, GrpcAPI.TransactionList>newBuilder()
+              io.grpc.MethodDescriptor.<org.tron.protos.Protocol.Account, org.tron.api.GrpcAPI.TransactionList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.WalletSolidity", "GetTransactionsToThis"))
@@ -467,7 +467,7 @@ public final class WalletSolidityGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.Account.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcAPI.TransactionList.getDefaultInstance()))
+                  org.tron.api.GrpcAPI.TransactionList.getDefaultInstance()))
                   .setSchemaDescriptor(new WalletSolidityMethodDescriptorSupplier("GetTransactionsToThis"))
                   .build();
           }
@@ -512,56 +512,56 @@ public final class WalletSolidityGrpc {
 
     /**
      */
-    public void listAccounts(GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.AccountList> responseObserver) {
+    public void listAccounts(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AccountList> responseObserver) {
       asyncUnimplementedUnaryCall(getListAccountsMethod(), responseObserver);
     }
 
     /**
      */
-    public void listWitnesses(GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.WitnessList> responseObserver) {
+    public void listWitnesses(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.WitnessList> responseObserver) {
       asyncUnimplementedUnaryCall(getListWitnessesMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAssetIssueList(GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList> responseObserver) {
+    public void getAssetIssueList(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList> responseObserver) {
       asyncUnimplementedUnaryCall(getGetAssetIssueListMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAssetIssueListByTimestamp(GrpcAPI.NumberMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList> responseObserver) {
+    public void getAssetIssueListByTimestamp(org.tron.api.GrpcAPI.NumberMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList> responseObserver) {
       asyncUnimplementedUnaryCall(getGetAssetIssueListByTimestampMethod(), responseObserver);
     }
 
     /**
      */
     public void getAssetIssueByAccount(org.tron.protos.Protocol.Account request,
-        io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList> responseObserver) {
       asyncUnimplementedUnaryCall(getGetAssetIssueByAccountMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAssetIssueByName(GrpcAPI.BytesMessage request,
+    public void getAssetIssueByName(org.tron.api.GrpcAPI.BytesMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Contract.AssetIssueContract> responseObserver) {
       asyncUnimplementedUnaryCall(getGetAssetIssueByNameMethod(), responseObserver);
     }
 
     /**
      */
-    public void getNowBlock(GrpcAPI.EmptyMessage request,
+    public void getNowBlock(org.tron.api.GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block> responseObserver) {
       asyncUnimplementedUnaryCall(getGetNowBlockMethod(), responseObserver);
     }
 
     /**
      */
-    public void getBlockByNum(GrpcAPI.NumberMessage request,
+    public void getBlockByNum(org.tron.api.GrpcAPI.NumberMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block> responseObserver) {
       asyncUnimplementedUnaryCall(getGetBlockByNumMethod(), responseObserver);
     }
@@ -571,40 +571,40 @@ public final class WalletSolidityGrpc {
      *get transaction
      * </pre>
      */
-    public void totalTransaction(GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.NumberMessage> responseObserver) {
+    public void totalTransaction(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.NumberMessage> responseObserver) {
       asyncUnimplementedUnaryCall(getTotalTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void getTransactionById(GrpcAPI.BytesMessage request,
+    public void getTransactionById(org.tron.api.GrpcAPI.BytesMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
       asyncUnimplementedUnaryCall(getGetTransactionByIdMethod(), responseObserver);
     }
 
     /**
      */
-    public void getTransactionsByTimestamp(GrpcAPI.TimeMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.TransactionList> responseObserver) {
+    public void getTransactionsByTimestamp(org.tron.api.GrpcAPI.TimeMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList> responseObserver) {
       asyncUnimplementedUnaryCall(getGetTransactionsByTimestampMethod(), responseObserver);
     }
 
     /**
      */
     public void getTransactionsFromThis(org.tron.protos.Protocol.Account request,
-        io.grpc.stub.StreamObserver<GrpcAPI.TransactionList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList> responseObserver) {
       asyncUnimplementedUnaryCall(getGetTransactionsFromThisMethod(), responseObserver);
     }
 
     /**
      */
     public void getTransactionsToThis(org.tron.protos.Protocol.Account request,
-        io.grpc.stub.StreamObserver<GrpcAPI.TransactionList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList> responseObserver) {
       asyncUnimplementedUnaryCall(getGetTransactionsToThisMethod(), responseObserver);
     }
 
-    @Override public final io.grpc.ServerServiceDefinition bindService() {
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getGetAccountMethod(),
@@ -617,92 +617,92 @@ public final class WalletSolidityGrpc {
             getListAccountsMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.EmptyMessage,
-                GrpcAPI.AccountList>(
+                org.tron.api.GrpcAPI.EmptyMessage,
+                org.tron.api.GrpcAPI.AccountList>(
                   this, METHODID_LIST_ACCOUNTS)))
           .addMethod(
             getListWitnessesMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.EmptyMessage,
-                GrpcAPI.WitnessList>(
+                org.tron.api.GrpcAPI.EmptyMessage,
+                org.tron.api.GrpcAPI.WitnessList>(
                   this, METHODID_LIST_WITNESSES)))
           .addMethod(
             getGetAssetIssueListMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.EmptyMessage,
-                GrpcAPI.AssetIssueList>(
+                org.tron.api.GrpcAPI.EmptyMessage,
+                org.tron.api.GrpcAPI.AssetIssueList>(
                   this, METHODID_GET_ASSET_ISSUE_LIST)))
           .addMethod(
             getGetAssetIssueListByTimestampMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.NumberMessage,
-                GrpcAPI.AssetIssueList>(
+                org.tron.api.GrpcAPI.NumberMessage,
+                org.tron.api.GrpcAPI.AssetIssueList>(
                   this, METHODID_GET_ASSET_ISSUE_LIST_BY_TIMESTAMP)))
           .addMethod(
             getGetAssetIssueByAccountMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.tron.protos.Protocol.Account,
-                GrpcAPI.AssetIssueList>(
+                org.tron.api.GrpcAPI.AssetIssueList>(
                   this, METHODID_GET_ASSET_ISSUE_BY_ACCOUNT)))
           .addMethod(
             getGetAssetIssueByNameMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.BytesMessage,
+                org.tron.api.GrpcAPI.BytesMessage,
                 org.tron.protos.Contract.AssetIssueContract>(
                   this, METHODID_GET_ASSET_ISSUE_BY_NAME)))
           .addMethod(
             getGetNowBlockMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.EmptyMessage,
+                org.tron.api.GrpcAPI.EmptyMessage,
                 org.tron.protos.Protocol.Block>(
                   this, METHODID_GET_NOW_BLOCK)))
           .addMethod(
             getGetBlockByNumMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.NumberMessage,
+                org.tron.api.GrpcAPI.NumberMessage,
                 org.tron.protos.Protocol.Block>(
                   this, METHODID_GET_BLOCK_BY_NUM)))
           .addMethod(
             getTotalTransactionMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.EmptyMessage,
-                GrpcAPI.NumberMessage>(
+                org.tron.api.GrpcAPI.EmptyMessage,
+                org.tron.api.GrpcAPI.NumberMessage>(
                   this, METHODID_TOTAL_TRANSACTION)))
           .addMethod(
             getGetTransactionByIdMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.BytesMessage,
+                org.tron.api.GrpcAPI.BytesMessage,
                 org.tron.protos.Protocol.Transaction>(
                   this, METHODID_GET_TRANSACTION_BY_ID)))
           .addMethod(
             getGetTransactionsByTimestampMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                GrpcAPI.TimeMessage,
-                GrpcAPI.TransactionList>(
+                org.tron.api.GrpcAPI.TimeMessage,
+                org.tron.api.GrpcAPI.TransactionList>(
                   this, METHODID_GET_TRANSACTIONS_BY_TIMESTAMP)))
           .addMethod(
             getGetTransactionsFromThisMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.tron.protos.Protocol.Account,
-                GrpcAPI.TransactionList>(
+                org.tron.api.GrpcAPI.TransactionList>(
                   this, METHODID_GET_TRANSACTIONS_FROM_THIS)))
           .addMethod(
             getGetTransactionsToThisMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.tron.protos.Protocol.Account,
-                GrpcAPI.TransactionList>(
+                org.tron.api.GrpcAPI.TransactionList>(
                   this, METHODID_GET_TRANSACTIONS_TO_THIS)))
           .build();
     }
@@ -720,7 +720,7 @@ public final class WalletSolidityGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected WalletSolidityStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new WalletSolidityStub(channel, callOptions);
@@ -736,32 +736,32 @@ public final class WalletSolidityGrpc {
 
     /**
      */
-    public void listAccounts(GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.AccountList> responseObserver) {
+    public void listAccounts(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AccountList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getListAccountsMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void listWitnesses(GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.WitnessList> responseObserver) {
+    public void listWitnesses(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.WitnessList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getListWitnessesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getAssetIssueList(GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList> responseObserver) {
+    public void getAssetIssueList(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetAssetIssueListMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getAssetIssueListByTimestamp(GrpcAPI.NumberMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList> responseObserver) {
+    public void getAssetIssueListByTimestamp(org.tron.api.GrpcAPI.NumberMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetAssetIssueListByTimestampMethod(), getCallOptions()), request, responseObserver);
     }
@@ -769,14 +769,14 @@ public final class WalletSolidityGrpc {
     /**
      */
     public void getAssetIssueByAccount(org.tron.protos.Protocol.Account request,
-        io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetAssetIssueByAccountMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getAssetIssueByName(GrpcAPI.BytesMessage request,
+    public void getAssetIssueByName(org.tron.api.GrpcAPI.BytesMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Contract.AssetIssueContract> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetAssetIssueByNameMethod(), getCallOptions()), request, responseObserver);
@@ -784,7 +784,7 @@ public final class WalletSolidityGrpc {
 
     /**
      */
-    public void getNowBlock(GrpcAPI.EmptyMessage request,
+    public void getNowBlock(org.tron.api.GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetNowBlockMethod(), getCallOptions()), request, responseObserver);
@@ -792,7 +792,7 @@ public final class WalletSolidityGrpc {
 
     /**
      */
-    public void getBlockByNum(GrpcAPI.NumberMessage request,
+    public void getBlockByNum(org.tron.api.GrpcAPI.NumberMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetBlockByNumMethod(), getCallOptions()), request, responseObserver);
@@ -803,15 +803,15 @@ public final class WalletSolidityGrpc {
      *get transaction
      * </pre>
      */
-    public void totalTransaction(GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.NumberMessage> responseObserver) {
+    public void totalTransaction(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.NumberMessage> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getTotalTransactionMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getTransactionById(GrpcAPI.BytesMessage request,
+    public void getTransactionById(org.tron.api.GrpcAPI.BytesMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetTransactionByIdMethod(), getCallOptions()), request, responseObserver);
@@ -819,8 +819,8 @@ public final class WalletSolidityGrpc {
 
     /**
      */
-    public void getTransactionsByTimestamp(GrpcAPI.TimeMessage request,
-        io.grpc.stub.StreamObserver<GrpcAPI.TransactionList> responseObserver) {
+    public void getTransactionsByTimestamp(org.tron.api.GrpcAPI.TimeMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetTransactionsByTimestampMethod(), getCallOptions()), request, responseObserver);
     }
@@ -828,7 +828,7 @@ public final class WalletSolidityGrpc {
     /**
      */
     public void getTransactionsFromThis(org.tron.protos.Protocol.Account request,
-        io.grpc.stub.StreamObserver<GrpcAPI.TransactionList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetTransactionsFromThisMethod(), getCallOptions()), request, responseObserver);
     }
@@ -836,7 +836,7 @@ public final class WalletSolidityGrpc {
     /**
      */
     public void getTransactionsToThis(org.tron.protos.Protocol.Account request,
-        io.grpc.stub.StreamObserver<GrpcAPI.TransactionList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetTransactionsToThisMethod(), getCallOptions()), request, responseObserver);
     }
@@ -854,7 +854,7 @@ public final class WalletSolidityGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected WalletSolidityBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new WalletSolidityBlockingStub(channel, callOptions);
@@ -869,56 +869,56 @@ public final class WalletSolidityGrpc {
 
     /**
      */
-    public GrpcAPI.AccountList listAccounts(GrpcAPI.EmptyMessage request) {
+    public org.tron.api.GrpcAPI.AccountList listAccounts(org.tron.api.GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getListAccountsMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public GrpcAPI.WitnessList listWitnesses(GrpcAPI.EmptyMessage request) {
+    public org.tron.api.GrpcAPI.WitnessList listWitnesses(org.tron.api.GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getListWitnessesMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public GrpcAPI.AssetIssueList getAssetIssueList(GrpcAPI.EmptyMessage request) {
+    public org.tron.api.GrpcAPI.AssetIssueList getAssetIssueList(org.tron.api.GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetAssetIssueListMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public GrpcAPI.AssetIssueList getAssetIssueListByTimestamp(GrpcAPI.NumberMessage request) {
+    public org.tron.api.GrpcAPI.AssetIssueList getAssetIssueListByTimestamp(org.tron.api.GrpcAPI.NumberMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetAssetIssueListByTimestampMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public GrpcAPI.AssetIssueList getAssetIssueByAccount(org.tron.protos.Protocol.Account request) {
+    public org.tron.api.GrpcAPI.AssetIssueList getAssetIssueByAccount(org.tron.protos.Protocol.Account request) {
       return blockingUnaryCall(
           getChannel(), getGetAssetIssueByAccountMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.tron.protos.Contract.AssetIssueContract getAssetIssueByName(GrpcAPI.BytesMessage request) {
+    public org.tron.protos.Contract.AssetIssueContract getAssetIssueByName(org.tron.api.GrpcAPI.BytesMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetAssetIssueByNameMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.tron.protos.Protocol.Block getNowBlock(GrpcAPI.EmptyMessage request) {
+    public org.tron.protos.Protocol.Block getNowBlock(org.tron.api.GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetNowBlockMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.tron.protos.Protocol.Block getBlockByNum(GrpcAPI.NumberMessage request) {
+    public org.tron.protos.Protocol.Block getBlockByNum(org.tron.api.GrpcAPI.NumberMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetBlockByNumMethod(), getCallOptions(), request);
     }
@@ -928,35 +928,35 @@ public final class WalletSolidityGrpc {
      *get transaction
      * </pre>
      */
-    public GrpcAPI.NumberMessage totalTransaction(GrpcAPI.EmptyMessage request) {
+    public org.tron.api.GrpcAPI.NumberMessage totalTransaction(org.tron.api.GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getTotalTransactionMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.tron.protos.Protocol.Transaction getTransactionById(GrpcAPI.BytesMessage request) {
+    public org.tron.protos.Protocol.Transaction getTransactionById(org.tron.api.GrpcAPI.BytesMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetTransactionByIdMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public GrpcAPI.TransactionList getTransactionsByTimestamp(GrpcAPI.TimeMessage request) {
+    public org.tron.api.GrpcAPI.TransactionList getTransactionsByTimestamp(org.tron.api.GrpcAPI.TimeMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetTransactionsByTimestampMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public GrpcAPI.TransactionList getTransactionsFromThis(org.tron.protos.Protocol.Account request) {
+    public org.tron.api.GrpcAPI.TransactionList getTransactionsFromThis(org.tron.protos.Protocol.Account request) {
       return blockingUnaryCall(
           getChannel(), getGetTransactionsFromThisMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public GrpcAPI.TransactionList getTransactionsToThis(org.tron.protos.Protocol.Account request) {
+    public org.tron.api.GrpcAPI.TransactionList getTransactionsToThis(org.tron.protos.Protocol.Account request) {
       return blockingUnaryCall(
           getChannel(), getGetTransactionsToThisMethod(), getCallOptions(), request);
     }
@@ -974,7 +974,7 @@ public final class WalletSolidityGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected WalletSolidityFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new WalletSolidityFutureStub(channel, callOptions);
@@ -990,39 +990,39 @@ public final class WalletSolidityGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.AccountList> listAccounts(
-        GrpcAPI.EmptyMessage request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.AccountList> listAccounts(
+        org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getListAccountsMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.WitnessList> listWitnesses(
-        GrpcAPI.EmptyMessage request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.WitnessList> listWitnesses(
+        org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getListWitnessesMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.AssetIssueList> getAssetIssueList(
-        GrpcAPI.EmptyMessage request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.AssetIssueList> getAssetIssueList(
+        org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetAssetIssueListMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.AssetIssueList> getAssetIssueListByTimestamp(
-        GrpcAPI.NumberMessage request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.AssetIssueList> getAssetIssueListByTimestamp(
+        org.tron.api.GrpcAPI.NumberMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetAssetIssueListByTimestampMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.AssetIssueList> getAssetIssueByAccount(
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.AssetIssueList> getAssetIssueByAccount(
         org.tron.protos.Protocol.Account request) {
       return futureUnaryCall(
           getChannel().newCall(getGetAssetIssueByAccountMethod(), getCallOptions()), request);
@@ -1031,7 +1031,7 @@ public final class WalletSolidityGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Contract.AssetIssueContract> getAssetIssueByName(
-        GrpcAPI.BytesMessage request) {
+        org.tron.api.GrpcAPI.BytesMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetAssetIssueByNameMethod(), getCallOptions()), request);
     }
@@ -1039,7 +1039,7 @@ public final class WalletSolidityGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Block> getNowBlock(
-        GrpcAPI.EmptyMessage request) {
+        org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetNowBlockMethod(), getCallOptions()), request);
     }
@@ -1047,7 +1047,7 @@ public final class WalletSolidityGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Block> getBlockByNum(
-        GrpcAPI.NumberMessage request) {
+        org.tron.api.GrpcAPI.NumberMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetBlockByNumMethod(), getCallOptions()), request);
     }
@@ -1057,8 +1057,8 @@ public final class WalletSolidityGrpc {
      *get transaction
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.NumberMessage> totalTransaction(
-        GrpcAPI.EmptyMessage request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.NumberMessage> totalTransaction(
+        org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getTotalTransactionMethod(), getCallOptions()), request);
     }
@@ -1066,22 +1066,22 @@ public final class WalletSolidityGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Transaction> getTransactionById(
-        GrpcAPI.BytesMessage request) {
+        org.tron.api.GrpcAPI.BytesMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetTransactionByIdMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.TransactionList> getTransactionsByTimestamp(
-        GrpcAPI.TimeMessage request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionList> getTransactionsByTimestamp(
+        org.tron.api.GrpcAPI.TimeMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetTransactionsByTimestampMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.TransactionList> getTransactionsFromThis(
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionList> getTransactionsFromThis(
         org.tron.protos.Protocol.Account request) {
       return futureUnaryCall(
           getChannel().newCall(getGetTransactionsFromThisMethod(), getCallOptions()), request);
@@ -1089,7 +1089,7 @@ public final class WalletSolidityGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.TransactionList> getTransactionsToThis(
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionList> getTransactionsToThis(
         org.tron.protos.Protocol.Account request) {
       return futureUnaryCall(
           getChannel().newCall(getGetTransactionsToThisMethod(), getCallOptions()), request);
@@ -1124,8 +1124,8 @@ public final class WalletSolidityGrpc {
       this.methodId = methodId;
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_ACCOUNT:
@@ -1133,64 +1133,64 @@ public final class WalletSolidityGrpc {
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Account>) responseObserver);
           break;
         case METHODID_LIST_ACCOUNTS:
-          serviceImpl.listAccounts((GrpcAPI.EmptyMessage) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.AccountList>) responseObserver);
+          serviceImpl.listAccounts((org.tron.api.GrpcAPI.EmptyMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AccountList>) responseObserver);
           break;
         case METHODID_LIST_WITNESSES:
-          serviceImpl.listWitnesses((GrpcAPI.EmptyMessage) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.WitnessList>) responseObserver);
+          serviceImpl.listWitnesses((org.tron.api.GrpcAPI.EmptyMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.WitnessList>) responseObserver);
           break;
         case METHODID_GET_ASSET_ISSUE_LIST:
-          serviceImpl.getAssetIssueList((GrpcAPI.EmptyMessage) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList>) responseObserver);
+          serviceImpl.getAssetIssueList((org.tron.api.GrpcAPI.EmptyMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList>) responseObserver);
           break;
         case METHODID_GET_ASSET_ISSUE_LIST_BY_TIMESTAMP:
-          serviceImpl.getAssetIssueListByTimestamp((GrpcAPI.NumberMessage) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList>) responseObserver);
+          serviceImpl.getAssetIssueListByTimestamp((org.tron.api.GrpcAPI.NumberMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList>) responseObserver);
           break;
         case METHODID_GET_ASSET_ISSUE_BY_ACCOUNT:
           serviceImpl.getAssetIssueByAccount((org.tron.protos.Protocol.Account) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.AssetIssueList>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.AssetIssueList>) responseObserver);
           break;
         case METHODID_GET_ASSET_ISSUE_BY_NAME:
-          serviceImpl.getAssetIssueByName((GrpcAPI.BytesMessage) request,
+          serviceImpl.getAssetIssueByName((org.tron.api.GrpcAPI.BytesMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Contract.AssetIssueContract>) responseObserver);
           break;
         case METHODID_GET_NOW_BLOCK:
-          serviceImpl.getNowBlock((GrpcAPI.EmptyMessage) request,
+          serviceImpl.getNowBlock((org.tron.api.GrpcAPI.EmptyMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block>) responseObserver);
           break;
         case METHODID_GET_BLOCK_BY_NUM:
-          serviceImpl.getBlockByNum((GrpcAPI.NumberMessage) request,
+          serviceImpl.getBlockByNum((org.tron.api.GrpcAPI.NumberMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block>) responseObserver);
           break;
         case METHODID_TOTAL_TRANSACTION:
-          serviceImpl.totalTransaction((GrpcAPI.EmptyMessage) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.NumberMessage>) responseObserver);
+          serviceImpl.totalTransaction((org.tron.api.GrpcAPI.EmptyMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.NumberMessage>) responseObserver);
           break;
         case METHODID_GET_TRANSACTION_BY_ID:
-          serviceImpl.getTransactionById((GrpcAPI.BytesMessage) request,
+          serviceImpl.getTransactionById((org.tron.api.GrpcAPI.BytesMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction>) responseObserver);
           break;
         case METHODID_GET_TRANSACTIONS_BY_TIMESTAMP:
-          serviceImpl.getTransactionsByTimestamp((GrpcAPI.TimeMessage) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.TransactionList>) responseObserver);
+          serviceImpl.getTransactionsByTimestamp((org.tron.api.GrpcAPI.TimeMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList>) responseObserver);
           break;
         case METHODID_GET_TRANSACTIONS_FROM_THIS:
           serviceImpl.getTransactionsFromThis((org.tron.protos.Protocol.Account) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.TransactionList>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList>) responseObserver);
           break;
         case METHODID_GET_TRANSACTIONS_TO_THIS:
           serviceImpl.getTransactionsToThis((org.tron.protos.Protocol.Account) request,
-              (io.grpc.stub.StreamObserver<GrpcAPI.TransactionList>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionList>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -1204,12 +1204,12 @@ public final class WalletSolidityGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     WalletSolidityBaseDescriptorSupplier() {}
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return GrpcAPI.getDescriptor();
+      return org.tron.api.GrpcAPI.getDescriptor();
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("WalletSolidity");
     }
@@ -1229,7 +1229,7 @@ public final class WalletSolidityGrpc {
       this.methodName = methodName;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }
