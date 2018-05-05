@@ -31,30 +31,30 @@ public final class DatabaseGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @java.lang.Deprecated // Use {@link #getGetBlockReferenceMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
-      org.tron.api.GrpcAPI.BlockReference> METHOD_GET_BLOCK_REFERENCE = getGetBlockReferenceMethod();
+  @Deprecated // Use {@link #getGetBlockReferenceMethod()} instead.
+  public static final io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
+      GrpcAPI.BlockReference> METHOD_GET_BLOCK_REFERENCE = getGetBlockReferenceMethod();
 
-  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
-      org.tron.api.GrpcAPI.BlockReference> getGetBlockReferenceMethod;
+  private static volatile io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
+      GrpcAPI.BlockReference> getGetBlockReferenceMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
-      org.tron.api.GrpcAPI.BlockReference> getGetBlockReferenceMethod() {
-    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.BlockReference> getGetBlockReferenceMethod;
+  public static io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
+      GrpcAPI.BlockReference> getGetBlockReferenceMethod() {
+    io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage, GrpcAPI.BlockReference> getGetBlockReferenceMethod;
     if ((getGetBlockReferenceMethod = DatabaseGrpc.getGetBlockReferenceMethod) == null) {
       synchronized (DatabaseGrpc.class) {
         if ((getGetBlockReferenceMethod = DatabaseGrpc.getGetBlockReferenceMethod) == null) {
           DatabaseGrpc.getGetBlockReferenceMethod = getGetBlockReferenceMethod = 
-              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.BlockReference>newBuilder()
+              io.grpc.MethodDescriptor.<GrpcAPI.EmptyMessage, GrpcAPI.BlockReference>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.Database", "getBlockReference"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
+                  GrpcAPI.EmptyMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.tron.api.GrpcAPI.BlockReference.getDefaultInstance()))
+                  GrpcAPI.BlockReference.getDefaultInstance()))
                   .setSchemaDescriptor(new DatabaseMethodDescriptorSupplier("getBlockReference"))
                   .build();
           }
@@ -63,28 +63,28 @@ public final class DatabaseGrpc {
      return getGetBlockReferenceMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @java.lang.Deprecated // Use {@link #getGetDynamicPropertiesMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+  @Deprecated // Use {@link #getGetDynamicPropertiesMethod()} instead.
+  public static final io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.DynamicProperties> METHOD_GET_DYNAMIC_PROPERTIES = getGetDynamicPropertiesMethod();
 
-  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+  private static volatile io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.DynamicProperties> getGetDynamicPropertiesMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+  public static io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.DynamicProperties> getGetDynamicPropertiesMethod() {
-    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.DynamicProperties> getGetDynamicPropertiesMethod;
+    io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage, org.tron.protos.Protocol.DynamicProperties> getGetDynamicPropertiesMethod;
     if ((getGetDynamicPropertiesMethod = DatabaseGrpc.getGetDynamicPropertiesMethod) == null) {
       synchronized (DatabaseGrpc.class) {
         if ((getGetDynamicPropertiesMethod = DatabaseGrpc.getGetDynamicPropertiesMethod) == null) {
           DatabaseGrpc.getGetDynamicPropertiesMethod = getGetDynamicPropertiesMethod = 
-              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.DynamicProperties>newBuilder()
+              io.grpc.MethodDescriptor.<GrpcAPI.EmptyMessage, org.tron.protos.Protocol.DynamicProperties>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.Database", "GetDynamicProperties"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
+                  GrpcAPI.EmptyMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.DynamicProperties.getDefaultInstance()))
                   .setSchemaDescriptor(new DatabaseMethodDescriptorSupplier("GetDynamicProperties"))
@@ -95,28 +95,28 @@ public final class DatabaseGrpc {
      return getGetDynamicPropertiesMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @java.lang.Deprecated // Use {@link #getGetNowBlockMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+  @Deprecated // Use {@link #getGetNowBlockMethod()} instead.
+  public static final io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.Block> METHOD_GET_NOW_BLOCK = getGetNowBlockMethod();
 
-  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+  private static volatile io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.Block> getGetNowBlockMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+  public static io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage,
       org.tron.protos.Protocol.Block> getGetNowBlockMethod() {
-    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block> getGetNowBlockMethod;
+    io.grpc.MethodDescriptor<GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block> getGetNowBlockMethod;
     if ((getGetNowBlockMethod = DatabaseGrpc.getGetNowBlockMethod) == null) {
       synchronized (DatabaseGrpc.class) {
         if ((getGetNowBlockMethod = DatabaseGrpc.getGetNowBlockMethod) == null) {
           DatabaseGrpc.getGetNowBlockMethod = getGetNowBlockMethod = 
-              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block>newBuilder()
+              io.grpc.MethodDescriptor.<GrpcAPI.EmptyMessage, org.tron.protos.Protocol.Block>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.Database", "GetNowBlock"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
+                  GrpcAPI.EmptyMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.Block.getDefaultInstance()))
                   .setSchemaDescriptor(new DatabaseMethodDescriptorSupplier("GetNowBlock"))
@@ -127,28 +127,28 @@ public final class DatabaseGrpc {
      return getGetNowBlockMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @java.lang.Deprecated // Use {@link #getGetBlockByNumMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
+  @Deprecated // Use {@link #getGetBlockByNumMethod()} instead.
+  public static final io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
       org.tron.protos.Protocol.Block> METHOD_GET_BLOCK_BY_NUM = getGetBlockByNumMethod();
 
-  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
+  private static volatile io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
       org.tron.protos.Protocol.Block> getGetBlockByNumMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage,
+  public static io.grpc.MethodDescriptor<GrpcAPI.NumberMessage,
       org.tron.protos.Protocol.Block> getGetBlockByNumMethod() {
-    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block> getGetBlockByNumMethod;
+    io.grpc.MethodDescriptor<GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block> getGetBlockByNumMethod;
     if ((getGetBlockByNumMethod = DatabaseGrpc.getGetBlockByNumMethod) == null) {
       synchronized (DatabaseGrpc.class) {
         if ((getGetBlockByNumMethod = DatabaseGrpc.getGetBlockByNumMethod) == null) {
           DatabaseGrpc.getGetBlockByNumMethod = getGetBlockByNumMethod = 
-              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block>newBuilder()
+              io.grpc.MethodDescriptor.<GrpcAPI.NumberMessage, org.tron.protos.Protocol.Block>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "protocol.Database", "GetBlockByNum"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.tron.api.GrpcAPI.NumberMessage.getDefaultInstance()))
+                  GrpcAPI.NumberMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.protos.Protocol.Block.getDefaultInstance()))
                   .setSchemaDescriptor(new DatabaseMethodDescriptorSupplier("GetBlockByNum"))
@@ -194,60 +194,60 @@ public final class DatabaseGrpc {
      * for tapos
      * </pre>
      */
-    public void getBlockReference(org.tron.api.GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.BlockReference> responseObserver) {
+    public void getBlockReference(GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<GrpcAPI.BlockReference> responseObserver) {
       asyncUnimplementedUnaryCall(getGetBlockReferenceMethod(), responseObserver);
     }
 
     /**
      */
-    public void getDynamicProperties(org.tron.api.GrpcAPI.EmptyMessage request,
+    public void getDynamicProperties(GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.DynamicProperties> responseObserver) {
       asyncUnimplementedUnaryCall(getGetDynamicPropertiesMethod(), responseObserver);
     }
 
     /**
      */
-    public void getNowBlock(org.tron.api.GrpcAPI.EmptyMessage request,
+    public void getNowBlock(GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block> responseObserver) {
       asyncUnimplementedUnaryCall(getGetNowBlockMethod(), responseObserver);
     }
 
     /**
      */
-    public void getBlockByNum(org.tron.api.GrpcAPI.NumberMessage request,
+    public void getBlockByNum(GrpcAPI.NumberMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block> responseObserver) {
       asyncUnimplementedUnaryCall(getGetBlockByNumMethod(), responseObserver);
     }
 
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+    @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getGetBlockReferenceMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.tron.api.GrpcAPI.EmptyMessage,
-                org.tron.api.GrpcAPI.BlockReference>(
+                GrpcAPI.EmptyMessage,
+                GrpcAPI.BlockReference>(
                   this, METHODID_GET_BLOCK_REFERENCE)))
           .addMethod(
             getGetDynamicPropertiesMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.tron.api.GrpcAPI.EmptyMessage,
+                GrpcAPI.EmptyMessage,
                 org.tron.protos.Protocol.DynamicProperties>(
                   this, METHODID_GET_DYNAMIC_PROPERTIES)))
           .addMethod(
             getGetNowBlockMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.tron.api.GrpcAPI.EmptyMessage,
+                GrpcAPI.EmptyMessage,
                 org.tron.protos.Protocol.Block>(
                   this, METHODID_GET_NOW_BLOCK)))
           .addMethod(
             getGetBlockByNumMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.tron.api.GrpcAPI.NumberMessage,
+                GrpcAPI.NumberMessage,
                 org.tron.protos.Protocol.Block>(
                   this, METHODID_GET_BLOCK_BY_NUM)))
           .build();
@@ -269,7 +269,7 @@ public final class DatabaseGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected DatabaseStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new DatabaseStub(channel, callOptions);
@@ -280,15 +280,15 @@ public final class DatabaseGrpc {
      * for tapos
      * </pre>
      */
-    public void getBlockReference(org.tron.api.GrpcAPI.EmptyMessage request,
-        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.BlockReference> responseObserver) {
+    public void getBlockReference(GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<GrpcAPI.BlockReference> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetBlockReferenceMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getDynamicProperties(org.tron.api.GrpcAPI.EmptyMessage request,
+    public void getDynamicProperties(GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.DynamicProperties> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetDynamicPropertiesMethod(), getCallOptions()), request, responseObserver);
@@ -296,7 +296,7 @@ public final class DatabaseGrpc {
 
     /**
      */
-    public void getNowBlock(org.tron.api.GrpcAPI.EmptyMessage request,
+    public void getNowBlock(GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetNowBlockMethod(), getCallOptions()), request, responseObserver);
@@ -304,7 +304,7 @@ public final class DatabaseGrpc {
 
     /**
      */
-    public void getBlockByNum(org.tron.api.GrpcAPI.NumberMessage request,
+    public void getBlockByNum(GrpcAPI.NumberMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetBlockByNumMethod(), getCallOptions()), request, responseObserver);
@@ -326,7 +326,7 @@ public final class DatabaseGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected DatabaseBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new DatabaseBlockingStub(channel, callOptions);
@@ -337,28 +337,28 @@ public final class DatabaseGrpc {
      * for tapos
      * </pre>
      */
-    public org.tron.api.GrpcAPI.BlockReference getBlockReference(org.tron.api.GrpcAPI.EmptyMessage request) {
+    public GrpcAPI.BlockReference getBlockReference(GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetBlockReferenceMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.tron.protos.Protocol.DynamicProperties getDynamicProperties(org.tron.api.GrpcAPI.EmptyMessage request) {
+    public org.tron.protos.Protocol.DynamicProperties getDynamicProperties(GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetDynamicPropertiesMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.tron.protos.Protocol.Block getNowBlock(org.tron.api.GrpcAPI.EmptyMessage request) {
+    public org.tron.protos.Protocol.Block getNowBlock(GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetNowBlockMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.tron.protos.Protocol.Block getBlockByNum(org.tron.api.GrpcAPI.NumberMessage request) {
+    public org.tron.protos.Protocol.Block getBlockByNum(GrpcAPI.NumberMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetBlockByNumMethod(), getCallOptions(), request);
     }
@@ -379,7 +379,7 @@ public final class DatabaseGrpc {
       super(channel, callOptions);
     }
 
-    @java.lang.Override
+    @Override
     protected DatabaseFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new DatabaseFutureStub(channel, callOptions);
@@ -390,8 +390,8 @@ public final class DatabaseGrpc {
      * for tapos
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.BlockReference> getBlockReference(
-        org.tron.api.GrpcAPI.EmptyMessage request) {
+    public com.google.common.util.concurrent.ListenableFuture<GrpcAPI.BlockReference> getBlockReference(
+        GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetBlockReferenceMethod(), getCallOptions()), request);
     }
@@ -399,7 +399,7 @@ public final class DatabaseGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.DynamicProperties> getDynamicProperties(
-        org.tron.api.GrpcAPI.EmptyMessage request) {
+        GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetDynamicPropertiesMethod(), getCallOptions()), request);
     }
@@ -407,7 +407,7 @@ public final class DatabaseGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Block> getNowBlock(
-        org.tron.api.GrpcAPI.EmptyMessage request) {
+        GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetNowBlockMethod(), getCallOptions()), request);
     }
@@ -415,7 +415,7 @@ public final class DatabaseGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Block> getBlockByNum(
-        org.tron.api.GrpcAPI.NumberMessage request) {
+        GrpcAPI.NumberMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getGetBlockByNumMethod(), getCallOptions()), request);
     }
@@ -439,24 +439,24 @@ public final class DatabaseGrpc {
       this.methodId = methodId;
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_BLOCK_REFERENCE:
-          serviceImpl.getBlockReference((org.tron.api.GrpcAPI.EmptyMessage) request,
-              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.BlockReference>) responseObserver);
+          serviceImpl.getBlockReference((GrpcAPI.EmptyMessage) request,
+              (io.grpc.stub.StreamObserver<GrpcAPI.BlockReference>) responseObserver);
           break;
         case METHODID_GET_DYNAMIC_PROPERTIES:
-          serviceImpl.getDynamicProperties((org.tron.api.GrpcAPI.EmptyMessage) request,
+          serviceImpl.getDynamicProperties((GrpcAPI.EmptyMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.DynamicProperties>) responseObserver);
           break;
         case METHODID_GET_NOW_BLOCK:
-          serviceImpl.getNowBlock((org.tron.api.GrpcAPI.EmptyMessage) request,
+          serviceImpl.getNowBlock((GrpcAPI.EmptyMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block>) responseObserver);
           break;
         case METHODID_GET_BLOCK_BY_NUM:
-          serviceImpl.getBlockByNum((org.tron.api.GrpcAPI.NumberMessage) request,
+          serviceImpl.getBlockByNum((GrpcAPI.NumberMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Block>) responseObserver);
           break;
         default:
@@ -464,8 +464,8 @@ public final class DatabaseGrpc {
       }
     }
 
-    @java.lang.Override
-    @java.lang.SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -479,12 +479,12 @@ public final class DatabaseGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     DatabaseBaseDescriptorSupplier() {}
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return org.tron.api.GrpcAPI.getDescriptor();
+      return GrpcAPI.getDescriptor();
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("Database");
     }
@@ -504,7 +504,7 @@ public final class DatabaseGrpc {
       this.methodName = methodName;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }

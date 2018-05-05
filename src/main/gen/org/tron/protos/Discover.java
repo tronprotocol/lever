@@ -51,7 +51,7 @@ public final class Discover {
       nodeId_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -62,7 +62,7 @@ public final class Discover {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -111,14 +111,14 @@ public final class Discover {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Discover.internal_static_protocol_Endpoint_descriptor;
+      return Discover.internal_static_protocol_Endpoint_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Discover.internal_static_protocol_Endpoint_fieldAccessorTable
+      return Discover.internal_static_protocol_Endpoint_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Discover.Endpoint.class, org.tron.protos.Discover.Endpoint.Builder.class);
+              Endpoint.class, Builder.class);
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 1;
@@ -194,15 +194,15 @@ public final class Discover {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Discover.Endpoint)) {
+      if (!(obj instanceof Endpoint)) {
         return super.equals(obj);
       }
-      org.tron.protos.Discover.Endpoint other = (org.tron.protos.Discover.Endpoint) obj;
+      Endpoint other = (Endpoint) obj;
 
       boolean result = true;
       result = result && getAddress()
@@ -215,7 +215,7 @@ public final class Discover {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -233,69 +233,69 @@ public final class Discover {
       return hash;
     }
 
-    public static org.tron.protos.Discover.Endpoint parseFrom(
+    public static Endpoint parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(
+    public static Endpoint parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(
+    public static Endpoint parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(
+    public static Endpoint parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(byte[] data)
+    public static Endpoint parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(
+    public static Endpoint parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(java.io.InputStream input)
+    public static Endpoint parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(
+    public static Endpoint parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Endpoint parseDelimitedFrom(java.io.InputStream input)
+    public static Endpoint parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.Endpoint parseDelimitedFrom(
+    public static Endpoint parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(
+    public static Endpoint parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.Endpoint parseFrom(
+    public static Endpoint parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -307,7 +307,7 @@ public final class Discover {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Discover.Endpoint prototype) {
+    public static Builder newBuilder(Endpoint prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -315,9 +315,9 @@ public final class Discover {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -327,17 +327,17 @@ public final class Discover {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.Endpoint)
-        org.tron.protos.Discover.EndpointOrBuilder {
+        EndpointOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Discover.internal_static_protocol_Endpoint_descriptor;
+        return Discover.internal_static_protocol_Endpoint_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Discover.internal_static_protocol_Endpoint_fieldAccessorTable
+        return Discover.internal_static_protocol_Endpoint_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Discover.Endpoint.class, org.tron.protos.Discover.Endpoint.Builder.class);
+                Endpoint.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Discover.Endpoint.newBuilder()
@@ -346,7 +346,7 @@ public final class Discover {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -368,23 +368,23 @@ public final class Discover {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Discover.internal_static_protocol_Endpoint_descriptor;
+        return Discover.internal_static_protocol_Endpoint_descriptor;
       }
 
-      public org.tron.protos.Discover.Endpoint getDefaultInstanceForType() {
-        return org.tron.protos.Discover.Endpoint.getDefaultInstance();
+      public Endpoint getDefaultInstanceForType() {
+        return Endpoint.getDefaultInstance();
       }
 
-      public org.tron.protos.Discover.Endpoint build() {
-        org.tron.protos.Discover.Endpoint result = buildPartial();
+      public Endpoint build() {
+        Endpoint result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Discover.Endpoint buildPartial() {
-        org.tron.protos.Discover.Endpoint result = new org.tron.protos.Discover.Endpoint(this);
+      public Endpoint buildPartial() {
+        Endpoint result = new Endpoint(this);
         result.address_ = address_;
         result.port_ = port_;
         result.nodeId_ = nodeId_;
@@ -397,7 +397,7 @@ public final class Discover {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -410,25 +410,25 @@ public final class Discover {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Discover.Endpoint) {
-          return mergeFrom((org.tron.protos.Discover.Endpoint)other);
+        if (other instanceof Endpoint) {
+          return mergeFrom((Endpoint)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Discover.Endpoint other) {
-        if (other == org.tron.protos.Discover.Endpoint.getDefaultInstance()) return this;
+      public Builder mergeFrom(Endpoint other) {
+        if (other == Endpoint.getDefaultInstance()) return this;
         if (other.getAddress() != com.google.protobuf.ByteString.EMPTY) {
           setAddress(other.getAddress());
         }
@@ -451,11 +451,11 @@ public final class Discover {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Discover.Endpoint parsedMessage = null;
+        Endpoint parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Discover.Endpoint) e.getUnfinishedMessage();
+          parsedMessage = (Endpoint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -563,12 +563,12 @@ public final class Discover {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.Endpoint)
-    private static final org.tron.protos.Discover.Endpoint DEFAULT_INSTANCE;
+    private static final Endpoint DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Discover.Endpoint();
+      DEFAULT_INSTANCE = new Endpoint();
     }
 
-    public static org.tron.protos.Discover.Endpoint getDefaultInstance() {
+    public static Endpoint getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -586,12 +586,12 @@ public final class Discover {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Endpoint> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Discover.Endpoint getDefaultInstanceForType() {
+    public Endpoint getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -608,11 +608,11 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.Endpoint getFrom();
+    Endpoint getFrom();
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder();
+    EndpointOrBuilder getFromOrBuilder();
 
     /**
      * <code>.protocol.Endpoint to = 2;</code>
@@ -621,11 +621,11 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint to = 2;</code>
      */
-    org.tron.protos.Discover.Endpoint getTo();
+    Endpoint getTo();
     /**
      * <code>.protocol.Endpoint to = 2;</code>
      */
-    org.tron.protos.Discover.EndpointOrBuilder getToOrBuilder();
+    EndpointOrBuilder getToOrBuilder();
 
     /**
      * <code>int32 version = 3;</code>
@@ -654,7 +654,7 @@ public final class Discover {
       timestamp_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -665,7 +665,7 @@ public final class Discover {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -686,11 +686,11 @@ public final class Discover {
               break;
             }
             case 10: {
-              org.tron.protos.Discover.Endpoint.Builder subBuilder = null;
+              Endpoint.Builder subBuilder = null;
               if (from_ != null) {
                 subBuilder = from_.toBuilder();
               }
-              from_ = input.readMessage(org.tron.protos.Discover.Endpoint.parser(), extensionRegistry);
+              from_ = input.readMessage(Endpoint.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(from_);
                 from_ = subBuilder.buildPartial();
@@ -699,11 +699,11 @@ public final class Discover {
               break;
             }
             case 18: {
-              org.tron.protos.Discover.Endpoint.Builder subBuilder = null;
+              Endpoint.Builder subBuilder = null;
               if (to_ != null) {
                 subBuilder = to_.toBuilder();
               }
-              to_ = input.readMessage(org.tron.protos.Discover.Endpoint.parser(), extensionRegistry);
+              to_ = input.readMessage(Endpoint.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(to_);
                 to_ = subBuilder.buildPartial();
@@ -735,18 +735,18 @@ public final class Discover {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Discover.internal_static_protocol_PingMessage_descriptor;
+      return Discover.internal_static_protocol_PingMessage_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Discover.internal_static_protocol_PingMessage_fieldAccessorTable
+      return Discover.internal_static_protocol_PingMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Discover.PingMessage.class, org.tron.protos.Discover.PingMessage.Builder.class);
+              PingMessage.class, Builder.class);
     }
 
     public static final int FROM_FIELD_NUMBER = 1;
-    private org.tron.protos.Discover.Endpoint from_;
+    private Endpoint from_;
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
@@ -756,18 +756,18 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.Endpoint getFrom() {
-      return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+    public Endpoint getFrom() {
+      return from_ == null ? Endpoint.getDefaultInstance() : from_;
     }
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+    public EndpointOrBuilder getFromOrBuilder() {
       return getFrom();
     }
 
     public static final int TO_FIELD_NUMBER = 2;
-    private org.tron.protos.Discover.Endpoint to_;
+    private Endpoint to_;
     /**
      * <code>.protocol.Endpoint to = 2;</code>
      */
@@ -777,13 +777,13 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint to = 2;</code>
      */
-    public org.tron.protos.Discover.Endpoint getTo() {
-      return to_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : to_;
+    public Endpoint getTo() {
+      return to_ == null ? Endpoint.getDefaultInstance() : to_;
     }
     /**
      * <code>.protocol.Endpoint to = 2;</code>
      */
-    public org.tron.protos.Discover.EndpointOrBuilder getToOrBuilder() {
+    public EndpointOrBuilder getToOrBuilder() {
       return getTo();
     }
 
@@ -858,15 +858,15 @@ public final class Discover {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Discover.PingMessage)) {
+      if (!(obj instanceof PingMessage)) {
         return super.equals(obj);
       }
-      org.tron.protos.Discover.PingMessage other = (org.tron.protos.Discover.PingMessage) obj;
+      PingMessage other = (PingMessage) obj;
 
       boolean result = true;
       result = result && (hasFrom() == other.hasFrom());
@@ -887,7 +887,7 @@ public final class Discover {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -912,69 +912,69 @@ public final class Discover {
       return hash;
     }
 
-    public static org.tron.protos.Discover.PingMessage parseFrom(
+    public static PingMessage parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(
+    public static PingMessage parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(
+    public static PingMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(
+    public static PingMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(byte[] data)
+    public static PingMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(
+    public static PingMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(java.io.InputStream input)
+    public static PingMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(
+    public static PingMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PingMessage parseDelimitedFrom(java.io.InputStream input)
+    public static PingMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.PingMessage parseDelimitedFrom(
+    public static PingMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(
+    public static PingMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.PingMessage parseFrom(
+    public static PingMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -986,7 +986,7 @@ public final class Discover {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Discover.PingMessage prototype) {
+    public static Builder newBuilder(PingMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -994,9 +994,9 @@ public final class Discover {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1006,17 +1006,17 @@ public final class Discover {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.PingMessage)
-        org.tron.protos.Discover.PingMessageOrBuilder {
+        PingMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Discover.internal_static_protocol_PingMessage_descriptor;
+        return Discover.internal_static_protocol_PingMessage_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Discover.internal_static_protocol_PingMessage_fieldAccessorTable
+        return Discover.internal_static_protocol_PingMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Discover.PingMessage.class, org.tron.protos.Discover.PingMessage.Builder.class);
+                PingMessage.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Discover.PingMessage.newBuilder()
@@ -1025,7 +1025,7 @@ public final class Discover {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1057,23 +1057,23 @@ public final class Discover {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Discover.internal_static_protocol_PingMessage_descriptor;
+        return Discover.internal_static_protocol_PingMessage_descriptor;
       }
 
-      public org.tron.protos.Discover.PingMessage getDefaultInstanceForType() {
-        return org.tron.protos.Discover.PingMessage.getDefaultInstance();
+      public PingMessage getDefaultInstanceForType() {
+        return PingMessage.getDefaultInstance();
       }
 
-      public org.tron.protos.Discover.PingMessage build() {
-        org.tron.protos.Discover.PingMessage result = buildPartial();
+      public PingMessage build() {
+        PingMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Discover.PingMessage buildPartial() {
-        org.tron.protos.Discover.PingMessage result = new org.tron.protos.Discover.PingMessage(this);
+      public PingMessage buildPartial() {
+        PingMessage result = new PingMessage(this);
         if (fromBuilder_ == null) {
           result.from_ = from_;
         } else {
@@ -1095,7 +1095,7 @@ public final class Discover {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -1108,25 +1108,25 @@ public final class Discover {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Discover.PingMessage) {
-          return mergeFrom((org.tron.protos.Discover.PingMessage)other);
+        if (other instanceof PingMessage) {
+          return mergeFrom((PingMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Discover.PingMessage other) {
-        if (other == org.tron.protos.Discover.PingMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(PingMessage other) {
+        if (other == PingMessage.getDefaultInstance()) return this;
         if (other.hasFrom()) {
           mergeFrom(other.getFrom());
         }
@@ -1152,11 +1152,11 @@ public final class Discover {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Discover.PingMessage parsedMessage = null;
+        PingMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Discover.PingMessage) e.getUnfinishedMessage();
+          parsedMessage = (PingMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1166,9 +1166,9 @@ public final class Discover {
         return this;
       }
 
-      private org.tron.protos.Discover.Endpoint from_ = null;
+      private Endpoint from_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> fromBuilder_;
+          Endpoint, Endpoint.Builder, EndpointOrBuilder> fromBuilder_;
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
@@ -1178,9 +1178,9 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint getFrom() {
+      public Endpoint getFrom() {
         if (fromBuilder_ == null) {
-          return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+          return from_ == null ? Endpoint.getDefaultInstance() : from_;
         } else {
           return fromBuilder_.getMessage();
         }
@@ -1188,7 +1188,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder setFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder setFrom(Endpoint value) {
         if (fromBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1205,7 +1205,7 @@ public final class Discover {
        * <code>.protocol.Endpoint from = 1;</code>
        */
       public Builder setFrom(
-          org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          Endpoint.Builder builderForValue) {
         if (fromBuilder_ == null) {
           from_ = builderForValue.build();
           onChanged();
@@ -1218,11 +1218,11 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder mergeFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder mergeFrom(Endpoint value) {
         if (fromBuilder_ == null) {
           if (from_ != null) {
             from_ =
-              org.tron.protos.Discover.Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
+              Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
           } else {
             from_ = value;
           }
@@ -1250,7 +1250,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder getFromBuilder() {
+      public Endpoint.Builder getFromBuilder() {
         
         onChanged();
         return getFromFieldBuilder().getBuilder();
@@ -1258,23 +1258,23 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+      public EndpointOrBuilder getFromOrBuilder() {
         if (fromBuilder_ != null) {
           return fromBuilder_.getMessageOrBuilder();
         } else {
           return from_ == null ?
-              org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+              Endpoint.getDefaultInstance() : from_;
         }
       }
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> 
+          Endpoint, Endpoint.Builder, EndpointOrBuilder>
           getFromFieldBuilder() {
         if (fromBuilder_ == null) {
           fromBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder>(
+              Endpoint, Endpoint.Builder, EndpointOrBuilder>(
                   getFrom(),
                   getParentForChildren(),
                   isClean());
@@ -1283,9 +1283,9 @@ public final class Discover {
         return fromBuilder_;
       }
 
-      private org.tron.protos.Discover.Endpoint to_ = null;
+      private Endpoint to_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> toBuilder_;
+          Endpoint, Endpoint.Builder, EndpointOrBuilder> toBuilder_;
       /**
        * <code>.protocol.Endpoint to = 2;</code>
        */
@@ -1295,9 +1295,9 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint to = 2;</code>
        */
-      public org.tron.protos.Discover.Endpoint getTo() {
+      public Endpoint getTo() {
         if (toBuilder_ == null) {
-          return to_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : to_;
+          return to_ == null ? Endpoint.getDefaultInstance() : to_;
         } else {
           return toBuilder_.getMessage();
         }
@@ -1305,7 +1305,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint to = 2;</code>
        */
-      public Builder setTo(org.tron.protos.Discover.Endpoint value) {
+      public Builder setTo(Endpoint value) {
         if (toBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1322,7 +1322,7 @@ public final class Discover {
        * <code>.protocol.Endpoint to = 2;</code>
        */
       public Builder setTo(
-          org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          Endpoint.Builder builderForValue) {
         if (toBuilder_ == null) {
           to_ = builderForValue.build();
           onChanged();
@@ -1335,11 +1335,11 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint to = 2;</code>
        */
-      public Builder mergeTo(org.tron.protos.Discover.Endpoint value) {
+      public Builder mergeTo(Endpoint value) {
         if (toBuilder_ == null) {
           if (to_ != null) {
             to_ =
-              org.tron.protos.Discover.Endpoint.newBuilder(to_).mergeFrom(value).buildPartial();
+              Endpoint.newBuilder(to_).mergeFrom(value).buildPartial();
           } else {
             to_ = value;
           }
@@ -1367,7 +1367,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint to = 2;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder getToBuilder() {
+      public Endpoint.Builder getToBuilder() {
         
         onChanged();
         return getToFieldBuilder().getBuilder();
@@ -1375,23 +1375,23 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint to = 2;</code>
        */
-      public org.tron.protos.Discover.EndpointOrBuilder getToOrBuilder() {
+      public EndpointOrBuilder getToOrBuilder() {
         if (toBuilder_ != null) {
           return toBuilder_.getMessageOrBuilder();
         } else {
           return to_ == null ?
-              org.tron.protos.Discover.Endpoint.getDefaultInstance() : to_;
+              Endpoint.getDefaultInstance() : to_;
         }
       }
       /**
        * <code>.protocol.Endpoint to = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> 
+          Endpoint, Endpoint.Builder, EndpointOrBuilder>
           getToFieldBuilder() {
         if (toBuilder_ == null) {
           toBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder>(
+              Endpoint, Endpoint.Builder, EndpointOrBuilder>(
                   getTo(),
                   getParentForChildren(),
                   isClean());
@@ -1466,12 +1466,12 @@ public final class Discover {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.PingMessage)
-    private static final org.tron.protos.Discover.PingMessage DEFAULT_INSTANCE;
+    private static final PingMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Discover.PingMessage();
+      DEFAULT_INSTANCE = new PingMessage();
     }
 
-    public static org.tron.protos.Discover.PingMessage getDefaultInstance() {
+    public static PingMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1489,12 +1489,12 @@ public final class Discover {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<PingMessage> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Discover.PingMessage getDefaultInstanceForType() {
+    public PingMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1511,11 +1511,11 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.Endpoint getFrom();
+    Endpoint getFrom();
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder();
+    EndpointOrBuilder getFromOrBuilder();
 
     /**
      * <code>int32 echo = 2;</code>
@@ -1544,7 +1544,7 @@ public final class Discover {
       timestamp_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1555,7 +1555,7 @@ public final class Discover {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1576,11 +1576,11 @@ public final class Discover {
               break;
             }
             case 10: {
-              org.tron.protos.Discover.Endpoint.Builder subBuilder = null;
+              Endpoint.Builder subBuilder = null;
               if (from_ != null) {
                 subBuilder = from_.toBuilder();
               }
-              from_ = input.readMessage(org.tron.protos.Discover.Endpoint.parser(), extensionRegistry);
+              from_ = input.readMessage(Endpoint.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(from_);
                 from_ = subBuilder.buildPartial();
@@ -1612,18 +1612,18 @@ public final class Discover {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Discover.internal_static_protocol_PongMessage_descriptor;
+      return Discover.internal_static_protocol_PongMessage_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Discover.internal_static_protocol_PongMessage_fieldAccessorTable
+      return Discover.internal_static_protocol_PongMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Discover.PongMessage.class, org.tron.protos.Discover.PongMessage.Builder.class);
+              PongMessage.class, Builder.class);
     }
 
     public static final int FROM_FIELD_NUMBER = 1;
-    private org.tron.protos.Discover.Endpoint from_;
+    private Endpoint from_;
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
@@ -1633,13 +1633,13 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.Endpoint getFrom() {
-      return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+    public Endpoint getFrom() {
+      return from_ == null ? Endpoint.getDefaultInstance() : from_;
     }
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+    public EndpointOrBuilder getFromOrBuilder() {
       return getFrom();
     }
 
@@ -1707,15 +1707,15 @@ public final class Discover {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Discover.PongMessage)) {
+      if (!(obj instanceof PongMessage)) {
         return super.equals(obj);
       }
-      org.tron.protos.Discover.PongMessage other = (org.tron.protos.Discover.PongMessage) obj;
+      PongMessage other = (PongMessage) obj;
 
       boolean result = true;
       result = result && (hasFrom() == other.hasFrom());
@@ -1731,7 +1731,7 @@ public final class Discover {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1752,69 +1752,69 @@ public final class Discover {
       return hash;
     }
 
-    public static org.tron.protos.Discover.PongMessage parseFrom(
+    public static PongMessage parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(
+    public static PongMessage parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(
+    public static PongMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(
+    public static PongMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(byte[] data)
+    public static PongMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(
+    public static PongMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(java.io.InputStream input)
+    public static PongMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(
+    public static PongMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PongMessage parseDelimitedFrom(java.io.InputStream input)
+    public static PongMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.PongMessage parseDelimitedFrom(
+    public static PongMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(
+    public static PongMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.PongMessage parseFrom(
+    public static PongMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1826,7 +1826,7 @@ public final class Discover {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Discover.PongMessage prototype) {
+    public static Builder newBuilder(PongMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1834,9 +1834,9 @@ public final class Discover {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1846,17 +1846,17 @@ public final class Discover {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.PongMessage)
-        org.tron.protos.Discover.PongMessageOrBuilder {
+        PongMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Discover.internal_static_protocol_PongMessage_descriptor;
+        return Discover.internal_static_protocol_PongMessage_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Discover.internal_static_protocol_PongMessage_fieldAccessorTable
+        return Discover.internal_static_protocol_PongMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Discover.PongMessage.class, org.tron.protos.Discover.PongMessage.Builder.class);
+                PongMessage.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Discover.PongMessage.newBuilder()
@@ -1865,7 +1865,7 @@ public final class Discover {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1891,23 +1891,23 @@ public final class Discover {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Discover.internal_static_protocol_PongMessage_descriptor;
+        return Discover.internal_static_protocol_PongMessage_descriptor;
       }
 
-      public org.tron.protos.Discover.PongMessage getDefaultInstanceForType() {
-        return org.tron.protos.Discover.PongMessage.getDefaultInstance();
+      public PongMessage getDefaultInstanceForType() {
+        return PongMessage.getDefaultInstance();
       }
 
-      public org.tron.protos.Discover.PongMessage build() {
-        org.tron.protos.Discover.PongMessage result = buildPartial();
+      public PongMessage build() {
+        PongMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Discover.PongMessage buildPartial() {
-        org.tron.protos.Discover.PongMessage result = new org.tron.protos.Discover.PongMessage(this);
+      public PongMessage buildPartial() {
+        PongMessage result = new PongMessage(this);
         if (fromBuilder_ == null) {
           result.from_ = from_;
         } else {
@@ -1924,7 +1924,7 @@ public final class Discover {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -1937,25 +1937,25 @@ public final class Discover {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Discover.PongMessage) {
-          return mergeFrom((org.tron.protos.Discover.PongMessage)other);
+        if (other instanceof PongMessage) {
+          return mergeFrom((PongMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Discover.PongMessage other) {
-        if (other == org.tron.protos.Discover.PongMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(PongMessage other) {
+        if (other == PongMessage.getDefaultInstance()) return this;
         if (other.hasFrom()) {
           mergeFrom(other.getFrom());
         }
@@ -1978,11 +1978,11 @@ public final class Discover {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Discover.PongMessage parsedMessage = null;
+        PongMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Discover.PongMessage) e.getUnfinishedMessage();
+          parsedMessage = (PongMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1992,9 +1992,9 @@ public final class Discover {
         return this;
       }
 
-      private org.tron.protos.Discover.Endpoint from_ = null;
+      private Endpoint from_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> fromBuilder_;
+          Endpoint, Endpoint.Builder, EndpointOrBuilder> fromBuilder_;
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
@@ -2004,9 +2004,9 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint getFrom() {
+      public Endpoint getFrom() {
         if (fromBuilder_ == null) {
-          return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+          return from_ == null ? Endpoint.getDefaultInstance() : from_;
         } else {
           return fromBuilder_.getMessage();
         }
@@ -2014,7 +2014,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder setFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder setFrom(Endpoint value) {
         if (fromBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2031,7 +2031,7 @@ public final class Discover {
        * <code>.protocol.Endpoint from = 1;</code>
        */
       public Builder setFrom(
-          org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          Endpoint.Builder builderForValue) {
         if (fromBuilder_ == null) {
           from_ = builderForValue.build();
           onChanged();
@@ -2044,11 +2044,11 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder mergeFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder mergeFrom(Endpoint value) {
         if (fromBuilder_ == null) {
           if (from_ != null) {
             from_ =
-              org.tron.protos.Discover.Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
+              Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
           } else {
             from_ = value;
           }
@@ -2076,7 +2076,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder getFromBuilder() {
+      public Endpoint.Builder getFromBuilder() {
         
         onChanged();
         return getFromFieldBuilder().getBuilder();
@@ -2084,23 +2084,23 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+      public EndpointOrBuilder getFromOrBuilder() {
         if (fromBuilder_ != null) {
           return fromBuilder_.getMessageOrBuilder();
         } else {
           return from_ == null ?
-              org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+              Endpoint.getDefaultInstance() : from_;
         }
       }
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> 
+          Endpoint, Endpoint.Builder, EndpointOrBuilder>
           getFromFieldBuilder() {
         if (fromBuilder_ == null) {
           fromBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder>(
+              Endpoint, Endpoint.Builder, EndpointOrBuilder>(
                   getFrom(),
                   getParentForChildren(),
                   isClean());
@@ -2175,12 +2175,12 @@ public final class Discover {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.PongMessage)
-    private static final org.tron.protos.Discover.PongMessage DEFAULT_INSTANCE;
+    private static final PongMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Discover.PongMessage();
+      DEFAULT_INSTANCE = new PongMessage();
     }
 
-    public static org.tron.protos.Discover.PongMessage getDefaultInstance() {
+    public static PongMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2198,12 +2198,12 @@ public final class Discover {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<PongMessage> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Discover.PongMessage getDefaultInstanceForType() {
+    public PongMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2220,11 +2220,11 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.Endpoint getFrom();
+    Endpoint getFrom();
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder();
+    EndpointOrBuilder getFromOrBuilder();
 
     /**
      * <code>bytes targetId = 2;</code>
@@ -2253,7 +2253,7 @@ public final class Discover {
       timestamp_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2264,7 +2264,7 @@ public final class Discover {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -2285,11 +2285,11 @@ public final class Discover {
               break;
             }
             case 10: {
-              org.tron.protos.Discover.Endpoint.Builder subBuilder = null;
+              Endpoint.Builder subBuilder = null;
               if (from_ != null) {
                 subBuilder = from_.toBuilder();
               }
-              from_ = input.readMessage(org.tron.protos.Discover.Endpoint.parser(), extensionRegistry);
+              from_ = input.readMessage(Endpoint.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(from_);
                 from_ = subBuilder.buildPartial();
@@ -2321,18 +2321,18 @@ public final class Discover {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Discover.internal_static_protocol_FindNeighbours_descriptor;
+      return Discover.internal_static_protocol_FindNeighbours_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Discover.internal_static_protocol_FindNeighbours_fieldAccessorTable
+      return Discover.internal_static_protocol_FindNeighbours_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Discover.FindNeighbours.class, org.tron.protos.Discover.FindNeighbours.Builder.class);
+              FindNeighbours.class, Builder.class);
     }
 
     public static final int FROM_FIELD_NUMBER = 1;
-    private org.tron.protos.Discover.Endpoint from_;
+    private Endpoint from_;
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
@@ -2342,13 +2342,13 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.Endpoint getFrom() {
-      return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+    public Endpoint getFrom() {
+      return from_ == null ? Endpoint.getDefaultInstance() : from_;
     }
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+    public EndpointOrBuilder getFromOrBuilder() {
       return getFrom();
     }
 
@@ -2416,15 +2416,15 @@ public final class Discover {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Discover.FindNeighbours)) {
+      if (!(obj instanceof FindNeighbours)) {
         return super.equals(obj);
       }
-      org.tron.protos.Discover.FindNeighbours other = (org.tron.protos.Discover.FindNeighbours) obj;
+      FindNeighbours other = (FindNeighbours) obj;
 
       boolean result = true;
       result = result && (hasFrom() == other.hasFrom());
@@ -2440,7 +2440,7 @@ public final class Discover {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2461,69 +2461,69 @@ public final class Discover {
       return hash;
     }
 
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(
+    public static FindNeighbours parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(
+    public static FindNeighbours parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(
+    public static FindNeighbours parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(
+    public static FindNeighbours parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(byte[] data)
+    public static FindNeighbours parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(
+    public static FindNeighbours parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(java.io.InputStream input)
+    public static FindNeighbours parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(
+    public static FindNeighbours parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseDelimitedFrom(java.io.InputStream input)
+    public static FindNeighbours parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseDelimitedFrom(
+    public static FindNeighbours parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(
+    public static FindNeighbours parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.FindNeighbours parseFrom(
+    public static FindNeighbours parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2535,7 +2535,7 @@ public final class Discover {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Discover.FindNeighbours prototype) {
+    public static Builder newBuilder(FindNeighbours prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2543,9 +2543,9 @@ public final class Discover {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2555,17 +2555,17 @@ public final class Discover {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.FindNeighbours)
-        org.tron.protos.Discover.FindNeighboursOrBuilder {
+        FindNeighboursOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Discover.internal_static_protocol_FindNeighbours_descriptor;
+        return Discover.internal_static_protocol_FindNeighbours_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Discover.internal_static_protocol_FindNeighbours_fieldAccessorTable
+        return Discover.internal_static_protocol_FindNeighbours_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Discover.FindNeighbours.class, org.tron.protos.Discover.FindNeighbours.Builder.class);
+                FindNeighbours.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Discover.FindNeighbours.newBuilder()
@@ -2574,7 +2574,7 @@ public final class Discover {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2600,23 +2600,23 @@ public final class Discover {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Discover.internal_static_protocol_FindNeighbours_descriptor;
+        return Discover.internal_static_protocol_FindNeighbours_descriptor;
       }
 
-      public org.tron.protos.Discover.FindNeighbours getDefaultInstanceForType() {
-        return org.tron.protos.Discover.FindNeighbours.getDefaultInstance();
+      public FindNeighbours getDefaultInstanceForType() {
+        return FindNeighbours.getDefaultInstance();
       }
 
-      public org.tron.protos.Discover.FindNeighbours build() {
-        org.tron.protos.Discover.FindNeighbours result = buildPartial();
+      public FindNeighbours build() {
+        FindNeighbours result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Discover.FindNeighbours buildPartial() {
-        org.tron.protos.Discover.FindNeighbours result = new org.tron.protos.Discover.FindNeighbours(this);
+      public FindNeighbours buildPartial() {
+        FindNeighbours result = new FindNeighbours(this);
         if (fromBuilder_ == null) {
           result.from_ = from_;
         } else {
@@ -2633,7 +2633,7 @@ public final class Discover {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2646,25 +2646,25 @@ public final class Discover {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Discover.FindNeighbours) {
-          return mergeFrom((org.tron.protos.Discover.FindNeighbours)other);
+        if (other instanceof FindNeighbours) {
+          return mergeFrom((FindNeighbours)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Discover.FindNeighbours other) {
-        if (other == org.tron.protos.Discover.FindNeighbours.getDefaultInstance()) return this;
+      public Builder mergeFrom(FindNeighbours other) {
+        if (other == FindNeighbours.getDefaultInstance()) return this;
         if (other.hasFrom()) {
           mergeFrom(other.getFrom());
         }
@@ -2687,11 +2687,11 @@ public final class Discover {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Discover.FindNeighbours parsedMessage = null;
+        FindNeighbours parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Discover.FindNeighbours) e.getUnfinishedMessage();
+          parsedMessage = (FindNeighbours) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2701,9 +2701,9 @@ public final class Discover {
         return this;
       }
 
-      private org.tron.protos.Discover.Endpoint from_ = null;
+      private Endpoint from_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> fromBuilder_;
+          Endpoint, Endpoint.Builder, EndpointOrBuilder> fromBuilder_;
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
@@ -2713,9 +2713,9 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint getFrom() {
+      public Endpoint getFrom() {
         if (fromBuilder_ == null) {
-          return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+          return from_ == null ? Endpoint.getDefaultInstance() : from_;
         } else {
           return fromBuilder_.getMessage();
         }
@@ -2723,7 +2723,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder setFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder setFrom(Endpoint value) {
         if (fromBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2740,7 +2740,7 @@ public final class Discover {
        * <code>.protocol.Endpoint from = 1;</code>
        */
       public Builder setFrom(
-          org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          Endpoint.Builder builderForValue) {
         if (fromBuilder_ == null) {
           from_ = builderForValue.build();
           onChanged();
@@ -2753,11 +2753,11 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder mergeFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder mergeFrom(Endpoint value) {
         if (fromBuilder_ == null) {
           if (from_ != null) {
             from_ =
-              org.tron.protos.Discover.Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
+              Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
           } else {
             from_ = value;
           }
@@ -2785,7 +2785,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder getFromBuilder() {
+      public Endpoint.Builder getFromBuilder() {
         
         onChanged();
         return getFromFieldBuilder().getBuilder();
@@ -2793,23 +2793,23 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+      public EndpointOrBuilder getFromOrBuilder() {
         if (fromBuilder_ != null) {
           return fromBuilder_.getMessageOrBuilder();
         } else {
           return from_ == null ?
-              org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+              Endpoint.getDefaultInstance() : from_;
         }
       }
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> 
+          Endpoint, Endpoint.Builder, EndpointOrBuilder>
           getFromFieldBuilder() {
         if (fromBuilder_ == null) {
           fromBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder>(
+              Endpoint, Endpoint.Builder, EndpointOrBuilder>(
                   getFrom(),
                   getParentForChildren(),
                   isClean());
@@ -2887,12 +2887,12 @@ public final class Discover {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.FindNeighbours)
-    private static final org.tron.protos.Discover.FindNeighbours DEFAULT_INSTANCE;
+    private static final FindNeighbours DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Discover.FindNeighbours();
+      DEFAULT_INSTANCE = new FindNeighbours();
     }
 
-    public static org.tron.protos.Discover.FindNeighbours getDefaultInstance() {
+    public static FindNeighbours getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2910,12 +2910,12 @@ public final class Discover {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<FindNeighbours> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Discover.FindNeighbours getDefaultInstanceForType() {
+    public FindNeighbours getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2932,21 +2932,21 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.Endpoint getFrom();
+    Endpoint getFrom();
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder();
+    EndpointOrBuilder getFromOrBuilder();
 
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
-    java.util.List<org.tron.protos.Discover.Endpoint> 
+    java.util.List<Endpoint>
         getNeighboursList();
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
-    org.tron.protos.Discover.Endpoint getNeighbours(int index);
+    Endpoint getNeighbours(int index);
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
@@ -2954,12 +2954,12 @@ public final class Discover {
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
-    java.util.List<? extends org.tron.protos.Discover.EndpointOrBuilder> 
+    java.util.List<? extends EndpointOrBuilder>
         getNeighboursOrBuilderList();
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
-    org.tron.protos.Discover.EndpointOrBuilder getNeighboursOrBuilder(
+    EndpointOrBuilder getNeighboursOrBuilder(
         int index);
 
     /**
@@ -2984,7 +2984,7 @@ public final class Discover {
       timestamp_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2995,7 +2995,7 @@ public final class Discover {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3016,11 +3016,11 @@ public final class Discover {
               break;
             }
             case 10: {
-              org.tron.protos.Discover.Endpoint.Builder subBuilder = null;
+              Endpoint.Builder subBuilder = null;
               if (from_ != null) {
                 subBuilder = from_.toBuilder();
               }
-              from_ = input.readMessage(org.tron.protos.Discover.Endpoint.parser(), extensionRegistry);
+              from_ = input.readMessage(Endpoint.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(from_);
                 from_ = subBuilder.buildPartial();
@@ -3030,11 +3030,11 @@ public final class Discover {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                neighbours_ = new java.util.ArrayList<org.tron.protos.Discover.Endpoint>();
+                neighbours_ = new java.util.ArrayList<Endpoint>();
                 mutable_bitField0_ |= 0x00000002;
               }
               neighbours_.add(
-                  input.readMessage(org.tron.protos.Discover.Endpoint.parser(), extensionRegistry));
+                  input.readMessage(Endpoint.parser(), extensionRegistry));
               break;
             }
             case 24: {
@@ -3059,19 +3059,19 @@ public final class Discover {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Discover.internal_static_protocol_Neighbours_descriptor;
+      return Discover.internal_static_protocol_Neighbours_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Discover.internal_static_protocol_Neighbours_fieldAccessorTable
+      return Discover.internal_static_protocol_Neighbours_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Discover.Neighbours.class, org.tron.protos.Discover.Neighbours.Builder.class);
+              Neighbours.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int FROM_FIELD_NUMBER = 1;
-    private org.tron.protos.Discover.Endpoint from_;
+    private Endpoint from_;
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
@@ -3081,28 +3081,28 @@ public final class Discover {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.Endpoint getFrom() {
-      return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+    public Endpoint getFrom() {
+      return from_ == null ? Endpoint.getDefaultInstance() : from_;
     }
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+    public EndpointOrBuilder getFromOrBuilder() {
       return getFrom();
     }
 
     public static final int NEIGHBOURS_FIELD_NUMBER = 2;
-    private java.util.List<org.tron.protos.Discover.Endpoint> neighbours_;
+    private java.util.List<Endpoint> neighbours_;
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
-    public java.util.List<org.tron.protos.Discover.Endpoint> getNeighboursList() {
+    public java.util.List<Endpoint> getNeighboursList() {
       return neighbours_;
     }
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
-    public java.util.List<? extends org.tron.protos.Discover.EndpointOrBuilder> 
+    public java.util.List<? extends EndpointOrBuilder>
         getNeighboursOrBuilderList() {
       return neighbours_;
     }
@@ -3115,13 +3115,13 @@ public final class Discover {
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
-    public org.tron.protos.Discover.Endpoint getNeighbours(int index) {
+    public Endpoint getNeighbours(int index) {
       return neighbours_.get(index);
     }
     /**
      * <code>repeated .protocol.Endpoint neighbours = 2;</code>
      */
-    public org.tron.protos.Discover.EndpointOrBuilder getNeighboursOrBuilder(
+    public EndpointOrBuilder getNeighboursOrBuilder(
         int index) {
       return neighbours_.get(index);
     }
@@ -3181,15 +3181,15 @@ public final class Discover {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Discover.Neighbours)) {
+      if (!(obj instanceof Neighbours)) {
         return super.equals(obj);
       }
-      org.tron.protos.Discover.Neighbours other = (org.tron.protos.Discover.Neighbours) obj;
+      Neighbours other = (Neighbours) obj;
 
       boolean result = true;
       result = result && (hasFrom() == other.hasFrom());
@@ -3205,7 +3205,7 @@ public final class Discover {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -3228,69 +3228,69 @@ public final class Discover {
       return hash;
     }
 
-    public static org.tron.protos.Discover.Neighbours parseFrom(
+    public static Neighbours parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(
+    public static Neighbours parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(
+    public static Neighbours parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(
+    public static Neighbours parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(byte[] data)
+    public static Neighbours parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(
+    public static Neighbours parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(java.io.InputStream input)
+    public static Neighbours parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(
+    public static Neighbours parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Neighbours parseDelimitedFrom(java.io.InputStream input)
+    public static Neighbours parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.Neighbours parseDelimitedFrom(
+    public static Neighbours parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(
+    public static Neighbours parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Discover.Neighbours parseFrom(
+    public static Neighbours parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3302,7 +3302,7 @@ public final class Discover {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Discover.Neighbours prototype) {
+    public static Builder newBuilder(Neighbours prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -3310,9 +3310,9 @@ public final class Discover {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3322,17 +3322,17 @@ public final class Discover {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.Neighbours)
-        org.tron.protos.Discover.NeighboursOrBuilder {
+        NeighboursOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Discover.internal_static_protocol_Neighbours_descriptor;
+        return Discover.internal_static_protocol_Neighbours_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Discover.internal_static_protocol_Neighbours_fieldAccessorTable
+        return Discover.internal_static_protocol_Neighbours_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Discover.Neighbours.class, org.tron.protos.Discover.Neighbours.Builder.class);
+                Neighbours.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Discover.Neighbours.newBuilder()
@@ -3341,7 +3341,7 @@ public final class Discover {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3372,23 +3372,23 @@ public final class Discover {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Discover.internal_static_protocol_Neighbours_descriptor;
+        return Discover.internal_static_protocol_Neighbours_descriptor;
       }
 
-      public org.tron.protos.Discover.Neighbours getDefaultInstanceForType() {
-        return org.tron.protos.Discover.Neighbours.getDefaultInstance();
+      public Neighbours getDefaultInstanceForType() {
+        return Neighbours.getDefaultInstance();
       }
 
-      public org.tron.protos.Discover.Neighbours build() {
-        org.tron.protos.Discover.Neighbours result = buildPartial();
+      public Neighbours build() {
+        Neighbours result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Discover.Neighbours buildPartial() {
-        org.tron.protos.Discover.Neighbours result = new org.tron.protos.Discover.Neighbours(this);
+      public Neighbours buildPartial() {
+        Neighbours result = new Neighbours(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (fromBuilder_ == null) {
@@ -3416,7 +3416,7 @@ public final class Discover {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3429,25 +3429,25 @@ public final class Discover {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Discover.Neighbours) {
-          return mergeFrom((org.tron.protos.Discover.Neighbours)other);
+        if (other instanceof Neighbours) {
+          return mergeFrom((Neighbours)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Discover.Neighbours other) {
-        if (other == org.tron.protos.Discover.Neighbours.getDefaultInstance()) return this;
+      public Builder mergeFrom(Neighbours other) {
+        if (other == Neighbours.getDefaultInstance()) return this;
         if (other.hasFrom()) {
           mergeFrom(other.getFrom());
         }
@@ -3493,11 +3493,11 @@ public final class Discover {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Discover.Neighbours parsedMessage = null;
+        Neighbours parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Discover.Neighbours) e.getUnfinishedMessage();
+          parsedMessage = (Neighbours) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3508,9 +3508,9 @@ public final class Discover {
       }
       private int bitField0_;
 
-      private org.tron.protos.Discover.Endpoint from_ = null;
+      private Endpoint from_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> fromBuilder_;
+          Endpoint, Endpoint.Builder, EndpointOrBuilder> fromBuilder_;
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
@@ -3520,9 +3520,9 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint getFrom() {
+      public Endpoint getFrom() {
         if (fromBuilder_ == null) {
-          return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+          return from_ == null ? Endpoint.getDefaultInstance() : from_;
         } else {
           return fromBuilder_.getMessage();
         }
@@ -3530,7 +3530,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder setFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder setFrom(Endpoint value) {
         if (fromBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3547,7 +3547,7 @@ public final class Discover {
        * <code>.protocol.Endpoint from = 1;</code>
        */
       public Builder setFrom(
-          org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          Endpoint.Builder builderForValue) {
         if (fromBuilder_ == null) {
           from_ = builderForValue.build();
           onChanged();
@@ -3560,11 +3560,11 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder mergeFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder mergeFrom(Endpoint value) {
         if (fromBuilder_ == null) {
           if (from_ != null) {
             from_ =
-              org.tron.protos.Discover.Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
+              Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
           } else {
             from_ = value;
           }
@@ -3592,7 +3592,7 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder getFromBuilder() {
+      public Endpoint.Builder getFromBuilder() {
         
         onChanged();
         return getFromFieldBuilder().getBuilder();
@@ -3600,23 +3600,23 @@ public final class Discover {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+      public EndpointOrBuilder getFromOrBuilder() {
         if (fromBuilder_ != null) {
           return fromBuilder_.getMessageOrBuilder();
         } else {
           return from_ == null ?
-              org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+              Endpoint.getDefaultInstance() : from_;
         }
       }
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> 
+          Endpoint, Endpoint.Builder, EndpointOrBuilder>
           getFromFieldBuilder() {
         if (fromBuilder_ == null) {
           fromBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder>(
+              Endpoint, Endpoint.Builder, EndpointOrBuilder>(
                   getFrom(),
                   getParentForChildren(),
                   isClean());
@@ -3625,22 +3625,22 @@ public final class Discover {
         return fromBuilder_;
       }
 
-      private java.util.List<org.tron.protos.Discover.Endpoint> neighbours_ =
+      private java.util.List<Endpoint> neighbours_ =
         java.util.Collections.emptyList();
       private void ensureNeighboursIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          neighbours_ = new java.util.ArrayList<org.tron.protos.Discover.Endpoint>(neighbours_);
+          neighbours_ = new java.util.ArrayList<Endpoint>(neighbours_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> neighboursBuilder_;
+          Endpoint, Endpoint.Builder, EndpointOrBuilder> neighboursBuilder_;
 
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public java.util.List<org.tron.protos.Discover.Endpoint> getNeighboursList() {
+      public java.util.List<Endpoint> getNeighboursList() {
         if (neighboursBuilder_ == null) {
           return java.util.Collections.unmodifiableList(neighbours_);
         } else {
@@ -3660,7 +3660,7 @@ public final class Discover {
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public org.tron.protos.Discover.Endpoint getNeighbours(int index) {
+      public Endpoint getNeighbours(int index) {
         if (neighboursBuilder_ == null) {
           return neighbours_.get(index);
         } else {
@@ -3671,7 +3671,7 @@ public final class Discover {
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
       public Builder setNeighbours(
-          int index, org.tron.protos.Discover.Endpoint value) {
+          int index, Endpoint value) {
         if (neighboursBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3688,7 +3688,7 @@ public final class Discover {
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
       public Builder setNeighbours(
-          int index, org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          int index, Endpoint.Builder builderForValue) {
         if (neighboursBuilder_ == null) {
           ensureNeighboursIsMutable();
           neighbours_.set(index, builderForValue.build());
@@ -3701,7 +3701,7 @@ public final class Discover {
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public Builder addNeighbours(org.tron.protos.Discover.Endpoint value) {
+      public Builder addNeighbours(Endpoint value) {
         if (neighboursBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3718,7 +3718,7 @@ public final class Discover {
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
       public Builder addNeighbours(
-          int index, org.tron.protos.Discover.Endpoint value) {
+          int index, Endpoint value) {
         if (neighboursBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3735,7 +3735,7 @@ public final class Discover {
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
       public Builder addNeighbours(
-          org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          Endpoint.Builder builderForValue) {
         if (neighboursBuilder_ == null) {
           ensureNeighboursIsMutable();
           neighbours_.add(builderForValue.build());
@@ -3749,7 +3749,7 @@ public final class Discover {
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
       public Builder addNeighbours(
-          int index, org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          int index, Endpoint.Builder builderForValue) {
         if (neighboursBuilder_ == null) {
           ensureNeighboursIsMutable();
           neighbours_.add(index, builderForValue.build());
@@ -3763,7 +3763,7 @@ public final class Discover {
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
       public Builder addAllNeighbours(
-          java.lang.Iterable<? extends org.tron.protos.Discover.Endpoint> values) {
+          Iterable<? extends Endpoint> values) {
         if (neighboursBuilder_ == null) {
           ensureNeighboursIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3803,14 +3803,14 @@ public final class Discover {
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder getNeighboursBuilder(
+      public Endpoint.Builder getNeighboursBuilder(
           int index) {
         return getNeighboursFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public org.tron.protos.Discover.EndpointOrBuilder getNeighboursOrBuilder(
+      public EndpointOrBuilder getNeighboursOrBuilder(
           int index) {
         if (neighboursBuilder_ == null) {
           return neighbours_.get(index);  } else {
@@ -3820,7 +3820,7 @@ public final class Discover {
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public java.util.List<? extends org.tron.protos.Discover.EndpointOrBuilder> 
+      public java.util.List<? extends EndpointOrBuilder>
            getNeighboursOrBuilderList() {
         if (neighboursBuilder_ != null) {
           return neighboursBuilder_.getMessageOrBuilderList();
@@ -3831,31 +3831,31 @@ public final class Discover {
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder addNeighboursBuilder() {
+      public Endpoint.Builder addNeighboursBuilder() {
         return getNeighboursFieldBuilder().addBuilder(
-            org.tron.protos.Discover.Endpoint.getDefaultInstance());
+            Endpoint.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder addNeighboursBuilder(
+      public Endpoint.Builder addNeighboursBuilder(
           int index) {
         return getNeighboursFieldBuilder().addBuilder(
-            index, org.tron.protos.Discover.Endpoint.getDefaultInstance());
+            index, Endpoint.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Endpoint neighbours = 2;</code>
        */
-      public java.util.List<org.tron.protos.Discover.Endpoint.Builder> 
+      public java.util.List<Endpoint.Builder>
            getNeighboursBuilderList() {
         return getNeighboursFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> 
+          Endpoint, Endpoint.Builder, EndpointOrBuilder>
           getNeighboursFieldBuilder() {
         if (neighboursBuilder_ == null) {
           neighboursBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder>(
+              Endpoint, Endpoint.Builder, EndpointOrBuilder>(
                   neighbours_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -3905,12 +3905,12 @@ public final class Discover {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.Neighbours)
-    private static final org.tron.protos.Discover.Neighbours DEFAULT_INSTANCE;
+    private static final Neighbours DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Discover.Neighbours();
+      DEFAULT_INSTANCE = new Neighbours();
     }
 
-    public static org.tron.protos.Discover.Neighbours getDefaultInstance() {
+    public static Neighbours getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3928,12 +3928,12 @@ public final class Discover {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Neighbours> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Discover.Neighbours getDefaultInstanceForType() {
+    public Neighbours getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3972,7 +3972,7 @@ public final class Discover {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\023core/Discover.proto\022\010protocol\"9\n\010Endpo" +
       "int\022\017\n\007address\030\001 \001(\014\022\014\n\004port\030\002 \001(\005\022\016\n\006no" +
       "deId\030\003 \001(\014\"s\n\013PingMessage\022 \n\004from\030\001 \001(\0132" +
@@ -4006,31 +4006,31 @@ public final class Discover {
     internal_static_protocol_Endpoint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Endpoint_descriptor,
-        new java.lang.String[] { "Address", "Port", "NodeId", });
+        new String[] { "Address", "Port", "NodeId", });
     internal_static_protocol_PingMessage_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protocol_PingMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_PingMessage_descriptor,
-        new java.lang.String[] { "From", "To", "Version", "Timestamp", });
+        new String[] { "From", "To", "Version", "Timestamp", });
     internal_static_protocol_PongMessage_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_protocol_PongMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_PongMessage_descriptor,
-        new java.lang.String[] { "From", "Echo", "Timestamp", });
+        new String[] { "From", "Echo", "Timestamp", });
     internal_static_protocol_FindNeighbours_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_protocol_FindNeighbours_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_FindNeighbours_descriptor,
-        new java.lang.String[] { "From", "TargetId", "Timestamp", });
+        new String[] { "From", "TargetId", "Timestamp", });
     internal_static_protocol_Neighbours_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_protocol_Neighbours_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Neighbours_descriptor,
-        new java.lang.String[] { "From", "Neighbours", "Timestamp", });
+        new String[] { "From", "Neighbours", "Timestamp", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

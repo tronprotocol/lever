@@ -83,40 +83,6 @@ public class TransactionUtils {
     return signature.toBase64();
   }
 
-  /*
-   * 1. check hash
-   * 2. check double spent
-   * 3. check sign
-   * 4. check balance
-   */
-  public static boolean validTransaction(Transaction signedTransaction) {
-    if (signedTransaction.getRawData().getType() == Transaction.TransactionType.ContractType) {
-      assert (signedTransaction.getSignatureCount() ==
-          signedTransaction.getRawData().getContractCount());
-      List<Contract> listContract = signedTransaction.getRawData().getContractList();
-      byte[] hash = sha256(signedTransaction.getRawData().toByteArray());
-      int count = signedTransaction.getSignatureCount();
-      if ( count == 0 ){
-        return false;
-      }
-      for (int i = 0; i < count; ++i) {
-        try {
-          Transaction.Contract contract = listContract.get(i);
-          byte[] owner = getOwner(contract);
-          byte[] address = ECKey.signatureToAddress(hash, getBase64FromByteString(signedTransaction.getSignature(i)));
-          if (!Arrays.equals(owner, address)) {
-            return false;
-          }
-        } catch (SignatureException e) {
-          e.printStackTrace();
-          return false;
-        }
-      }
-      return true;
-    }
-    return false;
-  }
-
   public static Transaction sign(Transaction transaction, ECKey myKey) {
     ByteString lockSript = ByteString.copyFrom(myKey.getAddress());
     Transaction.Builder transactionBuilderSigned = transaction.toBuilder();

@@ -53,7 +53,7 @@ public final class TronInventoryItems {
       items_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -64,7 +64,7 @@ public final class TronInventoryItems {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -114,14 +114,14 @@ public final class TronInventoryItems {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.TronInventoryItems.internal_static_protocol_InventoryItems_descriptor;
+      return TronInventoryItems.internal_static_protocol_InventoryItems_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.TronInventoryItems.internal_static_protocol_InventoryItems_fieldAccessorTable
+      return TronInventoryItems.internal_static_protocol_InventoryItems_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.TronInventoryItems.InventoryItems.class, org.tron.protos.TronInventoryItems.InventoryItems.Builder.class);
+              InventoryItems.class, Builder.class);
     }
 
     private int bitField0_;
@@ -200,15 +200,15 @@ public final class TronInventoryItems {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.TronInventoryItems.InventoryItems)) {
+      if (!(obj instanceof InventoryItems)) {
         return super.equals(obj);
       }
-      org.tron.protos.TronInventoryItems.InventoryItems other = (org.tron.protos.TronInventoryItems.InventoryItems) obj;
+      InventoryItems other = (InventoryItems) obj;
 
       boolean result = true;
       result = result && (getType()
@@ -219,7 +219,7 @@ public final class TronInventoryItems {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -237,69 +237,69 @@ public final class TronInventoryItems {
       return hash;
     }
 
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(
+    public static InventoryItems parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(
+    public static InventoryItems parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(
+    public static InventoryItems parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(
+    public static InventoryItems parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(byte[] data)
+    public static InventoryItems parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(
+    public static InventoryItems parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(java.io.InputStream input)
+    public static InventoryItems parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(
+    public static InventoryItems parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseDelimitedFrom(java.io.InputStream input)
+    public static InventoryItems parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseDelimitedFrom(
+    public static InventoryItems parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(
+    public static InventoryItems parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.TronInventoryItems.InventoryItems parseFrom(
+    public static InventoryItems parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -311,7 +311,7 @@ public final class TronInventoryItems {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.TronInventoryItems.InventoryItems prototype) {
+    public static Builder newBuilder(InventoryItems prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -319,9 +319,9 @@ public final class TronInventoryItems {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -331,17 +331,17 @@ public final class TronInventoryItems {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.InventoryItems)
-        org.tron.protos.TronInventoryItems.InventoryItemsOrBuilder {
+        InventoryItemsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.TronInventoryItems.internal_static_protocol_InventoryItems_descriptor;
+        return TronInventoryItems.internal_static_protocol_InventoryItems_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.TronInventoryItems.internal_static_protocol_InventoryItems_fieldAccessorTable
+        return TronInventoryItems.internal_static_protocol_InventoryItems_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.TronInventoryItems.InventoryItems.class, org.tron.protos.TronInventoryItems.InventoryItems.Builder.class);
+                InventoryItems.class, Builder.class);
       }
 
       // Construct using org.tron.protos.TronInventoryItems.InventoryItems.newBuilder()
@@ -350,7 +350,7 @@ public final class TronInventoryItems {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -370,23 +370,23 @@ public final class TronInventoryItems {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.TronInventoryItems.internal_static_protocol_InventoryItems_descriptor;
+        return TronInventoryItems.internal_static_protocol_InventoryItems_descriptor;
       }
 
-      public org.tron.protos.TronInventoryItems.InventoryItems getDefaultInstanceForType() {
-        return org.tron.protos.TronInventoryItems.InventoryItems.getDefaultInstance();
+      public InventoryItems getDefaultInstanceForType() {
+        return InventoryItems.getDefaultInstance();
       }
 
-      public org.tron.protos.TronInventoryItems.InventoryItems build() {
-        org.tron.protos.TronInventoryItems.InventoryItems result = buildPartial();
+      public InventoryItems build() {
+        InventoryItems result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.TronInventoryItems.InventoryItems buildPartial() {
-        org.tron.protos.TronInventoryItems.InventoryItems result = new org.tron.protos.TronInventoryItems.InventoryItems(this);
+      public InventoryItems buildPartial() {
+        InventoryItems result = new InventoryItems(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.type_ = type_;
@@ -405,7 +405,7 @@ public final class TronInventoryItems {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -418,25 +418,25 @@ public final class TronInventoryItems {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.TronInventoryItems.InventoryItems) {
-          return mergeFrom((org.tron.protos.TronInventoryItems.InventoryItems)other);
+        if (other instanceof InventoryItems) {
+          return mergeFrom((InventoryItems)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.TronInventoryItems.InventoryItems other) {
-        if (other == org.tron.protos.TronInventoryItems.InventoryItems.getDefaultInstance()) return this;
+      public Builder mergeFrom(InventoryItems other) {
+        if (other == InventoryItems.getDefaultInstance()) return this;
         if (other.getType() != 0) {
           setType(other.getType());
         }
@@ -463,11 +463,11 @@ public final class TronInventoryItems {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.TronInventoryItems.InventoryItems parsedMessage = null;
+        InventoryItems parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.TronInventoryItems.InventoryItems) e.getUnfinishedMessage();
+          parsedMessage = (InventoryItems) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -559,7 +559,7 @@ public final class TronInventoryItems {
        * <code>repeated bytes items = 2;</code>
        */
       public Builder addAllItems(
-          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+          Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureItemsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, items_);
@@ -590,12 +590,12 @@ public final class TronInventoryItems {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.InventoryItems)
-    private static final org.tron.protos.TronInventoryItems.InventoryItems DEFAULT_INSTANCE;
+    private static final InventoryItems DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.TronInventoryItems.InventoryItems();
+      DEFAULT_INSTANCE = new InventoryItems();
     }
 
-    public static org.tron.protos.TronInventoryItems.InventoryItems getDefaultInstance() {
+    public static InventoryItems getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -613,12 +613,12 @@ public final class TronInventoryItems {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<InventoryItems> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.TronInventoryItems.InventoryItems getDefaultInstanceForType() {
+    public InventoryItems getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -637,7 +637,7 @@ public final class TronInventoryItems {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\035core/TronInventoryItems.proto\022\010protoco" +
       "l\"-\n\016InventoryItems\022\014\n\004type\030\001 \001(\005\022\r\n\005ite" +
       "ms\030\002 \003(\014BP\n\017org.tron.protosB\022TronInvento" +
@@ -661,7 +661,7 @@ public final class TronInventoryItems {
     internal_static_protocol_InventoryItems_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_InventoryItems_descriptor,
-        new java.lang.String[] { "Type", "Items", });
+        new String[] { "Type", "Items", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

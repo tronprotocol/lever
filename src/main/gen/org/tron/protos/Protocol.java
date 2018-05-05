@@ -50,7 +50,7 @@ public final class Protocol {
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
             "Can't get the number of an unknown enum value.");
       }
       return value;
@@ -59,7 +59,7 @@ public final class Protocol {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static AccountType valueOf(int value) {
       return forNumber(value);
     }
@@ -95,7 +95,7 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.getDescriptor().getEnumTypes().get(0);
+      return Protocol.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final AccountType[] VALUES = values();
@@ -103,7 +103,7 @@ public final class Protocol {
     public static AccountType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
@@ -187,6 +187,34 @@ public final class Protocol {
      */
     SYNC_FAIL(18),
     /**
+     * <code>TIME_OUT = 19;</code>
+     */
+    TIME_OUT(19),
+    /**
+     * <code>BAD_TX = 20;</code>
+     */
+    BAD_TX(20),
+    /**
+     * <code>BAD_BLOCK = 21;</code>
+     */
+    BAD_BLOCK(21),
+    /**
+     * <code>FORKED = 22;</code>
+     */
+    FORKED(22),
+    /**
+     * <code>UNLINKABLE = 23;</code>
+     */
+    UNLINKABLE(23),
+    /**
+     * <code>INCOMPATIBLE_VERSION = 24;</code>
+     */
+    INCOMPATIBLE_VERSION(24),
+    /**
+     * <code>INCOMPATIBLE_CHAIN = 25;</code>
+     */
+    INCOMPATIBLE_CHAIN(25),
+    /**
      * <code>UNKNOWN = 255;</code>
      */
     UNKNOWN(255),
@@ -254,6 +282,34 @@ public final class Protocol {
      */
     public static final int SYNC_FAIL_VALUE = 18;
     /**
+     * <code>TIME_OUT = 19;</code>
+     */
+    public static final int TIME_OUT_VALUE = 19;
+    /**
+     * <code>BAD_TX = 20;</code>
+     */
+    public static final int BAD_TX_VALUE = 20;
+    /**
+     * <code>BAD_BLOCK = 21;</code>
+     */
+    public static final int BAD_BLOCK_VALUE = 21;
+    /**
+     * <code>FORKED = 22;</code>
+     */
+    public static final int FORKED_VALUE = 22;
+    /**
+     * <code>UNLINKABLE = 23;</code>
+     */
+    public static final int UNLINKABLE_VALUE = 23;
+    /**
+     * <code>INCOMPATIBLE_VERSION = 24;</code>
+     */
+    public static final int INCOMPATIBLE_VERSION_VALUE = 24;
+    /**
+     * <code>INCOMPATIBLE_CHAIN = 25;</code>
+     */
+    public static final int INCOMPATIBLE_CHAIN_VALUE = 25;
+    /**
      * <code>UNKNOWN = 255;</code>
      */
     public static final int UNKNOWN_VALUE = 255;
@@ -261,7 +317,7 @@ public final class Protocol {
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
             "Can't get the number of an unknown enum value.");
       }
       return value;
@@ -270,7 +326,7 @@ public final class Protocol {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static ReasonCode valueOf(int value) {
       return forNumber(value);
     }
@@ -292,6 +348,13 @@ public final class Protocol {
         case 16: return USER_REASON;
         case 17: return RESET;
         case 18: return SYNC_FAIL;
+        case 19: return TIME_OUT;
+        case 20: return BAD_TX;
+        case 21: return BAD_BLOCK;
+        case 22: return FORKED;
+        case 23: return UNLINKABLE;
+        case 24: return INCOMPATIBLE_VERSION;
+        case 25: return INCOMPATIBLE_CHAIN;
         case 255: return UNKNOWN;
         default: return null;
       }
@@ -319,7 +382,7 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.getDescriptor().getEnumTypes().get(1);
+      return Protocol.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final ReasonCode[] VALUES = values();
@@ -327,7 +390,7 @@ public final class Protocol {
     public static ReasonCode valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
@@ -343,6 +406,534 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(enum_scope:protocol.ReasonCode)
+  }
+
+  public interface AccountIdOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.AccountId)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes name = 1;</code>
+     */
+    com.google.protobuf.ByteString getName();
+
+    /**
+     * <code>bytes address = 2;</code>
+     */
+    com.google.protobuf.ByteString getAddress();
+  }
+  /**
+   * <pre>
+   * AccountId, (name, address) use name, (null, address) use address, (name, null) use name,
+   * </pre>
+   *
+   * Protobuf type {@code protocol.AccountId}
+   */
+  public  static final class AccountId extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.AccountId)
+      AccountIdOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AccountId.newBuilder() to construct.
+    private AccountId(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AccountId() {
+      name_ = com.google.protobuf.ByteString.EMPTY;
+      address_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AccountId(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              name_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              address_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Protocol.internal_static_protocol_AccountId_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Protocol.internal_static_protocol_AccountId_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              AccountId.class, Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString name_;
+    /**
+     * <code>bytes name = 1;</code>
+     */
+    public com.google.protobuf.ByteString getName() {
+      return name_;
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString address_;
+    /**
+     * <code>bytes address = 2;</code>
+     */
+    public com.google.protobuf.ByteString getAddress() {
+      return address_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!name_.isEmpty()) {
+        output.writeBytes(1, name_);
+      }
+      if (!address_.isEmpty()) {
+        output.writeBytes(2, address_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!name_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, name_);
+      }
+      if (!address_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, address_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof AccountId)) {
+        return super.equals(obj);
+      }
+      AccountId other = (AccountId) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getAddress()
+          .equals(other.getAddress());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static AccountId parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AccountId parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AccountId parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AccountId parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AccountId parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AccountId parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AccountId parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AccountId parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AccountId parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static AccountId parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AccountId parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AccountId parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(AccountId prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * AccountId, (name, address) use name, (null, address) use address, (name, null) use name,
+     * </pre>
+     *
+     * Protobuf type {@code protocol.AccountId}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.AccountId)
+        AccountIdOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Protocol.internal_static_protocol_AccountId_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Protocol.internal_static_protocol_AccountId_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                AccountId.class, Builder.class);
+      }
+
+      // Construct using org.tron.protos.Protocol.AccountId.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        name_ = com.google.protobuf.ByteString.EMPTY;
+
+        address_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Protocol.internal_static_protocol_AccountId_descriptor;
+      }
+
+      public AccountId getDefaultInstanceForType() {
+        return AccountId.getDefaultInstance();
+      }
+
+      public AccountId build() {
+        AccountId result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public AccountId buildPartial() {
+        AccountId result = new AccountId(this);
+        result.name_ = name_;
+        result.address_ = address_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof AccountId) {
+          return mergeFrom((AccountId)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(AccountId other) {
+        if (other == AccountId.getDefaultInstance()) return this;
+        if (other.getName() != com.google.protobuf.ByteString.EMPTY) {
+          setName(other.getName());
+        }
+        if (other.getAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setAddress(other.getAddress());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        AccountId parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (AccountId) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString name_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes name = 1;</code>
+       */
+      public com.google.protobuf.ByteString getName() {
+        return name_;
+      }
+      /**
+       * <code>bytes name = 1;</code>
+       */
+      public Builder setName(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes name = 1;</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString address_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes address = 2;</code>
+       */
+      public com.google.protobuf.ByteString getAddress() {
+        return address_;
+      }
+      /**
+       * <code>bytes address = 2;</code>
+       */
+      public Builder setAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes address = 2;</code>
+       */
+      public Builder clearAddress() {
+        
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.AccountId)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.AccountId)
+    private static final AccountId DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new AccountId();
+    }
+
+    public static AccountId getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AccountId>
+        PARSER = new com.google.protobuf.AbstractParser<AccountId>() {
+      public AccountId parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AccountId(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AccountId> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<AccountId> getParserForType() {
+      return PARSER;
+    }
+
+    public AccountId getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface AccountOrBuilder extends
@@ -361,80 +952,221 @@ public final class Protocol {
     /**
      * <code>.protocol.AccountType type = 2;</code>
      */
-    org.tron.protos.Protocol.AccountType getType();
+    AccountType getType();
 
     /**
+     * <pre>
+     * the create adress
+     * </pre>
+     *
      * <code>bytes address = 3;</code>
      */
     com.google.protobuf.ByteString getAddress();
 
     /**
+     * <pre>
+     * the trx balance
+     * </pre>
+     *
      * <code>int64 balance = 4;</code>
      */
     long getBalance();
 
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Account.Vote> 
+    java.util.List<Account.Vote>
         getVotesList();
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
-    org.tron.protos.Protocol.Account.Vote getVotes(int index);
+    Account.Vote getVotes(int index);
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
     int getVotesCount();
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.Account.VoteOrBuilder> 
+    java.util.List<? extends Account.VoteOrBuilder>
         getVotesOrBuilderList();
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
-    org.tron.protos.Protocol.Account.VoteOrBuilder getVotesOrBuilder(
+    Account.VoteOrBuilder getVotesOrBuilder(
         int index);
 
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
     int getAssetCount();
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
     boolean containsAsset(
-        java.lang.String key);
+        String key);
     /**
      * Use {@link #getAssetMap()} instead.
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.Long>
+    @Deprecated
+    java.util.Map<String, Long>
     getAsset();
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
-    java.util.Map<java.lang.String, java.lang.Long>
+    java.util.Map<String, Long>
     getAssetMap();
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
 
     long getAssetOrDefault(
-        java.lang.String key,
+        String key,
         long defaultValue);
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
 
     long getAssetOrThrow(
-        java.lang.String key);
+        String key);
 
     /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    java.util.List<Account.Frozen>
+        getFrozenList();
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    Account.Frozen getFrozen(int index);
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    int getFrozenCount();
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    java.util.List<? extends Account.FrozenOrBuilder>
+        getFrozenOrBuilderList();
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    Account.FrozenOrBuilder getFrozenOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * bandwidth, get from frozen
+     * </pre>
+     *
+     * <code>int64 bandwidth = 8;</code>
+     */
+    long getBandwidth();
+
+    /**
+     * <pre>
+     * this account create time
+     * </pre>
+     *
+     * <code>int64 create_time = 9;</code>
+     */
+    long getCreateTime();
+
+    /**
+     * <pre>
+     * this last opration time, including transfer, voting and so on.
+     * </pre>
+     *
      * <code>int64 latest_opration_time = 10;</code>
      */
     long getLatestOprationTime();
+
+    /**
+     * <pre>
+     * witness block producing allowance
+     * </pre>
+     *
+     * <code>int64 allowance = 11;</code>
+     */
+    long getAllowance();
+
+    /**
+     * <pre>
+     * last withdraw time
+     * </pre>
+     *
+     * <code>int64 latest_withdraw_time = 12;</code>
+     */
+    long getLatestWithdrawTime();
+
+    /**
+     * <pre>
+     * not used so far
+     * </pre>
+     *
+     * <code>bytes code = 13;</code>
+     */
+    com.google.protobuf.ByteString getCode();
   }
   /**
    * <pre>
@@ -458,10 +1190,16 @@ public final class Protocol {
       address_ = com.google.protobuf.ByteString.EMPTY;
       balance_ = 0L;
       votes_ = java.util.Collections.emptyList();
+      frozen_ = java.util.Collections.emptyList();
+      bandwidth_ = 0L;
+      createTime_ = 0L;
       latestOprationTime_ = 0L;
+      allowance_ = 0L;
+      latestWithdrawTime_ = 0L;
+      code_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -472,7 +1210,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -515,11 +1253,11 @@ public final class Protocol {
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                votes_ = new java.util.ArrayList<org.tron.protos.Protocol.Account.Vote>();
+                votes_ = new java.util.ArrayList<Vote>();
                 mutable_bitField0_ |= 0x00000010;
               }
               votes_.add(
-                  input.readMessage(org.tron.protos.Protocol.Account.Vote.parser(), extensionRegistry));
+                  input.readMessage(Vote.parser(), extensionRegistry));
               break;
             }
             case 50: {
@@ -528,16 +1266,50 @@ public final class Protocol {
                     AssetDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000020;
               }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              com.google.protobuf.MapEntry<String, Long>
               asset__ = input.readMessage(
                   AssetDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               asset_.getMutableMap().put(
                   asset__.getKey(), asset__.getValue());
               break;
             }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                frozen_ = new java.util.ArrayList<Frozen>();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              frozen_.add(
+                  input.readMessage(Frozen.parser(), extensionRegistry));
+              break;
+            }
+            case 64: {
+
+              bandwidth_ = input.readInt64();
+              break;
+            }
+            case 72: {
+
+              createTime_ = input.readInt64();
+              break;
+            }
             case 80: {
 
               latestOprationTime_ = input.readInt64();
+              break;
+            }
+            case 88: {
+
+              allowance_ = input.readInt64();
+              break;
+            }
+            case 96: {
+
+              latestWithdrawTime_ = input.readInt64();
+              break;
+            }
+            case 106: {
+
+              code_ = input.readBytes();
               break;
             }
           }
@@ -551,13 +1323,16 @@ public final class Protocol {
         if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           votes_ = java.util.Collections.unmodifiableList(votes_);
         }
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          frozen_ = java.util.Collections.unmodifiableList(frozen_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_Account_descriptor;
+      return Protocol.internal_static_protocol_Account_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -571,11 +1346,11 @@ public final class Protocol {
               "Invalid map field number: " + number);
       }
     }
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_Account_fieldAccessorTable
+      return Protocol.internal_static_protocol_Account_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.Account.class, org.tron.protos.Protocol.Account.Builder.class);
+              Account.class, Builder.class);
     }
 
     public interface VoteOrBuilder extends
@@ -583,16 +1358,28 @@ public final class Protocol {
         com.google.protobuf.MessageOrBuilder {
 
       /**
+       * <pre>
+       * the super rep address
+       * </pre>
+       *
        * <code>bytes vote_address = 1;</code>
        */
       com.google.protobuf.ByteString getVoteAddress();
 
       /**
+       * <pre>
+       * the vote num to this super rep.
+       * </pre>
+       *
        * <code>int64 vote_count = 2;</code>
        */
       long getVoteCount();
     }
     /**
+     * <pre>
+     * vote message
+     * </pre>
+     *
      * Protobuf type {@code protocol.Account.Vote}
      */
     public  static final class Vote extends
@@ -609,7 +1396,7 @@ public final class Protocol {
         voteCount_ = 0L;
       }
 
-      @java.lang.Override
+      @Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -620,7 +1407,7 @@ public final class Protocol {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -664,19 +1451,23 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_descriptor;
+        return Protocol.internal_static_protocol_Account_Vote_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_fieldAccessorTable
+        return Protocol.internal_static_protocol_Account_Vote_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Account.Vote.class, org.tron.protos.Protocol.Account.Vote.Builder.class);
+                Vote.class, Builder.class);
       }
 
       public static final int VOTE_ADDRESS_FIELD_NUMBER = 1;
       private com.google.protobuf.ByteString voteAddress_;
       /**
+       * <pre>
+       * the super rep address
+       * </pre>
+       *
        * <code>bytes vote_address = 1;</code>
        */
       public com.google.protobuf.ByteString getVoteAddress() {
@@ -686,6 +1477,10 @@ public final class Protocol {
       public static final int VOTE_COUNT_FIELD_NUMBER = 2;
       private long voteCount_;
       /**
+       * <pre>
+       * the vote num to this super rep.
+       * </pre>
+       *
        * <code>int64 vote_count = 2;</code>
        */
       public long getVoteCount() {
@@ -731,15 +1526,15 @@ public final class Protocol {
         return size;
       }
 
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
+      @Override
+      public boolean equals(final Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof org.tron.protos.Protocol.Account.Vote)) {
+        if (!(obj instanceof Vote)) {
           return super.equals(obj);
         }
-        org.tron.protos.Protocol.Account.Vote other = (org.tron.protos.Protocol.Account.Vote) obj;
+        Vote other = (Vote) obj;
 
         boolean result = true;
         result = result && getVoteAddress()
@@ -750,7 +1545,7 @@ public final class Protocol {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -767,69 +1562,69 @@ public final class Protocol {
         return hash;
       }
 
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
+      public static Vote parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
+      public static Vote parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
+      public static Vote parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
+      public static Vote parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(byte[] data)
+      public static Vote parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
+      public static Vote parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(java.io.InputStream input)
+      public static Vote parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
+      public static Vote parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseDelimitedFrom(java.io.InputStream input)
+      public static Vote parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseDelimitedFrom(
+      public static Vote parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
+      public static Vote parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
+      public static Vote parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -841,7 +1636,7 @@ public final class Protocol {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(org.tron.protos.Protocol.Account.Vote prototype) {
+      public static Builder newBuilder(Vote prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -849,29 +1644,33 @@ public final class Protocol {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @java.lang.Override
+      @Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
       /**
+       * <pre>
+       * vote message
+       * </pre>
+       *
        * Protobuf type {@code protocol.Account.Vote}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:protocol.Account.Vote)
-          org.tron.protos.Protocol.Account.VoteOrBuilder {
+          VoteOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_descriptor;
+          return Protocol.internal_static_protocol_Account_Vote_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_fieldAccessorTable
+          return Protocol.internal_static_protocol_Account_Vote_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.Account.Vote.class, org.tron.protos.Protocol.Account.Vote.Builder.class);
+                  Vote.class, Builder.class);
         }
 
         // Construct using org.tron.protos.Protocol.Account.Vote.newBuilder()
@@ -880,7 +1679,7 @@ public final class Protocol {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -900,23 +1699,23 @@ public final class Protocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_descriptor;
+          return Protocol.internal_static_protocol_Account_Vote_descriptor;
         }
 
-        public org.tron.protos.Protocol.Account.Vote getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.Account.Vote.getDefaultInstance();
+        public Vote getDefaultInstanceForType() {
+          return Vote.getDefaultInstance();
         }
 
-        public org.tron.protos.Protocol.Account.Vote build() {
-          org.tron.protos.Protocol.Account.Vote result = buildPartial();
+        public Vote build() {
+          Vote result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public org.tron.protos.Protocol.Account.Vote buildPartial() {
-          org.tron.protos.Protocol.Account.Vote result = new org.tron.protos.Protocol.Account.Vote(this);
+        public Vote buildPartial() {
+          Vote result = new Vote(this);
           result.voteAddress_ = voteAddress_;
           result.voteCount_ = voteCount_;
           onBuilt();
@@ -928,7 +1727,7 @@ public final class Protocol {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -941,25 +1740,25 @@ public final class Protocol {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.Account.Vote) {
-            return mergeFrom((org.tron.protos.Protocol.Account.Vote)other);
+          if (other instanceof Vote) {
+            return mergeFrom((Vote)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(org.tron.protos.Protocol.Account.Vote other) {
-          if (other == org.tron.protos.Protocol.Account.Vote.getDefaultInstance()) return this;
+        public Builder mergeFrom(Vote other) {
+          if (other == Vote.getDefaultInstance()) return this;
           if (other.getVoteAddress() != com.google.protobuf.ByteString.EMPTY) {
             setVoteAddress(other.getVoteAddress());
           }
@@ -979,11 +1778,11 @@ public final class Protocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          org.tron.protos.Protocol.Account.Vote parsedMessage = null;
+          Vote parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.Account.Vote) e.getUnfinishedMessage();
+            parsedMessage = (Vote) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -995,12 +1794,20 @@ public final class Protocol {
 
         private com.google.protobuf.ByteString voteAddress_ = com.google.protobuf.ByteString.EMPTY;
         /**
+         * <pre>
+         * the super rep address
+         * </pre>
+         *
          * <code>bytes vote_address = 1;</code>
          */
         public com.google.protobuf.ByteString getVoteAddress() {
           return voteAddress_;
         }
         /**
+         * <pre>
+         * the super rep address
+         * </pre>
+         *
          * <code>bytes vote_address = 1;</code>
          */
         public Builder setVoteAddress(com.google.protobuf.ByteString value) {
@@ -1013,6 +1820,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         * the super rep address
+         * </pre>
+         *
          * <code>bytes vote_address = 1;</code>
          */
         public Builder clearVoteAddress() {
@@ -1024,12 +1835,20 @@ public final class Protocol {
 
         private long voteCount_ ;
         /**
+         * <pre>
+         * the vote num to this super rep.
+         * </pre>
+         *
          * <code>int64 vote_count = 2;</code>
          */
         public long getVoteCount() {
           return voteCount_;
         }
         /**
+         * <pre>
+         * the vote num to this super rep.
+         * </pre>
+         *
          * <code>int64 vote_count = 2;</code>
          */
         public Builder setVoteCount(long value) {
@@ -1039,6 +1858,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         * the vote num to this super rep.
+         * </pre>
+         *
          * <code>int64 vote_count = 2;</code>
          */
         public Builder clearVoteCount() {
@@ -1062,12 +1885,12 @@ public final class Protocol {
       }
 
       // @@protoc_insertion_point(class_scope:protocol.Account.Vote)
-      private static final org.tron.protos.Protocol.Account.Vote DEFAULT_INSTANCE;
+      private static final Vote DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.Account.Vote();
+        DEFAULT_INSTANCE = new Vote();
       }
 
-      public static org.tron.protos.Protocol.Account.Vote getDefaultInstance() {
+      public static Vote getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -1085,12 +1908,576 @@ public final class Protocol {
         return PARSER;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Parser<Vote> getParserForType() {
         return PARSER;
       }
 
-      public org.tron.protos.Protocol.Account.Vote getDefaultInstanceForType() {
+      public Vote getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public interface FrozenOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:protocol.Account.Frozen)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       * the frozen trx balance
+       * </pre>
+       *
+       * <code>int64 frozen_balance = 1;</code>
+       */
+      long getFrozenBalance();
+
+      /**
+       * <pre>
+       * the expire time
+       * </pre>
+       *
+       * <code>int64 expire_time = 2;</code>
+       */
+      long getExpireTime();
+    }
+    /**
+     * <pre>
+     * frozen balance
+     * </pre>
+     *
+     * Protobuf type {@code protocol.Account.Frozen}
+     */
+    public  static final class Frozen extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:protocol.Account.Frozen)
+        FrozenOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use Frozen.newBuilder() to construct.
+      private Frozen(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Frozen() {
+        frozenBalance_ = 0L;
+        expireTime_ = 0L;
+      }
+
+      @Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private Frozen(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownFieldProto3(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+
+                frozenBalance_ = input.readInt64();
+                break;
+              }
+              case 16: {
+
+                expireTime_ = input.readInt64();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Protocol.internal_static_protocol_Account_Frozen_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Protocol.internal_static_protocol_Account_Frozen_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Frozen.class, Builder.class);
+      }
+
+      public static final int FROZEN_BALANCE_FIELD_NUMBER = 1;
+      private long frozenBalance_;
+      /**
+       * <pre>
+       * the frozen trx balance
+       * </pre>
+       *
+       * <code>int64 frozen_balance = 1;</code>
+       */
+      public long getFrozenBalance() {
+        return frozenBalance_;
+      }
+
+      public static final int EXPIRE_TIME_FIELD_NUMBER = 2;
+      private long expireTime_;
+      /**
+       * <pre>
+       * the expire time
+       * </pre>
+       *
+       * <code>int64 expire_time = 2;</code>
+       */
+      public long getExpireTime() {
+        return expireTime_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (frozenBalance_ != 0L) {
+          output.writeInt64(1, frozenBalance_);
+        }
+        if (expireTime_ != 0L) {
+          output.writeInt64(2, expireTime_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (frozenBalance_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(1, frozenBalance_);
+        }
+        if (expireTime_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(2, expireTime_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @Override
+      public boolean equals(final Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof Frozen)) {
+          return super.equals(obj);
+        }
+        Frozen other = (Frozen) obj;
+
+        boolean result = true;
+        result = result && (getFrozenBalance()
+            == other.getFrozenBalance());
+        result = result && (getExpireTime()
+            == other.getExpireTime());
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + FROZEN_BALANCE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getFrozenBalance());
+        hash = (37 * hash) + EXPIRE_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getExpireTime());
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static Frozen parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static Frozen parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static Frozen parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static Frozen parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static Frozen parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static Frozen parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static Frozen parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static Frozen parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static Frozen parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static Frozen parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static Frozen parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static Frozen parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(Frozen prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @Override
+      protected Builder newBuilderForType(
+          BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * <pre>
+       * frozen balance
+       * </pre>
+       *
+       * Protobuf type {@code protocol.Account.Frozen}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:protocol.Account.Frozen)
+          FrozenOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return Protocol.internal_static_protocol_Account_Frozen_descriptor;
+        }
+
+        protected FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return Protocol.internal_static_protocol_Account_Frozen_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  Frozen.class, Builder.class);
+        }
+
+        // Construct using org.tron.protos.Protocol.Account.Frozen.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          frozenBalance_ = 0L;
+
+          expireTime_ = 0L;
+
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return Protocol.internal_static_protocol_Account_Frozen_descriptor;
+        }
+
+        public Frozen getDefaultInstanceForType() {
+          return Frozen.getDefaultInstance();
+        }
+
+        public Frozen build() {
+          Frozen result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public Frozen buildPartial() {
+          Frozen result = new Frozen(this);
+          result.frozenBalance_ = frozenBalance_;
+          result.expireTime_ = expireTime_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof Frozen) {
+            return mergeFrom((Frozen)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(Frozen other) {
+          if (other == Frozen.getDefaultInstance()) return this;
+          if (other.getFrozenBalance() != 0L) {
+            setFrozenBalance(other.getFrozenBalance());
+          }
+          if (other.getExpireTime() != 0L) {
+            setExpireTime(other.getExpireTime());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          Frozen parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (Frozen) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private long frozenBalance_ ;
+        /**
+         * <pre>
+         * the frozen trx balance
+         * </pre>
+         *
+         * <code>int64 frozen_balance = 1;</code>
+         */
+        public long getFrozenBalance() {
+          return frozenBalance_;
+        }
+        /**
+         * <pre>
+         * the frozen trx balance
+         * </pre>
+         *
+         * <code>int64 frozen_balance = 1;</code>
+         */
+        public Builder setFrozenBalance(long value) {
+          
+          frozenBalance_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * the frozen trx balance
+         * </pre>
+         *
+         * <code>int64 frozen_balance = 1;</code>
+         */
+        public Builder clearFrozenBalance() {
+          
+          frozenBalance_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private long expireTime_ ;
+        /**
+         * <pre>
+         * the expire time
+         * </pre>
+         *
+         * <code>int64 expire_time = 2;</code>
+         */
+        public long getExpireTime() {
+          return expireTime_;
+        }
+        /**
+         * <pre>
+         * the expire time
+         * </pre>
+         *
+         * <code>int64 expire_time = 2;</code>
+         */
+        public Builder setExpireTime(long value) {
+          
+          expireTime_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * the expire time
+         * </pre>
+         *
+         * <code>int64 expire_time = 2;</code>
+         */
+        public Builder clearExpireTime() {
+          
+          expireTime_ = 0L;
+          onChanged();
+          return this;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFieldsProto3(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:protocol.Account.Frozen)
+      }
+
+      // @@protoc_insertion_point(class_scope:protocol.Account.Frozen)
+      private static final Frozen DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new Frozen();
+      }
+
+      public static Frozen getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<Frozen>
+          PARSER = new com.google.protobuf.AbstractParser<Frozen>() {
+        public Frozen parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Frozen(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Frozen> parser() {
+        return PARSER;
+      }
+
+      @Override
+      public com.google.protobuf.Parser<Frozen> getParserForType() {
+        return PARSER;
+      }
+
+      public Frozen getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
@@ -1117,14 +2504,18 @@ public final class Protocol {
     /**
      * <code>.protocol.AccountType type = 2;</code>
      */
-    public org.tron.protos.Protocol.AccountType getType() {
-      org.tron.protos.Protocol.AccountType result = org.tron.protos.Protocol.AccountType.valueOf(type_);
-      return result == null ? org.tron.protos.Protocol.AccountType.UNRECOGNIZED : result;
+    public AccountType getType() {
+      AccountType result = AccountType.valueOf(type_);
+      return result == null ? AccountType.UNRECOGNIZED : result;
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString address_;
     /**
+     * <pre>
+     * the create adress
+     * </pre>
+     *
      * <code>bytes address = 3;</code>
      */
     public com.google.protobuf.ByteString getAddress() {
@@ -1134,6 +2525,10 @@ public final class Protocol {
     public static final int BALANCE_FIELD_NUMBER = 4;
     private long balance_;
     /**
+     * <pre>
+     * the trx balance
+     * </pre>
+     *
      * <code>int64 balance = 4;</code>
      */
     public long getBalance() {
@@ -1141,36 +2536,56 @@ public final class Protocol {
     }
 
     public static final int VOTES_FIELD_NUMBER = 5;
-    private java.util.List<org.tron.protos.Protocol.Account.Vote> votes_;
+    private java.util.List<Vote> votes_;
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.Account.Vote> getVotesList() {
+    public java.util.List<Vote> getVotesList() {
       return votes_;
     }
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.Account.VoteOrBuilder> 
+    public java.util.List<? extends VoteOrBuilder>
         getVotesOrBuilderList() {
       return votes_;
     }
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
     public int getVotesCount() {
       return votes_.size();
     }
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
-    public org.tron.protos.Protocol.Account.Vote getVotes(int index) {
+    public Vote getVotes(int index) {
       return votes_.get(index);
     }
     /**
+     * <pre>
+     * the votes
+     * </pre>
+     *
      * <code>repeated .protocol.Account.Vote votes = 5;</code>
      */
-    public org.tron.protos.Protocol.Account.VoteOrBuilder getVotesOrBuilder(
+    public VoteOrBuilder getVotesOrBuilder(
         int index) {
       return votes_.get(index);
     }
@@ -1178,18 +2593,18 @@ public final class Protocol {
     public static final int ASSET_FIELD_NUMBER = 6;
     private static final class AssetDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.Long> defaultEntry =
+          String, Long> defaultEntry =
               com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.Long>newDefaultInstance(
-                  org.tron.protos.Protocol.internal_static_protocol_Account_AssetEntry_descriptor, 
+              .<String, Long>newDefaultInstance(
+                  Protocol.internal_static_protocol_Account_AssetEntry_descriptor,
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.INT64,
                   0L);
     }
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Long> asset_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+        String, Long> asset_;
+    private com.google.protobuf.MapField<String, Long>
     internalGetAsset() {
       if (asset_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -1202,62 +2617,202 @@ public final class Protocol {
       return internalGetAsset().getMap().size();
     }
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
 
     public boolean containsAsset(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
       return internalGetAsset().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAssetMap()} instead.
      */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Long> getAsset() {
+    @Deprecated
+    public java.util.Map<String, Long> getAsset() {
       return getAssetMap();
     }
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
 
-    public java.util.Map<java.lang.String, java.lang.Long> getAssetMap() {
+    public java.util.Map<String, Long> getAssetMap() {
       return internalGetAsset().getMap();
     }
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
 
     public long getAssetOrDefault(
-        java.lang.String key,
+        String key,
         long defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Long> map =
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, Long> map =
           internalGetAsset().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
+     * <pre>
+     * the other asset owned by this account
+     * </pre>
+     *
      * <code>map&lt;string, int64&gt; asset = 6;</code>
      */
 
     public long getAssetOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Long> map =
+        String key) {
+      if (key == null) { throw new NullPointerException(); }
+      java.util.Map<String, Long> map =
           internalGetAsset().getMap();
       if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
+        throw new IllegalArgumentException();
       }
       return map.get(key);
+    }
+
+    public static final int FROZEN_FIELD_NUMBER = 7;
+    private java.util.List<Frozen> frozen_;
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    public java.util.List<Frozen> getFrozenList() {
+      return frozen_;
+    }
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    public java.util.List<? extends FrozenOrBuilder>
+        getFrozenOrBuilderList() {
+      return frozen_;
+    }
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    public int getFrozenCount() {
+      return frozen_.size();
+    }
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    public Frozen getFrozen(int index) {
+      return frozen_.get(index);
+    }
+    /**
+     * <pre>
+     * the frozen balance
+     * </pre>
+     *
+     * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+     */
+    public FrozenOrBuilder getFrozenOrBuilder(
+        int index) {
+      return frozen_.get(index);
+    }
+
+    public static final int BANDWIDTH_FIELD_NUMBER = 8;
+    private long bandwidth_;
+    /**
+     * <pre>
+     * bandwidth, get from frozen
+     * </pre>
+     *
+     * <code>int64 bandwidth = 8;</code>
+     */
+    public long getBandwidth() {
+      return bandwidth_;
+    }
+
+    public static final int CREATE_TIME_FIELD_NUMBER = 9;
+    private long createTime_;
+    /**
+     * <pre>
+     * this account create time
+     * </pre>
+     *
+     * <code>int64 create_time = 9;</code>
+     */
+    public long getCreateTime() {
+      return createTime_;
     }
 
     public static final int LATEST_OPRATION_TIME_FIELD_NUMBER = 10;
     private long latestOprationTime_;
     /**
+     * <pre>
+     * this last opration time, including transfer, voting and so on.
+     * </pre>
+     *
      * <code>int64 latest_opration_time = 10;</code>
      */
     public long getLatestOprationTime() {
       return latestOprationTime_;
+    }
+
+    public static final int ALLOWANCE_FIELD_NUMBER = 11;
+    private long allowance_;
+    /**
+     * <pre>
+     * witness block producing allowance
+     * </pre>
+     *
+     * <code>int64 allowance = 11;</code>
+     */
+    public long getAllowance() {
+      return allowance_;
+    }
+
+    public static final int LATEST_WITHDRAW_TIME_FIELD_NUMBER = 12;
+    private long latestWithdrawTime_;
+    /**
+     * <pre>
+     * last withdraw time
+     * </pre>
+     *
+     * <code>int64 latest_withdraw_time = 12;</code>
+     */
+    public long getLatestWithdrawTime() {
+      return latestWithdrawTime_;
+    }
+
+    public static final int CODE_FIELD_NUMBER = 13;
+    private com.google.protobuf.ByteString code_;
+    /**
+     * <pre>
+     * not used so far
+     * </pre>
+     *
+     * <code>bytes code = 13;</code>
+     */
+    public com.google.protobuf.ByteString getCode() {
+      return code_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1275,7 +2830,7 @@ public final class Protocol {
       if (!accountName_.isEmpty()) {
         output.writeBytes(1, accountName_);
       }
-      if (type_ != org.tron.protos.Protocol.AccountType.Normal.getNumber()) {
+      if (type_ != AccountType.Normal.getNumber()) {
         output.writeEnum(2, type_);
       }
       if (!address_.isEmpty()) {
@@ -1293,8 +2848,26 @@ public final class Protocol {
           internalGetAsset(),
           AssetDefaultEntryHolder.defaultEntry,
           6);
+      for (int i = 0; i < frozen_.size(); i++) {
+        output.writeMessage(7, frozen_.get(i));
+      }
+      if (bandwidth_ != 0L) {
+        output.writeInt64(8, bandwidth_);
+      }
+      if (createTime_ != 0L) {
+        output.writeInt64(9, createTime_);
+      }
       if (latestOprationTime_ != 0L) {
         output.writeInt64(10, latestOprationTime_);
+      }
+      if (allowance_ != 0L) {
+        output.writeInt64(11, allowance_);
+      }
+      if (latestWithdrawTime_ != 0L) {
+        output.writeInt64(12, latestWithdrawTime_);
+      }
+      if (!code_.isEmpty()) {
+        output.writeBytes(13, code_);
       }
       unknownFields.writeTo(output);
     }
@@ -1308,7 +2881,7 @@ public final class Protocol {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, accountName_);
       }
-      if (type_ != org.tron.protos.Protocol.AccountType.Normal.getNumber()) {
+      if (type_ != AccountType.Normal.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, type_);
       }
@@ -1324,9 +2897,9 @@ public final class Protocol {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, votes_.get(i));
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.Long> entry
+      for (java.util.Map.Entry<String, Long> entry
            : internalGetAsset().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+        com.google.protobuf.MapEntry<String, Long>
         asset__ = AssetDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -1334,24 +2907,48 @@ public final class Protocol {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(6, asset__);
       }
+      for (int i = 0; i < frozen_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, frozen_.get(i));
+      }
+      if (bandwidth_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(8, bandwidth_);
+      }
+      if (createTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, createTime_);
+      }
       if (latestOprationTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(10, latestOprationTime_);
+      }
+      if (allowance_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(11, allowance_);
+      }
+      if (latestWithdrawTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(12, latestWithdrawTime_);
+      }
+      if (!code_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(13, code_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.Account)) {
+      if (!(obj instanceof Account)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.Account other = (org.tron.protos.Protocol.Account) obj;
+      Account other = (Account) obj;
 
       boolean result = true;
       result = result && getAccountName()
@@ -1365,13 +2962,25 @@ public final class Protocol {
           .equals(other.getVotesList());
       result = result && internalGetAsset().equals(
           other.internalGetAsset());
+      result = result && getFrozenList()
+          .equals(other.getFrozenList());
+      result = result && (getBandwidth()
+          == other.getBandwidth());
+      result = result && (getCreateTime()
+          == other.getCreateTime());
       result = result && (getLatestOprationTime()
           == other.getLatestOprationTime());
+      result = result && (getAllowance()
+          == other.getAllowance());
+      result = result && (getLatestWithdrawTime()
+          == other.getLatestWithdrawTime());
+      result = result && getCode()
+          .equals(other.getCode());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1395,77 +3004,95 @@ public final class Protocol {
         hash = (37 * hash) + ASSET_FIELD_NUMBER;
         hash = (53 * hash) + internalGetAsset().hashCode();
       }
+      if (getFrozenCount() > 0) {
+        hash = (37 * hash) + FROZEN_FIELD_NUMBER;
+        hash = (53 * hash) + getFrozenList().hashCode();
+      }
+      hash = (37 * hash) + BANDWIDTH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getBandwidth());
+      hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCreateTime());
       hash = (37 * hash) + LATEST_OPRATION_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLatestOprationTime());
+      hash = (37 * hash) + ALLOWANCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getAllowance());
+      hash = (37 * hash) + LATEST_WITHDRAW_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLatestWithdrawTime());
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static org.tron.protos.Protocol.Account parseFrom(
+    public static Account parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(
+    public static Account parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(
+    public static Account parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(
+    public static Account parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(byte[] data)
+    public static Account parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(
+    public static Account parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(java.io.InputStream input)
+    public static Account parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(
+    public static Account parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Account parseDelimitedFrom(java.io.InputStream input)
+    public static Account parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Account parseDelimitedFrom(
+    public static Account parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(
+    public static Account parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Account parseFrom(
+    public static Account parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1477,7 +3104,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.Account prototype) {
+    public static Builder newBuilder(Account prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1485,9 +3112,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1501,10 +3128,10 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.Account)
-        org.tron.protos.Protocol.AccountOrBuilder {
+        AccountOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Account_descriptor;
+        return Protocol.internal_static_protocol_Account_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -1529,11 +3156,11 @@ public final class Protocol {
                 "Invalid map field number: " + number);
         }
       }
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Account_fieldAccessorTable
+        return Protocol.internal_static_protocol_Account_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Account.class, org.tron.protos.Protocol.Account.Builder.class);
+                Account.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.Account.newBuilder()
@@ -1542,7 +3169,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1550,6 +3177,7 @@ public final class Protocol {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getVotesFieldBuilder();
+          getFrozenFieldBuilder();
         }
       }
       public Builder clear() {
@@ -1569,30 +3197,46 @@ public final class Protocol {
           votesBuilder_.clear();
         }
         internalGetMutableAsset().clear();
+        if (frozenBuilder_ == null) {
+          frozen_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        } else {
+          frozenBuilder_.clear();
+        }
+        bandwidth_ = 0L;
+
+        createTime_ = 0L;
+
         latestOprationTime_ = 0L;
+
+        allowance_ = 0L;
+
+        latestWithdrawTime_ = 0L;
+
+        code_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_Account_descriptor;
+        return Protocol.internal_static_protocol_Account_descriptor;
       }
 
-      public org.tron.protos.Protocol.Account getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.Account.getDefaultInstance();
+      public Account getDefaultInstanceForType() {
+        return Account.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.Account build() {
-        org.tron.protos.Protocol.Account result = buildPartial();
+      public Account build() {
+        Account result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.Account buildPartial() {
-        org.tron.protos.Protocol.Account result = new org.tron.protos.Protocol.Account(this);
+      public Account buildPartial() {
+        Account result = new Account(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.accountName_ = accountName_;
@@ -1610,7 +3254,21 @@ public final class Protocol {
         }
         result.asset_ = internalGetAsset();
         result.asset_.makeImmutable();
+        if (frozenBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            frozen_ = java.util.Collections.unmodifiableList(frozen_);
+            bitField0_ = (bitField0_ & ~0x00000040);
+          }
+          result.frozen_ = frozen_;
+        } else {
+          result.frozen_ = frozenBuilder_.build();
+        }
+        result.bandwidth_ = bandwidth_;
+        result.createTime_ = createTime_;
         result.latestOprationTime_ = latestOprationTime_;
+        result.allowance_ = allowance_;
+        result.latestWithdrawTime_ = latestWithdrawTime_;
+        result.code_ = code_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1621,7 +3279,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -1634,25 +3292,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.Account) {
-          return mergeFrom((org.tron.protos.Protocol.Account)other);
+        if (other instanceof Account) {
+          return mergeFrom((Account)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.Account other) {
-        if (other == org.tron.protos.Protocol.Account.getDefaultInstance()) return this;
+      public Builder mergeFrom(Account other) {
+        if (other == Account.getDefaultInstance()) return this;
         if (other.getAccountName() != com.google.protobuf.ByteString.EMPTY) {
           setAccountName(other.getAccountName());
         }
@@ -1693,8 +3351,49 @@ public final class Protocol {
         }
         internalGetMutableAsset().mergeFrom(
             other.internalGetAsset());
+        if (frozenBuilder_ == null) {
+          if (!other.frozen_.isEmpty()) {
+            if (frozen_.isEmpty()) {
+              frozen_ = other.frozen_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+            } else {
+              ensureFrozenIsMutable();
+              frozen_.addAll(other.frozen_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.frozen_.isEmpty()) {
+            if (frozenBuilder_.isEmpty()) {
+              frozenBuilder_.dispose();
+              frozenBuilder_ = null;
+              frozen_ = other.frozen_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+              frozenBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFrozenFieldBuilder() : null;
+            } else {
+              frozenBuilder_.addAllMessages(other.frozen_);
+            }
+          }
+        }
+        if (other.getBandwidth() != 0L) {
+          setBandwidth(other.getBandwidth());
+        }
+        if (other.getCreateTime() != 0L) {
+          setCreateTime(other.getCreateTime());
+        }
         if (other.getLatestOprationTime() != 0L) {
           setLatestOprationTime(other.getLatestOprationTime());
+        }
+        if (other.getAllowance() != 0L) {
+          setAllowance(other.getAllowance());
+        }
+        if (other.getLatestWithdrawTime() != 0L) {
+          setLatestWithdrawTime(other.getLatestWithdrawTime());
+        }
+        if (other.getCode() != com.google.protobuf.ByteString.EMPTY) {
+          setCode(other.getCode());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1709,11 +3408,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.Account parsedMessage = null;
+        Account parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.Account) e.getUnfinishedMessage();
+          parsedMessage = (Account) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1771,14 +3470,14 @@ public final class Protocol {
       /**
        * <code>.protocol.AccountType type = 2;</code>
        */
-      public org.tron.protos.Protocol.AccountType getType() {
-        org.tron.protos.Protocol.AccountType result = org.tron.protos.Protocol.AccountType.valueOf(type_);
-        return result == null ? org.tron.protos.Protocol.AccountType.UNRECOGNIZED : result;
+      public AccountType getType() {
+        AccountType result = AccountType.valueOf(type_);
+        return result == null ? AccountType.UNRECOGNIZED : result;
       }
       /**
        * <code>.protocol.AccountType type = 2;</code>
        */
-      public Builder setType(org.tron.protos.Protocol.AccountType value) {
+      public Builder setType(AccountType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -1799,12 +3498,20 @@ public final class Protocol {
 
       private com.google.protobuf.ByteString address_ = com.google.protobuf.ByteString.EMPTY;
       /**
+       * <pre>
+       * the create adress
+       * </pre>
+       *
        * <code>bytes address = 3;</code>
        */
       public com.google.protobuf.ByteString getAddress() {
         return address_;
       }
       /**
+       * <pre>
+       * the create adress
+       * </pre>
+       *
        * <code>bytes address = 3;</code>
        */
       public Builder setAddress(com.google.protobuf.ByteString value) {
@@ -1817,6 +3524,10 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the create adress
+       * </pre>
+       *
        * <code>bytes address = 3;</code>
        */
       public Builder clearAddress() {
@@ -1828,12 +3539,20 @@ public final class Protocol {
 
       private long balance_ ;
       /**
+       * <pre>
+       * the trx balance
+       * </pre>
+       *
        * <code>int64 balance = 4;</code>
        */
       public long getBalance() {
         return balance_;
       }
       /**
+       * <pre>
+       * the trx balance
+       * </pre>
+       *
        * <code>int64 balance = 4;</code>
        */
       public Builder setBalance(long value) {
@@ -1843,6 +3562,10 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the trx balance
+       * </pre>
+       *
        * <code>int64 balance = 4;</code>
        */
       public Builder clearBalance() {
@@ -1852,22 +3575,26 @@ public final class Protocol {
         return this;
       }
 
-      private java.util.List<org.tron.protos.Protocol.Account.Vote> votes_ =
+      private java.util.List<Vote> votes_ =
         java.util.Collections.emptyList();
       private void ensureVotesIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          votes_ = new java.util.ArrayList<org.tron.protos.Protocol.Account.Vote>(votes_);
+          votes_ = new java.util.ArrayList<Vote>(votes_);
           bitField0_ |= 0x00000010;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Account.Vote, org.tron.protos.Protocol.Account.Vote.Builder, org.tron.protos.Protocol.Account.VoteOrBuilder> votesBuilder_;
+          Vote, Vote.Builder, VoteOrBuilder> votesBuilder_;
 
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Account.Vote> getVotesList() {
+      public java.util.List<Vote> getVotesList() {
         if (votesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(votes_);
         } else {
@@ -1875,6 +3602,10 @@ public final class Protocol {
         }
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public int getVotesCount() {
@@ -1885,9 +3616,13 @@ public final class Protocol {
         }
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.Vote getVotes(int index) {
+      public Vote getVotes(int index) {
         if (votesBuilder_ == null) {
           return votes_.get(index);
         } else {
@@ -1895,10 +3630,14 @@ public final class Protocol {
         }
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public Builder setVotes(
-          int index, org.tron.protos.Protocol.Account.Vote value) {
+          int index, Vote value) {
         if (votesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1912,10 +3651,14 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public Builder setVotes(
-          int index, org.tron.protos.Protocol.Account.Vote.Builder builderForValue) {
+          int index, Vote.Builder builderForValue) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           votes_.set(index, builderForValue.build());
@@ -1926,9 +3669,13 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public Builder addVotes(org.tron.protos.Protocol.Account.Vote value) {
+      public Builder addVotes(Vote value) {
         if (votesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1942,10 +3689,14 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public Builder addVotes(
-          int index, org.tron.protos.Protocol.Account.Vote value) {
+          int index, Vote value) {
         if (votesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1959,10 +3710,14 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public Builder addVotes(
-          org.tron.protos.Protocol.Account.Vote.Builder builderForValue) {
+          Vote.Builder builderForValue) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           votes_.add(builderForValue.build());
@@ -1973,10 +3728,14 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public Builder addVotes(
-          int index, org.tron.protos.Protocol.Account.Vote.Builder builderForValue) {
+          int index, Vote.Builder builderForValue) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           votes_.add(index, builderForValue.build());
@@ -1987,10 +3746,14 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public Builder addAllVotes(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.Account.Vote> values) {
+          Iterable<? extends Vote> values) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2002,6 +3765,10 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public Builder clearVotes() {
@@ -2015,6 +3782,10 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
       public Builder removeVotes(int index) {
@@ -2028,16 +3799,24 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.Vote.Builder getVotesBuilder(
+      public Vote.Builder getVotesBuilder(
           int index) {
         return getVotesFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.VoteOrBuilder getVotesOrBuilder(
+      public VoteOrBuilder getVotesOrBuilder(
           int index) {
         if (votesBuilder_ == null) {
           return votes_.get(index);  } else {
@@ -2045,9 +3824,13 @@ public final class Protocol {
         }
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.Account.VoteOrBuilder> 
+      public java.util.List<? extends VoteOrBuilder>
            getVotesOrBuilderList() {
         if (votesBuilder_ != null) {
           return votesBuilder_.getMessageOrBuilderList();
@@ -2056,33 +3839,45 @@ public final class Protocol {
         }
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.Vote.Builder addVotesBuilder() {
+      public Vote.Builder addVotesBuilder() {
         return getVotesFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.Account.Vote.getDefaultInstance());
+            Vote.getDefaultInstance());
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.Vote.Builder addVotesBuilder(
+      public Vote.Builder addVotesBuilder(
           int index) {
         return getVotesFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.Account.Vote.getDefaultInstance());
+            index, Vote.getDefaultInstance());
       }
       /**
+       * <pre>
+       * the votes
+       * </pre>
+       *
        * <code>repeated .protocol.Account.Vote votes = 5;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Account.Vote.Builder> 
+      public java.util.List<Vote.Builder>
            getVotesBuilderList() {
         return getVotesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Account.Vote, org.tron.protos.Protocol.Account.Vote.Builder, org.tron.protos.Protocol.Account.VoteOrBuilder> 
+          Vote, Vote.Builder, VoteOrBuilder>
           getVotesFieldBuilder() {
         if (votesBuilder_ == null) {
           votesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.Account.Vote, org.tron.protos.Protocol.Account.Vote.Builder, org.tron.protos.Protocol.Account.VoteOrBuilder>(
+              Vote, Vote.Builder, VoteOrBuilder>(
                   votes_,
                   ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
@@ -2093,8 +3888,8 @@ public final class Protocol {
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, java.lang.Long> asset_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+          String, Long> asset_;
+      private com.google.protobuf.MapField<String, Long>
       internalGetAsset() {
         if (asset_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -2102,7 +3897,7 @@ public final class Protocol {
         }
         return asset_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+      private com.google.protobuf.MapField<String, Long>
       internalGetMutableAsset() {
         onChanged();;
         if (asset_ == null) {
@@ -2119,51 +3914,67 @@ public final class Protocol {
         return internalGetAsset().getMap().size();
       }
       /**
+       * <pre>
+       * the other asset owned by this account
+       * </pre>
+       *
        * <code>map&lt;string, int64&gt; asset = 6;</code>
        */
 
       public boolean containsAsset(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+          String key) {
+        if (key == null) { throw new NullPointerException(); }
         return internalGetAsset().getMap().containsKey(key);
       }
       /**
        * Use {@link #getAssetMap()} instead.
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Long> getAsset() {
+      @Deprecated
+      public java.util.Map<String, Long> getAsset() {
         return getAssetMap();
       }
       /**
+       * <pre>
+       * the other asset owned by this account
+       * </pre>
+       *
        * <code>map&lt;string, int64&gt; asset = 6;</code>
        */
 
-      public java.util.Map<java.lang.String, java.lang.Long> getAssetMap() {
+      public java.util.Map<String, Long> getAssetMap() {
         return internalGetAsset().getMap();
       }
       /**
+       * <pre>
+       * the other asset owned by this account
+       * </pre>
+       *
        * <code>map&lt;string, int64&gt; asset = 6;</code>
        */
 
       public long getAssetOrDefault(
-          java.lang.String key,
+          String key,
           long defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Long> map =
+        if (key == null) { throw new NullPointerException(); }
+        java.util.Map<String, Long> map =
             internalGetAsset().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
+       * <pre>
+       * the other asset owned by this account
+       * </pre>
+       *
        * <code>map&lt;string, int64&gt; asset = 6;</code>
        */
 
       public long getAssetOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Long> map =
+          String key) {
+        if (key == null) { throw new NullPointerException(); }
+        java.util.Map<String, Long> map =
             internalGetAsset().getMap();
         if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+          throw new IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -2174,12 +3985,16 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * the other asset owned by this account
+       * </pre>
+       *
        * <code>map&lt;string, int64&gt; asset = 6;</code>
        */
 
       public Builder removeAsset(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+          String key) {
+        if (key == null) { throw new NullPointerException(); }
         internalGetMutableAsset().getMutableMap()
             .remove(key);
         return this;
@@ -2187,42 +4002,446 @@ public final class Protocol {
       /**
        * Use alternate mutation accessors instead.
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Long>
+      @Deprecated
+      public java.util.Map<String, Long>
       getMutableAsset() {
         return internalGetMutableAsset().getMutableMap();
       }
       /**
+       * <pre>
+       * the other asset owned by this account
+       * </pre>
+       *
        * <code>map&lt;string, int64&gt; asset = 6;</code>
        */
       public Builder putAsset(
-          java.lang.String key,
+          String key,
           long value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException(); }
         
         internalGetMutableAsset().getMutableMap()
             .put(key, value);
         return this;
       }
       /**
+       * <pre>
+       * the other asset owned by this account
+       * </pre>
+       *
        * <code>map&lt;string, int64&gt; asset = 6;</code>
        */
 
       public Builder putAllAsset(
-          java.util.Map<java.lang.String, java.lang.Long> values) {
+          java.util.Map<String, Long> values) {
         internalGetMutableAsset().getMutableMap()
             .putAll(values);
         return this;
       }
 
+      private java.util.List<Frozen> frozen_ =
+        java.util.Collections.emptyList();
+      private void ensureFrozenIsMutable() {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+          frozen_ = new java.util.ArrayList<Frozen>(frozen_);
+          bitField0_ |= 0x00000040;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Frozen, Frozen.Builder, FrozenOrBuilder> frozenBuilder_;
+
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public java.util.List<Frozen> getFrozenList() {
+        if (frozenBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(frozen_);
+        } else {
+          return frozenBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public int getFrozenCount() {
+        if (frozenBuilder_ == null) {
+          return frozen_.size();
+        } else {
+          return frozenBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Frozen getFrozen(int index) {
+        if (frozenBuilder_ == null) {
+          return frozen_.get(index);
+        } else {
+          return frozenBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder setFrozen(
+          int index, Frozen value) {
+        if (frozenBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFrozenIsMutable();
+          frozen_.set(index, value);
+          onChanged();
+        } else {
+          frozenBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder setFrozen(
+          int index, Frozen.Builder builderForValue) {
+        if (frozenBuilder_ == null) {
+          ensureFrozenIsMutable();
+          frozen_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          frozenBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder addFrozen(Frozen value) {
+        if (frozenBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFrozenIsMutable();
+          frozen_.add(value);
+          onChanged();
+        } else {
+          frozenBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder addFrozen(
+          int index, Frozen value) {
+        if (frozenBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFrozenIsMutable();
+          frozen_.add(index, value);
+          onChanged();
+        } else {
+          frozenBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder addFrozen(
+          Frozen.Builder builderForValue) {
+        if (frozenBuilder_ == null) {
+          ensureFrozenIsMutable();
+          frozen_.add(builderForValue.build());
+          onChanged();
+        } else {
+          frozenBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder addFrozen(
+          int index, Frozen.Builder builderForValue) {
+        if (frozenBuilder_ == null) {
+          ensureFrozenIsMutable();
+          frozen_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          frozenBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder addAllFrozen(
+          Iterable<? extends Frozen> values) {
+        if (frozenBuilder_ == null) {
+          ensureFrozenIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, frozen_);
+          onChanged();
+        } else {
+          frozenBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder clearFrozen() {
+        if (frozenBuilder_ == null) {
+          frozen_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+          onChanged();
+        } else {
+          frozenBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Builder removeFrozen(int index) {
+        if (frozenBuilder_ == null) {
+          ensureFrozenIsMutable();
+          frozen_.remove(index);
+          onChanged();
+        } else {
+          frozenBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Frozen.Builder getFrozenBuilder(
+          int index) {
+        return getFrozenFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public FrozenOrBuilder getFrozenOrBuilder(
+          int index) {
+        if (frozenBuilder_ == null) {
+          return frozen_.get(index);  } else {
+          return frozenBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public java.util.List<? extends FrozenOrBuilder>
+           getFrozenOrBuilderList() {
+        if (frozenBuilder_ != null) {
+          return frozenBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(frozen_);
+        }
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Frozen.Builder addFrozenBuilder() {
+        return getFrozenFieldBuilder().addBuilder(
+            Frozen.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public Frozen.Builder addFrozenBuilder(
+          int index) {
+        return getFrozenFieldBuilder().addBuilder(
+            index, Frozen.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * the frozen balance
+       * </pre>
+       *
+       * <code>repeated .protocol.Account.Frozen frozen = 7;</code>
+       */
+      public java.util.List<Frozen.Builder>
+           getFrozenBuilderList() {
+        return getFrozenFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Frozen, Frozen.Builder, FrozenOrBuilder>
+          getFrozenFieldBuilder() {
+        if (frozenBuilder_ == null) {
+          frozenBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Frozen, Frozen.Builder, FrozenOrBuilder>(
+                  frozen_,
+                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  getParentForChildren(),
+                  isClean());
+          frozen_ = null;
+        }
+        return frozenBuilder_;
+      }
+
+      private long bandwidth_ ;
+      /**
+       * <pre>
+       * bandwidth, get from frozen
+       * </pre>
+       *
+       * <code>int64 bandwidth = 8;</code>
+       */
+      public long getBandwidth() {
+        return bandwidth_;
+      }
+      /**
+       * <pre>
+       * bandwidth, get from frozen
+       * </pre>
+       *
+       * <code>int64 bandwidth = 8;</code>
+       */
+      public Builder setBandwidth(long value) {
+        
+        bandwidth_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * bandwidth, get from frozen
+       * </pre>
+       *
+       * <code>int64 bandwidth = 8;</code>
+       */
+      public Builder clearBandwidth() {
+        
+        bandwidth_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long createTime_ ;
+      /**
+       * <pre>
+       * this account create time
+       * </pre>
+       *
+       * <code>int64 create_time = 9;</code>
+       */
+      public long getCreateTime() {
+        return createTime_;
+      }
+      /**
+       * <pre>
+       * this account create time
+       * </pre>
+       *
+       * <code>int64 create_time = 9;</code>
+       */
+      public Builder setCreateTime(long value) {
+        
+        createTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * this account create time
+       * </pre>
+       *
+       * <code>int64 create_time = 9;</code>
+       */
+      public Builder clearCreateTime() {
+        
+        createTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private long latestOprationTime_ ;
       /**
+       * <pre>
+       * this last opration time, including transfer, voting and so on.
+       * </pre>
+       *
        * <code>int64 latest_opration_time = 10;</code>
        */
       public long getLatestOprationTime() {
         return latestOprationTime_;
       }
       /**
+       * <pre>
+       * this last opration time, including transfer, voting and so on.
+       * </pre>
+       *
        * <code>int64 latest_opration_time = 10;</code>
        */
       public Builder setLatestOprationTime(long value) {
@@ -2232,11 +4451,132 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * this last opration time, including transfer, voting and so on.
+       * </pre>
+       *
        * <code>int64 latest_opration_time = 10;</code>
        */
       public Builder clearLatestOprationTime() {
         
         latestOprationTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long allowance_ ;
+      /**
+       * <pre>
+       * witness block producing allowance
+       * </pre>
+       *
+       * <code>int64 allowance = 11;</code>
+       */
+      public long getAllowance() {
+        return allowance_;
+      }
+      /**
+       * <pre>
+       * witness block producing allowance
+       * </pre>
+       *
+       * <code>int64 allowance = 11;</code>
+       */
+      public Builder setAllowance(long value) {
+        
+        allowance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * witness block producing allowance
+       * </pre>
+       *
+       * <code>int64 allowance = 11;</code>
+       */
+      public Builder clearAllowance() {
+        
+        allowance_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long latestWithdrawTime_ ;
+      /**
+       * <pre>
+       * last withdraw time
+       * </pre>
+       *
+       * <code>int64 latest_withdraw_time = 12;</code>
+       */
+      public long getLatestWithdrawTime() {
+        return latestWithdrawTime_;
+      }
+      /**
+       * <pre>
+       * last withdraw time
+       * </pre>
+       *
+       * <code>int64 latest_withdraw_time = 12;</code>
+       */
+      public Builder setLatestWithdrawTime(long value) {
+        
+        latestWithdrawTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * last withdraw time
+       * </pre>
+       *
+       * <code>int64 latest_withdraw_time = 12;</code>
+       */
+      public Builder clearLatestWithdrawTime() {
+        
+        latestWithdrawTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString code_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * not used so far
+       * </pre>
+       *
+       * <code>bytes code = 13;</code>
+       */
+      public com.google.protobuf.ByteString getCode() {
+        return code_;
+      }
+      /**
+       * <pre>
+       * not used so far
+       * </pre>
+       *
+       * <code>bytes code = 13;</code>
+       */
+      public Builder setCode(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * not used so far
+       * </pre>
+       *
+       * <code>bytes code = 13;</code>
+       */
+      public Builder clearCode() {
+        
+        code_ = getDefaultInstance().getCode();
         onChanged();
         return this;
       }
@@ -2255,12 +4595,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.Account)
-    private static final org.tron.protos.Protocol.Account DEFAULT_INSTANCE;
+    private static final Account DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Account();
+      DEFAULT_INSTANCE = new Account();
     }
 
-    public static org.tron.protos.Protocol.Account getDefaultInstance() {
+    public static Account getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2278,12 +4618,1242 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Account> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.Account getDefaultInstanceForType() {
+    public Account getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface acuthrityOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.acuthrity)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    boolean hasAccount();
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    AccountId getAccount();
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    AccountIdOrBuilder getAccountOrBuilder();
+
+    /**
+     * <code>bytes permission_name = 2;</code>
+     */
+    com.google.protobuf.ByteString getPermissionName();
+  }
+  /**
+   * Protobuf type {@code protocol.acuthrity}
+   */
+  public  static final class acuthrity extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.acuthrity)
+      acuthrityOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use acuthrity.newBuilder() to construct.
+    private acuthrity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private acuthrity() {
+      permissionName_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private acuthrity(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              AccountId.Builder subBuilder = null;
+              if (account_ != null) {
+                subBuilder = account_.toBuilder();
+              }
+              account_ = input.readMessage(AccountId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(account_);
+                account_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+
+              permissionName_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Protocol.internal_static_protocol_acuthrity_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Protocol.internal_static_protocol_acuthrity_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              acuthrity.class, Builder.class);
+    }
+
+    public static final int ACCOUNT_FIELD_NUMBER = 1;
+    private AccountId account_;
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    public boolean hasAccount() {
+      return account_ != null;
+    }
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    public AccountId getAccount() {
+      return account_ == null ? AccountId.getDefaultInstance() : account_;
+    }
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    public AccountIdOrBuilder getAccountOrBuilder() {
+      return getAccount();
+    }
+
+    public static final int PERMISSION_NAME_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString permissionName_;
+    /**
+     * <code>bytes permission_name = 2;</code>
+     */
+    public com.google.protobuf.ByteString getPermissionName() {
+      return permissionName_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (account_ != null) {
+        output.writeMessage(1, getAccount());
+      }
+      if (!permissionName_.isEmpty()) {
+        output.writeBytes(2, permissionName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (account_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getAccount());
+      }
+      if (!permissionName_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, permissionName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof acuthrity)) {
+        return super.equals(obj);
+      }
+      acuthrity other = (acuthrity) obj;
+
+      boolean result = true;
+      result = result && (hasAccount() == other.hasAccount());
+      if (hasAccount()) {
+        result = result && getAccount()
+            .equals(other.getAccount());
+      }
+      result = result && getPermissionName()
+          .equals(other.getPermissionName());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasAccount()) {
+        hash = (37 * hash) + ACCOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getAccount().hashCode();
+      }
+      hash = (37 * hash) + PERMISSION_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getPermissionName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static acuthrity parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static acuthrity parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static acuthrity parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static acuthrity parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static acuthrity parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static acuthrity parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static acuthrity parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static acuthrity parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static acuthrity parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static acuthrity parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static acuthrity parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static acuthrity parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(acuthrity prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.acuthrity}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.acuthrity)
+        acuthrityOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Protocol.internal_static_protocol_acuthrity_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Protocol.internal_static_protocol_acuthrity_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                acuthrity.class, Builder.class);
+      }
+
+      // Construct using org.tron.protos.Protocol.acuthrity.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (accountBuilder_ == null) {
+          account_ = null;
+        } else {
+          account_ = null;
+          accountBuilder_ = null;
+        }
+        permissionName_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Protocol.internal_static_protocol_acuthrity_descriptor;
+      }
+
+      public acuthrity getDefaultInstanceForType() {
+        return acuthrity.getDefaultInstance();
+      }
+
+      public acuthrity build() {
+        acuthrity result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public acuthrity buildPartial() {
+        acuthrity result = new acuthrity(this);
+        if (accountBuilder_ == null) {
+          result.account_ = account_;
+        } else {
+          result.account_ = accountBuilder_.build();
+        }
+        result.permissionName_ = permissionName_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof acuthrity) {
+          return mergeFrom((acuthrity)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(acuthrity other) {
+        if (other == acuthrity.getDefaultInstance()) return this;
+        if (other.hasAccount()) {
+          mergeAccount(other.getAccount());
+        }
+        if (other.getPermissionName() != com.google.protobuf.ByteString.EMPTY) {
+          setPermissionName(other.getPermissionName());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        acuthrity parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (acuthrity) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private AccountId account_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          AccountId, AccountId.Builder, AccountIdOrBuilder> accountBuilder_;
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public boolean hasAccount() {
+        return accountBuilder_ != null || account_ != null;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public AccountId getAccount() {
+        if (accountBuilder_ == null) {
+          return account_ == null ? AccountId.getDefaultInstance() : account_;
+        } else {
+          return accountBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public Builder setAccount(AccountId value) {
+        if (accountBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          account_ = value;
+          onChanged();
+        } else {
+          accountBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public Builder setAccount(
+          AccountId.Builder builderForValue) {
+        if (accountBuilder_ == null) {
+          account_ = builderForValue.build();
+          onChanged();
+        } else {
+          accountBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public Builder mergeAccount(AccountId value) {
+        if (accountBuilder_ == null) {
+          if (account_ != null) {
+            account_ =
+              AccountId.newBuilder(account_).mergeFrom(value).buildPartial();
+          } else {
+            account_ = value;
+          }
+          onChanged();
+        } else {
+          accountBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public Builder clearAccount() {
+        if (accountBuilder_ == null) {
+          account_ = null;
+          onChanged();
+        } else {
+          account_ = null;
+          accountBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public AccountId.Builder getAccountBuilder() {
+        
+        onChanged();
+        return getAccountFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public AccountIdOrBuilder getAccountOrBuilder() {
+        if (accountBuilder_ != null) {
+          return accountBuilder_.getMessageOrBuilder();
+        } else {
+          return account_ == null ?
+              AccountId.getDefaultInstance() : account_;
+        }
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          AccountId, AccountId.Builder, AccountIdOrBuilder>
+          getAccountFieldBuilder() {
+        if (accountBuilder_ == null) {
+          accountBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              AccountId, AccountId.Builder, AccountIdOrBuilder>(
+                  getAccount(),
+                  getParentForChildren(),
+                  isClean());
+          account_ = null;
+        }
+        return accountBuilder_;
+      }
+
+      private com.google.protobuf.ByteString permissionName_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes permission_name = 2;</code>
+       */
+      public com.google.protobuf.ByteString getPermissionName() {
+        return permissionName_;
+      }
+      /**
+       * <code>bytes permission_name = 2;</code>
+       */
+      public Builder setPermissionName(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        permissionName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes permission_name = 2;</code>
+       */
+      public Builder clearPermissionName() {
+        
+        permissionName_ = getDefaultInstance().getPermissionName();
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.acuthrity)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.acuthrity)
+    private static final acuthrity DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new acuthrity();
+    }
+
+    public static acuthrity getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<acuthrity>
+        PARSER = new com.google.protobuf.AbstractParser<acuthrity>() {
+      public acuthrity parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new acuthrity(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<acuthrity> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<acuthrity> getParserForType() {
+      return PARSER;
+    }
+
+    public acuthrity getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface permisionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.permision)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    boolean hasAccount();
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    AccountId getAccount();
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    AccountIdOrBuilder getAccountOrBuilder();
+  }
+  /**
+   * Protobuf type {@code protocol.permision}
+   */
+  public  static final class permision extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.permision)
+      permisionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use permision.newBuilder() to construct.
+    private permision(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private permision() {
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private permision(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              AccountId.Builder subBuilder = null;
+              if (account_ != null) {
+                subBuilder = account_.toBuilder();
+              }
+              account_ = input.readMessage(AccountId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(account_);
+                account_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Protocol.internal_static_protocol_permision_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Protocol.internal_static_protocol_permision_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              permision.class, Builder.class);
+    }
+
+    public static final int ACCOUNT_FIELD_NUMBER = 1;
+    private AccountId account_;
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    public boolean hasAccount() {
+      return account_ != null;
+    }
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    public AccountId getAccount() {
+      return account_ == null ? AccountId.getDefaultInstance() : account_;
+    }
+    /**
+     * <code>.protocol.AccountId account = 1;</code>
+     */
+    public AccountIdOrBuilder getAccountOrBuilder() {
+      return getAccount();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (account_ != null) {
+        output.writeMessage(1, getAccount());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (account_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getAccount());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof permision)) {
+        return super.equals(obj);
+      }
+      permision other = (permision) obj;
+
+      boolean result = true;
+      result = result && (hasAccount() == other.hasAccount());
+      if (hasAccount()) {
+        result = result && getAccount()
+            .equals(other.getAccount());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasAccount()) {
+        hash = (37 * hash) + ACCOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getAccount().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static permision parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static permision parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static permision parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static permision parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static permision parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static permision parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static permision parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static permision parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static permision parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static permision parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static permision parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static permision parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(permision prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.permision}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.permision)
+        permisionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Protocol.internal_static_protocol_permision_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Protocol.internal_static_protocol_permision_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                permision.class, Builder.class);
+      }
+
+      // Construct using org.tron.protos.Protocol.permision.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (accountBuilder_ == null) {
+          account_ = null;
+        } else {
+          account_ = null;
+          accountBuilder_ = null;
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Protocol.internal_static_protocol_permision_descriptor;
+      }
+
+      public permision getDefaultInstanceForType() {
+        return permision.getDefaultInstance();
+      }
+
+      public permision build() {
+        permision result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public permision buildPartial() {
+        permision result = new permision(this);
+        if (accountBuilder_ == null) {
+          result.account_ = account_;
+        } else {
+          result.account_ = accountBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof permision) {
+          return mergeFrom((permision)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(permision other) {
+        if (other == permision.getDefaultInstance()) return this;
+        if (other.hasAccount()) {
+          mergeAccount(other.getAccount());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        permision parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (permision) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private AccountId account_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          AccountId, AccountId.Builder, AccountIdOrBuilder> accountBuilder_;
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public boolean hasAccount() {
+        return accountBuilder_ != null || account_ != null;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public AccountId getAccount() {
+        if (accountBuilder_ == null) {
+          return account_ == null ? AccountId.getDefaultInstance() : account_;
+        } else {
+          return accountBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public Builder setAccount(AccountId value) {
+        if (accountBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          account_ = value;
+          onChanged();
+        } else {
+          accountBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public Builder setAccount(
+          AccountId.Builder builderForValue) {
+        if (accountBuilder_ == null) {
+          account_ = builderForValue.build();
+          onChanged();
+        } else {
+          accountBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public Builder mergeAccount(AccountId value) {
+        if (accountBuilder_ == null) {
+          if (account_ != null) {
+            account_ =
+              AccountId.newBuilder(account_).mergeFrom(value).buildPartial();
+          } else {
+            account_ = value;
+          }
+          onChanged();
+        } else {
+          accountBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public Builder clearAccount() {
+        if (accountBuilder_ == null) {
+          account_ = null;
+          onChanged();
+        } else {
+          account_ = null;
+          accountBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public AccountId.Builder getAccountBuilder() {
+        
+        onChanged();
+        return getAccountFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      public AccountIdOrBuilder getAccountOrBuilder() {
+        if (accountBuilder_ != null) {
+          return accountBuilder_.getMessageOrBuilder();
+        } else {
+          return account_ == null ?
+              AccountId.getDefaultInstance() : account_;
+        }
+      }
+      /**
+       * <code>.protocol.AccountId account = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          AccountId, AccountId.Builder, AccountIdOrBuilder>
+          getAccountFieldBuilder() {
+        if (accountBuilder_ == null) {
+          accountBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              AccountId, AccountId.Builder, AccountIdOrBuilder>(
+                  getAccount(),
+                  getParentForChildren(),
+                  isClean());
+          account_ = null;
+        }
+        return accountBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.permision)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.permision)
+    private static final permision DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new permision();
+    }
+
+    public static permision getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<permision>
+        PARSER = new com.google.protobuf.AbstractParser<permision>() {
+      public permision parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new permision(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<permision> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<permision> getParserForType() {
+      return PARSER;
+    }
+
+    public permision getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2311,7 +5881,7 @@ public final class Protocol {
     /**
      * <code>string url = 4;</code>
      */
-    java.lang.String getUrl();
+    String getUrl();
     /**
      * <code>string url = 4;</code>
      */
@@ -2371,7 +5941,7 @@ public final class Protocol {
       isJobs_ = false;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2382,7 +5952,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -2418,7 +5988,7 @@ public final class Protocol {
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
+              String s = input.readStringRequireUtf8();
 
               url_ = s;
               break;
@@ -2462,14 +6032,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_Witness_descriptor;
+      return Protocol.internal_static_protocol_Witness_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_Witness_fieldAccessorTable
+      return Protocol.internal_static_protocol_Witness_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.Witness.class, org.tron.protos.Protocol.Witness.Builder.class);
+              Witness.class, Builder.class);
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 1;
@@ -2500,18 +6070,18 @@ public final class Protocol {
     }
 
     public static final int URL_FIELD_NUMBER = 4;
-    private volatile java.lang.Object url_;
+    private volatile Object url_;
     /**
      * <code>string url = 4;</code>
      */
-    public java.lang.String getUrl() {
-      java.lang.Object ref = url_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getUrl() {
+      Object ref = url_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         url_ = s;
         return s;
       }
@@ -2521,11 +6091,11 @@ public final class Protocol {
      */
     public com.google.protobuf.ByteString
         getUrlBytes() {
-      java.lang.Object ref = url_;
-      if (ref instanceof java.lang.String) {
+      Object ref = url_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         url_ = b;
         return b;
       } else {
@@ -2665,15 +6235,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.Witness)) {
+      if (!(obj instanceof Witness)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.Witness other = (org.tron.protos.Protocol.Witness) obj;
+      Witness other = (Witness) obj;
 
       boolean result = true;
       result = result && getAddress()
@@ -2698,7 +6268,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2734,69 +6304,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.Witness parseFrom(
+    public static Witness parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(
+    public static Witness parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(
+    public static Witness parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(
+    public static Witness parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(byte[] data)
+    public static Witness parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(
+    public static Witness parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(java.io.InputStream input)
+    public static Witness parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(
+    public static Witness parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Witness parseDelimitedFrom(java.io.InputStream input)
+    public static Witness parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Witness parseDelimitedFrom(
+    public static Witness parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(
+    public static Witness parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Witness parseFrom(
+    public static Witness parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2808,7 +6378,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.Witness prototype) {
+    public static Builder newBuilder(Witness prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2816,9 +6386,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2832,17 +6402,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.Witness)
-        org.tron.protos.Protocol.WitnessOrBuilder {
+        WitnessOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Witness_descriptor;
+        return Protocol.internal_static_protocol_Witness_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Witness_fieldAccessorTable
+        return Protocol.internal_static_protocol_Witness_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Witness.class, org.tron.protos.Protocol.Witness.Builder.class);
+                Witness.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.Witness.newBuilder()
@@ -2851,7 +6421,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2885,23 +6455,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_Witness_descriptor;
+        return Protocol.internal_static_protocol_Witness_descriptor;
       }
 
-      public org.tron.protos.Protocol.Witness getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.Witness.getDefaultInstance();
+      public Witness getDefaultInstanceForType() {
+        return Witness.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.Witness build() {
-        org.tron.protos.Protocol.Witness result = buildPartial();
+      public Witness build() {
+        Witness result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.Witness buildPartial() {
-        org.tron.protos.Protocol.Witness result = new org.tron.protos.Protocol.Witness(this);
+      public Witness buildPartial() {
+        Witness result = new Witness(this);
         result.address_ = address_;
         result.voteCount_ = voteCount_;
         result.pubKey_ = pubKey_;
@@ -2920,7 +6490,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2933,25 +6503,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.Witness) {
-          return mergeFrom((org.tron.protos.Protocol.Witness)other);
+        if (other instanceof Witness) {
+          return mergeFrom((Witness)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.Witness other) {
-        if (other == org.tron.protos.Protocol.Witness.getDefaultInstance()) return this;
+      public Builder mergeFrom(Witness other) {
+        if (other == Witness.getDefaultInstance()) return this;
         if (other.getAddress() != com.google.protobuf.ByteString.EMPTY) {
           setAddress(other.getAddress());
         }
@@ -2993,11 +6563,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.Witness parsedMessage = null;
+        Witness parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.Witness) e.getUnfinishedMessage();
+          parsedMessage = (Witness) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3091,20 +6661,20 @@ public final class Protocol {
         return this;
       }
 
-      private java.lang.Object url_ = "";
+      private Object url_ = "";
       /**
        * <code>string url = 4;</code>
        */
-      public java.lang.String getUrl() {
-        java.lang.Object ref = url_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getUrl() {
+        Object ref = url_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           url_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -3112,11 +6682,11 @@ public final class Protocol {
        */
       public com.google.protobuf.ByteString
           getUrlBytes() {
-        java.lang.Object ref = url_;
+        Object ref = url_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           url_ = b;
           return b;
         } else {
@@ -3127,7 +6697,7 @@ public final class Protocol {
        * <code>string url = 4;</code>
        */
       public Builder setUrl(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3304,12 +6874,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.Witness)
-    private static final org.tron.protos.Protocol.Witness DEFAULT_INSTANCE;
+    private static final Witness DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Witness();
+      DEFAULT_INSTANCE = new Witness();
     }
 
-    public static org.tron.protos.Protocol.Witness getDefaultInstance() {
+    public static Witness getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3327,12 +6897,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Witness> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.Witness getDefaultInstanceForType() {
+    public Witness getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3369,7 +6939,7 @@ public final class Protocol {
       pubKeyHash_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3380,7 +6950,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3424,14 +6994,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_TXOutput_descriptor;
+      return Protocol.internal_static_protocol_TXOutput_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_TXOutput_fieldAccessorTable
+      return Protocol.internal_static_protocol_TXOutput_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.TXOutput.class, org.tron.protos.Protocol.TXOutput.Builder.class);
+              TXOutput.class, Builder.class);
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
@@ -3491,15 +7061,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.TXOutput)) {
+      if (!(obj instanceof TXOutput)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.TXOutput other = (org.tron.protos.Protocol.TXOutput) obj;
+      TXOutput other = (TXOutput) obj;
 
       boolean result = true;
       result = result && (getValue()
@@ -3510,7 +7080,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -3527,69 +7097,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.TXOutput parseFrom(
+    public static TXOutput parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(
+    public static TXOutput parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(
+    public static TXOutput parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(
+    public static TXOutput parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(byte[] data)
+    public static TXOutput parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(
+    public static TXOutput parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(java.io.InputStream input)
+    public static TXOutput parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(
+    public static TXOutput parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutput parseDelimitedFrom(java.io.InputStream input)
+    public static TXOutput parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXOutput parseDelimitedFrom(
+    public static TXOutput parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(
+    public static TXOutput parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXOutput parseFrom(
+    public static TXOutput parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3601,7 +7171,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.TXOutput prototype) {
+    public static Builder newBuilder(TXOutput prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -3609,9 +7179,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3621,17 +7191,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.TXOutput)
-        org.tron.protos.Protocol.TXOutputOrBuilder {
+        TXOutputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXOutput_descriptor;
+        return Protocol.internal_static_protocol_TXOutput_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXOutput_fieldAccessorTable
+        return Protocol.internal_static_protocol_TXOutput_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.TXOutput.class, org.tron.protos.Protocol.TXOutput.Builder.class);
+                TXOutput.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.TXOutput.newBuilder()
@@ -3640,7 +7210,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3660,23 +7230,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXOutput_descriptor;
+        return Protocol.internal_static_protocol_TXOutput_descriptor;
       }
 
-      public org.tron.protos.Protocol.TXOutput getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.TXOutput.getDefaultInstance();
+      public TXOutput getDefaultInstanceForType() {
+        return TXOutput.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.TXOutput build() {
-        org.tron.protos.Protocol.TXOutput result = buildPartial();
+      public TXOutput build() {
+        TXOutput result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.TXOutput buildPartial() {
-        org.tron.protos.Protocol.TXOutput result = new org.tron.protos.Protocol.TXOutput(this);
+      public TXOutput buildPartial() {
+        TXOutput result = new TXOutput(this);
         result.value_ = value_;
         result.pubKeyHash_ = pubKeyHash_;
         onBuilt();
@@ -3688,7 +7258,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3701,25 +7271,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.TXOutput) {
-          return mergeFrom((org.tron.protos.Protocol.TXOutput)other);
+        if (other instanceof TXOutput) {
+          return mergeFrom((TXOutput)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.TXOutput other) {
-        if (other == org.tron.protos.Protocol.TXOutput.getDefaultInstance()) return this;
+      public Builder mergeFrom(TXOutput other) {
+        if (other == TXOutput.getDefaultInstance()) return this;
         if (other.getValue() != 0L) {
           setValue(other.getValue());
         }
@@ -3739,11 +7309,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.TXOutput parsedMessage = null;
+        TXOutput parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.TXOutput) e.getUnfinishedMessage();
+          parsedMessage = (TXOutput) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3822,12 +7392,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.TXOutput)
-    private static final org.tron.protos.Protocol.TXOutput DEFAULT_INSTANCE;
+    private static final TXOutput DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.TXOutput();
+      DEFAULT_INSTANCE = new TXOutput();
     }
 
-    public static org.tron.protos.Protocol.TXOutput getDefaultInstance() {
+    public static TXOutput getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3845,12 +7415,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<TXOutput> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.TXOutput getDefaultInstanceForType() {
+    public TXOutput getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3867,11 +7437,11 @@ public final class Protocol {
     /**
      * <code>.protocol.TXInput.raw raw_data = 1;</code>
      */
-    org.tron.protos.Protocol.TXInput.raw getRawData();
+    TXInput.raw getRawData();
     /**
      * <code>.protocol.TXInput.raw raw_data = 1;</code>
      */
-    org.tron.protos.Protocol.TXInput.rawOrBuilder getRawDataOrBuilder();
+    TXInput.rawOrBuilder getRawDataOrBuilder();
 
     /**
      * <code>bytes signature = 4;</code>
@@ -3894,7 +7464,7 @@ public final class Protocol {
       signature_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3905,7 +7475,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3926,11 +7496,11 @@ public final class Protocol {
               break;
             }
             case 10: {
-              org.tron.protos.Protocol.TXInput.raw.Builder subBuilder = null;
+              raw.Builder subBuilder = null;
               if (rawData_ != null) {
                 subBuilder = rawData_.toBuilder();
               }
-              rawData_ = input.readMessage(org.tron.protos.Protocol.TXInput.raw.parser(), extensionRegistry);
+              rawData_ = input.readMessage(raw.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(rawData_);
                 rawData_ = subBuilder.buildPartial();
@@ -3957,14 +7527,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_TXInput_descriptor;
+      return Protocol.internal_static_protocol_TXInput_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_TXInput_fieldAccessorTable
+      return Protocol.internal_static_protocol_TXInput_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.TXInput.class, org.tron.protos.Protocol.TXInput.Builder.class);
+              TXInput.class, Builder.class);
     }
 
     public interface rawOrBuilder extends
@@ -4004,7 +7574,7 @@ public final class Protocol {
         pubKey_ = com.google.protobuf.ByteString.EMPTY;
       }
 
-      @java.lang.Override
+      @Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -4015,7 +7585,7 @@ public final class Protocol {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -4064,14 +7634,14 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXInput_raw_descriptor;
+        return Protocol.internal_static_protocol_TXInput_raw_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXInput_raw_fieldAccessorTable
+        return Protocol.internal_static_protocol_TXInput_raw_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.TXInput.raw.class, org.tron.protos.Protocol.TXInput.raw.Builder.class);
+                raw.class, Builder.class);
       }
 
       public static final int TXID_FIELD_NUMBER = 1;
@@ -4147,15 +7717,15 @@ public final class Protocol {
         return size;
       }
 
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
+      @Override
+      public boolean equals(final Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof org.tron.protos.Protocol.TXInput.raw)) {
+        if (!(obj instanceof raw)) {
           return super.equals(obj);
         }
-        org.tron.protos.Protocol.TXInput.raw other = (org.tron.protos.Protocol.TXInput.raw) obj;
+        raw other = (raw) obj;
 
         boolean result = true;
         result = result && getTxID()
@@ -4168,7 +7738,7 @@ public final class Protocol {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -4187,69 +7757,69 @@ public final class Protocol {
         return hash;
       }
 
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(
+      public static raw parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(
+      public static raw parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(byte[] data)
+      public static raw parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(
+      public static raw parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(java.io.InputStream input)
+      public static raw parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(
+      public static raw parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseDelimitedFrom(java.io.InputStream input)
+      public static raw parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseDelimitedFrom(
+      public static raw parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.TXInput.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -4261,7 +7831,7 @@ public final class Protocol {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(org.tron.protos.Protocol.TXInput.raw prototype) {
+      public static Builder newBuilder(raw prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -4269,9 +7839,9 @@ public final class Protocol {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @java.lang.Override
+      @Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -4281,17 +7851,17 @@ public final class Protocol {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:protocol.TXInput.raw)
-          org.tron.protos.Protocol.TXInput.rawOrBuilder {
+          rawOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_TXInput_raw_descriptor;
+          return Protocol.internal_static_protocol_TXInput_raw_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_TXInput_raw_fieldAccessorTable
+          return Protocol.internal_static_protocol_TXInput_raw_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.TXInput.raw.class, org.tron.protos.Protocol.TXInput.raw.Builder.class);
+                  raw.class, Builder.class);
         }
 
         // Construct using org.tron.protos.Protocol.TXInput.raw.newBuilder()
@@ -4300,7 +7870,7 @@ public final class Protocol {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -4322,23 +7892,23 @@ public final class Protocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_TXInput_raw_descriptor;
+          return Protocol.internal_static_protocol_TXInput_raw_descriptor;
         }
 
-        public org.tron.protos.Protocol.TXInput.raw getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.TXInput.raw.getDefaultInstance();
+        public raw getDefaultInstanceForType() {
+          return raw.getDefaultInstance();
         }
 
-        public org.tron.protos.Protocol.TXInput.raw build() {
-          org.tron.protos.Protocol.TXInput.raw result = buildPartial();
+        public raw build() {
+          raw result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public org.tron.protos.Protocol.TXInput.raw buildPartial() {
-          org.tron.protos.Protocol.TXInput.raw result = new org.tron.protos.Protocol.TXInput.raw(this);
+        public raw buildPartial() {
+          raw result = new raw(this);
           result.txID_ = txID_;
           result.vout_ = vout_;
           result.pubKey_ = pubKey_;
@@ -4351,7 +7921,7 @@ public final class Protocol {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -4364,25 +7934,25 @@ public final class Protocol {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.TXInput.raw) {
-            return mergeFrom((org.tron.protos.Protocol.TXInput.raw)other);
+          if (other instanceof raw) {
+            return mergeFrom((raw)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(org.tron.protos.Protocol.TXInput.raw other) {
-          if (other == org.tron.protos.Protocol.TXInput.raw.getDefaultInstance()) return this;
+        public Builder mergeFrom(raw other) {
+          if (other == raw.getDefaultInstance()) return this;
           if (other.getTxID() != com.google.protobuf.ByteString.EMPTY) {
             setTxID(other.getTxID());
           }
@@ -4405,11 +7975,11 @@ public final class Protocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          org.tron.protos.Protocol.TXInput.raw parsedMessage = null;
+          raw parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.TXInput.raw) e.getUnfinishedMessage();
+            parsedMessage = (raw) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -4517,12 +8087,12 @@ public final class Protocol {
       }
 
       // @@protoc_insertion_point(class_scope:protocol.TXInput.raw)
-      private static final org.tron.protos.Protocol.TXInput.raw DEFAULT_INSTANCE;
+      private static final raw DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.TXInput.raw();
+        DEFAULT_INSTANCE = new raw();
       }
 
-      public static org.tron.protos.Protocol.TXInput.raw getDefaultInstance() {
+      public static raw getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -4540,19 +8110,19 @@ public final class Protocol {
         return PARSER;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Parser<raw> getParserForType() {
         return PARSER;
       }
 
-      public org.tron.protos.Protocol.TXInput.raw getDefaultInstanceForType() {
+      public raw getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public static final int RAW_DATA_FIELD_NUMBER = 1;
-    private org.tron.protos.Protocol.TXInput.raw rawData_;
+    private raw rawData_;
     /**
      * <code>.protocol.TXInput.raw raw_data = 1;</code>
      */
@@ -4562,13 +8132,13 @@ public final class Protocol {
     /**
      * <code>.protocol.TXInput.raw raw_data = 1;</code>
      */
-    public org.tron.protos.Protocol.TXInput.raw getRawData() {
-      return rawData_ == null ? org.tron.protos.Protocol.TXInput.raw.getDefaultInstance() : rawData_;
+    public raw getRawData() {
+      return rawData_ == null ? raw.getDefaultInstance() : rawData_;
     }
     /**
      * <code>.protocol.TXInput.raw raw_data = 1;</code>
      */
-    public org.tron.protos.Protocol.TXInput.rawOrBuilder getRawDataOrBuilder() {
+    public rawOrBuilder getRawDataOrBuilder() {
       return getRawData();
     }
 
@@ -4620,15 +8190,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.TXInput)) {
+      if (!(obj instanceof TXInput)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.TXInput other = (org.tron.protos.Protocol.TXInput) obj;
+      TXInput other = (TXInput) obj;
 
       boolean result = true;
       result = result && (hasRawData() == other.hasRawData());
@@ -4642,7 +8212,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -4660,69 +8230,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.TXInput parseFrom(
+    public static TXInput parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(
+    public static TXInput parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(
+    public static TXInput parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(
+    public static TXInput parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(byte[] data)
+    public static TXInput parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(
+    public static TXInput parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(java.io.InputStream input)
+    public static TXInput parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(
+    public static TXInput parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXInput parseDelimitedFrom(java.io.InputStream input)
+    public static TXInput parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXInput parseDelimitedFrom(
+    public static TXInput parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(
+    public static TXInput parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXInput parseFrom(
+    public static TXInput parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4734,7 +8304,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.TXInput prototype) {
+    public static Builder newBuilder(TXInput prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -4742,9 +8312,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4754,17 +8324,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.TXInput)
-        org.tron.protos.Protocol.TXInputOrBuilder {
+        TXInputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXInput_descriptor;
+        return Protocol.internal_static_protocol_TXInput_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXInput_fieldAccessorTable
+        return Protocol.internal_static_protocol_TXInput_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.TXInput.class, org.tron.protos.Protocol.TXInput.Builder.class);
+                TXInput.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.TXInput.newBuilder()
@@ -4773,7 +8343,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4797,23 +8367,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXInput_descriptor;
+        return Protocol.internal_static_protocol_TXInput_descriptor;
       }
 
-      public org.tron.protos.Protocol.TXInput getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.TXInput.getDefaultInstance();
+      public TXInput getDefaultInstanceForType() {
+        return TXInput.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.TXInput build() {
-        org.tron.protos.Protocol.TXInput result = buildPartial();
+      public TXInput build() {
+        TXInput result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.TXInput buildPartial() {
-        org.tron.protos.Protocol.TXInput result = new org.tron.protos.Protocol.TXInput(this);
+      public TXInput buildPartial() {
+        TXInput result = new TXInput(this);
         if (rawDataBuilder_ == null) {
           result.rawData_ = rawData_;
         } else {
@@ -4829,7 +8399,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4842,25 +8412,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.TXInput) {
-          return mergeFrom((org.tron.protos.Protocol.TXInput)other);
+        if (other instanceof TXInput) {
+          return mergeFrom((TXInput)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.TXInput other) {
-        if (other == org.tron.protos.Protocol.TXInput.getDefaultInstance()) return this;
+      public Builder mergeFrom(TXInput other) {
+        if (other == TXInput.getDefaultInstance()) return this;
         if (other.hasRawData()) {
           mergeRawData(other.getRawData());
         }
@@ -4880,11 +8450,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.TXInput parsedMessage = null;
+        TXInput parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.TXInput) e.getUnfinishedMessage();
+          parsedMessage = (TXInput) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4894,9 +8464,9 @@ public final class Protocol {
         return this;
       }
 
-      private org.tron.protos.Protocol.TXInput.raw rawData_ = null;
+      private raw rawData_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Protocol.TXInput.raw, org.tron.protos.Protocol.TXInput.raw.Builder, org.tron.protos.Protocol.TXInput.rawOrBuilder> rawDataBuilder_;
+          raw, raw.Builder, rawOrBuilder> rawDataBuilder_;
       /**
        * <code>.protocol.TXInput.raw raw_data = 1;</code>
        */
@@ -4906,9 +8476,9 @@ public final class Protocol {
       /**
        * <code>.protocol.TXInput.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.TXInput.raw getRawData() {
+      public raw getRawData() {
         if (rawDataBuilder_ == null) {
-          return rawData_ == null ? org.tron.protos.Protocol.TXInput.raw.getDefaultInstance() : rawData_;
+          return rawData_ == null ? raw.getDefaultInstance() : rawData_;
         } else {
           return rawDataBuilder_.getMessage();
         }
@@ -4916,7 +8486,7 @@ public final class Protocol {
       /**
        * <code>.protocol.TXInput.raw raw_data = 1;</code>
        */
-      public Builder setRawData(org.tron.protos.Protocol.TXInput.raw value) {
+      public Builder setRawData(raw value) {
         if (rawDataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4933,7 +8503,7 @@ public final class Protocol {
        * <code>.protocol.TXInput.raw raw_data = 1;</code>
        */
       public Builder setRawData(
-          org.tron.protos.Protocol.TXInput.raw.Builder builderForValue) {
+          raw.Builder builderForValue) {
         if (rawDataBuilder_ == null) {
           rawData_ = builderForValue.build();
           onChanged();
@@ -4946,11 +8516,11 @@ public final class Protocol {
       /**
        * <code>.protocol.TXInput.raw raw_data = 1;</code>
        */
-      public Builder mergeRawData(org.tron.protos.Protocol.TXInput.raw value) {
+      public Builder mergeRawData(raw value) {
         if (rawDataBuilder_ == null) {
           if (rawData_ != null) {
             rawData_ =
-              org.tron.protos.Protocol.TXInput.raw.newBuilder(rawData_).mergeFrom(value).buildPartial();
+              raw.newBuilder(rawData_).mergeFrom(value).buildPartial();
           } else {
             rawData_ = value;
           }
@@ -4978,7 +8548,7 @@ public final class Protocol {
       /**
        * <code>.protocol.TXInput.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.TXInput.raw.Builder getRawDataBuilder() {
+      public raw.Builder getRawDataBuilder() {
         
         onChanged();
         return getRawDataFieldBuilder().getBuilder();
@@ -4986,23 +8556,23 @@ public final class Protocol {
       /**
        * <code>.protocol.TXInput.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.TXInput.rawOrBuilder getRawDataOrBuilder() {
+      public rawOrBuilder getRawDataOrBuilder() {
         if (rawDataBuilder_ != null) {
           return rawDataBuilder_.getMessageOrBuilder();
         } else {
           return rawData_ == null ?
-              org.tron.protos.Protocol.TXInput.raw.getDefaultInstance() : rawData_;
+              raw.getDefaultInstance() : rawData_;
         }
       }
       /**
        * <code>.protocol.TXInput.raw raw_data = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Protocol.TXInput.raw, org.tron.protos.Protocol.TXInput.raw.Builder, org.tron.protos.Protocol.TXInput.rawOrBuilder> 
+          raw, raw.Builder, rawOrBuilder>
           getRawDataFieldBuilder() {
         if (rawDataBuilder_ == null) {
           rawDataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Protocol.TXInput.raw, org.tron.protos.Protocol.TXInput.raw.Builder, org.tron.protos.Protocol.TXInput.rawOrBuilder>(
+              raw, raw.Builder, rawOrBuilder>(
                   getRawData(),
                   getParentForChildren(),
                   isClean());
@@ -5054,12 +8624,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.TXInput)
-    private static final org.tron.protos.Protocol.TXInput DEFAULT_INSTANCE;
+    private static final TXInput DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.TXInput();
+      DEFAULT_INSTANCE = new TXInput();
     }
 
-    public static org.tron.protos.Protocol.TXInput getDefaultInstance() {
+    public static TXInput getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5077,12 +8647,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<TXInput> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.TXInput getDefaultInstanceForType() {
+    public TXInput getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5095,12 +8665,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
-    java.util.List<org.tron.protos.Protocol.TXOutput> 
+    java.util.List<TXOutput>
         getOutputsList();
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
-    org.tron.protos.Protocol.TXOutput getOutputs(int index);
+    TXOutput getOutputs(int index);
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
@@ -5108,12 +8678,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.TXOutputOrBuilder> 
+    java.util.List<? extends TXOutputOrBuilder>
         getOutputsOrBuilderList();
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
-    org.tron.protos.Protocol.TXOutputOrBuilder getOutputsOrBuilder(
+    TXOutputOrBuilder getOutputsOrBuilder(
         int index);
   }
   /**
@@ -5132,7 +8702,7 @@ public final class Protocol {
       outputs_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5143,7 +8713,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -5165,11 +8735,11 @@ public final class Protocol {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                outputs_ = new java.util.ArrayList<org.tron.protos.Protocol.TXOutput>();
+                outputs_ = new java.util.ArrayList<TXOutput>();
                 mutable_bitField0_ |= 0x00000001;
               }
               outputs_.add(
-                  input.readMessage(org.tron.protos.Protocol.TXOutput.parser(), extensionRegistry));
+                  input.readMessage(TXOutput.parser(), extensionRegistry));
               break;
             }
           }
@@ -5189,28 +8759,28 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_TXOutputs_descriptor;
+      return Protocol.internal_static_protocol_TXOutputs_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_TXOutputs_fieldAccessorTable
+      return Protocol.internal_static_protocol_TXOutputs_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.TXOutputs.class, org.tron.protos.Protocol.TXOutputs.Builder.class);
+              TXOutputs.class, Builder.class);
     }
 
     public static final int OUTPUTS_FIELD_NUMBER = 1;
-    private java.util.List<org.tron.protos.Protocol.TXOutput> outputs_;
+    private java.util.List<TXOutput> outputs_;
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.TXOutput> getOutputsList() {
+    public java.util.List<TXOutput> getOutputsList() {
       return outputs_;
     }
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.TXOutputOrBuilder> 
+    public java.util.List<? extends TXOutputOrBuilder>
         getOutputsOrBuilderList() {
       return outputs_;
     }
@@ -5223,13 +8793,13 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
-    public org.tron.protos.Protocol.TXOutput getOutputs(int index) {
+    public TXOutput getOutputs(int index) {
       return outputs_.get(index);
     }
     /**
      * <code>repeated .protocol.TXOutput outputs = 1;</code>
      */
-    public org.tron.protos.Protocol.TXOutputOrBuilder getOutputsOrBuilder(
+    public TXOutputOrBuilder getOutputsOrBuilder(
         int index) {
       return outputs_.get(index);
     }
@@ -5266,15 +8836,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.TXOutputs)) {
+      if (!(obj instanceof TXOutputs)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.TXOutputs other = (org.tron.protos.Protocol.TXOutputs) obj;
+      TXOutputs other = (TXOutputs) obj;
 
       boolean result = true;
       result = result && getOutputsList()
@@ -5283,7 +8853,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -5299,69 +8869,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(
+    public static TXOutputs parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(
+    public static TXOutputs parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(
+    public static TXOutputs parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(
+    public static TXOutputs parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(byte[] data)
+    public static TXOutputs parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(
+    public static TXOutputs parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(java.io.InputStream input)
+    public static TXOutputs parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(
+    public static TXOutputs parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseDelimitedFrom(java.io.InputStream input)
+    public static TXOutputs parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseDelimitedFrom(
+    public static TXOutputs parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(
+    public static TXOutputs parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.TXOutputs parseFrom(
+    public static TXOutputs parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5373,7 +8943,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.TXOutputs prototype) {
+    public static Builder newBuilder(TXOutputs prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -5381,9 +8951,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -5393,17 +8963,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.TXOutputs)
-        org.tron.protos.Protocol.TXOutputsOrBuilder {
+        TXOutputsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXOutputs_descriptor;
+        return Protocol.internal_static_protocol_TXOutputs_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXOutputs_fieldAccessorTable
+        return Protocol.internal_static_protocol_TXOutputs_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.TXOutputs.class, org.tron.protos.Protocol.TXOutputs.Builder.class);
+                TXOutputs.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.TXOutputs.newBuilder()
@@ -5412,7 +8982,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -5435,23 +9005,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_TXOutputs_descriptor;
+        return Protocol.internal_static_protocol_TXOutputs_descriptor;
       }
 
-      public org.tron.protos.Protocol.TXOutputs getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.TXOutputs.getDefaultInstance();
+      public TXOutputs getDefaultInstanceForType() {
+        return TXOutputs.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.TXOutputs build() {
-        org.tron.protos.Protocol.TXOutputs result = buildPartial();
+      public TXOutputs build() {
+        TXOutputs result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.TXOutputs buildPartial() {
-        org.tron.protos.Protocol.TXOutputs result = new org.tron.protos.Protocol.TXOutputs(this);
+      public TXOutputs buildPartial() {
+        TXOutputs result = new TXOutputs(this);
         int from_bitField0_ = bitField0_;
         if (outputsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5471,7 +9041,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -5484,25 +9054,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.TXOutputs) {
-          return mergeFrom((org.tron.protos.Protocol.TXOutputs)other);
+        if (other instanceof TXOutputs) {
+          return mergeFrom((TXOutputs)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.TXOutputs other) {
-        if (other == org.tron.protos.Protocol.TXOutputs.getDefaultInstance()) return this;
+      public Builder mergeFrom(TXOutputs other) {
+        if (other == TXOutputs.getDefaultInstance()) return this;
         if (outputsBuilder_ == null) {
           if (!other.outputs_.isEmpty()) {
             if (outputs_.isEmpty()) {
@@ -5542,11 +9112,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.TXOutputs parsedMessage = null;
+        TXOutputs parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.TXOutputs) e.getUnfinishedMessage();
+          parsedMessage = (TXOutputs) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5557,22 +9127,22 @@ public final class Protocol {
       }
       private int bitField0_;
 
-      private java.util.List<org.tron.protos.Protocol.TXOutput> outputs_ =
+      private java.util.List<TXOutput> outputs_ =
         java.util.Collections.emptyList();
       private void ensureOutputsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          outputs_ = new java.util.ArrayList<org.tron.protos.Protocol.TXOutput>(outputs_);
+          outputs_ = new java.util.ArrayList<TXOutput>(outputs_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.TXOutput, org.tron.protos.Protocol.TXOutput.Builder, org.tron.protos.Protocol.TXOutputOrBuilder> outputsBuilder_;
+          TXOutput, TXOutput.Builder, TXOutputOrBuilder> outputsBuilder_;
 
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.TXOutput> getOutputsList() {
+      public java.util.List<TXOutput> getOutputsList() {
         if (outputsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(outputs_);
         } else {
@@ -5592,7 +9162,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public org.tron.protos.Protocol.TXOutput getOutputs(int index) {
+      public TXOutput getOutputs(int index) {
         if (outputsBuilder_ == null) {
           return outputs_.get(index);
         } else {
@@ -5603,7 +9173,7 @@ public final class Protocol {
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
       public Builder setOutputs(
-          int index, org.tron.protos.Protocol.TXOutput value) {
+          int index, TXOutput value) {
         if (outputsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5620,7 +9190,7 @@ public final class Protocol {
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
       public Builder setOutputs(
-          int index, org.tron.protos.Protocol.TXOutput.Builder builderForValue) {
+          int index, TXOutput.Builder builderForValue) {
         if (outputsBuilder_ == null) {
           ensureOutputsIsMutable();
           outputs_.set(index, builderForValue.build());
@@ -5633,7 +9203,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public Builder addOutputs(org.tron.protos.Protocol.TXOutput value) {
+      public Builder addOutputs(TXOutput value) {
         if (outputsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5650,7 +9220,7 @@ public final class Protocol {
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
       public Builder addOutputs(
-          int index, org.tron.protos.Protocol.TXOutput value) {
+          int index, TXOutput value) {
         if (outputsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5667,7 +9237,7 @@ public final class Protocol {
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
       public Builder addOutputs(
-          org.tron.protos.Protocol.TXOutput.Builder builderForValue) {
+          TXOutput.Builder builderForValue) {
         if (outputsBuilder_ == null) {
           ensureOutputsIsMutable();
           outputs_.add(builderForValue.build());
@@ -5681,7 +9251,7 @@ public final class Protocol {
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
       public Builder addOutputs(
-          int index, org.tron.protos.Protocol.TXOutput.Builder builderForValue) {
+          int index, TXOutput.Builder builderForValue) {
         if (outputsBuilder_ == null) {
           ensureOutputsIsMutable();
           outputs_.add(index, builderForValue.build());
@@ -5695,7 +9265,7 @@ public final class Protocol {
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
       public Builder addAllOutputs(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.TXOutput> values) {
+          Iterable<? extends TXOutput> values) {
         if (outputsBuilder_ == null) {
           ensureOutputsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5735,14 +9305,14 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public org.tron.protos.Protocol.TXOutput.Builder getOutputsBuilder(
+      public TXOutput.Builder getOutputsBuilder(
           int index) {
         return getOutputsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public org.tron.protos.Protocol.TXOutputOrBuilder getOutputsOrBuilder(
+      public TXOutputOrBuilder getOutputsOrBuilder(
           int index) {
         if (outputsBuilder_ == null) {
           return outputs_.get(index);  } else {
@@ -5752,7 +9322,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.TXOutputOrBuilder> 
+      public java.util.List<? extends TXOutputOrBuilder>
            getOutputsOrBuilderList() {
         if (outputsBuilder_ != null) {
           return outputsBuilder_.getMessageOrBuilderList();
@@ -5763,31 +9333,31 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public org.tron.protos.Protocol.TXOutput.Builder addOutputsBuilder() {
+      public TXOutput.Builder addOutputsBuilder() {
         return getOutputsFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.TXOutput.getDefaultInstance());
+            TXOutput.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public org.tron.protos.Protocol.TXOutput.Builder addOutputsBuilder(
+      public TXOutput.Builder addOutputsBuilder(
           int index) {
         return getOutputsFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.TXOutput.getDefaultInstance());
+            index, TXOutput.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.TXOutput outputs = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.TXOutput.Builder> 
+      public java.util.List<TXOutput.Builder>
            getOutputsBuilderList() {
         return getOutputsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.TXOutput, org.tron.protos.Protocol.TXOutput.Builder, org.tron.protos.Protocol.TXOutputOrBuilder> 
+          TXOutput, TXOutput.Builder, TXOutputOrBuilder>
           getOutputsFieldBuilder() {
         if (outputsBuilder_ == null) {
           outputsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.TXOutput, org.tron.protos.Protocol.TXOutput.Builder, org.tron.protos.Protocol.TXOutputOrBuilder>(
+              TXOutput, TXOutput.Builder, TXOutputOrBuilder>(
                   outputs_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -5811,12 +9381,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.TXOutputs)
-    private static final org.tron.protos.Protocol.TXOutputs DEFAULT_INSTANCE;
+    private static final TXOutputs DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.TXOutputs();
+      DEFAULT_INSTANCE = new TXOutputs();
     }
 
-    public static org.tron.protos.Protocol.TXOutputs getDefaultInstance() {
+    public static TXOutputs getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5834,12 +9404,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<TXOutputs> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.TXOutputs getDefaultInstanceForType() {
+    public TXOutputs getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5856,11 +9426,11 @@ public final class Protocol {
     /**
      * <code>.protocol.Transaction.raw raw_data = 1;</code>
      */
-    org.tron.protos.Protocol.Transaction.raw getRawData();
+    Transaction.raw getRawData();
     /**
      * <code>.protocol.Transaction.raw raw_data = 1;</code>
      */
-    org.tron.protos.Protocol.Transaction.rawOrBuilder getRawDataOrBuilder();
+    Transaction.rawOrBuilder getRawDataOrBuilder();
 
     /**
      * <code>repeated bytes signature = 2;</code>
@@ -5878,12 +9448,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Transaction.Result> 
+    java.util.List<Transaction.Result>
         getRetList();
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
-    org.tron.protos.Protocol.Transaction.Result getRet(int index);
+    Transaction.Result getRet(int index);
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
@@ -5891,12 +9461,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.Transaction.ResultOrBuilder> 
+    java.util.List<? extends Transaction.ResultOrBuilder>
         getRetOrBuilderList();
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
-    org.tron.protos.Protocol.Transaction.ResultOrBuilder getRetOrBuilder(
+    Transaction.ResultOrBuilder getRetOrBuilder(
         int index);
   }
   /**
@@ -5916,7 +9486,7 @@ public final class Protocol {
       ret_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5927,7 +9497,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -5948,11 +9518,11 @@ public final class Protocol {
               break;
             }
             case 10: {
-              org.tron.protos.Protocol.Transaction.raw.Builder subBuilder = null;
+              raw.Builder subBuilder = null;
               if (rawData_ != null) {
                 subBuilder = rawData_.toBuilder();
               }
-              rawData_ = input.readMessage(org.tron.protos.Protocol.Transaction.raw.parser(), extensionRegistry);
+              rawData_ = input.readMessage(raw.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(rawData_);
                 rawData_ = subBuilder.buildPartial();
@@ -5970,11 +9540,11 @@ public final class Protocol {
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                ret_ = new java.util.ArrayList<org.tron.protos.Protocol.Transaction.Result>();
+                ret_ = new java.util.ArrayList<Result>();
                 mutable_bitField0_ |= 0x00000004;
               }
               ret_.add(
-                  input.readMessage(org.tron.protos.Protocol.Transaction.Result.parser(), extensionRegistry));
+                  input.readMessage(Result.parser(), extensionRegistry));
               break;
             }
           }
@@ -5997,112 +9567,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_Transaction_descriptor;
+      return Protocol.internal_static_protocol_Transaction_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_Transaction_fieldAccessorTable
+      return Protocol.internal_static_protocol_Transaction_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.Transaction.class, org.tron.protos.Protocol.Transaction.Builder.class);
-    }
-
-    /**
-     * Protobuf enum {@code protocol.Transaction.TransactionType}
-     */
-    public enum TransactionType
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>UtxoType = 0;</code>
-       */
-      UtxoType(0),
-      /**
-       * <code>ContractType = 1;</code>
-       */
-      ContractType(1),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>UtxoType = 0;</code>
-       */
-      public static final int UtxoType_VALUE = 0;
-      /**
-       * <code>ContractType = 1;</code>
-       */
-      public static final int ContractType_VALUE = 1;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static TransactionType valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static TransactionType forNumber(int value) {
-        switch (value) {
-          case 0: return UtxoType;
-          case 1: return ContractType;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<TransactionType>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          TransactionType> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<TransactionType>() {
-              public TransactionType findValueByNumber(int number) {
-                return TransactionType.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return org.tron.protos.Protocol.Transaction.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final TransactionType[] VALUES = values();
-
-      public static TransactionType valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private TransactionType(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:protocol.Transaction.TransactionType)
+              Transaction.class, Builder.class);
     }
 
     public interface ContractOrBuilder extends
@@ -6116,7 +9588,7 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.Contract.ContractType type = 1;</code>
        */
-      org.tron.protos.Protocol.Transaction.Contract.ContractType getType();
+      Contract.ContractType getType();
 
       /**
        * <code>.google.protobuf.Any parameter = 2;</code>
@@ -6130,6 +9602,16 @@ public final class Protocol {
        * <code>.google.protobuf.Any parameter = 2;</code>
        */
       com.google.protobuf.AnyOrBuilder getParameterOrBuilder();
+
+      /**
+       * <code>bytes provider = 3;</code>
+       */
+      com.google.protobuf.ByteString getProvider();
+
+      /**
+       * <code>bytes ContractName = 4;</code>
+       */
+      com.google.protobuf.ByteString getContractName();
     }
     /**
      * Protobuf type {@code protocol.Transaction.Contract}
@@ -6145,9 +9627,11 @@ public final class Protocol {
       }
       private Contract() {
         type_ = 0;
+        provider_ = com.google.protobuf.ByteString.EMPTY;
+        contractName_ = com.google.protobuf.ByteString.EMPTY;
       }
 
-      @java.lang.Override
+      @Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -6158,7 +9642,7 @@ public final class Protocol {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -6197,6 +9681,16 @@ public final class Protocol {
 
                 break;
               }
+              case 26: {
+
+                provider_ = input.readBytes();
+                break;
+              }
+              case 34: {
+
+                contractName_ = input.readBytes();
+                break;
+              }
             }
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6211,14 +9705,14 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_Contract_descriptor;
+        return Protocol.internal_static_protocol_Transaction_Contract_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_Contract_fieldAccessorTable
+        return Protocol.internal_static_protocol_Transaction_Contract_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Transaction.Contract.class, org.tron.protos.Protocol.Transaction.Contract.Builder.class);
+                Contract.class, Builder.class);
       }
 
       /**
@@ -6266,6 +9760,26 @@ public final class Protocol {
          * <code>ParticipateAssetIssueContract = 9;</code>
          */
         ParticipateAssetIssueContract(9),
+        /**
+         * <code>AccountUpdateContract = 10;</code>
+         */
+        AccountUpdateContract(10),
+        /**
+         * <code>FreezeBalanceContract = 11;</code>
+         */
+        FreezeBalanceContract(11),
+        /**
+         * <code>UnfreezeBalanceContract = 12;</code>
+         */
+        UnfreezeBalanceContract(12),
+        /**
+         * <code>WithdrawBalanceContract = 13;</code>
+         */
+        WithdrawBalanceContract(13),
+        /**
+         * <code>CustomContract = 20;</code>
+         */
+        CustomContract(20),
         UNRECOGNIZED(-1),
         ;
 
@@ -6309,11 +9823,31 @@ public final class Protocol {
          * <code>ParticipateAssetIssueContract = 9;</code>
          */
         public static final int ParticipateAssetIssueContract_VALUE = 9;
+        /**
+         * <code>AccountUpdateContract = 10;</code>
+         */
+        public static final int AccountUpdateContract_VALUE = 10;
+        /**
+         * <code>FreezeBalanceContract = 11;</code>
+         */
+        public static final int FreezeBalanceContract_VALUE = 11;
+        /**
+         * <code>UnfreezeBalanceContract = 12;</code>
+         */
+        public static final int UnfreezeBalanceContract_VALUE = 12;
+        /**
+         * <code>WithdrawBalanceContract = 13;</code>
+         */
+        public static final int WithdrawBalanceContract_VALUE = 13;
+        /**
+         * <code>CustomContract = 20;</code>
+         */
+        public static final int CustomContract_VALUE = 20;
 
 
         public final int getNumber() {
           if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalArgumentException(
+            throw new IllegalArgumentException(
                 "Can't get the number of an unknown enum value.");
           }
           return value;
@@ -6322,7 +9856,7 @@ public final class Protocol {
         /**
          * @deprecated Use {@link #forNumber(int)} instead.
          */
-        @java.lang.Deprecated
+        @Deprecated
         public static ContractType valueOf(int value) {
           return forNumber(value);
         }
@@ -6339,6 +9873,11 @@ public final class Protocol {
             case 7: return DeployContract;
             case 8: return WitnessUpdateContract;
             case 9: return ParticipateAssetIssueContract;
+            case 10: return AccountUpdateContract;
+            case 11: return FreezeBalanceContract;
+            case 12: return UnfreezeBalanceContract;
+            case 13: return WithdrawBalanceContract;
+            case 20: return CustomContract;
             default: return null;
           }
         }
@@ -6365,7 +9904,7 @@ public final class Protocol {
         }
         public static final com.google.protobuf.Descriptors.EnumDescriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.Transaction.Contract.getDescriptor().getEnumTypes().get(0);
+          return Contract.getDescriptor().getEnumTypes().get(0);
         }
 
         private static final ContractType[] VALUES = values();
@@ -6373,7 +9912,7 @@ public final class Protocol {
         public static ContractType valueOf(
             com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
           if (desc.getType() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
+            throw new IllegalArgumentException(
               "EnumValueDescriptor is not for this type.");
           }
           if (desc.getIndex() == -1) {
@@ -6402,9 +9941,9 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.Contract.ContractType type = 1;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Contract.ContractType getType() {
-        org.tron.protos.Protocol.Transaction.Contract.ContractType result = org.tron.protos.Protocol.Transaction.Contract.ContractType.valueOf(type_);
-        return result == null ? org.tron.protos.Protocol.Transaction.Contract.ContractType.UNRECOGNIZED : result;
+      public ContractType getType() {
+        ContractType result = ContractType.valueOf(type_);
+        return result == null ? ContractType.UNRECOGNIZED : result;
       }
 
       public static final int PARAMETER_FIELD_NUMBER = 2;
@@ -6428,6 +9967,24 @@ public final class Protocol {
         return getParameter();
       }
 
+      public static final int PROVIDER_FIELD_NUMBER = 3;
+      private com.google.protobuf.ByteString provider_;
+      /**
+       * <code>bytes provider = 3;</code>
+       */
+      public com.google.protobuf.ByteString getProvider() {
+        return provider_;
+      }
+
+      public static final int CONTRACTNAME_FIELD_NUMBER = 4;
+      private com.google.protobuf.ByteString contractName_;
+      /**
+       * <code>bytes ContractName = 4;</code>
+       */
+      public com.google.protobuf.ByteString getContractName() {
+        return contractName_;
+      }
+
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -6440,11 +9997,17 @@ public final class Protocol {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (type_ != org.tron.protos.Protocol.Transaction.Contract.ContractType.AccountCreateContract.getNumber()) {
+        if (type_ != ContractType.AccountCreateContract.getNumber()) {
           output.writeEnum(1, type_);
         }
         if (parameter_ != null) {
           output.writeMessage(2, getParameter());
+        }
+        if (!provider_.isEmpty()) {
+          output.writeBytes(3, provider_);
+        }
+        if (!contractName_.isEmpty()) {
+          output.writeBytes(4, contractName_);
         }
         unknownFields.writeTo(output);
       }
@@ -6454,7 +10017,7 @@ public final class Protocol {
         if (size != -1) return size;
 
         size = 0;
-        if (type_ != org.tron.protos.Protocol.Transaction.Contract.ContractType.AccountCreateContract.getNumber()) {
+        if (type_ != ContractType.AccountCreateContract.getNumber()) {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(1, type_);
         }
@@ -6462,20 +10025,28 @@ public final class Protocol {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getParameter());
         }
+        if (!provider_.isEmpty()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(3, provider_);
+        }
+        if (!contractName_.isEmpty()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(4, contractName_);
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
 
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
+      @Override
+      public boolean equals(final Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof org.tron.protos.Protocol.Transaction.Contract)) {
+        if (!(obj instanceof Contract)) {
           return super.equals(obj);
         }
-        org.tron.protos.Protocol.Transaction.Contract other = (org.tron.protos.Protocol.Transaction.Contract) obj;
+        Contract other = (Contract) obj;
 
         boolean result = true;
         result = result && type_ == other.type_;
@@ -6484,11 +10055,15 @@ public final class Protocol {
           result = result && getParameter()
               .equals(other.getParameter());
         }
+        result = result && getProvider()
+            .equals(other.getProvider());
+        result = result && getContractName()
+            .equals(other.getContractName());
         result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -6501,74 +10076,78 @@ public final class Protocol {
           hash = (37 * hash) + PARAMETER_FIELD_NUMBER;
           hash = (53 * hash) + getParameter().hashCode();
         }
+        hash = (37 * hash) + PROVIDER_FIELD_NUMBER;
+        hash = (53 * hash) + getProvider().hashCode();
+        hash = (37 * hash) + CONTRACTNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getContractName().hashCode();
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
 
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(
+      public static Contract parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(
+      public static Contract parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(
+      public static Contract parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(
+      public static Contract parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(byte[] data)
+      public static Contract parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(
+      public static Contract parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(java.io.InputStream input)
+      public static Contract parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(
+      public static Contract parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseDelimitedFrom(java.io.InputStream input)
+      public static Contract parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseDelimitedFrom(
+      public static Contract parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(
+      public static Contract parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.Contract parseFrom(
+      public static Contract parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -6580,7 +10159,7 @@ public final class Protocol {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(org.tron.protos.Protocol.Transaction.Contract prototype) {
+      public static Builder newBuilder(Contract prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -6588,9 +10167,9 @@ public final class Protocol {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @java.lang.Override
+      @Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -6600,17 +10179,17 @@ public final class Protocol {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:protocol.Transaction.Contract)
-          org.tron.protos.Protocol.Transaction.ContractOrBuilder {
+          ContractOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_Contract_descriptor;
+          return Protocol.internal_static_protocol_Transaction_Contract_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_Contract_fieldAccessorTable
+          return Protocol.internal_static_protocol_Transaction_Contract_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.Transaction.Contract.class, org.tron.protos.Protocol.Transaction.Contract.Builder.class);
+                  Contract.class, Builder.class);
         }
 
         // Construct using org.tron.protos.Protocol.Transaction.Contract.newBuilder()
@@ -6619,7 +10198,7 @@ public final class Protocol {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -6638,34 +10217,40 @@ public final class Protocol {
             parameter_ = null;
             parameterBuilder_ = null;
           }
+          provider_ = com.google.protobuf.ByteString.EMPTY;
+
+          contractName_ = com.google.protobuf.ByteString.EMPTY;
+
           return this;
         }
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_Contract_descriptor;
+          return Protocol.internal_static_protocol_Transaction_Contract_descriptor;
         }
 
-        public org.tron.protos.Protocol.Transaction.Contract getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.Transaction.Contract.getDefaultInstance();
+        public Contract getDefaultInstanceForType() {
+          return Contract.getDefaultInstance();
         }
 
-        public org.tron.protos.Protocol.Transaction.Contract build() {
-          org.tron.protos.Protocol.Transaction.Contract result = buildPartial();
+        public Contract build() {
+          Contract result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public org.tron.protos.Protocol.Transaction.Contract buildPartial() {
-          org.tron.protos.Protocol.Transaction.Contract result = new org.tron.protos.Protocol.Transaction.Contract(this);
+        public Contract buildPartial() {
+          Contract result = new Contract(this);
           result.type_ = type_;
           if (parameterBuilder_ == null) {
             result.parameter_ = parameter_;
           } else {
             result.parameter_ = parameterBuilder_.build();
           }
+          result.provider_ = provider_;
+          result.contractName_ = contractName_;
           onBuilt();
           return result;
         }
@@ -6675,7 +10260,7 @@ public final class Protocol {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -6688,30 +10273,36 @@ public final class Protocol {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.Transaction.Contract) {
-            return mergeFrom((org.tron.protos.Protocol.Transaction.Contract)other);
+          if (other instanceof Contract) {
+            return mergeFrom((Contract)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(org.tron.protos.Protocol.Transaction.Contract other) {
-          if (other == org.tron.protos.Protocol.Transaction.Contract.getDefaultInstance()) return this;
+        public Builder mergeFrom(Contract other) {
+          if (other == Contract.getDefaultInstance()) return this;
           if (other.type_ != 0) {
             setTypeValue(other.getTypeValue());
           }
           if (other.hasParameter()) {
             mergeParameter(other.getParameter());
+          }
+          if (other.getProvider() != com.google.protobuf.ByteString.EMPTY) {
+            setProvider(other.getProvider());
+          }
+          if (other.getContractName() != com.google.protobuf.ByteString.EMPTY) {
+            setContractName(other.getContractName());
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -6726,11 +10317,11 @@ public final class Protocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          org.tron.protos.Protocol.Transaction.Contract parsedMessage = null;
+          Contract parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.Transaction.Contract) e.getUnfinishedMessage();
+            parsedMessage = (Contract) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -6758,14 +10349,14 @@ public final class Protocol {
         /**
          * <code>.protocol.Transaction.Contract.ContractType type = 1;</code>
          */
-        public org.tron.protos.Protocol.Transaction.Contract.ContractType getType() {
-          org.tron.protos.Protocol.Transaction.Contract.ContractType result = org.tron.protos.Protocol.Transaction.Contract.ContractType.valueOf(type_);
-          return result == null ? org.tron.protos.Protocol.Transaction.Contract.ContractType.UNRECOGNIZED : result;
+        public ContractType getType() {
+          ContractType result = ContractType.valueOf(type_);
+          return result == null ? ContractType.UNRECOGNIZED : result;
         }
         /**
          * <code>.protocol.Transaction.Contract.ContractType type = 1;</code>
          */
-        public Builder setType(org.tron.protos.Protocol.Transaction.Contract.ContractType value) {
+        public Builder setType(ContractType value) {
           if (value == null) {
             throw new NullPointerException();
           }
@@ -6900,6 +10491,64 @@ public final class Protocol {
           }
           return parameterBuilder_;
         }
+
+        private com.google.protobuf.ByteString provider_ = com.google.protobuf.ByteString.EMPTY;
+        /**
+         * <code>bytes provider = 3;</code>
+         */
+        public com.google.protobuf.ByteString getProvider() {
+          return provider_;
+        }
+        /**
+         * <code>bytes provider = 3;</code>
+         */
+        public Builder setProvider(com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          provider_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>bytes provider = 3;</code>
+         */
+        public Builder clearProvider() {
+          
+          provider_ = getDefaultInstance().getProvider();
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.ByteString contractName_ = com.google.protobuf.ByteString.EMPTY;
+        /**
+         * <code>bytes ContractName = 4;</code>
+         */
+        public com.google.protobuf.ByteString getContractName() {
+          return contractName_;
+        }
+        /**
+         * <code>bytes ContractName = 4;</code>
+         */
+        public Builder setContractName(com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          contractName_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>bytes ContractName = 4;</code>
+         */
+        public Builder clearContractName() {
+          
+          contractName_ = getDefaultInstance().getContractName();
+          onChanged();
+          return this;
+        }
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
           return super.setUnknownFieldsProto3(unknownFields);
@@ -6915,12 +10564,12 @@ public final class Protocol {
       }
 
       // @@protoc_insertion_point(class_scope:protocol.Transaction.Contract)
-      private static final org.tron.protos.Protocol.Transaction.Contract DEFAULT_INSTANCE;
+      private static final Contract DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.Transaction.Contract();
+        DEFAULT_INSTANCE = new Contract();
       }
 
-      public static org.tron.protos.Protocol.Transaction.Contract getDefaultInstance() {
+      public static Contract getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -6938,12 +10587,12 @@ public final class Protocol {
         return PARSER;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Parser<Contract> getParserForType() {
         return PARSER;
       }
 
-      public org.tron.protos.Protocol.Transaction.Contract getDefaultInstanceForType() {
+      public Contract getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
@@ -6965,7 +10614,7 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.Result.code ret = 2;</code>
        */
-      org.tron.protos.Protocol.Transaction.Result.code getRet();
+      Result.code getRet();
     }
     /**
      * Protobuf type {@code protocol.Transaction.Result}
@@ -6984,7 +10633,7 @@ public final class Protocol {
         ret_ = 0;
       }
 
-      @java.lang.Override
+      @Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -6995,7 +10644,7 @@ public final class Protocol {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -7040,14 +10689,14 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_Result_descriptor;
+        return Protocol.internal_static_protocol_Transaction_Result_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_Result_fieldAccessorTable
+        return Protocol.internal_static_protocol_Transaction_Result_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Transaction.Result.class, org.tron.protos.Protocol.Transaction.Result.Builder.class);
+                Result.class, Builder.class);
       }
 
       /**
@@ -7078,7 +10727,7 @@ public final class Protocol {
 
         public final int getNumber() {
           if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalArgumentException(
+            throw new IllegalArgumentException(
                 "Can't get the number of an unknown enum value.");
           }
           return value;
@@ -7087,7 +10736,7 @@ public final class Protocol {
         /**
          * @deprecated Use {@link #forNumber(int)} instead.
          */
-        @java.lang.Deprecated
+        @Deprecated
         public static code valueOf(int value) {
           return forNumber(value);
         }
@@ -7122,7 +10771,7 @@ public final class Protocol {
         }
         public static final com.google.protobuf.Descriptors.EnumDescriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.Transaction.Result.getDescriptor().getEnumTypes().get(0);
+          return Result.getDescriptor().getEnumTypes().get(0);
         }
 
         private static final code[] VALUES = values();
@@ -7130,7 +10779,7 @@ public final class Protocol {
         public static code valueOf(
             com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
           if (desc.getType() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
+            throw new IllegalArgumentException(
               "EnumValueDescriptor is not for this type.");
           }
           if (desc.getIndex() == -1) {
@@ -7168,9 +10817,9 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.Result.code ret = 2;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Result.code getRet() {
-        org.tron.protos.Protocol.Transaction.Result.code result = org.tron.protos.Protocol.Transaction.Result.code.valueOf(ret_);
-        return result == null ? org.tron.protos.Protocol.Transaction.Result.code.UNRECOGNIZED : result;
+      public code getRet() {
+        code result = code.valueOf(ret_);
+        return result == null ? code.UNRECOGNIZED : result;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -7188,7 +10837,7 @@ public final class Protocol {
         if (fee_ != 0L) {
           output.writeInt64(1, fee_);
         }
-        if (ret_ != org.tron.protos.Protocol.Transaction.Result.code.SUCESS.getNumber()) {
+        if (ret_ != code.SUCESS.getNumber()) {
           output.writeEnum(2, ret_);
         }
         unknownFields.writeTo(output);
@@ -7203,7 +10852,7 @@ public final class Protocol {
           size += com.google.protobuf.CodedOutputStream
             .computeInt64Size(1, fee_);
         }
-        if (ret_ != org.tron.protos.Protocol.Transaction.Result.code.SUCESS.getNumber()) {
+        if (ret_ != code.SUCESS.getNumber()) {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(2, ret_);
         }
@@ -7212,15 +10861,15 @@ public final class Protocol {
         return size;
       }
 
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
+      @Override
+      public boolean equals(final Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof org.tron.protos.Protocol.Transaction.Result)) {
+        if (!(obj instanceof Result)) {
           return super.equals(obj);
         }
-        org.tron.protos.Protocol.Transaction.Result other = (org.tron.protos.Protocol.Transaction.Result) obj;
+        Result other = (Result) obj;
 
         boolean result = true;
         result = result && (getFee()
@@ -7230,7 +10879,7 @@ public final class Protocol {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -7247,69 +10896,69 @@ public final class Protocol {
         return hash;
       }
 
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(
+      public static Result parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(
+      public static Result parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(
+      public static Result parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(
+      public static Result parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(byte[] data)
+      public static Result parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(
+      public static Result parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(java.io.InputStream input)
+      public static Result parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(
+      public static Result parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseDelimitedFrom(java.io.InputStream input)
+      public static Result parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseDelimitedFrom(
+      public static Result parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(
+      public static Result parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.Result parseFrom(
+      public static Result parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -7321,7 +10970,7 @@ public final class Protocol {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(org.tron.protos.Protocol.Transaction.Result prototype) {
+      public static Builder newBuilder(Result prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -7329,9 +10978,9 @@ public final class Protocol {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @java.lang.Override
+      @Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -7341,17 +10990,17 @@ public final class Protocol {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:protocol.Transaction.Result)
-          org.tron.protos.Protocol.Transaction.ResultOrBuilder {
+          ResultOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_Result_descriptor;
+          return Protocol.internal_static_protocol_Transaction_Result_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_Result_fieldAccessorTable
+          return Protocol.internal_static_protocol_Transaction_Result_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.Transaction.Result.class, org.tron.protos.Protocol.Transaction.Result.Builder.class);
+                  Result.class, Builder.class);
         }
 
         // Construct using org.tron.protos.Protocol.Transaction.Result.newBuilder()
@@ -7360,7 +11009,7 @@ public final class Protocol {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -7380,23 +11029,23 @@ public final class Protocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_Result_descriptor;
+          return Protocol.internal_static_protocol_Transaction_Result_descriptor;
         }
 
-        public org.tron.protos.Protocol.Transaction.Result getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.Transaction.Result.getDefaultInstance();
+        public Result getDefaultInstanceForType() {
+          return Result.getDefaultInstance();
         }
 
-        public org.tron.protos.Protocol.Transaction.Result build() {
-          org.tron.protos.Protocol.Transaction.Result result = buildPartial();
+        public Result build() {
+          Result result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public org.tron.protos.Protocol.Transaction.Result buildPartial() {
-          org.tron.protos.Protocol.Transaction.Result result = new org.tron.protos.Protocol.Transaction.Result(this);
+        public Result buildPartial() {
+          Result result = new Result(this);
           result.fee_ = fee_;
           result.ret_ = ret_;
           onBuilt();
@@ -7408,7 +11057,7 @@ public final class Protocol {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -7421,25 +11070,25 @@ public final class Protocol {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.Transaction.Result) {
-            return mergeFrom((org.tron.protos.Protocol.Transaction.Result)other);
+          if (other instanceof Result) {
+            return mergeFrom((Result)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(org.tron.protos.Protocol.Transaction.Result other) {
-          if (other == org.tron.protos.Protocol.Transaction.Result.getDefaultInstance()) return this;
+        public Builder mergeFrom(Result other) {
+          if (other == Result.getDefaultInstance()) return this;
           if (other.getFee() != 0L) {
             setFee(other.getFee());
           }
@@ -7459,11 +11108,11 @@ public final class Protocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          org.tron.protos.Protocol.Transaction.Result parsedMessage = null;
+          Result parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.Transaction.Result) e.getUnfinishedMessage();
+            parsedMessage = (Result) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -7517,14 +11166,14 @@ public final class Protocol {
         /**
          * <code>.protocol.Transaction.Result.code ret = 2;</code>
          */
-        public org.tron.protos.Protocol.Transaction.Result.code getRet() {
-          org.tron.protos.Protocol.Transaction.Result.code result = org.tron.protos.Protocol.Transaction.Result.code.valueOf(ret_);
-          return result == null ? org.tron.protos.Protocol.Transaction.Result.code.UNRECOGNIZED : result;
+        public code getRet() {
+          code result = code.valueOf(ret_);
+          return result == null ? code.UNRECOGNIZED : result;
         }
         /**
          * <code>.protocol.Transaction.Result.code ret = 2;</code>
          */
-        public Builder setRet(org.tron.protos.Protocol.Transaction.Result.code value) {
+        public Builder setRet(code value) {
           if (value == null) {
             throw new NullPointerException();
           }
@@ -7557,12 +11206,12 @@ public final class Protocol {
       }
 
       // @@protoc_insertion_point(class_scope:protocol.Transaction.Result)
-      private static final org.tron.protos.Protocol.Transaction.Result DEFAULT_INSTANCE;
+      private static final Result DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.Transaction.Result();
+        DEFAULT_INSTANCE = new Result();
       }
 
-      public static org.tron.protos.Protocol.Transaction.Result getDefaultInstance() {
+      public static Result getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -7580,12 +11229,12 @@ public final class Protocol {
         return PARSER;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Parser<Result> getParserForType() {
         return PARSER;
       }
 
-      public org.tron.protos.Protocol.Transaction.Result getDefaultInstanceForType() {
+      public Result getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
@@ -7596,13 +11245,9 @@ public final class Protocol {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>.protocol.Transaction.TransactionType type = 1;</code>
+       * <code>bytes ref_block_bytes = 1;</code>
        */
-      int getTypeValue();
-      /**
-       * <code>.protocol.Transaction.TransactionType type = 1;</code>
-       */
-      org.tron.protos.Protocol.Transaction.TransactionType getType();
+      com.google.protobuf.ByteString getRefBlockBytes();
 
       /**
        * <code>int64 ref_block_num = 3;</code>
@@ -7620,6 +11265,34 @@ public final class Protocol {
       long getExpiration();
 
       /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      java.util.List<acuthrity>
+          getAuthsList();
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      acuthrity getAuths(int index);
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      int getAuthsCount();
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      java.util.List<? extends acuthrityOrBuilder>
+          getAuthsOrBuilderList();
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      acuthrityOrBuilder getAuthsOrBuilder(
+          int index);
+
+      /**
+       * <pre>
+       * data not used
+       * </pre>
+       *
        * <code>bytes data = 10;</code>
        */
       com.google.protobuf.ByteString getData();
@@ -7627,12 +11300,12 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
-      java.util.List<org.tron.protos.Protocol.Transaction.Contract> 
+      java.util.List<Contract>
           getContractList();
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
-      org.tron.protos.Protocol.Transaction.Contract getContract(int index);
+      Contract getContract(int index);
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
@@ -7640,15 +11313,19 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
-      java.util.List<? extends org.tron.protos.Protocol.Transaction.ContractOrBuilder> 
+      java.util.List<? extends ContractOrBuilder>
           getContractOrBuilderList();
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
-      org.tron.protos.Protocol.Transaction.ContractOrBuilder getContractOrBuilder(
+      ContractOrBuilder getContractOrBuilder(
           int index);
 
       /**
+       * <pre>
+       * scripts not used
+       * </pre>
+       *
        * <code>bytes scripts = 12;</code>
        */
       com.google.protobuf.ByteString getScripts();
@@ -7671,17 +11348,18 @@ public final class Protocol {
         super(builder);
       }
       private raw() {
-        type_ = 0;
+        refBlockBytes_ = com.google.protobuf.ByteString.EMPTY;
         refBlockNum_ = 0L;
         refBlockHash_ = com.google.protobuf.ByteString.EMPTY;
         expiration_ = 0L;
+        auths_ = java.util.Collections.emptyList();
         data_ = com.google.protobuf.ByteString.EMPTY;
         contract_ = java.util.Collections.emptyList();
         scripts_ = com.google.protobuf.ByteString.EMPTY;
         timestamp_ = 0L;
       }
 
-      @java.lang.Override
+      @Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -7692,7 +11370,7 @@ public final class Protocol {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -7712,10 +11390,9 @@ public final class Protocol {
                 }
                 break;
               }
-              case 8: {
-                int rawValue = input.readEnum();
+              case 10: {
 
-                type_ = rawValue;
+                refBlockBytes_ = input.readBytes();
                 break;
               }
               case 24: {
@@ -7733,18 +11410,27 @@ public final class Protocol {
                 expiration_ = input.readInt64();
                 break;
               }
+              case 74: {
+                if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                  auths_ = new java.util.ArrayList<acuthrity>();
+                  mutable_bitField0_ |= 0x00000010;
+                }
+                auths_.add(
+                    input.readMessage(acuthrity.parser(), extensionRegistry));
+                break;
+              }
               case 82: {
 
                 data_ = input.readBytes();
                 break;
               }
               case 90: {
-                if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                  contract_ = new java.util.ArrayList<org.tron.protos.Protocol.Transaction.Contract>();
-                  mutable_bitField0_ |= 0x00000020;
+                if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                  contract_ = new java.util.ArrayList<Contract>();
+                  mutable_bitField0_ |= 0x00000040;
                 }
                 contract_.add(
-                    input.readMessage(org.tron.protos.Protocol.Transaction.Contract.parser(), extensionRegistry));
+                    input.readMessage(Contract.parser(), extensionRegistry));
                 break;
               }
               case 98: {
@@ -7765,7 +11451,10 @@ public final class Protocol {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
-          if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+            auths_ = java.util.Collections.unmodifiableList(auths_);
+          }
+          if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
             contract_ = java.util.Collections.unmodifiableList(contract_);
           }
           this.unknownFields = unknownFields.build();
@@ -7774,31 +11463,24 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_raw_descriptor;
+        return Protocol.internal_static_protocol_Transaction_raw_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_raw_fieldAccessorTable
+        return Protocol.internal_static_protocol_Transaction_raw_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Transaction.raw.class, org.tron.protos.Protocol.Transaction.raw.Builder.class);
+                raw.class, Builder.class);
       }
 
       private int bitField0_;
-      public static final int TYPE_FIELD_NUMBER = 1;
-      private int type_;
+      public static final int REF_BLOCK_BYTES_FIELD_NUMBER = 1;
+      private com.google.protobuf.ByteString refBlockBytes_;
       /**
-       * <code>.protocol.Transaction.TransactionType type = 1;</code>
+       * <code>bytes ref_block_bytes = 1;</code>
        */
-      public int getTypeValue() {
-        return type_;
-      }
-      /**
-       * <code>.protocol.Transaction.TransactionType type = 1;</code>
-       */
-      public org.tron.protos.Protocol.Transaction.TransactionType getType() {
-        org.tron.protos.Protocol.Transaction.TransactionType result = org.tron.protos.Protocol.Transaction.TransactionType.valueOf(type_);
-        return result == null ? org.tron.protos.Protocol.Transaction.TransactionType.UNRECOGNIZED : result;
+      public com.google.protobuf.ByteString getRefBlockBytes() {
+        return refBlockBytes_;
       }
 
       public static final int REF_BLOCK_NUM_FIELD_NUMBER = 3;
@@ -7828,9 +11510,48 @@ public final class Protocol {
         return expiration_;
       }
 
+      public static final int AUTHS_FIELD_NUMBER = 9;
+      private java.util.List<acuthrity> auths_;
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      public java.util.List<acuthrity> getAuthsList() {
+        return auths_;
+      }
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      public java.util.List<? extends acuthrityOrBuilder>
+          getAuthsOrBuilderList() {
+        return auths_;
+      }
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      public int getAuthsCount() {
+        return auths_.size();
+      }
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      public acuthrity getAuths(int index) {
+        return auths_.get(index);
+      }
+      /**
+       * <code>repeated .protocol.acuthrity auths = 9;</code>
+       */
+      public acuthrityOrBuilder getAuthsOrBuilder(
+          int index) {
+        return auths_.get(index);
+      }
+
       public static final int DATA_FIELD_NUMBER = 10;
       private com.google.protobuf.ByteString data_;
       /**
+       * <pre>
+       * data not used
+       * </pre>
+       *
        * <code>bytes data = 10;</code>
        */
       public com.google.protobuf.ByteString getData() {
@@ -7838,17 +11559,17 @@ public final class Protocol {
       }
 
       public static final int CONTRACT_FIELD_NUMBER = 11;
-      private java.util.List<org.tron.protos.Protocol.Transaction.Contract> contract_;
+      private java.util.List<Contract> contract_;
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Transaction.Contract> getContractList() {
+      public java.util.List<Contract> getContractList() {
         return contract_;
       }
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.Transaction.ContractOrBuilder> 
+      public java.util.List<? extends ContractOrBuilder>
           getContractOrBuilderList() {
         return contract_;
       }
@@ -7861,13 +11582,13 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Contract getContract(int index) {
+      public Contract getContract(int index) {
         return contract_.get(index);
       }
       /**
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
-      public org.tron.protos.Protocol.Transaction.ContractOrBuilder getContractOrBuilder(
+      public ContractOrBuilder getContractOrBuilder(
           int index) {
         return contract_.get(index);
       }
@@ -7875,6 +11596,10 @@ public final class Protocol {
       public static final int SCRIPTS_FIELD_NUMBER = 12;
       private com.google.protobuf.ByteString scripts_;
       /**
+       * <pre>
+       * scripts not used
+       * </pre>
+       *
        * <code>bytes scripts = 12;</code>
        */
       public com.google.protobuf.ByteString getScripts() {
@@ -7902,8 +11627,8 @@ public final class Protocol {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (type_ != org.tron.protos.Protocol.Transaction.TransactionType.UtxoType.getNumber()) {
-          output.writeEnum(1, type_);
+        if (!refBlockBytes_.isEmpty()) {
+          output.writeBytes(1, refBlockBytes_);
         }
         if (refBlockNum_ != 0L) {
           output.writeInt64(3, refBlockNum_);
@@ -7913,6 +11638,9 @@ public final class Protocol {
         }
         if (expiration_ != 0L) {
           output.writeInt64(8, expiration_);
+        }
+        for (int i = 0; i < auths_.size(); i++) {
+          output.writeMessage(9, auths_.get(i));
         }
         if (!data_.isEmpty()) {
           output.writeBytes(10, data_);
@@ -7934,9 +11662,9 @@ public final class Protocol {
         if (size != -1) return size;
 
         size = 0;
-        if (type_ != org.tron.protos.Protocol.Transaction.TransactionType.UtxoType.getNumber()) {
+        if (!refBlockBytes_.isEmpty()) {
           size += com.google.protobuf.CodedOutputStream
-            .computeEnumSize(1, type_);
+            .computeBytesSize(1, refBlockBytes_);
         }
         if (refBlockNum_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
@@ -7949,6 +11677,10 @@ public final class Protocol {
         if (expiration_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt64Size(8, expiration_);
+        }
+        for (int i = 0; i < auths_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(9, auths_.get(i));
         }
         if (!data_.isEmpty()) {
           size += com.google.protobuf.CodedOutputStream
@@ -7971,24 +11703,27 @@ public final class Protocol {
         return size;
       }
 
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
+      @Override
+      public boolean equals(final Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof org.tron.protos.Protocol.Transaction.raw)) {
+        if (!(obj instanceof raw)) {
           return super.equals(obj);
         }
-        org.tron.protos.Protocol.Transaction.raw other = (org.tron.protos.Protocol.Transaction.raw) obj;
+        raw other = (raw) obj;
 
         boolean result = true;
-        result = result && type_ == other.type_;
+        result = result && getRefBlockBytes()
+            .equals(other.getRefBlockBytes());
         result = result && (getRefBlockNum()
             == other.getRefBlockNum());
         result = result && getRefBlockHash()
             .equals(other.getRefBlockHash());
         result = result && (getExpiration()
             == other.getExpiration());
+        result = result && getAuthsList()
+            .equals(other.getAuthsList());
         result = result && getData()
             .equals(other.getData());
         result = result && getContractList()
@@ -8001,15 +11736,15 @@ public final class Protocol {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + type_;
+        hash = (37 * hash) + REF_BLOCK_BYTES_FIELD_NUMBER;
+        hash = (53 * hash) + getRefBlockBytes().hashCode();
         hash = (37 * hash) + REF_BLOCK_NUM_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getRefBlockNum());
@@ -8018,6 +11753,10 @@ public final class Protocol {
         hash = (37 * hash) + EXPIRATION_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getExpiration());
+        if (getAuthsCount() > 0) {
+          hash = (37 * hash) + AUTHS_FIELD_NUMBER;
+          hash = (53 * hash) + getAuthsList().hashCode();
+        }
         hash = (37 * hash) + DATA_FIELD_NUMBER;
         hash = (53 * hash) + getData().hashCode();
         if (getContractCount() > 0) {
@@ -8034,69 +11773,69 @@ public final class Protocol {
         return hash;
       }
 
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(
+      public static raw parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(
+      public static raw parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(byte[] data)
+      public static raw parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(
+      public static raw parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(java.io.InputStream input)
+      public static raw parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(
+      public static raw parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseDelimitedFrom(java.io.InputStream input)
+      public static raw parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseDelimitedFrom(
+      public static raw parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.Transaction.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -8108,7 +11847,7 @@ public final class Protocol {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(org.tron.protos.Protocol.Transaction.raw prototype) {
+      public static Builder newBuilder(raw prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -8116,9 +11855,9 @@ public final class Protocol {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @java.lang.Override
+      @Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -8128,17 +11867,17 @@ public final class Protocol {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:protocol.Transaction.raw)
-          org.tron.protos.Protocol.Transaction.rawOrBuilder {
+          rawOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_raw_descriptor;
+          return Protocol.internal_static_protocol_Transaction_raw_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_raw_fieldAccessorTable
+          return Protocol.internal_static_protocol_Transaction_raw_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.Transaction.raw.class, org.tron.protos.Protocol.Transaction.raw.Builder.class);
+                  raw.class, Builder.class);
         }
 
         // Construct using org.tron.protos.Protocol.Transaction.raw.newBuilder()
@@ -8147,19 +11886,20 @@ public final class Protocol {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
           if (com.google.protobuf.GeneratedMessageV3
                   .alwaysUseFieldBuilders) {
+            getAuthsFieldBuilder();
             getContractFieldBuilder();
           }
         }
         public Builder clear() {
           super.clear();
-          type_ = 0;
+          refBlockBytes_ = com.google.protobuf.ByteString.EMPTY;
 
           refBlockNum_ = 0L;
 
@@ -8167,11 +11907,17 @@ public final class Protocol {
 
           expiration_ = 0L;
 
+          if (authsBuilder_ == null) {
+            auths_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            authsBuilder_.clear();
+          }
           data_ = com.google.protobuf.ByteString.EMPTY;
 
           if (contractBuilder_ == null) {
             contract_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             contractBuilder_.clear();
           }
@@ -8184,34 +11930,43 @@ public final class Protocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_Transaction_raw_descriptor;
+          return Protocol.internal_static_protocol_Transaction_raw_descriptor;
         }
 
-        public org.tron.protos.Protocol.Transaction.raw getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.Transaction.raw.getDefaultInstance();
+        public raw getDefaultInstanceForType() {
+          return raw.getDefaultInstance();
         }
 
-        public org.tron.protos.Protocol.Transaction.raw build() {
-          org.tron.protos.Protocol.Transaction.raw result = buildPartial();
+        public raw build() {
+          raw result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public org.tron.protos.Protocol.Transaction.raw buildPartial() {
-          org.tron.protos.Protocol.Transaction.raw result = new org.tron.protos.Protocol.Transaction.raw(this);
+        public raw buildPartial() {
+          raw result = new raw(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
-          result.type_ = type_;
+          result.refBlockBytes_ = refBlockBytes_;
           result.refBlockNum_ = refBlockNum_;
           result.refBlockHash_ = refBlockHash_;
           result.expiration_ = expiration_;
+          if (authsBuilder_ == null) {
+            if (((bitField0_ & 0x00000010) == 0x00000010)) {
+              auths_ = java.util.Collections.unmodifiableList(auths_);
+              bitField0_ = (bitField0_ & ~0x00000010);
+            }
+            result.auths_ = auths_;
+          } else {
+            result.auths_ = authsBuilder_.build();
+          }
           result.data_ = data_;
           if (contractBuilder_ == null) {
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            if (((bitField0_ & 0x00000040) == 0x00000040)) {
               contract_ = java.util.Collections.unmodifiableList(contract_);
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000040);
             }
             result.contract_ = contract_;
           } else {
@@ -8229,7 +11984,7 @@ public final class Protocol {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -8242,27 +11997,27 @@ public final class Protocol {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.Transaction.raw) {
-            return mergeFrom((org.tron.protos.Protocol.Transaction.raw)other);
+          if (other instanceof raw) {
+            return mergeFrom((raw)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(org.tron.protos.Protocol.Transaction.raw other) {
-          if (other == org.tron.protos.Protocol.Transaction.raw.getDefaultInstance()) return this;
-          if (other.type_ != 0) {
-            setTypeValue(other.getTypeValue());
+        public Builder mergeFrom(raw other) {
+          if (other == raw.getDefaultInstance()) return this;
+          if (other.getRefBlockBytes() != com.google.protobuf.ByteString.EMPTY) {
+            setRefBlockBytes(other.getRefBlockBytes());
           }
           if (other.getRefBlockNum() != 0L) {
             setRefBlockNum(other.getRefBlockNum());
@@ -8273,6 +12028,32 @@ public final class Protocol {
           if (other.getExpiration() != 0L) {
             setExpiration(other.getExpiration());
           }
+          if (authsBuilder_ == null) {
+            if (!other.auths_.isEmpty()) {
+              if (auths_.isEmpty()) {
+                auths_ = other.auths_;
+                bitField0_ = (bitField0_ & ~0x00000010);
+              } else {
+                ensureAuthsIsMutable();
+                auths_.addAll(other.auths_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.auths_.isEmpty()) {
+              if (authsBuilder_.isEmpty()) {
+                authsBuilder_.dispose();
+                authsBuilder_ = null;
+                auths_ = other.auths_;
+                bitField0_ = (bitField0_ & ~0x00000010);
+                authsBuilder_ = 
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                     getAuthsFieldBuilder() : null;
+              } else {
+                authsBuilder_.addAllMessages(other.auths_);
+              }
+            }
+          }
           if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
             setData(other.getData());
           }
@@ -8280,7 +12061,7 @@ public final class Protocol {
             if (!other.contract_.isEmpty()) {
               if (contract_.isEmpty()) {
                 contract_ = other.contract_;
-                bitField0_ = (bitField0_ & ~0x00000020);
+                bitField0_ = (bitField0_ & ~0x00000040);
               } else {
                 ensureContractIsMutable();
                 contract_.addAll(other.contract_);
@@ -8293,7 +12074,7 @@ public final class Protocol {
                 contractBuilder_.dispose();
                 contractBuilder_ = null;
                 contract_ = other.contract_;
-                bitField0_ = (bitField0_ & ~0x00000020);
+                bitField0_ = (bitField0_ & ~0x00000040);
                 contractBuilder_ = 
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                      getContractFieldBuilder() : null;
@@ -8321,11 +12102,11 @@ public final class Protocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          org.tron.protos.Protocol.Transaction.raw parsedMessage = null;
+          raw parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.Transaction.raw) e.getUnfinishedMessage();
+            parsedMessage = (raw) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -8336,46 +12117,31 @@ public final class Protocol {
         }
         private int bitField0_;
 
-        private int type_ = 0;
+        private com.google.protobuf.ByteString refBlockBytes_ = com.google.protobuf.ByteString.EMPTY;
         /**
-         * <code>.protocol.Transaction.TransactionType type = 1;</code>
+         * <code>bytes ref_block_bytes = 1;</code>
          */
-        public int getTypeValue() {
-          return type_;
+        public com.google.protobuf.ByteString getRefBlockBytes() {
+          return refBlockBytes_;
         }
         /**
-         * <code>.protocol.Transaction.TransactionType type = 1;</code>
+         * <code>bytes ref_block_bytes = 1;</code>
          */
-        public Builder setTypeValue(int value) {
-          type_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>.protocol.Transaction.TransactionType type = 1;</code>
-         */
-        public org.tron.protos.Protocol.Transaction.TransactionType getType() {
-          org.tron.protos.Protocol.Transaction.TransactionType result = org.tron.protos.Protocol.Transaction.TransactionType.valueOf(type_);
-          return result == null ? org.tron.protos.Protocol.Transaction.TransactionType.UNRECOGNIZED : result;
-        }
-        /**
-         * <code>.protocol.Transaction.TransactionType type = 1;</code>
-         */
-        public Builder setType(org.tron.protos.Protocol.Transaction.TransactionType value) {
+        public Builder setRefBlockBytes(com.google.protobuf.ByteString value) {
           if (value == null) {
-            throw new NullPointerException();
-          }
-          
-          type_ = value.getNumber();
+    throw new NullPointerException();
+  }
+  
+          refBlockBytes_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>.protocol.Transaction.TransactionType type = 1;</code>
+         * <code>bytes ref_block_bytes = 1;</code>
          */
-        public Builder clearType() {
+        public Builder clearRefBlockBytes() {
           
-          type_ = 0;
+          refBlockBytes_ = getDefaultInstance().getRefBlockBytes();
           onChanged();
           return this;
         }
@@ -8461,14 +12227,262 @@ public final class Protocol {
           return this;
         }
 
+        private java.util.List<acuthrity> auths_ =
+          java.util.Collections.emptyList();
+        private void ensureAuthsIsMutable() {
+          if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+            auths_ = new java.util.ArrayList<acuthrity>(auths_);
+            bitField0_ |= 0x00000010;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            acuthrity, acuthrity.Builder, acuthrityOrBuilder> authsBuilder_;
+
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public java.util.List<acuthrity> getAuthsList() {
+          if (authsBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(auths_);
+          } else {
+            return authsBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public int getAuthsCount() {
+          if (authsBuilder_ == null) {
+            return auths_.size();
+          } else {
+            return authsBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public acuthrity getAuths(int index) {
+          if (authsBuilder_ == null) {
+            return auths_.get(index);
+          } else {
+            return authsBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder setAuths(
+            int index, acuthrity value) {
+          if (authsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureAuthsIsMutable();
+            auths_.set(index, value);
+            onChanged();
+          } else {
+            authsBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder setAuths(
+            int index, acuthrity.Builder builderForValue) {
+          if (authsBuilder_ == null) {
+            ensureAuthsIsMutable();
+            auths_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            authsBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder addAuths(acuthrity value) {
+          if (authsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureAuthsIsMutable();
+            auths_.add(value);
+            onChanged();
+          } else {
+            authsBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder addAuths(
+            int index, acuthrity value) {
+          if (authsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureAuthsIsMutable();
+            auths_.add(index, value);
+            onChanged();
+          } else {
+            authsBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder addAuths(
+            acuthrity.Builder builderForValue) {
+          if (authsBuilder_ == null) {
+            ensureAuthsIsMutable();
+            auths_.add(builderForValue.build());
+            onChanged();
+          } else {
+            authsBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder addAuths(
+            int index, acuthrity.Builder builderForValue) {
+          if (authsBuilder_ == null) {
+            ensureAuthsIsMutable();
+            auths_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            authsBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder addAllAuths(
+            Iterable<? extends acuthrity> values) {
+          if (authsBuilder_ == null) {
+            ensureAuthsIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, auths_);
+            onChanged();
+          } else {
+            authsBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder clearAuths() {
+          if (authsBuilder_ == null) {
+            auths_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000010);
+            onChanged();
+          } else {
+            authsBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public Builder removeAuths(int index) {
+          if (authsBuilder_ == null) {
+            ensureAuthsIsMutable();
+            auths_.remove(index);
+            onChanged();
+          } else {
+            authsBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public acuthrity.Builder getAuthsBuilder(
+            int index) {
+          return getAuthsFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public acuthrityOrBuilder getAuthsOrBuilder(
+            int index) {
+          if (authsBuilder_ == null) {
+            return auths_.get(index);  } else {
+            return authsBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public java.util.List<? extends acuthrityOrBuilder>
+             getAuthsOrBuilderList() {
+          if (authsBuilder_ != null) {
+            return authsBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(auths_);
+          }
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public acuthrity.Builder addAuthsBuilder() {
+          return getAuthsFieldBuilder().addBuilder(
+              acuthrity.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public acuthrity.Builder addAuthsBuilder(
+            int index) {
+          return getAuthsFieldBuilder().addBuilder(
+              index, acuthrity.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .protocol.acuthrity auths = 9;</code>
+         */
+        public java.util.List<acuthrity.Builder>
+             getAuthsBuilderList() {
+          return getAuthsFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            acuthrity, acuthrity.Builder, acuthrityOrBuilder>
+            getAuthsFieldBuilder() {
+          if (authsBuilder_ == null) {
+            authsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                acuthrity, acuthrity.Builder, acuthrityOrBuilder>(
+                    auths_,
+                    ((bitField0_ & 0x00000010) == 0x00000010),
+                    getParentForChildren(),
+                    isClean());
+            auths_ = null;
+          }
+          return authsBuilder_;
+        }
+
         private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
         /**
+         * <pre>
+         * data not used
+         * </pre>
+         *
          * <code>bytes data = 10;</code>
          */
         public com.google.protobuf.ByteString getData() {
           return data_;
         }
         /**
+         * <pre>
+         * data not used
+         * </pre>
+         *
          * <code>bytes data = 10;</code>
          */
         public Builder setData(com.google.protobuf.ByteString value) {
@@ -8481,6 +12495,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         * data not used
+         * </pre>
+         *
          * <code>bytes data = 10;</code>
          */
         public Builder clearData() {
@@ -8490,22 +12508,22 @@ public final class Protocol {
           return this;
         }
 
-        private java.util.List<org.tron.protos.Protocol.Transaction.Contract> contract_ =
+        private java.util.List<Contract> contract_ =
           java.util.Collections.emptyList();
         private void ensureContractIsMutable() {
-          if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-            contract_ = new java.util.ArrayList<org.tron.protos.Protocol.Transaction.Contract>(contract_);
-            bitField0_ |= 0x00000020;
+          if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+            contract_ = new java.util.ArrayList<Contract>(contract_);
+            bitField0_ |= 0x00000040;
            }
         }
 
         private com.google.protobuf.RepeatedFieldBuilderV3<
-            org.tron.protos.Protocol.Transaction.Contract, org.tron.protos.Protocol.Transaction.Contract.Builder, org.tron.protos.Protocol.Transaction.ContractOrBuilder> contractBuilder_;
+            Contract, Contract.Builder, ContractOrBuilder> contractBuilder_;
 
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public java.util.List<org.tron.protos.Protocol.Transaction.Contract> getContractList() {
+        public java.util.List<Contract> getContractList() {
           if (contractBuilder_ == null) {
             return java.util.Collections.unmodifiableList(contract_);
           } else {
@@ -8525,7 +12543,7 @@ public final class Protocol {
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public org.tron.protos.Protocol.Transaction.Contract getContract(int index) {
+        public Contract getContract(int index) {
           if (contractBuilder_ == null) {
             return contract_.get(index);
           } else {
@@ -8536,7 +12554,7 @@ public final class Protocol {
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder setContract(
-            int index, org.tron.protos.Protocol.Transaction.Contract value) {
+            int index, Contract value) {
           if (contractBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -8553,7 +12571,7 @@ public final class Protocol {
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder setContract(
-            int index, org.tron.protos.Protocol.Transaction.Contract.Builder builderForValue) {
+            int index, Contract.Builder builderForValue) {
           if (contractBuilder_ == null) {
             ensureContractIsMutable();
             contract_.set(index, builderForValue.build());
@@ -8566,7 +12584,7 @@ public final class Protocol {
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public Builder addContract(org.tron.protos.Protocol.Transaction.Contract value) {
+        public Builder addContract(Contract value) {
           if (contractBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -8583,7 +12601,7 @@ public final class Protocol {
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addContract(
-            int index, org.tron.protos.Protocol.Transaction.Contract value) {
+            int index, Contract value) {
           if (contractBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -8600,7 +12618,7 @@ public final class Protocol {
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addContract(
-            org.tron.protos.Protocol.Transaction.Contract.Builder builderForValue) {
+            Contract.Builder builderForValue) {
           if (contractBuilder_ == null) {
             ensureContractIsMutable();
             contract_.add(builderForValue.build());
@@ -8614,7 +12632,7 @@ public final class Protocol {
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addContract(
-            int index, org.tron.protos.Protocol.Transaction.Contract.Builder builderForValue) {
+            int index, Contract.Builder builderForValue) {
           if (contractBuilder_ == null) {
             ensureContractIsMutable();
             contract_.add(index, builderForValue.build());
@@ -8628,7 +12646,7 @@ public final class Protocol {
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addAllContract(
-            java.lang.Iterable<? extends org.tron.protos.Protocol.Transaction.Contract> values) {
+            Iterable<? extends Contract> values) {
           if (contractBuilder_ == null) {
             ensureContractIsMutable();
             com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -8645,7 +12663,7 @@ public final class Protocol {
         public Builder clearContract() {
           if (contractBuilder_ == null) {
             contract_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
             onChanged();
           } else {
             contractBuilder_.clear();
@@ -8668,14 +12686,14 @@ public final class Protocol {
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public org.tron.protos.Protocol.Transaction.Contract.Builder getContractBuilder(
+        public Contract.Builder getContractBuilder(
             int index) {
           return getContractFieldBuilder().getBuilder(index);
         }
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public org.tron.protos.Protocol.Transaction.ContractOrBuilder getContractOrBuilder(
+        public ContractOrBuilder getContractOrBuilder(
             int index) {
           if (contractBuilder_ == null) {
             return contract_.get(index);  } else {
@@ -8685,7 +12703,7 @@ public final class Protocol {
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public java.util.List<? extends org.tron.protos.Protocol.Transaction.ContractOrBuilder> 
+        public java.util.List<? extends ContractOrBuilder>
              getContractOrBuilderList() {
           if (contractBuilder_ != null) {
             return contractBuilder_.getMessageOrBuilderList();
@@ -8696,33 +12714,33 @@ public final class Protocol {
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public org.tron.protos.Protocol.Transaction.Contract.Builder addContractBuilder() {
+        public Contract.Builder addContractBuilder() {
           return getContractFieldBuilder().addBuilder(
-              org.tron.protos.Protocol.Transaction.Contract.getDefaultInstance());
+              Contract.getDefaultInstance());
         }
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public org.tron.protos.Protocol.Transaction.Contract.Builder addContractBuilder(
+        public Contract.Builder addContractBuilder(
             int index) {
           return getContractFieldBuilder().addBuilder(
-              index, org.tron.protos.Protocol.Transaction.Contract.getDefaultInstance());
+              index, Contract.getDefaultInstance());
         }
         /**
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
-        public java.util.List<org.tron.protos.Protocol.Transaction.Contract.Builder> 
+        public java.util.List<Contract.Builder>
              getContractBuilderList() {
           return getContractFieldBuilder().getBuilderList();
         }
         private com.google.protobuf.RepeatedFieldBuilderV3<
-            org.tron.protos.Protocol.Transaction.Contract, org.tron.protos.Protocol.Transaction.Contract.Builder, org.tron.protos.Protocol.Transaction.ContractOrBuilder> 
+            Contract, Contract.Builder, ContractOrBuilder>
             getContractFieldBuilder() {
           if (contractBuilder_ == null) {
             contractBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                org.tron.protos.Protocol.Transaction.Contract, org.tron.protos.Protocol.Transaction.Contract.Builder, org.tron.protos.Protocol.Transaction.ContractOrBuilder>(
+                Contract, Contract.Builder, ContractOrBuilder>(
                     contract_,
-                    ((bitField0_ & 0x00000020) == 0x00000020),
+                    ((bitField0_ & 0x00000040) == 0x00000040),
                     getParentForChildren(),
                     isClean());
             contract_ = null;
@@ -8732,12 +12750,20 @@ public final class Protocol {
 
         private com.google.protobuf.ByteString scripts_ = com.google.protobuf.ByteString.EMPTY;
         /**
+         * <pre>
+         * scripts not used
+         * </pre>
+         *
          * <code>bytes scripts = 12;</code>
          */
         public com.google.protobuf.ByteString getScripts() {
           return scripts_;
         }
         /**
+         * <pre>
+         * scripts not used
+         * </pre>
+         *
          * <code>bytes scripts = 12;</code>
          */
         public Builder setScripts(com.google.protobuf.ByteString value) {
@@ -8750,6 +12776,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         * scripts not used
+         * </pre>
+         *
          * <code>bytes scripts = 12;</code>
          */
         public Builder clearScripts() {
@@ -8799,12 +12829,12 @@ public final class Protocol {
       }
 
       // @@protoc_insertion_point(class_scope:protocol.Transaction.raw)
-      private static final org.tron.protos.Protocol.Transaction.raw DEFAULT_INSTANCE;
+      private static final raw DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.Transaction.raw();
+        DEFAULT_INSTANCE = new raw();
       }
 
-      public static org.tron.protos.Protocol.Transaction.raw getDefaultInstance() {
+      public static raw getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -8822,12 +12852,12 @@ public final class Protocol {
         return PARSER;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Parser<raw> getParserForType() {
         return PARSER;
       }
 
-      public org.tron.protos.Protocol.Transaction.raw getDefaultInstanceForType() {
+      public raw getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
@@ -8835,7 +12865,7 @@ public final class Protocol {
 
     private int bitField0_;
     public static final int RAW_DATA_FIELD_NUMBER = 1;
-    private org.tron.protos.Protocol.Transaction.raw rawData_;
+    private raw rawData_;
     /**
      * <code>.protocol.Transaction.raw raw_data = 1;</code>
      */
@@ -8845,13 +12875,13 @@ public final class Protocol {
     /**
      * <code>.protocol.Transaction.raw raw_data = 1;</code>
      */
-    public org.tron.protos.Protocol.Transaction.raw getRawData() {
-      return rawData_ == null ? org.tron.protos.Protocol.Transaction.raw.getDefaultInstance() : rawData_;
+    public raw getRawData() {
+      return rawData_ == null ? raw.getDefaultInstance() : rawData_;
     }
     /**
      * <code>.protocol.Transaction.raw raw_data = 1;</code>
      */
-    public org.tron.protos.Protocol.Transaction.rawOrBuilder getRawDataOrBuilder() {
+    public rawOrBuilder getRawDataOrBuilder() {
       return getRawData();
     }
 
@@ -8878,17 +12908,17 @@ public final class Protocol {
     }
 
     public static final int RET_FIELD_NUMBER = 5;
-    private java.util.List<org.tron.protos.Protocol.Transaction.Result> ret_;
+    private java.util.List<Result> ret_;
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.Transaction.Result> getRetList() {
+    public java.util.List<Result> getRetList() {
       return ret_;
     }
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.Transaction.ResultOrBuilder> 
+    public java.util.List<? extends ResultOrBuilder>
         getRetOrBuilderList() {
       return ret_;
     }
@@ -8901,13 +12931,13 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
-    public org.tron.protos.Protocol.Transaction.Result getRet(int index) {
+    public Result getRet(int index) {
       return ret_.get(index);
     }
     /**
      * <code>repeated .protocol.Transaction.Result ret = 5;</code>
      */
-    public org.tron.protos.Protocol.Transaction.ResultOrBuilder getRetOrBuilder(
+    public ResultOrBuilder getRetOrBuilder(
         int index) {
       return ret_.get(index);
     }
@@ -8963,15 +12993,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.Transaction)) {
+      if (!(obj instanceof Transaction)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.Transaction other = (org.tron.protos.Protocol.Transaction) obj;
+      Transaction other = (Transaction) obj;
 
       boolean result = true;
       result = result && (hasRawData() == other.hasRawData());
@@ -8987,7 +13017,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -9011,69 +13041,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.Transaction parseFrom(
+    public static Transaction parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(
+    public static Transaction parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(
+    public static Transaction parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(
+    public static Transaction parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(byte[] data)
+    public static Transaction parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(
+    public static Transaction parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(java.io.InputStream input)
+    public static Transaction parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(
+    public static Transaction parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Transaction parseDelimitedFrom(java.io.InputStream input)
+    public static Transaction parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Transaction parseDelimitedFrom(
+    public static Transaction parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(
+    public static Transaction parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Transaction parseFrom(
+    public static Transaction parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9085,7 +13115,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.Transaction prototype) {
+    public static Builder newBuilder(Transaction prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -9093,9 +13123,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -9105,17 +13135,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.Transaction)
-        org.tron.protos.Protocol.TransactionOrBuilder {
+        TransactionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_descriptor;
+        return Protocol.internal_static_protocol_Transaction_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_fieldAccessorTable
+        return Protocol.internal_static_protocol_Transaction_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Transaction.class, org.tron.protos.Protocol.Transaction.Builder.class);
+                Transaction.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.Transaction.newBuilder()
@@ -9124,7 +13154,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -9155,23 +13185,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_Transaction_descriptor;
+        return Protocol.internal_static_protocol_Transaction_descriptor;
       }
 
-      public org.tron.protos.Protocol.Transaction getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.Transaction.getDefaultInstance();
+      public Transaction getDefaultInstanceForType() {
+        return Transaction.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.Transaction build() {
-        org.tron.protos.Protocol.Transaction result = buildPartial();
+      public Transaction build() {
+        Transaction result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.Transaction buildPartial() {
-        org.tron.protos.Protocol.Transaction result = new org.tron.protos.Protocol.Transaction(this);
+      public Transaction buildPartial() {
+        Transaction result = new Transaction(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (rawDataBuilder_ == null) {
@@ -9203,7 +13233,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -9216,25 +13246,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.Transaction) {
-          return mergeFrom((org.tron.protos.Protocol.Transaction)other);
+        if (other instanceof Transaction) {
+          return mergeFrom((Transaction)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.Transaction other) {
-        if (other == org.tron.protos.Protocol.Transaction.getDefaultInstance()) return this;
+      public Builder mergeFrom(Transaction other) {
+        if (other == Transaction.getDefaultInstance()) return this;
         if (other.hasRawData()) {
           mergeRawData(other.getRawData());
         }
@@ -9287,11 +13317,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.Transaction parsedMessage = null;
+        Transaction parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.Transaction) e.getUnfinishedMessage();
+          parsedMessage = (Transaction) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -9302,9 +13332,9 @@ public final class Protocol {
       }
       private int bitField0_;
 
-      private org.tron.protos.Protocol.Transaction.raw rawData_ = null;
+      private raw rawData_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction.raw, org.tron.protos.Protocol.Transaction.raw.Builder, org.tron.protos.Protocol.Transaction.rawOrBuilder> rawDataBuilder_;
+          raw, raw.Builder, rawOrBuilder> rawDataBuilder_;
       /**
        * <code>.protocol.Transaction.raw raw_data = 1;</code>
        */
@@ -9314,9 +13344,9 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.Transaction.raw getRawData() {
+      public raw getRawData() {
         if (rawDataBuilder_ == null) {
-          return rawData_ == null ? org.tron.protos.Protocol.Transaction.raw.getDefaultInstance() : rawData_;
+          return rawData_ == null ? raw.getDefaultInstance() : rawData_;
         } else {
           return rawDataBuilder_.getMessage();
         }
@@ -9324,7 +13354,7 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.raw raw_data = 1;</code>
        */
-      public Builder setRawData(org.tron.protos.Protocol.Transaction.raw value) {
+      public Builder setRawData(raw value) {
         if (rawDataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9341,7 +13371,7 @@ public final class Protocol {
        * <code>.protocol.Transaction.raw raw_data = 1;</code>
        */
       public Builder setRawData(
-          org.tron.protos.Protocol.Transaction.raw.Builder builderForValue) {
+          raw.Builder builderForValue) {
         if (rawDataBuilder_ == null) {
           rawData_ = builderForValue.build();
           onChanged();
@@ -9354,11 +13384,11 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.raw raw_data = 1;</code>
        */
-      public Builder mergeRawData(org.tron.protos.Protocol.Transaction.raw value) {
+      public Builder mergeRawData(raw value) {
         if (rawDataBuilder_ == null) {
           if (rawData_ != null) {
             rawData_ =
-              org.tron.protos.Protocol.Transaction.raw.newBuilder(rawData_).mergeFrom(value).buildPartial();
+              raw.newBuilder(rawData_).mergeFrom(value).buildPartial();
           } else {
             rawData_ = value;
           }
@@ -9386,7 +13416,7 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.Transaction.raw.Builder getRawDataBuilder() {
+      public raw.Builder getRawDataBuilder() {
         
         onChanged();
         return getRawDataFieldBuilder().getBuilder();
@@ -9394,23 +13424,23 @@ public final class Protocol {
       /**
        * <code>.protocol.Transaction.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.Transaction.rawOrBuilder getRawDataOrBuilder() {
+      public rawOrBuilder getRawDataOrBuilder() {
         if (rawDataBuilder_ != null) {
           return rawDataBuilder_.getMessageOrBuilder();
         } else {
           return rawData_ == null ?
-              org.tron.protos.Protocol.Transaction.raw.getDefaultInstance() : rawData_;
+              raw.getDefaultInstance() : rawData_;
         }
       }
       /**
        * <code>.protocol.Transaction.raw raw_data = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction.raw, org.tron.protos.Protocol.Transaction.raw.Builder, org.tron.protos.Protocol.Transaction.rawOrBuilder> 
+          raw, raw.Builder, rawOrBuilder>
           getRawDataFieldBuilder() {
         if (rawDataBuilder_ == null) {
           rawDataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Protocol.Transaction.raw, org.tron.protos.Protocol.Transaction.raw.Builder, org.tron.protos.Protocol.Transaction.rawOrBuilder>(
+              raw, raw.Builder, rawOrBuilder>(
                   getRawData(),
                   getParentForChildren(),
                   isClean());
@@ -9474,7 +13504,7 @@ public final class Protocol {
        * <code>repeated bytes signature = 2;</code>
        */
       public Builder addAllSignature(
-          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+          Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureSignatureIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, signature_);
@@ -9491,22 +13521,22 @@ public final class Protocol {
         return this;
       }
 
-      private java.util.List<org.tron.protos.Protocol.Transaction.Result> ret_ =
+      private java.util.List<Result> ret_ =
         java.util.Collections.emptyList();
       private void ensureRetIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          ret_ = new java.util.ArrayList<org.tron.protos.Protocol.Transaction.Result>(ret_);
+          ret_ = new java.util.ArrayList<Result>(ret_);
           bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction.Result, org.tron.protos.Protocol.Transaction.Result.Builder, org.tron.protos.Protocol.Transaction.ResultOrBuilder> retBuilder_;
+          Result, Result.Builder, ResultOrBuilder> retBuilder_;
 
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Transaction.Result> getRetList() {
+      public java.util.List<Result> getRetList() {
         if (retBuilder_ == null) {
           return java.util.Collections.unmodifiableList(ret_);
         } else {
@@ -9526,7 +13556,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Result getRet(int index) {
+      public Result getRet(int index) {
         if (retBuilder_ == null) {
           return ret_.get(index);
         } else {
@@ -9537,7 +13567,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
       public Builder setRet(
-          int index, org.tron.protos.Protocol.Transaction.Result value) {
+          int index, Result value) {
         if (retBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9554,7 +13584,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
       public Builder setRet(
-          int index, org.tron.protos.Protocol.Transaction.Result.Builder builderForValue) {
+          int index, Result.Builder builderForValue) {
         if (retBuilder_ == null) {
           ensureRetIsMutable();
           ret_.set(index, builderForValue.build());
@@ -9567,7 +13597,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public Builder addRet(org.tron.protos.Protocol.Transaction.Result value) {
+      public Builder addRet(Result value) {
         if (retBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9584,7 +13614,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
       public Builder addRet(
-          int index, org.tron.protos.Protocol.Transaction.Result value) {
+          int index, Result value) {
         if (retBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9601,7 +13631,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
       public Builder addRet(
-          org.tron.protos.Protocol.Transaction.Result.Builder builderForValue) {
+          Result.Builder builderForValue) {
         if (retBuilder_ == null) {
           ensureRetIsMutable();
           ret_.add(builderForValue.build());
@@ -9615,7 +13645,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
       public Builder addRet(
-          int index, org.tron.protos.Protocol.Transaction.Result.Builder builderForValue) {
+          int index, Result.Builder builderForValue) {
         if (retBuilder_ == null) {
           ensureRetIsMutable();
           ret_.add(index, builderForValue.build());
@@ -9629,7 +13659,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
       public Builder addAllRet(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.Transaction.Result> values) {
+          Iterable<? extends Result> values) {
         if (retBuilder_ == null) {
           ensureRetIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -9669,14 +13699,14 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Result.Builder getRetBuilder(
+      public Result.Builder getRetBuilder(
           int index) {
         return getRetFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public org.tron.protos.Protocol.Transaction.ResultOrBuilder getRetOrBuilder(
+      public ResultOrBuilder getRetOrBuilder(
           int index) {
         if (retBuilder_ == null) {
           return ret_.get(index);  } else {
@@ -9686,7 +13716,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.Transaction.ResultOrBuilder> 
+      public java.util.List<? extends ResultOrBuilder>
            getRetOrBuilderList() {
         if (retBuilder_ != null) {
           return retBuilder_.getMessageOrBuilderList();
@@ -9697,31 +13727,31 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Result.Builder addRetBuilder() {
+      public Result.Builder addRetBuilder() {
         return getRetFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.Transaction.Result.getDefaultInstance());
+            Result.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Result.Builder addRetBuilder(
+      public Result.Builder addRetBuilder(
           int index) {
         return getRetFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.Transaction.Result.getDefaultInstance());
+            index, Result.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Transaction.Result ret = 5;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Transaction.Result.Builder> 
+      public java.util.List<Result.Builder>
            getRetBuilderList() {
         return getRetFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction.Result, org.tron.protos.Protocol.Transaction.Result.Builder, org.tron.protos.Protocol.Transaction.ResultOrBuilder> 
+          Result, Result.Builder, ResultOrBuilder>
           getRetFieldBuilder() {
         if (retBuilder_ == null) {
           retBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.Transaction.Result, org.tron.protos.Protocol.Transaction.Result.Builder, org.tron.protos.Protocol.Transaction.ResultOrBuilder>(
+              Result, Result.Builder, ResultOrBuilder>(
                   ret_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
@@ -9745,12 +13775,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.Transaction)
-    private static final org.tron.protos.Protocol.Transaction DEFAULT_INSTANCE;
+    private static final Transaction DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Transaction();
+      DEFAULT_INSTANCE = new Transaction();
     }
 
-    public static org.tron.protos.Protocol.Transaction getDefaultInstance() {
+    public static Transaction getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9768,12 +13798,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Transaction> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.Transaction getDefaultInstanceForType() {
+    public Transaction getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9790,11 +13820,11 @@ public final class Protocol {
     /**
      * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
      */
-    org.tron.protos.Protocol.BlockHeader.raw getRawData();
+    BlockHeader.raw getRawData();
     /**
      * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
      */
-    org.tron.protos.Protocol.BlockHeader.rawOrBuilder getRawDataOrBuilder();
+    BlockHeader.rawOrBuilder getRawDataOrBuilder();
 
     /**
      * <code>bytes witness_signature = 2;</code>
@@ -9817,7 +13847,7 @@ public final class Protocol {
       witnessSignature_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -9828,7 +13858,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -9849,11 +13879,11 @@ public final class Protocol {
               break;
             }
             case 10: {
-              org.tron.protos.Protocol.BlockHeader.raw.Builder subBuilder = null;
+              raw.Builder subBuilder = null;
               if (rawData_ != null) {
                 subBuilder = rawData_.toBuilder();
               }
-              rawData_ = input.readMessage(org.tron.protos.Protocol.BlockHeader.raw.parser(), extensionRegistry);
+              rawData_ = input.readMessage(raw.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(rawData_);
                 rawData_ = subBuilder.buildPartial();
@@ -9880,14 +13910,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_descriptor;
+      return Protocol.internal_static_protocol_BlockHeader_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_fieldAccessorTable
+      return Protocol.internal_static_protocol_BlockHeader_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.BlockHeader.class, org.tron.protos.Protocol.BlockHeader.Builder.class);
+              BlockHeader.class, Builder.class);
     }
 
     public interface rawOrBuilder extends
@@ -9950,7 +13980,7 @@ public final class Protocol {
         witnessAddress_ = com.google.protobuf.ByteString.EMPTY;
       }
 
-      @java.lang.Override
+      @Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -9961,7 +13991,7 @@ public final class Protocol {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -10025,14 +14055,14 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_raw_descriptor;
+        return Protocol.internal_static_protocol_BlockHeader_raw_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_raw_fieldAccessorTable
+        return Protocol.internal_static_protocol_BlockHeader_raw_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.BlockHeader.raw.class, org.tron.protos.Protocol.BlockHeader.raw.Builder.class);
+                raw.class, Builder.class);
       }
 
       public static final int TIMESTAMP_FIELD_NUMBER = 1;
@@ -10161,15 +14191,15 @@ public final class Protocol {
         return size;
       }
 
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
+      @Override
+      public boolean equals(final Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof org.tron.protos.Protocol.BlockHeader.raw)) {
+        if (!(obj instanceof raw)) {
           return super.equals(obj);
         }
-        org.tron.protos.Protocol.BlockHeader.raw other = (org.tron.protos.Protocol.BlockHeader.raw) obj;
+        raw other = (raw) obj;
 
         boolean result = true;
         result = result && (getTimestamp()
@@ -10188,7 +14218,7 @@ public final class Protocol {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -10215,69 +14245,69 @@ public final class Protocol {
         return hash;
       }
 
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(
+      public static raw parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(
+      public static raw parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(byte[] data)
+      public static raw parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(
+      public static raw parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(java.io.InputStream input)
+      public static raw parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(
+      public static raw parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseDelimitedFrom(java.io.InputStream input)
+      public static raw parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseDelimitedFrom(
+      public static raw parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.BlockHeader.raw parseFrom(
+      public static raw parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -10289,7 +14319,7 @@ public final class Protocol {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(org.tron.protos.Protocol.BlockHeader.raw prototype) {
+      public static Builder newBuilder(raw prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -10297,9 +14327,9 @@ public final class Protocol {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @java.lang.Override
+      @Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -10309,17 +14339,17 @@ public final class Protocol {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:protocol.BlockHeader.raw)
-          org.tron.protos.Protocol.BlockHeader.rawOrBuilder {
+          rawOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_raw_descriptor;
+          return Protocol.internal_static_protocol_BlockHeader_raw_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_raw_fieldAccessorTable
+          return Protocol.internal_static_protocol_BlockHeader_raw_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.BlockHeader.raw.class, org.tron.protos.Protocol.BlockHeader.raw.Builder.class);
+                  raw.class, Builder.class);
         }
 
         // Construct using org.tron.protos.Protocol.BlockHeader.raw.newBuilder()
@@ -10328,7 +14358,7 @@ public final class Protocol {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -10356,23 +14386,23 @@ public final class Protocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_raw_descriptor;
+          return Protocol.internal_static_protocol_BlockHeader_raw_descriptor;
         }
 
-        public org.tron.protos.Protocol.BlockHeader.raw getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.BlockHeader.raw.getDefaultInstance();
+        public raw getDefaultInstanceForType() {
+          return raw.getDefaultInstance();
         }
 
-        public org.tron.protos.Protocol.BlockHeader.raw build() {
-          org.tron.protos.Protocol.BlockHeader.raw result = buildPartial();
+        public raw build() {
+          raw result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public org.tron.protos.Protocol.BlockHeader.raw buildPartial() {
-          org.tron.protos.Protocol.BlockHeader.raw result = new org.tron.protos.Protocol.BlockHeader.raw(this);
+        public raw buildPartial() {
+          raw result = new raw(this);
           result.timestamp_ = timestamp_;
           result.txTrieRoot_ = txTrieRoot_;
           result.parentHash_ = parentHash_;
@@ -10388,7 +14418,7 @@ public final class Protocol {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -10401,25 +14431,25 @@ public final class Protocol {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.BlockHeader.raw) {
-            return mergeFrom((org.tron.protos.Protocol.BlockHeader.raw)other);
+          if (other instanceof raw) {
+            return mergeFrom((raw)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(org.tron.protos.Protocol.BlockHeader.raw other) {
-          if (other == org.tron.protos.Protocol.BlockHeader.raw.getDefaultInstance()) return this;
+        public Builder mergeFrom(raw other) {
+          if (other == raw.getDefaultInstance()) return this;
           if (other.getTimestamp() != 0L) {
             setTimestamp(other.getTimestamp());
           }
@@ -10451,11 +14481,11 @@ public final class Protocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          org.tron.protos.Protocol.BlockHeader.raw parsedMessage = null;
+          raw parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.BlockHeader.raw) e.getUnfinishedMessage();
+            parsedMessage = (raw) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -10659,12 +14689,12 @@ public final class Protocol {
       }
 
       // @@protoc_insertion_point(class_scope:protocol.BlockHeader.raw)
-      private static final org.tron.protos.Protocol.BlockHeader.raw DEFAULT_INSTANCE;
+      private static final raw DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.BlockHeader.raw();
+        DEFAULT_INSTANCE = new raw();
       }
 
-      public static org.tron.protos.Protocol.BlockHeader.raw getDefaultInstance() {
+      public static raw getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -10682,19 +14712,19 @@ public final class Protocol {
         return PARSER;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Parser<raw> getParserForType() {
         return PARSER;
       }
 
-      public org.tron.protos.Protocol.BlockHeader.raw getDefaultInstanceForType() {
+      public raw getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public static final int RAW_DATA_FIELD_NUMBER = 1;
-    private org.tron.protos.Protocol.BlockHeader.raw rawData_;
+    private raw rawData_;
     /**
      * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
      */
@@ -10704,13 +14734,13 @@ public final class Protocol {
     /**
      * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
      */
-    public org.tron.protos.Protocol.BlockHeader.raw getRawData() {
-      return rawData_ == null ? org.tron.protos.Protocol.BlockHeader.raw.getDefaultInstance() : rawData_;
+    public raw getRawData() {
+      return rawData_ == null ? raw.getDefaultInstance() : rawData_;
     }
     /**
      * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
      */
-    public org.tron.protos.Protocol.BlockHeader.rawOrBuilder getRawDataOrBuilder() {
+    public rawOrBuilder getRawDataOrBuilder() {
       return getRawData();
     }
 
@@ -10762,15 +14792,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.BlockHeader)) {
+      if (!(obj instanceof BlockHeader)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.BlockHeader other = (org.tron.protos.Protocol.BlockHeader) obj;
+      BlockHeader other = (BlockHeader) obj;
 
       boolean result = true;
       result = result && (hasRawData() == other.hasRawData());
@@ -10784,7 +14814,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -10802,69 +14832,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(
+    public static BlockHeader parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(
+    public static BlockHeader parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(
+    public static BlockHeader parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(
+    public static BlockHeader parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(byte[] data)
+    public static BlockHeader parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(
+    public static BlockHeader parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(java.io.InputStream input)
+    public static BlockHeader parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(
+    public static BlockHeader parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseDelimitedFrom(java.io.InputStream input)
+    public static BlockHeader parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseDelimitedFrom(
+    public static BlockHeader parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(
+    public static BlockHeader parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.BlockHeader parseFrom(
+    public static BlockHeader parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10876,7 +14906,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.BlockHeader prototype) {
+    public static Builder newBuilder(BlockHeader prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -10884,9 +14914,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -10896,17 +14926,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.BlockHeader)
-        org.tron.protos.Protocol.BlockHeaderOrBuilder {
+        BlockHeaderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_descriptor;
+        return Protocol.internal_static_protocol_BlockHeader_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_fieldAccessorTable
+        return Protocol.internal_static_protocol_BlockHeader_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.BlockHeader.class, org.tron.protos.Protocol.BlockHeader.Builder.class);
+                BlockHeader.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.BlockHeader.newBuilder()
@@ -10915,7 +14945,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -10939,23 +14969,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockHeader_descriptor;
+        return Protocol.internal_static_protocol_BlockHeader_descriptor;
       }
 
-      public org.tron.protos.Protocol.BlockHeader getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.BlockHeader.getDefaultInstance();
+      public BlockHeader getDefaultInstanceForType() {
+        return BlockHeader.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.BlockHeader build() {
-        org.tron.protos.Protocol.BlockHeader result = buildPartial();
+      public BlockHeader build() {
+        BlockHeader result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.BlockHeader buildPartial() {
-        org.tron.protos.Protocol.BlockHeader result = new org.tron.protos.Protocol.BlockHeader(this);
+      public BlockHeader buildPartial() {
+        BlockHeader result = new BlockHeader(this);
         if (rawDataBuilder_ == null) {
           result.rawData_ = rawData_;
         } else {
@@ -10971,7 +15001,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -10984,25 +15014,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.BlockHeader) {
-          return mergeFrom((org.tron.protos.Protocol.BlockHeader)other);
+        if (other instanceof BlockHeader) {
+          return mergeFrom((BlockHeader)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.BlockHeader other) {
-        if (other == org.tron.protos.Protocol.BlockHeader.getDefaultInstance()) return this;
+      public Builder mergeFrom(BlockHeader other) {
+        if (other == BlockHeader.getDefaultInstance()) return this;
         if (other.hasRawData()) {
           mergeRawData(other.getRawData());
         }
@@ -11022,11 +15052,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.BlockHeader parsedMessage = null;
+        BlockHeader parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.BlockHeader) e.getUnfinishedMessage();
+          parsedMessage = (BlockHeader) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11036,9 +15066,9 @@ public final class Protocol {
         return this;
       }
 
-      private org.tron.protos.Protocol.BlockHeader.raw rawData_ = null;
+      private raw rawData_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Protocol.BlockHeader.raw, org.tron.protos.Protocol.BlockHeader.raw.Builder, org.tron.protos.Protocol.BlockHeader.rawOrBuilder> rawDataBuilder_;
+          raw, raw.Builder, rawOrBuilder> rawDataBuilder_;
       /**
        * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
        */
@@ -11048,9 +15078,9 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader.raw getRawData() {
+      public raw getRawData() {
         if (rawDataBuilder_ == null) {
-          return rawData_ == null ? org.tron.protos.Protocol.BlockHeader.raw.getDefaultInstance() : rawData_;
+          return rawData_ == null ? raw.getDefaultInstance() : rawData_;
         } else {
           return rawDataBuilder_.getMessage();
         }
@@ -11058,7 +15088,7 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
        */
-      public Builder setRawData(org.tron.protos.Protocol.BlockHeader.raw value) {
+      public Builder setRawData(raw value) {
         if (rawDataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -11075,7 +15105,7 @@ public final class Protocol {
        * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
        */
       public Builder setRawData(
-          org.tron.protos.Protocol.BlockHeader.raw.Builder builderForValue) {
+          raw.Builder builderForValue) {
         if (rawDataBuilder_ == null) {
           rawData_ = builderForValue.build();
           onChanged();
@@ -11088,11 +15118,11 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
        */
-      public Builder mergeRawData(org.tron.protos.Protocol.BlockHeader.raw value) {
+      public Builder mergeRawData(raw value) {
         if (rawDataBuilder_ == null) {
           if (rawData_ != null) {
             rawData_ =
-              org.tron.protos.Protocol.BlockHeader.raw.newBuilder(rawData_).mergeFrom(value).buildPartial();
+              raw.newBuilder(rawData_).mergeFrom(value).buildPartial();
           } else {
             rawData_ = value;
           }
@@ -11120,7 +15150,7 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader.raw.Builder getRawDataBuilder() {
+      public raw.Builder getRawDataBuilder() {
         
         onChanged();
         return getRawDataFieldBuilder().getBuilder();
@@ -11128,23 +15158,23 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader.rawOrBuilder getRawDataOrBuilder() {
+      public rawOrBuilder getRawDataOrBuilder() {
         if (rawDataBuilder_ != null) {
           return rawDataBuilder_.getMessageOrBuilder();
         } else {
           return rawData_ == null ?
-              org.tron.protos.Protocol.BlockHeader.raw.getDefaultInstance() : rawData_;
+              raw.getDefaultInstance() : rawData_;
         }
       }
       /**
        * <code>.protocol.BlockHeader.raw raw_data = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Protocol.BlockHeader.raw, org.tron.protos.Protocol.BlockHeader.raw.Builder, org.tron.protos.Protocol.BlockHeader.rawOrBuilder> 
+          raw, raw.Builder, rawOrBuilder>
           getRawDataFieldBuilder() {
         if (rawDataBuilder_ == null) {
           rawDataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Protocol.BlockHeader.raw, org.tron.protos.Protocol.BlockHeader.raw.Builder, org.tron.protos.Protocol.BlockHeader.rawOrBuilder>(
+              raw, raw.Builder, rawOrBuilder>(
                   getRawData(),
                   getParentForChildren(),
                   isClean());
@@ -11196,12 +15226,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.BlockHeader)
-    private static final org.tron.protos.Protocol.BlockHeader DEFAULT_INSTANCE;
+    private static final BlockHeader DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.BlockHeader();
+      DEFAULT_INSTANCE = new BlockHeader();
     }
 
-    public static org.tron.protos.Protocol.BlockHeader getDefaultInstance() {
+    public static BlockHeader getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11219,12 +15249,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<BlockHeader> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.BlockHeader getDefaultInstanceForType() {
+    public BlockHeader getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11237,12 +15267,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Transaction> 
+    java.util.List<Transaction>
         getTransactionsList();
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
-    org.tron.protos.Protocol.Transaction getTransactions(int index);
+    Transaction getTransactions(int index);
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
@@ -11250,12 +15280,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
+    java.util.List<? extends TransactionOrBuilder>
         getTransactionsOrBuilderList();
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
-    org.tron.protos.Protocol.TransactionOrBuilder getTransactionsOrBuilder(
+    TransactionOrBuilder getTransactionsOrBuilder(
         int index);
 
     /**
@@ -11265,11 +15295,11 @@ public final class Protocol {
     /**
      * <code>.protocol.BlockHeader block_header = 2;</code>
      */
-    org.tron.protos.Protocol.BlockHeader getBlockHeader();
+    BlockHeader getBlockHeader();
     /**
      * <code>.protocol.BlockHeader block_header = 2;</code>
      */
-    org.tron.protos.Protocol.BlockHeaderOrBuilder getBlockHeaderOrBuilder();
+    BlockHeaderOrBuilder getBlockHeaderOrBuilder();
   }
   /**
    * <pre>
@@ -11291,7 +15321,7 @@ public final class Protocol {
       transactions_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -11302,7 +15332,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -11324,19 +15354,19 @@ public final class Protocol {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                transactions_ = new java.util.ArrayList<org.tron.protos.Protocol.Transaction>();
+                transactions_ = new java.util.ArrayList<Transaction>();
                 mutable_bitField0_ |= 0x00000001;
               }
               transactions_.add(
-                  input.readMessage(org.tron.protos.Protocol.Transaction.parser(), extensionRegistry));
+                  input.readMessage(Transaction.parser(), extensionRegistry));
               break;
             }
             case 18: {
-              org.tron.protos.Protocol.BlockHeader.Builder subBuilder = null;
+              BlockHeader.Builder subBuilder = null;
               if (blockHeader_ != null) {
                 subBuilder = blockHeader_.toBuilder();
               }
-              blockHeader_ = input.readMessage(org.tron.protos.Protocol.BlockHeader.parser(), extensionRegistry);
+              blockHeader_ = input.readMessage(BlockHeader.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(blockHeader_);
                 blockHeader_ = subBuilder.buildPartial();
@@ -11361,29 +15391,29 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_Block_descriptor;
+      return Protocol.internal_static_protocol_Block_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_Block_fieldAccessorTable
+      return Protocol.internal_static_protocol_Block_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.Block.class, org.tron.protos.Protocol.Block.Builder.class);
+              Block.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int TRANSACTIONS_FIELD_NUMBER = 1;
-    private java.util.List<org.tron.protos.Protocol.Transaction> transactions_;
+    private java.util.List<Transaction> transactions_;
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.Transaction> getTransactionsList() {
+    public java.util.List<Transaction> getTransactionsList() {
       return transactions_;
     }
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
+    public java.util.List<? extends TransactionOrBuilder>
         getTransactionsOrBuilderList() {
       return transactions_;
     }
@@ -11396,19 +15426,19 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
-    public org.tron.protos.Protocol.Transaction getTransactions(int index) {
+    public Transaction getTransactions(int index) {
       return transactions_.get(index);
     }
     /**
      * <code>repeated .protocol.Transaction transactions = 1;</code>
      */
-    public org.tron.protos.Protocol.TransactionOrBuilder getTransactionsOrBuilder(
+    public TransactionOrBuilder getTransactionsOrBuilder(
         int index) {
       return transactions_.get(index);
     }
 
     public static final int BLOCK_HEADER_FIELD_NUMBER = 2;
-    private org.tron.protos.Protocol.BlockHeader blockHeader_;
+    private BlockHeader blockHeader_;
     /**
      * <code>.protocol.BlockHeader block_header = 2;</code>
      */
@@ -11418,13 +15448,13 @@ public final class Protocol {
     /**
      * <code>.protocol.BlockHeader block_header = 2;</code>
      */
-    public org.tron.protos.Protocol.BlockHeader getBlockHeader() {
-      return blockHeader_ == null ? org.tron.protos.Protocol.BlockHeader.getDefaultInstance() : blockHeader_;
+    public BlockHeader getBlockHeader() {
+      return blockHeader_ == null ? BlockHeader.getDefaultInstance() : blockHeader_;
     }
     /**
      * <code>.protocol.BlockHeader block_header = 2;</code>
      */
-    public org.tron.protos.Protocol.BlockHeaderOrBuilder getBlockHeaderOrBuilder() {
+    public BlockHeaderOrBuilder getBlockHeaderOrBuilder() {
       return getBlockHeader();
     }
 
@@ -11467,15 +15497,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.Block)) {
+      if (!(obj instanceof Block)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.Block other = (org.tron.protos.Protocol.Block) obj;
+      Block other = (Block) obj;
 
       boolean result = true;
       result = result && getTransactionsList()
@@ -11489,7 +15519,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -11509,69 +15539,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.Block parseFrom(
+    public static Block parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(
+    public static Block parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(
+    public static Block parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(
+    public static Block parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(byte[] data)
+    public static Block parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(
+    public static Block parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(java.io.InputStream input)
+    public static Block parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(
+    public static Block parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Block parseDelimitedFrom(java.io.InputStream input)
+    public static Block parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Block parseDelimitedFrom(
+    public static Block parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(
+    public static Block parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Block parseFrom(
+    public static Block parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11583,7 +15613,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.Block prototype) {
+    public static Builder newBuilder(Block prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -11591,9 +15621,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11607,17 +15637,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.Block)
-        org.tron.protos.Protocol.BlockOrBuilder {
+        BlockOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Block_descriptor;
+        return Protocol.internal_static_protocol_Block_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Block_fieldAccessorTable
+        return Protocol.internal_static_protocol_Block_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Block.class, org.tron.protos.Protocol.Block.Builder.class);
+                Block.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.Block.newBuilder()
@@ -11626,7 +15656,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -11655,23 +15685,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_Block_descriptor;
+        return Protocol.internal_static_protocol_Block_descriptor;
       }
 
-      public org.tron.protos.Protocol.Block getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.Block.getDefaultInstance();
+      public Block getDefaultInstanceForType() {
+        return Block.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.Block build() {
-        org.tron.protos.Protocol.Block result = buildPartial();
+      public Block build() {
+        Block result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.Block buildPartial() {
-        org.tron.protos.Protocol.Block result = new org.tron.protos.Protocol.Block(this);
+      public Block buildPartial() {
+        Block result = new Block(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (transactionsBuilder_ == null) {
@@ -11698,7 +15728,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -11711,25 +15741,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.Block) {
-          return mergeFrom((org.tron.protos.Protocol.Block)other);
+        if (other instanceof Block) {
+          return mergeFrom((Block)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.Block other) {
-        if (other == org.tron.protos.Protocol.Block.getDefaultInstance()) return this;
+      public Builder mergeFrom(Block other) {
+        if (other == Block.getDefaultInstance()) return this;
         if (transactionsBuilder_ == null) {
           if (!other.transactions_.isEmpty()) {
             if (transactions_.isEmpty()) {
@@ -11772,11 +15802,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.Block parsedMessage = null;
+        Block parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.Block) e.getUnfinishedMessage();
+          parsedMessage = (Block) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11787,22 +15817,22 @@ public final class Protocol {
       }
       private int bitField0_;
 
-      private java.util.List<org.tron.protos.Protocol.Transaction> transactions_ =
+      private java.util.List<Transaction> transactions_ =
         java.util.Collections.emptyList();
       private void ensureTransactionsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          transactions_ = new java.util.ArrayList<org.tron.protos.Protocol.Transaction>(transactions_);
+          transactions_ = new java.util.ArrayList<Transaction>(transactions_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction, org.tron.protos.Protocol.Transaction.Builder, org.tron.protos.Protocol.TransactionOrBuilder> transactionsBuilder_;
+          Transaction, Transaction.Builder, TransactionOrBuilder> transactionsBuilder_;
 
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Transaction> getTransactionsList() {
+      public java.util.List<Transaction> getTransactionsList() {
         if (transactionsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(transactions_);
         } else {
@@ -11822,7 +15852,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public org.tron.protos.Protocol.Transaction getTransactions(int index) {
+      public Transaction getTransactions(int index) {
         if (transactionsBuilder_ == null) {
           return transactions_.get(index);
         } else {
@@ -11833,7 +15863,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
       public Builder setTransactions(
-          int index, org.tron.protos.Protocol.Transaction value) {
+          int index, Transaction value) {
         if (transactionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -11850,7 +15880,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
       public Builder setTransactions(
-          int index, org.tron.protos.Protocol.Transaction.Builder builderForValue) {
+          int index, Transaction.Builder builderForValue) {
         if (transactionsBuilder_ == null) {
           ensureTransactionsIsMutable();
           transactions_.set(index, builderForValue.build());
@@ -11863,7 +15893,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public Builder addTransactions(org.tron.protos.Protocol.Transaction value) {
+      public Builder addTransactions(Transaction value) {
         if (transactionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -11880,7 +15910,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
       public Builder addTransactions(
-          int index, org.tron.protos.Protocol.Transaction value) {
+          int index, Transaction value) {
         if (transactionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -11897,7 +15927,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
       public Builder addTransactions(
-          org.tron.protos.Protocol.Transaction.Builder builderForValue) {
+          Transaction.Builder builderForValue) {
         if (transactionsBuilder_ == null) {
           ensureTransactionsIsMutable();
           transactions_.add(builderForValue.build());
@@ -11911,7 +15941,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
       public Builder addTransactions(
-          int index, org.tron.protos.Protocol.Transaction.Builder builderForValue) {
+          int index, Transaction.Builder builderForValue) {
         if (transactionsBuilder_ == null) {
           ensureTransactionsIsMutable();
           transactions_.add(index, builderForValue.build());
@@ -11925,7 +15955,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
       public Builder addAllTransactions(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.Transaction> values) {
+          Iterable<? extends Transaction> values) {
         if (transactionsBuilder_ == null) {
           ensureTransactionsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -11965,14 +15995,14 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Builder getTransactionsBuilder(
+      public Transaction.Builder getTransactionsBuilder(
           int index) {
         return getTransactionsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public org.tron.protos.Protocol.TransactionOrBuilder getTransactionsOrBuilder(
+      public TransactionOrBuilder getTransactionsOrBuilder(
           int index) {
         if (transactionsBuilder_ == null) {
           return transactions_.get(index);  } else {
@@ -11982,7 +16012,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
+      public java.util.List<? extends TransactionOrBuilder>
            getTransactionsOrBuilderList() {
         if (transactionsBuilder_ != null) {
           return transactionsBuilder_.getMessageOrBuilderList();
@@ -11993,31 +16023,31 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Builder addTransactionsBuilder() {
+      public Transaction.Builder addTransactionsBuilder() {
         return getTransactionsFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.Transaction.getDefaultInstance());
+            Transaction.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Builder addTransactionsBuilder(
+      public Transaction.Builder addTransactionsBuilder(
           int index) {
         return getTransactionsFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.Transaction.getDefaultInstance());
+            index, Transaction.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Transaction transactions = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Transaction.Builder> 
+      public java.util.List<Transaction.Builder>
            getTransactionsBuilderList() {
         return getTransactionsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction, org.tron.protos.Protocol.Transaction.Builder, org.tron.protos.Protocol.TransactionOrBuilder> 
+          Transaction, Transaction.Builder, TransactionOrBuilder>
           getTransactionsFieldBuilder() {
         if (transactionsBuilder_ == null) {
           transactionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.Transaction, org.tron.protos.Protocol.Transaction.Builder, org.tron.protos.Protocol.TransactionOrBuilder>(
+              Transaction, Transaction.Builder, TransactionOrBuilder>(
                   transactions_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -12027,9 +16057,9 @@ public final class Protocol {
         return transactionsBuilder_;
       }
 
-      private org.tron.protos.Protocol.BlockHeader blockHeader_ = null;
+      private BlockHeader blockHeader_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Protocol.BlockHeader, org.tron.protos.Protocol.BlockHeader.Builder, org.tron.protos.Protocol.BlockHeaderOrBuilder> blockHeaderBuilder_;
+          BlockHeader, BlockHeader.Builder, BlockHeaderOrBuilder> blockHeaderBuilder_;
       /**
        * <code>.protocol.BlockHeader block_header = 2;</code>
        */
@@ -12039,9 +16069,9 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader block_header = 2;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader getBlockHeader() {
+      public BlockHeader getBlockHeader() {
         if (blockHeaderBuilder_ == null) {
-          return blockHeader_ == null ? org.tron.protos.Protocol.BlockHeader.getDefaultInstance() : blockHeader_;
+          return blockHeader_ == null ? BlockHeader.getDefaultInstance() : blockHeader_;
         } else {
           return blockHeaderBuilder_.getMessage();
         }
@@ -12049,7 +16079,7 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader block_header = 2;</code>
        */
-      public Builder setBlockHeader(org.tron.protos.Protocol.BlockHeader value) {
+      public Builder setBlockHeader(BlockHeader value) {
         if (blockHeaderBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12066,7 +16096,7 @@ public final class Protocol {
        * <code>.protocol.BlockHeader block_header = 2;</code>
        */
       public Builder setBlockHeader(
-          org.tron.protos.Protocol.BlockHeader.Builder builderForValue) {
+          BlockHeader.Builder builderForValue) {
         if (blockHeaderBuilder_ == null) {
           blockHeader_ = builderForValue.build();
           onChanged();
@@ -12079,11 +16109,11 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader block_header = 2;</code>
        */
-      public Builder mergeBlockHeader(org.tron.protos.Protocol.BlockHeader value) {
+      public Builder mergeBlockHeader(BlockHeader value) {
         if (blockHeaderBuilder_ == null) {
           if (blockHeader_ != null) {
             blockHeader_ =
-              org.tron.protos.Protocol.BlockHeader.newBuilder(blockHeader_).mergeFrom(value).buildPartial();
+              BlockHeader.newBuilder(blockHeader_).mergeFrom(value).buildPartial();
           } else {
             blockHeader_ = value;
           }
@@ -12111,7 +16141,7 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader block_header = 2;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader.Builder getBlockHeaderBuilder() {
+      public BlockHeader.Builder getBlockHeaderBuilder() {
         
         onChanged();
         return getBlockHeaderFieldBuilder().getBuilder();
@@ -12119,23 +16149,23 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockHeader block_header = 2;</code>
        */
-      public org.tron.protos.Protocol.BlockHeaderOrBuilder getBlockHeaderOrBuilder() {
+      public BlockHeaderOrBuilder getBlockHeaderOrBuilder() {
         if (blockHeaderBuilder_ != null) {
           return blockHeaderBuilder_.getMessageOrBuilder();
         } else {
           return blockHeader_ == null ?
-              org.tron.protos.Protocol.BlockHeader.getDefaultInstance() : blockHeader_;
+              BlockHeader.getDefaultInstance() : blockHeader_;
         }
       }
       /**
        * <code>.protocol.BlockHeader block_header = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Protocol.BlockHeader, org.tron.protos.Protocol.BlockHeader.Builder, org.tron.protos.Protocol.BlockHeaderOrBuilder> 
+          BlockHeader, BlockHeader.Builder, BlockHeaderOrBuilder>
           getBlockHeaderFieldBuilder() {
         if (blockHeaderBuilder_ == null) {
           blockHeaderBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Protocol.BlockHeader, org.tron.protos.Protocol.BlockHeader.Builder, org.tron.protos.Protocol.BlockHeaderOrBuilder>(
+              BlockHeader, BlockHeader.Builder, BlockHeaderOrBuilder>(
                   getBlockHeader(),
                   getParentForChildren(),
                   isClean());
@@ -12158,12 +16188,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.Block)
-    private static final org.tron.protos.Protocol.Block DEFAULT_INSTANCE;
+    private static final Block DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Block();
+      DEFAULT_INSTANCE = new Block();
     }
 
-    public static org.tron.protos.Protocol.Block getDefaultInstance() {
+    public static Block getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12181,12 +16211,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Block> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.Block getDefaultInstanceForType() {
+    public Block getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12199,12 +16229,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
-    java.util.List<org.tron.protos.Protocol.ChainInventory.BlockId> 
+    java.util.List<ChainInventory.BlockId>
         getIdsList();
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
-    org.tron.protos.Protocol.ChainInventory.BlockId getIds(int index);
+    ChainInventory.BlockId getIds(int index);
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
@@ -12212,12 +16242,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder> 
+    java.util.List<? extends ChainInventory.BlockIdOrBuilder>
         getIdsOrBuilderList();
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
-    org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder getIdsOrBuilder(
+    ChainInventory.BlockIdOrBuilder getIdsOrBuilder(
         int index);
 
     /**
@@ -12242,7 +16272,7 @@ public final class Protocol {
       remainNum_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -12253,7 +16283,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -12275,11 +16305,11 @@ public final class Protocol {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                ids_ = new java.util.ArrayList<org.tron.protos.Protocol.ChainInventory.BlockId>();
+                ids_ = new java.util.ArrayList<BlockId>();
                 mutable_bitField0_ |= 0x00000001;
               }
               ids_.add(
-                  input.readMessage(org.tron.protos.Protocol.ChainInventory.BlockId.parser(), extensionRegistry));
+                  input.readMessage(BlockId.parser(), extensionRegistry));
               break;
             }
             case 16: {
@@ -12304,14 +16334,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_descriptor;
+      return Protocol.internal_static_protocol_ChainInventory_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_fieldAccessorTable
+      return Protocol.internal_static_protocol_ChainInventory_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.ChainInventory.class, org.tron.protos.Protocol.ChainInventory.Builder.class);
+              ChainInventory.class, Builder.class);
     }
 
     public interface BlockIdOrBuilder extends
@@ -12345,7 +16375,7 @@ public final class Protocol {
         number_ = 0L;
       }
 
-      @java.lang.Override
+      @Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -12356,7 +16386,7 @@ public final class Protocol {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -12400,14 +16430,14 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_BlockId_descriptor;
+        return Protocol.internal_static_protocol_ChainInventory_BlockId_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_BlockId_fieldAccessorTable
+        return Protocol.internal_static_protocol_ChainInventory_BlockId_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.ChainInventory.BlockId.class, org.tron.protos.Protocol.ChainInventory.BlockId.Builder.class);
+                BlockId.class, Builder.class);
       }
 
       public static final int HASH_FIELD_NUMBER = 1;
@@ -12467,15 +16497,15 @@ public final class Protocol {
         return size;
       }
 
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
+      @Override
+      public boolean equals(final Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof org.tron.protos.Protocol.ChainInventory.BlockId)) {
+        if (!(obj instanceof BlockId)) {
           return super.equals(obj);
         }
-        org.tron.protos.Protocol.ChainInventory.BlockId other = (org.tron.protos.Protocol.ChainInventory.BlockId) obj;
+        BlockId other = (BlockId) obj;
 
         boolean result = true;
         result = result && getHash()
@@ -12486,7 +16516,7 @@ public final class Protocol {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -12503,69 +16533,69 @@ public final class Protocol {
         return hash;
       }
 
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(byte[] data)
+      public static BlockId parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(java.io.InputStream input)
+      public static BlockId parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseDelimitedFrom(java.io.InputStream input)
+      public static BlockId parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseDelimitedFrom(
+      public static BlockId parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.ChainInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -12577,7 +16607,7 @@ public final class Protocol {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(org.tron.protos.Protocol.ChainInventory.BlockId prototype) {
+      public static Builder newBuilder(BlockId prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -12585,9 +16615,9 @@ public final class Protocol {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @java.lang.Override
+      @Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -12597,17 +16627,17 @@ public final class Protocol {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:protocol.ChainInventory.BlockId)
-          org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder {
+          BlockIdOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_BlockId_descriptor;
+          return Protocol.internal_static_protocol_ChainInventory_BlockId_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_BlockId_fieldAccessorTable
+          return Protocol.internal_static_protocol_ChainInventory_BlockId_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.ChainInventory.BlockId.class, org.tron.protos.Protocol.ChainInventory.BlockId.Builder.class);
+                  BlockId.class, Builder.class);
         }
 
         // Construct using org.tron.protos.Protocol.ChainInventory.BlockId.newBuilder()
@@ -12616,7 +16646,7 @@ public final class Protocol {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -12636,23 +16666,23 @@ public final class Protocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_BlockId_descriptor;
+          return Protocol.internal_static_protocol_ChainInventory_BlockId_descriptor;
         }
 
-        public org.tron.protos.Protocol.ChainInventory.BlockId getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.ChainInventory.BlockId.getDefaultInstance();
+        public BlockId getDefaultInstanceForType() {
+          return BlockId.getDefaultInstance();
         }
 
-        public org.tron.protos.Protocol.ChainInventory.BlockId build() {
-          org.tron.protos.Protocol.ChainInventory.BlockId result = buildPartial();
+        public BlockId build() {
+          BlockId result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public org.tron.protos.Protocol.ChainInventory.BlockId buildPartial() {
-          org.tron.protos.Protocol.ChainInventory.BlockId result = new org.tron.protos.Protocol.ChainInventory.BlockId(this);
+        public BlockId buildPartial() {
+          BlockId result = new BlockId(this);
           result.hash_ = hash_;
           result.number_ = number_;
           onBuilt();
@@ -12664,7 +16694,7 @@ public final class Protocol {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -12677,25 +16707,25 @@ public final class Protocol {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.ChainInventory.BlockId) {
-            return mergeFrom((org.tron.protos.Protocol.ChainInventory.BlockId)other);
+          if (other instanceof BlockId) {
+            return mergeFrom((BlockId)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(org.tron.protos.Protocol.ChainInventory.BlockId other) {
-          if (other == org.tron.protos.Protocol.ChainInventory.BlockId.getDefaultInstance()) return this;
+        public Builder mergeFrom(BlockId other) {
+          if (other == BlockId.getDefaultInstance()) return this;
           if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
             setHash(other.getHash());
           }
@@ -12715,11 +16745,11 @@ public final class Protocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          org.tron.protos.Protocol.ChainInventory.BlockId parsedMessage = null;
+          BlockId parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.ChainInventory.BlockId) e.getUnfinishedMessage();
+            parsedMessage = (BlockId) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -12798,12 +16828,12 @@ public final class Protocol {
       }
 
       // @@protoc_insertion_point(class_scope:protocol.ChainInventory.BlockId)
-      private static final org.tron.protos.Protocol.ChainInventory.BlockId DEFAULT_INSTANCE;
+      private static final BlockId DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.ChainInventory.BlockId();
+        DEFAULT_INSTANCE = new BlockId();
       }
 
-      public static org.tron.protos.Protocol.ChainInventory.BlockId getDefaultInstance() {
+      public static BlockId getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -12821,12 +16851,12 @@ public final class Protocol {
         return PARSER;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Parser<BlockId> getParserForType() {
         return PARSER;
       }
 
-      public org.tron.protos.Protocol.ChainInventory.BlockId getDefaultInstanceForType() {
+      public BlockId getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
@@ -12834,17 +16864,17 @@ public final class Protocol {
 
     private int bitField0_;
     public static final int IDS_FIELD_NUMBER = 1;
-    private java.util.List<org.tron.protos.Protocol.ChainInventory.BlockId> ids_;
+    private java.util.List<BlockId> ids_;
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.ChainInventory.BlockId> getIdsList() {
+    public java.util.List<BlockId> getIdsList() {
       return ids_;
     }
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder> 
+    public java.util.List<? extends BlockIdOrBuilder>
         getIdsOrBuilderList() {
       return ids_;
     }
@@ -12857,13 +16887,13 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
-    public org.tron.protos.Protocol.ChainInventory.BlockId getIds(int index) {
+    public BlockId getIds(int index) {
       return ids_.get(index);
     }
     /**
      * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
      */
-    public org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder getIdsOrBuilder(
+    public BlockIdOrBuilder getIdsOrBuilder(
         int index) {
       return ids_.get(index);
     }
@@ -12916,15 +16946,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.ChainInventory)) {
+      if (!(obj instanceof ChainInventory)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.ChainInventory other = (org.tron.protos.Protocol.ChainInventory) obj;
+      ChainInventory other = (ChainInventory) obj;
 
       boolean result = true;
       result = result && getIdsList()
@@ -12935,7 +16965,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -12954,69 +16984,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(
+    public static ChainInventory parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(
+    public static ChainInventory parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(
+    public static ChainInventory parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(
+    public static ChainInventory parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(byte[] data)
+    public static ChainInventory parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(
+    public static ChainInventory parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(java.io.InputStream input)
+    public static ChainInventory parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(
+    public static ChainInventory parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseDelimitedFrom(java.io.InputStream input)
+    public static ChainInventory parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseDelimitedFrom(
+    public static ChainInventory parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(
+    public static ChainInventory parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.ChainInventory parseFrom(
+    public static ChainInventory parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13028,7 +17058,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.ChainInventory prototype) {
+    public static Builder newBuilder(ChainInventory prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -13036,9 +17066,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -13048,17 +17078,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.ChainInventory)
-        org.tron.protos.Protocol.ChainInventoryOrBuilder {
+        ChainInventoryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_descriptor;
+        return Protocol.internal_static_protocol_ChainInventory_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_fieldAccessorTable
+        return Protocol.internal_static_protocol_ChainInventory_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.ChainInventory.class, org.tron.protos.Protocol.ChainInventory.Builder.class);
+                ChainInventory.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.ChainInventory.newBuilder()
@@ -13067,7 +17097,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -13092,23 +17122,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_ChainInventory_descriptor;
+        return Protocol.internal_static_protocol_ChainInventory_descriptor;
       }
 
-      public org.tron.protos.Protocol.ChainInventory getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.ChainInventory.getDefaultInstance();
+      public ChainInventory getDefaultInstanceForType() {
+        return ChainInventory.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.ChainInventory build() {
-        org.tron.protos.Protocol.ChainInventory result = buildPartial();
+      public ChainInventory build() {
+        ChainInventory result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.ChainInventory buildPartial() {
-        org.tron.protos.Protocol.ChainInventory result = new org.tron.protos.Protocol.ChainInventory(this);
+      public ChainInventory buildPartial() {
+        ChainInventory result = new ChainInventory(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (idsBuilder_ == null) {
@@ -13131,7 +17161,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -13144,25 +17174,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.ChainInventory) {
-          return mergeFrom((org.tron.protos.Protocol.ChainInventory)other);
+        if (other instanceof ChainInventory) {
+          return mergeFrom((ChainInventory)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.ChainInventory other) {
-        if (other == org.tron.protos.Protocol.ChainInventory.getDefaultInstance()) return this;
+      public Builder mergeFrom(ChainInventory other) {
+        if (other == ChainInventory.getDefaultInstance()) return this;
         if (idsBuilder_ == null) {
           if (!other.ids_.isEmpty()) {
             if (ids_.isEmpty()) {
@@ -13205,11 +17235,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.ChainInventory parsedMessage = null;
+        ChainInventory parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.ChainInventory) e.getUnfinishedMessage();
+          parsedMessage = (ChainInventory) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -13220,22 +17250,22 @@ public final class Protocol {
       }
       private int bitField0_;
 
-      private java.util.List<org.tron.protos.Protocol.ChainInventory.BlockId> ids_ =
+      private java.util.List<BlockId> ids_ =
         java.util.Collections.emptyList();
       private void ensureIdsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          ids_ = new java.util.ArrayList<org.tron.protos.Protocol.ChainInventory.BlockId>(ids_);
+          ids_ = new java.util.ArrayList<BlockId>(ids_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.ChainInventory.BlockId, org.tron.protos.Protocol.ChainInventory.BlockId.Builder, org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder> idsBuilder_;
+          BlockId, BlockId.Builder, BlockIdOrBuilder> idsBuilder_;
 
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.ChainInventory.BlockId> getIdsList() {
+      public java.util.List<BlockId> getIdsList() {
         if (idsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(ids_);
         } else {
@@ -13255,7 +17285,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.ChainInventory.BlockId getIds(int index) {
+      public BlockId getIds(int index) {
         if (idsBuilder_ == null) {
           return ids_.get(index);
         } else {
@@ -13266,7 +17296,7 @@ public final class Protocol {
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
       public Builder setIds(
-          int index, org.tron.protos.Protocol.ChainInventory.BlockId value) {
+          int index, BlockId value) {
         if (idsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -13283,7 +17313,7 @@ public final class Protocol {
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
       public Builder setIds(
-          int index, org.tron.protos.Protocol.ChainInventory.BlockId.Builder builderForValue) {
+          int index, BlockId.Builder builderForValue) {
         if (idsBuilder_ == null) {
           ensureIdsIsMutable();
           ids_.set(index, builderForValue.build());
@@ -13296,7 +17326,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public Builder addIds(org.tron.protos.Protocol.ChainInventory.BlockId value) {
+      public Builder addIds(BlockId value) {
         if (idsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -13313,7 +17343,7 @@ public final class Protocol {
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
       public Builder addIds(
-          int index, org.tron.protos.Protocol.ChainInventory.BlockId value) {
+          int index, BlockId value) {
         if (idsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -13330,7 +17360,7 @@ public final class Protocol {
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
       public Builder addIds(
-          org.tron.protos.Protocol.ChainInventory.BlockId.Builder builderForValue) {
+          BlockId.Builder builderForValue) {
         if (idsBuilder_ == null) {
           ensureIdsIsMutable();
           ids_.add(builderForValue.build());
@@ -13344,7 +17374,7 @@ public final class Protocol {
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
       public Builder addIds(
-          int index, org.tron.protos.Protocol.ChainInventory.BlockId.Builder builderForValue) {
+          int index, BlockId.Builder builderForValue) {
         if (idsBuilder_ == null) {
           ensureIdsIsMutable();
           ids_.add(index, builderForValue.build());
@@ -13358,7 +17388,7 @@ public final class Protocol {
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
       public Builder addAllIds(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.ChainInventory.BlockId> values) {
+          Iterable<? extends BlockId> values) {
         if (idsBuilder_ == null) {
           ensureIdsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -13398,14 +17428,14 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.ChainInventory.BlockId.Builder getIdsBuilder(
+      public BlockId.Builder getIdsBuilder(
           int index) {
         return getIdsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder getIdsOrBuilder(
+      public BlockIdOrBuilder getIdsOrBuilder(
           int index) {
         if (idsBuilder_ == null) {
           return ids_.get(index);  } else {
@@ -13415,7 +17445,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder> 
+      public java.util.List<? extends BlockIdOrBuilder>
            getIdsOrBuilderList() {
         if (idsBuilder_ != null) {
           return idsBuilder_.getMessageOrBuilderList();
@@ -13426,31 +17456,31 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.ChainInventory.BlockId.Builder addIdsBuilder() {
+      public BlockId.Builder addIdsBuilder() {
         return getIdsFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.ChainInventory.BlockId.getDefaultInstance());
+            BlockId.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.ChainInventory.BlockId.Builder addIdsBuilder(
+      public BlockId.Builder addIdsBuilder(
           int index) {
         return getIdsFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.ChainInventory.BlockId.getDefaultInstance());
+            index, BlockId.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.ChainInventory.BlockId ids = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.ChainInventory.BlockId.Builder> 
+      public java.util.List<BlockId.Builder>
            getIdsBuilderList() {
         return getIdsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.ChainInventory.BlockId, org.tron.protos.Protocol.ChainInventory.BlockId.Builder, org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder> 
+          BlockId, BlockId.Builder, BlockIdOrBuilder>
           getIdsFieldBuilder() {
         if (idsBuilder_ == null) {
           idsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.ChainInventory.BlockId, org.tron.protos.Protocol.ChainInventory.BlockId.Builder, org.tron.protos.Protocol.ChainInventory.BlockIdOrBuilder>(
+              BlockId, BlockId.Builder, BlockIdOrBuilder>(
                   ids_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -13500,12 +17530,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.ChainInventory)
-    private static final org.tron.protos.Protocol.ChainInventory DEFAULT_INSTANCE;
+    private static final ChainInventory DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.ChainInventory();
+      DEFAULT_INSTANCE = new ChainInventory();
     }
 
-    public static org.tron.protos.Protocol.ChainInventory getDefaultInstance() {
+    public static ChainInventory getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13523,12 +17553,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ChainInventory> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.ChainInventory getDefaultInstanceForType() {
+    public ChainInventory getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13541,12 +17571,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
-    java.util.List<org.tron.protos.Protocol.BlockInventory.BlockId> 
+    java.util.List<BlockInventory.BlockId>
         getIdsList();
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
-    org.tron.protos.Protocol.BlockInventory.BlockId getIds(int index);
+    BlockInventory.BlockId getIds(int index);
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
@@ -13554,12 +17584,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder> 
+    java.util.List<? extends BlockInventory.BlockIdOrBuilder>
         getIdsOrBuilderList();
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
-    org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder getIdsOrBuilder(
+    BlockInventory.BlockIdOrBuilder getIdsOrBuilder(
         int index);
 
     /**
@@ -13569,7 +17599,7 @@ public final class Protocol {
     /**
      * <code>.protocol.BlockInventory.Type type = 2;</code>
      */
-    org.tron.protos.Protocol.BlockInventory.Type getType();
+    BlockInventory.Type getType();
   }
   /**
    * <pre>
@@ -13592,7 +17622,7 @@ public final class Protocol {
       type_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -13603,7 +17633,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -13625,11 +17655,11 @@ public final class Protocol {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                ids_ = new java.util.ArrayList<org.tron.protos.Protocol.BlockInventory.BlockId>();
+                ids_ = new java.util.ArrayList<BlockId>();
                 mutable_bitField0_ |= 0x00000001;
               }
               ids_.add(
-                  input.readMessage(org.tron.protos.Protocol.BlockInventory.BlockId.parser(), extensionRegistry));
+                  input.readMessage(BlockId.parser(), extensionRegistry));
               break;
             }
             case 16: {
@@ -13655,14 +17685,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_descriptor;
+      return Protocol.internal_static_protocol_BlockInventory_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_fieldAccessorTable
+      return Protocol.internal_static_protocol_BlockInventory_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.BlockInventory.class, org.tron.protos.Protocol.BlockInventory.Builder.class);
+              BlockInventory.class, Builder.class);
     }
 
     /**
@@ -13701,7 +17731,7 @@ public final class Protocol {
 
       public final int getNumber() {
         if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
+          throw new IllegalArgumentException(
               "Can't get the number of an unknown enum value.");
         }
         return value;
@@ -13710,7 +17740,7 @@ public final class Protocol {
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
-      @java.lang.Deprecated
+      @Deprecated
       public static Type valueOf(int value) {
         return forNumber(value);
       }
@@ -13746,7 +17776,7 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.BlockInventory.getDescriptor().getEnumTypes().get(0);
+        return BlockInventory.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final Type[] VALUES = values();
@@ -13754,7 +17784,7 @@ public final class Protocol {
       public static Type valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
+          throw new IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
         }
         if (desc.getIndex() == -1) {
@@ -13803,7 +17833,7 @@ public final class Protocol {
         number_ = 0L;
       }
 
-      @java.lang.Override
+      @Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -13814,7 +17844,7 @@ public final class Protocol {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -13858,14 +17888,14 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_BlockId_descriptor;
+        return Protocol.internal_static_protocol_BlockInventory_BlockId_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_BlockId_fieldAccessorTable
+        return Protocol.internal_static_protocol_BlockInventory_BlockId_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.BlockInventory.BlockId.class, org.tron.protos.Protocol.BlockInventory.BlockId.Builder.class);
+                BlockId.class, Builder.class);
       }
 
       public static final int HASH_FIELD_NUMBER = 1;
@@ -13925,15 +17955,15 @@ public final class Protocol {
         return size;
       }
 
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
+      @Override
+      public boolean equals(final Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof org.tron.protos.Protocol.BlockInventory.BlockId)) {
+        if (!(obj instanceof BlockId)) {
           return super.equals(obj);
         }
-        org.tron.protos.Protocol.BlockInventory.BlockId other = (org.tron.protos.Protocol.BlockInventory.BlockId) obj;
+        BlockId other = (BlockId) obj;
 
         boolean result = true;
         result = result && getHash()
@@ -13944,7 +17974,7 @@ public final class Protocol {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -13961,69 +17991,69 @@ public final class Protocol {
         return hash;
       }
 
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(byte[] data)
+      public static BlockId parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(java.io.InputStream input)
+      public static BlockId parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseDelimitedFrom(java.io.InputStream input)
+      public static BlockId parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseDelimitedFrom(
+      public static BlockId parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static org.tron.protos.Protocol.BlockInventory.BlockId parseFrom(
+      public static BlockId parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -14035,7 +18065,7 @@ public final class Protocol {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(org.tron.protos.Protocol.BlockInventory.BlockId prototype) {
+      public static Builder newBuilder(BlockId prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -14043,9 +18073,9 @@ public final class Protocol {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @java.lang.Override
+      @Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -14055,17 +18085,17 @@ public final class Protocol {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:protocol.BlockInventory.BlockId)
-          org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder {
+          BlockIdOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_BlockId_descriptor;
+          return Protocol.internal_static_protocol_BlockInventory_BlockId_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_BlockId_fieldAccessorTable
+          return Protocol.internal_static_protocol_BlockInventory_BlockId_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.BlockInventory.BlockId.class, org.tron.protos.Protocol.BlockInventory.BlockId.Builder.class);
+                  BlockId.class, Builder.class);
         }
 
         // Construct using org.tron.protos.Protocol.BlockInventory.BlockId.newBuilder()
@@ -14074,7 +18104,7 @@ public final class Protocol {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -14094,23 +18124,23 @@ public final class Protocol {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_BlockId_descriptor;
+          return Protocol.internal_static_protocol_BlockInventory_BlockId_descriptor;
         }
 
-        public org.tron.protos.Protocol.BlockInventory.BlockId getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.BlockInventory.BlockId.getDefaultInstance();
+        public BlockId getDefaultInstanceForType() {
+          return BlockId.getDefaultInstance();
         }
 
-        public org.tron.protos.Protocol.BlockInventory.BlockId build() {
-          org.tron.protos.Protocol.BlockInventory.BlockId result = buildPartial();
+        public BlockId build() {
+          BlockId result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public org.tron.protos.Protocol.BlockInventory.BlockId buildPartial() {
-          org.tron.protos.Protocol.BlockInventory.BlockId result = new org.tron.protos.Protocol.BlockInventory.BlockId(this);
+        public BlockId buildPartial() {
+          BlockId result = new BlockId(this);
           result.hash_ = hash_;
           result.number_ = number_;
           onBuilt();
@@ -14122,7 +18152,7 @@ public final class Protocol {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -14135,25 +18165,25 @@ public final class Protocol {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
+            int index, Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
+            Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.BlockInventory.BlockId) {
-            return mergeFrom((org.tron.protos.Protocol.BlockInventory.BlockId)other);
+          if (other instanceof BlockId) {
+            return mergeFrom((BlockId)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(org.tron.protos.Protocol.BlockInventory.BlockId other) {
-          if (other == org.tron.protos.Protocol.BlockInventory.BlockId.getDefaultInstance()) return this;
+        public Builder mergeFrom(BlockId other) {
+          if (other == BlockId.getDefaultInstance()) return this;
           if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
             setHash(other.getHash());
           }
@@ -14173,11 +18203,11 @@ public final class Protocol {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          org.tron.protos.Protocol.BlockInventory.BlockId parsedMessage = null;
+          BlockId parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.BlockInventory.BlockId) e.getUnfinishedMessage();
+            parsedMessage = (BlockId) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -14256,12 +18286,12 @@ public final class Protocol {
       }
 
       // @@protoc_insertion_point(class_scope:protocol.BlockInventory.BlockId)
-      private static final org.tron.protos.Protocol.BlockInventory.BlockId DEFAULT_INSTANCE;
+      private static final BlockId DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.BlockInventory.BlockId();
+        DEFAULT_INSTANCE = new BlockId();
       }
 
-      public static org.tron.protos.Protocol.BlockInventory.BlockId getDefaultInstance() {
+      public static BlockId getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -14279,12 +18309,12 @@ public final class Protocol {
         return PARSER;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Parser<BlockId> getParserForType() {
         return PARSER;
       }
 
-      public org.tron.protos.Protocol.BlockInventory.BlockId getDefaultInstanceForType() {
+      public BlockId getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
@@ -14292,17 +18322,17 @@ public final class Protocol {
 
     private int bitField0_;
     public static final int IDS_FIELD_NUMBER = 1;
-    private java.util.List<org.tron.protos.Protocol.BlockInventory.BlockId> ids_;
+    private java.util.List<BlockId> ids_;
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.BlockInventory.BlockId> getIdsList() {
+    public java.util.List<BlockId> getIdsList() {
       return ids_;
     }
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder> 
+    public java.util.List<? extends BlockIdOrBuilder>
         getIdsOrBuilderList() {
       return ids_;
     }
@@ -14315,13 +18345,13 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
-    public org.tron.protos.Protocol.BlockInventory.BlockId getIds(int index) {
+    public BlockId getIds(int index) {
       return ids_.get(index);
     }
     /**
      * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
      */
-    public org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder getIdsOrBuilder(
+    public BlockIdOrBuilder getIdsOrBuilder(
         int index) {
       return ids_.get(index);
     }
@@ -14337,9 +18367,9 @@ public final class Protocol {
     /**
      * <code>.protocol.BlockInventory.Type type = 2;</code>
      */
-    public org.tron.protos.Protocol.BlockInventory.Type getType() {
-      org.tron.protos.Protocol.BlockInventory.Type result = org.tron.protos.Protocol.BlockInventory.Type.valueOf(type_);
-      return result == null ? org.tron.protos.Protocol.BlockInventory.Type.UNRECOGNIZED : result;
+    public Type getType() {
+      Type result = Type.valueOf(type_);
+      return result == null ? Type.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14357,7 +18387,7 @@ public final class Protocol {
       for (int i = 0; i < ids_.size(); i++) {
         output.writeMessage(1, ids_.get(i));
       }
-      if (type_ != org.tron.protos.Protocol.BlockInventory.Type.SYNC.getNumber()) {
+      if (type_ != Type.SYNC.getNumber()) {
         output.writeEnum(2, type_);
       }
       unknownFields.writeTo(output);
@@ -14372,7 +18402,7 @@ public final class Protocol {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, ids_.get(i));
       }
-      if (type_ != org.tron.protos.Protocol.BlockInventory.Type.SYNC.getNumber()) {
+      if (type_ != Type.SYNC.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, type_);
       }
@@ -14381,15 +18411,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.BlockInventory)) {
+      if (!(obj instanceof BlockInventory)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.BlockInventory other = (org.tron.protos.Protocol.BlockInventory) obj;
+      BlockInventory other = (BlockInventory) obj;
 
       boolean result = true;
       result = result && getIdsList()
@@ -14399,7 +18429,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -14417,69 +18447,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(
+    public static BlockInventory parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(
+    public static BlockInventory parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(
+    public static BlockInventory parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(
+    public static BlockInventory parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(byte[] data)
+    public static BlockInventory parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(
+    public static BlockInventory parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(java.io.InputStream input)
+    public static BlockInventory parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(
+    public static BlockInventory parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseDelimitedFrom(java.io.InputStream input)
+    public static BlockInventory parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseDelimitedFrom(
+    public static BlockInventory parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(
+    public static BlockInventory parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.BlockInventory parseFrom(
+    public static BlockInventory parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14491,7 +18521,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.BlockInventory prototype) {
+    public static Builder newBuilder(BlockInventory prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -14499,9 +18529,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -14515,17 +18545,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.BlockInventory)
-        org.tron.protos.Protocol.BlockInventoryOrBuilder {
+        BlockInventoryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_descriptor;
+        return Protocol.internal_static_protocol_BlockInventory_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_fieldAccessorTable
+        return Protocol.internal_static_protocol_BlockInventory_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.BlockInventory.class, org.tron.protos.Protocol.BlockInventory.Builder.class);
+                BlockInventory.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.BlockInventory.newBuilder()
@@ -14534,7 +18564,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -14559,23 +18589,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_BlockInventory_descriptor;
+        return Protocol.internal_static_protocol_BlockInventory_descriptor;
       }
 
-      public org.tron.protos.Protocol.BlockInventory getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.BlockInventory.getDefaultInstance();
+      public BlockInventory getDefaultInstanceForType() {
+        return BlockInventory.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.BlockInventory build() {
-        org.tron.protos.Protocol.BlockInventory result = buildPartial();
+      public BlockInventory build() {
+        BlockInventory result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.BlockInventory buildPartial() {
-        org.tron.protos.Protocol.BlockInventory result = new org.tron.protos.Protocol.BlockInventory(this);
+      public BlockInventory buildPartial() {
+        BlockInventory result = new BlockInventory(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (idsBuilder_ == null) {
@@ -14598,7 +18628,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -14611,25 +18641,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.BlockInventory) {
-          return mergeFrom((org.tron.protos.Protocol.BlockInventory)other);
+        if (other instanceof BlockInventory) {
+          return mergeFrom((BlockInventory)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.BlockInventory other) {
-        if (other == org.tron.protos.Protocol.BlockInventory.getDefaultInstance()) return this;
+      public Builder mergeFrom(BlockInventory other) {
+        if (other == BlockInventory.getDefaultInstance()) return this;
         if (idsBuilder_ == null) {
           if (!other.ids_.isEmpty()) {
             if (ids_.isEmpty()) {
@@ -14672,11 +18702,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.BlockInventory parsedMessage = null;
+        BlockInventory parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.BlockInventory) e.getUnfinishedMessage();
+          parsedMessage = (BlockInventory) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14687,22 +18717,22 @@ public final class Protocol {
       }
       private int bitField0_;
 
-      private java.util.List<org.tron.protos.Protocol.BlockInventory.BlockId> ids_ =
+      private java.util.List<BlockId> ids_ =
         java.util.Collections.emptyList();
       private void ensureIdsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          ids_ = new java.util.ArrayList<org.tron.protos.Protocol.BlockInventory.BlockId>(ids_);
+          ids_ = new java.util.ArrayList<BlockId>(ids_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.BlockInventory.BlockId, org.tron.protos.Protocol.BlockInventory.BlockId.Builder, org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder> idsBuilder_;
+          BlockId, BlockId.Builder, BlockIdOrBuilder> idsBuilder_;
 
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.BlockInventory.BlockId> getIdsList() {
+      public java.util.List<BlockId> getIdsList() {
         if (idsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(ids_);
         } else {
@@ -14722,7 +18752,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.BlockInventory.BlockId getIds(int index) {
+      public BlockId getIds(int index) {
         if (idsBuilder_ == null) {
           return ids_.get(index);
         } else {
@@ -14733,7 +18763,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
       public Builder setIds(
-          int index, org.tron.protos.Protocol.BlockInventory.BlockId value) {
+          int index, BlockId value) {
         if (idsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14750,7 +18780,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
       public Builder setIds(
-          int index, org.tron.protos.Protocol.BlockInventory.BlockId.Builder builderForValue) {
+          int index, BlockId.Builder builderForValue) {
         if (idsBuilder_ == null) {
           ensureIdsIsMutable();
           ids_.set(index, builderForValue.build());
@@ -14763,7 +18793,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public Builder addIds(org.tron.protos.Protocol.BlockInventory.BlockId value) {
+      public Builder addIds(BlockId value) {
         if (idsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14780,7 +18810,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
       public Builder addIds(
-          int index, org.tron.protos.Protocol.BlockInventory.BlockId value) {
+          int index, BlockId value) {
         if (idsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14797,7 +18827,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
       public Builder addIds(
-          org.tron.protos.Protocol.BlockInventory.BlockId.Builder builderForValue) {
+          BlockId.Builder builderForValue) {
         if (idsBuilder_ == null) {
           ensureIdsIsMutable();
           ids_.add(builderForValue.build());
@@ -14811,7 +18841,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
       public Builder addIds(
-          int index, org.tron.protos.Protocol.BlockInventory.BlockId.Builder builderForValue) {
+          int index, BlockId.Builder builderForValue) {
         if (idsBuilder_ == null) {
           ensureIdsIsMutable();
           ids_.add(index, builderForValue.build());
@@ -14825,7 +18855,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
       public Builder addAllIds(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.BlockInventory.BlockId> values) {
+          Iterable<? extends BlockId> values) {
         if (idsBuilder_ == null) {
           ensureIdsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -14865,14 +18895,14 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.BlockInventory.BlockId.Builder getIdsBuilder(
+      public BlockId.Builder getIdsBuilder(
           int index) {
         return getIdsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder getIdsOrBuilder(
+      public BlockIdOrBuilder getIdsOrBuilder(
           int index) {
         if (idsBuilder_ == null) {
           return ids_.get(index);  } else {
@@ -14882,7 +18912,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder> 
+      public java.util.List<? extends BlockIdOrBuilder>
            getIdsOrBuilderList() {
         if (idsBuilder_ != null) {
           return idsBuilder_.getMessageOrBuilderList();
@@ -14893,31 +18923,31 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.BlockInventory.BlockId.Builder addIdsBuilder() {
+      public BlockId.Builder addIdsBuilder() {
         return getIdsFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.BlockInventory.BlockId.getDefaultInstance());
+            BlockId.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public org.tron.protos.Protocol.BlockInventory.BlockId.Builder addIdsBuilder(
+      public BlockId.Builder addIdsBuilder(
           int index) {
         return getIdsFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.BlockInventory.BlockId.getDefaultInstance());
+            index, BlockId.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.BlockInventory.BlockId ids = 1;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.BlockInventory.BlockId.Builder> 
+      public java.util.List<BlockId.Builder>
            getIdsBuilderList() {
         return getIdsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.BlockInventory.BlockId, org.tron.protos.Protocol.BlockInventory.BlockId.Builder, org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder> 
+          BlockId, BlockId.Builder, BlockIdOrBuilder>
           getIdsFieldBuilder() {
         if (idsBuilder_ == null) {
           idsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.BlockInventory.BlockId, org.tron.protos.Protocol.BlockInventory.BlockId.Builder, org.tron.protos.Protocol.BlockInventory.BlockIdOrBuilder>(
+              BlockId, BlockId.Builder, BlockIdOrBuilder>(
                   ids_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -14945,14 +18975,14 @@ public final class Protocol {
       /**
        * <code>.protocol.BlockInventory.Type type = 2;</code>
        */
-      public org.tron.protos.Protocol.BlockInventory.Type getType() {
-        org.tron.protos.Protocol.BlockInventory.Type result = org.tron.protos.Protocol.BlockInventory.Type.valueOf(type_);
-        return result == null ? org.tron.protos.Protocol.BlockInventory.Type.UNRECOGNIZED : result;
+      public Type getType() {
+        Type result = Type.valueOf(type_);
+        return result == null ? Type.UNRECOGNIZED : result;
       }
       /**
        * <code>.protocol.BlockInventory.Type type = 2;</code>
        */
-      public Builder setType(org.tron.protos.Protocol.BlockInventory.Type value) {
+      public Builder setType(Type value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -14985,12 +19015,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.BlockInventory)
-    private static final org.tron.protos.Protocol.BlockInventory DEFAULT_INSTANCE;
+    private static final BlockInventory DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.BlockInventory();
+      DEFAULT_INSTANCE = new BlockInventory();
     }
 
-    public static org.tron.protos.Protocol.BlockInventory getDefaultInstance() {
+    public static BlockInventory getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15008,12 +19038,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<BlockInventory> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.BlockInventory getDefaultInstanceForType() {
+    public BlockInventory getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15030,7 +19060,7 @@ public final class Protocol {
     /**
      * <code>.protocol.Inventory.InventoryType type = 1;</code>
      */
-    org.tron.protos.Protocol.Inventory.InventoryType getType();
+    Inventory.InventoryType getType();
 
     /**
      * <code>repeated bytes ids = 2;</code>
@@ -15062,7 +19092,7 @@ public final class Protocol {
       ids_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -15073,7 +19103,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -15124,14 +19154,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_Inventory_descriptor;
+      return Protocol.internal_static_protocol_Inventory_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_Inventory_fieldAccessorTable
+      return Protocol.internal_static_protocol_Inventory_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.Inventory.class, org.tron.protos.Protocol.Inventory.Builder.class);
+              Inventory.class, Builder.class);
     }
 
     /**
@@ -15162,7 +19192,7 @@ public final class Protocol {
 
       public final int getNumber() {
         if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
+          throw new IllegalArgumentException(
               "Can't get the number of an unknown enum value.");
         }
         return value;
@@ -15171,7 +19201,7 @@ public final class Protocol {
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
-      @java.lang.Deprecated
+      @Deprecated
       public static InventoryType valueOf(int value) {
         return forNumber(value);
       }
@@ -15206,7 +19236,7 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.Inventory.getDescriptor().getEnumTypes().get(0);
+        return Inventory.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final InventoryType[] VALUES = values();
@@ -15214,7 +19244,7 @@ public final class Protocol {
       public static InventoryType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
+          throw new IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
         }
         if (desc.getIndex() == -1) {
@@ -15244,9 +19274,9 @@ public final class Protocol {
     /**
      * <code>.protocol.Inventory.InventoryType type = 1;</code>
      */
-    public org.tron.protos.Protocol.Inventory.InventoryType getType() {
-      org.tron.protos.Protocol.Inventory.InventoryType result = org.tron.protos.Protocol.Inventory.InventoryType.valueOf(type_);
-      return result == null ? org.tron.protos.Protocol.Inventory.InventoryType.UNRECOGNIZED : result;
+    public InventoryType getType() {
+      InventoryType result = InventoryType.valueOf(type_);
+      return result == null ? InventoryType.UNRECOGNIZED : result;
     }
 
     public static final int IDS_FIELD_NUMBER = 2;
@@ -15283,7 +19313,7 @@ public final class Protocol {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != org.tron.protos.Protocol.Inventory.InventoryType.TRX.getNumber()) {
+      if (type_ != InventoryType.TRX.getNumber()) {
         output.writeEnum(1, type_);
       }
       for (int i = 0; i < ids_.size(); i++) {
@@ -15297,7 +19327,7 @@ public final class Protocol {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != org.tron.protos.Protocol.Inventory.InventoryType.TRX.getNumber()) {
+      if (type_ != InventoryType.TRX.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
@@ -15315,15 +19345,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.Inventory)) {
+      if (!(obj instanceof Inventory)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.Inventory other = (org.tron.protos.Protocol.Inventory) obj;
+      Inventory other = (Inventory) obj;
 
       boolean result = true;
       result = result && type_ == other.type_;
@@ -15333,7 +19363,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -15351,69 +19381,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.Inventory parseFrom(
+    public static Inventory parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(
+    public static Inventory parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(
+    public static Inventory parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(
+    public static Inventory parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(byte[] data)
+    public static Inventory parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(
+    public static Inventory parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(java.io.InputStream input)
+    public static Inventory parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(
+    public static Inventory parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Inventory parseDelimitedFrom(java.io.InputStream input)
+    public static Inventory parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Inventory parseDelimitedFrom(
+    public static Inventory parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(
+    public static Inventory parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Inventory parseFrom(
+    public static Inventory parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -15425,7 +19455,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.Inventory prototype) {
+    public static Builder newBuilder(Inventory prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -15433,9 +19463,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -15445,17 +19475,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.Inventory)
-        org.tron.protos.Protocol.InventoryOrBuilder {
+        InventoryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Inventory_descriptor;
+        return Protocol.internal_static_protocol_Inventory_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Inventory_fieldAccessorTable
+        return Protocol.internal_static_protocol_Inventory_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Inventory.class, org.tron.protos.Protocol.Inventory.Builder.class);
+                Inventory.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.Inventory.newBuilder()
@@ -15464,7 +19494,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -15484,23 +19514,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_Inventory_descriptor;
+        return Protocol.internal_static_protocol_Inventory_descriptor;
       }
 
-      public org.tron.protos.Protocol.Inventory getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.Inventory.getDefaultInstance();
+      public Inventory getDefaultInstanceForType() {
+        return Inventory.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.Inventory build() {
-        org.tron.protos.Protocol.Inventory result = buildPartial();
+      public Inventory build() {
+        Inventory result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.Inventory buildPartial() {
-        org.tron.protos.Protocol.Inventory result = new org.tron.protos.Protocol.Inventory(this);
+      public Inventory buildPartial() {
+        Inventory result = new Inventory(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.type_ = type_;
@@ -15519,7 +19549,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -15532,25 +19562,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.Inventory) {
-          return mergeFrom((org.tron.protos.Protocol.Inventory)other);
+        if (other instanceof Inventory) {
+          return mergeFrom((Inventory)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.Inventory other) {
-        if (other == org.tron.protos.Protocol.Inventory.getDefaultInstance()) return this;
+      public Builder mergeFrom(Inventory other) {
+        if (other == Inventory.getDefaultInstance()) return this;
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
@@ -15577,11 +19607,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.Inventory parsedMessage = null;
+        Inventory parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.Inventory) e.getUnfinishedMessage();
+          parsedMessage = (Inventory) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -15610,14 +19640,14 @@ public final class Protocol {
       /**
        * <code>.protocol.Inventory.InventoryType type = 1;</code>
        */
-      public org.tron.protos.Protocol.Inventory.InventoryType getType() {
-        org.tron.protos.Protocol.Inventory.InventoryType result = org.tron.protos.Protocol.Inventory.InventoryType.valueOf(type_);
-        return result == null ? org.tron.protos.Protocol.Inventory.InventoryType.UNRECOGNIZED : result;
+      public InventoryType getType() {
+        InventoryType result = InventoryType.valueOf(type_);
+        return result == null ? InventoryType.UNRECOGNIZED : result;
       }
       /**
        * <code>.protocol.Inventory.InventoryType type = 1;</code>
        */
-      public Builder setType(org.tron.protos.Protocol.Inventory.InventoryType value) {
+      public Builder setType(InventoryType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -15691,7 +19721,7 @@ public final class Protocol {
        * <code>repeated bytes ids = 2;</code>
        */
       public Builder addAllIds(
-          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+          Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureIdsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, ids_);
@@ -15722,12 +19752,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.Inventory)
-    private static final org.tron.protos.Protocol.Inventory DEFAULT_INSTANCE;
+    private static final Inventory DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Inventory();
+      DEFAULT_INSTANCE = new Inventory();
     }
 
-    public static org.tron.protos.Protocol.Inventory getDefaultInstance() {
+    public static Inventory getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15745,12 +19775,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Inventory> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.Inventory getDefaultInstanceForType() {
+    public Inventory getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15767,17 +19797,17 @@ public final class Protocol {
     /**
      * <code>.protocol.Items.ItemType type = 1;</code>
      */
-    org.tron.protos.Protocol.Items.ItemType getType();
+    Items.ItemType getType();
 
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Block> 
+    java.util.List<Block>
         getBlocksList();
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
-    org.tron.protos.Protocol.Block getBlocks(int index);
+    Block getBlocks(int index);
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
@@ -15785,23 +19815,23 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder> 
+    java.util.List<? extends BlockOrBuilder>
         getBlocksOrBuilderList();
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
-    org.tron.protos.Protocol.BlockOrBuilder getBlocksOrBuilder(
+    BlockOrBuilder getBlocksOrBuilder(
         int index);
 
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
-    java.util.List<org.tron.protos.Protocol.BlockHeader> 
+    java.util.List<BlockHeader>
         getBlockHeadersList();
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
-    org.tron.protos.Protocol.BlockHeader getBlockHeaders(int index);
+    BlockHeader getBlockHeaders(int index);
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
@@ -15809,23 +19839,23 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.BlockHeaderOrBuilder> 
+    java.util.List<? extends BlockHeaderOrBuilder>
         getBlockHeadersOrBuilderList();
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
-    org.tron.protos.Protocol.BlockHeaderOrBuilder getBlockHeadersOrBuilder(
+    BlockHeaderOrBuilder getBlockHeadersOrBuilder(
         int index);
 
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Transaction> 
+    java.util.List<Transaction>
         getTransactionsList();
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
-    org.tron.protos.Protocol.Transaction getTransactions(int index);
+    Transaction getTransactions(int index);
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
@@ -15833,12 +19863,12 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
+    java.util.List<? extends TransactionOrBuilder>
         getTransactionsOrBuilderList();
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
-    org.tron.protos.Protocol.TransactionOrBuilder getTransactionsOrBuilder(
+    TransactionOrBuilder getTransactionsOrBuilder(
         int index);
   }
   /**
@@ -15860,7 +19890,7 @@ public final class Protocol {
       transactions_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -15871,7 +19901,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -15899,29 +19929,29 @@ public final class Protocol {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                blocks_ = new java.util.ArrayList<org.tron.protos.Protocol.Block>();
+                blocks_ = new java.util.ArrayList<Block>();
                 mutable_bitField0_ |= 0x00000002;
               }
               blocks_.add(
-                  input.readMessage(org.tron.protos.Protocol.Block.parser(), extensionRegistry));
+                  input.readMessage(Block.parser(), extensionRegistry));
               break;
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                blockHeaders_ = new java.util.ArrayList<org.tron.protos.Protocol.BlockHeader>();
+                blockHeaders_ = new java.util.ArrayList<BlockHeader>();
                 mutable_bitField0_ |= 0x00000004;
               }
               blockHeaders_.add(
-                  input.readMessage(org.tron.protos.Protocol.BlockHeader.parser(), extensionRegistry));
+                  input.readMessage(BlockHeader.parser(), extensionRegistry));
               break;
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                transactions_ = new java.util.ArrayList<org.tron.protos.Protocol.Transaction>();
+                transactions_ = new java.util.ArrayList<Transaction>();
                 mutable_bitField0_ |= 0x00000008;
               }
               transactions_.add(
-                  input.readMessage(org.tron.protos.Protocol.Transaction.parser(), extensionRegistry));
+                  input.readMessage(Transaction.parser(), extensionRegistry));
               break;
             }
           }
@@ -15947,14 +19977,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_Items_descriptor;
+      return Protocol.internal_static_protocol_Items_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_Items_fieldAccessorTable
+      return Protocol.internal_static_protocol_Items_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.Items.class, org.tron.protos.Protocol.Items.Builder.class);
+              Items.class, Builder.class);
     }
 
     /**
@@ -16001,7 +20031,7 @@ public final class Protocol {
 
       public final int getNumber() {
         if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
+          throw new IllegalArgumentException(
               "Can't get the number of an unknown enum value.");
         }
         return value;
@@ -16010,7 +20040,7 @@ public final class Protocol {
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
-      @java.lang.Deprecated
+      @Deprecated
       public static ItemType valueOf(int value) {
         return forNumber(value);
       }
@@ -16047,7 +20077,7 @@ public final class Protocol {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.Items.getDescriptor().getEnumTypes().get(0);
+        return Items.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final ItemType[] VALUES = values();
@@ -16055,7 +20085,7 @@ public final class Protocol {
       public static ItemType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
+          throw new IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
         }
         if (desc.getIndex() == -1) {
@@ -16085,23 +20115,23 @@ public final class Protocol {
     /**
      * <code>.protocol.Items.ItemType type = 1;</code>
      */
-    public org.tron.protos.Protocol.Items.ItemType getType() {
-      org.tron.protos.Protocol.Items.ItemType result = org.tron.protos.Protocol.Items.ItemType.valueOf(type_);
-      return result == null ? org.tron.protos.Protocol.Items.ItemType.UNRECOGNIZED : result;
+    public ItemType getType() {
+      ItemType result = ItemType.valueOf(type_);
+      return result == null ? ItemType.UNRECOGNIZED : result;
     }
 
     public static final int BLOCKS_FIELD_NUMBER = 2;
-    private java.util.List<org.tron.protos.Protocol.Block> blocks_;
+    private java.util.List<Block> blocks_;
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.Block> getBlocksList() {
+    public java.util.List<Block> getBlocksList() {
       return blocks_;
     }
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder> 
+    public java.util.List<? extends BlockOrBuilder>
         getBlocksOrBuilderList() {
       return blocks_;
     }
@@ -16114,29 +20144,29 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
-    public org.tron.protos.Protocol.Block getBlocks(int index) {
+    public Block getBlocks(int index) {
       return blocks_.get(index);
     }
     /**
      * <code>repeated .protocol.Block blocks = 2;</code>
      */
-    public org.tron.protos.Protocol.BlockOrBuilder getBlocksOrBuilder(
+    public BlockOrBuilder getBlocksOrBuilder(
         int index) {
       return blocks_.get(index);
     }
 
     public static final int BLOCK_HEADERS_FIELD_NUMBER = 3;
-    private java.util.List<org.tron.protos.Protocol.BlockHeader> blockHeaders_;
+    private java.util.List<BlockHeader> blockHeaders_;
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.BlockHeader> getBlockHeadersList() {
+    public java.util.List<BlockHeader> getBlockHeadersList() {
       return blockHeaders_;
     }
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.BlockHeaderOrBuilder> 
+    public java.util.List<? extends BlockHeaderOrBuilder>
         getBlockHeadersOrBuilderList() {
       return blockHeaders_;
     }
@@ -16149,29 +20179,29 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
-    public org.tron.protos.Protocol.BlockHeader getBlockHeaders(int index) {
+    public BlockHeader getBlockHeaders(int index) {
       return blockHeaders_.get(index);
     }
     /**
      * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
      */
-    public org.tron.protos.Protocol.BlockHeaderOrBuilder getBlockHeadersOrBuilder(
+    public BlockHeaderOrBuilder getBlockHeadersOrBuilder(
         int index) {
       return blockHeaders_.get(index);
     }
 
     public static final int TRANSACTIONS_FIELD_NUMBER = 4;
-    private java.util.List<org.tron.protos.Protocol.Transaction> transactions_;
+    private java.util.List<Transaction> transactions_;
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.Transaction> getTransactionsList() {
+    public java.util.List<Transaction> getTransactionsList() {
       return transactions_;
     }
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
+    public java.util.List<? extends TransactionOrBuilder>
         getTransactionsOrBuilderList() {
       return transactions_;
     }
@@ -16184,13 +20214,13 @@ public final class Protocol {
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
-    public org.tron.protos.Protocol.Transaction getTransactions(int index) {
+    public Transaction getTransactions(int index) {
       return transactions_.get(index);
     }
     /**
      * <code>repeated .protocol.Transaction transactions = 4;</code>
      */
-    public org.tron.protos.Protocol.TransactionOrBuilder getTransactionsOrBuilder(
+    public TransactionOrBuilder getTransactionsOrBuilder(
         int index) {
       return transactions_.get(index);
     }
@@ -16207,7 +20237,7 @@ public final class Protocol {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != org.tron.protos.Protocol.Items.ItemType.ERR.getNumber()) {
+      if (type_ != ItemType.ERR.getNumber()) {
         output.writeEnum(1, type_);
       }
       for (int i = 0; i < blocks_.size(); i++) {
@@ -16227,7 +20257,7 @@ public final class Protocol {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != org.tron.protos.Protocol.Items.ItemType.ERR.getNumber()) {
+      if (type_ != ItemType.ERR.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
@@ -16248,15 +20278,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.Items)) {
+      if (!(obj instanceof Items)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.Items other = (org.tron.protos.Protocol.Items) obj;
+      Items other = (Items) obj;
 
       boolean result = true;
       result = result && type_ == other.type_;
@@ -16270,7 +20300,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -16296,69 +20326,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.Items parseFrom(
+    public static Items parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(
+    public static Items parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(
+    public static Items parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(
+    public static Items parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(byte[] data)
+    public static Items parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(
+    public static Items parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(java.io.InputStream input)
+    public static Items parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(
+    public static Items parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Items parseDelimitedFrom(java.io.InputStream input)
+    public static Items parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Items parseDelimitedFrom(
+    public static Items parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(
+    public static Items parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.Items parseFrom(
+    public static Items parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -16370,7 +20400,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.Items prototype) {
+    public static Builder newBuilder(Items prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -16378,9 +20408,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -16390,17 +20420,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.Items)
-        org.tron.protos.Protocol.ItemsOrBuilder {
+        ItemsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Items_descriptor;
+        return Protocol.internal_static_protocol_Items_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Items_fieldAccessorTable
+        return Protocol.internal_static_protocol_Items_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Items.class, org.tron.protos.Protocol.Items.Builder.class);
+                Items.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.Items.newBuilder()
@@ -16409,7 +20439,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -16448,23 +20478,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_Items_descriptor;
+        return Protocol.internal_static_protocol_Items_descriptor;
       }
 
-      public org.tron.protos.Protocol.Items getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.Items.getDefaultInstance();
+      public Items getDefaultInstanceForType() {
+        return Items.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.Items build() {
-        org.tron.protos.Protocol.Items result = buildPartial();
+      public Items build() {
+        Items result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.Items buildPartial() {
-        org.tron.protos.Protocol.Items result = new org.tron.protos.Protocol.Items(this);
+      public Items buildPartial() {
+        Items result = new Items(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.type_ = type_;
@@ -16505,7 +20535,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -16518,25 +20548,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.Items) {
-          return mergeFrom((org.tron.protos.Protocol.Items)other);
+        if (other instanceof Items) {
+          return mergeFrom((Items)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.Items other) {
-        if (other == org.tron.protos.Protocol.Items.getDefaultInstance()) return this;
+      public Builder mergeFrom(Items other) {
+        if (other == Items.getDefaultInstance()) return this;
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
@@ -16631,11 +20661,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.Items parsedMessage = null;
+        Items parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.Items) e.getUnfinishedMessage();
+          parsedMessage = (Items) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -16664,14 +20694,14 @@ public final class Protocol {
       /**
        * <code>.protocol.Items.ItemType type = 1;</code>
        */
-      public org.tron.protos.Protocol.Items.ItemType getType() {
-        org.tron.protos.Protocol.Items.ItemType result = org.tron.protos.Protocol.Items.ItemType.valueOf(type_);
-        return result == null ? org.tron.protos.Protocol.Items.ItemType.UNRECOGNIZED : result;
+      public ItemType getType() {
+        ItemType result = ItemType.valueOf(type_);
+        return result == null ? ItemType.UNRECOGNIZED : result;
       }
       /**
        * <code>.protocol.Items.ItemType type = 1;</code>
        */
-      public Builder setType(org.tron.protos.Protocol.Items.ItemType value) {
+      public Builder setType(ItemType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -16690,22 +20720,22 @@ public final class Protocol {
         return this;
       }
 
-      private java.util.List<org.tron.protos.Protocol.Block> blocks_ =
+      private java.util.List<Block> blocks_ =
         java.util.Collections.emptyList();
       private void ensureBlocksIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          blocks_ = new java.util.ArrayList<org.tron.protos.Protocol.Block>(blocks_);
+          blocks_ = new java.util.ArrayList<Block>(blocks_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Block, org.tron.protos.Protocol.Block.Builder, org.tron.protos.Protocol.BlockOrBuilder> blocksBuilder_;
+          Block, Block.Builder, BlockOrBuilder> blocksBuilder_;
 
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Block> getBlocksList() {
+      public java.util.List<Block> getBlocksList() {
         if (blocksBuilder_ == null) {
           return java.util.Collections.unmodifiableList(blocks_);
         } else {
@@ -16725,7 +20755,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public org.tron.protos.Protocol.Block getBlocks(int index) {
+      public Block getBlocks(int index) {
         if (blocksBuilder_ == null) {
           return blocks_.get(index);
         } else {
@@ -16736,7 +20766,7 @@ public final class Protocol {
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
       public Builder setBlocks(
-          int index, org.tron.protos.Protocol.Block value) {
+          int index, Block value) {
         if (blocksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -16753,7 +20783,7 @@ public final class Protocol {
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
       public Builder setBlocks(
-          int index, org.tron.protos.Protocol.Block.Builder builderForValue) {
+          int index, Block.Builder builderForValue) {
         if (blocksBuilder_ == null) {
           ensureBlocksIsMutable();
           blocks_.set(index, builderForValue.build());
@@ -16766,7 +20796,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public Builder addBlocks(org.tron.protos.Protocol.Block value) {
+      public Builder addBlocks(Block value) {
         if (blocksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -16783,7 +20813,7 @@ public final class Protocol {
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
       public Builder addBlocks(
-          int index, org.tron.protos.Protocol.Block value) {
+          int index, Block value) {
         if (blocksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -16800,7 +20830,7 @@ public final class Protocol {
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
       public Builder addBlocks(
-          org.tron.protos.Protocol.Block.Builder builderForValue) {
+          Block.Builder builderForValue) {
         if (blocksBuilder_ == null) {
           ensureBlocksIsMutable();
           blocks_.add(builderForValue.build());
@@ -16814,7 +20844,7 @@ public final class Protocol {
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
       public Builder addBlocks(
-          int index, org.tron.protos.Protocol.Block.Builder builderForValue) {
+          int index, Block.Builder builderForValue) {
         if (blocksBuilder_ == null) {
           ensureBlocksIsMutable();
           blocks_.add(index, builderForValue.build());
@@ -16828,7 +20858,7 @@ public final class Protocol {
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
       public Builder addAllBlocks(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.Block> values) {
+          Iterable<? extends Block> values) {
         if (blocksBuilder_ == null) {
           ensureBlocksIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -16868,14 +20898,14 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public org.tron.protos.Protocol.Block.Builder getBlocksBuilder(
+      public Block.Builder getBlocksBuilder(
           int index) {
         return getBlocksFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public org.tron.protos.Protocol.BlockOrBuilder getBlocksOrBuilder(
+      public BlockOrBuilder getBlocksOrBuilder(
           int index) {
         if (blocksBuilder_ == null) {
           return blocks_.get(index);  } else {
@@ -16885,7 +20915,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.BlockOrBuilder> 
+      public java.util.List<? extends BlockOrBuilder>
            getBlocksOrBuilderList() {
         if (blocksBuilder_ != null) {
           return blocksBuilder_.getMessageOrBuilderList();
@@ -16896,31 +20926,31 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public org.tron.protos.Protocol.Block.Builder addBlocksBuilder() {
+      public Block.Builder addBlocksBuilder() {
         return getBlocksFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.Block.getDefaultInstance());
+            Block.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public org.tron.protos.Protocol.Block.Builder addBlocksBuilder(
+      public Block.Builder addBlocksBuilder(
           int index) {
         return getBlocksFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.Block.getDefaultInstance());
+            index, Block.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Block blocks = 2;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Block.Builder> 
+      public java.util.List<Block.Builder>
            getBlocksBuilderList() {
         return getBlocksFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Block, org.tron.protos.Protocol.Block.Builder, org.tron.protos.Protocol.BlockOrBuilder> 
+          Block, Block.Builder, BlockOrBuilder>
           getBlocksFieldBuilder() {
         if (blocksBuilder_ == null) {
           blocksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.Block, org.tron.protos.Protocol.Block.Builder, org.tron.protos.Protocol.BlockOrBuilder>(
+              Block, Block.Builder, BlockOrBuilder>(
                   blocks_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -16930,22 +20960,22 @@ public final class Protocol {
         return blocksBuilder_;
       }
 
-      private java.util.List<org.tron.protos.Protocol.BlockHeader> blockHeaders_ =
+      private java.util.List<BlockHeader> blockHeaders_ =
         java.util.Collections.emptyList();
       private void ensureBlockHeadersIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          blockHeaders_ = new java.util.ArrayList<org.tron.protos.Protocol.BlockHeader>(blockHeaders_);
+          blockHeaders_ = new java.util.ArrayList<BlockHeader>(blockHeaders_);
           bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.BlockHeader, org.tron.protos.Protocol.BlockHeader.Builder, org.tron.protos.Protocol.BlockHeaderOrBuilder> blockHeadersBuilder_;
+          BlockHeader, BlockHeader.Builder, BlockHeaderOrBuilder> blockHeadersBuilder_;
 
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.BlockHeader> getBlockHeadersList() {
+      public java.util.List<BlockHeader> getBlockHeadersList() {
         if (blockHeadersBuilder_ == null) {
           return java.util.Collections.unmodifiableList(blockHeaders_);
         } else {
@@ -16965,7 +20995,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader getBlockHeaders(int index) {
+      public BlockHeader getBlockHeaders(int index) {
         if (blockHeadersBuilder_ == null) {
           return blockHeaders_.get(index);
         } else {
@@ -16976,7 +21006,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
       public Builder setBlockHeaders(
-          int index, org.tron.protos.Protocol.BlockHeader value) {
+          int index, BlockHeader value) {
         if (blockHeadersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -16993,7 +21023,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
       public Builder setBlockHeaders(
-          int index, org.tron.protos.Protocol.BlockHeader.Builder builderForValue) {
+          int index, BlockHeader.Builder builderForValue) {
         if (blockHeadersBuilder_ == null) {
           ensureBlockHeadersIsMutable();
           blockHeaders_.set(index, builderForValue.build());
@@ -17006,7 +21036,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public Builder addBlockHeaders(org.tron.protos.Protocol.BlockHeader value) {
+      public Builder addBlockHeaders(BlockHeader value) {
         if (blockHeadersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17023,7 +21053,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
       public Builder addBlockHeaders(
-          int index, org.tron.protos.Protocol.BlockHeader value) {
+          int index, BlockHeader value) {
         if (blockHeadersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17040,7 +21070,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
       public Builder addBlockHeaders(
-          org.tron.protos.Protocol.BlockHeader.Builder builderForValue) {
+          BlockHeader.Builder builderForValue) {
         if (blockHeadersBuilder_ == null) {
           ensureBlockHeadersIsMutable();
           blockHeaders_.add(builderForValue.build());
@@ -17054,7 +21084,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
       public Builder addBlockHeaders(
-          int index, org.tron.protos.Protocol.BlockHeader.Builder builderForValue) {
+          int index, BlockHeader.Builder builderForValue) {
         if (blockHeadersBuilder_ == null) {
           ensureBlockHeadersIsMutable();
           blockHeaders_.add(index, builderForValue.build());
@@ -17068,7 +21098,7 @@ public final class Protocol {
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
       public Builder addAllBlockHeaders(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.BlockHeader> values) {
+          Iterable<? extends BlockHeader> values) {
         if (blockHeadersBuilder_ == null) {
           ensureBlockHeadersIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -17108,14 +21138,14 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader.Builder getBlockHeadersBuilder(
+      public BlockHeader.Builder getBlockHeadersBuilder(
           int index) {
         return getBlockHeadersFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public org.tron.protos.Protocol.BlockHeaderOrBuilder getBlockHeadersOrBuilder(
+      public BlockHeaderOrBuilder getBlockHeadersOrBuilder(
           int index) {
         if (blockHeadersBuilder_ == null) {
           return blockHeaders_.get(index);  } else {
@@ -17125,7 +21155,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.BlockHeaderOrBuilder> 
+      public java.util.List<? extends BlockHeaderOrBuilder>
            getBlockHeadersOrBuilderList() {
         if (blockHeadersBuilder_ != null) {
           return blockHeadersBuilder_.getMessageOrBuilderList();
@@ -17136,31 +21166,31 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader.Builder addBlockHeadersBuilder() {
+      public BlockHeader.Builder addBlockHeadersBuilder() {
         return getBlockHeadersFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.BlockHeader.getDefaultInstance());
+            BlockHeader.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public org.tron.protos.Protocol.BlockHeader.Builder addBlockHeadersBuilder(
+      public BlockHeader.Builder addBlockHeadersBuilder(
           int index) {
         return getBlockHeadersFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.BlockHeader.getDefaultInstance());
+            index, BlockHeader.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.BlockHeader block_headers = 3;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.BlockHeader.Builder> 
+      public java.util.List<BlockHeader.Builder>
            getBlockHeadersBuilderList() {
         return getBlockHeadersFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.BlockHeader, org.tron.protos.Protocol.BlockHeader.Builder, org.tron.protos.Protocol.BlockHeaderOrBuilder> 
+          BlockHeader, BlockHeader.Builder, BlockHeaderOrBuilder>
           getBlockHeadersFieldBuilder() {
         if (blockHeadersBuilder_ == null) {
           blockHeadersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.BlockHeader, org.tron.protos.Protocol.BlockHeader.Builder, org.tron.protos.Protocol.BlockHeaderOrBuilder>(
+              BlockHeader, BlockHeader.Builder, BlockHeaderOrBuilder>(
                   blockHeaders_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
@@ -17170,22 +21200,22 @@ public final class Protocol {
         return blockHeadersBuilder_;
       }
 
-      private java.util.List<org.tron.protos.Protocol.Transaction> transactions_ =
+      private java.util.List<Transaction> transactions_ =
         java.util.Collections.emptyList();
       private void ensureTransactionsIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          transactions_ = new java.util.ArrayList<org.tron.protos.Protocol.Transaction>(transactions_);
+          transactions_ = new java.util.ArrayList<Transaction>(transactions_);
           bitField0_ |= 0x00000008;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction, org.tron.protos.Protocol.Transaction.Builder, org.tron.protos.Protocol.TransactionOrBuilder> transactionsBuilder_;
+          Transaction, Transaction.Builder, TransactionOrBuilder> transactionsBuilder_;
 
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Transaction> getTransactionsList() {
+      public java.util.List<Transaction> getTransactionsList() {
         if (transactionsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(transactions_);
         } else {
@@ -17205,7 +21235,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public org.tron.protos.Protocol.Transaction getTransactions(int index) {
+      public Transaction getTransactions(int index) {
         if (transactionsBuilder_ == null) {
           return transactions_.get(index);
         } else {
@@ -17216,7 +21246,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
       public Builder setTransactions(
-          int index, org.tron.protos.Protocol.Transaction value) {
+          int index, Transaction value) {
         if (transactionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17233,7 +21263,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
       public Builder setTransactions(
-          int index, org.tron.protos.Protocol.Transaction.Builder builderForValue) {
+          int index, Transaction.Builder builderForValue) {
         if (transactionsBuilder_ == null) {
           ensureTransactionsIsMutable();
           transactions_.set(index, builderForValue.build());
@@ -17246,7 +21276,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public Builder addTransactions(org.tron.protos.Protocol.Transaction value) {
+      public Builder addTransactions(Transaction value) {
         if (transactionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17263,7 +21293,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
       public Builder addTransactions(
-          int index, org.tron.protos.Protocol.Transaction value) {
+          int index, Transaction value) {
         if (transactionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17280,7 +21310,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
       public Builder addTransactions(
-          org.tron.protos.Protocol.Transaction.Builder builderForValue) {
+          Transaction.Builder builderForValue) {
         if (transactionsBuilder_ == null) {
           ensureTransactionsIsMutable();
           transactions_.add(builderForValue.build());
@@ -17294,7 +21324,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
       public Builder addTransactions(
-          int index, org.tron.protos.Protocol.Transaction.Builder builderForValue) {
+          int index, Transaction.Builder builderForValue) {
         if (transactionsBuilder_ == null) {
           ensureTransactionsIsMutable();
           transactions_.add(index, builderForValue.build());
@@ -17308,7 +21338,7 @@ public final class Protocol {
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
       public Builder addAllTransactions(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.Transaction> values) {
+          Iterable<? extends Transaction> values) {
         if (transactionsBuilder_ == null) {
           ensureTransactionsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -17348,14 +21378,14 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Builder getTransactionsBuilder(
+      public Transaction.Builder getTransactionsBuilder(
           int index) {
         return getTransactionsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public org.tron.protos.Protocol.TransactionOrBuilder getTransactionsOrBuilder(
+      public TransactionOrBuilder getTransactionsOrBuilder(
           int index) {
         if (transactionsBuilder_ == null) {
           return transactions_.get(index);  } else {
@@ -17365,7 +21395,7 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.TransactionOrBuilder> 
+      public java.util.List<? extends TransactionOrBuilder>
            getTransactionsOrBuilderList() {
         if (transactionsBuilder_ != null) {
           return transactionsBuilder_.getMessageOrBuilderList();
@@ -17376,31 +21406,31 @@ public final class Protocol {
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Builder addTransactionsBuilder() {
+      public Transaction.Builder addTransactionsBuilder() {
         return getTransactionsFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.Transaction.getDefaultInstance());
+            Transaction.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public org.tron.protos.Protocol.Transaction.Builder addTransactionsBuilder(
+      public Transaction.Builder addTransactionsBuilder(
           int index) {
         return getTransactionsFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.Transaction.getDefaultInstance());
+            index, Transaction.getDefaultInstance());
       }
       /**
        * <code>repeated .protocol.Transaction transactions = 4;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Transaction.Builder> 
+      public java.util.List<Transaction.Builder>
            getTransactionsBuilderList() {
         return getTransactionsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Transaction, org.tron.protos.Protocol.Transaction.Builder, org.tron.protos.Protocol.TransactionOrBuilder> 
+          Transaction, Transaction.Builder, TransactionOrBuilder>
           getTransactionsFieldBuilder() {
         if (transactionsBuilder_ == null) {
           transactionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.Transaction, org.tron.protos.Protocol.Transaction.Builder, org.tron.protos.Protocol.TransactionOrBuilder>(
+              Transaction, Transaction.Builder, TransactionOrBuilder>(
                   transactions_,
                   ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
@@ -17424,12 +21454,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.Items)
-    private static final org.tron.protos.Protocol.Items DEFAULT_INSTANCE;
+    private static final Items DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Items();
+      DEFAULT_INSTANCE = new Items();
     }
 
-    public static org.tron.protos.Protocol.Items getDefaultInstance() {
+    public static Items getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17447,12 +21477,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<Items> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.Items getDefaultInstanceForType() {
+    public Items getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17487,7 +21517,7 @@ public final class Protocol {
       lastSolidityBlockNum_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -17498,7 +21528,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -17537,14 +21567,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_DynamicProperties_descriptor;
+      return Protocol.internal_static_protocol_DynamicProperties_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_DynamicProperties_fieldAccessorTable
+      return Protocol.internal_static_protocol_DynamicProperties_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.DynamicProperties.class, org.tron.protos.Protocol.DynamicProperties.Builder.class);
+              DynamicProperties.class, Builder.class);
     }
 
     public static final int LAST_SOLIDITY_BLOCK_NUM_FIELD_NUMBER = 1;
@@ -17588,15 +21618,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.DynamicProperties)) {
+      if (!(obj instanceof DynamicProperties)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.DynamicProperties other = (org.tron.protos.Protocol.DynamicProperties) obj;
+      DynamicProperties other = (DynamicProperties) obj;
 
       boolean result = true;
       result = result && (getLastSolidityBlockNum()
@@ -17605,7 +21635,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -17620,69 +21650,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(
+    public static DynamicProperties parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(
+    public static DynamicProperties parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(
+    public static DynamicProperties parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(
+    public static DynamicProperties parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(byte[] data)
+    public static DynamicProperties parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(
+    public static DynamicProperties parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(java.io.InputStream input)
+    public static DynamicProperties parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(
+    public static DynamicProperties parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseDelimitedFrom(java.io.InputStream input)
+    public static DynamicProperties parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseDelimitedFrom(
+    public static DynamicProperties parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(
+    public static DynamicProperties parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.DynamicProperties parseFrom(
+    public static DynamicProperties parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -17694,7 +21724,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.DynamicProperties prototype) {
+    public static Builder newBuilder(DynamicProperties prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -17702,9 +21732,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -17718,17 +21748,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.DynamicProperties)
-        org.tron.protos.Protocol.DynamicPropertiesOrBuilder {
+        DynamicPropertiesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_DynamicProperties_descriptor;
+        return Protocol.internal_static_protocol_DynamicProperties_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_DynamicProperties_fieldAccessorTable
+        return Protocol.internal_static_protocol_DynamicProperties_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.DynamicProperties.class, org.tron.protos.Protocol.DynamicProperties.Builder.class);
+                DynamicProperties.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.DynamicProperties.newBuilder()
@@ -17737,7 +21767,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -17755,23 +21785,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_DynamicProperties_descriptor;
+        return Protocol.internal_static_protocol_DynamicProperties_descriptor;
       }
 
-      public org.tron.protos.Protocol.DynamicProperties getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.DynamicProperties.getDefaultInstance();
+      public DynamicProperties getDefaultInstanceForType() {
+        return DynamicProperties.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.DynamicProperties build() {
-        org.tron.protos.Protocol.DynamicProperties result = buildPartial();
+      public DynamicProperties build() {
+        DynamicProperties result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.DynamicProperties buildPartial() {
-        org.tron.protos.Protocol.DynamicProperties result = new org.tron.protos.Protocol.DynamicProperties(this);
+      public DynamicProperties buildPartial() {
+        DynamicProperties result = new DynamicProperties(this);
         result.lastSolidityBlockNum_ = lastSolidityBlockNum_;
         onBuilt();
         return result;
@@ -17782,7 +21812,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -17795,25 +21825,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.DynamicProperties) {
-          return mergeFrom((org.tron.protos.Protocol.DynamicProperties)other);
+        if (other instanceof DynamicProperties) {
+          return mergeFrom((DynamicProperties)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.DynamicProperties other) {
-        if (other == org.tron.protos.Protocol.DynamicProperties.getDefaultInstance()) return this;
+      public Builder mergeFrom(DynamicProperties other) {
+        if (other == DynamicProperties.getDefaultInstance()) return this;
         if (other.getLastSolidityBlockNum() != 0L) {
           setLastSolidityBlockNum(other.getLastSolidityBlockNum());
         }
@@ -17830,11 +21860,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.DynamicProperties parsedMessage = null;
+        DynamicProperties parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.DynamicProperties) e.getUnfinishedMessage();
+          parsedMessage = (DynamicProperties) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -17884,12 +21914,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.DynamicProperties)
-    private static final org.tron.protos.Protocol.DynamicProperties DEFAULT_INSTANCE;
+    private static final DynamicProperties DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.DynamicProperties();
+      DEFAULT_INSTANCE = new DynamicProperties();
     }
 
-    public static org.tron.protos.Protocol.DynamicProperties getDefaultInstance() {
+    public static DynamicProperties getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17907,12 +21937,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<DynamicProperties> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.DynamicProperties getDefaultInstanceForType() {
+    public DynamicProperties getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17929,7 +21959,7 @@ public final class Protocol {
     /**
      * <code>.protocol.ReasonCode reason = 1;</code>
      */
-    org.tron.protos.Protocol.ReasonCode getReason();
+    ReasonCode getReason();
   }
   /**
    * Protobuf type {@code protocol.DisconnectMessage}
@@ -17947,7 +21977,7 @@ public final class Protocol {
       reason_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -17958,7 +21988,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -17998,14 +22028,14 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_DisconnectMessage_descriptor;
+      return Protocol.internal_static_protocol_DisconnectMessage_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_DisconnectMessage_fieldAccessorTable
+      return Protocol.internal_static_protocol_DisconnectMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.DisconnectMessage.class, org.tron.protos.Protocol.DisconnectMessage.Builder.class);
+              DisconnectMessage.class, Builder.class);
     }
 
     public static final int REASON_FIELD_NUMBER = 1;
@@ -18019,9 +22049,9 @@ public final class Protocol {
     /**
      * <code>.protocol.ReasonCode reason = 1;</code>
      */
-    public org.tron.protos.Protocol.ReasonCode getReason() {
-      org.tron.protos.Protocol.ReasonCode result = org.tron.protos.Protocol.ReasonCode.valueOf(reason_);
-      return result == null ? org.tron.protos.Protocol.ReasonCode.UNRECOGNIZED : result;
+    public ReasonCode getReason() {
+      ReasonCode result = ReasonCode.valueOf(reason_);
+      return result == null ? ReasonCode.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -18036,7 +22066,7 @@ public final class Protocol {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (reason_ != org.tron.protos.Protocol.ReasonCode.REQUESTED.getNumber()) {
+      if (reason_ != ReasonCode.REQUESTED.getNumber()) {
         output.writeEnum(1, reason_);
       }
       unknownFields.writeTo(output);
@@ -18047,7 +22077,7 @@ public final class Protocol {
       if (size != -1) return size;
 
       size = 0;
-      if (reason_ != org.tron.protos.Protocol.ReasonCode.REQUESTED.getNumber()) {
+      if (reason_ != ReasonCode.REQUESTED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, reason_);
       }
@@ -18056,15 +22086,15 @@ public final class Protocol {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.DisconnectMessage)) {
+      if (!(obj instanceof DisconnectMessage)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.DisconnectMessage other = (org.tron.protos.Protocol.DisconnectMessage) obj;
+      DisconnectMessage other = (DisconnectMessage) obj;
 
       boolean result = true;
       result = result && reason_ == other.reason_;
@@ -18072,7 +22102,7 @@ public final class Protocol {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -18086,69 +22116,69 @@ public final class Protocol {
       return hash;
     }
 
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(
+    public static DisconnectMessage parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(
+    public static DisconnectMessage parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(
+    public static DisconnectMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(
+    public static DisconnectMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(byte[] data)
+    public static DisconnectMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(
+    public static DisconnectMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(java.io.InputStream input)
+    public static DisconnectMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(
+    public static DisconnectMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseDelimitedFrom(java.io.InputStream input)
+    public static DisconnectMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseDelimitedFrom(
+    public static DisconnectMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(
+    public static DisconnectMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.DisconnectMessage parseFrom(
+    public static DisconnectMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -18160,7 +22190,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.DisconnectMessage prototype) {
+    public static Builder newBuilder(DisconnectMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -18168,9 +22198,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -18180,17 +22210,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.DisconnectMessage)
-        org.tron.protos.Protocol.DisconnectMessageOrBuilder {
+        DisconnectMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_DisconnectMessage_descriptor;
+        return Protocol.internal_static_protocol_DisconnectMessage_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_DisconnectMessage_fieldAccessorTable
+        return Protocol.internal_static_protocol_DisconnectMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.DisconnectMessage.class, org.tron.protos.Protocol.DisconnectMessage.Builder.class);
+                DisconnectMessage.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.DisconnectMessage.newBuilder()
@@ -18199,7 +22229,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -18217,23 +22247,23 @@ public final class Protocol {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_DisconnectMessage_descriptor;
+        return Protocol.internal_static_protocol_DisconnectMessage_descriptor;
       }
 
-      public org.tron.protos.Protocol.DisconnectMessage getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.DisconnectMessage.getDefaultInstance();
+      public DisconnectMessage getDefaultInstanceForType() {
+        return DisconnectMessage.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.DisconnectMessage build() {
-        org.tron.protos.Protocol.DisconnectMessage result = buildPartial();
+      public DisconnectMessage build() {
+        DisconnectMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.DisconnectMessage buildPartial() {
-        org.tron.protos.Protocol.DisconnectMessage result = new org.tron.protos.Protocol.DisconnectMessage(this);
+      public DisconnectMessage buildPartial() {
+        DisconnectMessage result = new DisconnectMessage(this);
         result.reason_ = reason_;
         onBuilt();
         return result;
@@ -18244,7 +22274,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -18257,25 +22287,25 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.DisconnectMessage) {
-          return mergeFrom((org.tron.protos.Protocol.DisconnectMessage)other);
+        if (other instanceof DisconnectMessage) {
+          return mergeFrom((DisconnectMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.DisconnectMessage other) {
-        if (other == org.tron.protos.Protocol.DisconnectMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(DisconnectMessage other) {
+        if (other == DisconnectMessage.getDefaultInstance()) return this;
         if (other.reason_ != 0) {
           setReasonValue(other.getReasonValue());
         }
@@ -18292,11 +22322,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.DisconnectMessage parsedMessage = null;
+        DisconnectMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.DisconnectMessage) e.getUnfinishedMessage();
+          parsedMessage = (DisconnectMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -18324,14 +22354,14 @@ public final class Protocol {
       /**
        * <code>.protocol.ReasonCode reason = 1;</code>
        */
-      public org.tron.protos.Protocol.ReasonCode getReason() {
-        org.tron.protos.Protocol.ReasonCode result = org.tron.protos.Protocol.ReasonCode.valueOf(reason_);
-        return result == null ? org.tron.protos.Protocol.ReasonCode.UNRECOGNIZED : result;
+      public ReasonCode getReason() {
+        ReasonCode result = ReasonCode.valueOf(reason_);
+        return result == null ? ReasonCode.UNRECOGNIZED : result;
       }
       /**
        * <code>.protocol.ReasonCode reason = 1;</code>
        */
-      public Builder setReason(org.tron.protos.Protocol.ReasonCode value) {
+      public Builder setReason(ReasonCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -18364,12 +22394,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.DisconnectMessage)
-    private static final org.tron.protos.Protocol.DisconnectMessage DEFAULT_INSTANCE;
+    private static final DisconnectMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.DisconnectMessage();
+      DEFAULT_INSTANCE = new DisconnectMessage();
     }
 
-    public static org.tron.protos.Protocol.DisconnectMessage getDefaultInstance() {
+    public static DisconnectMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18387,12 +22417,12 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<DisconnectMessage> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.DisconnectMessage getDefaultInstanceForType() {
+    public DisconnectMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18409,16 +22439,21 @@ public final class Protocol {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.Endpoint getFrom();
+    Discover.Endpoint getFrom();
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder();
+    Discover.EndpointOrBuilder getFromOrBuilder();
 
     /**
      * <code>int32 version = 2;</code>
      */
     int getVersion();
+
+    /**
+     * <code>int64 timestamp = 3;</code>
+     */
+    long getTimestamp();
   }
   /**
    * Protobuf type {@code protocol.HelloMessage}
@@ -18434,9 +22469,10 @@ public final class Protocol {
     }
     private HelloMessage() {
       version_ = 0;
+      timestamp_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -18447,7 +22483,7 @@ public final class Protocol {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -18468,11 +22504,11 @@ public final class Protocol {
               break;
             }
             case 10: {
-              org.tron.protos.Discover.Endpoint.Builder subBuilder = null;
+              Discover.Endpoint.Builder subBuilder = null;
               if (from_ != null) {
                 subBuilder = from_.toBuilder();
               }
-              from_ = input.readMessage(org.tron.protos.Discover.Endpoint.parser(), extensionRegistry);
+              from_ = input.readMessage(Discover.Endpoint.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(from_);
                 from_ = subBuilder.buildPartial();
@@ -18483,6 +22519,11 @@ public final class Protocol {
             case 16: {
 
               version_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              timestamp_ = input.readInt64();
               break;
             }
           }
@@ -18499,18 +22540,18 @@ public final class Protocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_descriptor;
+      return Protocol.internal_static_protocol_HelloMessage_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_fieldAccessorTable
+      return Protocol.internal_static_protocol_HelloMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.HelloMessage.class, org.tron.protos.Protocol.HelloMessage.Builder.class);
+              HelloMessage.class, Builder.class);
     }
 
     public static final int FROM_FIELD_NUMBER = 1;
-    private org.tron.protos.Discover.Endpoint from_;
+    private Discover.Endpoint from_;
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
@@ -18520,13 +22561,13 @@ public final class Protocol {
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.Endpoint getFrom() {
-      return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+    public Discover.Endpoint getFrom() {
+      return from_ == null ? Discover.Endpoint.getDefaultInstance() : from_;
     }
     /**
      * <code>.protocol.Endpoint from = 1;</code>
      */
-    public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+    public Discover.EndpointOrBuilder getFromOrBuilder() {
       return getFrom();
     }
 
@@ -18537,6 +22578,15 @@ public final class Protocol {
      */
     public int getVersion() {
       return version_;
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private long timestamp_;
+    /**
+     * <code>int64 timestamp = 3;</code>
+     */
+    public long getTimestamp() {
+      return timestamp_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -18557,6 +22607,9 @@ public final class Protocol {
       if (version_ != 0) {
         output.writeInt32(2, version_);
       }
+      if (timestamp_ != 0L) {
+        output.writeInt64(3, timestamp_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -18573,20 +22626,24 @@ public final class Protocol {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, version_);
       }
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, timestamp_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Protocol.HelloMessage)) {
+      if (!(obj instanceof HelloMessage)) {
         return super.equals(obj);
       }
-      org.tron.protos.Protocol.HelloMessage other = (org.tron.protos.Protocol.HelloMessage) obj;
+      HelloMessage other = (HelloMessage) obj;
 
       boolean result = true;
       result = result && (hasFrom() == other.hasFrom());
@@ -18596,11 +22653,13 @@ public final class Protocol {
       }
       result = result && (getVersion()
           == other.getVersion());
+      result = result && (getTimestamp()
+          == other.getTimestamp());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -18613,74 +22672,77 @@ public final class Protocol {
       }
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestamp());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(
+    public static HelloMessage parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(
+    public static HelloMessage parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(
+    public static HelloMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(
+    public static HelloMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(byte[] data)
+    public static HelloMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(
+    public static HelloMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(java.io.InputStream input)
+    public static HelloMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(
+    public static HelloMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseDelimitedFrom(java.io.InputStream input)
+    public static HelloMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseDelimitedFrom(
+    public static HelloMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(
+    public static HelloMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Protocol.HelloMessage parseFrom(
+    public static HelloMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -18692,7 +22754,7 @@ public final class Protocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Protocol.HelloMessage prototype) {
+    public static Builder newBuilder(HelloMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -18700,9 +22762,9 @@ public final class Protocol {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -18712,17 +22774,17 @@ public final class Protocol {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:protocol.HelloMessage)
-        org.tron.protos.Protocol.HelloMessageOrBuilder {
+        HelloMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_descriptor;
+        return Protocol.internal_static_protocol_HelloMessage_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_fieldAccessorTable
+        return Protocol.internal_static_protocol_HelloMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.HelloMessage.class, org.tron.protos.Protocol.HelloMessage.Builder.class);
+                HelloMessage.class, Builder.class);
       }
 
       // Construct using org.tron.protos.Protocol.HelloMessage.newBuilder()
@@ -18731,7 +22793,7 @@ public final class Protocol {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -18750,34 +22812,37 @@ public final class Protocol {
         }
         version_ = 0;
 
+        timestamp_ = 0L;
+
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_descriptor;
+        return Protocol.internal_static_protocol_HelloMessage_descriptor;
       }
 
-      public org.tron.protos.Protocol.HelloMessage getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.HelloMessage.getDefaultInstance();
+      public HelloMessage getDefaultInstanceForType() {
+        return HelloMessage.getDefaultInstance();
       }
 
-      public org.tron.protos.Protocol.HelloMessage build() {
-        org.tron.protos.Protocol.HelloMessage result = buildPartial();
+      public HelloMessage build() {
+        HelloMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Protocol.HelloMessage buildPartial() {
-        org.tron.protos.Protocol.HelloMessage result = new org.tron.protos.Protocol.HelloMessage(this);
+      public HelloMessage buildPartial() {
+        HelloMessage result = new HelloMessage(this);
         if (fromBuilder_ == null) {
           result.from_ = from_;
         } else {
           result.from_ = fromBuilder_.build();
         }
         result.version_ = version_;
+        result.timestamp_ = timestamp_;
         onBuilt();
         return result;
       }
@@ -18787,7 +22852,7 @@ public final class Protocol {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -18800,30 +22865,33 @@ public final class Protocol {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.HelloMessage) {
-          return mergeFrom((org.tron.protos.Protocol.HelloMessage)other);
+        if (other instanceof HelloMessage) {
+          return mergeFrom((HelloMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Protocol.HelloMessage other) {
-        if (other == org.tron.protos.Protocol.HelloMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(HelloMessage other) {
+        if (other == HelloMessage.getDefaultInstance()) return this;
         if (other.hasFrom()) {
           mergeFrom(other.getFrom());
         }
         if (other.getVersion() != 0) {
           setVersion(other.getVersion());
+        }
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -18838,11 +22906,11 @@ public final class Protocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Protocol.HelloMessage parsedMessage = null;
+        HelloMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.HelloMessage) e.getUnfinishedMessage();
+          parsedMessage = (HelloMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -18852,9 +22920,9 @@ public final class Protocol {
         return this;
       }
 
-      private org.tron.protos.Discover.Endpoint from_ = null;
+      private Discover.Endpoint from_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> fromBuilder_;
+          Discover.Endpoint, Discover.Endpoint.Builder, Discover.EndpointOrBuilder> fromBuilder_;
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
@@ -18864,9 +22932,9 @@ public final class Protocol {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint getFrom() {
+      public Discover.Endpoint getFrom() {
         if (fromBuilder_ == null) {
-          return from_ == null ? org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+          return from_ == null ? Discover.Endpoint.getDefaultInstance() : from_;
         } else {
           return fromBuilder_.getMessage();
         }
@@ -18874,7 +22942,7 @@ public final class Protocol {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder setFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder setFrom(Discover.Endpoint value) {
         if (fromBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -18891,7 +22959,7 @@ public final class Protocol {
        * <code>.protocol.Endpoint from = 1;</code>
        */
       public Builder setFrom(
-          org.tron.protos.Discover.Endpoint.Builder builderForValue) {
+          Discover.Endpoint.Builder builderForValue) {
         if (fromBuilder_ == null) {
           from_ = builderForValue.build();
           onChanged();
@@ -18904,11 +22972,11 @@ public final class Protocol {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public Builder mergeFrom(org.tron.protos.Discover.Endpoint value) {
+      public Builder mergeFrom(Discover.Endpoint value) {
         if (fromBuilder_ == null) {
           if (from_ != null) {
             from_ =
-              org.tron.protos.Discover.Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
+              Discover.Endpoint.newBuilder(from_).mergeFrom(value).buildPartial();
           } else {
             from_ = value;
           }
@@ -18936,7 +23004,7 @@ public final class Protocol {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.Endpoint.Builder getFromBuilder() {
+      public Discover.Endpoint.Builder getFromBuilder() {
         
         onChanged();
         return getFromFieldBuilder().getBuilder();
@@ -18944,23 +23012,23 @@ public final class Protocol {
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
-      public org.tron.protos.Discover.EndpointOrBuilder getFromOrBuilder() {
+      public Discover.EndpointOrBuilder getFromOrBuilder() {
         if (fromBuilder_ != null) {
           return fromBuilder_.getMessageOrBuilder();
         } else {
           return from_ == null ?
-              org.tron.protos.Discover.Endpoint.getDefaultInstance() : from_;
+              Discover.Endpoint.getDefaultInstance() : from_;
         }
       }
       /**
        * <code>.protocol.Endpoint from = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder> 
+          Discover.Endpoint, Discover.Endpoint.Builder, Discover.EndpointOrBuilder>
           getFromFieldBuilder() {
         if (fromBuilder_ == null) {
           fromBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.tron.protos.Discover.Endpoint, org.tron.protos.Discover.Endpoint.Builder, org.tron.protos.Discover.EndpointOrBuilder>(
+              Discover.Endpoint, Discover.Endpoint.Builder, Discover.EndpointOrBuilder>(
                   getFrom(),
                   getParentForChildren(),
                   isClean());
@@ -18994,6 +23062,32 @@ public final class Protocol {
         onChanged();
         return this;
       }
+
+      private long timestamp_ ;
+      /**
+       * <code>int64 timestamp = 3;</code>
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>int64 timestamp = 3;</code>
+       */
+      public Builder setTimestamp(long value) {
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 timestamp = 3;</code>
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
@@ -19009,12 +23103,12 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:protocol.HelloMessage)
-    private static final org.tron.protos.Protocol.HelloMessage DEFAULT_INSTANCE;
+    private static final HelloMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.HelloMessage();
+      DEFAULT_INSTANCE = new HelloMessage();
     }
 
-    public static org.tron.protos.Protocol.HelloMessage getDefaultInstance() {
+    public static HelloMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -19032,17 +23126,22 @@ public final class Protocol {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<HelloMessage> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Protocol.HelloMessage getDefaultInstanceForType() {
+    public HelloMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_AccountId_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_AccountId_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Account_descriptor;
   private static final 
@@ -19054,10 +23153,25 @@ public final class Protocol {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Account_Vote_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_Account_Frozen_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_Account_Frozen_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Account_AssetEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Account_AssetEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_acuthrity_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_acuthrity_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_permision_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_permision_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Witness_descriptor;
   private static final 
@@ -19171,90 +23285,106 @@ public final class Protocol {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\017core/Tron.proto\022\010protocol\032\031google/prot" +
-      "obuf/any.proto\032\023core/Discover.proto\"\270\002\n\007" +
-      "Account\022\024\n\014account_name\030\001 \001(\014\022#\n\004type\030\002 " +
-      "\001(\0162\025.protocol.AccountType\022\017\n\007address\030\003 " +
-      "\001(\014\022\017\n\007balance\030\004 \001(\003\022%\n\005votes\030\005 \003(\0132\026.pr" +
-      "otocol.Account.Vote\022+\n\005asset\030\006 \003(\0132\034.pro" +
-      "tocol.Account.AssetEntry\022\034\n\024latest_oprat" +
-      "ion_time\030\n \001(\003\0320\n\004Vote\022\024\n\014vote_address\030\001" +
-      " \001(\014\022\022\n\nvote_count\030\002 \001(\003\032,\n\nAssetEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\"\265\001\n\007Witne" +
-      "ss\022\017\n\007address\030\001 \001(\014\022\021\n\tvoteCount\030\002 \001(\003\022\016" +
-      "\n\006pubKey\030\003 \001(\014\022\013\n\003url\030\004 \001(\t\022\025\n\rtotalProd" +
-      "uced\030\005 \001(\003\022\023\n\013totalMissed\030\006 \001(\003\022\026\n\016lates" +
-      "tBlockNum\030\007 \001(\003\022\025\n\rlatestSlotNum\030\010 \001(\003\022\016" +
-      "\n\006isJobs\030\t \001(\010\"-\n\010TXOutput\022\r\n\005value\030\001 \001(" +
-      "\003\022\022\n\npubKeyHash\030\002 \001(\014\"x\n\007TXInput\022\'\n\010raw_" +
-      "data\030\001 \001(\0132\025.protocol.TXInput.raw\022\021\n\tsig" +
-      "nature\030\004 \001(\014\0321\n\003raw\022\014\n\004txID\030\001 \001(\014\022\014\n\004vou" +
-      "t\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\"0\n\tTXOutputs\022#\n\007" +
-      "outputs\030\001 \003(\0132\022.protocol.TXOutput\"\371\006\n\013Tr" +
-      "ansaction\022+\n\010raw_data\030\001 \001(\0132\031.protocol.T" +
-      "ransaction.raw\022\021\n\tsignature\030\002 \003(\014\022)\n\003ret" +
-      "\030\005 \003(\0132\034.protocol.Transaction.Result\032\200\003\n" +
-      "\010Contract\0229\n\004type\030\001 \001(\0162+.protocol.Trans" +
-      "action.Contract.ContractType\022\'\n\tparamete" +
-      "r\030\002 \001(\0132\024.google.protobuf.Any\"\217\002\n\014Contra" +
-      "ctType\022\031\n\025AccountCreateContract\020\000\022\024\n\020Tra" +
-      "nsferContract\020\001\022\031\n\025TransferAssetContract" +
-      "\020\002\022\025\n\021VoteAssetContract\020\003\022\027\n\023VoteWitness" +
-      "Contract\020\004\022\031\n\025WitnessCreateContract\020\005\022\026\n" +
-      "\022AssetIssueContract\020\006\022\022\n\016DeployContract\020" +
-      "\007\022\031\n\025WitnessUpdateContract\020\010\022!\n\035Particip" +
-      "ateAssetIssueContract\020\t\032e\n\006Result\022\013\n\003fee" +
-      "\030\001 \001(\003\022.\n\003ret\030\002 \001(\0162!.protocol.Transacti" +
-      "on.Result.code\"\036\n\004code\022\n\n\006SUCESS\020\000\022\n\n\006FA" +
-      "ILED\020\001\032\341\001\n\003raw\0223\n\004type\030\001 \001(\0162%.protocol." +
-      "Transaction.TransactionType\022\025\n\rref_block" +
-      "_num\030\003 \001(\003\022\026\n\016ref_block_hash\030\004 \001(\014\022\022\n\nex" +
-      "piration\030\010 \001(\003\022\014\n\004data\030\n \001(\014\0220\n\010contract" +
-      "\030\013 \003(\0132\036.protocol.Transaction.Contract\022\017" +
-      "\n\007scripts\030\014 \001(\014\022\021\n\ttimestamp\030\016 \001(\003\"1\n\017Tr" +
-      "ansactionType\022\014\n\010UtxoType\020\000\022\020\n\014ContractT" +
-      "ype\020\001\"\324\001\n\013BlockHeader\022+\n\010raw_data\030\001 \001(\0132" +
-      "\031.protocol.BlockHeader.raw\022\031\n\021witness_si" +
-      "gnature\030\002 \001(\014\032}\n\003raw\022\021\n\ttimestamp\030\001 \001(\003\022" +
-      "\022\n\ntxTrieRoot\030\002 \001(\014\022\022\n\nparentHash\030\003 \001(\014\022" +
-      "\016\n\006number\030\007 \001(\003\022\022\n\nwitness_id\030\010 \001(\003\022\027\n\017w" +
-      "itness_address\030\t \001(\014\"a\n\005Block\022+\n\014transac" +
-      "tions\030\001 \003(\0132\025.protocol.Transaction\022+\n\014bl" +
-      "ock_header\030\002 \001(\0132\025.protocol.BlockHeader\"" +
-      "|\n\016ChainInventory\022-\n\003ids\030\001 \003(\0132 .protoco" +
-      "l.ChainInventory.BlockId\022\022\n\nremain_num\030\002" +
-      " \001(\003\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030" +
-      "\002 \001(\003\"\277\001\n\016BlockInventory\022-\n\003ids\030\001 \003(\0132 ." +
-      "protocol.BlockInventory.BlockId\022+\n\004type\030" +
-      "\002 \001(\0162\035.protocol.BlockInventory.Type\032\'\n\007" +
-      "BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"(\n" +
-      "\004Type\022\010\n\004SYNC\020\000\022\013\n\007ADVTISE\020\001\022\t\n\005FETCH\020\002\"" +
-      "n\n\tInventory\022/\n\004type\030\001 \001(\0162!.protocol.In" +
-      "ventory.InventoryType\022\013\n\003ids\030\002 \003(\014\"#\n\rIn" +
-      "ventoryType\022\007\n\003TRX\020\000\022\t\n\005BLOCK\020\001\"\345\001\n\005Item" +
-      "s\022&\n\004type\030\001 \001(\0162\030.protocol.Items.ItemTyp" +
-      "e\022\037\n\006blocks\030\002 \003(\0132\017.protocol.Block\022,\n\rbl" +
-      "ock_headers\030\003 \003(\0132\025.protocol.BlockHeader" +
-      "\022+\n\014transactions\030\004 \003(\0132\025.protocol.Transa" +
-      "ction\"8\n\010ItemType\022\007\n\003ERR\020\000\022\007\n\003TRX\020\001\022\t\n\005B" +
-      "LOCK\020\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021DynamicProper" +
-      "ties\022\037\n\027last_solidity_block_num\030\001 \001(\003\"9\n" +
-      "\021DisconnectMessage\022$\n\006reason\030\001 \001(\0162\024.pro" +
-      "tocol.ReasonCode\"A\n\014HelloMessage\022 \n\004from" +
-      "\030\001 \001(\0132\022.protocol.Endpoint\022\017\n\007version\030\002 " +
-      "\001(\005*7\n\013AccountType\022\n\n\006Normal\020\000\022\016\n\nAssetI" +
-      "ssue\020\001\022\014\n\010Contract\020\002*\256\002\n\nReasonCode\022\r\n\tR" +
-      "EQUESTED\020\000\022\r\n\tTCP_ERROR\020\001\022\020\n\014BAD_PROTOCO" +
-      "L\020\002\022\020\n\014USELESS_PEER\020\003\022\022\n\016TOO_MANY_PEERS\020" +
-      "\004\022\022\n\016DUPLICATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PR" +
-      "OTOCOL\020\006\022\021\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUIT" +
-      "ING\020\010\022\027\n\023UNEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_" +
-      "IDENTITY\020\n\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REA" +
-      "SON\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\014\n\007UNKNO" +
-      "WN\020\377\001BF\n\017org.tron.protosB\010ProtocolZ)gith" +
-      "ub.com/tronprotocol/grpc-gateway/coreb\006p" +
-      "roto3"
+      "obuf/any.proto\032\023core/Discover.proto\"*\n\tA" +
+      "ccountId\022\014\n\004name\030\001 \001(\014\022\017\n\007address\030\002 \001(\014\"" +
+      "\200\004\n\007Account\022\024\n\014account_name\030\001 \001(\014\022#\n\004typ" +
+      "e\030\002 \001(\0162\025.protocol.AccountType\022\017\n\007addres" +
+      "s\030\003 \001(\014\022\017\n\007balance\030\004 \001(\003\022%\n\005votes\030\005 \003(\0132" +
+      "\026.protocol.Account.Vote\022+\n\005asset\030\006 \003(\0132\034" +
+      ".protocol.Account.AssetEntry\022(\n\006frozen\030\007" +
+      " \003(\0132\030.protocol.Account.Frozen\022\021\n\tbandwi" +
+      "dth\030\010 \001(\003\022\023\n\013create_time\030\t \001(\003\022\034\n\024latest" +
+      "_opration_time\030\n \001(\003\022\021\n\tallowance\030\013 \001(\003\022" +
+      "\034\n\024latest_withdraw_time\030\014 \001(\003\022\014\n\004code\030\r " +
+      "\001(\014\0320\n\004Vote\022\024\n\014vote_address\030\001 \001(\014\022\022\n\nvot" +
+      "e_count\030\002 \001(\003\0325\n\006Frozen\022\026\n\016frozen_balanc" +
+      "e\030\001 \001(\003\022\023\n\013expire_time\030\002 \001(\003\032,\n\nAssetEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\"J\n\tac" +
+      "uthrity\022$\n\007account\030\001 \001(\0132\023.protocol.Acco" +
+      "untId\022\027\n\017permission_name\030\002 \001(\014\"1\n\tpermis" +
+      "ion\022$\n\007account\030\001 \001(\0132\023.protocol.AccountI" +
+      "d\"\265\001\n\007Witness\022\017\n\007address\030\001 \001(\014\022\021\n\tvoteCo" +
+      "unt\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\022\013\n\003url\030\004 \001(\t\022\025" +
+      "\n\rtotalProduced\030\005 \001(\003\022\023\n\013totalMissed\030\006 \001" +
+      "(\003\022\026\n\016latestBlockNum\030\007 \001(\003\022\025\n\rlatestSlot" +
+      "Num\030\010 \001(\003\022\016\n\006isJobs\030\t \001(\010\"-\n\010TXOutput\022\r\n" +
+      "\005value\030\001 \001(\003\022\022\n\npubKeyHash\030\002 \001(\014\"x\n\007TXIn" +
+      "put\022\'\n\010raw_data\030\001 \001(\0132\025.protocol.TXInput" +
+      ".raw\022\021\n\tsignature\030\004 \001(\014\0321\n\003raw\022\014\n\004txID\030\001" +
+      " \001(\014\022\014\n\004vout\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\"0\n\tTX" +
+      "Outputs\022#\n\007outputs\030\001 \003(\0132\022.protocol.TXOu" +
+      "tput\"\372\007\n\013Transaction\022+\n\010raw_data\030\001 \001(\0132\031" +
+      ".protocol.Transaction.raw\022\021\n\tsignature\030\002" +
+      " \003(\014\022)\n\003ret\030\005 \003(\0132\034.protocol.Transaction" +
+      ".Result\032\254\004\n\010Contract\0229\n\004type\030\001 \001(\0162+.pro" +
+      "tocol.Transaction.Contract.ContractType\022" +
+      "\'\n\tparameter\030\002 \001(\0132\024.google.protobuf.Any" +
+      "\022\020\n\010provider\030\003 \001(\014\022\024\n\014ContractName\030\004 \001(\014" +
+      "\"\223\003\n\014ContractType\022\031\n\025AccountCreateContra" +
+      "ct\020\000\022\024\n\020TransferContract\020\001\022\031\n\025TransferAs" +
+      "setContract\020\002\022\025\n\021VoteAssetContract\020\003\022\027\n\023" +
+      "VoteWitnessContract\020\004\022\031\n\025WitnessCreateCo" +
+      "ntract\020\005\022\026\n\022AssetIssueContract\020\006\022\022\n\016Depl" +
+      "oyContract\020\007\022\031\n\025WitnessUpdateContract\020\010\022" +
+      "!\n\035ParticipateAssetIssueContract\020\t\022\031\n\025Ac" +
+      "countUpdateContract\020\n\022\031\n\025FreezeBalanceCo" +
+      "ntract\020\013\022\033\n\027UnfreezeBalanceContract\020\014\022\033\n" +
+      "\027WithdrawBalanceContract\020\r\022\022\n\016CustomCont" +
+      "ract\020\024\032e\n\006Result\022\013\n\003fee\030\001 \001(\003\022.\n\003ret\030\002 \001" +
+      "(\0162!.protocol.Transaction.Result.code\"\036\n" +
+      "\004code\022\n\n\006SUCESS\020\000\022\n\n\006FAILED\020\001\032\351\001\n\003raw\022\027\n" +
+      "\017ref_block_bytes\030\001 \001(\014\022\025\n\rref_block_num\030" +
+      "\003 \001(\003\022\026\n\016ref_block_hash\030\004 \001(\014\022\022\n\nexpirat" +
+      "ion\030\010 \001(\003\022\"\n\005auths\030\t \003(\0132\023.protocol.acut" +
+      "hrity\022\014\n\004data\030\n \001(\014\0220\n\010contract\030\013 \003(\0132\036." +
+      "protocol.Transaction.Contract\022\017\n\007scripts" +
+      "\030\014 \001(\014\022\021\n\ttimestamp\030\016 \001(\003\"\324\001\n\013BlockHeade" +
+      "r\022+\n\010raw_data\030\001 \001(\0132\031.protocol.BlockHead" +
+      "er.raw\022\031\n\021witness_signature\030\002 \001(\014\032}\n\003raw" +
+      "\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\ntxTrieRoot\030\002 \001(\014\022" +
+      "\022\n\nparentHash\030\003 \001(\014\022\016\n\006number\030\007 \001(\003\022\022\n\nw" +
+      "itness_id\030\010 \001(\003\022\027\n\017witness_address\030\t \001(\014" +
+      "\"a\n\005Block\022+\n\014transactions\030\001 \003(\0132\025.protoc" +
+      "ol.Transaction\022+\n\014block_header\030\002 \001(\0132\025.p" +
+      "rotocol.BlockHeader\"|\n\016ChainInventory\022-\n" +
+      "\003ids\030\001 \003(\0132 .protocol.ChainInventory.Blo" +
+      "ckId\022\022\n\nremain_num\030\002 \001(\003\032\'\n\007BlockId\022\014\n\004h" +
+      "ash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"\277\001\n\016BlockInven" +
+      "tory\022-\n\003ids\030\001 \003(\0132 .protocol.BlockInvent" +
+      "ory.BlockId\022+\n\004type\030\002 \001(\0162\035.protocol.Blo" +
+      "ckInventory.Type\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(" +
+      "\014\022\016\n\006number\030\002 \001(\003\"(\n\004Type\022\010\n\004SYNC\020\000\022\013\n\007A" +
+      "DVTISE\020\001\022\t\n\005FETCH\020\002\"n\n\tInventory\022/\n\004type" +
+      "\030\001 \001(\0162!.protocol.Inventory.InventoryTyp" +
+      "e\022\013\n\003ids\030\002 \003(\014\"#\n\rInventoryType\022\007\n\003TRX\020\000" +
+      "\022\t\n\005BLOCK\020\001\"\345\001\n\005Items\022&\n\004type\030\001 \001(\0162\030.pr" +
+      "otocol.Items.ItemType\022\037\n\006blocks\030\002 \003(\0132\017." +
+      "protocol.Block\022,\n\rblock_headers\030\003 \003(\0132\025." +
+      "protocol.BlockHeader\022+\n\014transactions\030\004 \003" +
+      "(\0132\025.protocol.Transaction\"8\n\010ItemType\022\007\n" +
+      "\003ERR\020\000\022\007\n\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013BLOCKHEADE" +
+      "R\020\003\"4\n\021DynamicProperties\022\037\n\027last_solidit" +
+      "y_block_num\030\001 \001(\003\"9\n\021DisconnectMessage\022$" +
+      "\n\006reason\030\001 \001(\0162\024.protocol.ReasonCode\"T\n\014" +
+      "HelloMessage\022 \n\004from\030\001 \001(\0132\022.protocol.En" +
+      "dpoint\022\017\n\007version\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001" +
+      "(\003*7\n\013AccountType\022\n\n\006Normal\020\000\022\016\n\nAssetIs" +
+      "sue\020\001\022\014\n\010Contract\020\002*\245\003\n\nReasonCode\022\r\n\tRE" +
+      "QUESTED\020\000\022\r\n\tTCP_ERROR\020\001\022\020\n\014BAD_PROTOCOL" +
+      "\020\002\022\020\n\014USELESS_PEER\020\003\022\022\n\016TOO_MANY_PEERS\020\004" +
+      "\022\022\n\016DUPLICATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PRO" +
+      "TOCOL\020\006\022\021\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITI" +
+      "NG\020\010\022\027\n\023UNEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_I" +
+      "DENTITY\020\n\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REAS" +
+      "ON\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\014\n\010TIME_O" +
+      "UT\020\023\022\n\n\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FORKE" +
+      "D\020\026\022\016\n\nUNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VERS" +
+      "ION\020\030\022\026\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\007UNKNOWN" +
+      "\020\377\001BF\n\017org.tron.protosB\010ProtocolZ)github" +
+      ".com/tronprotocol/grpc-gateway/coreb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19268,154 +23398,178 @@ public final class Protocol {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.AnyProto.getDescriptor(),
-          org.tron.protos.Discover.getDescriptor(),
+          Discover.getDescriptor(),
         }, assigner);
-    internal_static_protocol_Account_descriptor =
+    internal_static_protocol_AccountId_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_protocol_AccountId_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_AccountId_descriptor,
+        new String[] { "Name", "Address", });
+    internal_static_protocol_Account_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_protocol_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_descriptor,
-        new java.lang.String[] { "AccountName", "Type", "Address", "Balance", "Votes", "Asset", "LatestOprationTime", });
+        new String[] { "AccountName", "Type", "Address", "Balance", "Votes", "Asset", "Frozen", "Bandwidth", "CreateTime", "LatestOprationTime", "Allowance", "LatestWithdrawTime", "Code", });
     internal_static_protocol_Account_Vote_descriptor =
       internal_static_protocol_Account_descriptor.getNestedTypes().get(0);
     internal_static_protocol_Account_Vote_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_Vote_descriptor,
-        new java.lang.String[] { "VoteAddress", "VoteCount", });
-    internal_static_protocol_Account_AssetEntry_descriptor =
+        new String[] { "VoteAddress", "VoteCount", });
+    internal_static_protocol_Account_Frozen_descriptor =
       internal_static_protocol_Account_descriptor.getNestedTypes().get(1);
+    internal_static_protocol_Account_Frozen_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_Account_Frozen_descriptor,
+        new String[] { "FrozenBalance", "ExpireTime", });
+    internal_static_protocol_Account_AssetEntry_descriptor =
+      internal_static_protocol_Account_descriptor.getNestedTypes().get(2);
     internal_static_protocol_Account_AssetEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_AssetEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new String[] { "Key", "Value", });
+    internal_static_protocol_acuthrity_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_protocol_acuthrity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_acuthrity_descriptor,
+        new String[] { "Account", "PermissionName", });
+    internal_static_protocol_permision_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_protocol_permision_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_permision_descriptor,
+        new String[] { "Account", });
     internal_static_protocol_Witness_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_protocol_Witness_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Witness_descriptor,
-        new java.lang.String[] { "Address", "VoteCount", "PubKey", "Url", "TotalProduced", "TotalMissed", "LatestBlockNum", "LatestSlotNum", "IsJobs", });
+        new String[] { "Address", "VoteCount", "PubKey", "Url", "TotalProduced", "TotalMissed", "LatestBlockNum", "LatestSlotNum", "IsJobs", });
     internal_static_protocol_TXOutput_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_protocol_TXOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXOutput_descriptor,
-        new java.lang.String[] { "Value", "PubKeyHash", });
+        new String[] { "Value", "PubKeyHash", });
     internal_static_protocol_TXInput_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_protocol_TXInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXInput_descriptor,
-        new java.lang.String[] { "RawData", "Signature", });
+        new String[] { "RawData", "Signature", });
     internal_static_protocol_TXInput_raw_descriptor =
       internal_static_protocol_TXInput_descriptor.getNestedTypes().get(0);
     internal_static_protocol_TXInput_raw_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXInput_raw_descriptor,
-        new java.lang.String[] { "TxID", "Vout", "PubKey", });
+        new String[] { "TxID", "Vout", "PubKey", });
     internal_static_protocol_TXOutputs_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_protocol_TXOutputs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXOutputs_descriptor,
-        new java.lang.String[] { "Outputs", });
+        new String[] { "Outputs", });
     internal_static_protocol_Transaction_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_protocol_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transaction_descriptor,
-        new java.lang.String[] { "RawData", "Signature", "Ret", });
+        new String[] { "RawData", "Signature", "Ret", });
     internal_static_protocol_Transaction_Contract_descriptor =
       internal_static_protocol_Transaction_descriptor.getNestedTypes().get(0);
     internal_static_protocol_Transaction_Contract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transaction_Contract_descriptor,
-        new java.lang.String[] { "Type", "Parameter", });
+        new String[] { "Type", "Parameter", "Provider", "ContractName", });
     internal_static_protocol_Transaction_Result_descriptor =
       internal_static_protocol_Transaction_descriptor.getNestedTypes().get(1);
     internal_static_protocol_Transaction_Result_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transaction_Result_descriptor,
-        new java.lang.String[] { "Fee", "Ret", });
+        new String[] { "Fee", "Ret", });
     internal_static_protocol_Transaction_raw_descriptor =
       internal_static_protocol_Transaction_descriptor.getNestedTypes().get(2);
     internal_static_protocol_Transaction_raw_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transaction_raw_descriptor,
-        new java.lang.String[] { "Type", "RefBlockNum", "RefBlockHash", "Expiration", "Data", "Contract", "Scripts", "Timestamp", });
+        new String[] { "RefBlockBytes", "RefBlockNum", "RefBlockHash", "Expiration", "Auths", "Data", "Contract", "Scripts", "Timestamp", });
     internal_static_protocol_BlockHeader_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_protocol_BlockHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockHeader_descriptor,
-        new java.lang.String[] { "RawData", "WitnessSignature", });
+        new String[] { "RawData", "WitnessSignature", });
     internal_static_protocol_BlockHeader_raw_descriptor =
       internal_static_protocol_BlockHeader_descriptor.getNestedTypes().get(0);
     internal_static_protocol_BlockHeader_raw_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockHeader_raw_descriptor,
-        new java.lang.String[] { "Timestamp", "TxTrieRoot", "ParentHash", "Number", "WitnessId", "WitnessAddress", });
+        new String[] { "Timestamp", "TxTrieRoot", "ParentHash", "Number", "WitnessId", "WitnessAddress", });
     internal_static_protocol_Block_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_protocol_Block_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Block_descriptor,
-        new java.lang.String[] { "Transactions", "BlockHeader", });
+        new String[] { "Transactions", "BlockHeader", });
     internal_static_protocol_ChainInventory_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_protocol_ChainInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ChainInventory_descriptor,
-        new java.lang.String[] { "Ids", "RemainNum", });
+        new String[] { "Ids", "RemainNum", });
     internal_static_protocol_ChainInventory_BlockId_descriptor =
       internal_static_protocol_ChainInventory_descriptor.getNestedTypes().get(0);
     internal_static_protocol_ChainInventory_BlockId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ChainInventory_BlockId_descriptor,
-        new java.lang.String[] { "Hash", "Number", });
+        new String[] { "Hash", "Number", });
     internal_static_protocol_BlockInventory_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_protocol_BlockInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockInventory_descriptor,
-        new java.lang.String[] { "Ids", "Type", });
+        new String[] { "Ids", "Type", });
     internal_static_protocol_BlockInventory_BlockId_descriptor =
       internal_static_protocol_BlockInventory_descriptor.getNestedTypes().get(0);
     internal_static_protocol_BlockInventory_BlockId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockInventory_BlockId_descriptor,
-        new java.lang.String[] { "Hash", "Number", });
+        new String[] { "Hash", "Number", });
     internal_static_protocol_Inventory_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_protocol_Inventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Inventory_descriptor,
-        new java.lang.String[] { "Type", "Ids", });
+        new String[] { "Type", "Ids", });
     internal_static_protocol_Items_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_protocol_Items_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Items_descriptor,
-        new java.lang.String[] { "Type", "Blocks", "BlockHeaders", "Transactions", });
+        new String[] { "Type", "Blocks", "BlockHeaders", "Transactions", });
     internal_static_protocol_DynamicProperties_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_protocol_DynamicProperties_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DynamicProperties_descriptor,
-        new java.lang.String[] { "LastSolidityBlockNum", });
+        new String[] { "LastSolidityBlockNum", });
     internal_static_protocol_DisconnectMessage_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_protocol_DisconnectMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DisconnectMessage_descriptor,
-        new java.lang.String[] { "Reason", });
+        new String[] { "Reason", });
     internal_static_protocol_HelloMessage_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_protocol_HelloMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_HelloMessage_descriptor,
-        new java.lang.String[] { "From", "Version", });
+        new String[] { "From", "Version", "Timestamp", });
     com.google.protobuf.AnyProto.getDescriptor();
-    org.tron.protos.Discover.getDescriptor();
+    Discover.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

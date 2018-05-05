@@ -100,7 +100,6 @@ public class WalletClient {
     }
     contractBuilder.setType(Transaction.Contract.ContractType.TransferContract);
     transactionBuilder.getRawDataBuilder().addContract(contractBuilder);
-    transactionBuilder.getRawDataBuilder().setType(Transaction.TransactionType.ContractType);
     Transaction transaction = transactionBuilder.build();
 
     return transaction;

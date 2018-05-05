@@ -212,4 +212,13 @@ public class Base58 {
     //Other rule;
     return true;
   }
+
+  public static String encode58Check(byte[] input) {
+    byte[] hash0 = Hash.sha256(input);
+    byte[] hash1 = Hash.sha256(hash0);
+    byte[] inputCheck = new byte[input.length + 4];
+    System.arraycopy(input, 0, inputCheck, 0, input.length);
+    System.arraycopy(hash1, 0, inputCheck, input.length, 4);
+    return Base58.encode(inputCheck);
+  }
 }
