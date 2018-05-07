@@ -32,8 +32,8 @@ import org.tron.common.utils.Base58;
 import org.tron.service.WalletClient;
 
 public class SendCoinLoop {
-  private static final String PRIVATE_KEY = "cbe57d98134c118ed0d219c0c8bc4154372c02c1e13b5cce30dd22ecd7bed19e";
-  private static final int THREAD_COUNT = 1000;
+  private static final String PRIVATE_KEY = "369F095838EB6EED45D4F6312AF962D5B9DE52927DA9F04174EE49F9AF54BC77";
+  private static final int THREAD_COUNT = 4;
 
   private static List<WalletClient> walletClients = new ArrayList<>();
 
@@ -79,7 +79,7 @@ public class SendCoinLoop {
 
 class Task implements Runnable {
   private static final byte[] TO_ADDRESS = Base58.decodeFromBase58Check("27ZESitosJfKouTBrGg6Nk5yEjnJHXMbkZp");
-  private static final Long AMOUNT = 1L;
+  private static final Long AMOUNT = 1000000L;
   private static LongAdder trueCount = new LongAdder();
   private static LongAdder falseCount = new LongAdder();
   private static LongAdder currentCount = new LongAdder();
