@@ -32,7 +32,7 @@ import org.tron.common.utils.Base58;
 import org.tron.service.WalletClient;
 
 public class SendCoinLoop {
-  private static final String PRIVATE_KEY = "369F095838EB6EED45D4F6312AF962D5B9DE52927DA9F04174EE49F9AF54BC77";
+  private static final String PRIVATE_KEY = "cbe57d98134c118ed0d219c0c8bc4154372c02c1e13b5cce30dd22ecd7bed19e";
   private static final int THREAD_COUNT = 4;
 
   private static List<WalletClient> walletClients = new ArrayList<>();
