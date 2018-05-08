@@ -65,6 +65,10 @@ public class WalletClient {
     return rpcCli.broadcastTransaction(transaction);
   }
 
+  public boolean broadcastTransaction(Transaction transaction) {
+    return rpcCli.broadcastTransaction(transaction);
+  }
+
   public static Contract.TransferContract createTransferContract(byte[] to, byte[] owner,
       long amount) {
     Contract.TransferContract.Builder builder = Contract.TransferContract.newBuilder();
@@ -77,7 +81,7 @@ public class WalletClient {
     return builder.build();
   }
 
-  private Transaction signTransaction(Transaction transaction) {
+  public Transaction signTransaction(Transaction transaction) {
     if (this.ecKey == null || this.ecKey.getPrivKey() == null) {
       return null;
     }

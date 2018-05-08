@@ -1,25 +1,17 @@
-/*
- * java-tron is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * java-tron is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 package org.tron.program;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.RateLimiter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
@@ -28,42 +20,55 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import org.tron.common.utils.Base58;
+import lombok.Getter;
+import org.tron.Validator.LongValidator;
+import org.tron.Validator.StringValidator;
+import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
 public class SendCoinLoop {
-  private static final String PRIVATE_KEY = "cbe57d98134c118ed0d219c0c8bc4154372c02c1e13b5cce30dd22ecd7bed19e";
+
   private static final int THREAD_COUNT = 32;
 
   private static List<WalletClient> walletClients = new ArrayList<>();
+  private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
 
-  public static void main(String[] args) {
-    if (args.length < 2) {
-      return;
-    }
+  public static void main(String[] args) throws IOException {
+    SendCoinArgs args1 = new SendCoinArgs();
+    JCommander.newBuilder().addObject(args1).build().parse(args);
 
-    long runSeconds = new Long(args[0]);
-    double tps = new Double(args[1]);
+    double tps = args1.getTps();
 
     walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
-      WalletClient walletClient = new WalletClient(PRIVATE_KEY);
+      WalletClient walletClient = new WalletClient();
       walletClient.init();
       return walletClient;
     })
-    .collect(Collectors.toList());
+        .collect(Collectors.toList());
 
-    rateLimiter(runSeconds, tps);
+    File f = new File(args1.getDataFile());
+    FileInputStream fis = new FileInputStream(f);
+
+    Transaction transaction;
+    long trxCount = 0;
+    while ((transaction = Transaction.parseDelimitedFrom(fis)) != null) {
+      transactionsMap.computeIfAbsent(trxCount % THREAD_COUNT, k -> new ArrayList<>())
+          .add(transaction);
+      trxCount++;
+    }
+
+    rateLimiter(tps);
   }
 
-  public static void rateLimiter(long runSeconds, double tps) {
-    ListeningExecutorService executorService = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(THREAD_COUNT));
+  public static void rateLimiter(double tps) {
+    ListeningExecutorService executorService = MoreExecutors
+        .listeningDecorator(Executors.newFixedThreadPool(THREAD_COUNT));
     CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
-    Long startTimeMs = new Long(System.currentTimeMillis());
     RateLimiter limiter = RateLimiter.create(tps);
 
-    long runMs = runSeconds * 1000;
     for (int i = 0; i < THREAD_COUNT; ++i) {
-      executorService.execute(new Task(walletClients.get(i % THREAD_COUNT), runMs, limiter, startTimeMs));
+      executorService.execute(new Task(walletClients.get(i % THREAD_COUNT), limiter,
+          transactionsMap.get((i % THREAD_COUNT * 1L)), THREAD_COUNT));
       latch.countDown();
     }
 
@@ -78,17 +83,18 @@ public class SendCoinLoop {
 }
 
 class Task implements Runnable {
-  private static final byte[] TO_ADDRESS = Base58.decodeFromBase58Check("27ZESitosJfKouTBrGg6Nk5yEjnJHXMbkZp");
-  private static final Long AMOUNT = 1L;
+
   private static LongAdder trueCount = new LongAdder();
   private static LongAdder falseCount = new LongAdder();
   private static LongAdder currentCount = new LongAdder();
   private static ConcurrentHashMap<Long, LongAdder> resultMap = new ConcurrentHashMap<>();
-  public static final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+  public static final ScheduledExecutorService service = Executors
+      .newSingleThreadScheduledExecutor();
   private WalletClient walletClient;
   private RateLimiter limiter;
-  private long runMs;
-  private Long startTimeMs;
+  private List<Transaction> transactions;
+  private static LongAdder endCounts = new LongAdder();
+  private static int threadCount;
 
   static {
     service.scheduleAtFixedRate(() -> {
@@ -98,23 +104,27 @@ class Task implements Runnable {
               + ", false: " + falseCount.longValue()
               + ", timestamp: " + (System.currentTimeMillis() / 1000)
               + ", map: " + resultMap);
+
+      if (endCounts.longValue() == threadCount) {
+        service.shutdown();
+      }
     }, 5, 5, TimeUnit.SECONDS);
   }
 
-  public Task(final WalletClient walletClient, long runMs, RateLimiter limiter, Long startTimeMs) {
+  public Task(final WalletClient walletClient, RateLimiter limiter,
+      List<Transaction> transactions, int threadCount) {
     this.walletClient = walletClient;
     this.limiter = limiter;
-    this.runMs = runMs;
-    this.startTimeMs = startTimeMs;
+    this.transactions = transactions;
+    this.threadCount = threadCount;
   }
 
   @Override
   public void run() {
-    try {
-      while (System.currentTimeMillis() - this.startTimeMs < this.runMs) {
-
+    if (this.transactions != null) {
+      this.transactions.forEach(t -> {
         limiter.acquire();
-        boolean b = walletClient.sendCoin(TO_ADDRESS, AMOUNT);
+        boolean b = walletClient.broadcastTransaction(t);
 
         if (b) {
           trueCount.increment();
@@ -127,9 +137,21 @@ class Task implements Runnable {
         long currentMinutes = System.currentTimeMillis() / 1000L / 60;
 
         resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
+      });
     }
+    this.endCounts.increment();
   }
+}
+
+class SendCoinArgs {
+
+  @Getter
+  @Parameter(names = {
+      "--datafile"}, description = "Data file", required = true, validateWith = StringValidator.class)
+  private String dataFile;
+
+  @Getter
+  @Parameter(names = {
+      "--tps"}, description = "tps", required = true, validateWith = LongValidator.class)
+  private double tps;
 }
