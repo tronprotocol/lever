@@ -7,8 +7,8 @@ import org.junit.Test;
 public class CsvUtilsTest {
   @Test
   public void testRead() {
-    List read = CsvUtils.read(new File("/Users/xiexiaodong/Documents/vagrant/dev-tron/github/lever/src/test/resources/toaddress.csv"));
+//    List read = CsvUtils.read(new File("/Users/xiexiaodong/Documents/vagrant/dev-tron/github/lever/src/test/resources/toaddress.csv"));
 
-    System.out.println(read);
+//    System.out.println(read);
   }
 }

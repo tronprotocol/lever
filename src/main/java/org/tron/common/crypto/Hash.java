@@ -57,7 +57,7 @@ public class Hash {
    * @param input - data for hashing
    * @return - sha256 hash of the data
    */
-  public static byte[] sha256(byte[] input) {
+  public synchronized static byte[] sha256(byte[] input) {
     return sha256digest.digest(input);
   }
 

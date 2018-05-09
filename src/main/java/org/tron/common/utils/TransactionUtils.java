@@ -83,7 +83,7 @@ public class TransactionUtils {
     return signature.toBase64();
   }
 
-  public synchronized static Transaction sign(Transaction transaction, ECKey myKey) {
+  public  static Transaction sign(Transaction transaction, ECKey myKey) {
     ByteString lockSript = ByteString.copyFrom(myKey.getAddress());
     Transaction.Builder transactionBuilderSigned = transaction.toBuilder();
 

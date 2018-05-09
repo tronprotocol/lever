@@ -27,8 +27,8 @@ import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
 public class SendCoinLoop {
-
-  private static final int THREAD_COUNT = 32;
+  private static final String PRIVATE_KEY = "effa55b420a2fe39e3f73d14b8c46824fd0d5ee210840b9c27b2e2f42a09f1f9";
+  private static final int THREAD_COUNT = 16;
 
   private static List<WalletClient> walletClients = new ArrayList<>();
   private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
