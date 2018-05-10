@@ -16,7 +16,9 @@ import lombok.Getter;
 import org.apache.commons.csv.CSVRecord;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
+import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.Base58;
+import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.CsvUtils;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol.Transaction;
@@ -27,20 +29,28 @@ public class ExportData {
   private static WalletClient walletClient;
 
   //Example:
-  //--toaddress toaddress.csv --amount 1000000 --count 100000 --output trxsdata.csv --privatekey [your private key]
+  //--toaddress toaddress.csv --amount 1 --output trxsdata.csv --count 10000 --privatekey privatekey.csv
   public static void main(String[] args) throws IOException {
     Args args1 = new Args();
     JCommander.newBuilder().addObject(args1).build().parse(args);
 
-    walletClient = new WalletClient(args1.getPrivateKey());
+    walletClient = new WalletClient();
     walletClient.init();
 
     // 读取to address
-    List<String> toAddressList = getToAddress(args1.getToAddress());
+    List<String> toAddressList = getStrings(args1.getToAddress());
     List<byte[]> toAddressByteList = new ArrayList<>();
     int addressSize = toAddressList.size();
     if (addressSize == 0) {
       System.out.println("address is empty");
+      return;
+    }
+
+    // 读取 private key
+    List<String> privateKeyList = getStrings(args1.getPrivateKey());
+    int privateKeySize = privateKeyList.size();
+    if (privateKeySize == 0) {
+      System.out.println("private key is empty");
       return;
     }
 
@@ -66,7 +76,7 @@ public class ExportData {
       for (int i = 0; i < args1.getCount() / processors.size(); i++) {
         int c = counter.incrementAndGet();
         Transaction transaction = generateTransaction(toAddressByteList.get(c % addressSize),
-            amount);
+            amount, privateKeyList.get(c % privateKeySize));
         transactions.add(transaction);
         if (c % 1000 == 0) {
           System.out.println("create transaction current: " + (c + 1));
@@ -95,8 +105,10 @@ public class ExportData {
 //    }
   }
 
-  private static Transaction generateTransaction(byte[] to, long amount) {
-    byte[] owner = walletClient.getAddress();
+  private static Transaction generateTransaction(byte[] to, long amount, String privateKey) {
+    ECKey ecKey = ECKey.fromPrivate(ByteArray.fromHexString(privateKey));
+
+    byte[] owner = ecKey.getAddress();
 
     Contract.TransferContract contract = createTransferContract(to, owner, amount);
     Transaction transaction = createTransaction(contract);
@@ -104,20 +116,20 @@ public class ExportData {
       return null;
     }
 
-    transaction = walletClient.signTransaction(transaction);
+    transaction = walletClient.signTransaction(transaction, ecKey);
 
     return transaction;
   }
 
-  private static List<String> getToAddress(String filePath) {
+  private static List<String> getStrings(String filePath) {
     List<CSVRecord> read = CsvUtils.read(new File(filePath));
-    List<String> toAddresses = new ArrayList();
+    List<String> stringList = new ArrayList();
 
     read.forEach(l -> {
-      toAddresses.add(l.get(0));
+      stringList.add(l.get(0));
     });
 
-    return toAddresses;
+    return stringList;
   }
 }
 
@@ -130,7 +142,7 @@ class Args {
 
   @Getter
   @Parameter(names = {
-      "--privatekey"}, description = "Private key", required = true, validateWith = StringValidator.class)
+      "--privatekey"}, description = "Private key file", required = true, validateWith = StringValidator.class)
   private String privateKey;
 
   @Getter
