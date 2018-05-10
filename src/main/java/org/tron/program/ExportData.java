@@ -78,7 +78,7 @@ public class ExportData {
         Transaction transaction = generateTransaction(toAddressByteList.get(c % addressSize),
             amount, privateKeyList.get(c % privateKeySize));
         transactions.add(transaction);
-        if (c % 1000 == 0) {
+        if ((c + 1) % 1000 == 0) {
           System.out.println("create transaction current: " + (c + 1));
         }
       }
@@ -87,7 +87,7 @@ public class ExportData {
     for (Transaction transaction : transactions) {
       transaction.writeDelimitedTo(fos);
       long c = counter.incrementAndGet();
-      if (c % 1000 == 0) {
+      if ((c + 1) % 1000 == 0) {
         System.out.println("write file current: " + (c + 1));
       }
     }
