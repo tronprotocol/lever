@@ -131,17 +131,9 @@ public final class Protocol {
      */
     REQUESTED(0),
     /**
-     * <code>TCP_ERROR = 1;</code>
-     */
-    TCP_ERROR(1),
-    /**
      * <code>BAD_PROTOCOL = 2;</code>
      */
     BAD_PROTOCOL(2),
-    /**
-     * <code>USELESS_PEER = 3;</code>
-     */
-    USELESS_PEER(3),
     /**
      * <code>TOO_MANY_PEERS = 4;</code>
      */
@@ -187,9 +179,9 @@ public final class Protocol {
      */
     SYNC_FAIL(18),
     /**
-     * <code>TIME_OUT = 19;</code>
+     * <code>FETCH_FAIL = 19;</code>
      */
-    TIME_OUT(19),
+    FETCH_FAIL(19),
     /**
      * <code>BAD_TX = 20;</code>
      */
@@ -215,6 +207,14 @@ public final class Protocol {
      */
     INCOMPATIBLE_CHAIN(25),
     /**
+     * <code>TIME_OUT = 32;</code>
+     */
+    TIME_OUT(32),
+    /**
+     * <code>CONNECT_FAIL = 33;</code>
+     */
+    CONNECT_FAIL(33),
+    /**
      * <code>UNKNOWN = 255;</code>
      */
     UNKNOWN(255),
@@ -226,17 +226,9 @@ public final class Protocol {
      */
     public static final int REQUESTED_VALUE = 0;
     /**
-     * <code>TCP_ERROR = 1;</code>
-     */
-    public static final int TCP_ERROR_VALUE = 1;
-    /**
      * <code>BAD_PROTOCOL = 2;</code>
      */
     public static final int BAD_PROTOCOL_VALUE = 2;
-    /**
-     * <code>USELESS_PEER = 3;</code>
-     */
-    public static final int USELESS_PEER_VALUE = 3;
     /**
      * <code>TOO_MANY_PEERS = 4;</code>
      */
@@ -282,9 +274,9 @@ public final class Protocol {
      */
     public static final int SYNC_FAIL_VALUE = 18;
     /**
-     * <code>TIME_OUT = 19;</code>
+     * <code>FETCH_FAIL = 19;</code>
      */
-    public static final int TIME_OUT_VALUE = 19;
+    public static final int FETCH_FAIL_VALUE = 19;
     /**
      * <code>BAD_TX = 20;</code>
      */
@@ -310,6 +302,14 @@ public final class Protocol {
      */
     public static final int INCOMPATIBLE_CHAIN_VALUE = 25;
     /**
+     * <code>TIME_OUT = 32;</code>
+     */
+    public static final int TIME_OUT_VALUE = 32;
+    /**
+     * <code>CONNECT_FAIL = 33;</code>
+     */
+    public static final int CONNECT_FAIL_VALUE = 33;
+    /**
      * <code>UNKNOWN = 255;</code>
      */
     public static final int UNKNOWN_VALUE = 255;
@@ -334,9 +334,7 @@ public final class Protocol {
     public static ReasonCode forNumber(int value) {
       switch (value) {
         case 0: return REQUESTED;
-        case 1: return TCP_ERROR;
         case 2: return BAD_PROTOCOL;
-        case 3: return USELESS_PEER;
         case 4: return TOO_MANY_PEERS;
         case 5: return DUPLICATE_PEER;
         case 6: return INCOMPATIBLE_PROTOCOL;
@@ -348,13 +346,15 @@ public final class Protocol {
         case 16: return USER_REASON;
         case 17: return RESET;
         case 18: return SYNC_FAIL;
-        case 19: return TIME_OUT;
+        case 19: return FETCH_FAIL;
         case 20: return BAD_TX;
         case 21: return BAD_BLOCK;
         case 22: return FORKED;
         case 23: return UNLINKABLE;
         case 24: return INCOMPATIBLE_VERSION;
         case 25: return INCOMPATIBLE_CHAIN;
+        case 32: return TIME_OUT;
+        case 33: return CONNECT_FAIL;
         case 255: return UNKNOWN;
         default: return null;
       }
@@ -936,6 +936,572 @@ public final class Protocol {
 
   }
 
+  public interface VoteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.Vote)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * the super rep address
+     * </pre>
+     *
+     * <code>bytes vote_address = 1;</code>
+     */
+    com.google.protobuf.ByteString getVoteAddress();
+
+    /**
+     * <pre>
+     * the vote num to this super rep.
+     * </pre>
+     *
+     * <code>int64 vote_count = 2;</code>
+     */
+    long getVoteCount();
+  }
+  /**
+   * <pre>
+   * vote message
+   * </pre>
+   *
+   * Protobuf type {@code protocol.Vote}
+   */
+  public  static final class Vote extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.Vote)
+      VoteOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Vote.newBuilder() to construct.
+    private Vote(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Vote() {
+      voteAddress_ = com.google.protobuf.ByteString.EMPTY;
+      voteCount_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Vote(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              voteAddress_ = input.readBytes();
+              break;
+            }
+            case 16: {
+
+              voteCount_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.protos.Protocol.internal_static_protocol_Vote_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.protos.Protocol.internal_static_protocol_Vote_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.protos.Protocol.Vote.class, org.tron.protos.Protocol.Vote.Builder.class);
+    }
+
+    public static final int VOTE_ADDRESS_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString voteAddress_;
+    /**
+     * <pre>
+     * the super rep address
+     * </pre>
+     *
+     * <code>bytes vote_address = 1;</code>
+     */
+    public com.google.protobuf.ByteString getVoteAddress() {
+      return voteAddress_;
+    }
+
+    public static final int VOTE_COUNT_FIELD_NUMBER = 2;
+    private long voteCount_;
+    /**
+     * <pre>
+     * the vote num to this super rep.
+     * </pre>
+     *
+     * <code>int64 vote_count = 2;</code>
+     */
+    public long getVoteCount() {
+      return voteCount_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!voteAddress_.isEmpty()) {
+        output.writeBytes(1, voteAddress_);
+      }
+      if (voteCount_ != 0L) {
+        output.writeInt64(2, voteCount_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!voteAddress_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, voteAddress_);
+      }
+      if (voteCount_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, voteCount_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.protos.Protocol.Vote)) {
+        return super.equals(obj);
+      }
+      org.tron.protos.Protocol.Vote other = (org.tron.protos.Protocol.Vote) obj;
+
+      boolean result = true;
+      result = result && getVoteAddress()
+          .equals(other.getVoteAddress());
+      result = result && (getVoteCount()
+          == other.getVoteCount());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VOTE_ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getVoteAddress().hashCode();
+      hash = (37 * hash) + VOTE_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getVoteCount());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.protos.Protocol.Vote parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Vote parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Vote parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Vote parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.protos.Protocol.Vote prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * vote message
+     * </pre>
+     *
+     * Protobuf type {@code protocol.Vote}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.Vote)
+        org.tron.protos.Protocol.VoteOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.protos.Protocol.internal_static_protocol_Vote_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.protos.Protocol.internal_static_protocol_Vote_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.protos.Protocol.Vote.class, org.tron.protos.Protocol.Vote.Builder.class);
+      }
+
+      // Construct using org.tron.protos.Protocol.Vote.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        voteAddress_ = com.google.protobuf.ByteString.EMPTY;
+
+        voteCount_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.protos.Protocol.internal_static_protocol_Vote_descriptor;
+      }
+
+      public org.tron.protos.Protocol.Vote getDefaultInstanceForType() {
+        return org.tron.protos.Protocol.Vote.getDefaultInstance();
+      }
+
+      public org.tron.protos.Protocol.Vote build() {
+        org.tron.protos.Protocol.Vote result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.protos.Protocol.Vote buildPartial() {
+        org.tron.protos.Protocol.Vote result = new org.tron.protos.Protocol.Vote(this);
+        result.voteAddress_ = voteAddress_;
+        result.voteCount_ = voteCount_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.protos.Protocol.Vote) {
+          return mergeFrom((org.tron.protos.Protocol.Vote)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.protos.Protocol.Vote other) {
+        if (other == org.tron.protos.Protocol.Vote.getDefaultInstance()) return this;
+        if (other.getVoteAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setVoteAddress(other.getVoteAddress());
+        }
+        if (other.getVoteCount() != 0L) {
+          setVoteCount(other.getVoteCount());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.protos.Protocol.Vote parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.protos.Protocol.Vote) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString voteAddress_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * the super rep address
+       * </pre>
+       *
+       * <code>bytes vote_address = 1;</code>
+       */
+      public com.google.protobuf.ByteString getVoteAddress() {
+        return voteAddress_;
+      }
+      /**
+       * <pre>
+       * the super rep address
+       * </pre>
+       *
+       * <code>bytes vote_address = 1;</code>
+       */
+      public Builder setVoteAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        voteAddress_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * the super rep address
+       * </pre>
+       *
+       * <code>bytes vote_address = 1;</code>
+       */
+      public Builder clearVoteAddress() {
+        
+        voteAddress_ = getDefaultInstance().getVoteAddress();
+        onChanged();
+        return this;
+      }
+
+      private long voteCount_ ;
+      /**
+       * <pre>
+       * the vote num to this super rep.
+       * </pre>
+       *
+       * <code>int64 vote_count = 2;</code>
+       */
+      public long getVoteCount() {
+        return voteCount_;
+      }
+      /**
+       * <pre>
+       * the vote num to this super rep.
+       * </pre>
+       *
+       * <code>int64 vote_count = 2;</code>
+       */
+      public Builder setVoteCount(long value) {
+        
+        voteCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * the vote num to this super rep.
+       * </pre>
+       *
+       * <code>int64 vote_count = 2;</code>
+       */
+      public Builder clearVoteCount() {
+        
+        voteCount_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.Vote)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.Vote)
+    private static final org.tron.protos.Protocol.Vote DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Vote();
+    }
+
+    public static org.tron.protos.Protocol.Vote getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Vote>
+        PARSER = new com.google.protobuf.AbstractParser<Vote>() {
+      public Vote parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Vote(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Vote> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Vote> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.protos.Protocol.Vote getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface AccountOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protocol.Account)
       com.google.protobuf.MessageOrBuilder {
@@ -977,24 +1543,24 @@ public final class Protocol {
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
-    java.util.List<org.tron.protos.Protocol.Account.Vote> 
+    java.util.List<org.tron.protos.Protocol.Vote> 
         getVotesList();
     /**
      * <pre>
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
-    org.tron.protos.Protocol.Account.Vote getVotes(int index);
+    org.tron.protos.Protocol.Vote getVotes(int index);
     /**
      * <pre>
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
     int getVotesCount();
     /**
@@ -1002,18 +1568,18 @@ public final class Protocol {
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
-    java.util.List<? extends org.tron.protos.Protocol.Account.VoteOrBuilder> 
+    java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
         getVotesOrBuilderList();
     /**
      * <pre>
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
-    org.tron.protos.Protocol.Account.VoteOrBuilder getVotesOrBuilder(
+    org.tron.protos.Protocol.VoteOrBuilder getVotesOrBuilder(
         int index);
 
     /**
@@ -1167,6 +1733,16 @@ public final class Protocol {
      * <code>bytes code = 13;</code>
      */
     com.google.protobuf.ByteString getCode();
+
+    /**
+     * <code>bool is_witness = 14;</code>
+     */
+    boolean getIsWitness();
+
+    /**
+     * <code>bool is_committee = 15;</code>
+     */
+    boolean getIsCommittee();
   }
   /**
    * <pre>
@@ -1197,6 +1773,8 @@ public final class Protocol {
       allowance_ = 0L;
       latestWithdrawTime_ = 0L;
       code_ = com.google.protobuf.ByteString.EMPTY;
+      isWitness_ = false;
+      isCommittee_ = false;
     }
 
     @java.lang.Override
@@ -1253,11 +1831,11 @@ public final class Protocol {
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                votes_ = new java.util.ArrayList<org.tron.protos.Protocol.Account.Vote>();
+                votes_ = new java.util.ArrayList<org.tron.protos.Protocol.Vote>();
                 mutable_bitField0_ |= 0x00000010;
               }
               votes_.add(
-                  input.readMessage(org.tron.protos.Protocol.Account.Vote.parser(), extensionRegistry));
+                  input.readMessage(org.tron.protos.Protocol.Vote.parser(), extensionRegistry));
               break;
             }
             case 50: {
@@ -1312,6 +1890,16 @@ public final class Protocol {
               code_ = input.readBytes();
               break;
             }
+            case 112: {
+
+              isWitness_ = input.readBool();
+              break;
+            }
+            case 120: {
+
+              isCommittee_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1351,572 +1939,6 @@ public final class Protocol {
       return org.tron.protos.Protocol.internal_static_protocol_Account_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.tron.protos.Protocol.Account.class, org.tron.protos.Protocol.Account.Builder.class);
-    }
-
-    public interface VoteOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:protocol.Account.Vote)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <pre>
-       * the super rep address
-       * </pre>
-       *
-       * <code>bytes vote_address = 1;</code>
-       */
-      com.google.protobuf.ByteString getVoteAddress();
-
-      /**
-       * <pre>
-       * the vote num to this super rep.
-       * </pre>
-       *
-       * <code>int64 vote_count = 2;</code>
-       */
-      long getVoteCount();
-    }
-    /**
-     * <pre>
-     * vote message
-     * </pre>
-     *
-     * Protobuf type {@code protocol.Account.Vote}
-     */
-    public  static final class Vote extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:protocol.Account.Vote)
-        VoteOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use Vote.newBuilder() to construct.
-      private Vote(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private Vote() {
-        voteAddress_ = com.google.protobuf.ByteString.EMPTY;
-        voteCount_ = 0L;
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private Vote(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownFieldProto3(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-
-                voteAddress_ = input.readBytes();
-                break;
-              }
-              case 16: {
-
-                voteCount_ = input.readInt64();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.Account.Vote.class, org.tron.protos.Protocol.Account.Vote.Builder.class);
-      }
-
-      public static final int VOTE_ADDRESS_FIELD_NUMBER = 1;
-      private com.google.protobuf.ByteString voteAddress_;
-      /**
-       * <pre>
-       * the super rep address
-       * </pre>
-       *
-       * <code>bytes vote_address = 1;</code>
-       */
-      public com.google.protobuf.ByteString getVoteAddress() {
-        return voteAddress_;
-      }
-
-      public static final int VOTE_COUNT_FIELD_NUMBER = 2;
-      private long voteCount_;
-      /**
-       * <pre>
-       * the vote num to this super rep.
-       * </pre>
-       *
-       * <code>int64 vote_count = 2;</code>
-       */
-      public long getVoteCount() {
-        return voteCount_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (!voteAddress_.isEmpty()) {
-          output.writeBytes(1, voteAddress_);
-        }
-        if (voteCount_ != 0L) {
-          output.writeInt64(2, voteCount_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!voteAddress_.isEmpty()) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, voteAddress_);
-        }
-        if (voteCount_ != 0L) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(2, voteCount_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof org.tron.protos.Protocol.Account.Vote)) {
-          return super.equals(obj);
-        }
-        org.tron.protos.Protocol.Account.Vote other = (org.tron.protos.Protocol.Account.Vote) obj;
-
-        boolean result = true;
-        result = result && getVoteAddress()
-            .equals(other.getVoteAddress());
-        result = result && (getVoteCount()
-            == other.getVoteCount());
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + VOTE_ADDRESS_FIELD_NUMBER;
-        hash = (53 * hash) + getVoteAddress().hashCode();
-        hash = (37 * hash) + VOTE_COUNT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getVoteCount());
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static org.tron.protos.Protocol.Account.Vote parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(org.tron.protos.Protocol.Account.Vote prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * <pre>
-       * vote message
-       * </pre>
-       *
-       * Protobuf type {@code protocol.Account.Vote}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:protocol.Account.Vote)
-          org.tron.protos.Protocol.Account.VoteOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  org.tron.protos.Protocol.Account.Vote.class, org.tron.protos.Protocol.Account.Vote.Builder.class);
-        }
-
-        // Construct using org.tron.protos.Protocol.Account.Vote.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        public Builder clear() {
-          super.clear();
-          voteAddress_ = com.google.protobuf.ByteString.EMPTY;
-
-          voteCount_ = 0L;
-
-          return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return org.tron.protos.Protocol.internal_static_protocol_Account_Vote_descriptor;
-        }
-
-        public org.tron.protos.Protocol.Account.Vote getDefaultInstanceForType() {
-          return org.tron.protos.Protocol.Account.Vote.getDefaultInstance();
-        }
-
-        public org.tron.protos.Protocol.Account.Vote build() {
-          org.tron.protos.Protocol.Account.Vote result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public org.tron.protos.Protocol.Account.Vote buildPartial() {
-          org.tron.protos.Protocol.Account.Vote result = new org.tron.protos.Protocol.Account.Vote(this);
-          result.voteAddress_ = voteAddress_;
-          result.voteCount_ = voteCount_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder clone() {
-          return (Builder) super.clone();
-        }
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return (Builder) super.setField(field, value);
-        }
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
-        }
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
-        }
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
-        }
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
-        }
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof org.tron.protos.Protocol.Account.Vote) {
-            return mergeFrom((org.tron.protos.Protocol.Account.Vote)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(org.tron.protos.Protocol.Account.Vote other) {
-          if (other == org.tron.protos.Protocol.Account.Vote.getDefaultInstance()) return this;
-          if (other.getVoteAddress() != com.google.protobuf.ByteString.EMPTY) {
-            setVoteAddress(other.getVoteAddress());
-          }
-          if (other.getVoteCount() != 0L) {
-            setVoteCount(other.getVoteCount());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          org.tron.protos.Protocol.Account.Vote parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (org.tron.protos.Protocol.Account.Vote) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private com.google.protobuf.ByteString voteAddress_ = com.google.protobuf.ByteString.EMPTY;
-        /**
-         * <pre>
-         * the super rep address
-         * </pre>
-         *
-         * <code>bytes vote_address = 1;</code>
-         */
-        public com.google.protobuf.ByteString getVoteAddress() {
-          return voteAddress_;
-        }
-        /**
-         * <pre>
-         * the super rep address
-         * </pre>
-         *
-         * <code>bytes vote_address = 1;</code>
-         */
-        public Builder setVoteAddress(com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          voteAddress_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * the super rep address
-         * </pre>
-         *
-         * <code>bytes vote_address = 1;</code>
-         */
-        public Builder clearVoteAddress() {
-          
-          voteAddress_ = getDefaultInstance().getVoteAddress();
-          onChanged();
-          return this;
-        }
-
-        private long voteCount_ ;
-        /**
-         * <pre>
-         * the vote num to this super rep.
-         * </pre>
-         *
-         * <code>int64 vote_count = 2;</code>
-         */
-        public long getVoteCount() {
-          return voteCount_;
-        }
-        /**
-         * <pre>
-         * the vote num to this super rep.
-         * </pre>
-         *
-         * <code>int64 vote_count = 2;</code>
-         */
-        public Builder setVoteCount(long value) {
-          
-          voteCount_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         * the vote num to this super rep.
-         * </pre>
-         *
-         * <code>int64 vote_count = 2;</code>
-         */
-        public Builder clearVoteCount() {
-          
-          voteCount_ = 0L;
-          onChanged();
-          return this;
-        }
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
-        }
-
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:protocol.Account.Vote)
-      }
-
-      // @@protoc_insertion_point(class_scope:protocol.Account.Vote)
-      private static final org.tron.protos.Protocol.Account.Vote DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new org.tron.protos.Protocol.Account.Vote();
-      }
-
-      public static org.tron.protos.Protocol.Account.Vote getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<Vote>
-          PARSER = new com.google.protobuf.AbstractParser<Vote>() {
-        public Vote parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Vote(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<Vote> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Vote> getParserForType() {
-        return PARSER;
-      }
-
-      public org.tron.protos.Protocol.Account.Vote getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
     }
 
     public interface FrozenOrBuilder extends
@@ -2536,15 +2558,15 @@ public final class Protocol {
     }
 
     public static final int VOTES_FIELD_NUMBER = 5;
-    private java.util.List<org.tron.protos.Protocol.Account.Vote> votes_;
+    private java.util.List<org.tron.protos.Protocol.Vote> votes_;
     /**
      * <pre>
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
-    public java.util.List<org.tron.protos.Protocol.Account.Vote> getVotesList() {
+    public java.util.List<org.tron.protos.Protocol.Vote> getVotesList() {
       return votes_;
     }
     /**
@@ -2552,9 +2574,9 @@ public final class Protocol {
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
-    public java.util.List<? extends org.tron.protos.Protocol.Account.VoteOrBuilder> 
+    public java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
         getVotesOrBuilderList() {
       return votes_;
     }
@@ -2563,7 +2585,7 @@ public final class Protocol {
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
     public int getVotesCount() {
       return votes_.size();
@@ -2573,9 +2595,9 @@ public final class Protocol {
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
-    public org.tron.protos.Protocol.Account.Vote getVotes(int index) {
+    public org.tron.protos.Protocol.Vote getVotes(int index) {
       return votes_.get(index);
     }
     /**
@@ -2583,9 +2605,9 @@ public final class Protocol {
      * the votes
      * </pre>
      *
-     * <code>repeated .protocol.Account.Vote votes = 5;</code>
+     * <code>repeated .protocol.Vote votes = 5;</code>
      */
-    public org.tron.protos.Protocol.Account.VoteOrBuilder getVotesOrBuilder(
+    public org.tron.protos.Protocol.VoteOrBuilder getVotesOrBuilder(
         int index) {
       return votes_.get(index);
     }
@@ -2815,6 +2837,24 @@ public final class Protocol {
       return code_;
     }
 
+    public static final int IS_WITNESS_FIELD_NUMBER = 14;
+    private boolean isWitness_;
+    /**
+     * <code>bool is_witness = 14;</code>
+     */
+    public boolean getIsWitness() {
+      return isWitness_;
+    }
+
+    public static final int IS_COMMITTEE_FIELD_NUMBER = 15;
+    private boolean isCommittee_;
+    /**
+     * <code>bool is_committee = 15;</code>
+     */
+    public boolean getIsCommittee() {
+      return isCommittee_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2868,6 +2908,12 @@ public final class Protocol {
       }
       if (!code_.isEmpty()) {
         output.writeBytes(13, code_);
+      }
+      if (isWitness_ != false) {
+        output.writeBool(14, isWitness_);
+      }
+      if (isCommittee_ != false) {
+        output.writeBool(15, isCommittee_);
       }
       unknownFields.writeTo(output);
     }
@@ -2935,6 +2981,14 @@ public final class Protocol {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(13, code_);
       }
+      if (isWitness_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(14, isWitness_);
+      }
+      if (isCommittee_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(15, isCommittee_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2976,6 +3030,10 @@ public final class Protocol {
           == other.getLatestWithdrawTime());
       result = result && getCode()
           .equals(other.getCode());
+      result = result && (getIsWitness()
+          == other.getIsWitness());
+      result = result && (getIsCommittee()
+          == other.getIsCommittee());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3025,6 +3083,12 @@ public final class Protocol {
           getLatestWithdrawTime());
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode().hashCode();
+      hash = (37 * hash) + IS_WITNESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsWitness());
+      hash = (37 * hash) + IS_COMMITTEE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsCommittee());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3215,6 +3279,10 @@ public final class Protocol {
 
         code_ = com.google.protobuf.ByteString.EMPTY;
 
+        isWitness_ = false;
+
+        isCommittee_ = false;
+
         return this;
       }
 
@@ -3269,6 +3337,8 @@ public final class Protocol {
         result.allowance_ = allowance_;
         result.latestWithdrawTime_ = latestWithdrawTime_;
         result.code_ = code_;
+        result.isWitness_ = isWitness_;
+        result.isCommittee_ = isCommittee_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3394,6 +3464,12 @@ public final class Protocol {
         }
         if (other.getCode() != com.google.protobuf.ByteString.EMPTY) {
           setCode(other.getCode());
+        }
+        if (other.getIsWitness() != false) {
+          setIsWitness(other.getIsWitness());
+        }
+        if (other.getIsCommittee() != false) {
+          setIsCommittee(other.getIsCommittee());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3575,26 +3651,26 @@ public final class Protocol {
         return this;
       }
 
-      private java.util.List<org.tron.protos.Protocol.Account.Vote> votes_ =
+      private java.util.List<org.tron.protos.Protocol.Vote> votes_ =
         java.util.Collections.emptyList();
       private void ensureVotesIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          votes_ = new java.util.ArrayList<org.tron.protos.Protocol.Account.Vote>(votes_);
+          votes_ = new java.util.ArrayList<org.tron.protos.Protocol.Vote>(votes_);
           bitField0_ |= 0x00000010;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Account.Vote, org.tron.protos.Protocol.Account.Vote.Builder, org.tron.protos.Protocol.Account.VoteOrBuilder> votesBuilder_;
+          org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder> votesBuilder_;
 
       /**
        * <pre>
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Account.Vote> getVotesList() {
+      public java.util.List<org.tron.protos.Protocol.Vote> getVotesList() {
         if (votesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(votes_);
         } else {
@@ -3606,7 +3682,7 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public int getVotesCount() {
         if (votesBuilder_ == null) {
@@ -3620,9 +3696,9 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.Vote getVotes(int index) {
+      public org.tron.protos.Protocol.Vote getVotes(int index) {
         if (votesBuilder_ == null) {
           return votes_.get(index);
         } else {
@@ -3634,10 +3710,10 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public Builder setVotes(
-          int index, org.tron.protos.Protocol.Account.Vote value) {
+          int index, org.tron.protos.Protocol.Vote value) {
         if (votesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3655,10 +3731,10 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public Builder setVotes(
-          int index, org.tron.protos.Protocol.Account.Vote.Builder builderForValue) {
+          int index, org.tron.protos.Protocol.Vote.Builder builderForValue) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           votes_.set(index, builderForValue.build());
@@ -3673,9 +3749,9 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public Builder addVotes(org.tron.protos.Protocol.Account.Vote value) {
+      public Builder addVotes(org.tron.protos.Protocol.Vote value) {
         if (votesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3693,10 +3769,10 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public Builder addVotes(
-          int index, org.tron.protos.Protocol.Account.Vote value) {
+          int index, org.tron.protos.Protocol.Vote value) {
         if (votesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3714,10 +3790,10 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public Builder addVotes(
-          org.tron.protos.Protocol.Account.Vote.Builder builderForValue) {
+          org.tron.protos.Protocol.Vote.Builder builderForValue) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           votes_.add(builderForValue.build());
@@ -3732,10 +3808,10 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public Builder addVotes(
-          int index, org.tron.protos.Protocol.Account.Vote.Builder builderForValue) {
+          int index, org.tron.protos.Protocol.Vote.Builder builderForValue) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           votes_.add(index, builderForValue.build());
@@ -3750,10 +3826,10 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public Builder addAllVotes(
-          java.lang.Iterable<? extends org.tron.protos.Protocol.Account.Vote> values) {
+          java.lang.Iterable<? extends org.tron.protos.Protocol.Vote> values) {
         if (votesBuilder_ == null) {
           ensureVotesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3769,7 +3845,7 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public Builder clearVotes() {
         if (votesBuilder_ == null) {
@@ -3786,7 +3862,7 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
       public Builder removeVotes(int index) {
         if (votesBuilder_ == null) {
@@ -3803,9 +3879,9 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.Vote.Builder getVotesBuilder(
+      public org.tron.protos.Protocol.Vote.Builder getVotesBuilder(
           int index) {
         return getVotesFieldBuilder().getBuilder(index);
       }
@@ -3814,9 +3890,9 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.VoteOrBuilder getVotesOrBuilder(
+      public org.tron.protos.Protocol.VoteOrBuilder getVotesOrBuilder(
           int index) {
         if (votesBuilder_ == null) {
           return votes_.get(index);  } else {
@@ -3828,9 +3904,9 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public java.util.List<? extends org.tron.protos.Protocol.Account.VoteOrBuilder> 
+      public java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
            getVotesOrBuilderList() {
         if (votesBuilder_ != null) {
           return votesBuilder_.getMessageOrBuilderList();
@@ -3843,41 +3919,41 @@ public final class Protocol {
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.Vote.Builder addVotesBuilder() {
+      public org.tron.protos.Protocol.Vote.Builder addVotesBuilder() {
         return getVotesFieldBuilder().addBuilder(
-            org.tron.protos.Protocol.Account.Vote.getDefaultInstance());
+            org.tron.protos.Protocol.Vote.getDefaultInstance());
       }
       /**
        * <pre>
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public org.tron.protos.Protocol.Account.Vote.Builder addVotesBuilder(
+      public org.tron.protos.Protocol.Vote.Builder addVotesBuilder(
           int index) {
         return getVotesFieldBuilder().addBuilder(
-            index, org.tron.protos.Protocol.Account.Vote.getDefaultInstance());
+            index, org.tron.protos.Protocol.Vote.getDefaultInstance());
       }
       /**
        * <pre>
        * the votes
        * </pre>
        *
-       * <code>repeated .protocol.Account.Vote votes = 5;</code>
+       * <code>repeated .protocol.Vote votes = 5;</code>
        */
-      public java.util.List<org.tron.protos.Protocol.Account.Vote.Builder> 
+      public java.util.List<org.tron.protos.Protocol.Vote.Builder> 
            getVotesBuilderList() {
         return getVotesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.tron.protos.Protocol.Account.Vote, org.tron.protos.Protocol.Account.Vote.Builder, org.tron.protos.Protocol.Account.VoteOrBuilder> 
+          org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder> 
           getVotesFieldBuilder() {
         if (votesBuilder_ == null) {
           votesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.tron.protos.Protocol.Account.Vote, org.tron.protos.Protocol.Account.Vote.Builder, org.tron.protos.Protocol.Account.VoteOrBuilder>(
+              org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder>(
                   votes_,
                   ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
@@ -4577,6 +4653,58 @@ public final class Protocol {
       public Builder clearCode() {
         
         code_ = getDefaultInstance().getCode();
+        onChanged();
+        return this;
+      }
+
+      private boolean isWitness_ ;
+      /**
+       * <code>bool is_witness = 14;</code>
+       */
+      public boolean getIsWitness() {
+        return isWitness_;
+      }
+      /**
+       * <code>bool is_witness = 14;</code>
+       */
+      public Builder setIsWitness(boolean value) {
+        
+        isWitness_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_witness = 14;</code>
+       */
+      public Builder clearIsWitness() {
+        
+        isWitness_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean isCommittee_ ;
+      /**
+       * <code>bool is_committee = 15;</code>
+       */
+      public boolean getIsCommittee() {
+        return isCommittee_;
+      }
+      /**
+       * <code>bool is_committee = 15;</code>
+       */
+      public Builder setIsCommittee(boolean value) {
+        
+        isCommittee_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_committee = 15;</code>
+       */
+      public Builder clearIsCommittee() {
+        
+        isCommittee_ = false;
         onChanged();
         return this;
       }
@@ -6903,6 +7031,1207 @@ public final class Protocol {
     }
 
     public org.tron.protos.Protocol.Witness getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface VotesOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.Votes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes address = 1;</code>
+     */
+    com.google.protobuf.ByteString getAddress();
+
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    java.util.List<org.tron.protos.Protocol.Vote> 
+        getOldVotesList();
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    org.tron.protos.Protocol.Vote getOldVotes(int index);
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    int getOldVotesCount();
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
+        getOldVotesOrBuilderList();
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    org.tron.protos.Protocol.VoteOrBuilder getOldVotesOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    java.util.List<org.tron.protos.Protocol.Vote> 
+        getNewVotesList();
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    org.tron.protos.Protocol.Vote getNewVotes(int index);
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    int getNewVotesCount();
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
+        getNewVotesOrBuilderList();
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    org.tron.protos.Protocol.VoteOrBuilder getNewVotesOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * Vote Change
+   * </pre>
+   *
+   * Protobuf type {@code protocol.Votes}
+   */
+  public  static final class Votes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.Votes)
+      VotesOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Votes.newBuilder() to construct.
+    private Votes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Votes() {
+      address_ = com.google.protobuf.ByteString.EMPTY;
+      oldVotes_ = java.util.Collections.emptyList();
+      newVotes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Votes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              address_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                oldVotes_ = new java.util.ArrayList<org.tron.protos.Protocol.Vote>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              oldVotes_.add(
+                  input.readMessage(org.tron.protos.Protocol.Vote.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                newVotes_ = new java.util.ArrayList<org.tron.protos.Protocol.Vote>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              newVotes_.add(
+                  input.readMessage(org.tron.protos.Protocol.Vote.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          oldVotes_ = java.util.Collections.unmodifiableList(oldVotes_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          newVotes_ = java.util.Collections.unmodifiableList(newVotes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.protos.Protocol.internal_static_protocol_Votes_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.protos.Protocol.internal_static_protocol_Votes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.protos.Protocol.Votes.class, org.tron.protos.Protocol.Votes.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ADDRESS_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString address_;
+    /**
+     * <code>bytes address = 1;</code>
+     */
+    public com.google.protobuf.ByteString getAddress() {
+      return address_;
+    }
+
+    public static final int OLD_VOTES_FIELD_NUMBER = 2;
+    private java.util.List<org.tron.protos.Protocol.Vote> oldVotes_;
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    public java.util.List<org.tron.protos.Protocol.Vote> getOldVotesList() {
+      return oldVotes_;
+    }
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    public java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
+        getOldVotesOrBuilderList() {
+      return oldVotes_;
+    }
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    public int getOldVotesCount() {
+      return oldVotes_.size();
+    }
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    public org.tron.protos.Protocol.Vote getOldVotes(int index) {
+      return oldVotes_.get(index);
+    }
+    /**
+     * <code>repeated .protocol.Vote old_votes = 2;</code>
+     */
+    public org.tron.protos.Protocol.VoteOrBuilder getOldVotesOrBuilder(
+        int index) {
+      return oldVotes_.get(index);
+    }
+
+    public static final int NEW_VOTES_FIELD_NUMBER = 3;
+    private java.util.List<org.tron.protos.Protocol.Vote> newVotes_;
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    public java.util.List<org.tron.protos.Protocol.Vote> getNewVotesList() {
+      return newVotes_;
+    }
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    public java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
+        getNewVotesOrBuilderList() {
+      return newVotes_;
+    }
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    public int getNewVotesCount() {
+      return newVotes_.size();
+    }
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    public org.tron.protos.Protocol.Vote getNewVotes(int index) {
+      return newVotes_.get(index);
+    }
+    /**
+     * <code>repeated .protocol.Vote new_votes = 3;</code>
+     */
+    public org.tron.protos.Protocol.VoteOrBuilder getNewVotesOrBuilder(
+        int index) {
+      return newVotes_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!address_.isEmpty()) {
+        output.writeBytes(1, address_);
+      }
+      for (int i = 0; i < oldVotes_.size(); i++) {
+        output.writeMessage(2, oldVotes_.get(i));
+      }
+      for (int i = 0; i < newVotes_.size(); i++) {
+        output.writeMessage(3, newVotes_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!address_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, address_);
+      }
+      for (int i = 0; i < oldVotes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, oldVotes_.get(i));
+      }
+      for (int i = 0; i < newVotes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, newVotes_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.protos.Protocol.Votes)) {
+        return super.equals(obj);
+      }
+      org.tron.protos.Protocol.Votes other = (org.tron.protos.Protocol.Votes) obj;
+
+      boolean result = true;
+      result = result && getAddress()
+          .equals(other.getAddress());
+      result = result && getOldVotesList()
+          .equals(other.getOldVotesList());
+      result = result && getNewVotesList()
+          .equals(other.getNewVotesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      if (getOldVotesCount() > 0) {
+        hash = (37 * hash) + OLD_VOTES_FIELD_NUMBER;
+        hash = (53 * hash) + getOldVotesList().hashCode();
+      }
+      if (getNewVotesCount() > 0) {
+        hash = (37 * hash) + NEW_VOTES_FIELD_NUMBER;
+        hash = (53 * hash) + getNewVotesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.protos.Protocol.Votes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Votes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Votes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Votes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.protos.Protocol.Votes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Vote Change
+     * </pre>
+     *
+     * Protobuf type {@code protocol.Votes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.Votes)
+        org.tron.protos.Protocol.VotesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.protos.Protocol.internal_static_protocol_Votes_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.protos.Protocol.internal_static_protocol_Votes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.protos.Protocol.Votes.class, org.tron.protos.Protocol.Votes.Builder.class);
+      }
+
+      // Construct using org.tron.protos.Protocol.Votes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getOldVotesFieldBuilder();
+          getNewVotesFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        address_ = com.google.protobuf.ByteString.EMPTY;
+
+        if (oldVotesBuilder_ == null) {
+          oldVotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          oldVotesBuilder_.clear();
+        }
+        if (newVotesBuilder_ == null) {
+          newVotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          newVotesBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.protos.Protocol.internal_static_protocol_Votes_descriptor;
+      }
+
+      public org.tron.protos.Protocol.Votes getDefaultInstanceForType() {
+        return org.tron.protos.Protocol.Votes.getDefaultInstance();
+      }
+
+      public org.tron.protos.Protocol.Votes build() {
+        org.tron.protos.Protocol.Votes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.protos.Protocol.Votes buildPartial() {
+        org.tron.protos.Protocol.Votes result = new org.tron.protos.Protocol.Votes(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.address_ = address_;
+        if (oldVotesBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            oldVotes_ = java.util.Collections.unmodifiableList(oldVotes_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.oldVotes_ = oldVotes_;
+        } else {
+          result.oldVotes_ = oldVotesBuilder_.build();
+        }
+        if (newVotesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            newVotes_ = java.util.Collections.unmodifiableList(newVotes_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.newVotes_ = newVotes_;
+        } else {
+          result.newVotes_ = newVotesBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.protos.Protocol.Votes) {
+          return mergeFrom((org.tron.protos.Protocol.Votes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.protos.Protocol.Votes other) {
+        if (other == org.tron.protos.Protocol.Votes.getDefaultInstance()) return this;
+        if (other.getAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setAddress(other.getAddress());
+        }
+        if (oldVotesBuilder_ == null) {
+          if (!other.oldVotes_.isEmpty()) {
+            if (oldVotes_.isEmpty()) {
+              oldVotes_ = other.oldVotes_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureOldVotesIsMutable();
+              oldVotes_.addAll(other.oldVotes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.oldVotes_.isEmpty()) {
+            if (oldVotesBuilder_.isEmpty()) {
+              oldVotesBuilder_.dispose();
+              oldVotesBuilder_ = null;
+              oldVotes_ = other.oldVotes_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              oldVotesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getOldVotesFieldBuilder() : null;
+            } else {
+              oldVotesBuilder_.addAllMessages(other.oldVotes_);
+            }
+          }
+        }
+        if (newVotesBuilder_ == null) {
+          if (!other.newVotes_.isEmpty()) {
+            if (newVotes_.isEmpty()) {
+              newVotes_ = other.newVotes_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureNewVotesIsMutable();
+              newVotes_.addAll(other.newVotes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.newVotes_.isEmpty()) {
+            if (newVotesBuilder_.isEmpty()) {
+              newVotesBuilder_.dispose();
+              newVotesBuilder_ = null;
+              newVotes_ = other.newVotes_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              newVotesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNewVotesFieldBuilder() : null;
+            } else {
+              newVotesBuilder_.addAllMessages(other.newVotes_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.protos.Protocol.Votes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.protos.Protocol.Votes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.ByteString address_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes address = 1;</code>
+       */
+      public com.google.protobuf.ByteString getAddress() {
+        return address_;
+      }
+      /**
+       * <code>bytes address = 1;</code>
+       */
+      public Builder setAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes address = 1;</code>
+       */
+      public Builder clearAddress() {
+        
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<org.tron.protos.Protocol.Vote> oldVotes_ =
+        java.util.Collections.emptyList();
+      private void ensureOldVotesIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          oldVotes_ = new java.util.ArrayList<org.tron.protos.Protocol.Vote>(oldVotes_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder> oldVotesBuilder_;
+
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public java.util.List<org.tron.protos.Protocol.Vote> getOldVotesList() {
+        if (oldVotesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(oldVotes_);
+        } else {
+          return oldVotesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public int getOldVotesCount() {
+        if (oldVotesBuilder_ == null) {
+          return oldVotes_.size();
+        } else {
+          return oldVotesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public org.tron.protos.Protocol.Vote getOldVotes(int index) {
+        if (oldVotesBuilder_ == null) {
+          return oldVotes_.get(index);
+        } else {
+          return oldVotesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder setOldVotes(
+          int index, org.tron.protos.Protocol.Vote value) {
+        if (oldVotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOldVotesIsMutable();
+          oldVotes_.set(index, value);
+          onChanged();
+        } else {
+          oldVotesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder setOldVotes(
+          int index, org.tron.protos.Protocol.Vote.Builder builderForValue) {
+        if (oldVotesBuilder_ == null) {
+          ensureOldVotesIsMutable();
+          oldVotes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          oldVotesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder addOldVotes(org.tron.protos.Protocol.Vote value) {
+        if (oldVotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOldVotesIsMutable();
+          oldVotes_.add(value);
+          onChanged();
+        } else {
+          oldVotesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder addOldVotes(
+          int index, org.tron.protos.Protocol.Vote value) {
+        if (oldVotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOldVotesIsMutable();
+          oldVotes_.add(index, value);
+          onChanged();
+        } else {
+          oldVotesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder addOldVotes(
+          org.tron.protos.Protocol.Vote.Builder builderForValue) {
+        if (oldVotesBuilder_ == null) {
+          ensureOldVotesIsMutable();
+          oldVotes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          oldVotesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder addOldVotes(
+          int index, org.tron.protos.Protocol.Vote.Builder builderForValue) {
+        if (oldVotesBuilder_ == null) {
+          ensureOldVotesIsMutable();
+          oldVotes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          oldVotesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder addAllOldVotes(
+          java.lang.Iterable<? extends org.tron.protos.Protocol.Vote> values) {
+        if (oldVotesBuilder_ == null) {
+          ensureOldVotesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, oldVotes_);
+          onChanged();
+        } else {
+          oldVotesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder clearOldVotes() {
+        if (oldVotesBuilder_ == null) {
+          oldVotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          oldVotesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public Builder removeOldVotes(int index) {
+        if (oldVotesBuilder_ == null) {
+          ensureOldVotesIsMutable();
+          oldVotes_.remove(index);
+          onChanged();
+        } else {
+          oldVotesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public org.tron.protos.Protocol.Vote.Builder getOldVotesBuilder(
+          int index) {
+        return getOldVotesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public org.tron.protos.Protocol.VoteOrBuilder getOldVotesOrBuilder(
+          int index) {
+        if (oldVotesBuilder_ == null) {
+          return oldVotes_.get(index);  } else {
+          return oldVotesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
+           getOldVotesOrBuilderList() {
+        if (oldVotesBuilder_ != null) {
+          return oldVotesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(oldVotes_);
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public org.tron.protos.Protocol.Vote.Builder addOldVotesBuilder() {
+        return getOldVotesFieldBuilder().addBuilder(
+            org.tron.protos.Protocol.Vote.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public org.tron.protos.Protocol.Vote.Builder addOldVotesBuilder(
+          int index) {
+        return getOldVotesFieldBuilder().addBuilder(
+            index, org.tron.protos.Protocol.Vote.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .protocol.Vote old_votes = 2;</code>
+       */
+      public java.util.List<org.tron.protos.Protocol.Vote.Builder> 
+           getOldVotesBuilderList() {
+        return getOldVotesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder> 
+          getOldVotesFieldBuilder() {
+        if (oldVotesBuilder_ == null) {
+          oldVotesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder>(
+                  oldVotes_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          oldVotes_ = null;
+        }
+        return oldVotesBuilder_;
+      }
+
+      private java.util.List<org.tron.protos.Protocol.Vote> newVotes_ =
+        java.util.Collections.emptyList();
+      private void ensureNewVotesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          newVotes_ = new java.util.ArrayList<org.tron.protos.Protocol.Vote>(newVotes_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder> newVotesBuilder_;
+
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public java.util.List<org.tron.protos.Protocol.Vote> getNewVotesList() {
+        if (newVotesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(newVotes_);
+        } else {
+          return newVotesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public int getNewVotesCount() {
+        if (newVotesBuilder_ == null) {
+          return newVotes_.size();
+        } else {
+          return newVotesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public org.tron.protos.Protocol.Vote getNewVotes(int index) {
+        if (newVotesBuilder_ == null) {
+          return newVotes_.get(index);
+        } else {
+          return newVotesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder setNewVotes(
+          int index, org.tron.protos.Protocol.Vote value) {
+        if (newVotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNewVotesIsMutable();
+          newVotes_.set(index, value);
+          onChanged();
+        } else {
+          newVotesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder setNewVotes(
+          int index, org.tron.protos.Protocol.Vote.Builder builderForValue) {
+        if (newVotesBuilder_ == null) {
+          ensureNewVotesIsMutable();
+          newVotes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          newVotesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder addNewVotes(org.tron.protos.Protocol.Vote value) {
+        if (newVotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNewVotesIsMutable();
+          newVotes_.add(value);
+          onChanged();
+        } else {
+          newVotesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder addNewVotes(
+          int index, org.tron.protos.Protocol.Vote value) {
+        if (newVotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNewVotesIsMutable();
+          newVotes_.add(index, value);
+          onChanged();
+        } else {
+          newVotesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder addNewVotes(
+          org.tron.protos.Protocol.Vote.Builder builderForValue) {
+        if (newVotesBuilder_ == null) {
+          ensureNewVotesIsMutable();
+          newVotes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          newVotesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder addNewVotes(
+          int index, org.tron.protos.Protocol.Vote.Builder builderForValue) {
+        if (newVotesBuilder_ == null) {
+          ensureNewVotesIsMutable();
+          newVotes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          newVotesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder addAllNewVotes(
+          java.lang.Iterable<? extends org.tron.protos.Protocol.Vote> values) {
+        if (newVotesBuilder_ == null) {
+          ensureNewVotesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, newVotes_);
+          onChanged();
+        } else {
+          newVotesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder clearNewVotes() {
+        if (newVotesBuilder_ == null) {
+          newVotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          newVotesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public Builder removeNewVotes(int index) {
+        if (newVotesBuilder_ == null) {
+          ensureNewVotesIsMutable();
+          newVotes_.remove(index);
+          onChanged();
+        } else {
+          newVotesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public org.tron.protos.Protocol.Vote.Builder getNewVotesBuilder(
+          int index) {
+        return getNewVotesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public org.tron.protos.Protocol.VoteOrBuilder getNewVotesOrBuilder(
+          int index) {
+        if (newVotesBuilder_ == null) {
+          return newVotes_.get(index);  } else {
+          return newVotesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public java.util.List<? extends org.tron.protos.Protocol.VoteOrBuilder> 
+           getNewVotesOrBuilderList() {
+        if (newVotesBuilder_ != null) {
+          return newVotesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(newVotes_);
+        }
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public org.tron.protos.Protocol.Vote.Builder addNewVotesBuilder() {
+        return getNewVotesFieldBuilder().addBuilder(
+            org.tron.protos.Protocol.Vote.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public org.tron.protos.Protocol.Vote.Builder addNewVotesBuilder(
+          int index) {
+        return getNewVotesFieldBuilder().addBuilder(
+            index, org.tron.protos.Protocol.Vote.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .protocol.Vote new_votes = 3;</code>
+       */
+      public java.util.List<org.tron.protos.Protocol.Vote.Builder> 
+           getNewVotesBuilderList() {
+        return getNewVotesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder> 
+          getNewVotesFieldBuilder() {
+        if (newVotesBuilder_ == null) {
+          newVotesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.tron.protos.Protocol.Vote, org.tron.protos.Protocol.Vote.Builder, org.tron.protos.Protocol.VoteOrBuilder>(
+                  newVotes_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          newVotes_ = null;
+        }
+        return newVotesBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.Votes)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.Votes)
+    private static final org.tron.protos.Protocol.Votes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Votes();
+    }
+
+    public static org.tron.protos.Protocol.Votes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Votes>
+        PARSER = new com.google.protobuf.AbstractParser<Votes>() {
+      public Votes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Votes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Votes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Votes> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.protos.Protocol.Votes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -23143,15 +24472,15 @@ public final class Protocol {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_AccountId_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_Vote_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_Vote_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Account_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Account_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protocol_Account_Vote_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protocol_Account_Vote_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Account_Frozen_descriptor;
   private static final 
@@ -23177,6 +24506,11 @@ public final class Protocol {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Witness_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_Votes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_Votes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_TXOutput_descriptor;
   private static final 
@@ -23289,102 +24623,105 @@ public final class Protocol {
       "\n\017core/Tron.proto\022\010protocol\032\031google/prot" +
       "obuf/any.proto\032\023core/Discover.proto\"*\n\tA" +
       "ccountId\022\014\n\004name\030\001 \001(\014\022\017\n\007address\030\002 \001(\014\"" +
-      "\200\004\n\007Account\022\024\n\014account_name\030\001 \001(\014\022#\n\004typ" +
-      "e\030\002 \001(\0162\025.protocol.AccountType\022\017\n\007addres" +
-      "s\030\003 \001(\014\022\017\n\007balance\030\004 \001(\003\022%\n\005votes\030\005 \003(\0132" +
-      "\026.protocol.Account.Vote\022+\n\005asset\030\006 \003(\0132\034" +
-      ".protocol.Account.AssetEntry\022(\n\006frozen\030\007" +
-      " \003(\0132\030.protocol.Account.Frozen\022\021\n\tbandwi" +
-      "dth\030\010 \001(\003\022\023\n\013create_time\030\t \001(\003\022\034\n\024latest" +
-      "_opration_time\030\n \001(\003\022\021\n\tallowance\030\013 \001(\003\022" +
-      "\034\n\024latest_withdraw_time\030\014 \001(\003\022\014\n\004code\030\r " +
-      "\001(\014\0320\n\004Vote\022\024\n\014vote_address\030\001 \001(\014\022\022\n\nvot" +
-      "e_count\030\002 \001(\003\0325\n\006Frozen\022\026\n\016frozen_balanc" +
-      "e\030\001 \001(\003\022\023\n\013expire_time\030\002 \001(\003\032,\n\nAssetEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\"J\n\tac" +
-      "uthrity\022$\n\007account\030\001 \001(\0132\023.protocol.Acco" +
-      "untId\022\027\n\017permission_name\030\002 \001(\014\"1\n\tpermis" +
-      "ion\022$\n\007account\030\001 \001(\0132\023.protocol.AccountI" +
-      "d\"\265\001\n\007Witness\022\017\n\007address\030\001 \001(\014\022\021\n\tvoteCo" +
-      "unt\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\022\013\n\003url\030\004 \001(\t\022\025" +
-      "\n\rtotalProduced\030\005 \001(\003\022\023\n\013totalMissed\030\006 \001" +
-      "(\003\022\026\n\016latestBlockNum\030\007 \001(\003\022\025\n\rlatestSlot" +
-      "Num\030\010 \001(\003\022\016\n\006isJobs\030\t \001(\010\"-\n\010TXOutput\022\r\n" +
-      "\005value\030\001 \001(\003\022\022\n\npubKeyHash\030\002 \001(\014\"x\n\007TXIn" +
-      "put\022\'\n\010raw_data\030\001 \001(\0132\025.protocol.TXInput" +
-      ".raw\022\021\n\tsignature\030\004 \001(\014\0321\n\003raw\022\014\n\004txID\030\001" +
-      " \001(\014\022\014\n\004vout\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\"0\n\tTX" +
-      "Outputs\022#\n\007outputs\030\001 \003(\0132\022.protocol.TXOu" +
-      "tput\"\372\007\n\013Transaction\022+\n\010raw_data\030\001 \001(\0132\031" +
-      ".protocol.Transaction.raw\022\021\n\tsignature\030\002" +
-      " \003(\014\022)\n\003ret\030\005 \003(\0132\034.protocol.Transaction" +
-      ".Result\032\254\004\n\010Contract\0229\n\004type\030\001 \001(\0162+.pro" +
-      "tocol.Transaction.Contract.ContractType\022" +
-      "\'\n\tparameter\030\002 \001(\0132\024.google.protobuf.Any" +
-      "\022\020\n\010provider\030\003 \001(\014\022\024\n\014ContractName\030\004 \001(\014" +
-      "\"\223\003\n\014ContractType\022\031\n\025AccountCreateContra" +
-      "ct\020\000\022\024\n\020TransferContract\020\001\022\031\n\025TransferAs" +
-      "setContract\020\002\022\025\n\021VoteAssetContract\020\003\022\027\n\023" +
-      "VoteWitnessContract\020\004\022\031\n\025WitnessCreateCo" +
-      "ntract\020\005\022\026\n\022AssetIssueContract\020\006\022\022\n\016Depl" +
-      "oyContract\020\007\022\031\n\025WitnessUpdateContract\020\010\022" +
-      "!\n\035ParticipateAssetIssueContract\020\t\022\031\n\025Ac" +
-      "countUpdateContract\020\n\022\031\n\025FreezeBalanceCo" +
-      "ntract\020\013\022\033\n\027UnfreezeBalanceContract\020\014\022\033\n" +
-      "\027WithdrawBalanceContract\020\r\022\022\n\016CustomCont" +
-      "ract\020\024\032e\n\006Result\022\013\n\003fee\030\001 \001(\003\022.\n\003ret\030\002 \001" +
-      "(\0162!.protocol.Transaction.Result.code\"\036\n" +
-      "\004code\022\n\n\006SUCESS\020\000\022\n\n\006FAILED\020\001\032\351\001\n\003raw\022\027\n" +
-      "\017ref_block_bytes\030\001 \001(\014\022\025\n\rref_block_num\030" +
-      "\003 \001(\003\022\026\n\016ref_block_hash\030\004 \001(\014\022\022\n\nexpirat" +
-      "ion\030\010 \001(\003\022\"\n\005auths\030\t \003(\0132\023.protocol.acut" +
-      "hrity\022\014\n\004data\030\n \001(\014\0220\n\010contract\030\013 \003(\0132\036." +
-      "protocol.Transaction.Contract\022\017\n\007scripts" +
-      "\030\014 \001(\014\022\021\n\ttimestamp\030\016 \001(\003\"\324\001\n\013BlockHeade" +
-      "r\022+\n\010raw_data\030\001 \001(\0132\031.protocol.BlockHead" +
-      "er.raw\022\031\n\021witness_signature\030\002 \001(\014\032}\n\003raw" +
-      "\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\ntxTrieRoot\030\002 \001(\014\022" +
-      "\022\n\nparentHash\030\003 \001(\014\022\016\n\006number\030\007 \001(\003\022\022\n\nw" +
-      "itness_id\030\010 \001(\003\022\027\n\017witness_address\030\t \001(\014" +
-      "\"a\n\005Block\022+\n\014transactions\030\001 \003(\0132\025.protoc" +
-      "ol.Transaction\022+\n\014block_header\030\002 \001(\0132\025.p" +
-      "rotocol.BlockHeader\"|\n\016ChainInventory\022-\n" +
-      "\003ids\030\001 \003(\0132 .protocol.ChainInventory.Blo" +
-      "ckId\022\022\n\nremain_num\030\002 \001(\003\032\'\n\007BlockId\022\014\n\004h" +
-      "ash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"\277\001\n\016BlockInven" +
-      "tory\022-\n\003ids\030\001 \003(\0132 .protocol.BlockInvent" +
-      "ory.BlockId\022+\n\004type\030\002 \001(\0162\035.protocol.Blo" +
-      "ckInventory.Type\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(" +
-      "\014\022\016\n\006number\030\002 \001(\003\"(\n\004Type\022\010\n\004SYNC\020\000\022\013\n\007A" +
-      "DVTISE\020\001\022\t\n\005FETCH\020\002\"n\n\tInventory\022/\n\004type" +
-      "\030\001 \001(\0162!.protocol.Inventory.InventoryTyp" +
-      "e\022\013\n\003ids\030\002 \003(\014\"#\n\rInventoryType\022\007\n\003TRX\020\000" +
-      "\022\t\n\005BLOCK\020\001\"\345\001\n\005Items\022&\n\004type\030\001 \001(\0162\030.pr" +
-      "otocol.Items.ItemType\022\037\n\006blocks\030\002 \003(\0132\017." +
-      "protocol.Block\022,\n\rblock_headers\030\003 \003(\0132\025." +
-      "protocol.BlockHeader\022+\n\014transactions\030\004 \003" +
-      "(\0132\025.protocol.Transaction\"8\n\010ItemType\022\007\n" +
-      "\003ERR\020\000\022\007\n\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013BLOCKHEADE" +
-      "R\020\003\"4\n\021DynamicProperties\022\037\n\027last_solidit" +
-      "y_block_num\030\001 \001(\003\"9\n\021DisconnectMessage\022$" +
-      "\n\006reason\030\001 \001(\0162\024.protocol.ReasonCode\"T\n\014" +
-      "HelloMessage\022 \n\004from\030\001 \001(\0132\022.protocol.En" +
-      "dpoint\022\017\n\007version\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001" +
-      "(\003*7\n\013AccountType\022\n\n\006Normal\020\000\022\016\n\nAssetIs" +
-      "sue\020\001\022\014\n\010Contract\020\002*\245\003\n\nReasonCode\022\r\n\tRE" +
-      "QUESTED\020\000\022\r\n\tTCP_ERROR\020\001\022\020\n\014BAD_PROTOCOL" +
-      "\020\002\022\020\n\014USELESS_PEER\020\003\022\022\n\016TOO_MANY_PEERS\020\004" +
-      "\022\022\n\016DUPLICATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PRO" +
-      "TOCOL\020\006\022\021\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITI" +
-      "NG\020\010\022\027\n\023UNEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_I" +
-      "DENTITY\020\n\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REAS" +
-      "ON\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\014\n\010TIME_O" +
-      "UT\020\023\022\n\n\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FORKE" +
-      "D\020\026\022\016\n\nUNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VERS" +
-      "ION\020\030\022\026\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\007UNKNOWN" +
-      "\020\377\001BF\n\017org.tron.protosB\010ProtocolZ)github" +
-      ".com/tronprotocol/grpc-gateway/coreb\006pro" +
-      "to3"
+      "0\n\004Vote\022\024\n\014vote_address\030\001 \001(\014\022\022\n\nvote_co" +
+      "unt\030\002 \001(\003\"\360\003\n\007Account\022\024\n\014account_name\030\001 " +
+      "\001(\014\022#\n\004type\030\002 \001(\0162\025.protocol.AccountType" +
+      "\022\017\n\007address\030\003 \001(\014\022\017\n\007balance\030\004 \001(\003\022\035\n\005vo" +
+      "tes\030\005 \003(\0132\016.protocol.Vote\022+\n\005asset\030\006 \003(\013" +
+      "2\034.protocol.Account.AssetEntry\022(\n\006frozen" +
+      "\030\007 \003(\0132\030.protocol.Account.Frozen\022\021\n\tband" +
+      "width\030\010 \001(\003\022\023\n\013create_time\030\t \001(\003\022\034\n\024late" +
+      "st_opration_time\030\n \001(\003\022\021\n\tallowance\030\013 \001(" +
+      "\003\022\034\n\024latest_withdraw_time\030\014 \001(\003\022\014\n\004code\030" +
+      "\r \001(\014\022\022\n\nis_witness\030\016 \001(\010\022\024\n\014is_committe" +
+      "e\030\017 \001(\010\0325\n\006Frozen\022\026\n\016frozen_balance\030\001 \001(" +
+      "\003\022\023\n\013expire_time\030\002 \001(\003\032,\n\nAssetEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\"J\n\tacuthrit" +
+      "y\022$\n\007account\030\001 \001(\0132\023.protocol.AccountId\022" +
+      "\027\n\017permission_name\030\002 \001(\014\"1\n\tpermision\022$\n" +
+      "\007account\030\001 \001(\0132\023.protocol.AccountId\"\265\001\n\007" +
+      "Witness\022\017\n\007address\030\001 \001(\014\022\021\n\tvoteCount\030\002 " +
+      "\001(\003\022\016\n\006pubKey\030\003 \001(\014\022\013\n\003url\030\004 \001(\t\022\025\n\rtota" +
+      "lProduced\030\005 \001(\003\022\023\n\013totalMissed\030\006 \001(\003\022\026\n\016" +
+      "latestBlockNum\030\007 \001(\003\022\025\n\rlatestSlotNum\030\010 " +
+      "\001(\003\022\016\n\006isJobs\030\t \001(\010\"^\n\005Votes\022\017\n\007address\030" +
+      "\001 \001(\014\022!\n\told_votes\030\002 \003(\0132\016.protocol.Vote" +
+      "\022!\n\tnew_votes\030\003 \003(\0132\016.protocol.Vote\"-\n\010T" +
+      "XOutput\022\r\n\005value\030\001 \001(\003\022\022\n\npubKeyHash\030\002 \001" +
+      "(\014\"x\n\007TXInput\022\'\n\010raw_data\030\001 \001(\0132\025.protoc" +
+      "ol.TXInput.raw\022\021\n\tsignature\030\004 \001(\014\0321\n\003raw" +
+      "\022\014\n\004txID\030\001 \001(\014\022\014\n\004vout\030\002 \001(\003\022\016\n\006pubKey\030\003" +
+      " \001(\014\"0\n\tTXOutputs\022#\n\007outputs\030\001 \003(\0132\022.pro" +
+      "tocol.TXOutput\"\372\007\n\013Transaction\022+\n\010raw_da" +
+      "ta\030\001 \001(\0132\031.protocol.Transaction.raw\022\021\n\ts" +
+      "ignature\030\002 \003(\014\022)\n\003ret\030\005 \003(\0132\034.protocol.T" +
+      "ransaction.Result\032\254\004\n\010Contract\0229\n\004type\030\001" +
+      " \001(\0162+.protocol.Transaction.Contract.Con" +
+      "tractType\022\'\n\tparameter\030\002 \001(\0132\024.google.pr" +
+      "otobuf.Any\022\020\n\010provider\030\003 \001(\014\022\024\n\014Contract" +
+      "Name\030\004 \001(\014\"\223\003\n\014ContractType\022\031\n\025AccountCr" +
+      "eateContract\020\000\022\024\n\020TransferContract\020\001\022\031\n\025" +
+      "TransferAssetContract\020\002\022\025\n\021VoteAssetCont" +
+      "ract\020\003\022\027\n\023VoteWitnessContract\020\004\022\031\n\025Witne" +
+      "ssCreateContract\020\005\022\026\n\022AssetIssueContract" +
+      "\020\006\022\022\n\016DeployContract\020\007\022\031\n\025WitnessUpdateC" +
+      "ontract\020\010\022!\n\035ParticipateAssetIssueContra" +
+      "ct\020\t\022\031\n\025AccountUpdateContract\020\n\022\031\n\025Freez" +
+      "eBalanceContract\020\013\022\033\n\027UnfreezeBalanceCon" +
+      "tract\020\014\022\033\n\027WithdrawBalanceContract\020\r\022\022\n\016" +
+      "CustomContract\020\024\032e\n\006Result\022\013\n\003fee\030\001 \001(\003\022" +
+      ".\n\003ret\030\002 \001(\0162!.protocol.Transaction.Resu" +
+      "lt.code\"\036\n\004code\022\n\n\006SUCESS\020\000\022\n\n\006FAILED\020\001\032" +
+      "\351\001\n\003raw\022\027\n\017ref_block_bytes\030\001 \001(\014\022\025\n\rref_" +
+      "block_num\030\003 \001(\003\022\026\n\016ref_block_hash\030\004 \001(\014\022" +
+      "\022\n\nexpiration\030\010 \001(\003\022\"\n\005auths\030\t \003(\0132\023.pro" +
+      "tocol.acuthrity\022\014\n\004data\030\n \001(\014\0220\n\010contrac" +
+      "t\030\013 \003(\0132\036.protocol.Transaction.Contract\022" +
+      "\017\n\007scripts\030\014 \001(\014\022\021\n\ttimestamp\030\016 \001(\003\"\324\001\n\013" +
+      "BlockHeader\022+\n\010raw_data\030\001 \001(\0132\031.protocol" +
+      ".BlockHeader.raw\022\031\n\021witness_signature\030\002 " +
+      "\001(\014\032}\n\003raw\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\ntxTrieR" +
+      "oot\030\002 \001(\014\022\022\n\nparentHash\030\003 \001(\014\022\016\n\006number\030" +
+      "\007 \001(\003\022\022\n\nwitness_id\030\010 \001(\003\022\027\n\017witness_add" +
+      "ress\030\t \001(\014\"a\n\005Block\022+\n\014transactions\030\001 \003(" +
+      "\0132\025.protocol.Transaction\022+\n\014block_header" +
+      "\030\002 \001(\0132\025.protocol.BlockHeader\"|\n\016ChainIn" +
+      "ventory\022-\n\003ids\030\001 \003(\0132 .protocol.ChainInv" +
+      "entory.BlockId\022\022\n\nremain_num\030\002 \001(\003\032\'\n\007Bl" +
+      "ockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"\277\001\n\016" +
+      "BlockInventory\022-\n\003ids\030\001 \003(\0132 .protocol.B" +
+      "lockInventory.BlockId\022+\n\004type\030\002 \001(\0162\035.pr" +
+      "otocol.BlockInventory.Type\032\'\n\007BlockId\022\014\n" +
+      "\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"(\n\004Type\022\010\n\004S" +
+      "YNC\020\000\022\013\n\007ADVTISE\020\001\022\t\n\005FETCH\020\002\"n\n\tInvento" +
+      "ry\022/\n\004type\030\001 \001(\0162!.protocol.Inventory.In" +
+      "ventoryType\022\013\n\003ids\030\002 \003(\014\"#\n\rInventoryTyp" +
+      "e\022\007\n\003TRX\020\000\022\t\n\005BLOCK\020\001\"\345\001\n\005Items\022&\n\004type\030" +
+      "\001 \001(\0162\030.protocol.Items.ItemType\022\037\n\006block" +
+      "s\030\002 \003(\0132\017.protocol.Block\022,\n\rblock_header" +
+      "s\030\003 \003(\0132\025.protocol.BlockHeader\022+\n\014transa" +
+      "ctions\030\004 \003(\0132\025.protocol.Transaction\"8\n\010I" +
+      "temType\022\007\n\003ERR\020\000\022\007\n\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013" +
+      "BLOCKHEADER\020\003\"4\n\021DynamicProperties\022\037\n\027la" +
+      "st_solidity_block_num\030\001 \001(\003\"9\n\021Disconnec" +
+      "tMessage\022$\n\006reason\030\001 \001(\0162\024.protocol.Reas" +
+      "onCode\"T\n\014HelloMessage\022 \n\004from\030\001 \001(\0132\022.p" +
+      "rotocol.Endpoint\022\017\n\007version\030\002 \001(\005\022\021\n\ttim" +
+      "estamp\030\003 \001(\003*7\n\013AccountType\022\n\n\006Normal\020\000\022" +
+      "\016\n\nAssetIssue\020\001\022\014\n\010Contract\020\002*\246\003\n\nReason" +
+      "Code\022\r\n\tREQUESTED\020\000\022\020\n\014BAD_PROTOCOL\020\002\022\022\n" +
+      "\016TOO_MANY_PEERS\020\004\022\022\n\016DUPLICATE_PEER\020\005\022\031\n" +
+      "\025INCOMPATIBLE_PROTOCOL\020\006\022\021\n\rNULL_IDENTIT" +
+      "Y\020\007\022\020\n\014PEER_QUITING\020\010\022\027\n\023UNEXPECTED_IDEN" +
+      "TITY\020\t\022\022\n\016LOCAL_IDENTITY\020\n\022\020\n\014PING_TIMEO" +
+      "UT\020\013\022\017\n\013USER_REASON\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC" +
+      "_FAIL\020\022\022\016\n\nFETCH_FAIL\020\023\022\n\n\006BAD_TX\020\024\022\r\n\tB" +
+      "AD_BLOCK\020\025\022\n\n\006FORKED\020\026\022\016\n\nUNLINKABLE\020\027\022\030" +
+      "\n\024INCOMPATIBLE_VERSION\020\030\022\026\n\022INCOMPATIBLE" +
+      "_CHAIN\020\031\022\014\n\010TIME_OUT\020 \022\020\n\014CONNECT_FAIL\020!" +
+      "\022\014\n\007UNKNOWN\020\377\001BF\n\017org.tron.protosB\010Proto" +
+      "colZ)github.com/tronprotocol/grpc-gatewa" +
+      "y/coreb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -23406,56 +24743,62 @@ public final class Protocol {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AccountId_descriptor,
         new java.lang.String[] { "Name", "Address", });
-    internal_static_protocol_Account_descriptor =
+    internal_static_protocol_Vote_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_protocol_Vote_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_Vote_descriptor,
+        new java.lang.String[] { "VoteAddress", "VoteCount", });
+    internal_static_protocol_Account_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_protocol_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_descriptor,
-        new java.lang.String[] { "AccountName", "Type", "Address", "Balance", "Votes", "Asset", "Frozen", "Bandwidth", "CreateTime", "LatestOprationTime", "Allowance", "LatestWithdrawTime", "Code", });
-    internal_static_protocol_Account_Vote_descriptor =
-      internal_static_protocol_Account_descriptor.getNestedTypes().get(0);
-    internal_static_protocol_Account_Vote_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protocol_Account_Vote_descriptor,
-        new java.lang.String[] { "VoteAddress", "VoteCount", });
+        new java.lang.String[] { "AccountName", "Type", "Address", "Balance", "Votes", "Asset", "Frozen", "Bandwidth", "CreateTime", "LatestOprationTime", "Allowance", "LatestWithdrawTime", "Code", "IsWitness", "IsCommittee", });
     internal_static_protocol_Account_Frozen_descriptor =
-      internal_static_protocol_Account_descriptor.getNestedTypes().get(1);
+      internal_static_protocol_Account_descriptor.getNestedTypes().get(0);
     internal_static_protocol_Account_Frozen_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_Frozen_descriptor,
         new java.lang.String[] { "FrozenBalance", "ExpireTime", });
     internal_static_protocol_Account_AssetEntry_descriptor =
-      internal_static_protocol_Account_descriptor.getNestedTypes().get(2);
+      internal_static_protocol_Account_descriptor.getNestedTypes().get(1);
     internal_static_protocol_Account_AssetEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_AssetEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_protocol_acuthrity_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_protocol_acuthrity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_acuthrity_descriptor,
         new java.lang.String[] { "Account", "PermissionName", });
     internal_static_protocol_permision_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_protocol_permision_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_permision_descriptor,
         new java.lang.String[] { "Account", });
     internal_static_protocol_Witness_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_protocol_Witness_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Witness_descriptor,
         new java.lang.String[] { "Address", "VoteCount", "PubKey", "Url", "TotalProduced", "TotalMissed", "LatestBlockNum", "LatestSlotNum", "IsJobs", });
+    internal_static_protocol_Votes_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_protocol_Votes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_Votes_descriptor,
+        new java.lang.String[] { "Address", "OldVotes", "NewVotes", });
     internal_static_protocol_TXOutput_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_protocol_TXOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXOutput_descriptor,
         new java.lang.String[] { "Value", "PubKeyHash", });
     internal_static_protocol_TXInput_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_protocol_TXInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXInput_descriptor,
@@ -23467,13 +24810,13 @@ public final class Protocol {
         internal_static_protocol_TXInput_raw_descriptor,
         new java.lang.String[] { "TxID", "Vout", "PubKey", });
     internal_static_protocol_TXOutputs_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_protocol_TXOutputs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXOutputs_descriptor,
         new java.lang.String[] { "Outputs", });
     internal_static_protocol_Transaction_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_protocol_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transaction_descriptor,
@@ -23497,7 +24840,7 @@ public final class Protocol {
         internal_static_protocol_Transaction_raw_descriptor,
         new java.lang.String[] { "RefBlockBytes", "RefBlockNum", "RefBlockHash", "Expiration", "Auths", "Data", "Contract", "Scripts", "Timestamp", });
     internal_static_protocol_BlockHeader_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_protocol_BlockHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockHeader_descriptor,
@@ -23509,13 +24852,13 @@ public final class Protocol {
         internal_static_protocol_BlockHeader_raw_descriptor,
         new java.lang.String[] { "Timestamp", "TxTrieRoot", "ParentHash", "Number", "WitnessId", "WitnessAddress", });
     internal_static_protocol_Block_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_protocol_Block_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Block_descriptor,
         new java.lang.String[] { "Transactions", "BlockHeader", });
     internal_static_protocol_ChainInventory_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_protocol_ChainInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ChainInventory_descriptor,
@@ -23527,7 +24870,7 @@ public final class Protocol {
         internal_static_protocol_ChainInventory_BlockId_descriptor,
         new java.lang.String[] { "Hash", "Number", });
     internal_static_protocol_BlockInventory_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_protocol_BlockInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockInventory_descriptor,
@@ -23539,31 +24882,31 @@ public final class Protocol {
         internal_static_protocol_BlockInventory_BlockId_descriptor,
         new java.lang.String[] { "Hash", "Number", });
     internal_static_protocol_Inventory_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_protocol_Inventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Inventory_descriptor,
         new java.lang.String[] { "Type", "Ids", });
     internal_static_protocol_Items_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_protocol_Items_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Items_descriptor,
         new java.lang.String[] { "Type", "Blocks", "BlockHeaders", "Transactions", });
     internal_static_protocol_DynamicProperties_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_protocol_DynamicProperties_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DynamicProperties_descriptor,
         new java.lang.String[] { "LastSolidityBlockNum", });
     internal_static_protocol_DisconnectMessage_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_protocol_DisconnectMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DisconnectMessage_descriptor,
         new java.lang.String[] { "Reason", });
     internal_static_protocol_HelloMessage_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_protocol_HelloMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_HelloMessage_descriptor,

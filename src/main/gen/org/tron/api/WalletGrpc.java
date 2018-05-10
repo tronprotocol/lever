@@ -188,38 +188,6 @@ public final class WalletGrpc {
      return getUpdateAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @java.lang.Deprecated // Use {@link #getCreateAccountMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.AccountCreateContract,
-      org.tron.protos.Protocol.Transaction> METHOD_CREATE_ACCOUNT = getCreateAccountMethod();
-
-  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.AccountCreateContract,
-      org.tron.protos.Protocol.Transaction> getCreateAccountMethod;
-
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.AccountCreateContract,
-      org.tron.protos.Protocol.Transaction> getCreateAccountMethod() {
-    io.grpc.MethodDescriptor<org.tron.protos.Contract.AccountCreateContract, org.tron.protos.Protocol.Transaction> getCreateAccountMethod;
-    if ((getCreateAccountMethod = WalletGrpc.getCreateAccountMethod) == null) {
-      synchronized (WalletGrpc.class) {
-        if ((getCreateAccountMethod = WalletGrpc.getCreateAccountMethod) == null) {
-          WalletGrpc.getCreateAccountMethod = getCreateAccountMethod = 
-              io.grpc.MethodDescriptor.<org.tron.protos.Contract.AccountCreateContract, org.tron.protos.Protocol.Transaction>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "protocol.Wallet", "CreateAccount"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.tron.protos.Contract.AccountCreateContract.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.tron.protos.Protocol.Transaction.getDefaultInstance()))
-                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("CreateAccount"))
-                  .build();
-          }
-        }
-     }
-     return getCreateAccountMethod;
-  }
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getVoteWitnessAccountMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.VoteWitnessContract,
       org.tron.protos.Protocol.Transaction> METHOD_VOTE_WITNESS_ACCOUNT = getVoteWitnessAccountMethod();
@@ -956,13 +924,6 @@ public final class WalletGrpc {
 
     /**
      */
-    public void createAccount(org.tron.protos.Contract.AccountCreateContract request,
-        io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
-      asyncUnimplementedUnaryCall(getCreateAccountMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void voteWitnessAccount(org.tron.protos.Contract.VoteWitnessContract request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
       asyncUnimplementedUnaryCall(getVoteWitnessAccountMethod(), responseObserver);
@@ -1145,13 +1106,6 @@ public final class WalletGrpc {
                 org.tron.protos.Contract.AccountUpdateContract,
                 org.tron.protos.Protocol.Transaction>(
                   this, METHODID_UPDATE_ACCOUNT)))
-          .addMethod(
-            getCreateAccountMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                org.tron.protos.Contract.AccountCreateContract,
-                org.tron.protos.Protocol.Transaction>(
-                  this, METHODID_CREATE_ACCOUNT)))
           .addMethod(
             getVoteWitnessAccountMethod(),
             asyncUnaryCall(
@@ -1359,14 +1313,6 @@ public final class WalletGrpc {
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getUpdateAccountMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void createAccount(org.tron.protos.Contract.AccountCreateContract request,
-        io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getCreateAccountMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1593,13 +1539,6 @@ public final class WalletGrpc {
 
     /**
      */
-    public org.tron.protos.Protocol.Transaction createAccount(org.tron.protos.Contract.AccountCreateContract request) {
-      return blockingUnaryCall(
-          getChannel(), getCreateAccountMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
     public org.tron.protos.Protocol.Transaction voteWitnessAccount(org.tron.protos.Contract.VoteWitnessContract request) {
       return blockingUnaryCall(
           getChannel(), getVoteWitnessAccountMethod(), getCallOptions(), request);
@@ -1806,14 +1745,6 @@ public final class WalletGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Transaction> createAccount(
-        org.tron.protos.Contract.AccountCreateContract request) {
-      return futureUnaryCall(
-          getChannel().newCall(getCreateAccountMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Transaction> voteWitnessAccount(
         org.tron.protos.Contract.VoteWitnessContract request) {
       return futureUnaryCall(
@@ -1986,28 +1917,27 @@ public final class WalletGrpc {
   private static final int METHODID_BROADCAST_TRANSACTION = 2;
   private static final int METHODID_LIST_ACCOUNTS = 3;
   private static final int METHODID_UPDATE_ACCOUNT = 4;
-  private static final int METHODID_CREATE_ACCOUNT = 5;
-  private static final int METHODID_VOTE_WITNESS_ACCOUNT = 6;
-  private static final int METHODID_CREATE_ASSET_ISSUE = 7;
-  private static final int METHODID_LIST_WITNESSES = 8;
-  private static final int METHODID_UPDATE_WITNESS = 9;
-  private static final int METHODID_CREATE_WITNESS = 10;
-  private static final int METHODID_TRANSFER_ASSET = 11;
-  private static final int METHODID_PARTICIPATE_ASSET_ISSUE = 12;
-  private static final int METHODID_FREEZE_BALANCE = 13;
-  private static final int METHODID_UNFREEZE_BALANCE = 14;
-  private static final int METHODID_WITHDRAW_BALANCE = 15;
-  private static final int METHODID_LIST_NODES = 16;
-  private static final int METHODID_GET_ASSET_ISSUE_LIST = 17;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 18;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 19;
-  private static final int METHODID_GET_NOW_BLOCK = 20;
-  private static final int METHODID_GET_BLOCK_BY_NUM = 21;
-  private static final int METHODID_TOTAL_TRANSACTION = 22;
-  private static final int METHODID_GET_BLOCK_BY_ID = 23;
-  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 24;
-  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 25;
-  private static final int METHODID_GET_TRANSACTION_BY_ID = 26;
+  private static final int METHODID_VOTE_WITNESS_ACCOUNT = 5;
+  private static final int METHODID_CREATE_ASSET_ISSUE = 6;
+  private static final int METHODID_LIST_WITNESSES = 7;
+  private static final int METHODID_UPDATE_WITNESS = 8;
+  private static final int METHODID_CREATE_WITNESS = 9;
+  private static final int METHODID_TRANSFER_ASSET = 10;
+  private static final int METHODID_PARTICIPATE_ASSET_ISSUE = 11;
+  private static final int METHODID_FREEZE_BALANCE = 12;
+  private static final int METHODID_UNFREEZE_BALANCE = 13;
+  private static final int METHODID_WITHDRAW_BALANCE = 14;
+  private static final int METHODID_LIST_NODES = 15;
+  private static final int METHODID_GET_ASSET_ISSUE_LIST = 16;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 17;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 18;
+  private static final int METHODID_GET_NOW_BLOCK = 19;
+  private static final int METHODID_GET_BLOCK_BY_NUM = 20;
+  private static final int METHODID_TOTAL_TRANSACTION = 21;
+  private static final int METHODID_GET_BLOCK_BY_ID = 22;
+  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 23;
+  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 24;
+  private static final int METHODID_GET_TRANSACTION_BY_ID = 25;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2044,10 +1974,6 @@ public final class WalletGrpc {
           break;
         case METHODID_UPDATE_ACCOUNT:
           serviceImpl.updateAccount((org.tron.protos.Contract.AccountUpdateContract) request,
-              (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction>) responseObserver);
-          break;
-        case METHODID_CREATE_ACCOUNT:
-          serviceImpl.createAccount((org.tron.protos.Contract.AccountCreateContract) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction>) responseObserver);
           break;
         case METHODID_VOTE_WITNESS_ACCOUNT:
@@ -2200,7 +2126,6 @@ public final class WalletGrpc {
               .addMethod(getBroadcastTransactionMethod())
               .addMethod(getListAccountsMethod())
               .addMethod(getUpdateAccountMethod())
-              .addMethod(getCreateAccountMethod())
               .addMethod(getVoteWitnessAccountMethod())
               .addMethod(getCreateAssetIssueMethod())
               .addMethod(getListWitnessesMethod())
