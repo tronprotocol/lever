@@ -20,9 +20,7 @@ public class Configuration {
       throw new IllegalArgumentException("Configuration path is required!");
     }
 
-    if (config == null) {
-      config = ConfigFactory.load(configurationPath);
-    }
+    config = ConfigFactory.load(configurationPath);
 
     return config;
   }
