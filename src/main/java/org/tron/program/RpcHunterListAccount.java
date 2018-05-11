@@ -15,7 +15,7 @@ public class RpcHunterListAccount extends AbstractJavaSamplerClient{
   @Override
   public void setupTest(JavaSamplerContext context) {
     walletClient = new WalletClient();
-    walletClient.init();
+    walletClient.init(0);
   }
 
   @Override

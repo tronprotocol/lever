@@ -5,6 +5,7 @@ import static org.tron.core.config.Parameter.CommonConstant.TARGET_GRPC_ADDRESS;
 import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
+import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.tron.api.GrpcAPI.AccountList;
@@ -38,14 +39,14 @@ public class WalletClient {
     this.ecKey = temKey;
   }
 
-  public void init() {
+  public void init(int index) {
     if (!config.hasPath(TARGET_GRPC_ADDRESS)) {
-      logger.error("no target: {} = ip:host", TARGET_GRPC_ADDRESS);
+      logger.error("no target: {} = [ip:host]", TARGET_GRPC_ADDRESS);
       return;
     }
-    String target = config.getString(TARGET_GRPC_ADDRESS);
+    List<String> target = config.getStringList(TARGET_GRPC_ADDRESS);
     logger.info("target: {}" + target);
-    rpcCli = new GrpcClient(target);
+    rpcCli = new GrpcClient(target.get(index % target.size()));
   }
 
   public Optional<AccountList> listAccounts() {

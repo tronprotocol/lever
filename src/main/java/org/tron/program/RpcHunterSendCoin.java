@@ -34,7 +34,7 @@ public class RpcHunterSendCoin extends AbstractJavaSamplerClient{
     amountValue = new Long(amount);
 
     walletClient = new WalletClient(privateKey);
-    walletClient.init();
+    walletClient.init(0);
   }
 
   @Override

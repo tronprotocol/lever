@@ -31,14 +31,14 @@ public class ExportData {
   //Example:
   //--toaddress toaddress.csv --amount 1 --output trxsdata.csv --count 10000 --privatekey privatekey.csv
   public static void main(String[] args) throws IOException {
-    Args args1 = new Args();
-    JCommander.newBuilder().addObject(args1).build().parse(args);
+    Args argsObj = new Args();
+    JCommander.newBuilder().addObject(argsObj).build().parse(args);
 
-    walletClient = new WalletClient();
-    walletClient.init();
+    walletClient = new WalletClient(argsObj.getPrivateKey());
+    walletClient.init(0);
 
     // 读取to address
-    List<String> toAddressList = getStrings(args1.getToAddress());
+    List<String> toAddressList = getStrings(argsObj.getToAddress());
     List<byte[]> toAddressByteList = new ArrayList<>();
     int addressSize = toAddressList.size();
     if (addressSize == 0) {
@@ -47,21 +47,21 @@ public class ExportData {
     }
 
     // 读取 private key
-    List<String> privateKeyList = getStrings(args1.getPrivateKey());
+    List<String> privateKeyList = getStrings(argsObj.getPrivateKey());
     int privateKeySize = privateKeyList.size();
     if (privateKeySize == 0) {
       System.out.println("private key is empty");
       return;
     }
 
-    File f = new File(args1.getOutput());
+    File f = new File(argsObj.getOutput());
     FileOutputStream fos = new FileOutputStream(f);
 
     for (String toAddress : toAddressList) {
       byte[] addressBytes = Base58.decodeFromBase58Check(toAddress);
       toAddressByteList.add(addressBytes);
     }
-    long amount = args1.getAmount();
+    long amount = argsObj.getAmount();
 
     ConcurrentLinkedQueue<Transaction> transactions = new ConcurrentLinkedQueue<>();
     AtomicInteger counter = new AtomicInteger(0);
@@ -73,7 +73,7 @@ public class ExportData {
     }
 
     processors.stream().parallel().forEach(item -> {
-      for (int i = 0; i < args1.getCount() / processors.size(); i++) {
+      for (int i = 0; i < argsObj.getCount() / processors.size(); i++) {
         int c = counter.incrementAndGet();
         Transaction transaction = generateTransaction(toAddressByteList.get(c % addressSize),
             amount, privateKeyList.get(c % privateKeySize));
@@ -91,18 +91,8 @@ public class ExportData {
         System.out.println("write file current: " + (c + 1));
       }
     }
-//    for (int i = 0; i < args1.getCount(); ++i) {
-//      String address = toAddress.get(i % size);
-//      byte[] addressBytes = Base58.decodeFromBase58Check(address);
-//      long amount = args1.getAmount();
-//      if (addressBytes != null) {
-//        Transaction transaction = generateTransaction(addressBytes, amount);
-//        transaction.writeDelimitedTo(fos);
-//        if (i % 1000 == 0) {
-//          System.out.println("current: " + (i + 1));
-//        }
-//      }
-//    }
+    fos.flush();
+    fos.close();
   }
 
   private static Transaction generateTransaction(byte[] to, long amount, String privateKey) {

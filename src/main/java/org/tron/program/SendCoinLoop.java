@@ -26,8 +26,9 @@ import org.tron.Validator.StringValidator;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
+
+//Example --tps 2000 --datafile [path to trxsdata.csv]
 public class SendCoinLoop {
-  private static final String PRIVATE_KEY = "effa55b420a2fe39e3f73d14b8c46824fd0d5ee210840b9c27b2e2f42a09f1f9";
   private static final int THREAD_COUNT = 16;
 
   private static List<WalletClient> walletClients = new ArrayList<>();
@@ -41,10 +42,9 @@ public class SendCoinLoop {
 
     walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
       WalletClient walletClient = new WalletClient();
-      walletClient.init();
+      walletClient.init(i);
       return walletClient;
-    })
-        .collect(Collectors.toList());
+    }).collect(Collectors.toList());
 
     File f = new File(args1.getDataFile());
     FileInputStream fis = new FileInputStream(f);
