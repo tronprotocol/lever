@@ -172,6 +172,10 @@ public final class GrpcAPI {
        */
       TRANSACTION_EXPIRATION_ERROR(8),
       /**
+       * <code>SERVER_BUSY = 9;</code>
+       */
+      SERVER_BUSY(9),
+      /**
        * <code>OTHER_ERROR = 20;</code>
        */
       OTHER_ERROR(20),
@@ -219,6 +223,10 @@ public final class GrpcAPI {
        */
       public static final int TRANSACTION_EXPIRATION_ERROR_VALUE = 8;
       /**
+       * <code>SERVER_BUSY = 9;</code>
+       */
+      public static final int SERVER_BUSY_VALUE = 9;
+      /**
        * <code>OTHER_ERROR = 20;</code>
        */
       public static final int OTHER_ERROR_VALUE = 20;
@@ -251,6 +259,7 @@ public final class GrpcAPI {
           case 6: return TAPOS_ERROR;
           case 7: return TOO_BIG_TRANSACTION_ERROR;
           case 8: return TRANSACTION_EXPIRATION_ERROR;
+          case 9: return SERVER_BUSY;
           case 20: return OTHER_ERROR;
           default: return null;
         }
@@ -9919,157 +9928,157 @@ public final class GrpcAPI {
     java.lang.String[] descriptorData = {
       "\n\rapi/api.proto\022\010protocol\032\017core/Tron.pro" +
       "to\032\023core/Contract.proto\032\034google/api/anno" +
-      "tations.proto\"\313\002\n\006Return\022\016\n\006result\030\001 \001(\010" +
+      "tations.proto\"\334\002\n\006Return\022\016\n\006result\030\001 \001(\010" +
       "\022,\n\004code\030\002 \001(\0162\036.protocol.Return.respons" +
-      "e_code\022\017\n\007message\030\003 \001(\014\"\361\001\n\rresponse_cod" +
+      "e_code\022\017\n\007message\030\003 \001(\014\"\202\002\n\rresponse_cod" +
       "e\022\013\n\007SUCCESS\020\000\022\014\n\010SIGERROR\020\001\022\033\n\027CONTRACT" +
       "_VALIDATE_ERROR\020\002\022\026\n\022CONTRACT_EXE_ERROR\020" +
       "\003\022\022\n\016BANDWITH_ERROR\020\004\022\031\n\025DUP_TRANSACTION" +
       "_ERROR\020\005\022\017\n\013TAPOS_ERROR\020\006\022\035\n\031TOO_BIG_TRA" +
       "NSACTION_ERROR\020\007\022 \n\034TRANSACTION_EXPIRATI" +
-      "ON_ERROR\020\010\022\017\n\013OTHER_ERROR\020\024\"7\n\016BlockRefe" +
-      "rence\022\021\n\tblock_num\030\001 \001(\003\022\022\n\nblock_hash\030\002" +
-      " \001(\014\"2\n\013AccountList\022#\n\010accounts\030\001 \003(\0132\021." +
-      "protocol.Account\"3\n\013WitnessList\022$\n\twitne" +
-      "sses\030\001 \003(\0132\021.protocol.Witness\"B\n\016AssetIs" +
-      "sueList\0220\n\nassetIssue\030\001 \003(\0132\034.protocol.A" +
-      "ssetIssueContract\"+\n\tBlockList\022\036\n\005block\030" +
-      "\001 \003(\0132\017.protocol.Block\"=\n\017TransactionLis" +
-      "t\022*\n\013transaction\030\001 \003(\0132\025.protocol.Transa" +
-      "ction\")\n\010NodeList\022\035\n\005nodes\030\001 \003(\0132\016.proto" +
-      "col.Node\"*\n\004Node\022\"\n\007address\030\001 \001(\0132\021.prot" +
-      "ocol.Address\"%\n\007Address\022\014\n\004host\030\001 \001(\014\022\014\n" +
-      "\004port\030\002 \001(\005\"\016\n\014EmptyMessage\"\034\n\rNumberMes" +
-      "sage\022\013\n\003num\030\001 \001(\003\"\035\n\014BytesMessage\022\r\n\005val" +
-      "ue\030\001 \001(\014\"E\n\013TimeMessage\022\033\n\023beginInMillis" +
-      "econds\030\001 \001(\003\022\031\n\021endInMilliseconds\030\002 \001(\003\"" +
-      ".\n\nBlockLimit\022\020\n\010startNum\030\001 \001(\003\022\016\n\006endNu" +
-      "m\030\002 \001(\003\";\n\020TransactionLimit\022\025\n\rtransacti" +
-      "onId\030\001 \001(\014\022\020\n\010limitNum\030\002 \001(\0032\377\026\n\006Wallet\022" +
-      "g\n\nGetAccount\022\021.protocol.Account\032\021.proto" +
-      "col.Account\"3\202\323\344\223\002-\"\022/wallet/getaccount:" +
-      "\001*Z\024\022\022/wallet/getaccount\022l\n\021CreateTransa" +
-      "ction\022\032.protocol.TransferContract\032\025.prot" +
-      "ocol.Transaction\"$\202\323\344\223\002\036\"\031/wallet/create" +
-      "transaction:\001*\022h\n\024BroadcastTransaction\022\025" +
-      ".protocol.Transaction\032\020.protocol.Return\"" +
-      "\'\202\323\344\223\002!\"\034/wallet/broadcasttransaction:\001*" +
-      "\022t\n\014ListAccounts\022\026.protocol.EmptyMessage" +
-      "\032\025.protocol.AccountList\"5\202\323\344\223\002/\"\023/wallet" +
-      "/listaccount:\001*Z\025\022\023/wallet/listaccount\022i" +
-      "\n\rUpdateAccount\022\037.protocol.AccountUpdate" +
-      "Contract\032\025.protocol.Transaction\" \202\323\344\223\002\032\"" +
-      "\025/wallet/updateaccount:\001*\022q\n\022VoteWitness" +
-      "Account\022\035.protocol.VoteWitnessContract\032\025" +
-      ".protocol.Transaction\"%\202\323\344\223\002\037\"\032/wallet/v" +
-      "otewitnessaccount:\001*\022l\n\020CreateAssetIssue" +
-      "\022\034.protocol.AssetIssueContract\032\025.protoco" +
-      "l.Transaction\"#\202\323\344\223\002\035\"\030/wallet/createass" +
-      "etissue:\001*\022y\n\rListWitnesses\022\026.protocol.E" +
-      "mptyMessage\032\025.protocol.WitnessList\"9\202\323\344\223" +
-      "\0023\"\025/wallet/listwitnesses:\001*Z\027\022\025/wallet/" +
-      "listwitnesses\022i\n\rUpdateWitness\022\037.protoco" +
-      "l.WitnessUpdateContract\032\025.protocol.Trans" +
-      "action\" \202\323\344\223\002\032\"\025/wallet/updatewitness:\001*" +
-      "\022i\n\rCreateWitness\022\037.protocol.WitnessCrea" +
-      "teContract\032\025.protocol.Transaction\" \202\323\344\223\002" +
-      "\032\"\025/wallet/createwitness:\001*\022i\n\rTransferA" +
-      "sset\022\037.protocol.TransferAssetContract\032\025." +
-      "protocol.Transaction\" \202\323\344\223\002\032\"\025/wallet/tr" +
-      "ansferasset:\001*\022\201\001\n\025ParticipateAssetIssue" +
-      "\022\'.protocol.ParticipateAssetIssueContrac" +
-      "t\032\025.protocol.Transaction\"(\202\323\344\223\002\"\"\035/walle" +
-      "t/participateassetissue:\001*\022i\n\rFreezeBala" +
-      "nce\022\037.protocol.FreezeBalanceContract\032\025.p" +
-      "rotocol.Transaction\" \202\323\344\223\002\032\"\025/wallet/fre" +
-      "ezebalance:\001*\022o\n\017UnfreezeBalance\022!.proto" +
-      "col.UnfreezeBalanceContract\032\025.protocol.T" +
-      "ransaction\"\"\202\323\344\223\002\034\"\027/wallet/unfreezebala" +
-      "nce:\001*\022o\n\017WithdrawBalance\022!.protocol.Wit" +
-      "hdrawBalanceContract\032\025.protocol.Transact" +
-      "ion\"\"\202\323\344\223\002\034\"\027/wallet/withdrawbalance:\001*\022" +
-      "j\n\tListNodes\022\026.protocol.EmptyMessage\032\022.p" +
-      "rotocol.NodeList\"1\202\323\344\223\002+\"\021/wallet/listno" +
-      "des:\001*Z\023\022\021/wallet/listnodes\022\210\001\n\021GetAsset" +
-      "IssueList\022\026.protocol.EmptyMessage\032\030.prot" +
-      "ocol.AssetIssueList\"A\202\323\344\223\002;\"\031/wallet/get" +
-      "assetissuelist:\001*Z\033\022\031/wallet/getassetiss" +
-      "uelist\022p\n\026GetAssetIssueByAccount\022\021.proto" +
-      "col.Account\032\030.protocol.AssetIssueList\")\202" +
-      "\323\344\223\002#\"\036/wallet/getassetissuebyaccount:\001*" +
-      "\022s\n\023GetAssetIssueByName\022\026.protocol.Bytes" +
-      "Message\032\034.protocol.AssetIssueContract\"&\202" +
-      "\323\344\223\002 \"\033/wallet/getassetissuebyname:\001*\022m\n" +
-      "\013GetNowBlock\022\026.protocol.EmptyMessage\032\017.p" +
-      "rotocol.Block\"5\202\323\344\223\002/\"\023/wallet/getnowblo" +
-      "ck:\001*Z\025\022\023/wallet/getnowblock\022t\n\rGetBlock" +
-      "ByNum\022\027.protocol.NumberMessage\032\017.protoco" +
-      "l.Block\"9\202\323\344\223\0023\"\025/wallet/getblockbynum:\001" +
-      "*Z\027\022\025/wallet/getblockbynum\022\204\001\n\020TotalTran" +
-      "saction\022\026.protocol.EmptyMessage\032\027.protoc" +
-      "ol.NumberMessage\"?\202\323\344\223\0029\"\030/wallet/totalt" +
-      "ransaction:\001*Z\032\022\030/wallet/totaltransactio" +
-      "n\022X\n\014GetBlockById\022\026.protocol.BytesMessag" +
-      "e\032\017.protocol.Block\"\037\202\323\344\223\002\031\"\024/wallet/getb" +
-      "lockbyid:\001*\022h\n\023GetBlockByLimitNext\022\024.pro" +
-      "tocol.BlockLimit\032\023.protocol.BlockList\"&\202" +
-      "\323\344\223\002 \"\033/wallet/getblockbylimitnext:\001*\022k\n" +
-      "\023GetBlockByLatestNum\022\027.protocol.NumberMe" +
-      "ssage\032\023.protocol.BlockList\"&\202\323\344\223\002 \"\033/wal" +
-      "let/getblockbylatestnum:\001*\022j\n\022GetTransac" +
-      "tionById\022\026.protocol.BytesMessage\032\025.proto" +
-      "col.Transaction\"%\202\323\344\223\002\037\"\032/wallet/gettran" +
-      "sactionbyid:\001*2\337\014\n\016WalletSolidity\022Y\n\nGet" +
-      "Account\022\021.protocol.Account\032\021.protocol.Ac" +
-      "count\"%\202\323\344\223\002\037\"\032/walletsolidity/getaccoun" +
-      "t:\001*\022f\n\014ListAccounts\022\026.protocol.EmptyMes" +
-      "sage\032\025.protocol.AccountList\"\'\202\323\344\223\002!\"\034/wa" +
-      "lletsolidity/listaccounts:\001*\022h\n\rListWitn" +
-      "esses\022\026.protocol.EmptyMessage\032\025.protocol" +
-      ".WitnessList\"(\202\323\344\223\002\"\"\035/walletsolidity/li" +
-      "stwitnesses:\001*\022s\n\021GetAssetIssueList\022\026.pr" +
-      "otocol.EmptyMessage\032\030.protocol.AssetIssu" +
-      "eList\",\202\323\344\223\002&\"!/walletsolidity/getasseti" +
-      "ssuelist:\001*\022\212\001\n\034GetAssetIssueListByTimes" +
-      "tamp\022\027.protocol.NumberMessage\032\030.protocol" +
-      ".AssetIssueList\"7\202\323\344\223\0021\",/walletsolidity" +
-      "/getassetissuelistbytimestamp:\001*\022x\n\026GetA" +
-      "ssetIssueByAccount\022\021.protocol.Account\032\030." +
-      "protocol.AssetIssueList\"1\202\323\344\223\002+\"&/wallet" +
-      "solidity/getassetissuebyaccount:\001*\022{\n\023Ge" +
-      "tAssetIssueByName\022\026.protocol.BytesMessag" +
-      "e\032\034.protocol.AssetIssueContract\".\202\323\344\223\002(\"" +
-      "#/walletsolidity/getassetissuebyname:\001*\022" +
-      "^\n\013GetNowBlock\022\026.protocol.EmptyMessage\032\017" +
-      ".protocol.Block\"&\202\323\344\223\002 \"\033/walletsolidity" +
-      "/getnowblock:\001*\022c\n\rGetBlockByNum\022\027.proto" +
-      "col.NumberMessage\032\017.protocol.Block\"(\202\323\344\223" +
-      "\002\"\"\035/walletsolidity/getblockbynum:\001*\022p\n\020" +
-      "TotalTransaction\022\026.protocol.EmptyMessage" +
-      "\032\027.protocol.NumberMessage\"+\202\323\344\223\002%\" /wall" +
-      "etsolidity/totaltransaction:\001*\022r\n\022GetTra" +
-      "nsactionById\022\026.protocol.BytesMessage\032\025.p" +
-      "rotocol.Transaction\"-\202\323\344\223\002\'\"\"/walletsoli" +
-      "dity/gettransactionbyid:\001*\022\205\001\n\032GetTransa" +
-      "ctionsByTimestamp\022\025.protocol.TimeMessage" +
-      "\032\031.protocol.TransactionList\"5\202\323\344\223\002/\"*/wa" +
-      "lletsolidity/gettransactionsbytimestamp:" +
-      "\001*\022{\n\027GetTransactionsFromThis\022\021.protocol" +
-      ".Account\032\031.protocol.TransactionList\"2\202\323\344" +
-      "\223\002,\"\'/walletsolidity/gettransactionsfrom" +
-      "this:\001*\022w\n\025GetTransactionsToThis\022\021.proto" +
-      "col.Account\032\031.protocol.TransactionList\"0" +
-      "\202\323\344\223\002*\"%/walletsolidity/gettransactionst" +
-      "othis:\001*2\231\002\n\010Database\022G\n\021getBlockReferen" +
-      "ce\022\026.protocol.EmptyMessage\032\030.protocol.Bl" +
-      "ockReference\"\000\022M\n\024GetDynamicProperties\022\026" +
-      ".protocol.EmptyMessage\032\033.protocol.Dynami" +
-      "cProperties\"\000\0228\n\013GetNowBlock\022\026.protocol." +
-      "EmptyMessage\032\017.protocol.Block\"\000\022;\n\rGetBl" +
-      "ockByNum\022\027.protocol.NumberMessage\032\017.prot" +
-      "ocol.Block\"\0002\t\n\007NetworkBA\n\014org.tron.apiB" +
-      "\007GrpcAPIZ(github.com/tronprotocol/grpc-g" +
-      "ateway/apib\006proto3"
+      "ON_ERROR\020\010\022\017\n\013SERVER_BUSY\020\t\022\017\n\013OTHER_ERR" +
+      "OR\020\024\"7\n\016BlockReference\022\021\n\tblock_num\030\001 \001(" +
+      "\003\022\022\n\nblock_hash\030\002 \001(\014\"2\n\013AccountList\022#\n\010" +
+      "accounts\030\001 \003(\0132\021.protocol.Account\"3\n\013Wit" +
+      "nessList\022$\n\twitnesses\030\001 \003(\0132\021.protocol.W" +
+      "itness\"B\n\016AssetIssueList\0220\n\nassetIssue\030\001" +
+      " \003(\0132\034.protocol.AssetIssueContract\"+\n\tBl" +
+      "ockList\022\036\n\005block\030\001 \003(\0132\017.protocol.Block\"" +
+      "=\n\017TransactionList\022*\n\013transaction\030\001 \003(\0132" +
+      "\025.protocol.Transaction\")\n\010NodeList\022\035\n\005no" +
+      "des\030\001 \003(\0132\016.protocol.Node\"*\n\004Node\022\"\n\007add" +
+      "ress\030\001 \001(\0132\021.protocol.Address\"%\n\007Address" +
+      "\022\014\n\004host\030\001 \001(\014\022\014\n\004port\030\002 \001(\005\"\016\n\014EmptyMes" +
+      "sage\"\034\n\rNumberMessage\022\013\n\003num\030\001 \001(\003\"\035\n\014By" +
+      "tesMessage\022\r\n\005value\030\001 \001(\014\"E\n\013TimeMessage" +
+      "\022\033\n\023beginInMilliseconds\030\001 \001(\003\022\031\n\021endInMi" +
+      "lliseconds\030\002 \001(\003\".\n\nBlockLimit\022\020\n\010startN" +
+      "um\030\001 \001(\003\022\016\n\006endNum\030\002 \001(\003\";\n\020TransactionL" +
+      "imit\022\025\n\rtransactionId\030\001 \001(\014\022\020\n\010limitNum\030" +
+      "\002 \001(\0032\377\026\n\006Wallet\022g\n\nGetAccount\022\021.protoco" +
+      "l.Account\032\021.protocol.Account\"3\202\323\344\223\002-\"\022/w" +
+      "allet/getaccount:\001*Z\024\022\022/wallet/getaccoun" +
+      "t\022l\n\021CreateTransaction\022\032.protocol.Transf" +
+      "erContract\032\025.protocol.Transaction\"$\202\323\344\223\002" +
+      "\036\"\031/wallet/createtransaction:\001*\022h\n\024Broad" +
+      "castTransaction\022\025.protocol.Transaction\032\020" +
+      ".protocol.Return\"\'\202\323\344\223\002!\"\034/wallet/broadc" +
+      "asttransaction:\001*\022t\n\014ListAccounts\022\026.prot" +
+      "ocol.EmptyMessage\032\025.protocol.AccountList" +
+      "\"5\202\323\344\223\002/\"\023/wallet/listaccount:\001*Z\025\022\023/wal" +
+      "let/listaccount\022i\n\rUpdateAccount\022\037.proto" +
+      "col.AccountUpdateContract\032\025.protocol.Tra" +
+      "nsaction\" \202\323\344\223\002\032\"\025/wallet/updateaccount:" +
+      "\001*\022q\n\022VoteWitnessAccount\022\035.protocol.Vote" +
+      "WitnessContract\032\025.protocol.Transaction\"%" +
+      "\202\323\344\223\002\037\"\032/wallet/votewitnessaccount:\001*\022l\n" +
+      "\020CreateAssetIssue\022\034.protocol.AssetIssueC" +
+      "ontract\032\025.protocol.Transaction\"#\202\323\344\223\002\035\"\030" +
+      "/wallet/createassetissue:\001*\022y\n\rListWitne" +
+      "sses\022\026.protocol.EmptyMessage\032\025.protocol." +
+      "WitnessList\"9\202\323\344\223\0023\"\025/wallet/listwitness" +
+      "es:\001*Z\027\022\025/wallet/listwitnesses\022i\n\rUpdate" +
+      "Witness\022\037.protocol.WitnessUpdateContract" +
+      "\032\025.protocol.Transaction\" \202\323\344\223\002\032\"\025/wallet" +
+      "/updatewitness:\001*\022i\n\rCreateWitness\022\037.pro" +
+      "tocol.WitnessCreateContract\032\025.protocol.T" +
+      "ransaction\" \202\323\344\223\002\032\"\025/wallet/createwitnes" +
+      "s:\001*\022i\n\rTransferAsset\022\037.protocol.Transfe" +
+      "rAssetContract\032\025.protocol.Transaction\" \202" +
+      "\323\344\223\002\032\"\025/wallet/transferasset:\001*\022\201\001\n\025Part" +
+      "icipateAssetIssue\022\'.protocol.Participate" +
+      "AssetIssueContract\032\025.protocol.Transactio" +
+      "n\"(\202\323\344\223\002\"\"\035/wallet/participateassetissue" +
+      ":\001*\022i\n\rFreezeBalance\022\037.protocol.FreezeBa" +
+      "lanceContract\032\025.protocol.Transaction\" \202\323" +
+      "\344\223\002\032\"\025/wallet/freezebalance:\001*\022o\n\017Unfree" +
+      "zeBalance\022!.protocol.UnfreezeBalanceCont" +
+      "ract\032\025.protocol.Transaction\"\"\202\323\344\223\002\034\"\027/wa" +
+      "llet/unfreezebalance:\001*\022o\n\017WithdrawBalan" +
+      "ce\022!.protocol.WithdrawBalanceContract\032\025." +
+      "protocol.Transaction\"\"\202\323\344\223\002\034\"\027/wallet/wi" +
+      "thdrawbalance:\001*\022j\n\tListNodes\022\026.protocol" +
+      ".EmptyMessage\032\022.protocol.NodeList\"1\202\323\344\223\002" +
+      "+\"\021/wallet/listnodes:\001*Z\023\022\021/wallet/listn" +
+      "odes\022\210\001\n\021GetAssetIssueList\022\026.protocol.Em" +
+      "ptyMessage\032\030.protocol.AssetIssueList\"A\202\323" +
+      "\344\223\002;\"\031/wallet/getassetissuelist:\001*Z\033\022\031/w" +
+      "allet/getassetissuelist\022p\n\026GetAssetIssue" +
+      "ByAccount\022\021.protocol.Account\032\030.protocol." +
+      "AssetIssueList\")\202\323\344\223\002#\"\036/wallet/getasset" +
+      "issuebyaccount:\001*\022s\n\023GetAssetIssueByName" +
+      "\022\026.protocol.BytesMessage\032\034.protocol.Asse" +
+      "tIssueContract\"&\202\323\344\223\002 \"\033/wallet/getasset" +
+      "issuebyname:\001*\022m\n\013GetNowBlock\022\026.protocol" +
+      ".EmptyMessage\032\017.protocol.Block\"5\202\323\344\223\002/\"\023" +
+      "/wallet/getnowblock:\001*Z\025\022\023/wallet/getnow" +
+      "block\022t\n\rGetBlockByNum\022\027.protocol.Number" +
+      "Message\032\017.protocol.Block\"9\202\323\344\223\0023\"\025/walle" +
+      "t/getblockbynum:\001*Z\027\022\025/wallet/getblockby" +
+      "num\022\204\001\n\020TotalTransaction\022\026.protocol.Empt" +
+      "yMessage\032\027.protocol.NumberMessage\"?\202\323\344\223\002" +
+      "9\"\030/wallet/totaltransaction:\001*Z\032\022\030/walle" +
+      "t/totaltransaction\022X\n\014GetBlockById\022\026.pro" +
+      "tocol.BytesMessage\032\017.protocol.Block\"\037\202\323\344" +
+      "\223\002\031\"\024/wallet/getblockbyid:\001*\022h\n\023GetBlock" +
+      "ByLimitNext\022\024.protocol.BlockLimit\032\023.prot" +
+      "ocol.BlockList\"&\202\323\344\223\002 \"\033/wallet/getblock" +
+      "bylimitnext:\001*\022k\n\023GetBlockByLatestNum\022\027." +
+      "protocol.NumberMessage\032\023.protocol.BlockL" +
+      "ist\"&\202\323\344\223\002 \"\033/wallet/getblockbylatestnum" +
+      ":\001*\022j\n\022GetTransactionById\022\026.protocol.Byt" +
+      "esMessage\032\025.protocol.Transaction\"%\202\323\344\223\002\037" +
+      "\"\032/wallet/gettransactionbyid:\001*2\337\014\n\016Wall" +
+      "etSolidity\022Y\n\nGetAccount\022\021.protocol.Acco" +
+      "unt\032\021.protocol.Account\"%\202\323\344\223\002\037\"\032/wallets" +
+      "olidity/getaccount:\001*\022f\n\014ListAccounts\022\026." +
+      "protocol.EmptyMessage\032\025.protocol.Account" +
+      "List\"\'\202\323\344\223\002!\"\034/walletsolidity/listaccoun" +
+      "ts:\001*\022h\n\rListWitnesses\022\026.protocol.EmptyM" +
+      "essage\032\025.protocol.WitnessList\"(\202\323\344\223\002\"\"\035/" +
+      "walletsolidity/listwitnesses:\001*\022s\n\021GetAs" +
+      "setIssueList\022\026.protocol.EmptyMessage\032\030.p" +
+      "rotocol.AssetIssueList\",\202\323\344\223\002&\"!/wallets" +
+      "olidity/getassetissuelist:\001*\022\212\001\n\034GetAsse" +
+      "tIssueListByTimestamp\022\027.protocol.NumberM" +
+      "essage\032\030.protocol.AssetIssueList\"7\202\323\344\223\0021" +
+      "\",/walletsolidity/getassetissuelistbytim" +
+      "estamp:\001*\022x\n\026GetAssetIssueByAccount\022\021.pr" +
+      "otocol.Account\032\030.protocol.AssetIssueList" +
+      "\"1\202\323\344\223\002+\"&/walletsolidity/getassetissueb" +
+      "yaccount:\001*\022{\n\023GetAssetIssueByName\022\026.pro" +
+      "tocol.BytesMessage\032\034.protocol.AssetIssue" +
+      "Contract\".\202\323\344\223\002(\"#/walletsolidity/getass" +
+      "etissuebyname:\001*\022^\n\013GetNowBlock\022\026.protoc" +
+      "ol.EmptyMessage\032\017.protocol.Block\"&\202\323\344\223\002 " +
+      "\"\033/walletsolidity/getnowblock:\001*\022c\n\rGetB" +
+      "lockByNum\022\027.protocol.NumberMessage\032\017.pro" +
+      "tocol.Block\"(\202\323\344\223\002\"\"\035/walletsolidity/get" +
+      "blockbynum:\001*\022p\n\020TotalTransaction\022\026.prot" +
+      "ocol.EmptyMessage\032\027.protocol.NumberMessa" +
+      "ge\"+\202\323\344\223\002%\" /walletsolidity/totaltransac" +
+      "tion:\001*\022r\n\022GetTransactionById\022\026.protocol" +
+      ".BytesMessage\032\025.protocol.Transaction\"-\202\323" +
+      "\344\223\002\'\"\"/walletsolidity/gettransactionbyid" +
+      ":\001*\022\205\001\n\032GetTransactionsByTimestamp\022\025.pro" +
+      "tocol.TimeMessage\032\031.protocol.Transaction" +
+      "List\"5\202\323\344\223\002/\"*/walletsolidity/gettransac" +
+      "tionsbytimestamp:\001*\022{\n\027GetTransactionsFr" +
+      "omThis\022\021.protocol.Account\032\031.protocol.Tra" +
+      "nsactionList\"2\202\323\344\223\002,\"\'/walletsolidity/ge" +
+      "ttransactionsfromthis:\001*\022w\n\025GetTransacti" +
+      "onsToThis\022\021.protocol.Account\032\031.protocol." +
+      "TransactionList\"0\202\323\344\223\002*\"%/walletsolidity" +
+      "/gettransactionstothis:\001*2\231\002\n\010Database\022G" +
+      "\n\021getBlockReference\022\026.protocol.EmptyMess" +
+      "age\032\030.protocol.BlockReference\"\000\022M\n\024GetDy" +
+      "namicProperties\022\026.protocol.EmptyMessage\032" +
+      "\033.protocol.DynamicProperties\"\000\0228\n\013GetNow" +
+      "Block\022\026.protocol.EmptyMessage\032\017.protocol" +
+      ".Block\"\000\022;\n\rGetBlockByNum\022\027.protocol.Num" +
+      "berMessage\032\017.protocol.Block\"\0002\t\n\007Network" +
+      "BA\n\014org.tron.apiB\007GrpcAPIZ(github.com/tr" +
+      "onprotocol/grpc-gateway/apib\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
