@@ -105,7 +105,7 @@ public class WalletClient {
     return TransactionUtils.sign(transaction, this.ecKey);
   }
 
-  public Transaction signTransaction(Transaction transaction, ECKey ecKey) {
+  public synchronized Transaction signTransaction(Transaction transaction, ECKey ecKey) {
     if (ecKey == null || ecKey.getPrivKey() == null) {
       return null;
     }
