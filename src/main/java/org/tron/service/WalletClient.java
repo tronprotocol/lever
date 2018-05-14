@@ -66,6 +66,21 @@ public class WalletClient {
     return rpcCli.broadcastTransaction(transaction);
   }
 
+  public Transaction createTransaction(byte[] to, long amount, String privateKey) {
+    ECKey ecKey = ECKey.fromPrivate(ByteArray.fromHexString(privateKey));
+
+    byte[] owner = ecKey.getAddress();
+
+    Contract.TransferContract contract = createTransferContract(to, owner, amount);
+    Transaction transaction = rpcCli.createTransaction(contract);
+    if (transaction == null || transaction.getRawData().getContractCount() == 0) {
+      return null;
+    }
+
+    transaction = signTransaction(transaction, ecKey);
+    return transaction;
+  }
+
   public boolean broadcastTransaction(Transaction transaction) {
     return rpcCli.broadcastTransaction(transaction);
   }
@@ -117,14 +132,5 @@ public class WalletClient {
     Transaction transaction = transactionBuilder.build();
 
     return transaction;
-  }
-
-  public Transaction setReferesnce(Transaction transaction, long blockNum, byte[] blockHash) {
-    byte[] refBlockNum = ByteArray.fromLong(blockNum);
-    Transaction.raw rawData = transaction.getRawData().toBuilder()
-        .setRefBlockHash(ByteString.copyFrom(ByteArray.subArray(blockHash, 8, 16)))
-        .setRefBlockBytes(ByteString.copyFrom(ByteArray.subArray(refBlockNum, 6, 8)))
-        .build();
-    return transaction.toBuilder().setRawData(rawData).build();
   }
 }
