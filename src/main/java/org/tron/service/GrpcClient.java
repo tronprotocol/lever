@@ -14,6 +14,7 @@ import org.tron.api.GrpcAPI.NodeList;
 import org.tron.api.GrpcAPI.NumberMessage;
 import org.tron.api.GrpcAPI.WitnessList;
 import org.tron.api.WalletGrpc;
+import org.tron.common.utils.Sha256Hash;
 import org.tron.protos.Contract;
 import org.tron.protos.Contract.AssetIssueContract;
 import org.tron.protos.Protocol.Account;
@@ -76,6 +77,10 @@ public class GrpcClient {
 
   public boolean broadcastTransaction(Transaction signaturedTransaction) {
     GrpcAPI.Return response = blockingStub.broadcastTransaction(signaturedTransaction);
+    if (!response.getResult()) {
+      String hash = Sha256Hash.of(signaturedTransaction.getRawData().toByteArray()).toString();
+      System.err.println("hash:" + hash + ",code:" + response.getCode() + ",msg:" + response.getMessage());
+    }
     return response.getResult();
   }
 
