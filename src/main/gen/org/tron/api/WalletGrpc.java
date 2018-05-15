@@ -476,6 +476,38 @@ public final class WalletGrpc {
      return getUnfreezeBalanceMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getUnfreezeAssetMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.UnfreezeAssetContract,
+      org.tron.protos.Protocol.Transaction> METHOD_UNFREEZE_ASSET = getUnfreezeAssetMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.UnfreezeAssetContract,
+      org.tron.protos.Protocol.Transaction> getUnfreezeAssetMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.UnfreezeAssetContract,
+      org.tron.protos.Protocol.Transaction> getUnfreezeAssetMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Contract.UnfreezeAssetContract, org.tron.protos.Protocol.Transaction> getUnfreezeAssetMethod;
+    if ((getUnfreezeAssetMethod = WalletGrpc.getUnfreezeAssetMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getUnfreezeAssetMethod = WalletGrpc.getUnfreezeAssetMethod) == null) {
+          WalletGrpc.getUnfreezeAssetMethod = getUnfreezeAssetMethod = 
+              io.grpc.MethodDescriptor.<org.tron.protos.Contract.UnfreezeAssetContract, org.tron.protos.Protocol.Transaction>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "UnfreezeAsset"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Contract.UnfreezeAssetContract.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Protocol.Transaction.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("UnfreezeAsset"))
+                  .build();
+          }
+        }
+     }
+     return getUnfreezeAssetMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getWithdrawBalanceMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.WithdrawBalanceContract,
       org.tron.protos.Protocol.Transaction> METHOD_WITHDRAW_BALANCE = getWithdrawBalanceMethod();
@@ -987,6 +1019,13 @@ public final class WalletGrpc {
 
     /**
      */
+    public void unfreezeAsset(org.tron.protos.Contract.UnfreezeAssetContract request,
+        io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
+      asyncUnimplementedUnaryCall(getUnfreezeAssetMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void withdrawBalance(org.tron.protos.Contract.WithdrawBalanceContract request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
       asyncUnimplementedUnaryCall(getWithdrawBalanceMethod(), responseObserver);
@@ -1169,6 +1208,13 @@ public final class WalletGrpc {
                 org.tron.protos.Contract.UnfreezeBalanceContract,
                 org.tron.protos.Protocol.Transaction>(
                   this, METHODID_UNFREEZE_BALANCE)))
+          .addMethod(
+            getUnfreezeAssetMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.protos.Contract.UnfreezeAssetContract,
+                org.tron.protos.Protocol.Transaction>(
+                  this, METHODID_UNFREEZE_ASSET)))
           .addMethod(
             getWithdrawBalanceMethod(),
             asyncUnaryCall(
@@ -1389,6 +1435,14 @@ public final class WalletGrpc {
 
     /**
      */
+    public void unfreezeAsset(org.tron.protos.Contract.UnfreezeAssetContract request,
+        io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUnfreezeAssetMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void withdrawBalance(org.tron.protos.Contract.WithdrawBalanceContract request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction> responseObserver) {
       asyncUnaryCall(
@@ -1598,6 +1652,13 @@ public final class WalletGrpc {
     public org.tron.protos.Protocol.Transaction unfreezeBalance(org.tron.protos.Contract.UnfreezeBalanceContract request) {
       return blockingUnaryCall(
           getChannel(), getUnfreezeBalanceMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.protos.Protocol.Transaction unfreezeAsset(org.tron.protos.Contract.UnfreezeAssetContract request) {
+      return blockingUnaryCall(
+          getChannel(), getUnfreezeAssetMethod(), getCallOptions(), request);
     }
 
     /**
@@ -1817,6 +1878,14 @@ public final class WalletGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Transaction> unfreezeAsset(
+        org.tron.protos.Contract.UnfreezeAssetContract request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUnfreezeAssetMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Transaction> withdrawBalance(
         org.tron.protos.Contract.WithdrawBalanceContract request) {
       return futureUnaryCall(
@@ -1926,18 +1995,19 @@ public final class WalletGrpc {
   private static final int METHODID_PARTICIPATE_ASSET_ISSUE = 11;
   private static final int METHODID_FREEZE_BALANCE = 12;
   private static final int METHODID_UNFREEZE_BALANCE = 13;
-  private static final int METHODID_WITHDRAW_BALANCE = 14;
-  private static final int METHODID_LIST_NODES = 15;
-  private static final int METHODID_GET_ASSET_ISSUE_LIST = 16;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 17;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 18;
-  private static final int METHODID_GET_NOW_BLOCK = 19;
-  private static final int METHODID_GET_BLOCK_BY_NUM = 20;
-  private static final int METHODID_TOTAL_TRANSACTION = 21;
-  private static final int METHODID_GET_BLOCK_BY_ID = 22;
-  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 23;
-  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 24;
-  private static final int METHODID_GET_TRANSACTION_BY_ID = 25;
+  private static final int METHODID_UNFREEZE_ASSET = 14;
+  private static final int METHODID_WITHDRAW_BALANCE = 15;
+  private static final int METHODID_LIST_NODES = 16;
+  private static final int METHODID_GET_ASSET_ISSUE_LIST = 17;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 18;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 19;
+  private static final int METHODID_GET_NOW_BLOCK = 20;
+  private static final int METHODID_GET_BLOCK_BY_NUM = 21;
+  private static final int METHODID_TOTAL_TRANSACTION = 22;
+  private static final int METHODID_GET_BLOCK_BY_ID = 23;
+  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 24;
+  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 25;
+  private static final int METHODID_GET_TRANSACTION_BY_ID = 26;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2010,6 +2080,10 @@ public final class WalletGrpc {
           break;
         case METHODID_UNFREEZE_BALANCE:
           serviceImpl.unfreezeBalance((org.tron.protos.Contract.UnfreezeBalanceContract) request,
+              (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction>) responseObserver);
+          break;
+        case METHODID_UNFREEZE_ASSET:
+          serviceImpl.unfreezeAsset((org.tron.protos.Contract.UnfreezeAssetContract) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction>) responseObserver);
           break;
         case METHODID_WITHDRAW_BALANCE:
@@ -2135,6 +2209,7 @@ public final class WalletGrpc {
               .addMethod(getParticipateAssetIssueMethod())
               .addMethod(getFreezeBalanceMethod())
               .addMethod(getUnfreezeBalanceMethod())
+              .addMethod(getUnfreezeAssetMethod())
               .addMethod(getWithdrawBalanceMethod())
               .addMethod(getListNodesMethod())
               .addMethod(getGetAssetIssueListMethod())
