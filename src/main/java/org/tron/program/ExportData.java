@@ -48,9 +48,6 @@ public class ExportData {
       return;
     }
 
-    File f = new File(argsObj.getOutput());
-    FileOutputStream fos = new FileOutputStream(f);
-
     for (String toAddress : toAddressList) {
       byte[] addressBytes = Base58.decodeFromBase58Check(toAddress);
       toAddressByteList.add(addressBytes);
@@ -78,6 +75,10 @@ public class ExportData {
       }
     });
     counter.getAndSet(0);
+
+    File f = new File(argsObj.getOutput());
+    FileOutputStream fos = new FileOutputStream(f);
+
     for (Transaction transaction : transactions) {
       transaction.writeDelimitedTo(fos);
       long c = counter.incrementAndGet();
