@@ -100,7 +100,7 @@ public class TransactionUtils {
     return transaction;
   }
 
-  public static Transaction setTimestamp(Transaction transaction){
+  public synchronized static Transaction setTimestamp(Transaction transaction){
     long currenTime = System.nanoTime();
     Transaction.Builder builder = transaction.toBuilder();
     org.tron.protos.Protocol.Transaction.raw.Builder rowBuilder = transaction.getRawData()
