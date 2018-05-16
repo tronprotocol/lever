@@ -5,3 +5,4 @@ out
 .DS_Store
 /lever.iml
 *.csv
+/generate-data.sh

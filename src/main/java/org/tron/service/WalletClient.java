@@ -49,6 +49,16 @@ public class WalletClient {
     rpcCli = new GrpcClient(target.get(index % target.size()));
   }
 
+  public void shutdown() {
+    if (rpcCli != null) {
+      try {
+        rpcCli.shutdown();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
   public Optional<AccountList> listAccounts() {
     return rpcCli.listAccounts();
   }

@@ -139,6 +139,7 @@ class Task implements Runnable {
         resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
       });
     }
+    this.walletClient.shutdown();
     this.endCounts.increment();
   }
 }
