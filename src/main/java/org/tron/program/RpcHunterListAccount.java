@@ -6,7 +6,9 @@ import org.apache.jmeter.protocol.java.sampler.AbstractJavaSamplerClient;
 import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
 import org.apache.jmeter.samplers.SampleResult;
 import org.tron.api.GrpcAPI.AccountList;
+import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
+import org.tron.common.utils.Utils;
 import org.tron.service.WalletClient;
 
 public class RpcHunterListAccount extends AbstractJavaSamplerClient{
@@ -14,8 +16,9 @@ public class RpcHunterListAccount extends AbstractJavaSamplerClient{
 
   @Override
   public void setupTest(JavaSamplerContext context) {
-    walletClient = new WalletClient();
-    walletClient.init(0);
+    ECKey ecKey = new ECKey(Utils.getRandom());
+    walletClient = new WalletClient(ecKey);
+    walletClient.init();
   }
 
   @Override

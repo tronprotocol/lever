@@ -24357,6 +24357,45 @@ public final class Protocol {
      * <code>int64 timestamp = 3;</code>
      */
     long getTimestamp();
+
+    /**
+     * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+     */
+    boolean hasGenesisBlockId();
+    /**
+     * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+     */
+    org.tron.protos.Protocol.HelloMessage.BlockId getGenesisBlockId();
+    /**
+     * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+     */
+    org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getGenesisBlockIdOrBuilder();
+
+    /**
+     * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+     */
+    boolean hasSolidBlockId();
+    /**
+     * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+     */
+    org.tron.protos.Protocol.HelloMessage.BlockId getSolidBlockId();
+    /**
+     * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+     */
+    org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getSolidBlockIdOrBuilder();
+
+    /**
+     * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+     */
+    boolean hasHeadBlockId();
+    /**
+     * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+     */
+    org.tron.protos.Protocol.HelloMessage.BlockId getHeadBlockId();
+    /**
+     * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+     */
+    org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getHeadBlockIdOrBuilder();
   }
   /**
    * Protobuf type {@code protocol.HelloMessage}
@@ -24429,6 +24468,45 @@ public final class Protocol {
               timestamp_ = input.readInt64();
               break;
             }
+            case 34: {
+              org.tron.protos.Protocol.HelloMessage.BlockId.Builder subBuilder = null;
+              if (genesisBlockId_ != null) {
+                subBuilder = genesisBlockId_.toBuilder();
+              }
+              genesisBlockId_ = input.readMessage(org.tron.protos.Protocol.HelloMessage.BlockId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(genesisBlockId_);
+                genesisBlockId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              org.tron.protos.Protocol.HelloMessage.BlockId.Builder subBuilder = null;
+              if (solidBlockId_ != null) {
+                subBuilder = solidBlockId_.toBuilder();
+              }
+              solidBlockId_ = input.readMessage(org.tron.protos.Protocol.HelloMessage.BlockId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(solidBlockId_);
+                solidBlockId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              org.tron.protos.Protocol.HelloMessage.BlockId.Builder subBuilder = null;
+              if (headBlockId_ != null) {
+                subBuilder = headBlockId_.toBuilder();
+              }
+              headBlockId_ = input.readMessage(org.tron.protos.Protocol.HelloMessage.BlockId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(headBlockId_);
+                headBlockId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -24451,6 +24529,524 @@ public final class Protocol {
       return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.tron.protos.Protocol.HelloMessage.class, org.tron.protos.Protocol.HelloMessage.Builder.class);
+    }
+
+    public interface BlockIdOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:protocol.HelloMessage.BlockId)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>bytes hash = 1;</code>
+       */
+      com.google.protobuf.ByteString getHash();
+
+      /**
+       * <code>int64 number = 2;</code>
+       */
+      long getNumber();
+    }
+    /**
+     * Protobuf type {@code protocol.HelloMessage.BlockId}
+     */
+    public  static final class BlockId extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:protocol.HelloMessage.BlockId)
+        BlockIdOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use BlockId.newBuilder() to construct.
+      private BlockId(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private BlockId() {
+        hash_ = com.google.protobuf.ByteString.EMPTY;
+        number_ = 0L;
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private BlockId(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownFieldProto3(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+
+                hash_ = input.readBytes();
+                break;
+              }
+              case 16: {
+
+                number_ = input.readInt64();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_BlockId_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_BlockId_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.protos.Protocol.HelloMessage.BlockId.class, org.tron.protos.Protocol.HelloMessage.BlockId.Builder.class);
+      }
+
+      public static final int HASH_FIELD_NUMBER = 1;
+      private com.google.protobuf.ByteString hash_;
+      /**
+       * <code>bytes hash = 1;</code>
+       */
+      public com.google.protobuf.ByteString getHash() {
+        return hash_;
+      }
+
+      public static final int NUMBER_FIELD_NUMBER = 2;
+      private long number_;
+      /**
+       * <code>int64 number = 2;</code>
+       */
+      public long getNumber() {
+        return number_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!hash_.isEmpty()) {
+          output.writeBytes(1, hash_);
+        }
+        if (number_ != 0L) {
+          output.writeInt64(2, number_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!hash_.isEmpty()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(1, hash_);
+        }
+        if (number_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(2, number_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof org.tron.protos.Protocol.HelloMessage.BlockId)) {
+          return super.equals(obj);
+        }
+        org.tron.protos.Protocol.HelloMessage.BlockId other = (org.tron.protos.Protocol.HelloMessage.BlockId) obj;
+
+        boolean result = true;
+        result = result && getHash()
+            .equals(other.getHash());
+        result = result && (getNumber()
+            == other.getNumber());
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + HASH_FIELD_NUMBER;
+        hash = (53 * hash) + getHash().hashCode();
+        hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getNumber());
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static org.tron.protos.Protocol.HelloMessage.BlockId parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(org.tron.protos.Protocol.HelloMessage.BlockId prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code protocol.HelloMessage.BlockId}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:protocol.HelloMessage.BlockId)
+          org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_BlockId_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_BlockId_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  org.tron.protos.Protocol.HelloMessage.BlockId.class, org.tron.protos.Protocol.HelloMessage.BlockId.Builder.class);
+        }
+
+        // Construct using org.tron.protos.Protocol.HelloMessage.BlockId.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          hash_ = com.google.protobuf.ByteString.EMPTY;
+
+          number_ = 0L;
+
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return org.tron.protos.Protocol.internal_static_protocol_HelloMessage_BlockId_descriptor;
+        }
+
+        public org.tron.protos.Protocol.HelloMessage.BlockId getDefaultInstanceForType() {
+          return org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance();
+        }
+
+        public org.tron.protos.Protocol.HelloMessage.BlockId build() {
+          org.tron.protos.Protocol.HelloMessage.BlockId result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public org.tron.protos.Protocol.HelloMessage.BlockId buildPartial() {
+          org.tron.protos.Protocol.HelloMessage.BlockId result = new org.tron.protos.Protocol.HelloMessage.BlockId(this);
+          result.hash_ = hash_;
+          result.number_ = number_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof org.tron.protos.Protocol.HelloMessage.BlockId) {
+            return mergeFrom((org.tron.protos.Protocol.HelloMessage.BlockId)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(org.tron.protos.Protocol.HelloMessage.BlockId other) {
+          if (other == org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance()) return this;
+          if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
+            setHash(other.getHash());
+          }
+          if (other.getNumber() != 0L) {
+            setNumber(other.getNumber());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          org.tron.protos.Protocol.HelloMessage.BlockId parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (org.tron.protos.Protocol.HelloMessage.BlockId) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
+        /**
+         * <code>bytes hash = 1;</code>
+         */
+        public com.google.protobuf.ByteString getHash() {
+          return hash_;
+        }
+        /**
+         * <code>bytes hash = 1;</code>
+         */
+        public Builder setHash(com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          hash_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>bytes hash = 1;</code>
+         */
+        public Builder clearHash() {
+          
+          hash_ = getDefaultInstance().getHash();
+          onChanged();
+          return this;
+        }
+
+        private long number_ ;
+        /**
+         * <code>int64 number = 2;</code>
+         */
+        public long getNumber() {
+          return number_;
+        }
+        /**
+         * <code>int64 number = 2;</code>
+         */
+        public Builder setNumber(long value) {
+          
+          number_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>int64 number = 2;</code>
+         */
+        public Builder clearNumber() {
+          
+          number_ = 0L;
+          onChanged();
+          return this;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFieldsProto3(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:protocol.HelloMessage.BlockId)
+      }
+
+      // @@protoc_insertion_point(class_scope:protocol.HelloMessage.BlockId)
+      private static final org.tron.protos.Protocol.HelloMessage.BlockId DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new org.tron.protos.Protocol.HelloMessage.BlockId();
+      }
+
+      public static org.tron.protos.Protocol.HelloMessage.BlockId getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<BlockId>
+          PARSER = new com.google.protobuf.AbstractParser<BlockId>() {
+        public BlockId parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlockId(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<BlockId> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<BlockId> getParserForType() {
+        return PARSER;
+      }
+
+      public org.tron.protos.Protocol.HelloMessage.BlockId getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     public static final int FROM_FIELD_NUMBER = 1;
@@ -24492,6 +25088,69 @@ public final class Protocol {
       return timestamp_;
     }
 
+    public static final int GENESISBLOCKID_FIELD_NUMBER = 4;
+    private org.tron.protos.Protocol.HelloMessage.BlockId genesisBlockId_;
+    /**
+     * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+     */
+    public boolean hasGenesisBlockId() {
+      return genesisBlockId_ != null;
+    }
+    /**
+     * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+     */
+    public org.tron.protos.Protocol.HelloMessage.BlockId getGenesisBlockId() {
+      return genesisBlockId_ == null ? org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : genesisBlockId_;
+    }
+    /**
+     * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+     */
+    public org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getGenesisBlockIdOrBuilder() {
+      return getGenesisBlockId();
+    }
+
+    public static final int SOLIDBLOCKID_FIELD_NUMBER = 5;
+    private org.tron.protos.Protocol.HelloMessage.BlockId solidBlockId_;
+    /**
+     * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+     */
+    public boolean hasSolidBlockId() {
+      return solidBlockId_ != null;
+    }
+    /**
+     * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+     */
+    public org.tron.protos.Protocol.HelloMessage.BlockId getSolidBlockId() {
+      return solidBlockId_ == null ? org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : solidBlockId_;
+    }
+    /**
+     * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+     */
+    public org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getSolidBlockIdOrBuilder() {
+      return getSolidBlockId();
+    }
+
+    public static final int HEADBLOCKID_FIELD_NUMBER = 6;
+    private org.tron.protos.Protocol.HelloMessage.BlockId headBlockId_;
+    /**
+     * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+     */
+    public boolean hasHeadBlockId() {
+      return headBlockId_ != null;
+    }
+    /**
+     * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+     */
+    public org.tron.protos.Protocol.HelloMessage.BlockId getHeadBlockId() {
+      return headBlockId_ == null ? org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : headBlockId_;
+    }
+    /**
+     * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+     */
+    public org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getHeadBlockIdOrBuilder() {
+      return getHeadBlockId();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -24513,6 +25172,15 @@ public final class Protocol {
       if (timestamp_ != 0L) {
         output.writeInt64(3, timestamp_);
       }
+      if (genesisBlockId_ != null) {
+        output.writeMessage(4, getGenesisBlockId());
+      }
+      if (solidBlockId_ != null) {
+        output.writeMessage(5, getSolidBlockId());
+      }
+      if (headBlockId_ != null) {
+        output.writeMessage(6, getHeadBlockId());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -24532,6 +25200,18 @@ public final class Protocol {
       if (timestamp_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, timestamp_);
+      }
+      if (genesisBlockId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getGenesisBlockId());
+      }
+      if (solidBlockId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getSolidBlockId());
+      }
+      if (headBlockId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getHeadBlockId());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -24558,6 +25238,21 @@ public final class Protocol {
           == other.getVersion());
       result = result && (getTimestamp()
           == other.getTimestamp());
+      result = result && (hasGenesisBlockId() == other.hasGenesisBlockId());
+      if (hasGenesisBlockId()) {
+        result = result && getGenesisBlockId()
+            .equals(other.getGenesisBlockId());
+      }
+      result = result && (hasSolidBlockId() == other.hasSolidBlockId());
+      if (hasSolidBlockId()) {
+        result = result && getSolidBlockId()
+            .equals(other.getSolidBlockId());
+      }
+      result = result && (hasHeadBlockId() == other.hasHeadBlockId());
+      if (hasHeadBlockId()) {
+        result = result && getHeadBlockId()
+            .equals(other.getHeadBlockId());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -24578,6 +25273,18 @@ public final class Protocol {
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimestamp());
+      if (hasGenesisBlockId()) {
+        hash = (37 * hash) + GENESISBLOCKID_FIELD_NUMBER;
+        hash = (53 * hash) + getGenesisBlockId().hashCode();
+      }
+      if (hasSolidBlockId()) {
+        hash = (37 * hash) + SOLIDBLOCKID_FIELD_NUMBER;
+        hash = (53 * hash) + getSolidBlockId().hashCode();
+      }
+      if (hasHeadBlockId()) {
+        hash = (37 * hash) + HEADBLOCKID_FIELD_NUMBER;
+        hash = (53 * hash) + getHeadBlockId().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -24717,6 +25424,24 @@ public final class Protocol {
 
         timestamp_ = 0L;
 
+        if (genesisBlockIdBuilder_ == null) {
+          genesisBlockId_ = null;
+        } else {
+          genesisBlockId_ = null;
+          genesisBlockIdBuilder_ = null;
+        }
+        if (solidBlockIdBuilder_ == null) {
+          solidBlockId_ = null;
+        } else {
+          solidBlockId_ = null;
+          solidBlockIdBuilder_ = null;
+        }
+        if (headBlockIdBuilder_ == null) {
+          headBlockId_ = null;
+        } else {
+          headBlockId_ = null;
+          headBlockIdBuilder_ = null;
+        }
         return this;
       }
 
@@ -24746,6 +25471,21 @@ public final class Protocol {
         }
         result.version_ = version_;
         result.timestamp_ = timestamp_;
+        if (genesisBlockIdBuilder_ == null) {
+          result.genesisBlockId_ = genesisBlockId_;
+        } else {
+          result.genesisBlockId_ = genesisBlockIdBuilder_.build();
+        }
+        if (solidBlockIdBuilder_ == null) {
+          result.solidBlockId_ = solidBlockId_;
+        } else {
+          result.solidBlockId_ = solidBlockIdBuilder_.build();
+        }
+        if (headBlockIdBuilder_ == null) {
+          result.headBlockId_ = headBlockId_;
+        } else {
+          result.headBlockId_ = headBlockIdBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -24795,6 +25535,15 @@ public final class Protocol {
         }
         if (other.getTimestamp() != 0L) {
           setTimestamp(other.getTimestamp());
+        }
+        if (other.hasGenesisBlockId()) {
+          mergeGenesisBlockId(other.getGenesisBlockId());
+        }
+        if (other.hasSolidBlockId()) {
+          mergeSolidBlockId(other.getSolidBlockId());
+        }
+        if (other.hasHeadBlockId()) {
+          mergeHeadBlockId(other.getHeadBlockId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -24991,6 +25740,357 @@ public final class Protocol {
         onChanged();
         return this;
       }
+
+      private org.tron.protos.Protocol.HelloMessage.BlockId genesisBlockId_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder> genesisBlockIdBuilder_;
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      public boolean hasGenesisBlockId() {
+        return genesisBlockIdBuilder_ != null || genesisBlockId_ != null;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockId getGenesisBlockId() {
+        if (genesisBlockIdBuilder_ == null) {
+          return genesisBlockId_ == null ? org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : genesisBlockId_;
+        } else {
+          return genesisBlockIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      public Builder setGenesisBlockId(org.tron.protos.Protocol.HelloMessage.BlockId value) {
+        if (genesisBlockIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          genesisBlockId_ = value;
+          onChanged();
+        } else {
+          genesisBlockIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      public Builder setGenesisBlockId(
+          org.tron.protos.Protocol.HelloMessage.BlockId.Builder builderForValue) {
+        if (genesisBlockIdBuilder_ == null) {
+          genesisBlockId_ = builderForValue.build();
+          onChanged();
+        } else {
+          genesisBlockIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      public Builder mergeGenesisBlockId(org.tron.protos.Protocol.HelloMessage.BlockId value) {
+        if (genesisBlockIdBuilder_ == null) {
+          if (genesisBlockId_ != null) {
+            genesisBlockId_ =
+              org.tron.protos.Protocol.HelloMessage.BlockId.newBuilder(genesisBlockId_).mergeFrom(value).buildPartial();
+          } else {
+            genesisBlockId_ = value;
+          }
+          onChanged();
+        } else {
+          genesisBlockIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      public Builder clearGenesisBlockId() {
+        if (genesisBlockIdBuilder_ == null) {
+          genesisBlockId_ = null;
+          onChanged();
+        } else {
+          genesisBlockId_ = null;
+          genesisBlockIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockId.Builder getGenesisBlockIdBuilder() {
+        
+        onChanged();
+        return getGenesisBlockIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getGenesisBlockIdOrBuilder() {
+        if (genesisBlockIdBuilder_ != null) {
+          return genesisBlockIdBuilder_.getMessageOrBuilder();
+        } else {
+          return genesisBlockId_ == null ?
+              org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : genesisBlockId_;
+        }
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId genesisBlockId = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder> 
+          getGenesisBlockIdFieldBuilder() {
+        if (genesisBlockIdBuilder_ == null) {
+          genesisBlockIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder>(
+                  getGenesisBlockId(),
+                  getParentForChildren(),
+                  isClean());
+          genesisBlockId_ = null;
+        }
+        return genesisBlockIdBuilder_;
+      }
+
+      private org.tron.protos.Protocol.HelloMessage.BlockId solidBlockId_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder> solidBlockIdBuilder_;
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      public boolean hasSolidBlockId() {
+        return solidBlockIdBuilder_ != null || solidBlockId_ != null;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockId getSolidBlockId() {
+        if (solidBlockIdBuilder_ == null) {
+          return solidBlockId_ == null ? org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : solidBlockId_;
+        } else {
+          return solidBlockIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      public Builder setSolidBlockId(org.tron.protos.Protocol.HelloMessage.BlockId value) {
+        if (solidBlockIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          solidBlockId_ = value;
+          onChanged();
+        } else {
+          solidBlockIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      public Builder setSolidBlockId(
+          org.tron.protos.Protocol.HelloMessage.BlockId.Builder builderForValue) {
+        if (solidBlockIdBuilder_ == null) {
+          solidBlockId_ = builderForValue.build();
+          onChanged();
+        } else {
+          solidBlockIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      public Builder mergeSolidBlockId(org.tron.protos.Protocol.HelloMessage.BlockId value) {
+        if (solidBlockIdBuilder_ == null) {
+          if (solidBlockId_ != null) {
+            solidBlockId_ =
+              org.tron.protos.Protocol.HelloMessage.BlockId.newBuilder(solidBlockId_).mergeFrom(value).buildPartial();
+          } else {
+            solidBlockId_ = value;
+          }
+          onChanged();
+        } else {
+          solidBlockIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      public Builder clearSolidBlockId() {
+        if (solidBlockIdBuilder_ == null) {
+          solidBlockId_ = null;
+          onChanged();
+        } else {
+          solidBlockId_ = null;
+          solidBlockIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockId.Builder getSolidBlockIdBuilder() {
+        
+        onChanged();
+        return getSolidBlockIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getSolidBlockIdOrBuilder() {
+        if (solidBlockIdBuilder_ != null) {
+          return solidBlockIdBuilder_.getMessageOrBuilder();
+        } else {
+          return solidBlockId_ == null ?
+              org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : solidBlockId_;
+        }
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId solidBlockId = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder> 
+          getSolidBlockIdFieldBuilder() {
+        if (solidBlockIdBuilder_ == null) {
+          solidBlockIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder>(
+                  getSolidBlockId(),
+                  getParentForChildren(),
+                  isClean());
+          solidBlockId_ = null;
+        }
+        return solidBlockIdBuilder_;
+      }
+
+      private org.tron.protos.Protocol.HelloMessage.BlockId headBlockId_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder> headBlockIdBuilder_;
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      public boolean hasHeadBlockId() {
+        return headBlockIdBuilder_ != null || headBlockId_ != null;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockId getHeadBlockId() {
+        if (headBlockIdBuilder_ == null) {
+          return headBlockId_ == null ? org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : headBlockId_;
+        } else {
+          return headBlockIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      public Builder setHeadBlockId(org.tron.protos.Protocol.HelloMessage.BlockId value) {
+        if (headBlockIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          headBlockId_ = value;
+          onChanged();
+        } else {
+          headBlockIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      public Builder setHeadBlockId(
+          org.tron.protos.Protocol.HelloMessage.BlockId.Builder builderForValue) {
+        if (headBlockIdBuilder_ == null) {
+          headBlockId_ = builderForValue.build();
+          onChanged();
+        } else {
+          headBlockIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      public Builder mergeHeadBlockId(org.tron.protos.Protocol.HelloMessage.BlockId value) {
+        if (headBlockIdBuilder_ == null) {
+          if (headBlockId_ != null) {
+            headBlockId_ =
+              org.tron.protos.Protocol.HelloMessage.BlockId.newBuilder(headBlockId_).mergeFrom(value).buildPartial();
+          } else {
+            headBlockId_ = value;
+          }
+          onChanged();
+        } else {
+          headBlockIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      public Builder clearHeadBlockId() {
+        if (headBlockIdBuilder_ == null) {
+          headBlockId_ = null;
+          onChanged();
+        } else {
+          headBlockId_ = null;
+          headBlockIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockId.Builder getHeadBlockIdBuilder() {
+        
+        onChanged();
+        return getHeadBlockIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      public org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder getHeadBlockIdOrBuilder() {
+        if (headBlockIdBuilder_ != null) {
+          return headBlockIdBuilder_.getMessageOrBuilder();
+        } else {
+          return headBlockId_ == null ?
+              org.tron.protos.Protocol.HelloMessage.BlockId.getDefaultInstance() : headBlockId_;
+        }
+      }
+      /**
+       * <code>.protocol.HelloMessage.BlockId headBlockId = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder> 
+          getHeadBlockIdFieldBuilder() {
+        if (headBlockIdBuilder_ == null) {
+          headBlockIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.tron.protos.Protocol.HelloMessage.BlockId, org.tron.protos.Protocol.HelloMessage.BlockId.Builder, org.tron.protos.Protocol.HelloMessage.BlockIdOrBuilder>(
+                  getHeadBlockId(),
+                  getParentForChildren(),
+                  isClean());
+          headBlockId_ = null;
+        }
+        return headBlockIdBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
@@ -25185,6 +26285,11 @@ public final class Protocol {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_HelloMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_HelloMessage_BlockId_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_HelloMessage_BlockId_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -25281,23 +26386,29 @@ public final class Protocol {
       "\007\n\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021" +
       "DynamicProperties\022\037\n\027last_solidity_block" +
       "_num\030\001 \001(\003\"9\n\021DisconnectMessage\022$\n\006reaso" +
-      "n\030\001 \001(\0162\024.protocol.ReasonCode\"T\n\014HelloMe" +
-      "ssage\022 \n\004from\030\001 \001(\0132\022.protocol.Endpoint\022" +
-      "\017\n\007version\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\003*7\n\013A" +
-      "ccountType\022\n\n\006Normal\020\000\022\016\n\nAssetIssue\020\001\022\014" +
-      "\n\010Contract\020\002*\246\003\n\nReasonCode\022\r\n\tREQUESTED" +
-      "\020\000\022\020\n\014BAD_PROTOCOL\020\002\022\022\n\016TOO_MANY_PEERS\020\004" +
-      "\022\022\n\016DUPLICATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PRO" +
-      "TOCOL\020\006\022\021\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITI" +
-      "NG\020\010\022\027\n\023UNEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_I" +
-      "DENTITY\020\n\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REAS" +
-      "ON\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\016\n\nFETCH_" +
-      "FAIL\020\023\022\n\n\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FOR" +
-      "KED\020\026\022\016\n\nUNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VE" +
-      "RSION\020\030\022\026\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\010TIME_" +
-      "OUT\020 \022\020\n\014CONNECT_FAIL\020!\022\014\n\007UNKNOWN\020\377\001BF\n" +
-      "\017org.tron.protosB\010ProtocolZ)github.com/t" +
-      "ronprotocol/grpc-gateway/coreb\006proto3"
+      "n\030\001 \001(\0162\024.protocol.ReasonCode\"\240\002\n\014HelloM" +
+      "essage\022 \n\004from\030\001 \001(\0132\022.protocol.Endpoint" +
+      "\022\017\n\007version\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\003\0226\n\016" +
+      "genesisBlockId\030\004 \001(\0132\036.protocol.HelloMes" +
+      "sage.BlockId\0224\n\014solidBlockId\030\005 \001(\0132\036.pro" +
+      "tocol.HelloMessage.BlockId\0223\n\013headBlockI" +
+      "d\030\006 \001(\0132\036.protocol.HelloMessage.BlockId\032" +
+      "\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003" +
+      "*7\n\013AccountType\022\n\n\006Normal\020\000\022\016\n\nAssetIssu" +
+      "e\020\001\022\014\n\010Contract\020\002*\246\003\n\nReasonCode\022\r\n\tREQU" +
+      "ESTED\020\000\022\020\n\014BAD_PROTOCOL\020\002\022\022\n\016TOO_MANY_PE" +
+      "ERS\020\004\022\022\n\016DUPLICATE_PEER\020\005\022\031\n\025INCOMPATIBL" +
+      "E_PROTOCOL\020\006\022\021\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_" +
+      "QUITING\020\010\022\027\n\023UNEXPECTED_IDENTITY\020\t\022\022\n\016LO" +
+      "CAL_IDENTITY\020\n\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER" +
+      "_REASON\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\016\n\nF" +
+      "ETCH_FAIL\020\023\022\n\n\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n" +
+      "\n\006FORKED\020\026\022\016\n\nUNLINKABLE\020\027\022\030\n\024INCOMPATIB" +
+      "LE_VERSION\020\030\022\026\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\010" +
+      "TIME_OUT\020 \022\020\n\014CONNECT_FAIL\020!\022\014\n\007UNKNOWN\020" +
+      "\377\001BF\n\017org.tron.protosB\010ProtocolZ)github." +
+      "com/tronprotocol/grpc-gateway/coreb\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25486,7 +26597,13 @@ public final class Protocol {
     internal_static_protocol_HelloMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_HelloMessage_descriptor,
-        new java.lang.String[] { "From", "Version", "Timestamp", });
+        new java.lang.String[] { "From", "Version", "Timestamp", "GenesisBlockId", "SolidBlockId", "HeadBlockId", });
+    internal_static_protocol_HelloMessage_BlockId_descriptor =
+      internal_static_protocol_HelloMessage_descriptor.getNestedTypes().get(0);
+    internal_static_protocol_HelloMessage_BlockId_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_HelloMessage_BlockId_descriptor,
+        new java.lang.String[] { "Hash", "Number", });
     com.google.protobuf.AnyProto.getDescriptor();
     org.tron.protos.Discover.getDescriptor();
   }

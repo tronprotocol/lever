@@ -20,9 +20,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import com.google.protobuf.InvalidProtocolBufferException;
 import lombok.Getter;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
+import org.tron.common.crypto.ECKey;
+import org.tron.common.utils.Utils;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
@@ -41,8 +45,8 @@ public class SendCoinLoop {
     double tps = args1.getTps();
 
     walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
-      WalletClient walletClient = new WalletClient();
-      walletClient.init(i);
+      WalletClient walletClient = new WalletClient(true);
+      walletClient.init();
       return walletClient;
     }).collect(Collectors.toList());
 
@@ -124,7 +128,12 @@ class Task implements Runnable {
     if (this.transactions != null) {
       this.transactions.forEach(t -> {
         limiter.acquire();
-        boolean b = walletClient.broadcastTransaction(t);
+        boolean b = false;
+        try {
+          b = walletClient.broadcastTransaction(t.getRawData().toByteArray());
+        } catch (InvalidProtocolBufferException e) {
+          e.printStackTrace();
+        }
 
         if (b) {
           trueCount.increment();

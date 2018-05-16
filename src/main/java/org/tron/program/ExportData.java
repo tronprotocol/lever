@@ -13,10 +13,14 @@ import lombok.Getter;
 import org.apache.commons.csv.CSVRecord;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
+import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.Base58;
 import org.tron.common.utils.CsvUtils;
+import org.tron.common.utils.Utils;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
+import org.tron.protos.Contract.TransferContract;
+import org.tron.common.utils.ByteArray;
 
 public class ExportData {
 
@@ -28,8 +32,9 @@ public class ExportData {
     Args argsObj = new Args();
     JCommander.newBuilder().addObject(argsObj).build().parse(args);
 
-    walletClient = new WalletClient();
-    walletClient.init(0);
+    //ECKey ecKey = new ECKey(Utils.getRandom());
+    walletClient = new WalletClient(true);
+    walletClient.init();
 
     // 读取to address
     List<String> toAddressList = getStrings(argsObj.getToAddress());
@@ -66,9 +71,13 @@ public class ExportData {
     processors.stream().parallel().forEach(item -> {
       for (int i = 0; i < argsObj.getCount() / processors.size(); i++) {
         int c = counter.incrementAndGet();
-        Transaction transaction = walletClient.createTransaction(toAddressByteList.get(c % addressSize),
-            amount, privateKeyList.get(c % privateKeySize));
+        ECKey key =  ECKey.fromPrivate(ByteArray.fromHexString(privateKeyList.get(c % privateKeySize)));
+        byte[] owner = key.getAddress();
+        TransferContract contract = WalletClient
+                .createTransferContract(toAddressByteList.get(c % addressSize),owner , amount);
+        Transaction transaction = walletClient.createTransaction4Transfer(contract);
         transactions.add(transaction);
+        //System.out.println("block id:"+  new BigInteger(1, transaction.getRawData().getRefBlockBytes().toByteArray()).intValue());
         if ((c + 1) % 1000 == 0) {
           System.out.println("create transaction current: " + (c + 1));
         }
