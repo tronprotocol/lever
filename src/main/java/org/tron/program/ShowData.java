@@ -33,7 +33,7 @@ public class ShowData {
     }
 
     transactionsMap.entrySet().stream().filter(t ->
-      t.getValue().longValue() > 1
+        t.getValue().longValue() > 1
     ).forEach( t -> {
         System.out.println(t.getKey() + ":" + t.getValue());
     });

@@ -17,6 +17,7 @@ import org.tron.api.WalletGrpc;
 import org.tron.common.utils.Sha256Hash;
 import org.tron.protos.Contract;
 import org.tron.protos.Contract.AssetIssueContract;
+import org.tron.protos.Contract.FreezeBalanceContract;
 import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Block;
 import org.tron.protos.Protocol.Transaction;
@@ -52,6 +53,10 @@ public class GrpcClient {
 
   public Transaction createTransaction(Contract.TransferContract contract) {
     return blockingStub.createTransaction(contract);
+  }
+
+  public Transaction createTransaction(FreezeBalanceContract contract) {
+    return blockingStub.freezeBalance(contract);
   }
 
   public Transaction createTransferAssetTransaction(Contract.TransferAssetContract contract) {

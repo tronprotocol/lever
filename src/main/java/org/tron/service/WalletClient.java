@@ -14,6 +14,7 @@ import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
 import org.tron.core.config.Configuration;
 import org.tron.protos.Contract;
+import org.tron.protos.Contract.FreezeBalanceContract;
 import org.tron.protos.Contract.TransferContract;
 import org.tron.protos.Protocol.Transaction;
 
@@ -142,5 +143,32 @@ public class WalletClient {
     Transaction transaction = transactionBuilder.build();
 
     return transaction;
+  }
+
+  public boolean freezeBalance(String privateKey, long frozen_balance, long frozen_duration) {
+    ECKey ecKey = ECKey.fromPrivate(ByteArray.fromHexString(privateKey));
+
+    Contract.FreezeBalanceContract contract = createFreezeBalanceContract(ecKey.getAddress(), frozen_balance,
+        frozen_duration);
+
+    Transaction transaction = rpcCli.createTransaction(contract);
+
+    if (transaction == null || transaction.getRawData().getContractCount() == 0) {
+      return false;
+    }
+
+    transaction = signTransaction(transaction, ecKey);
+    return rpcCli.broadcastTransaction(transaction);
+  }
+
+  private FreezeBalanceContract createFreezeBalanceContract(byte[] address, long frozen_balance,
+      long frozen_duration) {
+    Contract.FreezeBalanceContract.Builder builder = Contract.FreezeBalanceContract.newBuilder();
+    ByteString byteAddreess = ByteString.copyFrom(address);
+
+    builder.setOwnerAddress(byteAddreess).setFrozenBalance(frozen_balance)
+        .setFrozenDuration(frozen_duration);
+
+    return builder.build();
   }
 }
