@@ -166,17 +166,6 @@ public class TransactionUtils {
 
   public static synchronized Transaction setTimestamp(Transaction transaction) {
     long currentTime = System.currentTimeMillis()*1000000 + System.nanoTime()%1000000;
-    try
-    {
-      String filename= "/Users/taihaofu/Desktop/ttt/test5.log";
-      FileWriter fw = new FileWriter(filename,true); //the true will append the new data
-      fw.write(currentTime+"\n");//appends the string to the file
-      fw.close();
-    }
-    catch(IOException ioe)
-    {
-      System.err.println("IOException: " + ioe.getMessage());
-    }
     Transaction.Builder builder = transaction.toBuilder();
     Transaction.raw.Builder rowBuilder = transaction.getRawData()
         .toBuilder();

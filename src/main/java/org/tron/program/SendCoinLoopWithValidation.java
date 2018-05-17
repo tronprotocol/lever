@@ -68,18 +68,17 @@ public class SendCoinLoopWithValidation {
             toAddressByteList.add(addressBytes);
         }
 
-        WalletClient rootClient = new WalletClient(privateKeyList.get(0));
-        rootClient.init();
-
-        // increase bandwidth
-        rootClient.freezeBalance(ACCOUNT_NUM * 10 * 1000000,3);
-
         walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
             WalletClient walletClient = new WalletClient(true);
             walletClient.init();
             return walletClient;
         }).collect(Collectors.toList());
 
+        WalletClient rootClient = new WalletClient(privateKeyList.get(0));
+        rootClient.init();
+
+        // increase bandwidth
+        rootClient.freezeBalance(ACCOUNT_NUM * 10 * 1000000,3);
 
         long amount = args1.getAmount();
 
