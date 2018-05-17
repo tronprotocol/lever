@@ -27,6 +27,8 @@ import org.tron.protos.Protocol.TXInput;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.protos.Protocol.Transaction.Contract;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.SignatureException;
 import java.util.Arrays;
 import java.util.List;
@@ -162,8 +164,19 @@ public class TransactionUtils {
     return transaction;
   }
 
-  public static Transaction setTimestamp(Transaction transaction) {
-    long currentTime = System.currentTimeMillis();//*1000000 + System.nanoTime()%1000000;
+  public static synchronized Transaction setTimestamp(Transaction transaction) {
+    long currentTime = System.currentTimeMillis()*1000000 + System.nanoTime()%1000000;
+    try
+    {
+      String filename= "/Users/taihaofu/Desktop/ttt/test5.log";
+      FileWriter fw = new FileWriter(filename,true); //the true will append the new data
+      fw.write(currentTime+"\n");//appends the string to the file
+      fw.close();
+    }
+    catch(IOException ioe)
+    {
+      System.err.println("IOException: " + ioe.getMessage());
+    }
     Transaction.Builder builder = transaction.toBuilder();
     Transaction.raw.Builder rowBuilder = transaction.getRawData()
         .toBuilder();

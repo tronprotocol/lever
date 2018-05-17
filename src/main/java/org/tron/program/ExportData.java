@@ -10,9 +10,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.sun.deploy.util.ReflectionUtil;
 import lombok.Getter;
-import org.apache.bsf.util.ReflectionUtils;
 import org.apache.commons.csv.CSVRecord;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
@@ -84,19 +82,6 @@ public class ExportData {
         Transaction transaction = walletClient.createTransaction4Transfer(contract);
         transaction = walletClient.signTransaction(transaction);
         transactions.add(transaction);
-//        try{
-//          //WalletClient w = new WalletClient(true);
-//          Class<?> classType = walletClient.getClass();
-//          Method method = classType.getDeclaredMethod("signTransaction",new Class[] { Transaction.class });
-//          method.setAccessible(true);
-//          Transaction t =  (Transaction) method.invoke(walletClient, transaction);
-//          transactions.add(t);
-//
-//        }catch (Exception e){
-//          e.printStackTrace();
-//
-//        }
-        //System.out.println("block id:"+  new BigInteger(1, transaction.getRawData().getRefBlockBytes().toByteArray()).intValue());
         if ((c + 1) % 1000 == 0) {
           System.out.println("create transaction current: " + (c + 1));
         }

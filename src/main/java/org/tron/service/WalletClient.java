@@ -80,7 +80,7 @@ public class WalletClient {
     if (config.hasPath("fullnode.ip.list")) {
       fullNode = config.getStringList("fullnode.ip.list").get(0);
     }
-    return new GrpcClient(fullNode, solidityNode);
+    return new GrpcClient(fullNode, null);
   }
 
   public static String selectFullNode() {
@@ -257,7 +257,7 @@ public class WalletClient {
     System.out.println(
         "txid = " + ByteArray.toHexString(Hash.sha256(transaction.getRawData().toByteArray())));
     System.out.println("--------------------------------");
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   public boolean updateAccount(byte[] addressBytes, byte[] accountNameBytes) {
@@ -270,7 +270,7 @@ public class WalletClient {
     }
 
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   public boolean transferAsset(byte[] to, byte[] assertName, long amount) {
@@ -280,7 +280,7 @@ public class WalletClient {
       return false;
     }
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   public static Transaction createTransferAssetTransaction(byte[] to, byte[] assertName,
@@ -297,7 +297,7 @@ public class WalletClient {
       return false;
     }
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   public static Transaction participateAssetIssueTransaction(byte[] to, byte[] assertName,
@@ -317,10 +317,10 @@ public class WalletClient {
       throws InvalidProtocolBufferException {
     Transaction transaction = Transaction.parseFrom(transactionBytes);
     return TransactionUtils.validTransaction(transaction)
-        && rpcCli.broadcastTransaction(transaction);
+        && rpcCli.broadcastTransaction(transaction).getResult();
   }
 
-  public static boolean broadcastTransaction(Transaction transaction){
+  public static GrpcAPI.Return broadcastTransaction(Transaction transaction){
     return rpcCli.broadcastTransaction(transaction);
   }
 
@@ -330,7 +330,7 @@ public class WalletClient {
       return false;
     }
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   public boolean createWitness(byte[] url) {
@@ -340,7 +340,7 @@ public class WalletClient {
       return false;
     }
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   public static Transaction createWitnessTransaction(byte[] owner, byte[] url) {
@@ -371,7 +371,7 @@ public class WalletClient {
       return false;
     }
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   public static Contract.TransferContract createTransferContract(byte[] to, byte[] owner,
@@ -768,7 +768,7 @@ public class WalletClient {
     }
 
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   private FreezeBalanceContract createFreezeBalanceContract(long frozen_balance,
@@ -793,7 +793,7 @@ public class WalletClient {
     }
 
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   private UnfreezeBalanceContract createUnfreezeBalanceContract() {
@@ -818,7 +818,7 @@ public class WalletClient {
     }
 
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   private UnfreezeAssetContract createUnfreezeAssetContract() {
@@ -844,7 +844,7 @@ public class WalletClient {
     }
 
     transaction = signTransaction(transaction);
-    return rpcCli.broadcastTransaction(transaction);
+    return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
   private WithdrawBalanceContract createWithdrawBalanceContract() {
@@ -866,8 +866,16 @@ public class WalletClient {
   public static Optional<BlockList> getBlockByLimitNext(long start, long end) {
     return rpcCli.getBlockByLimitNext(start, end);
   }
-
   public static Optional<BlockList> getBlockByLatestNum(long num) {
     return rpcCli.getBlockByLatestNum(num);
+  }
+
+  public void shutdown(){
+    try{
+      rpcCli.shutdown();
+    }
+    catch (InterruptedException e){
+
+    }
   }
 }
