@@ -11,10 +11,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.tron.api.GrpcAPI.AccountList;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
+import org.tron.common.utils.Sha256Hash;
 import org.tron.common.utils.TransactionUtils;
 import org.tron.core.config.Configuration;
 import org.tron.protos.Contract;
 import org.tron.protos.Contract.TransferContract;
+import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction;
 
 @Slf4j
@@ -57,12 +59,13 @@ public class WalletClient {
     byte[] owner = getAddress();
 
     Contract.TransferContract contract = createTransferContract(to, owner, amount);
-    Transaction transaction = createTransaction(contract);
+    Transaction transaction = rpcCli.createTransaction(contract);
     if (transaction == null || transaction.getRawData().getContractCount() == 0) {
       return false;
     }
 
     transaction = signTransaction(transaction);
+    System.err.println(Sha256Hash.of(transaction.getRawData().toByteArray()) + ", transfer:" + amount);
     return rpcCli.broadcastTransaction(transaction);
   }
 
@@ -71,7 +74,7 @@ public class WalletClient {
   }
 
   public static Contract.TransferContract createTransferContract(byte[] to, byte[] owner,
-      long amount) {
+                                                                 long amount) {
     Contract.TransferContract.Builder builder = Contract.TransferContract.newBuilder();
     ByteString bsTo = ByteString.copyFrom(to);
     ByteString bsOwner = ByteString.copyFrom(owner);
@@ -126,5 +129,9 @@ public class WalletClient {
         .setRefBlockBytes(ByteString.copyFrom(ByteArray.subArray(refBlockNum, 6, 8)))
         .build();
     return transaction.toBuilder().setRawData(rawData).build();
+  }
+
+  public Protocol.Block getBlock(long blockNum) {
+    return rpcCli.getBlock(blockNum);
   }
 }
