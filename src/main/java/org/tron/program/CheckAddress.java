@@ -23,7 +23,7 @@ import java.util.stream.LongStream;
 public class CheckAddress {
 
   public static void main(String[] args) {
-    List<String> address = ImmutableList.of(
+    ImmutableList.of(
         "a0904fe896536f4bebc64c95326b5054a2c3d27df6",
         "a0807337f180b62a77576377c1d0c9c24df5c0dd62",
         "a05430a3f089154e9e182ddd6fe136a62321af22a7",
@@ -33,8 +33,8 @@ public class CheckAddress {
         "a06a17a49648a8ad32055c06f60fa14ae46df94cc1",
         "a0ec6525979a351a54fa09fea64beb4cce33ffbb7a",
         "a0fab5fbf6afb681e4e37e9d33bddb7e923d6132e5",
-        "a014eebe4d30a6acb505c8b00b218bdc4733433c
-
+        "a014eebe4d30a6acb505c8b00b218bdc4733433c")
+        .stream()
         .map(s -> Base58.encode58Check(s.getBytes()))
         .forEach(System.out::println);
   }
