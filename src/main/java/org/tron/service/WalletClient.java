@@ -236,7 +236,7 @@ public class WalletClient {
     return rpcCli.queryAccount(address);//call rpc
   }
 
-  private Transaction signTransaction(Transaction transaction) {
+  public Transaction signTransaction(Transaction transaction) {
     if (this.ecKey == null || this.ecKey.getPrivKey() == null) {
       logger.warn("Warning: Can't sign,there is no private key !!");
       return null;

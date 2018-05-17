@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import com.sun.deploy.util.ReflectionUtil;
 import lombok.Getter;
+import org.apache.bsf.util.ReflectionUtils;
 import org.apache.commons.csv.CSVRecord;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
@@ -17,10 +20,13 @@ import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.Base58;
 import org.tron.common.utils.CsvUtils;
 import org.tron.common.utils.Utils;
+import org.tron.protos.Contract;
 import org.tron.protos.Protocol.Transaction;
+import org.tron.service.GrpcClient;
 import org.tron.service.WalletClient;
 import org.tron.protos.Contract.TransferContract;
 import org.tron.common.utils.ByteArray;
+import java.lang.reflect.Method;
 
 public class ExportData {
 
@@ -32,9 +38,6 @@ public class ExportData {
     Args argsObj = new Args();
     JCommander.newBuilder().addObject(argsObj).build().parse(args);
 
-    //ECKey ecKey = new ECKey(Utils.getRandom());
-    walletClient = new WalletClient(true);
-    walletClient.init();
 
     // 读取to address
     List<String> toAddressList = getStrings(argsObj.getToAddress());
@@ -52,6 +55,9 @@ public class ExportData {
       System.out.println("private key is empty");
       return;
     }
+
+    walletClient = new WalletClient(privateKeyList.get(0));
+    walletClient.init();
 
     for (String toAddress : toAddressList) {
       byte[] addressBytes = Base58.decodeFromBase58Check(toAddress);
@@ -76,7 +82,20 @@ public class ExportData {
         TransferContract contract = WalletClient
                 .createTransferContract(toAddressByteList.get(c % addressSize),owner , amount);
         Transaction transaction = walletClient.createTransaction4Transfer(contract);
+        transaction = walletClient.signTransaction(transaction);
         transactions.add(transaction);
+//        try{
+//          //WalletClient w = new WalletClient(true);
+//          Class<?> classType = walletClient.getClass();
+//          Method method = classType.getDeclaredMethod("signTransaction",new Class[] { Transaction.class });
+//          method.setAccessible(true);
+//          Transaction t =  (Transaction) method.invoke(walletClient, transaction);
+//          transactions.add(t);
+//
+//        }catch (Exception e){
+//          e.printStackTrace();
+//
+//        }
         //System.out.println("block id:"+  new BigInteger(1, transaction.getRawData().getRefBlockBytes().toByteArray()).intValue());
         if ((c + 1) % 1000 == 0) {
           System.out.println("create transaction current: " + (c + 1));

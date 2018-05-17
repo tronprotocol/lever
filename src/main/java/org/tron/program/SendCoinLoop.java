@@ -129,11 +129,12 @@ class Task implements Runnable {
       this.transactions.forEach(t -> {
         limiter.acquire();
         boolean b = false;
-        try {
-          b = walletClient.broadcastTransaction(t.getRawData().toByteArray());
-        } catch (InvalidProtocolBufferException e) {
-          e.printStackTrace();
-        }
+        b = walletClient.broadcastTransaction(t);
+//        try {
+//          b = walletClient.broadcastTransaction(t.getRawData().toByteArray());
+//        } catch (InvalidProtocolBufferException e) {
+//          e.printStackTrace();
+//        }
 
         if (b) {
           trueCount.increment();
