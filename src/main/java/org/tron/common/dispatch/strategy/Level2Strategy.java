@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.apache.commons.collections4.CollectionUtils;
+import org.tron.common.dispatch.BadCaseTransaction;
+import org.tron.common.dispatch.GoodCaseTransacton;
 import org.tron.common.dispatch.Stats;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
@@ -40,8 +42,6 @@ public abstract class Level2Strategy extends Bucket implements IStrategy<Protoco
   }
 
   protected abstract Protocol.Transaction create();
-
-  protected abstract Boolean nice();
 
   private void fillStats(Protocol.Transaction.Contract contract) {
     try {
@@ -102,7 +102,7 @@ public abstract class Level2Strategy extends Bucket implements IStrategy<Protoco
         Stats stats1 = new Stats();
         stats1.setAddress(owner);
         stats1.setType(contract.getType());
-        stats1.setNice(nice());
+        stats1.setNice(this instanceof GoodCaseTransacton);
         stats1.setAmount(-amount);
         stats.add(stats1);
       }
@@ -111,7 +111,7 @@ public abstract class Level2Strategy extends Bucket implements IStrategy<Protoco
         Stats stats2 = new Stats();
         stats2.setAddress(to);
         stats2.setType(contract.getType());
-        stats2.setNice(nice());
+        stats2.setNice(this instanceof GoodCaseTransacton);
         stats2.setAmount(amount);
         stats.add(stats2);
       }
