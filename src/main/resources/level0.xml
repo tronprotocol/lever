@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="level1.xml"/>
+
+    <bean id="dispatcher" class="org.tron.common.dispatch.strategy.Dispatcher">
+        <property name="source">
+            <list>
+                <ref bean="transfer"/>
+                <!--<ref bean="assetIssue"/>-->
+            </list>
+        </property>
+    </bean>
+
+</beans>

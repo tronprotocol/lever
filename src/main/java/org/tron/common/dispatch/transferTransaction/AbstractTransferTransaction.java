@@ -1,7 +1,7 @@
 package org.tron.common.dispatch.transferTransaction;
 
 import com.google.protobuf.ByteString;
-import org.tron.common.dispatch.Level2Strategy;
+import org.tron.common.dispatch.strategy.Level2Strategy;
 
 public abstract class AbstractTransferTransaction extends Level2Strategy {
   protected ByteString from;
