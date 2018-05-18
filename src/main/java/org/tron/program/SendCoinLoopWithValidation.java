@@ -31,7 +31,7 @@ import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
 
-//Example --tps 200 --datafile [trxsdata.csv] --toaddress toaddress.csv --amount 1 --privatekeyFile privatekey.csv --count 100 --output trxsdata.csv
+//Example --tps 2000 --toaddress toaddress.csv --amount 1 --privatekeyFile privatekey.csv --count 10000 --output trxsdata.csv
 public class SendCoinLoopWithValidation {
     private static final int THREAD_COUNT = 16;
     private static final int ACCOUNT_NUM = 100;
@@ -78,7 +78,7 @@ public class SendCoinLoopWithValidation {
         rootClient.init();
 
         // increase bandwidth
-        rootClient.freezeBalance(ACCOUNT_NUM * 10 * 1000000,3);
+        // rootClient.freezeBalance(ACCOUNT_NUM * 10 * 1000000,3);
 
         long amount = args1.getAmount();
 
