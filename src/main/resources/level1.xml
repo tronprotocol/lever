@@ -13,8 +13,9 @@
     <!--transfer-->
 
     <bean id="transfer" parent="level1Strategy">
+        <property name="name" value="transfer"/>
         <property name="begin" value="0"/>
-        <property name="end" value="99"/>
+        <property name="end" value="89"/>
         <property name="source">
             <list>
                 <ref bean="niceTransferTransaction"/>
@@ -26,7 +27,8 @@
     <!--assetIssue-->
 
     <bean id="assetIssue" parent="level1Strategy">
-        <property name="begin" value="10"/>
+        <property name="name" value="assetIssue"/>
+        <property name="begin" value="90"/>
         <property name="end" value="99"/>
         <property name="source">
             <list>

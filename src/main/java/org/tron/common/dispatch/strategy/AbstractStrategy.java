@@ -1,22 +1,26 @@
 package org.tron.common.dispatch.strategy;
 
-import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
+@ToString(exclude = "random")
 public abstract class AbstractStrategy<T extends Bucket> extends Bucket implements IStrategy<T> {
+
   private Random random = new Random(System.currentTimeMillis());
-  @Getter
+
   @Setter
-  protected List<T> source = new ArrayList<>();
+  protected List<T> source;
+  @Setter
+  protected String name;
 
   @PostConstruct
   public void check() {
-    int bucket = source.stream()
+    int bucket = source == null ? 0 : source.stream()
         .mapToInt(b -> b.end - b.begin + 1)
         .sum();
     if (bucket != 0 && bucket != 100) {
