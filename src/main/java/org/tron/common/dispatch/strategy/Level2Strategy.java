@@ -78,10 +78,8 @@ public abstract class Level2Strategy extends Bucket implements IStrategy<Protoco
             amount = votes.get(votes.size() - 1).getVoteCount();
           }
           break;
-        case WitnessCreateContract:
-          owner = contractParameter.unpack(Contract.WitnessCreateContract.class).getOwnerAddress();
-          break;
         case AssetIssueContract:
+          // todo
           owner = contractParameter.unpack(Contract.AssetIssueContract.class).getOwnerAddress();
           break;
         case ParticipateAssetIssueContract:
