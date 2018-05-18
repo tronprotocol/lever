@@ -4,7 +4,12 @@ import org.tron.protos.Protocol;
 
 public class NiceTransferTransaction extends AbstractTransferTransaction {
   @Override
-  public Protocol.Transaction dispatch() {
+  protected Protocol.Transaction create() {
     return null;
+  }
+
+  @Override
+  protected Boolean nice() {
+    return true;
   }
 }
