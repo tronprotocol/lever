@@ -28,6 +28,8 @@ import org.tron.common.utils.*;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
+import org.tron.protos.Protocol;
+
 
 
 //Example --tps 10000 --amount 1 --privatekeyFile privatekey.csv --count 1000000 --output trxsdata.csv
@@ -101,6 +103,7 @@ public class SendCoinLoopWithValidation {
             rootClient.sendCoin(key.getAddress(), (long) 1000 * (long) 1000000 - (long) 10 * (long) 1000000);
         });
 
+
         // wait all the new accounts to be set up
         Thread.sleep(3000);
 
@@ -117,7 +120,7 @@ public class SendCoinLoopWithValidation {
             // so 200*1000000 can support all case
             GrpcAPI.Return freezeResult = walletClient.freezeBalanceResponse(200*1000000,3);
             int loop = 0;
-            while(!freezeResult.getResult()&&loop<10){
+            while(!freezeResult.getResult()&&loop<2){
                 loop++;
                 try {
                     Thread.sleep(1000);
@@ -147,10 +150,30 @@ public class SendCoinLoopWithValidation {
         File f = new File(args1.getOutput());
         FileOutputStream fos = new FileOutputStream(f);
 
-
+        Thread.sleep(10000);
         AtomicInteger counter = new AtomicInteger(0);
 
+        long sum1 =0;
+        System.err.println("\nBefore Transaction");
+        for(int i=0;i<keys.size();i++) {
+            Protocol.Account account = WalletClient.queryAccount(keys.get(i).getAddress());
+            sum1 += account.getBalance();
+            System.err.println("\n" + Base58.encode58Check(keys.get(i).getAddress()) + " : " + account.getBalance());
+        }
+        System.err.println("\n Before Transaction sum: "+sum1);
+
+
         rateLimiter(tps, keys ,amount, count,rootClient, fos, counter);
+
+        Thread.sleep(10000);
+        long sum2 =0;
+        System.err.println("\nAfter Transaction");
+        for(int i=0;i<keys.size();i++) {
+            Protocol.Account account = WalletClient.queryAccount(keys.get(i).getAddress());
+            sum2 += account.getBalance();
+            System.err.println("\n" + Base58.encode58Check(keys.get(i).getAddress()) + " : " + account.getBalance());
+        }
+        System.err.println("\nAfter Transaction sum: "+sum2);
 
     }
 
@@ -205,6 +228,7 @@ class TaskWithVal implements Runnable {
     private long amount;
     private long count;
     private FileOutputStream fos;
+    public static long sum ;
 
     static {
         service.scheduleAtFixedRate(() -> {
@@ -232,12 +256,16 @@ class TaskWithVal implements Runnable {
         this.count = count;
         this.fos = fos;
         this.counter = counter;
+        this.sum =0;
     }
 
     @Override
     public void run() {
-        for(int i = 0; i< Math.sqrt(count / threadCount) + 1; i++){
-            for(int j = 0; j< Math.sqrt( count/ threadCount) + 1; j++){
+        //Math.sqrt(count / threadCount) + 1
+
+
+        for(int i = 0; i< keys.size(); i++){
+            for(int j = 0; j< keys.size(); j++){
                 if(i == j){
                     continue;
                 }
@@ -257,7 +285,8 @@ class TaskWithVal implements Runnable {
 //                }
 //
 //                Protocol.Account account = WalletClient.queryAccount(keys.get(i).getAddress());
-//                System.err.println("\n" + Utils.printAccount(account));
+//                System.err.println("\nBefore transaction: " + account.getBalance());
+
 
                 Transaction transaction = walletClient.createTransaction4Transfer(contract);
                 transaction = walletClient.signTransaction(transaction);
