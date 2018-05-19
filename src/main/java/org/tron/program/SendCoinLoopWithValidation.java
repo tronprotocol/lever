@@ -6,10 +6,9 @@ import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.RateLimiter;
 
 import java.io.*;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
@@ -31,28 +30,25 @@ import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
 
-//Example --tps 2000 --toaddress toaddress.csv --amount 1 --privatekeyFile privatekey.csv --count 10000 --output trxsdata.csv
+//Example --tps 10000 --amount 1 --privatekeyFile privatekey.csv --count 1000000 --output trxsdata.csv
 public class SendCoinLoopWithValidation {
     private static final int THREAD_COUNT = 16;
-    private static final int ACCOUNT_NUM = 100;
 
     private static List<WalletClient> walletClients = new ArrayList<>();
-    private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
-
 
     public static void main(String[] args) throws IOException,InterruptedException {
         SendCoinArgsWithVal args1 = new SendCoinArgsWithVal();
         JCommander.newBuilder().addObject(args1).build().parse(args);
 
         double tps = args1.getTps();
+        long count = args1.getCount();
 
-        // 读取to address
-        List<String> toAddressList = getStrings(args1.getToAddress());
-        List<byte[]> toAddressByteList = new ArrayList<>();
-        int addressSize = toAddressList.size();
-        if (addressSize == 0) {
-            System.out.println("address is empty");
-            return;
+        // init ECKeys for new accounts
+        List<ECKey> keys = new ArrayList<>();
+        for(int i=0;i<Math.sqrt(count/THREAD_COUNT)+10;i++){
+            ECKey key =  new ECKey(Utils.getRandom());
+            System.err.println(Base58.encode58Check(key.getAddress()));
+            keys.add(key);
         }
 
         // 读取 private key
@@ -61,11 +57,6 @@ public class SendCoinLoopWithValidation {
         if (privateKeySize == 0) {
             System.out.println("private key is empty");
             return;
-        }
-
-        for (String toAddress : toAddressList) {
-            byte[] addressBytes = Base58.decodeFromBase58Check(toAddress);
-            toAddressByteList.add(addressBytes);
         }
 
         walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
@@ -77,20 +68,93 @@ public class SendCoinLoopWithValidation {
         WalletClient rootClient = new WalletClient(privateKeyList.get(0));
         rootClient.init();
 
+        int accountNum = (int)Math.sqrt(count/THREAD_COUNT) + 1;
+
         // increase bandwidth
-        // rootClient.freezeBalance(ACCOUNT_NUM * 10 * 1000000,3);
+        rootClient.freezeBalance((long)accountNum * (long)1000 * (long)1000000,3);
+
+        // send every account 1000 TRX to create the account on the chain (at least 1 TRX)
+        keys.forEach(key->{
+            boolean b= false;
+            GrpcAPI.Return response;
+            int loop = 0;
+            do {
+                if(loop!=0){
+                    try{
+                        Thread.sleep(1000);
+                    }catch (InterruptedException e){
+
+                    }
+                }
+                response= rootClient.sendCoinResponse(key.getAddress(), (long) 10 * (long) 1000000);
+                b = response.getResult();
+                loop++;
+                if(b==false){
+                    System.err.println("failed to create "+ Base58.encode58Check(key.getAddress()) + " "+loop);
+                }
+            }while(b == false && loop < 20);
+            if(b==false){
+                System.err.println("failed to create "+ Base58.encode58Check(key.getAddress()));
+            }
+
+            // sendCoinAmount >= Transaction * amount + freezeTRX
+            rootClient.sendCoin(key.getAddress(), (long) 1000 * (long) 1000000 - (long) 10 * (long) 1000000);
+        });
+
+        // wait all the new accounts to be set up
+        Thread.sleep(3000);
+
+        List<ECKey> failedKey = new ArrayList<>();
+        keys.forEach(key->{
+            WalletClient walletClient = new WalletClient(key);
+
+            // need to freeze at least (freezeTRX) : (accountNum-1) * accountNum * 0.1 / 3 TRX
+            // TransactionNum = (accountNum - 1)* accountNum
+            // requiredBandwidth = TransactionNum * 0.1
+            // freezeTRXPerAccount = (requiredBandwidth / 3)   TRX
+
+            // freezeTRXPerAccount >= sqrt(count * THREAD_COUNT) / 30    trx
+            // so 200*1000000 can support all case
+            GrpcAPI.Return freezeResult = walletClient.freezeBalanceResponse(200*1000000,3);
+            int loop = 0;
+            while(!freezeResult.getResult()&&loop<10){
+                loop++;
+                try {
+                    Thread.sleep(1000);
+                }
+                catch(InterruptedException e){
+
+                }
+                freezeResult = walletClient.freezeBalanceResponse(200*1000000,3);
+            }
+            if(freezeResult.getResult()==false){
+                failedKey.add(key);
+                System.err.println("freeze failed "+Base58.encode58Check(key.getAddress()) +" "+freezeResult.getMessage());
+            }
+            else{
+                System.err.println("freeze success "+Base58.encode58Check(key.getAddress()));
+            }
+        });
+
+        failedKey.forEach(key->{
+            if(keys.indexOf(key)!=-1){
+                keys.remove(key);
+            }
+        });
 
         long amount = args1.getAmount();
 
         File f = new File(args1.getOutput());
         FileOutputStream fos = new FileOutputStream(f);
 
-        long count = args1.getCount();
+
         AtomicInteger counter = new AtomicInteger(0);
-        rateLimiter(tps, toAddressByteList,privateKeyList,amount, count,rootClient, fos, counter);
+
+        rateLimiter(tps, keys ,amount, count,rootClient, fos, counter);
+
     }
 
-    public static void rateLimiter(double tps,List<byte[]> toAddressByteList,List<String> privateKeyList,long amount,long count, WalletClient root, FileOutputStream fos,AtomicInteger counter) {
+    public static void rateLimiter(double tps,List<ECKey> keys,long amount,long count, WalletClient root, FileOutputStream fos,AtomicInteger counter) {
         ListeningExecutorService executorService = MoreExecutors
                 .listeningDecorator(Executors.newFixedThreadPool(THREAD_COUNT));
         CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
@@ -98,7 +162,7 @@ public class SendCoinLoopWithValidation {
 
         for (int i = 0; i < THREAD_COUNT; ++i) {
             executorService.execute(new TaskWithVal(walletClients.get(i % THREAD_COUNT), limiter, THREAD_COUNT,
-                    toAddressByteList,privateKeyList,amount,count, root, fos, counter));
+                    keys,amount,count,  fos, counter));
             latch.countDown();
         }
 
@@ -137,10 +201,8 @@ class TaskWithVal implements Runnable {
     private static int threadCount;
     private AtomicInteger counter;
 
-    private List<String> privateKeyList;
-    private List<byte[]> toAddressByteList;
+    private List<ECKey> keys;
     private long amount;
-    private WalletClient root;
     private long count;
     private FileOutputStream fos;
 
@@ -160,15 +222,13 @@ class TaskWithVal implements Runnable {
     }
 
     public TaskWithVal(final WalletClient walletClient, RateLimiter limiter,
-                 int threadCount,List<byte[]> toAddressByteList, List<String> privateKeyList,
-                       long amount, long count, WalletClient root, FileOutputStream fos, AtomicInteger counter) {
+                 int threadCount,List<ECKey> keys,
+                       long amount, long count,  FileOutputStream fos, AtomicInteger counter) {
         this.walletClient = walletClient;
         this.limiter = limiter;
         this.threadCount = threadCount;
-        this.privateKeyList= privateKeyList;
-        this.toAddressByteList = toAddressByteList;
+        this.keys = keys;
         this.amount = amount;
-        this.root = root;
         this.count = count;
         this.fos = fos;
         this.counter = counter;
@@ -176,44 +236,64 @@ class TaskWithVal implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < this.count / threadCount; i++) {
-            int c = counter.incrementAndGet();
-            ECKey key =  ECKey.fromPrivate(ByteArray.fromHexString(privateKeyList.get(c % privateKeyList.size())));
-            byte[] owner = key.getAddress();
-            Contract.TransferContract contract = WalletClient
-                    .createTransferContract(toAddressByteList.get(c % toAddressByteList.size()),owner , amount);
-            Transaction transaction = root.createTransaction4Transfer(contract);
-            transaction = root.signTransaction(transaction);
-            try{
-                transaction.writeDelimitedTo(fos);
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-
-            if ((c + 1) % 1000 == 0) {
-                System.out.println("create transaction current: " + (c + 1));
-            }
-            limiter.acquire();
-            GrpcAPI.Return response= walletClient.broadcastTransaction(transaction);
-            boolean b = response.getResult();
-            if (b) {
-                trueCount.increment();
-            } else {
-                falseCount.increment();
-                if(response.getMessage().size()==0){
-                    System.err.println(response.toString());
+        for(int i = 0; i< Math.sqrt(count / threadCount) + 1; i++){
+            for(int j = 0; j< Math.sqrt( count/ threadCount) + 1; j++){
+                if(i == j){
+                    continue;
                 }
-                else {
-                    System.err.println(response.getMessage().toStringUtf8());
+                int c = counter.incrementAndGet();
+                Contract.TransferContract contract = WalletClient
+                    .createTransferContract(keys.get(j).getAddress(), keys.get(i).getAddress() , amount);
+                walletClient = new WalletClient(keys.get(i));
+
+//                GrpcAPI.Return freezeResult = walletClient.freezeBalances(10000,3);
+//                if(freezeResult.getResult()==false){
+//                    System.err.println("freeze failed "+Base58.encode58Check(keys.get(i).getAddress())
+//                            +" "+freezeResult.getMessage());
+//
+//                }
+//                else{
+//                    System.err.println("freeze success "+Base58.encode58Check(keys.get(i).getAddress()));
+//                }
+//
+//                Protocol.Account account = WalletClient.queryAccount(keys.get(i).getAddress());
+//                System.err.println("\n" + Utils.printAccount(account));
+
+                Transaction transaction = walletClient.createTransaction4Transfer(contract);
+                transaction = walletClient.signTransaction(transaction);
+                try{
+                    transaction.writeDelimitedTo(fos);
+                }catch (IOException e){
+                    e.printStackTrace();
                 }
+
+                if ((c + 1) % 1000 == 0) {
+                    System.out.println("create transaction current: " + (c + 1));
+                }
+                limiter.acquire();
+                GrpcAPI.Return response= walletClient.broadcastTransaction(transaction);
+                boolean b = response.getResult();
+                if (b) {
+                    trueCount.increment();
+                    //System.err.println("Success from:" + Base58.encode58Check(keys.get(i).getAddress()) + " to:" + Base58.encode58Check(keys.get(j).getAddress()));
+                } else {
+                    falseCount.increment();
+                    if(response.getMessage().size()==0){
+                        System.err.println(response.toString().replace("\n",""));
+                    }
+                    else {
+                        System.err.println(response.getMessage().toStringUtf8()+" from:"+ Base58.encode58Check(keys.get(i).getAddress()) + " to:" + Base58.encode58Check(keys.get(j).getAddress()));
+                    }
+                }
+                currentCount.increment();
+
+                long currentMinutes = System.currentTimeMillis() / 1000L / 60;
+
+                resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
             }
-            currentCount.increment();
-
-            long currentMinutes = System.currentTimeMillis() / 1000L / 60;
-
-            resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
         }
         this.endCounts.increment();
+
     }
 }
 
@@ -230,19 +310,15 @@ class SendCoinArgsWithVal {
             "--privatekeyFile"}, description = "Private key file", required = true, validateWith = StringValidator.class)
     private String privateKeyFile;
 
-    @Getter
-    @Parameter(names = {
-            "--toaddress"}, description = "To address file", required = true, validateWith = StringValidator.class)
-    private String toAddress;
 
     @Getter
     @Parameter(names = {
-            "--amount"}, description = "Amount", required = true, validateWith = LongValidator.class)
+            "--amount"}, description = "Drops amount per transaction", required = true, validateWith = LongValidator.class)
     private long amount;
 
     @Getter
     @Parameter(names = {
-            "--count"}, description = "Count", required = true, validateWith = LongValidator.class)
+            "--count"}, description = "Transaction counts", required = true, validateWith = LongValidator.class)
     private long count;
 
     @Getter

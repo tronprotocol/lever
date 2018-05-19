@@ -260,6 +260,18 @@ public class WalletClient {
     return rpcCli.broadcastTransaction(transaction).getResult();
   }
 
+  public GrpcAPI.Return sendCoinResponse(byte[] to, long amount) {
+    byte[] owner = getAddress();
+    Contract.TransferContract contract = createTransferContract(to, owner, amount);
+    Transaction transaction = rpcCli.createTransaction(contract);
+    transaction = signTransaction(transaction);
+    System.out.println("--------------------------------");
+    System.out.println(
+            "txid = " + ByteArray.toHexString(Hash.sha256(transaction.getRawData().toByteArray())));
+    System.out.println("--------------------------------");
+    return rpcCli.broadcastTransaction(transaction);
+  }
+
   public boolean updateAccount(byte[] addressBytes, byte[] accountNameBytes) {
     Contract.AccountUpdateContract contract = createAccountUpdateContract(accountNameBytes,
         addressBytes);
@@ -769,6 +781,18 @@ public class WalletClient {
 
     transaction = signTransaction(transaction);
     return rpcCli.broadcastTransaction(transaction).getResult();
+  }
+
+  public GrpcAPI.Return freezeBalanceResponse(long frozen_balance, long frozen_duration) {
+
+    FreezeBalanceContract contract = createFreezeBalanceContract(frozen_balance,
+            frozen_duration);
+
+    Transaction transaction = rpcCli.createTransaction(contract);
+
+    transaction = signTransaction(transaction);
+    GrpcAPI.Return response = rpcCli.broadcastTransaction(transaction);
+    return response;
   }
 
   private FreezeBalanceContract createFreezeBalanceContract(long frozen_balance,
