@@ -1638,6 +1638,60 @@ public final class Protocol {
 
     /**
      * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+    int getLatestAssetOperationTimeCount();
+    /**
+     * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+    boolean containsLatestAssetOperationTime(
+        java.lang.String key);
+    /**
+     * Use {@link #getLatestAssetOperationTimeMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.Long>
+    getLatestAssetOperationTime();
+    /**
+     * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.Long>
+    getLatestAssetOperationTimeMap();
+    /**
+     * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+
+    long getLatestAssetOperationTimeOrDefault(
+        java.lang.String key,
+        long defaultValue);
+    /**
+     * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+
+    long getLatestAssetOperationTimeOrThrow(
+        java.lang.String key);
+
+    /**
+     * <pre>
      * the frozen balance
      * </pre>
      *
@@ -1907,9 +1961,9 @@ public final class Protocol {
               break;
             }
             case 58: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                 frozen_ = new java.util.ArrayList<org.tron.protos.Protocol.Account.Frozen>();
-                mutable_bitField0_ |= 0x00000040;
+                mutable_bitField0_ |= 0x00000080;
               }
               frozen_.add(
                   input.readMessage(org.tron.protos.Protocol.Account.Frozen.parser(), extensionRegistry));
@@ -1956,9 +2010,9 @@ public final class Protocol {
               break;
             }
             case 130: {
-              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+              if (!((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
                 frozenSupply_ = new java.util.ArrayList<org.tron.protos.Protocol.Account.Frozen>();
-                mutable_bitField0_ |= 0x00008000;
+                mutable_bitField0_ |= 0x00010000;
               }
               frozenSupply_.add(
                   input.readMessage(org.tron.protos.Protocol.Account.Frozen.parser(), extensionRegistry));
@@ -1967,6 +2021,19 @@ public final class Protocol {
             case 138: {
 
               assetIssuedName_ = input.readBytes();
+              break;
+            }
+            case 146: {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                latestAssetOperationTime_ = com.google.protobuf.MapField.newMapField(
+                    LatestAssetOperationTimeDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000040;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              latestAssetOperationTime__ = input.readMessage(
+                  LatestAssetOperationTimeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              latestAssetOperationTime_.getMutableMap().put(
+                  latestAssetOperationTime__.getKey(), latestAssetOperationTime__.getValue());
               break;
             }
           }
@@ -1980,10 +2047,10 @@ public final class Protocol {
         if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           votes_ = java.util.Collections.unmodifiableList(votes_);
         }
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
           frozen_ = java.util.Collections.unmodifiableList(frozen_);
         }
-        if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+        if (((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
           frozenSupply_ = java.util.Collections.unmodifiableList(frozenSupply_);
         }
         this.unknownFields = unknownFields.build();
@@ -2001,6 +2068,8 @@ public final class Protocol {
       switch (number) {
         case 6:
           return internalGetAsset();
+        case 18:
+          return internalGetLatestAssetOperationTime();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -2776,6 +2845,98 @@ public final class Protocol {
       return map.get(key);
     }
 
+    public static final int LATEST_ASSET_OPERATION_TIME_FIELD_NUMBER = 18;
+    private static final class LatestAssetOperationTimeDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.Long> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.Long>newDefaultInstance(
+                  org.tron.protos.Protocol.internal_static_protocol_Account_LatestAssetOperationTimeEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.INT64,
+                  0L);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.Long> latestAssetOperationTime_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+    internalGetLatestAssetOperationTime() {
+      if (latestAssetOperationTime_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LatestAssetOperationTimeDefaultEntryHolder.defaultEntry);
+      }
+      return latestAssetOperationTime_;
+    }
+
+    public int getLatestAssetOperationTimeCount() {
+      return internalGetLatestAssetOperationTime().getMap().size();
+    }
+    /**
+     * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+
+    public boolean containsLatestAssetOperationTime(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetLatestAssetOperationTime().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLatestAssetOperationTimeMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Long> getLatestAssetOperationTime() {
+      return getLatestAssetOperationTimeMap();
+    }
+    /**
+     * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.Long> getLatestAssetOperationTimeMap() {
+      return internalGetLatestAssetOperationTime().getMap();
+    }
+    /**
+     * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+
+    public long getLatestAssetOperationTimeOrDefault(
+        java.lang.String key,
+        long defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetLatestAssetOperationTime().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * latest asset operation time
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+     */
+
+    public long getLatestAssetOperationTimeOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetLatestAssetOperationTime().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     public static final int FROZEN_FIELD_NUMBER = 7;
     private java.util.List<org.tron.protos.Protocol.Account.Frozen> frozen_;
     /**
@@ -3061,6 +3222,12 @@ public final class Protocol {
       if (!assetIssuedName_.isEmpty()) {
         output.writeBytes(17, assetIssuedName_);
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLatestAssetOperationTime(),
+          LatestAssetOperationTimeDefaultEntryHolder.defaultEntry,
+          18);
       unknownFields.writeTo(output);
     }
 
@@ -3143,6 +3310,16 @@ public final class Protocol {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(17, assetIssuedName_);
       }
+      for (java.util.Map.Entry<java.lang.String, java.lang.Long> entry
+           : internalGetLatestAssetOperationTime().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+        latestAssetOperationTime__ = LatestAssetOperationTimeDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(18, latestAssetOperationTime__);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3170,6 +3347,8 @@ public final class Protocol {
           .equals(other.getVotesList());
       result = result && internalGetAsset().equals(
           other.internalGetAsset());
+      result = result && internalGetLatestAssetOperationTime().equals(
+          other.internalGetLatestAssetOperationTime());
       result = result && getFrozenList()
           .equals(other.getFrozenList());
       result = result && (getBandwidth()
@@ -3219,6 +3398,10 @@ public final class Protocol {
       if (!internalGetAsset().getMap().isEmpty()) {
         hash = (37 * hash) + ASSET_FIELD_NUMBER;
         hash = (53 * hash) + internalGetAsset().hashCode();
+      }
+      if (!internalGetLatestAssetOperationTime().getMap().isEmpty()) {
+        hash = (37 * hash) + LATEST_ASSET_OPERATION_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLatestAssetOperationTime().hashCode();
       }
       if (getFrozenCount() > 0) {
         hash = (37 * hash) + FROZEN_FIELD_NUMBER;
@@ -3368,6 +3551,8 @@ public final class Protocol {
         switch (number) {
           case 6:
             return internalGetAsset();
+          case 18:
+            return internalGetLatestAssetOperationTime();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -3379,6 +3564,8 @@ public final class Protocol {
         switch (number) {
           case 6:
             return internalGetMutableAsset();
+          case 18:
+            return internalGetMutableLatestAssetOperationTime();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -3426,9 +3613,10 @@ public final class Protocol {
           votesBuilder_.clear();
         }
         internalGetMutableAsset().clear();
+        internalGetMutableLatestAssetOperationTime().clear();
         if (frozenBuilder_ == null) {
           frozen_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           frozenBuilder_.clear();
         }
@@ -3450,7 +3638,7 @@ public final class Protocol {
 
         if (frozenSupplyBuilder_ == null) {
           frozenSupply_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00010000);
         } else {
           frozenSupplyBuilder_.clear();
         }
@@ -3495,10 +3683,12 @@ public final class Protocol {
         }
         result.asset_ = internalGetAsset();
         result.asset_.makeImmutable();
+        result.latestAssetOperationTime_ = internalGetLatestAssetOperationTime();
+        result.latestAssetOperationTime_.makeImmutable();
         if (frozenBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          if (((bitField0_ & 0x00000080) == 0x00000080)) {
             frozen_ = java.util.Collections.unmodifiableList(frozen_);
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000080);
           }
           result.frozen_ = frozen_;
         } else {
@@ -3513,9 +3703,9 @@ public final class Protocol {
         result.isWitness_ = isWitness_;
         result.isCommittee_ = isCommittee_;
         if (frozenSupplyBuilder_ == null) {
-          if (((bitField0_ & 0x00008000) == 0x00008000)) {
+          if (((bitField0_ & 0x00010000) == 0x00010000)) {
             frozenSupply_ = java.util.Collections.unmodifiableList(frozenSupply_);
-            bitField0_ = (bitField0_ & ~0x00008000);
+            bitField0_ = (bitField0_ & ~0x00010000);
           }
           result.frozenSupply_ = frozenSupply_;
         } else {
@@ -3604,11 +3794,13 @@ public final class Protocol {
         }
         internalGetMutableAsset().mergeFrom(
             other.internalGetAsset());
+        internalGetMutableLatestAssetOperationTime().mergeFrom(
+            other.internalGetLatestAssetOperationTime());
         if (frozenBuilder_ == null) {
           if (!other.frozen_.isEmpty()) {
             if (frozen_.isEmpty()) {
               frozen_ = other.frozen_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000080);
             } else {
               ensureFrozenIsMutable();
               frozen_.addAll(other.frozen_);
@@ -3621,7 +3813,7 @@ public final class Protocol {
               frozenBuilder_.dispose();
               frozenBuilder_ = null;
               frozen_ = other.frozen_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000080);
               frozenBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFrozenFieldBuilder() : null;
@@ -3658,7 +3850,7 @@ public final class Protocol {
           if (!other.frozenSupply_.isEmpty()) {
             if (frozenSupply_.isEmpty()) {
               frozenSupply_ = other.frozenSupply_;
-              bitField0_ = (bitField0_ & ~0x00008000);
+              bitField0_ = (bitField0_ & ~0x00010000);
             } else {
               ensureFrozenSupplyIsMutable();
               frozenSupply_.addAll(other.frozenSupply_);
@@ -3671,7 +3863,7 @@ public final class Protocol {
               frozenSupplyBuilder_.dispose();
               frozenSupplyBuilder_ = null;
               frozenSupply_ = other.frozenSupply_;
-              bitField0_ = (bitField0_ & ~0x00008000);
+              bitField0_ = (bitField0_ & ~0x00010000);
               frozenSupplyBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFrozenSupplyFieldBuilder() : null;
@@ -4326,12 +4518,163 @@ public final class Protocol {
         return this;
       }
 
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.Long> latestAssetOperationTime_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+      internalGetLatestAssetOperationTime() {
+        if (latestAssetOperationTime_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LatestAssetOperationTimeDefaultEntryHolder.defaultEntry);
+        }
+        return latestAssetOperationTime_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+      internalGetMutableLatestAssetOperationTime() {
+        onChanged();;
+        if (latestAssetOperationTime_ == null) {
+          latestAssetOperationTime_ = com.google.protobuf.MapField.newMapField(
+              LatestAssetOperationTimeDefaultEntryHolder.defaultEntry);
+        }
+        if (!latestAssetOperationTime_.isMutable()) {
+          latestAssetOperationTime_ = latestAssetOperationTime_.copy();
+        }
+        return latestAssetOperationTime_;
+      }
+
+      public int getLatestAssetOperationTimeCount() {
+        return internalGetLatestAssetOperationTime().getMap().size();
+      }
+      /**
+       * <pre>
+       * latest asset operation time
+       * </pre>
+       *
+       * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+       */
+
+      public boolean containsLatestAssetOperationTime(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetLatestAssetOperationTime().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLatestAssetOperationTimeMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Long> getLatestAssetOperationTime() {
+        return getLatestAssetOperationTimeMap();
+      }
+      /**
+       * <pre>
+       * latest asset operation time
+       * </pre>
+       *
+       * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.Long> getLatestAssetOperationTimeMap() {
+        return internalGetLatestAssetOperationTime().getMap();
+      }
+      /**
+       * <pre>
+       * latest asset operation time
+       * </pre>
+       *
+       * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+       */
+
+      public long getLatestAssetOperationTimeOrDefault(
+          java.lang.String key,
+          long defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.Long> map =
+            internalGetLatestAssetOperationTime().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * latest asset operation time
+       * </pre>
+       *
+       * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+       */
+
+      public long getLatestAssetOperationTimeOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.Long> map =
+            internalGetLatestAssetOperationTime().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLatestAssetOperationTime() {
+        internalGetMutableLatestAssetOperationTime().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * latest asset operation time
+       * </pre>
+       *
+       * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+       */
+
+      public Builder removeLatestAssetOperationTime(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableLatestAssetOperationTime().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Long>
+      getMutableLatestAssetOperationTime() {
+        return internalGetMutableLatestAssetOperationTime().getMutableMap();
+      }
+      /**
+       * <pre>
+       * latest asset operation time
+       * </pre>
+       *
+       * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+       */
+      public Builder putLatestAssetOperationTime(
+          java.lang.String key,
+          long value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        
+        internalGetMutableLatestAssetOperationTime().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * latest asset operation time
+       * </pre>
+       *
+       * <code>map&lt;string, int64&gt; latest_asset_operation_time = 18;</code>
+       */
+
+      public Builder putAllLatestAssetOperationTime(
+          java.util.Map<java.lang.String, java.lang.Long> values) {
+        internalGetMutableLatestAssetOperationTime().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
       private java.util.List<org.tron.protos.Protocol.Account.Frozen> frozen_ =
         java.util.Collections.emptyList();
       private void ensureFrozenIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
           frozen_ = new java.util.ArrayList<org.tron.protos.Protocol.Account.Frozen>(frozen_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000080;
          }
       }
 
@@ -4525,7 +4868,7 @@ public final class Protocol {
       public Builder clearFrozen() {
         if (frozenBuilder_ == null) {
           frozen_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
           onChanged();
         } else {
           frozenBuilder_.clear();
@@ -4630,7 +4973,7 @@ public final class Protocol {
           frozenBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               org.tron.protos.Protocol.Account.Frozen, org.tron.protos.Protocol.Account.Frozen.Builder, org.tron.protos.Protocol.Account.FrozenOrBuilder>(
                   frozen_,
-                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  ((bitField0_ & 0x00000080) == 0x00000080),
                   getParentForChildren(),
                   isClean());
           frozen_ = null;
@@ -4924,9 +5267,9 @@ public final class Protocol {
       private java.util.List<org.tron.protos.Protocol.Account.Frozen> frozenSupply_ =
         java.util.Collections.emptyList();
       private void ensureFrozenSupplyIsMutable() {
-        if (!((bitField0_ & 0x00008000) == 0x00008000)) {
+        if (!((bitField0_ & 0x00010000) == 0x00010000)) {
           frozenSupply_ = new java.util.ArrayList<org.tron.protos.Protocol.Account.Frozen>(frozenSupply_);
-          bitField0_ |= 0x00008000;
+          bitField0_ |= 0x00010000;
          }
       }
 
@@ -5120,7 +5463,7 @@ public final class Protocol {
       public Builder clearFrozenSupply() {
         if (frozenSupplyBuilder_ == null) {
           frozenSupply_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00010000);
           onChanged();
         } else {
           frozenSupplyBuilder_.clear();
@@ -5225,7 +5568,7 @@ public final class Protocol {
           frozenSupplyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               org.tron.protos.Protocol.Account.Frozen, org.tron.protos.Protocol.Account.Frozen.Builder, org.tron.protos.Protocol.Account.FrozenOrBuilder>(
                   frozenSupply_,
-                  ((bitField0_ & 0x00008000) == 0x00008000),
+                  ((bitField0_ & 0x00010000) == 0x00010000),
                   getParentForChildren(),
                   isClean());
           frozenSupply_ = null;
@@ -25066,6 +25409,11 @@ public final class Protocol {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Account_AssetEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_Account_LatestAssetOperationTimeEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_Account_LatestAssetOperationTimeEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_acuthrity_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -25198,106 +25546,110 @@ public final class Protocol {
       "obuf/any.proto\032\023core/Discover.proto\"*\n\tA" +
       "ccountId\022\014\n\004name\030\001 \001(\014\022\017\n\007address\030\002 \001(\014\"" +
       "0\n\004Vote\022\024\n\014vote_address\030\001 \001(\014\022\022\n\nvote_co" +
-      "unt\030\002 \001(\003\"\274\004\n\007Account\022\024\n\014account_name\030\001 " +
+      "unt\030\002 \001(\003\"\323\005\n\007Account\022\024\n\014account_name\030\001 " +
       "\001(\014\022#\n\004type\030\002 \001(\0162\025.protocol.AccountType" +
       "\022\017\n\007address\030\003 \001(\014\022\017\n\007balance\030\004 \001(\003\022\035\n\005vo" +
       "tes\030\005 \003(\0132\016.protocol.Vote\022+\n\005asset\030\006 \003(\013" +
-      "2\034.protocol.Account.AssetEntry\022(\n\006frozen" +
-      "\030\007 \003(\0132\030.protocol.Account.Frozen\022\021\n\tband" +
-      "width\030\010 \001(\003\022\023\n\013create_time\030\t \001(\003\022\034\n\024late" +
-      "st_opration_time\030\n \001(\003\022\021\n\tallowance\030\013 \001(" +
-      "\003\022\034\n\024latest_withdraw_time\030\014 \001(\003\022\014\n\004code\030" +
-      "\r \001(\014\022\022\n\nis_witness\030\016 \001(\010\022\024\n\014is_committe" +
-      "e\030\017 \001(\010\022/\n\rfrozen_supply\030\020 \003(\0132\030.protoco" +
-      "l.Account.Frozen\022\031\n\021asset_issued_name\030\021 " +
-      "\001(\014\0325\n\006Frozen\022\026\n\016frozen_balance\030\001 \001(\003\022\023\n" +
-      "\013expire_time\030\002 \001(\003\032,\n\nAssetEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\"J\n\tacuthrity\022$\n" +
-      "\007account\030\001 \001(\0132\023.protocol.AccountId\022\027\n\017p" +
-      "ermission_name\030\002 \001(\014\"1\n\tpermision\022$\n\007acc" +
-      "ount\030\001 \001(\0132\023.protocol.AccountId\"\265\001\n\007Witn" +
-      "ess\022\017\n\007address\030\001 \001(\014\022\021\n\tvoteCount\030\002 \001(\003\022" +
-      "\016\n\006pubKey\030\003 \001(\014\022\013\n\003url\030\004 \001(\t\022\025\n\rtotalPro" +
-      "duced\030\005 \001(\003\022\023\n\013totalMissed\030\006 \001(\003\022\026\n\016late" +
-      "stBlockNum\030\007 \001(\003\022\025\n\rlatestSlotNum\030\010 \001(\003\022" +
-      "\016\n\006isJobs\030\t \001(\010\"^\n\005Votes\022\017\n\007address\030\001 \001(" +
-      "\014\022!\n\told_votes\030\002 \003(\0132\016.protocol.Vote\022!\n\t" +
-      "new_votes\030\003 \003(\0132\016.protocol.Vote\"-\n\010TXOut" +
-      "put\022\r\n\005value\030\001 \001(\003\022\022\n\npubKeyHash\030\002 \001(\014\"x" +
-      "\n\007TXInput\022\'\n\010raw_data\030\001 \001(\0132\025.protocol.T" +
-      "XInput.raw\022\021\n\tsignature\030\004 \001(\014\0321\n\003raw\022\014\n\004" +
-      "txID\030\001 \001(\014\022\014\n\004vout\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014" +
-      "\"0\n\tTXOutputs\022#\n\007outputs\030\001 \003(\0132\022.protoco" +
-      "l.TXOutput\"\225\010\n\013Transaction\022+\n\010raw_data\030\001" +
-      " \001(\0132\031.protocol.Transaction.raw\022\021\n\tsigna" +
-      "ture\030\002 \003(\014\022)\n\003ret\030\005 \003(\0132\034.protocol.Trans" +
-      "action.Result\032\307\004\n\010Contract\0229\n\004type\030\001 \001(\016" +
-      "2+.protocol.Transaction.Contract.Contrac" +
-      "tType\022\'\n\tparameter\030\002 \001(\0132\024.google.protob" +
-      "uf.Any\022\020\n\010provider\030\003 \001(\014\022\024\n\014ContractName" +
-      "\030\004 \001(\014\"\256\003\n\014ContractType\022\031\n\025AccountCreate" +
-      "Contract\020\000\022\024\n\020TransferContract\020\001\022\031\n\025Tran" +
-      "sferAssetContract\020\002\022\025\n\021VoteAssetContract" +
-      "\020\003\022\027\n\023VoteWitnessContract\020\004\022\031\n\025WitnessCr" +
-      "eateContract\020\005\022\026\n\022AssetIssueContract\020\006\022\022" +
-      "\n\016DeployContract\020\007\022\031\n\025WitnessUpdateContr" +
-      "act\020\010\022!\n\035ParticipateAssetIssueContract\020\t" +
-      "\022\031\n\025AccountUpdateContract\020\n\022\031\n\025FreezeBal" +
-      "anceContract\020\013\022\033\n\027UnfreezeBalanceContrac" +
-      "t\020\014\022\033\n\027WithdrawBalanceContract\020\r\022\031\n\025Unfr" +
-      "eezeAssetContract\020\016\022\022\n\016CustomContract\020\024\032" +
-      "e\n\006Result\022\013\n\003fee\030\001 \001(\003\022.\n\003ret\030\002 \001(\0162!.pr" +
-      "otocol.Transaction.Result.code\"\036\n\004code\022\n" +
-      "\n\006SUCESS\020\000\022\n\n\006FAILED\020\001\032\351\001\n\003raw\022\027\n\017ref_bl" +
-      "ock_bytes\030\001 \001(\014\022\025\n\rref_block_num\030\003 \001(\003\022\026" +
-      "\n\016ref_block_hash\030\004 \001(\014\022\022\n\nexpiration\030\010 \001" +
-      "(\003\022\"\n\005auths\030\t \003(\0132\023.protocol.acuthrity\022\014" +
-      "\n\004data\030\n \001(\014\0220\n\010contract\030\013 \003(\0132\036.protoco" +
-      "l.Transaction.Contract\022\017\n\007scripts\030\014 \001(\014\022" +
-      "\021\n\ttimestamp\030\016 \001(\003\"\324\001\n\013BlockHeader\022+\n\010ra" +
-      "w_data\030\001 \001(\0132\031.protocol.BlockHeader.raw\022" +
-      "\031\n\021witness_signature\030\002 \001(\014\032}\n\003raw\022\021\n\ttim" +
-      "estamp\030\001 \001(\003\022\022\n\ntxTrieRoot\030\002 \001(\014\022\022\n\npare" +
-      "ntHash\030\003 \001(\014\022\016\n\006number\030\007 \001(\003\022\022\n\nwitness_" +
-      "id\030\010 \001(\003\022\027\n\017witness_address\030\t \001(\014\"a\n\005Blo" +
-      "ck\022+\n\014transactions\030\001 \003(\0132\025.protocol.Tran" +
-      "saction\022+\n\014block_header\030\002 \001(\0132\025.protocol" +
-      ".BlockHeader\"|\n\016ChainInventory\022-\n\003ids\030\001 " +
-      "\003(\0132 .protocol.ChainInventory.BlockId\022\022\n" +
-      "\nremain_num\030\002 \001(\003\032\'\n\007BlockId\022\014\n\004hash\030\001 \001" +
-      "(\014\022\016\n\006number\030\002 \001(\003\"\277\001\n\016BlockInventory\022-\n" +
-      "\003ids\030\001 \003(\0132 .protocol.BlockInventory.Blo" +
-      "ckId\022+\n\004type\030\002 \001(\0162\035.protocol.BlockInven" +
-      "tory.Type\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006nu" +
-      "mber\030\002 \001(\003\"(\n\004Type\022\010\n\004SYNC\020\000\022\013\n\007ADVTISE\020" +
-      "\001\022\t\n\005FETCH\020\002\"n\n\tInventory\022/\n\004type\030\001 \001(\0162" +
-      "!.protocol.Inventory.InventoryType\022\013\n\003id" +
-      "s\030\002 \003(\014\"#\n\rInventoryType\022\007\n\003TRX\020\000\022\t\n\005BLO" +
-      "CK\020\001\"\345\001\n\005Items\022&\n\004type\030\001 \001(\0162\030.protocol." +
-      "Items.ItemType\022\037\n\006blocks\030\002 \003(\0132\017.protoco" +
-      "l.Block\022,\n\rblock_headers\030\003 \003(\0132\025.protoco" +
-      "l.BlockHeader\022+\n\014transactions\030\004 \003(\0132\025.pr" +
-      "otocol.Transaction\"8\n\010ItemType\022\007\n\003ERR\020\000\022" +
-      "\007\n\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021" +
-      "DynamicProperties\022\037\n\027last_solidity_block" +
-      "_num\030\001 \001(\003\"9\n\021DisconnectMessage\022$\n\006reaso" +
-      "n\030\001 \001(\0162\024.protocol.ReasonCode\"T\n\014HelloMe" +
-      "ssage\022 \n\004from\030\001 \001(\0132\022.protocol.Endpoint\022" +
-      "\017\n\007version\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\003*7\n\013A" +
-      "ccountType\022\n\n\006Normal\020\000\022\016\n\nAssetIssue\020\001\022\014" +
-      "\n\010Contract\020\002*\246\003\n\nReasonCode\022\r\n\tREQUESTED" +
-      "\020\000\022\020\n\014BAD_PROTOCOL\020\002\022\022\n\016TOO_MANY_PEERS\020\004" +
-      "\022\022\n\016DUPLICATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PRO" +
-      "TOCOL\020\006\022\021\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITI" +
-      "NG\020\010\022\027\n\023UNEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_I" +
-      "DENTITY\020\n\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REAS" +
-      "ON\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\016\n\nFETCH_" +
-      "FAIL\020\023\022\n\n\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FOR" +
-      "KED\020\026\022\016\n\nUNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VE" +
-      "RSION\020\030\022\026\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\010TIME_" +
-      "OUT\020 \022\020\n\014CONNECT_FAIL\020!\022\014\n\007UNKNOWN\020\377\001BF\n" +
-      "\017org.tron.protosB\010ProtocolZ)github.com/t" +
-      "ronprotocol/grpc-gateway/coreb\006proto3"
+      "2\034.protocol.Account.AssetEntry\022T\n\033latest" +
+      "_asset_operation_time\030\022 \003(\0132/.protocol.A" +
+      "ccount.LatestAssetOperationTimeEntry\022(\n\006" +
+      "frozen\030\007 \003(\0132\030.protocol.Account.Frozen\022\021" +
+      "\n\tbandwidth\030\010 \001(\003\022\023\n\013create_time\030\t \001(\003\022\034" +
+      "\n\024latest_opration_time\030\n \001(\003\022\021\n\tallowanc" +
+      "e\030\013 \001(\003\022\034\n\024latest_withdraw_time\030\014 \001(\003\022\014\n" +
+      "\004code\030\r \001(\014\022\022\n\nis_witness\030\016 \001(\010\022\024\n\014is_co" +
+      "mmittee\030\017 \001(\010\022/\n\rfrozen_supply\030\020 \003(\0132\030.p" +
+      "rotocol.Account.Frozen\022\031\n\021asset_issued_n" +
+      "ame\030\021 \001(\014\0325\n\006Frozen\022\026\n\016frozen_balance\030\001 " +
+      "\001(\003\022\023\n\013expire_time\030\002 \001(\003\032,\n\nAssetEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\032?\n\035Latest" +
+      "AssetOperationTimeEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\003:\0028\001\"J\n\tacuthrity\022$\n\007account\030" +
+      "\001 \001(\0132\023.protocol.AccountId\022\027\n\017permission" +
+      "_name\030\002 \001(\014\"1\n\tpermision\022$\n\007account\030\001 \001(" +
+      "\0132\023.protocol.AccountId\"\265\001\n\007Witness\022\017\n\007ad" +
+      "dress\030\001 \001(\014\022\021\n\tvoteCount\030\002 \001(\003\022\016\n\006pubKey" +
+      "\030\003 \001(\014\022\013\n\003url\030\004 \001(\t\022\025\n\rtotalProduced\030\005 \001" +
+      "(\003\022\023\n\013totalMissed\030\006 \001(\003\022\026\n\016latestBlockNu" +
+      "m\030\007 \001(\003\022\025\n\rlatestSlotNum\030\010 \001(\003\022\016\n\006isJobs" +
+      "\030\t \001(\010\"^\n\005Votes\022\017\n\007address\030\001 \001(\014\022!\n\told_" +
+      "votes\030\002 \003(\0132\016.protocol.Vote\022!\n\tnew_votes" +
+      "\030\003 \003(\0132\016.protocol.Vote\"-\n\010TXOutput\022\r\n\005va" +
+      "lue\030\001 \001(\003\022\022\n\npubKeyHash\030\002 \001(\014\"x\n\007TXInput" +
+      "\022\'\n\010raw_data\030\001 \001(\0132\025.protocol.TXInput.ra" +
+      "w\022\021\n\tsignature\030\004 \001(\014\0321\n\003raw\022\014\n\004txID\030\001 \001(" +
+      "\014\022\014\n\004vout\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\"0\n\tTXOut" +
+      "puts\022#\n\007outputs\030\001 \003(\0132\022.protocol.TXOutpu" +
+      "t\"\225\010\n\013Transaction\022+\n\010raw_data\030\001 \001(\0132\031.pr" +
+      "otocol.Transaction.raw\022\021\n\tsignature\030\002 \003(" +
+      "\014\022)\n\003ret\030\005 \003(\0132\034.protocol.Transaction.Re" +
+      "sult\032\307\004\n\010Contract\0229\n\004type\030\001 \001(\0162+.protoc" +
+      "ol.Transaction.Contract.ContractType\022\'\n\t" +
+      "parameter\030\002 \001(\0132\024.google.protobuf.Any\022\020\n" +
+      "\010provider\030\003 \001(\014\022\024\n\014ContractName\030\004 \001(\014\"\256\003" +
+      "\n\014ContractType\022\031\n\025AccountCreateContract\020" +
+      "\000\022\024\n\020TransferContract\020\001\022\031\n\025TransferAsset" +
+      "Contract\020\002\022\025\n\021VoteAssetContract\020\003\022\027\n\023Vot" +
+      "eWitnessContract\020\004\022\031\n\025WitnessCreateContr" +
+      "act\020\005\022\026\n\022AssetIssueContract\020\006\022\022\n\016DeployC" +
+      "ontract\020\007\022\031\n\025WitnessUpdateContract\020\010\022!\n\035" +
+      "ParticipateAssetIssueContract\020\t\022\031\n\025Accou" +
+      "ntUpdateContract\020\n\022\031\n\025FreezeBalanceContr" +
+      "act\020\013\022\033\n\027UnfreezeBalanceContract\020\014\022\033\n\027Wi" +
+      "thdrawBalanceContract\020\r\022\031\n\025UnfreezeAsset" +
+      "Contract\020\016\022\022\n\016CustomContract\020\024\032e\n\006Result" +
+      "\022\013\n\003fee\030\001 \001(\003\022.\n\003ret\030\002 \001(\0162!.protocol.Tr" +
+      "ansaction.Result.code\"\036\n\004code\022\n\n\006SUCESS\020" +
+      "\000\022\n\n\006FAILED\020\001\032\351\001\n\003raw\022\027\n\017ref_block_bytes" +
+      "\030\001 \001(\014\022\025\n\rref_block_num\030\003 \001(\003\022\026\n\016ref_blo" +
+      "ck_hash\030\004 \001(\014\022\022\n\nexpiration\030\010 \001(\003\022\"\n\005aut" +
+      "hs\030\t \003(\0132\023.protocol.acuthrity\022\014\n\004data\030\n " +
+      "\001(\014\0220\n\010contract\030\013 \003(\0132\036.protocol.Transac" +
+      "tion.Contract\022\017\n\007scripts\030\014 \001(\014\022\021\n\ttimest" +
+      "amp\030\016 \001(\003\"\324\001\n\013BlockHeader\022+\n\010raw_data\030\001 " +
+      "\001(\0132\031.protocol.BlockHeader.raw\022\031\n\021witnes" +
+      "s_signature\030\002 \001(\014\032}\n\003raw\022\021\n\ttimestamp\030\001 " +
+      "\001(\003\022\022\n\ntxTrieRoot\030\002 \001(\014\022\022\n\nparentHash\030\003 " +
+      "\001(\014\022\016\n\006number\030\007 \001(\003\022\022\n\nwitness_id\030\010 \001(\003\022" +
+      "\027\n\017witness_address\030\t \001(\014\"a\n\005Block\022+\n\014tra" +
+      "nsactions\030\001 \003(\0132\025.protocol.Transaction\022+" +
+      "\n\014block_header\030\002 \001(\0132\025.protocol.BlockHea" +
+      "der\"|\n\016ChainInventory\022-\n\003ids\030\001 \003(\0132 .pro" +
+      "tocol.ChainInventory.BlockId\022\022\n\nremain_n" +
+      "um\030\002 \001(\003\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006num" +
+      "ber\030\002 \001(\003\"\277\001\n\016BlockInventory\022-\n\003ids\030\001 \003(" +
+      "\0132 .protocol.BlockInventory.BlockId\022+\n\004t" +
+      "ype\030\002 \001(\0162\035.protocol.BlockInventory.Type" +
+      "\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(" +
+      "\003\"(\n\004Type\022\010\n\004SYNC\020\000\022\013\n\007ADVTISE\020\001\022\t\n\005FETC" +
+      "H\020\002\"n\n\tInventory\022/\n\004type\030\001 \001(\0162!.protoco" +
+      "l.Inventory.InventoryType\022\013\n\003ids\030\002 \003(\014\"#" +
+      "\n\rInventoryType\022\007\n\003TRX\020\000\022\t\n\005BLOCK\020\001\"\345\001\n\005" +
+      "Items\022&\n\004type\030\001 \001(\0162\030.protocol.Items.Ite" +
+      "mType\022\037\n\006blocks\030\002 \003(\0132\017.protocol.Block\022," +
+      "\n\rblock_headers\030\003 \003(\0132\025.protocol.BlockHe" +
+      "ader\022+\n\014transactions\030\004 \003(\0132\025.protocol.Tr" +
+      "ansaction\"8\n\010ItemType\022\007\n\003ERR\020\000\022\007\n\003TRX\020\001\022" +
+      "\t\n\005BLOCK\020\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021DynamicPr" +
+      "operties\022\037\n\027last_solidity_block_num\030\001 \001(" +
+      "\003\"9\n\021DisconnectMessage\022$\n\006reason\030\001 \001(\0162\024" +
+      ".protocol.ReasonCode\"T\n\014HelloMessage\022 \n\004" +
+      "from\030\001 \001(\0132\022.protocol.Endpoint\022\017\n\007versio" +
+      "n\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\003*7\n\013AccountTyp" +
+      "e\022\n\n\006Normal\020\000\022\016\n\nAssetIssue\020\001\022\014\n\010Contrac" +
+      "t\020\002*\246\003\n\nReasonCode\022\r\n\tREQUESTED\020\000\022\020\n\014BAD" +
+      "_PROTOCOL\020\002\022\022\n\016TOO_MANY_PEERS\020\004\022\022\n\016DUPLI" +
+      "CATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PROTOCOL\020\006\022\021" +
+      "\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITING\020\010\022\027\n\023U" +
+      "NEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_IDENTITY\020\n" +
+      "\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REASON\020\020\022\t\n\005R" +
+      "ESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\016\n\nFETCH_FAIL\020\023\022\n\n" +
+      "\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FORKED\020\026\022\016\n\n" +
+      "UNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VERSION\020\030\022\026" +
+      "\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\010TIME_OUT\020 \022\020\n\014" +
+      "CONNECT_FAIL\020!\022\014\n\007UNKNOWN\020\377\001BF\n\017org.tron" +
+      ".protosB\010ProtocolZ)github.com/tronprotoc" +
+      "ol/grpc-gateway/coreb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25330,7 +25682,7 @@ public final class Protocol {
     internal_static_protocol_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_descriptor,
-        new java.lang.String[] { "AccountName", "Type", "Address", "Balance", "Votes", "Asset", "Frozen", "Bandwidth", "CreateTime", "LatestOprationTime", "Allowance", "LatestWithdrawTime", "Code", "IsWitness", "IsCommittee", "FrozenSupply", "AssetIssuedName", });
+        new java.lang.String[] { "AccountName", "Type", "Address", "Balance", "Votes", "Asset", "LatestAssetOperationTime", "Frozen", "Bandwidth", "CreateTime", "LatestOprationTime", "Allowance", "LatestWithdrawTime", "Code", "IsWitness", "IsCommittee", "FrozenSupply", "AssetIssuedName", });
     internal_static_protocol_Account_Frozen_descriptor =
       internal_static_protocol_Account_descriptor.getNestedTypes().get(0);
     internal_static_protocol_Account_Frozen_fieldAccessorTable = new
@@ -25342,6 +25694,12 @@ public final class Protocol {
     internal_static_protocol_Account_AssetEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_AssetEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_protocol_Account_LatestAssetOperationTimeEntry_descriptor =
+      internal_static_protocol_Account_descriptor.getNestedTypes().get(2);
+    internal_static_protocol_Account_LatestAssetOperationTimeEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_Account_LatestAssetOperationTimeEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_protocol_acuthrity_descriptor =
       getDescriptor().getMessageTypes().get(3);
