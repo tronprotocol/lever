@@ -49,7 +49,7 @@ public class SendCoinLoopWithValidation {
         List<ECKey> keys = new ArrayList<>();
         for(int i=0;i<Math.sqrt(count/THREAD_COUNT);i++){
             ECKey key =  new ECKey(Utils.getRandom());
-            System.err.println(Base58.encode58Check(key.getAddress()));
+            System.err.println("init account: " + Base58.encode58Check(key.getAddress()));
             keys.add(key);
         }
 
