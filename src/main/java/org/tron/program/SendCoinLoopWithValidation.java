@@ -34,7 +34,7 @@ import org.tron.protos.Protocol;
 
 //Example --tps 10000 --amount 1 --privatekeyFile privatekey.csv --count 1000000 --output trxsdata.csv
 public class SendCoinLoopWithValidation {
-    private static final int THREAD_COUNT = 16;
+    private static final int THREAD_COUNT = 160;
 
     private static List<WalletClient> walletClients = new ArrayList<>();
 
@@ -47,7 +47,7 @@ public class SendCoinLoopWithValidation {
 
         // init ECKeys for new accounts
         List<ECKey> keys = new ArrayList<>();
-        for(int i=0;i<Math.sqrt(count/THREAD_COUNT)+10;i++){
+        for(int i=0;i<Math.sqrt(count/THREAD_COUNT);i++){
             ECKey key =  new ECKey(Utils.getRandom());
             System.err.println(Base58.encode58Check(key.getAddress()));
             keys.add(key);
@@ -118,7 +118,7 @@ public class SendCoinLoopWithValidation {
 
             // freezeTRXPerAccount >= sqrt(count * THREAD_COUNT) / 30    trx
             // so 200*1000000 can support all case
-            GrpcAPI.Return freezeResult = walletClient.freezeBalanceResponse(200*1000000,3);
+            GrpcAPI.Return freezeResult = walletClient.freezeBalanceResponse(500*1000000,3);
             int loop = 0;
             while(!freezeResult.getResult()&&loop<2){
                 loop++;
@@ -128,7 +128,7 @@ public class SendCoinLoopWithValidation {
                 catch(InterruptedException e){
 
                 }
-                freezeResult = walletClient.freezeBalanceResponse(200*1000000,3);
+                freezeResult = walletClient.freezeBalanceResponse(500*1000000,3);
             }
             if(freezeResult.getResult()==false){
                 failedKey.add(key);
@@ -165,7 +165,6 @@ public class SendCoinLoopWithValidation {
 
         rateLimiter(tps, keys ,amount, count,rootClient, fos, counter);
 
-        Thread.sleep(10000);
         long sum2 =0;
         System.err.println("\nAfter Transaction");
         for(int i=0;i<keys.size();i++) {
@@ -185,8 +184,7 @@ public class SendCoinLoopWithValidation {
 
         for (int i = 0; i < THREAD_COUNT; ++i) {
             executorService.execute(new TaskWithVal(walletClients.get(i % THREAD_COUNT), limiter, THREAD_COUNT,
-                    keys,amount,count,  fos, counter));
-            latch.countDown();
+                    keys,amount,count,  fos, counter, latch));
         }
 
         try {
@@ -227,6 +225,7 @@ class TaskWithVal implements Runnable {
     private List<ECKey> keys;
     private long amount;
     private long count;
+    private CountDownLatch latch;
     private FileOutputStream fos;
     public static long sum ;
 
@@ -247,7 +246,7 @@ class TaskWithVal implements Runnable {
 
     public TaskWithVal(final WalletClient walletClient, RateLimiter limiter,
                  int threadCount,List<ECKey> keys,
-                       long amount, long count,  FileOutputStream fos, AtomicInteger counter) {
+                       long amount, long count,  FileOutputStream fos, AtomicInteger counter, CountDownLatch latch) {
         this.walletClient = walletClient;
         this.limiter = limiter;
         this.threadCount = threadCount;
@@ -257,6 +256,7 @@ class TaskWithVal implements Runnable {
         this.fos = fos;
         this.counter = counter;
         this.sum =0;
+        this.latch = latch;
     }
 
     @Override
@@ -323,6 +323,7 @@ class TaskWithVal implements Runnable {
         }
         this.endCounts.increment();
 
+        latch.countDown();
     }
 }
 
