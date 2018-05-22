@@ -59,7 +59,8 @@ public class Stats {
 
   private static BinaryOperator<Long> operate(Stats stats) {
     switch (stats.getType()) {
-      case TransferContract: {
+      case TransferContract:
+      case TransferAssetContract: {
         return (l1, l2) -> l1 + l2;
       }
       case VoteAssetContract:
