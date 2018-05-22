@@ -1,6 +1,5 @@
 package org.tron.common.dispatch.strategy;
 
-
 import org.tron.common.dispatch.Stats;
 
 import java.util.List;

@@ -32,7 +32,6 @@ public abstract class Level2Strategy extends Bucket implements IStrategy<Protoco
     return transaction;
   }
 
-  // todo
   private void stats(Protocol.Transaction transaction) {
     transaction.getRawData().getContractList().forEach(this::fillStats);
   }
