@@ -27,6 +27,7 @@ public class Stats {
 
   public static List<String> result(List<Stats> stats) {
     List<String> result = new ArrayList<>();
+    result.add("*******************create trx result stats**************************");
     // trx type
     result.add("trx types:" + stats.stream()
         .map(Stats::getType)
@@ -54,6 +55,7 @@ public class Stats {
         )
         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     result.add("trx address succeed:" + addressAmountMap);
+    result.add("********************************************************************");
     return result;
   }
 
