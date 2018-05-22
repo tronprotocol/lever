@@ -6,20 +6,34 @@
 
 
     <!--transfer transaction-->
-    <bean id="niceTransferTransaction" class="org.tron.common.dispatch.transferTransaction.NiceTransferTransaction">
-        <property name="name" value="niceTransferTransaction"/>
+    <bean id="niceTransferTransactionCreator" class="org.tron.common.dispatch.transfer.NiceTransferTransactionCreator">
+        <property name="name" value="niceTransferTransactionCreator"/>
         <property name="begin" value="0"/>
         <property name="end" value="99"/>
     </bean>
 
-    <bean id="badBandwidthTransfterTransaction" class="org.tron.common.dispatch.transferTransaction.BadBandwidthTransfterTransaction">
-        <property name="name" value="badBandwidthTransfterTransaction"/>
+    <bean id="badBandwidthTransfterTransactionCreator" class="org.tron.common.dispatch.transfer.BadBandwidthTransfterTransactionCreator">
+        <property name="name" value="badBandwidthTransfterTransactionCreator"/>
         <property name="begin" value="10"/>
         <property name="end" value="99"/>
     </bean>
 
     <!--assetissue transaction-->
+    <bean id="niceTransferAssetTransactionCreator" class="org.tron.common.dispatch.assetIssue.NiceTransferAssetTransactionCreator">
+        <property name="name" value="niceTransferAssetTransactionCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+    </bean>
 
+    <bean id="niceCreateAssetTransactionCreator" class="org.tron.common.dispatch.assetIssue.NiceCreateAssetTransactionCreator">
+        <property name="name" value="niceCreateAssetTransactionCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="0"/>
+    </bean>
 
-
+    <bean id="niceFreezeBalanceTransactionCreator" class="org.tron.common.dispatch.freezeBalance.NiceFreezeBalanceTransactionCreator">
+        <property name="name" value="niceFreezeBalanceTransactionCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="0"/>
+    </bean>
 </beans>

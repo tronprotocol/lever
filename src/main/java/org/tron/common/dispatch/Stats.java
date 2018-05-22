@@ -1,21 +1,19 @@
 package org.tron.common.dispatch;
 
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.protobuf.ByteString;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.tron.protos.Protocol.Transaction.Contract.ContractType;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-import org.apache.poi.ss.formula.functions.T;
-import org.tron.protos.Protocol;
-import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 
 @Getter
 @Setter

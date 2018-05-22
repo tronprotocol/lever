@@ -33,7 +33,7 @@ public abstract class AbstractStrategy<T extends Bucket> extends Bucket implemen
     int randomInt = random.nextInt(100);
 
     return source.stream()
-        .filter(t -> t.begin <= randomInt && t.end > randomInt)
+        .filter(t -> t.begin <= randomInt && t.end >= randomInt)
         .findFirst()
         .orElse(null);
   }

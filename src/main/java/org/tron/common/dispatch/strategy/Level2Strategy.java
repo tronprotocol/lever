@@ -7,13 +7,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.apache.commons.collections4.CollectionUtils;
-import org.tron.common.dispatch.BadCaseTransaction;
-import org.tron.common.dispatch.GoodCaseTransacton;
+import org.tron.common.dispatch.GoodCaseTransactonCreator;
 import org.tron.common.dispatch.Stats;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 @ToString
 public abstract class Level2Strategy extends Bucket implements IStrategy<Protocol.Transaction> {
@@ -22,7 +23,7 @@ public abstract class Level2Strategy extends Bucket implements IStrategy<Protoco
   protected String name;
 
   @Getter
-  protected List<Stats> stats;
+  protected Queue<Stats> stats = new ConcurrentLinkedQueue<>();
 
   @Override
   public Protocol.Transaction dispatch() {
@@ -100,7 +101,7 @@ public abstract class Level2Strategy extends Bucket implements IStrategy<Protoco
         Stats stats1 = new Stats();
         stats1.setAddress(owner);
         stats1.setType(contract.getType());
-        stats1.setNice(this instanceof GoodCaseTransacton);
+        stats1.setNice(this instanceof GoodCaseTransactonCreator);
         stats1.setAmount(-amount);
         stats.add(stats1);
       }
@@ -109,7 +110,7 @@ public abstract class Level2Strategy extends Bucket implements IStrategy<Protoco
         Stats stats2 = new Stats();
         stats2.setAddress(to);
         stats2.setType(contract.getType());
-        stats2.setNice(this instanceof GoodCaseTransacton);
+        stats2.setNice(this instanceof GoodCaseTransactonCreator);
         stats2.setAmount(amount);
         stats.add(stats2);
       }

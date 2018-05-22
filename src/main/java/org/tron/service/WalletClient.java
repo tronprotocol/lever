@@ -7,7 +7,12 @@ import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
 import java.util.List;
 import java.util.Optional;
+
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.tron.api.GrpcAPI.AccountList;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
@@ -18,9 +23,14 @@ import org.tron.protos.Contract.FreezeBalanceContract;
 import org.tron.protos.Contract.TransferContract;
 import org.tron.protos.Protocol.Transaction;
 
+import javax.annotation.PostConstruct;
+import javax.ws.rs.GET;
+
 @Slf4j
+@Component
 public class WalletClient {
 
+  @Getter
   private GrpcClient rpcCli;
   private ECKey ecKey;
 
@@ -40,7 +50,8 @@ public class WalletClient {
     this.ecKey = temKey;
   }
 
-  public void init(int index) {
+  @Autowired
+  public void init(@Value("0") int index) {
     if (!config.hasPath(TARGET_GRPC_ADDRESS)) {
       logger.error("no target: {} = [ip:host]", TARGET_GRPC_ADDRESS);
       return;
