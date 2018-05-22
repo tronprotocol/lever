@@ -76,6 +76,10 @@ public class WalletClient {
     rpcCli = new GrpcClient(target.get(index % target.size()));
   }
 
+  public void init(String address) {
+    rpcCli = new GrpcClient(address);
+  }
+
   public void shutdown() {
     if (rpcCli != null) {
       try {
