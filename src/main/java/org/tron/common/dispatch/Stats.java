@@ -49,8 +49,7 @@ public class Stats {
         .map(e ->
           Maps.immutableEntry(e.getKey(), e.getValue().stream()
               .map(Stats::getAmount)
-              .reduce(operate(e.getKey()))
-              .orElse(0L)
+              .reduce(0L, operate(e.getKey()))
           )
         )
         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
