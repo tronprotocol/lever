@@ -53,8 +53,9 @@ public class Stats {
         .collect(Collectors.groupingBy(Function.identity(), Collectors.mapping(Stats::getAmount, Collectors.toList())));
 
     Map<Map.Entry<ContractType, ByteString>, Long> addressAmountMap = addressSucceed.entrySet().stream()
-        .map(e -> Maps.immutableEntry(Maps.immutableEntry(e.getKey().getType(), e.getKey().getAddress()), e.getValue().stream()
-              .reduce(0L, operate(e.getKey()))))
+        .map(e -> Maps.immutableEntry(Maps.immutableEntry(e.getKey().getType(), e.getKey().getAddress()),
+            e.getValue().stream()
+                .reduce(0L, operate(e.getKey()))))
         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     result.add("trx address succeed:" + addressAmountMap);
     result.add("********************************************************************");
