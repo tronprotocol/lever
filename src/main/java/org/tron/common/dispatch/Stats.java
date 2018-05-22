@@ -41,18 +41,20 @@ public class Stats {
         .collect(Collectors.groupingBy(Stats::getType, Collectors.counting()));
     result.add("trx succeed:" + typeSucceedMap);
 
-    // trx address succeed
-    Map<Stats, List<Stats>> addressSucceed = stats.stream()
+    // trx succeed
+    Map<ContractType, Long> typeFailMap = stats.stream()
         .filter(Stats::isNice)
-        .collect(Collectors.groupingBy(Function.identity()));
+        .collect(Collectors.groupingBy(Stats::getType, Collectors.counting()));
+    result.add("trx fail:" + typeFailMap);
+
+    // trx address succeed
+    Map<Stats, List<Long>> addressSucceed = stats.stream()
+        .filter(Stats::isNice)
+        .collect(Collectors.groupingBy(Function.identity(), Collectors.mapping(Stats::getAmount, Collectors.toList())));
 
     Map<Stats, Long> addressAmountMap = addressSucceed.entrySet().stream()
-        .map(e ->
-          Maps.immutableEntry(e.getKey(), e.getValue().stream()
-              .map(Stats::getAmount)
-              .reduce(0L, operate(e.getKey()))
-          )
-        )
+        .map(e -> Maps.immutableEntry(e.getKey(), e.getValue().stream()
+              .reduce(0L, operate(e.getKey()))))
         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     result.add("trx address succeed:" + addressAmountMap);
     result.add("********************************************************************");
