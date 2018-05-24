@@ -78,6 +78,14 @@ public class GrpcClient {
     return blockingStub.voteWitnessAccount(contract);
   }
 
+  public Transaction updateWitness(Contract.WitnessUpdateContract contract) {
+    return blockingStub.updateWitness(contract);
+  }
+
+  public Transaction updateAccount(Contract.AccountUpdateContract contract) {
+    return blockingStub.updateAccount(contract);
+  }
+
   public Transaction createWitness(Contract.WitnessCreateContract contract) {
     return blockingStub.createWitness(contract);
   }
