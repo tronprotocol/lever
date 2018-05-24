@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.tron.api.GrpcAPI.AccountList;
+import lombok.extern.slf4j.Slf4j;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
@@ -50,6 +50,34 @@ public class WalletClient {
     this.ecKey = temKey;
   }
 
+  public static Contract.TransferContract createTransferContract(byte[] to, byte[] owner,
+      long amount) {
+    Contract.TransferContract.Builder builder = Contract.TransferContract.newBuilder();
+    ByteString bsTo = ByteString.copyFrom(to);
+    ByteString bsOwner = ByteString.copyFrom(owner);
+    builder.setToAddress(bsTo);
+    builder.setOwnerAddress(bsOwner);
+    builder.setAmount(amount);
+
+    return builder.build();
+  }
+
+  public static Transaction createTransaction(TransferContract contract) {
+    Transaction.Builder transactionBuilder = Transaction.newBuilder();
+    Transaction.Contract.Builder contractBuilder = Transaction.Contract.newBuilder();
+    try {
+      Any anyTo = Any.pack(contract);
+      contractBuilder.setParameter(anyTo);
+    } catch (Exception e) {
+      return null;
+    }
+    contractBuilder.setType(Transaction.Contract.ContractType.TransferContract);
+    transactionBuilder.getRawDataBuilder().addContract(contractBuilder);
+    Transaction transaction = transactionBuilder.build();
+
+    return transaction;
+  }
+
   @Autowired
   public void init(@Value("0") int index) {
     if (!config.hasPath(TARGET_GRPC_ADDRESS)) {
@@ -61,6 +89,10 @@ public class WalletClient {
     rpcCli = new GrpcClient(target.get(index % target.size()));
   }
 
+  public void init(String address) {
+    rpcCli = new GrpcClient(address);
+  }
+
   public void shutdown() {
     if (rpcCli != null) {
       try {
@@ -69,10 +101,6 @@ public class WalletClient {
         e.printStackTrace();
       }
     }
-  }
-
-  public Optional<AccountList> listAccounts() {
-    return rpcCli.listAccounts();
   }
 
   public boolean sendCoin(byte[] to, long amount) {
@@ -107,18 +135,6 @@ public class WalletClient {
     return rpcCli.broadcastTransaction(transaction);
   }
 
-  public static Contract.TransferContract createTransferContract(byte[] to, byte[] owner,
-      long amount) {
-    Contract.TransferContract.Builder builder = Contract.TransferContract.newBuilder();
-    ByteString bsTo = ByteString.copyFrom(to);
-    ByteString bsOwner = ByteString.copyFrom(owner);
-    builder.setToAddress(bsTo);
-    builder.setOwnerAddress(bsOwner);
-    builder.setAmount(amount);
-
-    return builder.build();
-  }
-
   public Transaction signTransaction(Transaction transaction) {
     if (this.ecKey == null || this.ecKey.getPrivKey() == null) {
       return null;
@@ -138,22 +154,6 @@ public class WalletClient {
 
   public byte[] getAddress() {
     return ecKey.getAddress();
-  }
-
-  public static Transaction createTransaction(TransferContract contract) {
-    Transaction.Builder transactionBuilder = Transaction.newBuilder();
-    Transaction.Contract.Builder contractBuilder = Transaction.Contract.newBuilder();
-    try {
-      Any anyTo = Any.pack(contract);
-      contractBuilder.setParameter(anyTo);
-    } catch (Exception e) {
-      return null;
-    }
-    contractBuilder.setType(Transaction.Contract.ContractType.TransferContract);
-    transactionBuilder.getRawDataBuilder().addContract(contractBuilder);
-    Transaction transaction = transactionBuilder.build();
-
-    return transaction;
   }
 
   public boolean freezeBalance(String privateKey, long frozen_balance, long frozen_duration) {

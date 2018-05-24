@@ -5,6 +5,8 @@ import com.beust.jcommander.Parameter;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.RateLimiter;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,32 +23,29 @@ import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.Getter;
-import org.tron.Validator.LongValidator;
-import org.tron.Validator.StringValidator;
+import org.apache.commons.lang3.StringUtils;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
-
-//Example --tps 2000 --datafile [path to trxsdata.csv]
 public class SendCoinLoop {
+
   private static final int THREAD_COUNT = 16;
 
   private static List<WalletClient> walletClients = new ArrayList<>();
   private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
 
   public static void main(String[] args) throws IOException {
-    SendCoinArgs args1 = new SendCoinArgs();
-    JCommander.newBuilder().addObject(args1).build().parse(args);
+    SendCoinArgs argsObj = SendCoinArgs.getInstance(args);
 
-    double tps = args1.getTps();
+    double tps = argsObj.getTps();
 
     walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
       WalletClient walletClient = new WalletClient();
-      walletClient.init(i);
+      walletClient.init(argsObj.getGRpcAddress());
       return walletClient;
     }).collect(Collectors.toList());
 
-    File f = new File(args1.getDataFile());
+    File f = new File(argsObj.getDataFile());
     FileInputStream fis = new FileInputStream(f);
 
     Transaction transaction;
@@ -146,13 +145,75 @@ class Task implements Runnable {
 
 class SendCoinArgs {
 
+  private static final String DEFAULT_CONFIG_FILE_PATH = "config_send_coin_loop.conf";
+  private static final String GRPC_ADDRESS = "grpc.address";
+  private static final String DATA_FILE = "data.file";
+  private static final String TPS = "tps";
+
+  private static SendCoinArgs INSTANCE;
+
   @Getter
-  @Parameter(names = {
-      "--datafile"}, description = "Data file", required = true, validateWith = StringValidator.class)
-  private String dataFile;
+  @Parameter(names = {"--config"}, description = "Config file path")
+  private String config = "";
+
+  @Getter
+  @Parameter(names = {"--gRpcAddress"}, description = "gRPC address, like: 127.0.0.1:50051")
+  private String gRpcAddress = "";
 
   @Getter
   @Parameter(names = {
-      "--tps"}, description = "tps", required = true, validateWith = LongValidator.class)
-  private double tps;
+      "--dataFile"}, description = "Data file")
+  private String dataFile = "";
+
+  @Getter
+  @Parameter(names = {
+      "--tps"}, description = "tps")
+  private int tps = 0;
+
+  private SendCoinArgs() {
+
+  }
+
+  public static SendCoinArgs getInstance(String[] args) {
+    if (null == INSTANCE) {
+      INSTANCE = new SendCoinArgs();
+      JCommander.newBuilder().addObject(INSTANCE).build().parse(args);
+      INSTANCE.initArgs();
+    }
+
+    return INSTANCE;
+  }
+
+  private void initArgs() {
+    String configFilePath = INSTANCE.config;
+    if (StringUtils.isBlank(configFilePath)) {
+      configFilePath = DEFAULT_CONFIG_FILE_PATH;
+    }
+
+    Config config = ConfigFactory.load(configFilePath);
+
+    System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configFilePath);
+    System.out.println();
+
+    if (StringUtils.isBlank(INSTANCE.gRpcAddress)) {
+      INSTANCE.gRpcAddress = config.getString(GRPC_ADDRESS);
+    }
+
+    System.out.printf("gRPC address: \u001B[34m%s\u001B[0m", INSTANCE.gRpcAddress);
+    System.out.println();
+
+    if (StringUtils.isBlank(INSTANCE.dataFile)) {
+      INSTANCE.dataFile = config.getString(DATA_FILE);
+    }
+
+    System.out.printf("To: \u001B[34m%s\u001B[0m", INSTANCE.dataFile);
+    System.out.println();
+
+    if (0 == INSTANCE.tps) {
+      INSTANCE.tps = config.getInt(TPS);
+    }
+
+    System.out.printf("From: \u001B[34m%s\u001B[0m", INSTANCE.tps);
+    System.out.println();
+  }
 }

@@ -18,8 +18,14 @@ public class FreezaBalance {
     WalletClient walletClient = new WalletClient();
     walletClient.init(0);
 
-    walletClient
+    boolean isSuccess = walletClient
         .freezeBalance(argsObj.getPrivateKey(), argsObj.getFrozenBalance(), FROZEN_DURATION);
+
+    if (isSuccess) {
+      System.out.println("success");
+    } else {
+      System.out.println("failed");
+    }
   }
 }
 
