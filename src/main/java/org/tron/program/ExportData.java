@@ -150,9 +150,10 @@ class ExportDataArgs {
       configFilePath = DEFAULT_CONFIG_FILE_PATH;
     }
 
-    Config config = ConfigFactory.load(configFilePath);
+    File configFile = new File(configFilePath);
+    Config config = ConfigFactory.parseFile(configFile);
 
-    System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configFilePath);
+    System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configFile.getAbsoluteFile());
     System.out.println();
 
     if (StringUtils.isBlank(INSTANCE.gRpcAddress)) {
