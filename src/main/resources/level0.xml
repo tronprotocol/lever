@@ -9,7 +9,7 @@
     <bean id="dispatcher" class="org.tron.common.dispatch.strategy.Dispatcher">
         <property name="source">
             <list>
-                <ref bean="transfer"/>
+                <!--<ref bean="transfer"/>-->
                 <ref bean="assetIssue"/>
             </list>
         </property>

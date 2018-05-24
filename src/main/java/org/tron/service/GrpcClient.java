@@ -57,6 +57,10 @@ public class GrpcClient {
     return blockingStub.freezeBalance(contract);
   }
 
+  public Transaction createTransaction(Contract.UnfreezeBalanceContract contract) {
+    return blockingStub.unfreezeBalance(contract);
+  }
+
   public Transaction createTransferAssetTransaction(Contract.TransferAssetContract contract) {
     return blockingStub.transferAsset(contract);
   }

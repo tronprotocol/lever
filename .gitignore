@@ -6,3 +6,4 @@ out
 /lever.iml
 *.csv
 /generate-data.sh
+*.dat
