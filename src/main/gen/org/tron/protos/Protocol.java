@@ -11670,14 +11670,26 @@ public final class Protocol {
     org.tron.protos.Protocol.Transaction.rawOrBuilder getRawDataOrBuilder();
 
     /**
+     * <pre>
+     * only support size = 1,  repeated list here for muti-sig extenstion
+     * </pre>
+     *
      * <code>repeated bytes signature = 2;</code>
      */
     java.util.List<com.google.protobuf.ByteString> getSignatureList();
     /**
+     * <pre>
+     * only support size = 1,  repeated list here for muti-sig extenstion
+     * </pre>
+     *
      * <code>repeated bytes signature = 2;</code>
      */
     int getSignatureCount();
     /**
+     * <pre>
+     * only support size = 1,  repeated list here for muti-sig extenstion
+     * </pre>
+     *
      * <code>repeated bytes signature = 2;</code>
      */
     com.google.protobuf.ByteString getSignature(int index);
@@ -13544,24 +13556,44 @@ public final class Protocol {
       com.google.protobuf.ByteString getData();
 
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       java.util.List<org.tron.protos.Protocol.Transaction.Contract> 
           getContractList();
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       org.tron.protos.Protocol.Transaction.Contract getContract(int index);
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       int getContractCount();
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       java.util.List<? extends org.tron.protos.Protocol.Transaction.ContractOrBuilder> 
           getContractOrBuilderList();
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       org.tron.protos.Protocol.Transaction.ContractOrBuilder getContractOrBuilder(
@@ -13807,12 +13839,20 @@ public final class Protocol {
       public static final int CONTRACT_FIELD_NUMBER = 11;
       private java.util.List<org.tron.protos.Protocol.Transaction.Contract> contract_;
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       public java.util.List<org.tron.protos.Protocol.Transaction.Contract> getContractList() {
         return contract_;
       }
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       public java.util.List<? extends org.tron.protos.Protocol.Transaction.ContractOrBuilder> 
@@ -13820,18 +13860,30 @@ public final class Protocol {
         return contract_;
       }
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       public int getContractCount() {
         return contract_.size();
       }
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       public org.tron.protos.Protocol.Transaction.Contract getContract(int index) {
         return contract_.get(index);
       }
       /**
+       * <pre>
+       *only support size = 1,  repeated list here for extenstion
+       * </pre>
+       *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
        */
       public org.tron.protos.Protocol.Transaction.ContractOrBuilder getContractOrBuilder(
@@ -14767,6 +14819,10 @@ public final class Protocol {
             org.tron.protos.Protocol.Transaction.Contract, org.tron.protos.Protocol.Transaction.Contract.Builder, org.tron.protos.Protocol.Transaction.ContractOrBuilder> contractBuilder_;
 
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public java.util.List<org.tron.protos.Protocol.Transaction.Contract> getContractList() {
@@ -14777,6 +14833,10 @@ public final class Protocol {
           }
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public int getContractCount() {
@@ -14787,6 +14847,10 @@ public final class Protocol {
           }
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public org.tron.protos.Protocol.Transaction.Contract getContract(int index) {
@@ -14797,6 +14861,10 @@ public final class Protocol {
           }
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder setContract(
@@ -14814,6 +14882,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder setContract(
@@ -14828,6 +14900,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addContract(org.tron.protos.Protocol.Transaction.Contract value) {
@@ -14844,6 +14920,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addContract(
@@ -14861,6 +14941,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addContract(
@@ -14875,6 +14959,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addContract(
@@ -14889,6 +14977,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder addAllContract(
@@ -14904,6 +14996,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder clearContract() {
@@ -14917,6 +15013,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public Builder removeContract(int index) {
@@ -14930,6 +15030,10 @@ public final class Protocol {
           return this;
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public org.tron.protos.Protocol.Transaction.Contract.Builder getContractBuilder(
@@ -14937,6 +15041,10 @@ public final class Protocol {
           return getContractFieldBuilder().getBuilder(index);
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public org.tron.protos.Protocol.Transaction.ContractOrBuilder getContractOrBuilder(
@@ -14947,6 +15055,10 @@ public final class Protocol {
           }
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public java.util.List<? extends org.tron.protos.Protocol.Transaction.ContractOrBuilder> 
@@ -14958,6 +15070,10 @@ public final class Protocol {
           }
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public org.tron.protos.Protocol.Transaction.Contract.Builder addContractBuilder() {
@@ -14965,6 +15081,10 @@ public final class Protocol {
               org.tron.protos.Protocol.Transaction.Contract.getDefaultInstance());
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public org.tron.protos.Protocol.Transaction.Contract.Builder addContractBuilder(
@@ -14973,6 +15093,10 @@ public final class Protocol {
               index, org.tron.protos.Protocol.Transaction.Contract.getDefaultInstance());
         }
         /**
+         * <pre>
+         *only support size = 1,  repeated list here for extenstion
+         * </pre>
+         *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
          */
         public java.util.List<org.tron.protos.Protocol.Transaction.Contract.Builder> 
@@ -15134,6 +15258,10 @@ public final class Protocol {
     public static final int SIGNATURE_FIELD_NUMBER = 2;
     private java.util.List<com.google.protobuf.ByteString> signature_;
     /**
+     * <pre>
+     * only support size = 1,  repeated list here for muti-sig extenstion
+     * </pre>
+     *
      * <code>repeated bytes signature = 2;</code>
      */
     public java.util.List<com.google.protobuf.ByteString>
@@ -15141,12 +15269,20 @@ public final class Protocol {
       return signature_;
     }
     /**
+     * <pre>
+     * only support size = 1,  repeated list here for muti-sig extenstion
+     * </pre>
+     *
      * <code>repeated bytes signature = 2;</code>
      */
     public int getSignatureCount() {
       return signature_.size();
     }
     /**
+     * <pre>
+     * only support size = 1,  repeated list here for muti-sig extenstion
+     * </pre>
+     *
      * <code>repeated bytes signature = 2;</code>
      */
     public com.google.protobuf.ByteString getSignature(int index) {
@@ -15703,6 +15839,10 @@ public final class Protocol {
          }
       }
       /**
+       * <pre>
+       * only support size = 1,  repeated list here for muti-sig extenstion
+       * </pre>
+       *
        * <code>repeated bytes signature = 2;</code>
        */
       public java.util.List<com.google.protobuf.ByteString>
@@ -15710,18 +15850,30 @@ public final class Protocol {
         return java.util.Collections.unmodifiableList(signature_);
       }
       /**
+       * <pre>
+       * only support size = 1,  repeated list here for muti-sig extenstion
+       * </pre>
+       *
        * <code>repeated bytes signature = 2;</code>
        */
       public int getSignatureCount() {
         return signature_.size();
       }
       /**
+       * <pre>
+       * only support size = 1,  repeated list here for muti-sig extenstion
+       * </pre>
+       *
        * <code>repeated bytes signature = 2;</code>
        */
       public com.google.protobuf.ByteString getSignature(int index) {
         return signature_.get(index);
       }
       /**
+       * <pre>
+       * only support size = 1,  repeated list here for muti-sig extenstion
+       * </pre>
+       *
        * <code>repeated bytes signature = 2;</code>
        */
       public Builder setSignature(
@@ -15735,6 +15887,10 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * only support size = 1,  repeated list here for muti-sig extenstion
+       * </pre>
+       *
        * <code>repeated bytes signature = 2;</code>
        */
       public Builder addSignature(com.google.protobuf.ByteString value) {
@@ -15747,6 +15903,10 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * only support size = 1,  repeated list here for muti-sig extenstion
+       * </pre>
+       *
        * <code>repeated bytes signature = 2;</code>
        */
       public Builder addAllSignature(
@@ -15758,6 +15918,10 @@ public final class Protocol {
         return this;
       }
       /**
+       * <pre>
+       * only support size = 1,  repeated list here for muti-sig extenstion
+       * </pre>
+       *
        * <code>repeated bytes signature = 2;</code>
        */
       public Builder clearSignature() {
