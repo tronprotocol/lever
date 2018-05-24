@@ -1,4 +1,4 @@
-package org.tron.common.dispatch.transfer;
+package org.tron.common.dispatch.creator.transfer;
 
 import org.tron.common.dispatch.GoodCaseTransactonCreator;
 import org.tron.protos.Protocol;

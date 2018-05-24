@@ -1,4 +1,4 @@
-package org.tron.common.dispatch.assetIssue;
+package org.tron.common.dispatch.creator.assetIssue;
 
 import com.google.common.base.Charsets;
 import com.google.protobuf.ByteString;

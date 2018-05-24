@@ -6,32 +6,32 @@
 
 
     <!--transfer transaction-->
-    <bean id="niceTransferTransactionCreator" class="org.tron.common.dispatch.transfer.NiceTransferTransactionCreator">
+    <bean id="niceTransferTransactionCreator" class="org.tron.common.dispatch.creator.transfer.NiceTransferTransactionCreator">
         <property name="name" value="niceTransferTransactionCreator"/>
         <property name="begin" value="0"/>
         <property name="end" value="99"/>
     </bean>
 
-    <bean id="badBandwidthTransfterTransactionCreator" class="org.tron.common.dispatch.transfer.BadBandwidthTransfterTransactionCreator">
+    <bean id="badBandwidthTransfterTransactionCreator" class="org.tron.common.dispatch.creator.transfer.BadBandwidthTransfterTransactionCreator">
         <property name="name" value="badBandwidthTransfterTransactionCreator"/>
         <property name="begin" value="10"/>
         <property name="end" value="99"/>
     </bean>
 
     <!--assetissue transaction-->
-    <bean id="niceTransferAssetTransactionCreator" class="org.tron.common.dispatch.assetIssue.NiceTransferAssetTransactionCreator">
+    <bean id="niceTransferAssetTransactionCreator" class="org.tron.common.dispatch.creator.assetIssue.NiceTransferAssetTransactionCreator">
         <property name="name" value="niceTransferAssetTransactionCreator"/>
         <property name="begin" value="0"/>
         <property name="end" value="99"/>
     </bean>
 
-    <bean id="niceCreateAssetTransactionCreator" class="org.tron.common.dispatch.assetIssue.NiceCreateAssetTransactionCreator">
+    <bean id="niceCreateAssetTransactionCreator" class="org.tron.common.dispatch.creator.assetIssue.NiceCreateAssetTransactionCreator">
         <property name="name" value="niceCreateAssetTransactionCreator"/>
         <property name="begin" value="0"/>
         <property name="end" value="0"/>
     </bean>
 
-    <bean id="niceFreezeBalanceTransactionCreator" class="org.tron.common.dispatch.freezeBalance.NiceFreezeBalanceTransactionCreator">
+    <bean id="niceFreezeBalanceTransactionCreator" class="org.tron.common.dispatch.creator.freezeBalance.NiceFreezeBalanceTransactionCreator">
         <property name="name" value="niceFreezeBalanceTransactionCreator"/>
         <property name="begin" value="0"/>
         <property name="end" value="0"/>

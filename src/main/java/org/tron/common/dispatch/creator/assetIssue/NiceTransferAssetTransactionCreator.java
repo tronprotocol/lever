@@ -1,4 +1,4 @@
-package org.tron.common.dispatch.assetIssue;
+package org.tron.common.dispatch.creator.assetIssue;
 
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;

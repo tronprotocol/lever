@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 @EqualsAndHashCode(exclude = {"amount", "nice"})
 public class Stats {
   private ContractType type;
+  private String assetName;
   private ByteString address;
   private Long amount;
   private boolean nice;
