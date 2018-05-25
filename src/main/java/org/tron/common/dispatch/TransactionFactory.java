@@ -46,7 +46,6 @@ public class TransactionFactory {
     Protocol.Transaction freezeBlanceTransaction = newTransaction(NiceFreezeBalanceTransactionCreator.class);
 
     Protocol.Transaction transferAssetTransaction = newTransaction(NiceTransferAssetTransactionCreator.class);
-    TransactionFactory.context.getBean(WalletClient.class).getRpcCli().broadcastTransaction(transferAssetTransaction);
 
     // account
     Transaction badAccountUpdateNameEmptyTransaction = newTransaction(BadAccountUpdateNameEmptyCreator.class);
