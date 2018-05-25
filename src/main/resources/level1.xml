@@ -22,20 +22,6 @@
         </property>
     </bean>
 
-    <!--transfer-->
-
-    <bean id="transfer" parent="level1Strategy">
-        <property name="name" value="transfer"/>
-        <property name="begin" value="0"/>
-        <property name="end" value="99"/>
-        <property name="source">
-            <list>
-                <ref bean="niceTransferTransactionCreator"/>
-                <!--<ref bean="badBandwidthTransfterTransactionCreator"/>-->
-            </list>
-        </property>
-    </bean>
-
     <!--assetIssue-->
 
     <bean id="assetIssue" parent="level1Strategy">
@@ -45,6 +31,78 @@
         <property name="source">
             <list>
                 <ref bean="niceTransferAssetTransactionCreator"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--commonCase-->
+
+    <bean id="commonCase" parent="level1Strategy">
+        <property name="name" value="commonCase"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+        <property name="source">
+            <list>
+                <ref bean="badExpirationCurrentOneDayCreator"/>
+                <ref bean="badExpirationMaxLongValueCreator"/>
+                <ref bean="badExpirationMinLongValueCreator"/>
+                <ref bean="badExpirationNegativeCreator"/>
+                <ref bean="badExpirationZeroCreator"/>
+                <ref bean="badRefBlockNullValueCreator"/>
+                <ref bean="badRefBlockRandomValueCreator"/>
+                <ref bean="niceExpirationCurrentCreator"/>
+                <ref bean="niceExpirationCurrentHalfDayCreator"/>
+                <ref bean="niceRefBlockServerValueCreator"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--freezeBalance-->
+
+    <bean id="freezeBalance" parent="level1Strategy">
+        <property name="name" value="freezeBalance"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+        <property name="source">
+            <list>
+                <ref bean="niceFreezeBalanceTransactionCreator"/>
+                <ref bean="niceUnFreezeBalanceTransactionCreator"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--transfer-->
+
+    <bean id="transfer" parent="level1Strategy">
+        <property name="name" value="transfer"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+        <property name="source">
+            <list>
+                <ref bean="badTransferAmountMaxLongValueCreator"/>
+                <ref bean="badTransferAmountMinLongValueCreator"/>
+                <ref bean="badTransferAmountNegativeCreator"/>
+                <ref bean="badTransferAmountZeroCreator"/>
+                <ref bean="badTransferOwnerNotFoundCreator"/>
+                <ref bean="niceTransferToNotFoundCreator"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--witness-->
+
+    <bean id="witness" parent="level1Strategy">
+        <property name="name" value="witness"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+        <property name="source">
+            <list>
+                <ref bean="badWitnessCreateExistCreator"/>
+                <ref bean="badWitnessCreateUrlFormatInvalidCreator"/>
+                <ref bean="badWitnessUpdateUrlFormatInvalidCreator"/>
+                <ref bean="niceWitnessCreateUrlFormatCreator"/>
+                <ref bean="niceWitnessUpdateUrlFormatCreator"/>
             </list>
         </property>
     </bean>

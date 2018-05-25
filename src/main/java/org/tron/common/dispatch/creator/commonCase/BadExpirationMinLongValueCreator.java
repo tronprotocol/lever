@@ -13,13 +13,12 @@ public class BadExpirationMinLongValueCreator extends AbstractTransactionCreator
 
   @Override
   protected Protocol.Transaction create() {
-    Contract.TransferAssetContract contract = Contract.TransferAssetContract.newBuilder()
-        .setAssetName(assetName)
+    Contract.TransferContract contract = Contract.TransferContract.newBuilder()
         .setOwnerAddress(ownerAddress)
         .setToAddress(toAddress)
         .setAmount(amount)
         .build();
-    Protocol.Transaction transaction = client.getRpcCli().createTransferAssetTransaction(contract);
+    Protocol.Transaction transaction = client.getRpcCli().createTransaction(contract);
     transaction = transaction.toBuilder()
         .setRawData(
             transaction.getRawData().toBuilder()

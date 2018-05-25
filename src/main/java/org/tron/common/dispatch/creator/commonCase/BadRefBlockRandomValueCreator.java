@@ -17,14 +17,12 @@ public class BadRefBlockRandomValueCreator extends AbstractTransactionCreator im
 
   @Override
   protected Protocol.Transaction create() {
-    Contract.TransferAssetContract contract = Contract.TransferAssetContract.newBuilder()
-        .setAssetName(assetName)
+    Contract.TransferContract contract = Contract.TransferContract.newBuilder()
         .setOwnerAddress(ownerAddress)
         .setToAddress(toAddress)
         .setAmount(amount)
         .build();
-    Protocol.Transaction transaction = client.getRpcCli().createTransferAssetTransaction(contract);
-
+    Protocol.Transaction transaction = client.getRpcCli().createTransaction(contract);
     byte[] data = new byte[64];
     random.nextBytes(data);
     transaction = transaction.toBuilder()

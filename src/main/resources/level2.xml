@@ -17,18 +17,6 @@
         <property name="end" value="99"/>
     </bean>
 
-    <!--transfer transaction-->
-    <bean id="niceTransferTransactionCreator" class="org.tron.common.dispatch.creator.transfer.NiceTransferTransactionCreator">
-        <property name="name" value="niceTransferTransactionCreator"/>
-        <property name="begin" value="0"/>
-        <property name="end" value="99"/>
-    </bean>
-
-    <bean id="badBandwidthTransfterTransactionCreator" class="org.tron.common.dispatch.creator.transfer.BadBandwidthTransfterTransactionCreator">
-        <property name="name" value="badBandwidthTransfterTransactionCreator"/>
-        <property name="begin" value="10"/>
-        <property name="end" value="99"/>
-    </bean>
 
     <!--assetissue transaction-->
     <bean id="niceTransferAssetTransactionCreator" class="org.tron.common.dispatch.creator.assetIssue.NiceTransferAssetTransactionCreator">
@@ -43,9 +31,147 @@
         <property name="end" value="0"/>
     </bean>
 
+    <!--commoncase transaction-->
+    <bean id="badExpirationCurrentOneDayCreator" class="org.tron.common.dispatch.creator.commonCase.BadExpirationCurrentOneDayCreator">
+        <property name="name" value="badExpirationCurrentOneDayCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="9"/>
+    </bean>
+
+    <bean id="badExpirationMaxLongValueCreator" class="org.tron.common.dispatch.creator.commonCase.BadExpirationMaxLongValueCreator">
+        <property name="name" value="badExpirationMaxLongValueCreator"/>
+        <property name="begin" value="10"/>
+        <property name="end" value="19"/>
+    </bean>
+
+    <bean id="badExpirationMinLongValueCreator" class="org.tron.common.dispatch.creator.commonCase.BadExpirationMinLongValueCreator">
+        <property name="name" value="badExpirationMinLongValueCreator"/>
+        <property name="begin" value="20"/>
+        <property name="end" value="29"/>
+    </bean>
+
+    <bean id="badExpirationNegativeCreator" class="org.tron.common.dispatch.creator.commonCase.BadExpirationNegativeCreator">
+        <property name="name" value="badExpirationNegativeCreator"/>
+        <property name="begin" value="30"/>
+        <property name="end" value="39"/>
+    </bean>
+
+    <bean id="badExpirationZeroCreator" class="org.tron.common.dispatch.creator.commonCase.BadExpirationZeroCreator">
+        <property name="name" value="badExpirationZeroCreator"/>
+        <property name="begin" value="40"/>
+        <property name="end" value="49"/>
+    </bean>
+
+    <bean id="badRefBlockNullValueCreator" class="org.tron.common.dispatch.creator.commonCase.BadRefBlockNullValueCreator">
+        <property name="name" value="badRefBlockNullValueCreator"/>
+        <property name="begin" value="50"/>
+        <property name="end" value="59"/>
+    </bean>
+
+    <bean id="badRefBlockRandomValueCreator" class="org.tron.common.dispatch.creator.commonCase.BadRefBlockRandomValueCreator">
+        <property name="name" value="badRefBlockRandomValueCreator"/>
+        <property name="begin" value="60"/>
+        <property name="end" value="69"/>
+    </bean>
+
+    <bean id="niceExpirationCurrentCreator" class="org.tron.common.dispatch.creator.commonCase.NiceExpirationCurrentCreator">
+        <property name="name" value="niceExpirationCurrentCreator"/>
+        <property name="begin" value="70"/>
+        <property name="end" value="79"/>
+    </bean>
+
+    <bean id="niceExpirationCurrentHalfDayCreator" class="org.tron.common.dispatch.creator.commonCase.NiceExpirationCurrentHalfDayCreator">
+        <property name="name" value="niceExpirationCurrentHalfDayCreator"/>
+        <property name="begin" value="80"/>
+        <property name="end" value="89"/>
+    </bean>
+
+    <bean id="niceRefBlockServerValueCreator" class="org.tron.common.dispatch.creator.commonCase.NiceRefBlockServerValueCreator">
+        <property name="name" value="niceRefBlockServerValueCreator"/>
+        <property name="begin" value="90"/>
+        <property name="end" value="99"/>
+    </bean>
+
+    <!--freezeBalance transaction-->
     <bean id="niceFreezeBalanceTransactionCreator" class="org.tron.common.dispatch.creator.freezeBalance.NiceFreezeBalanceTransactionCreator">
         <property name="name" value="niceFreezeBalanceTransactionCreator"/>
         <property name="begin" value="0"/>
-        <property name="end" value="0"/>
+        <property name="end" value="49"/>
     </bean>
+
+    <bean id="niceUnFreezeBalanceTransactionCreator" class="org.tron.common.dispatch.creator.freezeBalance.NiceUnFreezeBalanceTransactionCreator">
+        <property name="name" value="niceUnFreezeBalanceTransactionCreator"/>
+        <property name="begin" value="50"/>
+        <property name="end" value="99"/>
+    </bean>
+
+    <!--transfer transaction-->
+    <bean id="badTransferAmountMaxLongValueCreator" class="org.tron.common.dispatch.creator.transfer.BadTransferAmountMaxLongValueCreator">
+        <property name="name" value="badTransferAmountMaxLongValueCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="14"/>
+    </bean>
+
+    <bean id="badTransferAmountMinLongValueCreator" class="org.tron.common.dispatch.creator.transfer.BadTransferAmountMinLongValueCreator">
+        <property name="name" value="badTransferAmountMinLongValueCreator"/>
+        <property name="begin" value="15"/>
+        <property name="end" value="29"/>
+    </bean>
+
+    <bean id="badTransferAmountNegativeCreator" class="org.tron.common.dispatch.creator.transfer.BadTransferAmountNegativeCreator">
+        <property name="name" value="badTransferAmountNegativeCreator"/>
+        <property name="begin" value="30"/>
+        <property name="end" value="44"/>
+    </bean>
+
+    <bean id="badTransferAmountZeroCreator" class="org.tron.common.dispatch.creator.transfer.BadTransferAmountZeroCreator">
+        <property name="name" value="badTransferAmountZeroCreator"/>
+        <property name="begin" value="45"/>
+        <property name="end" value="59"/>
+    </bean>
+
+    <bean id="badTransferOwnerNotFoundCreator" class="org.tron.common.dispatch.creator.transfer.BadTransferOwnerNotFoundCreator">
+        <property name="name" value="badTransferOwnerNotFoundCreator"/>
+        <property name="begin" value="60"/>
+        <property name="end" value="74"/>
+    </bean>
+
+    <bean id="niceTransferToNotFoundCreator" class="org.tron.common.dispatch.creator.transfer.NiceTransferToNotFoundCreator">
+        <property name="name" value="niceTransferToNotFoundCreator"/>
+        <property name="begin" value="75"/>
+        <property name="end" value="99"/>
+    </bean>
+
+
+    <!--witness transaction-->
+    <bean id="badWitnessCreateExistCreator" class="org.tron.common.dispatch.creator.witness.BadWitnessCreateExistCreator">
+        <property name="name" value="badWitnessCreateExistCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="19"/>
+    </bean>
+
+    <bean id="badWitnessCreateUrlFormatInvalidCreator" class="org.tron.common.dispatch.creator.witness.BadWitnessCreateUrlFormatInvalidCreator">
+        <property name="name" value="badWitnessCreateUrlFormatInvalidCreator"/>
+        <property name="begin" value="20"/>
+        <property name="end" value="39"/>
+    </bean>
+
+    <bean id="badWitnessUpdateUrlFormatInvalidCreator" class="org.tron.common.dispatch.creator.witness.BadWitnessUpdateUrlFormatInvalidCreator">
+        <property name="name" value="badWitnessUpdateUrlFormatInvalidCreator"/>
+        <property name="begin" value="40"/>
+        <property name="end" value="59"/>
+    </bean>
+
+    <bean id="niceWitnessCreateUrlFormatCreator" class="org.tron.common.dispatch.creator.witness.NiceWitnessCreateUrlFormatCreator">
+        <property name="name" value="niceWitnessCreateUrlFormatCreator"/>
+        <property name="begin" value="60"/>
+        <property name="end" value="79"/>
+    </bean>
+
+    <bean id="niceWitnessUpdateUrlFormatCreator" class="org.tron.common.dispatch.creator.witness.NiceWitnessUpdateUrlFormatCreator">
+        <property name="name" value="niceWitnessUpdateUrlFormatCreator"/>
+        <property name="begin" value="80"/>
+        <property name="end" value="99"/>
+    </bean>
+
 </beans>
