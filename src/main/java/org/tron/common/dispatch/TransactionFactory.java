@@ -4,9 +4,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.tron.common.dispatch.creator.account.BadAccountUpdateNameEmptyCreator;
 import org.tron.common.dispatch.creator.account.BadAccountUpdateNameHiddenCharactersCreator;
-import org.tron.common.dispatch.creator.assetIssue.BadAssetIssueParticipateBalanceInsufficiencyCreator;
-import org.tron.common.dispatch.creator.assetIssue.NiceCreateAssetTransactionCreator;
-import org.tron.common.dispatch.creator.assetIssue.NiceTransferAssetTransactionCreator;
 import org.tron.common.dispatch.creator.commonCase.BadExpirationCurrentOneDayCreator;
 import org.tron.common.dispatch.creator.commonCase.BadExpirationMaxLongValueCreator;
 import org.tron.common.dispatch.creator.commonCase.BadExpirationMinLongValueCreator;
@@ -24,7 +21,7 @@ import org.tron.common.dispatch.creator.transfer.BadTransferAmountMinLongValueCr
 import org.tron.common.dispatch.creator.transfer.BadTransferAmountNegativeCreator;
 import org.tron.common.dispatch.creator.transfer.BadTransferAmountZeroCreator;
 import org.tron.common.dispatch.creator.transfer.BadTransferOwnerNotFoundCreator;
-import org.tron.common.dispatch.creator.transfer.NiceTransferToNotFoundCreator;
+import org.tron.common.dispatch.creator.transfer.BadTransferToNotFoundAmountLessThanOneTrxCreator;
 import org.tron.common.dispatch.creator.witness.BadWitnessCreateExistCreator;
 import org.tron.common.dispatch.creator.witness.BadWitnessCreateUrlFormatInvalidCreator;
 import org.tron.common.dispatch.creator.witness.BadWitnessUpdateUrlFormatInvalidCreator;
@@ -133,7 +130,7 @@ public class TransactionFactory {
     Transaction badTransferOwnerNotFoundTransaction = newTransaction(BadTransferOwnerNotFoundCreator.class);
     TransactionFactory.context.getBean(WalletClient.class).getRpcCli().broadcastTransaction(badTransferOwnerNotFoundTransaction);
 
-    Transaction niceTransferToNotFoundTransaction = newTransaction(NiceTransferToNotFoundCreator.class);
+    Transaction niceTransferToNotFoundTransaction = newTransaction(BadTransferToNotFoundAmountLessThanOneTrxCreator.class);
     TransactionFactory.context.getBean(WalletClient.class).getRpcCli().broadcastTransaction(niceTransferToNotFoundTransaction);
 
     // witness

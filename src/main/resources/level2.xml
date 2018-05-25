@@ -5,6 +5,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--account transaction-->
+
     <bean id="badAccountUpdateNameEmptyCreator" class="org.tron.common.dispatch.creator.account.BadAccountUpdateNameEmptyCreator">
         <property name="name" value="badAccountUpdateNameEmptyCreator"/>
         <property name="begin" value="0"/>
@@ -19,6 +20,7 @@
 
 
     <!--assetissue transaction-->
+
     <bean id="niceTransferAssetTransactionCreator" class="org.tron.common.dispatch.creator.assetIssue.NiceTransferAssetTransactionCreator">
         <property name="name" value="niceTransferAssetTransactionCreator"/>
         <property name="begin" value="0"/>
@@ -32,6 +34,7 @@
     </bean>
 
     <!--commoncase transaction-->
+
     <bean id="badExpirationCurrentOneDayCreator" class="org.tron.common.dispatch.creator.commonCase.BadExpirationCurrentOneDayCreator">
         <property name="name" value="badExpirationCurrentOneDayCreator"/>
         <property name="begin" value="0"/>
@@ -93,6 +96,7 @@
     </bean>
 
     <!--freezeBalance transaction-->
+
     <bean id="niceFreezeBalanceTransactionCreator" class="org.tron.common.dispatch.creator.freezeBalance.NiceFreezeBalanceTransactionCreator">
         <property name="name" value="niceFreezeBalanceTransactionCreator"/>
         <property name="begin" value="0"/>
@@ -106,6 +110,7 @@
     </bean>
 
     <!--transfer transaction-->
+
     <bean id="badTransferAmountMaxLongValueCreator" class="org.tron.common.dispatch.creator.transfer.BadTransferAmountMaxLongValueCreator">
         <property name="name" value="badTransferAmountMaxLongValueCreator"/>
         <property name="begin" value="0"/>
@@ -136,14 +141,20 @@
         <property name="end" value="74"/>
     </bean>
 
-    <bean id="niceTransferToNotFoundCreator" class="org.tron.common.dispatch.creator.transfer.NiceTransferToNotFoundCreator">
-        <property name="name" value="niceTransferToNotFoundCreator"/>
+    <bean id="badTransferToNotFoundAmountLessThanOneTrx" class="org.tron.common.dispatch.creator.transfer.BadTransferToNotFoundAmountLessThanOneTrxCreator">
+        <property name="name" value="badTransferToNotFoundAmountLessThanOneTrx"/>
         <property name="begin" value="75"/>
+        <property name="end" value="89"/>
+    </bean>
+
+    <bean id="niceTransferToNotFoundAmountOneTrx" class="org.tron.common.dispatch.creator.transfer.NiceTransferToNotFoundAmountOneTrxCreator">
+        <property name="name" value="niceTransferToNotFoundAmountOneTrx"/>
+        <property name="begin" value="90"/>
         <property name="end" value="99"/>
     </bean>
 
-
     <!--witness transaction-->
+
     <bean id="badWitnessCreateExistCreator" class="org.tron.common.dispatch.creator.witness.BadWitnessCreateExistCreator">
         <property name="name" value="badWitnessCreateExistCreator"/>
         <property name="begin" value="0"/>
