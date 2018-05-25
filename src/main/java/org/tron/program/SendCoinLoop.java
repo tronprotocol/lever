@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
+import org.tron.common.config.Config.ConfigProperty;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
@@ -190,16 +192,11 @@ class SendCoinArgs {
       configFilePath = DEFAULT_CONFIG_FILE_PATH;
     }
 
-    Config config;
-    String configTip = "";
-    if (configFilePath.equals(DEFAULT_CONFIG_FILE_PATH)) {
-      config = ConfigFactory.load(configFilePath);
-      configTip = "Default config: " + configFilePath;
-    } else {
-      File configFile = new File(configFilePath);
-      config = ConfigFactory.parseFile(configFile);
-      configTip = configFile.getAbsolutePath();
-    }
+    org.tron.common.config.Config configMap = new org.tron.common.config.ConfigImpl();
+    EnumMap<ConfigProperty, Object> configInfo = configMap.getConfig(configFilePath, DEFAULT_CONFIG_FILE_PATH);
+
+    Config config = (Config) configInfo.get(ConfigProperty.CONFIG);
+    String configTip = (String) configInfo.get(ConfigProperty.TIP);
 
     System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configTip);
     System.out.println();
