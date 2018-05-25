@@ -190,9 +190,18 @@ class SendCoinArgs {
       configFilePath = DEFAULT_CONFIG_FILE_PATH;
     }
 
-    Config config = ConfigFactory.load(configFilePath);
+    Config config;
+    String configTip = "";
+    if (configFilePath.equals(DEFAULT_CONFIG_FILE_PATH)) {
+      config = ConfigFactory.load(configFilePath);
+      configTip = "Default config: " + configFilePath;
+    } else {
+      File configFile = new File(configFilePath);
+      config = ConfigFactory.parseFile(configFile);
+      configTip = configFile.getAbsolutePath();
+    }
 
-    System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configFilePath);
+    System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configTip);
     System.out.println();
 
     if (StringUtils.isBlank(INSTANCE.gRpcAddress)) {
