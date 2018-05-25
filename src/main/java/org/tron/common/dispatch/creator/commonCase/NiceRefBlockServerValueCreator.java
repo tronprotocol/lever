@@ -1,16 +1,19 @@
 package org.tron.common.dispatch.creator.commonCase;
 
+import com.google.protobuf.ByteString;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.BadCaseTransactionCreator;
 import org.tron.common.utils.ByteArray;
-import org.tron.common.utils.Time;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 
-public class BadTransferAssetAmountMaxLongValueCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
+public class NiceRefBlockServerValueCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
   private AtomicLong serialNum = new AtomicLong(0);
+
+  private Random random = new Random(System.currentTimeMillis());
 
   @Override
   protected Protocol.Transaction create() {
@@ -18,9 +21,10 @@ public class BadTransferAssetAmountMaxLongValueCreator extends AbstractTransacti
         .setAssetName(assetName)
         .setOwnerAddress(ownerAddress)
         .setToAddress(toAddress)
-        .setAmount(Long.MAX_VALUE)
+        .setAmount(amount)
         .build();
     Protocol.Transaction transaction = client.getRpcCli().createTransferAssetTransaction(contract);
+
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
 

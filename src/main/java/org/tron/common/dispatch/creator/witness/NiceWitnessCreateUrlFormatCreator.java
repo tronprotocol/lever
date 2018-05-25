@@ -1,4 +1,4 @@
-package org.tron.common.dispatch.creator.commonCase;
+package org.tron.common.dispatch.creator.witness;
 
 import com.google.protobuf.ByteString;
 import java.util.concurrent.atomic.AtomicLong;
@@ -9,7 +9,7 @@ import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 
-public class GoodWitnessCreateUrlFormatCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
+public class NiceWitnessCreateUrlFormatCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
   private AtomicLong serialNum = new AtomicLong(0);
 
   @Override

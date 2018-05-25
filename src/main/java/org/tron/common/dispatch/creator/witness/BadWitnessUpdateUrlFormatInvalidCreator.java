@@ -1,4 +1,4 @@
-package org.tron.common.dispatch.creator.commonCase;
+package org.tron.common.dispatch.creator.witness;
 
 import com.google.protobuf.ByteString;
 import java.util.concurrent.atomic.AtomicLong;
@@ -9,16 +9,16 @@ import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 
-public class BadWitnessCreateUrlFormatInvalidCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
+public class BadWitnessUpdateUrlFormatInvalidCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
   private AtomicLong serialNum = new AtomicLong(0);
 
   @Override
   protected Protocol.Transaction create() {
-    Contract.WitnessCreateContract contract = Contract.WitnessCreateContract.newBuilder()
+    Contract.WitnessUpdateContract contract = Contract.WitnessUpdateContract.newBuilder()
         .setOwnerAddress(witnessAddress)
-        .setUrl(ByteString.copyFrom(ByteArray.fromString("invalidUrl")))
+        .setUpdateUrl(ByteString.copyFrom(ByteArray.fromString("invalidUrl")))
         .build();
-    Protocol.Transaction transaction = client.getRpcCli().createWitness(contract);
+    Protocol.Transaction transaction = client.getRpcCli().updateWitness(contract);
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(witnessPrivateKey)));
     return transaction;
   }

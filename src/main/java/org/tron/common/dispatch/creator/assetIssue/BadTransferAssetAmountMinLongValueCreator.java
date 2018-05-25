@@ -1,15 +1,14 @@
-package org.tron.common.dispatch.creator.commonCase;
+package org.tron.common.dispatch.creator.assetIssue;
 
 import java.util.concurrent.atomic.AtomicLong;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.BadCaseTransactionCreator;
 import org.tron.common.utils.ByteArray;
-import org.tron.common.utils.Time;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 
-public class GoodExpirationCurrentHalfDayCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
+public class BadTransferAssetAmountMinLongValueCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
   private AtomicLong serialNum = new AtomicLong(0);
 
   @Override
@@ -18,17 +17,9 @@ public class GoodExpirationCurrentHalfDayCreator extends AbstractTransactionCrea
         .setAssetName(assetName)
         .setOwnerAddress(ownerAddress)
         .setToAddress(toAddress)
-        .setAmount(amount)
+        .setAmount(Long.MIN_VALUE)
         .build();
     Protocol.Transaction transaction = client.getRpcCli().createTransferAssetTransaction(contract);
-    transaction = transaction.toBuilder()
-        .setRawData(
-            transaction.getRawData().toBuilder()
-                .setExpiration(Time.getCurrentMillis() + 12 * 3600 * 1000)
-                .setTimestamp(serialNum.getAndIncrement())
-                .build()
-        )
-        .build();
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
 

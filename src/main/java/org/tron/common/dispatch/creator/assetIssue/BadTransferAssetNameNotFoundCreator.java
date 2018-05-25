@@ -1,7 +1,6 @@
-package org.tron.common.dispatch.creator.commonCase;
+package org.tron.common.dispatch.creator.assetIssue;
 
 import com.google.protobuf.ByteString;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
@@ -10,20 +9,18 @@ import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 
-public class GoodTransferToNotFoundCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
+public class BadTransferAssetNameNotFoundCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
   private AtomicLong serialNum = new AtomicLong(0);
-
-  private Random random = new Random(System.currentTimeMillis());
 
   @Override
   protected Protocol.Transaction create() {
-    Contract.TransferContract contract = Contract.TransferContract.newBuilder()
+    Contract.TransferAssetContract contract = Contract.TransferAssetContract.newBuilder()
+        .setAssetName(ByteString.copyFrom(ByteArray.fromString("1527150387")))
         .setOwnerAddress(ownerAddress)
-        .setToAddress(ByteString.copyFrom(ByteArray.fromHexString("a07777777777777777777777777777777777777771")))
+        .setToAddress(toAddress)
         .setAmount(amount)
         .build();
-    Protocol.Transaction transaction = client.getRpcCli().createTransaction(contract);
-
+    Protocol.Transaction transaction = client.getRpcCli().createTransferAssetTransaction(contract);
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
 

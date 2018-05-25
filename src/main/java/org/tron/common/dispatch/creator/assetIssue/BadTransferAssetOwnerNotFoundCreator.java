@@ -1,4 +1,4 @@
-package org.tron.common.dispatch.creator.commonCase;
+package org.tron.common.dispatch.creator.assetIssue;
 
 import com.google.protobuf.ByteString;
 import java.util.concurrent.atomic.AtomicLong;
