@@ -16,7 +16,7 @@ public abstract class AbstractTransactionCreator extends Level2Strategy {
   protected ByteString witnessAddress = ByteString.copyFrom(Base58.decodeFromBase58Check("27QAUYjg5FXfxcvyHcWF3Aokd5eu9iYgs1c"));
   protected ByteString toAddress = ByteString.copyFrom(Base58.decodeFromBase58Check("27ZESitosJfKouTBrGg6Nk5yEjnJHXMbkZp"));
   protected Long amount = 1L;
-  protected Long amountOneTrx = 1000000L;
+  protected Long amountOneTrx = 1000_000L;
   protected ByteString assetName = ByteString.copyFrom("pressure1", Charsets.UTF_8);
   @Autowired
   protected WalletClient client;
