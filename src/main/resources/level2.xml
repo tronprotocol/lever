@@ -4,6 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--account transaction-->
+    <bean id="badAccountUpdateNameEmptyCreator" class="org.tron.common.dispatch.creator.account.BadAccountUpdateNameEmptyCreator">
+        <property name="name" value="badAccountUpdateNameEmptyCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="49"/>
+    </bean>
+
+    <bean id="badAccountUpdateNameHiddenCharactersCreator" class="org.tron.common.dispatch.creator.account.BadAccountUpdateNameHiddenCharactersCreator">
+        <property name="name" value="badAccountUpdateNameHiddenCharactersCreator"/>
+        <property name="begin" value="50"/>
+        <property name="end" value="99"/>
+    </bean>
 
     <!--transfer transaction-->
     <bean id="niceTransferTransactionCreator" class="org.tron.common.dispatch.creator.transfer.NiceTransferTransactionCreator">
