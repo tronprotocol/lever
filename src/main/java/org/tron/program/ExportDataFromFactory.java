@@ -7,14 +7,11 @@ import org.apache.commons.csv.CSVRecord;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
 import org.tron.common.dispatch.TransactionFactory;
-import org.tron.common.utils.Base58;
 import org.tron.common.utils.CsvUtils;
 import org.tron.protos.Protocol.Transaction;
-import org.tron.service.WalletClient;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -22,12 +19,11 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 public class ExportDataFromFactory {
+
   //Example:
   //--toaddress toaddress.csv --amount 1 --output trxsdata.csv --count 10000 --privatekey privatekey.csv
   public static void main(String[] args) throws Exception {
@@ -65,7 +61,9 @@ public class ExportDataFromFactory {
 
     fos.flush();
     fos.close();
-    System.out.println("create " + argsObj.getCount() + " trx need cost:" + (System.currentTimeMillis() - start) + "ms");
+    System.out.println(
+        "create " + argsObj.getCount() + " trx need cost:" + (System.currentTimeMillis() - start)
+            + "ms");
     System.exit(0);
   }
 
@@ -79,12 +77,15 @@ public class ExportDataFromFactory {
   }
 
   private static class Args {
+
     @Getter
-    @Parameter(names = {"--count", "-c"}, description = "Count", required = true, validateWith = LongValidator.class)
+    @Parameter(names = {"--count",
+        "-c"}, description = "Count", required = true, validateWith = LongValidator.class)
     private long count;
 
     @Getter
-    @Parameter(names = {"--output", "-o"}, description = "Save data file", required = true, validateWith = StringValidator.class)
+    @Parameter(names = {"--output",
+        "-o"}, description = "Save data file", required = true, validateWith = StringValidator.class)
     private String output;
   }
 }
