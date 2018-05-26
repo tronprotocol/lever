@@ -13,9 +13,9 @@ public class TransactionUtils {
             Any.pack(message)).build());
     Transaction transaction = Transaction.newBuilder().setRawData(transactionBuilder.build()).build();
 
-    setReference(transaction, 0L, ByteArray.fromHexString("00000000000000003667b6cdf61364230c163cefabd3b1b2d2e469fa5c84b3b8"));
+    transaction = setReference(transaction, 0L, ByteArray.fromHexString("00000000000000003667b6cdf61364230c163cefabd3b1b2d2e469fa5c84b3b8"));
 
-    setExpiration(transaction, System.currentTimeMillis() + 60 * 1_000L);
+    transaction = setExpiration(transaction, System.currentTimeMillis() + 60 * 1_000L);
 
     return transaction;
   }

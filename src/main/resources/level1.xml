@@ -39,8 +39,8 @@
 
     <bean id="commonCase" parent="level1Strategy">
         <property name="name" value="commonCase"/>
-        <property name="begin" value="31"/>
-        <property name="end" value="60"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
         <property name="source">
             <list>
                 <ref bean="badExpirationCurrentOneDayCreator"/>
