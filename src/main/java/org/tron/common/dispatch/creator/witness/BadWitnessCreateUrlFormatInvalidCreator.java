@@ -5,9 +5,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.BadCaseTransactionCreator;
+import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
+import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 
 public class BadWitnessCreateUrlFormatInvalidCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
   private AtomicLong serialNum = new AtomicLong(0);
@@ -18,7 +20,7 @@ public class BadWitnessCreateUrlFormatInvalidCreator extends AbstractTransaction
         .setOwnerAddress(witnessAddress)
         .setUrl(ByteString.copyFrom(ByteArray.fromString("invalidUrl")))
         .build();
-    Protocol.Transaction transaction = client.getRpcCli().createWitness(contract);
+    Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.WitnessCreateContract);
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(witnessPrivateKey)));
     return transaction;
   }

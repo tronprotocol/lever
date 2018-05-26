@@ -3,11 +3,13 @@ package org.tron.common.dispatch.creator.assetIssue;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.GoodCaseTransactonCreator;
+import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 
 import java.util.concurrent.atomic.AtomicLong;
+import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 
 public class NiceTransferAssetTransactionCreator extends AbstractTransactionCreator implements GoodCaseTransactonCreator {
   AtomicLong serialNum = new AtomicLong(0);
@@ -19,7 +21,7 @@ public class NiceTransferAssetTransactionCreator extends AbstractTransactionCrea
         .setToAddress(toAddress)
         .setAmount(amount)
         .build();
-    Protocol.Transaction transaction = client.getRpcCli().createTransferAssetTransaction(contract);
+    Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.AssetIssueContract);
     transaction = transaction.toBuilder()
         .setRawData(transaction.getRawData().toBuilder()
             .setExpiration(transaction.getRawData().getExpiration() + 12 * 60 * 60 * 1_000L)

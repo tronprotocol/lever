@@ -5,9 +5,11 @@ import com.google.protobuf.ByteString;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.GoodCaseTransactonCreator;
+import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
+import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 
 public class NiceCreateAssetTransactionCreator extends AbstractTransactionCreator implements GoodCaseTransactonCreator {
 
@@ -24,7 +26,7 @@ public class NiceCreateAssetTransactionCreator extends AbstractTransactionCreato
         .setNum(1)
         .setTrxNum(1)
         .build();
-    Protocol.Transaction transaction = client.getRpcCli().createAssetIssue(contract);
+    Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.AssetIssueContract);
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
   }

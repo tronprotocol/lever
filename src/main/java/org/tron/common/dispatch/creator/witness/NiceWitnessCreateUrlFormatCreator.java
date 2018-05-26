@@ -6,11 +6,13 @@ import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.BadCaseTransactionCreator;
 import org.tron.common.dispatch.TransactionFactory;
+import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.Utils;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
+import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 import org.tron.service.WalletClient;
 
 public class NiceWitnessCreateUrlFormatCreator extends AbstractTransactionCreator implements BadCaseTransactionCreator {
@@ -40,7 +42,7 @@ public class NiceWitnessCreateUrlFormatCreator extends AbstractTransactionCreato
           .setOwnerAddress(ByteString.copyFrom(ecKey.getAddress()))
           .setUrl(ByteString.copyFrom(ByteArray.fromString("http://goodurlformat.org")))
           .build();
-      transaction = client.getRpcCli().createWitness(contract);
+      transaction = TransactionUtils.createTransaction(contract, ContractType.WitnessCreateContract);
       transaction = client.signTransaction(transaction, ECKey.fromPrivate(ecKey.getPrivKeyBytes()));
     }
 
