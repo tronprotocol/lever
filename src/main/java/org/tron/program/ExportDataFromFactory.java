@@ -7,6 +7,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
 import org.tron.common.dispatch.TransactionFactory;
+import org.tron.common.dispatch.creator.CreatorCounter;
 import org.tron.common.utils.CsvUtils;
 import org.tron.protos.Protocol.Transaction;
 
@@ -64,6 +65,11 @@ public class ExportDataFromFactory {
     System.out.println(
         "create " + argsObj.getCount() + " trx need cost:" + (System.currentTimeMillis() - start)
             + "ms");
+
+    TransactionFactory.context.getBean(CreatorCounter.class).getCounterMap().entrySet().stream().forEach((v) -> {
+      System.out.println(v.getKey() + ": " + v.getValue().longValue());
+    });
+
     System.exit(0);
   }
 

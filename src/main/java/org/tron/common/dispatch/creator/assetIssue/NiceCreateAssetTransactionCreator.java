@@ -5,6 +5,8 @@ import com.google.protobuf.ByteString;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.GoodCaseTransactonCreator;
+import org.tron.common.dispatch.TransactionFactory;
+import org.tron.common.dispatch.creator.CreatorCounter;
 import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract;
@@ -15,6 +17,7 @@ public class NiceCreateAssetTransactionCreator extends AbstractTransactionCreato
 
   @Override
   protected Protocol.Transaction create() {
+    TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
     Contract.AssetIssueContract contract = Contract.AssetIssueContract.newBuilder()
         .setOwnerAddress(ownerAddress)
         .setDescription(assetName)

@@ -5,6 +5,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.BadCaseTransactionCreator;
+import org.tron.common.dispatch.TransactionFactory;
+import org.tron.common.dispatch.creator.CreatorCounter;
 import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.Utils;
@@ -17,6 +19,7 @@ public class NiceTransferToNotFoundAmountOneTrxCreator extends AbstractTransacti
 
   @Override
   protected Protocol.Transaction create() {
+    TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
     ECKey ecKey = new ECKey(Utils.getRandom());
 
     Contract.TransferContract contract = Contract.TransferContract.newBuilder()

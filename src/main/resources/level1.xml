@@ -12,7 +12,7 @@
 
     <bean id="account" parent="level1Strategy">
         <property name="name" value="account"/>
-        <property name="begin" value="0"/>
+        <property name="begin" value="61"/>
         <property name="end" value="99"/>
         <property name="source">
             <list>
@@ -39,8 +39,8 @@
 
     <bean id="commonCase" parent="level1Strategy">
         <property name="name" value="commonCase"/>
-        <property name="begin" value="0"/>
-        <property name="end" value="99"/>
+        <property name="begin" value="31"/>
+        <property name="end" value="60"/>
         <property name="source">
             <list>
                 <ref bean="badExpirationCurrentOneDayCreator"/>
@@ -77,7 +77,7 @@
     <bean id="transfer" parent="level1Strategy">
         <property name="name" value="transfer"/>
         <property name="begin" value="0"/>
-        <property name="end" value="99"/>
+        <property name="end" value="30"/>
         <property name="source">
             <list>
                 <ref bean="badTransferAmountMaxLongValueCreator"/>
