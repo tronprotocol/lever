@@ -6,11 +6,11 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.RateLimiter;
 import com.typesafe.config.Config;
-import com.typesafe.config.ConfigFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +26,7 @@ import java.util.stream.IntStream;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.tron.common.config.Config.ConfigProperty;
+import org.tron.common.utils.Time;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
@@ -97,6 +98,9 @@ class Task implements Runnable {
   private static LongAdder endCounts = new LongAdder();
   private static int threadCount;
 
+  private static Date startTime;
+  private static Date endTime;
+
   static {
     service.scheduleAtFixedRate(() -> {
       System.out.println(
@@ -107,6 +111,8 @@ class Task implements Runnable {
               + ", map: " + resultMap);
 
       if (endCounts.longValue() == threadCount) {
+        endTime = new Date();
+        System.out.printf("start time: %tF %tT, end time: %tF %tT", startTime, startTime, endTime, endTime);
         service.shutdown();
       }
     }, 5, 5, TimeUnit.SECONDS);
@@ -123,6 +129,10 @@ class Task implements Runnable {
   @Override
   public void run() {
     if (this.transactions != null) {
+      if (endCounts.longValue() == 0) {
+        startTime = new Date();
+      }
+
       this.transactions.forEach(t -> {
         limiter.acquire();
         boolean b = walletClient.broadcastTransaction(t);
@@ -212,14 +222,14 @@ class SendCoinArgs {
       INSTANCE.dataFile = config.getString(DATA_FILE);
     }
 
-    System.out.printf("To: \u001B[34m%s\u001B[0m", INSTANCE.dataFile);
+    System.out.printf("Data file: \u001B[34m%s\u001B[0m", INSTANCE.dataFile);
     System.out.println();
 
     if (0 == INSTANCE.tps) {
       INSTANCE.tps = config.getInt(TPS);
     }
 
-    System.out.printf("From: \u001B[34m%s\u001B[0m", INSTANCE.tps);
+    System.out.printf("TPS: \u001B[34m%s\u001B[0m", INSTANCE.tps);
     System.out.println();
   }
 }
