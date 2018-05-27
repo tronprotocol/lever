@@ -28,7 +28,7 @@ public class BadExpirationCurrentOneDayCreator extends AbstractTransactionCreato
     transaction = transaction.toBuilder()
         .setRawData(
             transaction.getRawData().toBuilder()
-                .setExpiration(Time.getCurrentMillis() + 24 * 3600 * 1000)
+                .setExpiration(Time.getCurrentMillis() + 24 * 3600 * 1000 + 3600 * 1000)
                 .setTimestamp(serialNum.getAndIncrement())
                 .build()
         )

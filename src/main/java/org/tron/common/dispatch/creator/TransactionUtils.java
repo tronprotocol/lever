@@ -15,7 +15,7 @@ public class TransactionUtils {
 
     transaction = setReference(transaction, 0L, ByteArray.fromHexString("00000000000000003667b6cdf61364230c163cefabd3b1b2d2e469fa5c84b3b8"));
 
-    transaction = setExpiration(transaction, System.currentTimeMillis() + 60 * 1_000L);
+    transaction = setExpiration(transaction, System.currentTimeMillis() + 3600 * 1_000L);
 
     return transaction;
   }

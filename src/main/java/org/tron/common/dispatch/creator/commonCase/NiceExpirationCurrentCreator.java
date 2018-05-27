@@ -25,14 +25,6 @@ public class NiceExpirationCurrentCreator extends AbstractTransactionCreator imp
         .setAmount(amount)
         .build();
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TransferContract);
-    transaction = transaction.toBuilder()
-        .setRawData(
-            transaction.getRawData().toBuilder()
-                .setExpiration(Time.getCurrentMillis())
-                .setTimestamp(serialNum.getAndIncrement())
-                .build()
-        )
-        .build();
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
 
