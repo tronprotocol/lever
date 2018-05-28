@@ -34,7 +34,7 @@ import org.tron.protos.Protocol;
 
 //Example --tps 10000 --amount 1 --privatekeyFile privatekey.csv --count 1000000 --output trxsdata.csv
 public class SendCoinLoopWithValidation {
-    private static final int THREAD_COUNT = 160;
+    private static final int THREAD_COUNT = 16;
 
     private static List<WalletClient> walletClients = new ArrayList<>();
 
@@ -63,17 +63,22 @@ public class SendCoinLoopWithValidation {
 
         walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
             WalletClient walletClient = new WalletClient(true);
-            walletClient.init();
+//            walletClient.init();
             return walletClient;
         }).collect(Collectors.toList());
 
+//        walletClients = IntStream.range(0, THREAD_COUNT).forEach(i );
+
         WalletClient rootClient = new WalletClient(privateKeyList.get(0));
-        rootClient.init();
+//        rootClient.init();
 
         int accountNum = (int)Math.sqrt(count/THREAD_COUNT) + 1;
 
         // increase bandwidth
-        rootClient.freezeBalance((long)accountNum * (long)1000 * (long)1000000,3);
+        boolean freze = rootClient.freezeBalance((long)accountNum * (long)1000 * (long)1000000,3);
+        if (!freze) {
+            throw new RuntimeException();
+        }
 
         // send every account 1000 TRX to create the account on the chain (at least 1 TRX)
         keys.forEach(key->{
@@ -82,9 +87,10 @@ public class SendCoinLoopWithValidation {
             int loop = 0;
             do {
                 if(loop!=0){
+
                     try{
                         Thread.sleep(1000);
-                    }catch (InterruptedException e){
+                    } catch (InterruptedException e){
 
                     }
                 }
@@ -262,7 +268,10 @@ class TaskWithVal implements Runnable {
     @Override
     public void run() {
         //Math.sqrt(count / threadCount) + 1
-
+        List<WalletClient> wallets = new ArrayList<>();
+        for (ECKey k:keys) {
+            wallets.add(new WalletClient(k));
+        }
 
         for(int i = 0; i< keys.size(); i++){
             for(int j = 0; j< keys.size(); j++){
@@ -272,7 +281,7 @@ class TaskWithVal implements Runnable {
                 int c = counter.incrementAndGet();
                 Contract.TransferContract contract = WalletClient
                     .createTransferContract(keys.get(j).getAddress(), keys.get(i).getAddress() , amount);
-                walletClient = new WalletClient(keys.get(i));
+                walletClient =  wallets.get(i);
 
 //                GrpcAPI.Return freezeResult = walletClient.freezeBalances(10000,3);
 //                if(freezeResult.getResult()==false){

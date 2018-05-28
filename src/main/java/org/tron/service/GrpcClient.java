@@ -117,6 +117,10 @@ public class GrpcClient {
 
   public GrpcAPI.Return broadcastTransaction(Transaction signaturedTransaction) {
     Return response = blockingStubFull.broadcastTransaction(signaturedTransaction);
+
+    if (!response.getResult()) {
+      System.out.println(response.getCode() + "" + response.getMessage() + " "+response.getCodeValue() );
+    }
     return response;
   }
 

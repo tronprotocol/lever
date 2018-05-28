@@ -4,6 +4,7 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigObject;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -50,7 +51,13 @@ public class WalletClient {
   private ECKey ecKey = null;
   private boolean loginState = false;
 
+  static AtomicInteger fullNodeInde;
+  static {
+
+    fullNodeInde = new AtomicInteger(0) ;
+  }
   private static GrpcClient rpcCli = init();
+//  private static Grpc
   private static String dbPath;
   private static String txtPath;
 
@@ -67,7 +74,9 @@ public class WalletClient {
 //  }
 
 
-  public static GrpcClient init() {
+
+
+  public static synchronized GrpcClient init() {
     Config config = Configuration.getByPath("config.conf");
     dbPath = config.getString("CityDb.DbPath");
     txtPath = System.getProperty("user.dir") + '/' + config.getString("CityDb.TxtPath");
@@ -77,11 +86,14 @@ public class WalletClient {
     if (config.hasPath("soliditynode.ip.list")) {
       solidityNode = config.getStringList("soliditynode.ip.list").get(0);
     }
-    if (config.hasPath("fullnode.ip.list")) {
-      fullNode = config.getStringList("fullnode.ip.list").get(0);
-    }
+
+    List<String> nodes = config.getStringList("fullnode.ip.list");
+    fullNode = nodes.get(fullNodeInde.getAndIncrement() % nodes.size());
+
     return new GrpcClient(fullNode, null);
   }
+
+
 
   public static String selectFullNode() {
     Map<String, String> witnessMap = new HashMap<>();
@@ -774,6 +786,7 @@ public class WalletClient {
         frozen_duration);
 
     Transaction transaction = rpcCli.createTransaction(contract);
+
 
     if (transaction == null || transaction.getRawData().getContractCount() == 0) {
       return false;
