@@ -89,7 +89,9 @@ public class SendCoinLoopWithValidation {
                     }
                 }
                 response= rootClient.sendCoinResponse(key.getAddress(), (long) 10 * (long) 1000000);
+                System.err.println(response.getMessage().toStringUtf8());
                 System.err.println(response.getMessage());
+                System.err.println(response.toString());
                 b = response.getResult();
                 loop++;
                 if(b==false){

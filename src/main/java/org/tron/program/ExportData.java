@@ -37,7 +37,7 @@ public class ExportData {
     JCommander.newBuilder().addObject(argsObj).build().parse(args);
 
 
-    // 读取to address
+    // to address
     List<String> toAddressList = getStrings(argsObj.getToAddress());
     List<byte[]> toAddressByteList = new ArrayList<>();
     int addressSize = toAddressList.size();
@@ -46,7 +46,7 @@ public class ExportData {
       return;
     }
 
-    // 读取 private key
+    // private key
     List<String> privateKeyList = getStrings(argsObj.getPrivateKey());
     int privateKeySize = privateKeyList.size();
     if (privateKeySize == 0) {
