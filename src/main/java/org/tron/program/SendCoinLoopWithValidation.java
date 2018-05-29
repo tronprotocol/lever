@@ -53,7 +53,7 @@ public class SendCoinLoopWithValidation {
             keys.add(key);
         }
 
-        // 读取 private key
+        // private key
         List<String> privateKeyList = getStrings(args1.getPrivateKeyFile());
         int privateKeySize = privateKeyList.size();
         if (privateKeySize == 0) {
@@ -73,7 +73,7 @@ public class SendCoinLoopWithValidation {
         int accountNum = (int)Math.sqrt(count/THREAD_COUNT) + 1;
 
         // increase bandwidth
-        rootClient.freezeBalance((long)accountNum * (long)1000 * (long)1000000,3);
+        rootClient.freezeBalance((long)accountNum * (long)1000 ,3);
 
         // send every account 1000 TRX to create the account on the chain (at least 1 TRX)
         keys.forEach(key->{
@@ -103,7 +103,7 @@ public class SendCoinLoopWithValidation {
             }
 
             // sendCoinAmount >= Transaction * amount + freezeTRX
-            rootClient.sendCoin(key.getAddress(), (long) 1000 * (long) 1000000 - (long) 10 * (long) 1000000);
+            rootClient.sendCoin(key.getAddress(), (long) 70_0010 * (long) 1_000_000 - (long) 10 * (long) 1_000_000);
         });
 
 
@@ -121,7 +121,7 @@ public class SendCoinLoopWithValidation {
 
             // freezeTRXPerAccount >= sqrt(count * THREAD_COUNT) / 30    trx
             // so 200*1000000 can support all case
-            GrpcAPI.Return freezeResult = walletClient.freezeBalanceResponse(500*1000000,3);
+            GrpcAPI.Return freezeResult = walletClient.freezeBalanceResponse((long)70_0000*1_000_000,3);
             int loop = 0;
             while(!freezeResult.getResult()&&loop<2){
                 loop++;
@@ -131,7 +131,7 @@ public class SendCoinLoopWithValidation {
                 catch(InterruptedException e){
 
                 }
-                freezeResult = walletClient.freezeBalanceResponse(500*1000000,3);
+                freezeResult = walletClient.freezeBalanceResponse((long)70_0000*1000000,3);
             }
             if(freezeResult.getResult()==false){
                 failedKey.add(key);
@@ -307,7 +307,7 @@ class TaskWithVal implements Runnable {
                 boolean b = response.getResult();
                 if (b) {
                     trueCount.increment();
-                    //System.err.println("Success from:" + Base58.encode58Check(keys.get(i).getAddress()) + " to:" + Base58.encode58Check(keys.get(j).getAddress()));
+                    System.err.println("Success from:" + Base58.encode58Check(keys.get(i).getAddress()) + " to:" + Base58.encode58Check(keys.get(j).getAddress()));
                 } else {
                     falseCount.increment();
                     if(response.getMessage().size()==0){
