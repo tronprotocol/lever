@@ -10500,6 +10500,1240 @@ public final class GrpcAPI {
 
   }
 
+  public interface AccountNetMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.AccountNetMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 freeNetUsed = 1;</code>
+     */
+    long getFreeNetUsed();
+
+    /**
+     * <code>int64 freeNetLimit = 2;</code>
+     */
+    long getFreeNetLimit();
+
+    /**
+     * <code>int64 NetUsed = 3;</code>
+     */
+    long getNetUsed();
+
+    /**
+     * <code>int64 NetLimit = 4;</code>
+     */
+    long getNetLimit();
+
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+    int getAssetNetUsedCount();
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+    boolean containsAssetNetUsed(
+        java.lang.String key);
+    /**
+     * Use {@link #getAssetNetUsedMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.Long>
+    getAssetNetUsed();
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.Long>
+    getAssetNetUsedMap();
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+
+    long getAssetNetUsedOrDefault(
+        java.lang.String key,
+        long defaultValue);
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+
+    long getAssetNetUsedOrThrow(
+        java.lang.String key);
+
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+    int getAssetNetLimitCount();
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+    boolean containsAssetNetLimit(
+        java.lang.String key);
+    /**
+     * Use {@link #getAssetNetLimitMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.Long>
+    getAssetNetLimit();
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.Long>
+    getAssetNetLimitMap();
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+
+    long getAssetNetLimitOrDefault(
+        java.lang.String key,
+        long defaultValue);
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+
+    long getAssetNetLimitOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code protocol.AccountNetMessage}
+   */
+  public  static final class AccountNetMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.AccountNetMessage)
+      AccountNetMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AccountNetMessage.newBuilder() to construct.
+    private AccountNetMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AccountNetMessage() {
+      freeNetUsed_ = 0L;
+      freeNetLimit_ = 0L;
+      netUsed_ = 0L;
+      netLimit_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AccountNetMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              freeNetUsed_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              freeNetLimit_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              netUsed_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              netLimit_ = input.readInt64();
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                assetNetUsed_ = com.google.protobuf.MapField.newMapField(
+                    AssetNetUsedDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000010;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              assetNetUsed__ = input.readMessage(
+                  AssetNetUsedDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              assetNetUsed_.getMutableMap().put(
+                  assetNetUsed__.getKey(), assetNetUsed__.getValue());
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                assetNetLimit_ = com.google.protobuf.MapField.newMapField(
+                    AssetNetLimitDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000020;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              assetNetLimit__ = input.readMessage(
+                  AssetNetLimitDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              assetNetLimit_.getMutableMap().put(
+                  assetNetLimit__.getKey(), assetNetLimit__.getValue());
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.api.GrpcAPI.internal_static_protocol_AccountNetMessage_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetAssetNetUsed();
+        case 6:
+          return internalGetAssetNetLimit();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.api.GrpcAPI.internal_static_protocol_AccountNetMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.api.GrpcAPI.AccountNetMessage.class, org.tron.api.GrpcAPI.AccountNetMessage.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int FREENETUSED_FIELD_NUMBER = 1;
+    private long freeNetUsed_;
+    /**
+     * <code>int64 freeNetUsed = 1;</code>
+     */
+    public long getFreeNetUsed() {
+      return freeNetUsed_;
+    }
+
+    public static final int FREENETLIMIT_FIELD_NUMBER = 2;
+    private long freeNetLimit_;
+    /**
+     * <code>int64 freeNetLimit = 2;</code>
+     */
+    public long getFreeNetLimit() {
+      return freeNetLimit_;
+    }
+
+    public static final int NETUSED_FIELD_NUMBER = 3;
+    private long netUsed_;
+    /**
+     * <code>int64 NetUsed = 3;</code>
+     */
+    public long getNetUsed() {
+      return netUsed_;
+    }
+
+    public static final int NETLIMIT_FIELD_NUMBER = 4;
+    private long netLimit_;
+    /**
+     * <code>int64 NetLimit = 4;</code>
+     */
+    public long getNetLimit() {
+      return netLimit_;
+    }
+
+    public static final int ASSETNETUSED_FIELD_NUMBER = 5;
+    private static final class AssetNetUsedDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.Long> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.Long>newDefaultInstance(
+                  org.tron.api.GrpcAPI.internal_static_protocol_AccountNetMessage_AssetNetUsedEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.INT64,
+                  0L);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.Long> assetNetUsed_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+    internalGetAssetNetUsed() {
+      if (assetNetUsed_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AssetNetUsedDefaultEntryHolder.defaultEntry);
+      }
+      return assetNetUsed_;
+    }
+
+    public int getAssetNetUsedCount() {
+      return internalGetAssetNetUsed().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+
+    public boolean containsAssetNetUsed(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetAssetNetUsed().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAssetNetUsedMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Long> getAssetNetUsed() {
+      return getAssetNetUsedMap();
+    }
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.Long> getAssetNetUsedMap() {
+      return internalGetAssetNetUsed().getMap();
+    }
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+
+    public long getAssetNetUsedOrDefault(
+        java.lang.String key,
+        long defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetAssetNetUsed().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+     */
+
+    public long getAssetNetUsedOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetAssetNetUsed().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int ASSETNETLIMIT_FIELD_NUMBER = 6;
+    private static final class AssetNetLimitDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.Long> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.Long>newDefaultInstance(
+                  org.tron.api.GrpcAPI.internal_static_protocol_AccountNetMessage_AssetNetLimitEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.INT64,
+                  0L);
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.Long> assetNetLimit_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+    internalGetAssetNetLimit() {
+      if (assetNetLimit_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AssetNetLimitDefaultEntryHolder.defaultEntry);
+      }
+      return assetNetLimit_;
+    }
+
+    public int getAssetNetLimitCount() {
+      return internalGetAssetNetLimit().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+
+    public boolean containsAssetNetLimit(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetAssetNetLimit().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAssetNetLimitMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Long> getAssetNetLimit() {
+      return getAssetNetLimitMap();
+    }
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.Long> getAssetNetLimitMap() {
+      return internalGetAssetNetLimit().getMap();
+    }
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+
+    public long getAssetNetLimitOrDefault(
+        java.lang.String key,
+        long defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetAssetNetLimit().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+     */
+
+    public long getAssetNetLimitOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetAssetNetLimit().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (freeNetUsed_ != 0L) {
+        output.writeInt64(1, freeNetUsed_);
+      }
+      if (freeNetLimit_ != 0L) {
+        output.writeInt64(2, freeNetLimit_);
+      }
+      if (netUsed_ != 0L) {
+        output.writeInt64(3, netUsed_);
+      }
+      if (netLimit_ != 0L) {
+        output.writeInt64(4, netLimit_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetAssetNetUsed(),
+          AssetNetUsedDefaultEntryHolder.defaultEntry,
+          5);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetAssetNetLimit(),
+          AssetNetLimitDefaultEntryHolder.defaultEntry,
+          6);
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (freeNetUsed_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, freeNetUsed_);
+      }
+      if (freeNetLimit_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, freeNetLimit_);
+      }
+      if (netUsed_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, netUsed_);
+      }
+      if (netLimit_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, netLimit_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.Long> entry
+           : internalGetAssetNetUsed().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+        assetNetUsed__ = AssetNetUsedDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, assetNetUsed__);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.Long> entry
+           : internalGetAssetNetLimit().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+        assetNetLimit__ = AssetNetLimitDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, assetNetLimit__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.api.GrpcAPI.AccountNetMessage)) {
+        return super.equals(obj);
+      }
+      org.tron.api.GrpcAPI.AccountNetMessage other = (org.tron.api.GrpcAPI.AccountNetMessage) obj;
+
+      boolean result = true;
+      result = result && (getFreeNetUsed()
+          == other.getFreeNetUsed());
+      result = result && (getFreeNetLimit()
+          == other.getFreeNetLimit());
+      result = result && (getNetUsed()
+          == other.getNetUsed());
+      result = result && (getNetLimit()
+          == other.getNetLimit());
+      result = result && internalGetAssetNetUsed().equals(
+          other.internalGetAssetNetUsed());
+      result = result && internalGetAssetNetLimit().equals(
+          other.internalGetAssetNetLimit());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FREENETUSED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFreeNetUsed());
+      hash = (37 * hash) + FREENETLIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFreeNetLimit());
+      hash = (37 * hash) + NETUSED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNetUsed());
+      hash = (37 * hash) + NETLIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNetLimit());
+      if (!internalGetAssetNetUsed().getMap().isEmpty()) {
+        hash = (37 * hash) + ASSETNETUSED_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetAssetNetUsed().hashCode();
+      }
+      if (!internalGetAssetNetLimit().getMap().isEmpty()) {
+        hash = (37 * hash) + ASSETNETLIMIT_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetAssetNetLimit().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.AccountNetMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.api.GrpcAPI.AccountNetMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.AccountNetMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.AccountNetMessage)
+        org.tron.api.GrpcAPI.AccountNetMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_AccountNetMessage_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetAssetNetUsed();
+          case 6:
+            return internalGetAssetNetLimit();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 5:
+            return internalGetMutableAssetNetUsed();
+          case 6:
+            return internalGetMutableAssetNetLimit();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_AccountNetMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.api.GrpcAPI.AccountNetMessage.class, org.tron.api.GrpcAPI.AccountNetMessage.Builder.class);
+      }
+
+      // Construct using org.tron.api.GrpcAPI.AccountNetMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        freeNetUsed_ = 0L;
+
+        freeNetLimit_ = 0L;
+
+        netUsed_ = 0L;
+
+        netLimit_ = 0L;
+
+        internalGetMutableAssetNetUsed().clear();
+        internalGetMutableAssetNetLimit().clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_AccountNetMessage_descriptor;
+      }
+
+      public org.tron.api.GrpcAPI.AccountNetMessage getDefaultInstanceForType() {
+        return org.tron.api.GrpcAPI.AccountNetMessage.getDefaultInstance();
+      }
+
+      public org.tron.api.GrpcAPI.AccountNetMessage build() {
+        org.tron.api.GrpcAPI.AccountNetMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.api.GrpcAPI.AccountNetMessage buildPartial() {
+        org.tron.api.GrpcAPI.AccountNetMessage result = new org.tron.api.GrpcAPI.AccountNetMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.freeNetUsed_ = freeNetUsed_;
+        result.freeNetLimit_ = freeNetLimit_;
+        result.netUsed_ = netUsed_;
+        result.netLimit_ = netLimit_;
+        result.assetNetUsed_ = internalGetAssetNetUsed();
+        result.assetNetUsed_.makeImmutable();
+        result.assetNetLimit_ = internalGetAssetNetLimit();
+        result.assetNetLimit_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.api.GrpcAPI.AccountNetMessage) {
+          return mergeFrom((org.tron.api.GrpcAPI.AccountNetMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.api.GrpcAPI.AccountNetMessage other) {
+        if (other == org.tron.api.GrpcAPI.AccountNetMessage.getDefaultInstance()) return this;
+        if (other.getFreeNetUsed() != 0L) {
+          setFreeNetUsed(other.getFreeNetUsed());
+        }
+        if (other.getFreeNetLimit() != 0L) {
+          setFreeNetLimit(other.getFreeNetLimit());
+        }
+        if (other.getNetUsed() != 0L) {
+          setNetUsed(other.getNetUsed());
+        }
+        if (other.getNetLimit() != 0L) {
+          setNetLimit(other.getNetLimit());
+        }
+        internalGetMutableAssetNetUsed().mergeFrom(
+            other.internalGetAssetNetUsed());
+        internalGetMutableAssetNetLimit().mergeFrom(
+            other.internalGetAssetNetLimit());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.api.GrpcAPI.AccountNetMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.api.GrpcAPI.AccountNetMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long freeNetUsed_ ;
+      /**
+       * <code>int64 freeNetUsed = 1;</code>
+       */
+      public long getFreeNetUsed() {
+        return freeNetUsed_;
+      }
+      /**
+       * <code>int64 freeNetUsed = 1;</code>
+       */
+      public Builder setFreeNetUsed(long value) {
+        
+        freeNetUsed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 freeNetUsed = 1;</code>
+       */
+      public Builder clearFreeNetUsed() {
+        
+        freeNetUsed_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long freeNetLimit_ ;
+      /**
+       * <code>int64 freeNetLimit = 2;</code>
+       */
+      public long getFreeNetLimit() {
+        return freeNetLimit_;
+      }
+      /**
+       * <code>int64 freeNetLimit = 2;</code>
+       */
+      public Builder setFreeNetLimit(long value) {
+        
+        freeNetLimit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 freeNetLimit = 2;</code>
+       */
+      public Builder clearFreeNetLimit() {
+        
+        freeNetLimit_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long netUsed_ ;
+      /**
+       * <code>int64 NetUsed = 3;</code>
+       */
+      public long getNetUsed() {
+        return netUsed_;
+      }
+      /**
+       * <code>int64 NetUsed = 3;</code>
+       */
+      public Builder setNetUsed(long value) {
+        
+        netUsed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 NetUsed = 3;</code>
+       */
+      public Builder clearNetUsed() {
+        
+        netUsed_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long netLimit_ ;
+      /**
+       * <code>int64 NetLimit = 4;</code>
+       */
+      public long getNetLimit() {
+        return netLimit_;
+      }
+      /**
+       * <code>int64 NetLimit = 4;</code>
+       */
+      public Builder setNetLimit(long value) {
+        
+        netLimit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 NetLimit = 4;</code>
+       */
+      public Builder clearNetLimit() {
+        
+        netLimit_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.Long> assetNetUsed_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+      internalGetAssetNetUsed() {
+        if (assetNetUsed_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              AssetNetUsedDefaultEntryHolder.defaultEntry);
+        }
+        return assetNetUsed_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+      internalGetMutableAssetNetUsed() {
+        onChanged();;
+        if (assetNetUsed_ == null) {
+          assetNetUsed_ = com.google.protobuf.MapField.newMapField(
+              AssetNetUsedDefaultEntryHolder.defaultEntry);
+        }
+        if (!assetNetUsed_.isMutable()) {
+          assetNetUsed_ = assetNetUsed_.copy();
+        }
+        return assetNetUsed_;
+      }
+
+      public int getAssetNetUsedCount() {
+        return internalGetAssetNetUsed().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+       */
+
+      public boolean containsAssetNetUsed(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetAssetNetUsed().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getAssetNetUsedMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Long> getAssetNetUsed() {
+        return getAssetNetUsedMap();
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.Long> getAssetNetUsedMap() {
+        return internalGetAssetNetUsed().getMap();
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+       */
+
+      public long getAssetNetUsedOrDefault(
+          java.lang.String key,
+          long defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.Long> map =
+            internalGetAssetNetUsed().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+       */
+
+      public long getAssetNetUsedOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.Long> map =
+            internalGetAssetNetUsed().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearAssetNetUsed() {
+        internalGetMutableAssetNetUsed().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+       */
+
+      public Builder removeAssetNetUsed(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableAssetNetUsed().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Long>
+      getMutableAssetNetUsed() {
+        return internalGetMutableAssetNetUsed().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+       */
+      public Builder putAssetNetUsed(
+          java.lang.String key,
+          long value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        
+        internalGetMutableAssetNetUsed().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetUsed = 5;</code>
+       */
+
+      public Builder putAllAssetNetUsed(
+          java.util.Map<java.lang.String, java.lang.Long> values) {
+        internalGetMutableAssetNetUsed().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.Long> assetNetLimit_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+      internalGetAssetNetLimit() {
+        if (assetNetLimit_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              AssetNetLimitDefaultEntryHolder.defaultEntry);
+        }
+        return assetNetLimit_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+      internalGetMutableAssetNetLimit() {
+        onChanged();;
+        if (assetNetLimit_ == null) {
+          assetNetLimit_ = com.google.protobuf.MapField.newMapField(
+              AssetNetLimitDefaultEntryHolder.defaultEntry);
+        }
+        if (!assetNetLimit_.isMutable()) {
+          assetNetLimit_ = assetNetLimit_.copy();
+        }
+        return assetNetLimit_;
+      }
+
+      public int getAssetNetLimitCount() {
+        return internalGetAssetNetLimit().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+       */
+
+      public boolean containsAssetNetLimit(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetAssetNetLimit().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getAssetNetLimitMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Long> getAssetNetLimit() {
+        return getAssetNetLimitMap();
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.Long> getAssetNetLimitMap() {
+        return internalGetAssetNetLimit().getMap();
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+       */
+
+      public long getAssetNetLimitOrDefault(
+          java.lang.String key,
+          long defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.Long> map =
+            internalGetAssetNetLimit().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+       */
+
+      public long getAssetNetLimitOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.Long> map =
+            internalGetAssetNetLimit().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearAssetNetLimit() {
+        internalGetMutableAssetNetLimit().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+       */
+
+      public Builder removeAssetNetLimit(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableAssetNetLimit().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Long>
+      getMutableAssetNetLimit() {
+        return internalGetMutableAssetNetLimit().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+       */
+      public Builder putAssetNetLimit(
+          java.lang.String key,
+          long value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        
+        internalGetMutableAssetNetLimit().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, int64&gt; assetNetLimit = 6;</code>
+       */
+
+      public Builder putAllAssetNetLimit(
+          java.util.Map<java.lang.String, java.lang.Long> values) {
+        internalGetMutableAssetNetLimit().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.AccountNetMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.AccountNetMessage)
+    private static final org.tron.api.GrpcAPI.AccountNetMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.api.GrpcAPI.AccountNetMessage();
+    }
+
+    public static org.tron.api.GrpcAPI.AccountNetMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AccountNetMessage>
+        PARSER = new com.google.protobuf.AbstractParser<AccountNetMessage>() {
+      public AccountNetMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AccountNetMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AccountNetMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AccountNetMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.api.GrpcAPI.AccountNetMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Return_descriptor;
   private static final 
@@ -10585,6 +11819,21 @@ public final class GrpcAPI {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_TimePaginatedMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_AccountNetMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_AccountNetMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_AccountNetMessage_AssetNetUsedEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_AccountNetMessage_AssetNetUsedEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_AccountNetMessage_AssetNetLimitEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_AccountNetMessage_AssetNetLimitEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -10626,173 +11875,188 @@ public final class GrpcAPI {
       "l.Account\022\016\n\006offset\030\002 \001(\003\022\r\n\005limit\030\003 \001(\003" +
       "\"a\n\024TimePaginatedMessage\022*\n\013timeMessage\030" +
       "\001 \001(\0132\025.protocol.TimeMessage\022\016\n\006offset\030\002" +
-      " \001(\003\022\r\n\005limit\030\003 \001(\0032\267\034\n\006Wallet\022g\n\nGetAcc" +
-      "ount\022\021.protocol.Account\032\021.protocol.Accou" +
-      "nt\"3\202\323\344\223\002-\"\022/wallet/getaccount:\001*Z\024\022\022/wa" +
-      "llet/getaccount\022\211\001\n\021CreateTransaction\022\032." +
-      "protocol.TransferContract\032\025.protocol.Tra" +
-      "nsaction\"A\202\323\344\223\002;\"\031/wallet/createtransact" +
-      "ion:\001*Z\033\022\031/wallet/createtransaction\022\210\001\n\024" +
-      "BroadcastTransaction\022\025.protocol.Transact" +
-      "ion\032\020.protocol.Return\"G\202\323\344\223\002A\"\034/wallet/b" +
-      "roadcasttransaction:\001*Z\036\022\034/wallet/broadc" +
-      "asttransaction\022\202\001\n\rUpdateAccount\022\037.proto" +
-      "col.AccountUpdateContract\032\025.protocol.Tra" +
-      "nsaction\"9\202\323\344\223\0023\"\025/wallet/updateaccount:" +
-      "\001*Z\027\022\025/wallet/updateaccount\022\217\001\n\022VoteWitn" +
-      "essAccount\022\035.protocol.VoteWitnessContrac" +
-      "t\032\025.protocol.Transaction\"C\202\323\344\223\002=\"\032/walle" +
-      "t/votewitnessaccount:\001*Z\034\022\032/wallet/votew" +
-      "itnessaccount\022\210\001\n\020CreateAssetIssue\022\034.pro" +
-      "tocol.AssetIssueContract\032\025.protocol.Tran" +
-      "saction\"?\202\323\344\223\0029\"\030/wallet/createassetissu" +
-      "e:\001*Z\032\022\030/wallet/createassetissue\022\202\001\n\rUpd" +
-      "ateWitness\022\037.protocol.WitnessUpdateContr" +
+      " \001(\003\022\r\n\005limit\030\003 \001(\003\"\330\002\n\021AccountNetMessag" +
+      "e\022\023\n\013freeNetUsed\030\001 \001(\003\022\024\n\014freeNetLimit\030\002" +
+      " \001(\003\022\017\n\007NetUsed\030\003 \001(\003\022\020\n\010NetLimit\030\004 \001(\003\022" +
+      "C\n\014assetNetUsed\030\005 \003(\0132-.protocol.Account" +
+      "NetMessage.AssetNetUsedEntry\022E\n\rassetNet" +
+      "Limit\030\006 \003(\0132..protocol.AccountNetMessage" +
+      ".AssetNetLimitEntry\0323\n\021AssetNetUsedEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\0324\n\022Asse" +
+      "tNetLimitEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\003:\0028\0012\257\036\n\006Wallet\022g\n\nGetAccount\022\021.protoc" +
+      "ol.Account\032\021.protocol.Account\"3\202\323\344\223\002-\"\022/" +
+      "wallet/getaccount:\001*Z\024\022\022/wallet/getaccou" +
+      "nt\022\211\001\n\021CreateTransaction\022\032.protocol.Tran" +
+      "sferContract\032\025.protocol.Transaction\"A\202\323\344" +
+      "\223\002;\"\031/wallet/createtransaction:\001*Z\033\022\031/wa" +
+      "llet/createtransaction\022\210\001\n\024BroadcastTran" +
+      "saction\022\025.protocol.Transaction\032\020.protoco" +
+      "l.Return\"G\202\323\344\223\002A\"\034/wallet/broadcasttrans" +
+      "action:\001*Z\036\022\034/wallet/broadcasttransactio" +
+      "n\022\202\001\n\rUpdateAccount\022\037.protocol.AccountUp" +
+      "dateContract\032\025.protocol.Transaction\"9\202\323\344" +
+      "\223\0023\"\025/wallet/updateaccount:\001*Z\027\022\025/wallet" +
+      "/updateaccount\022\217\001\n\022VoteWitnessAccount\022\035." +
+      "protocol.VoteWitnessContract\032\025.protocol." +
+      "Transaction\"C\202\323\344\223\002=\"\032/wallet/votewitness" +
+      "account:\001*Z\034\022\032/wallet/votewitnessaccount" +
+      "\022\210\001\n\020CreateAssetIssue\022\034.protocol.AssetIs" +
+      "sueContract\032\025.protocol.Transaction\"?\202\323\344\223" +
+      "\0029\"\030/wallet/createassetissue:\001*Z\032\022\030/wall" +
+      "et/createassetissue\022\202\001\n\rUpdateWitness\022\037." +
+      "protocol.WitnessUpdateContract\032\025.protoco" +
+      "l.Transaction\"9\202\323\344\223\0023\"\025/wallet/updatewit" +
+      "ness:\001*Z\027\022\025/wallet/updatewitness\022\202\001\n\rCre" +
+      "ateWitness\022\037.protocol.WitnessCreateContr" +
       "act\032\025.protocol.Transaction\"9\202\323\344\223\0023\"\025/wal" +
-      "let/updatewitness:\001*Z\027\022\025/wallet/updatewi" +
-      "tness\022\202\001\n\rCreateWitness\022\037.protocol.Witne" +
-      "ssCreateContract\032\025.protocol.Transaction\"" +
-      "9\202\323\344\223\0023\"\025/wallet/createwitness:\001*Z\027\022\025/wa" +
-      "llet/createwitness\022\202\001\n\rTransferAsset\022\037.p" +
-      "rotocol.TransferAssetContract\032\025.protocol" +
-      ".Transaction\"9\202\323\344\223\0023\"\025/wallet/transferas" +
-      "set:\001*Z\027\022\025/wallet/transferasset\022\242\001\n\025Part" +
-      "icipateAssetIssue\022\'.protocol.Participate" +
-      "AssetIssueContract\032\025.protocol.Transactio" +
-      "n\"I\202\323\344\223\002C\"\035/wallet/participateassetissue" +
-      ":\001*Z\037\022\035/wallet/participateassetissue\022\202\001\n" +
-      "\rFreezeBalance\022\037.protocol.FreezeBalanceC" +
-      "ontract\032\025.protocol.Transaction\"9\202\323\344\223\0023\"\025" +
-      "/wallet/freezebalance:\001*Z\027\022\025/wallet/free" +
-      "zebalance\022\212\001\n\017UnfreezeBalance\022!.protocol" +
-      ".UnfreezeBalanceContract\032\025.protocol.Tran" +
-      "saction\"=\202\323\344\223\0027\"\027/wallet/unfreezebalance" +
-      ":\001*Z\031\022\027/wallet/unfreezebalance\022\202\001\n\rUnfre" +
-      "ezeAsset\022\037.protocol.UnfreezeAssetContrac" +
-      "t\032\025.protocol.Transaction\"9\202\323\344\223\0023\"\025/walle" +
-      "t/unfreezeasset:\001*Z\027\022\025/wallet/unfreezeas" +
-      "set\022\212\001\n\017WithdrawBalance\022!.protocol.Withd" +
-      "rawBalanceContract\032\025.protocol.Transactio" +
-      "n\"=\202\323\344\223\0027\"\027/wallet/withdrawbalance:\001*Z\031\022" +
-      "\027/wallet/withdrawbalance\022j\n\tListNodes\022\026." +
-      "protocol.EmptyMessage\032\022.protocol.NodeLis" +
-      "t\"1\202\323\344\223\002+\"\021/wallet/listnodes:\001*Z\023\022\021/wall" +
-      "et/listnodes\022\222\001\n\026GetAssetIssueByAccount\022" +
-      "\021.protocol.Account\032\030.protocol.AssetIssue" +
-      "List\"K\202\323\344\223\002E\"\036/wallet/getassetissuebyacc" +
-      "ount:\001*Z \022\036/wallet/getassetissuebyaccoun" +
-      "t\022\222\001\n\023GetAssetIssueByName\022\026.protocol.Byt" +
-      "esMessage\032\034.protocol.AssetIssueContract\"" +
-      "E\202\323\344\223\002?\"\033/wallet/getassetissuebyname:\001*Z" +
-      "\035\022\033/wallet/getassetissuebyname\022m\n\013GetNow" +
-      "Block\022\026.protocol.EmptyMessage\032\017.protocol" +
-      ".Block\"5\202\323\344\223\002/\"\023/wallet/getnowblock:\001*Z\025" +
-      "\022\023/wallet/getnowblock\022t\n\rGetBlockByNum\022\027" +
-      ".protocol.NumberMessage\032\017.protocol.Block" +
-      "\"9\202\323\344\223\0023\"\025/wallet/getblockbynum:\001*Z\027\022\025/w" +
-      "allet/getblockbynum\022p\n\014GetBlockById\022\026.pr" +
-      "otocol.BytesMessage\032\017.protocol.Block\"7\202\323" +
-      "\344\223\0021\"\024/wallet/getblockbyid:\001*Z\026\022\024/wallet" +
-      "/getblockbyid\022\207\001\n\023GetBlockByLimitNext\022\024." +
-      "protocol.BlockLimit\032\023.protocol.BlockList" +
-      "\"E\202\323\344\223\002?\"\033/wallet/getblockbylimitnext:\001*" +
-      "Z\035\022\033/wallet/getblockbylimitnext\022\212\001\n\023GetB" +
-      "lockByLatestNum\022\027.protocol.NumberMessage" +
-      "\032\023.protocol.BlockList\"E\202\323\344\223\002?\"\033/wallet/g" +
-      "etblockbylatestnum:\001*Z\035\022\033/wallet/getbloc" +
-      "kbylatestnum\022\210\001\n\022GetTransactionById\022\026.pr" +
-      "otocol.BytesMessage\032\025.protocol.Transacti" +
-      "on\"C\202\323\344\223\002=\"\032/wallet/gettransactionbyid:\001" +
-      "*Z\034\022\032/wallet/gettransactionbyid\022y\n\rListW" +
-      "itnesses\022\026.protocol.EmptyMessage\032\025.proto" +
-      "col.WitnessList\"9\202\323\344\223\0023\"\025/wallet/listwit" +
-      "nesses:\001*Z\027\022\025/wallet/listwitnesses\022\210\001\n\021G" +
-      "etAssetIssueList\022\026.protocol.EmptyMessage" +
-      "\032\030.protocol.AssetIssueList\"A\202\323\344\223\002;\"\031/wal" +
-      "let/getassetissuelist:\001*Z\033\022\031/wallet/geta" +
-      "ssetissuelist\022\204\001\n\020TotalTransaction\022\026.pro" +
-      "tocol.EmptyMessage\032\027.protocol.NumberMess" +
-      "age\"?\202\323\344\223\0029\"\030/wallet/totaltransaction:\001*" +
-      "Z\032\022\030/wallet/totaltransaction\022\226\001\n\026GetNext" +
-      "MaintenanceTime\022\026.protocol.EmptyMessage\032" +
-      "\027.protocol.NumberMessage\"K\202\323\344\223\002E\"\036/walle" +
-      "t/getnextmaintenancetime:\001*Z \022\036/wallet/g" +
-      "etnextmaintenancetime2\265\024\n\016WalletSolidity" +
-      "\022w\n\nGetAccount\022\021.protocol.Account\032\021.prot" +
-      "ocol.Account\"C\202\323\344\223\002=\"\032/walletsolidity/ge" +
-      "taccount:\001*Z\034\022\032/walletsolidity/getaccoun" +
-      "t\022\211\001\n\rListWitnesses\022\026.protocol.EmptyMess" +
-      "age\032\025.protocol.WitnessList\"I\202\323\344\223\002C\"\035/wal" +
-      "letsolidity/listwitnesses:\001*Z\037\022\035/wallets" +
-      "olidity/listwitnesses\022\230\001\n\021GetAssetIssueL" +
-      "ist\022\026.protocol.EmptyMessage\032\030.protocol.A" +
-      "ssetIssueList\"Q\202\323\344\223\002K\"!/walletsolidity/g" +
-      "etassetissuelist:\001*Z#\022!/walletsolidity/g" +
-      "etassetissuelist\022\272\001\n\034GetAssetIssueListBy" +
-      "Timestamp\022\027.protocol.NumberMessage\032\030.pro" +
-      "tocol.AssetIssueList\"g\202\323\344\223\002a\",/walletsol" +
-      "idity/getassetissuelistbytimestamp:\001*Z.\022" +
-      ",/walletsolidity/getassetissuelistbytime" +
-      "stamp\022\242\001\n\026GetAssetIssueByAccount\022\021.proto" +
-      "col.Account\032\030.protocol.AssetIssueList\"[\202" +
-      "\323\344\223\002U\"&/walletsolidity/getassetissuebyac" +
-      "count:\001*Z(\022&/walletsolidity/getassetissu" +
-      "ebyaccount\022\242\001\n\023GetAssetIssueByName\022\026.pro" +
-      "tocol.BytesMessage\032\034.protocol.AssetIssue" +
-      "Contract\"U\202\323\344\223\002O\"#/walletsolidity/getass" +
-      "etissuebyname:\001*Z%\022#/walletsolidity/geta" +
-      "ssetissuebyname\022}\n\013GetNowBlock\022\026.protoco" +
-      "l.EmptyMessage\032\017.protocol.Block\"E\202\323\344\223\002?\"" +
-      "\033/walletsolidity/getnowblock:\001*Z\035\022\033/wall" +
-      "etsolidity/getnowblock\022\204\001\n\rGetBlockByNum" +
-      "\022\027.protocol.NumberMessage\032\017.protocol.Blo" +
-      "ck\"I\202\323\344\223\002C\"\035/walletsolidity/getblockbynu" +
-      "m:\001*Z\037\022\035/walletsolidity/getblockbynum\022\224\001" +
-      "\n\020TotalTransaction\022\026.protocol.EmptyMessa" +
-      "ge\032\027.protocol.NumberMessage\"O\202\323\344\223\002I\" /wa" +
-      "lletsolidity/totaltransaction:\001*Z\"\022 /wal" +
-      "letsolidity/totaltransaction\022\230\001\n\022GetTran" +
-      "sactionById\022\026.protocol.BytesMessage\032\025.pr" +
-      "otocol.Transaction\"S\202\323\344\223\002M\"\"/walletsolid" +
-      "ity/gettransactionbyid:\001*Z$\022\"/walletsoli" +
-      "dity/gettransactionbyid\022\274\001\n\032GetTransacti" +
-      "onsByTimestamp\022\036.protocol.TimePaginatedM" +
-      "essage\032\031.protocol.TransactionList\"c\202\323\344\223\002" +
-      "]\"*/walletsolidity/gettransactionsbytime" +
-      "stamp:\001*Z,\022*/walletsolidity/gettransacti" +
-      "onsbytimestamp\022\300\001\n\037GetTransactionsByTime" +
-      "stampCount\022\025.protocol.TimeMessage\032\027.prot" +
-      "ocol.NumberMessage\"m\202\323\344\223\002g\"//walletsolid" +
-      "ity/gettransactionsbytimestampcount:\001*Z1" +
-      "\022//walletsolidity/gettransactionsbytimes" +
-      "tampcount\022\257\001\n\027GetTransactionsFromThis\022\032." +
-      "protocol.AccountPaginated\032\031.protocol.Tra" +
-      "nsactionList\"]\202\323\344\223\002W\"\'/walletsolidity/ge" +
-      "ttransactionsfromthis:\001*Z)\022\'/walletsolid" +
-      "ity/gettransactionsfromthis\022\251\001\n\025GetTrans" +
-      "actionsToThis\022\032.protocol.AccountPaginate" +
-      "d\032\031.protocol.TransactionList\"Y\202\323\344\223\002S\"%/w" +
-      "alletsolidity/gettransactionstothis:\001*Z\'" +
-      "\022%/walletsolidity/gettransactionstothis\022" +
-      "\263\001\n\034GetTransactionsFromThisCount\022\021.proto" +
-      "col.Account\032\027.protocol.NumberMessage\"g\202\323" +
-      "\344\223\002a\",/walletsolidity/gettransactionsfro" +
-      "mthiscount:\001*Z.\022,/walletsolidity/gettran" +
-      "sactionsfromthiscount\022\255\001\n\032GetTransaction" +
-      "sToThisCount\022\021.protocol.Account\032\027.protoc" +
-      "ol.NumberMessage\"c\202\323\344\223\002]\"*/walletsolidit" +
-      "y/gettransactionstothiscount:\001*Z,\022*/wall" +
-      "etsolidity/gettransactionstothiscount2\231\002" +
-      "\n\010Database\022G\n\021getBlockReference\022\026.protoc" +
-      "ol.EmptyMessage\032\030.protocol.BlockReferenc" +
-      "e\"\000\022M\n\024GetDynamicProperties\022\026.protocol.E" +
-      "mptyMessage\032\033.protocol.DynamicProperties" +
-      "\"\000\0228\n\013GetNowBlock\022\026.protocol.EmptyMessag" +
-      "e\032\017.protocol.Block\"\000\022;\n\rGetBlockByNum\022\027." +
-      "protocol.NumberMessage\032\017.protocol.Block\"" +
-      "\0002\t\n\007NetworkBA\n\014org.tron.apiB\007GrpcAPIZ(g" +
-      "ithub.com/tronprotocol/grpc-gateway/apib" +
-      "\006proto3"
+      "let/createwitness:\001*Z\027\022\025/wallet/createwi" +
+      "tness\022\202\001\n\rTransferAsset\022\037.protocol.Trans" +
+      "ferAssetContract\032\025.protocol.Transaction\"" +
+      "9\202\323\344\223\0023\"\025/wallet/transferasset:\001*Z\027\022\025/wa" +
+      "llet/transferasset\022\242\001\n\025ParticipateAssetI" +
+      "ssue\022\'.protocol.ParticipateAssetIssueCon" +
+      "tract\032\025.protocol.Transaction\"I\202\323\344\223\002C\"\035/w" +
+      "allet/participateassetissue:\001*Z\037\022\035/walle" +
+      "t/participateassetissue\022\202\001\n\rFreezeBalanc" +
+      "e\022\037.protocol.FreezeBalanceContract\032\025.pro" +
+      "tocol.Transaction\"9\202\323\344\223\0023\"\025/wallet/freez" +
+      "ebalance:\001*Z\027\022\025/wallet/freezebalance\022\212\001\n" +
+      "\017UnfreezeBalance\022!.protocol.UnfreezeBala" +
+      "nceContract\032\025.protocol.Transaction\"=\202\323\344\223" +
+      "\0027\"\027/wallet/unfreezebalance:\001*Z\031\022\027/walle" +
+      "t/unfreezebalance\022\202\001\n\rUnfreezeAsset\022\037.pr" +
+      "otocol.UnfreezeAssetContract\032\025.protocol." +
+      "Transaction\"9\202\323\344\223\0023\"\025/wallet/unfreezeass" +
+      "et:\001*Z\027\022\025/wallet/unfreezeasset\022\212\001\n\017Withd" +
+      "rawBalance\022!.protocol.WithdrawBalanceCon" +
+      "tract\032\025.protocol.Transaction\"=\202\323\344\223\0027\"\027/w" +
+      "allet/withdrawbalance:\001*Z\031\022\027/wallet/with" +
+      "drawbalance\022z\n\013UpdateAsset\022\035.protocol.Up" +
+      "dateAssetContract\032\025.protocol.Transaction" +
+      "\"5\202\323\344\223\002/\"\023/wallet/updateasset:\001*Z\025\022\023/wal" +
+      "let/updateasset\022j\n\tListNodes\022\026.protocol." +
+      "EmptyMessage\032\022.protocol.NodeList\"1\202\323\344\223\002+" +
+      "\"\021/wallet/listnodes:\001*Z\023\022\021/wallet/listno" +
+      "des\022\222\001\n\026GetAssetIssueByAccount\022\021.protoco" +
+      "l.Account\032\030.protocol.AssetIssueList\"K\202\323\344" +
+      "\223\002E\"\036/wallet/getassetissuebyaccount:\001*Z " +
+      "\022\036/wallet/getassetissuebyaccount\022z\n\rGetA" +
+      "ccountNet\022\021.protocol.Account\032\033.protocol." +
+      "AccountNetMessage\"9\202\323\344\223\0023\"\025/wallet/getac" +
+      "countnet:\001*Z\027\022\025/wallet/getaccountnet\022\222\001\n" +
+      "\023GetAssetIssueByName\022\026.protocol.BytesMes" +
+      "sage\032\034.protocol.AssetIssueContract\"E\202\323\344\223" +
+      "\002?\"\033/wallet/getassetissuebyname:\001*Z\035\022\033/w" +
+      "allet/getassetissuebyname\022m\n\013GetNowBlock" +
+      "\022\026.protocol.EmptyMessage\032\017.protocol.Bloc" +
+      "k\"5\202\323\344\223\002/\"\023/wallet/getnowblock:\001*Z\025\022\023/wa" +
+      "llet/getnowblock\022t\n\rGetBlockByNum\022\027.prot" +
+      "ocol.NumberMessage\032\017.protocol.Block\"9\202\323\344" +
+      "\223\0023\"\025/wallet/getblockbynum:\001*Z\027\022\025/wallet" +
+      "/getblockbynum\022p\n\014GetBlockById\022\026.protoco" +
+      "l.BytesMessage\032\017.protocol.Block\"7\202\323\344\223\0021\"" +
+      "\024/wallet/getblockbyid:\001*Z\026\022\024/wallet/getb" +
+      "lockbyid\022\207\001\n\023GetBlockByLimitNext\022\024.proto" +
+      "col.BlockLimit\032\023.protocol.BlockList\"E\202\323\344" +
+      "\223\002?\"\033/wallet/getblockbylimitnext:\001*Z\035\022\033/" +
+      "wallet/getblockbylimitnext\022\212\001\n\023GetBlockB" +
+      "yLatestNum\022\027.protocol.NumberMessage\032\023.pr" +
+      "otocol.BlockList\"E\202\323\344\223\002?\"\033/wallet/getblo" +
+      "ckbylatestnum:\001*Z\035\022\033/wallet/getblockbyla" +
+      "testnum\022\210\001\n\022GetTransactionById\022\026.protoco" +
+      "l.BytesMessage\032\025.protocol.Transaction\"C\202" +
+      "\323\344\223\002=\"\032/wallet/gettransactionbyid:\001*Z\034\022\032" +
+      "/wallet/gettransactionbyid\022y\n\rListWitnes" +
+      "ses\022\026.protocol.EmptyMessage\032\025.protocol.W" +
+      "itnessList\"9\202\323\344\223\0023\"\025/wallet/listwitnesse" +
+      "s:\001*Z\027\022\025/wallet/listwitnesses\022\210\001\n\021GetAss" +
+      "etIssueList\022\026.protocol.EmptyMessage\032\030.pr" +
+      "otocol.AssetIssueList\"A\202\323\344\223\002;\"\031/wallet/g" +
+      "etassetissuelist:\001*Z\033\022\031/wallet/getasseti" +
+      "ssuelist\022\204\001\n\020TotalTransaction\022\026.protocol" +
+      ".EmptyMessage\032\027.protocol.NumberMessage\"?" +
+      "\202\323\344\223\0029\"\030/wallet/totaltransaction:\001*Z\032\022\030/" +
+      "wallet/totaltransaction\022\226\001\n\026GetNextMaint" +
+      "enanceTime\022\026.protocol.EmptyMessage\032\027.pro" +
+      "tocol.NumberMessage\"K\202\323\344\223\002E\"\036/wallet/get" +
+      "nextmaintenancetime:\001*Z \022\036/wallet/getnex" +
+      "tmaintenancetime2\357\013\n\016WalletSolidity\022w\n\nG" +
+      "etAccount\022\021.protocol.Account\032\021.protocol." +
+      "Account\"C\202\323\344\223\002=\"\032/walletsolidity/getacco" +
+      "unt:\001*Z\034\022\032/walletsolidity/getaccount\022\211\001\n" +
+      "\rListWitnesses\022\026.protocol.EmptyMessage\032\025" +
+      ".protocol.WitnessList\"I\202\323\344\223\002C\"\035/walletso" +
+      "lidity/listwitnesses:\001*Z\037\022\035/walletsolidi" +
+      "ty/listwitnesses\022\230\001\n\021GetAssetIssueList\022\026" +
+      ".protocol.EmptyMessage\032\030.protocol.AssetI" +
+      "ssueList\"Q\202\323\344\223\002K\"!/walletsolidity/getass" +
+      "etissuelist:\001*Z#\022!/walletsolidity/getass" +
+      "etissuelist\022\272\001\n\034GetAssetIssueListByTimes" +
+      "tamp\022\027.protocol.NumberMessage\032\030.protocol" +
+      ".AssetIssueList\"g\202\323\344\223\002a\",/walletsolidity" +
+      "/getassetissuelistbytimestamp:\001*Z.\022,/wal" +
+      "letsolidity/getassetissuelistbytimestamp" +
+      "\022\242\001\n\026GetAssetIssueByAccount\022\021.protocol.A" +
+      "ccount\032\030.protocol.AssetIssueList\"[\202\323\344\223\002U" +
+      "\"&/walletsolidity/getassetissuebyaccount" +
+      ":\001*Z(\022&/walletsolidity/getassetissuebyac" +
+      "count\022\242\001\n\023GetAssetIssueByName\022\026.protocol" +
+      ".BytesMessage\032\034.protocol.AssetIssueContr" +
+      "act\"U\202\323\344\223\002O\"#/walletsolidity/getassetiss" +
+      "uebyname:\001*Z%\022#/walletsolidity/getasseti" +
+      "ssuebyname\022}\n\013GetNowBlock\022\026.protocol.Emp" +
+      "tyMessage\032\017.protocol.Block\"E\202\323\344\223\002?\"\033/wal" +
+      "letsolidity/getnowblock:\001*Z\035\022\033/walletsol" +
+      "idity/getnowblock\022\204\001\n\rGetBlockByNum\022\027.pr" +
+      "otocol.NumberMessage\032\017.protocol.Block\"I\202" +
+      "\323\344\223\002C\"\035/walletsolidity/getblockbynum:\001*Z" +
+      "\037\022\035/walletsolidity/getblockbynum\022\224\001\n\020Tot" +
+      "alTransaction\022\026.protocol.EmptyMessage\032\027." +
+      "protocol.NumberMessage\"O\202\323\344\223\002I\" /wallets" +
+      "olidity/totaltransaction:\001*Z\"\022 /walletso" +
+      "lidity/totaltransaction\022\230\001\n\022GetTransacti" +
+      "onById\022\026.protocol.BytesMessage\032\025.protoco" +
+      "l.Transaction\"S\202\323\344\223\002M\"\"/walletsolidity/g" +
+      "ettransactionbyid:\001*Z$\022\"/walletsolidity/" +
+      "gettransactionbyid2\343\010\n\017WalletExtension\022\276" +
+      "\001\n\032GetTransactionsByTimestamp\022\036.protocol" +
+      ".TimePaginatedMessage\032\031.protocol.Transac" +
+      "tionList\"e\202\323\344\223\002_\"+/walletextension/gettr" +
+      "ansactionsbytimestamp:\001*Z-\022+/walletexten" +
+      "sion/gettransactionsbytimestamp\022\302\001\n\037GetT" +
+      "ransactionsByTimestampCount\022\025.protocol.T" +
+      "imeMessage\032\027.protocol.NumberMessage\"o\202\323\344" +
+      "\223\002i\"0/walletextension/gettransactionsbyt" +
+      "imestampcount:\001*Z2\0220/walletextension/get" +
+      "transactionsbytimestampcount\022\261\001\n\027GetTran" +
+      "sactionsFromThis\022\032.protocol.AccountPagin" +
+      "ated\032\031.protocol.TransactionList\"_\202\323\344\223\002Y\"" +
+      "(/walletextension/gettransactionsfromthi" +
+      "s:\001*Z*\022(/walletextension/gettransactions" +
+      "fromthis\022\253\001\n\025GetTransactionsToThis\022\032.pro" +
+      "tocol.AccountPaginated\032\031.protocol.Transa" +
+      "ctionList\"[\202\323\344\223\002U\"&/walletextension/gett" +
+      "ransactionstothis:\001*Z(\022&/walletextension" +
+      "/gettransactionstothis\022\265\001\n\034GetTransactio" +
+      "nsFromThisCount\022\021.protocol.Account\032\027.pro" +
+      "tocol.NumberMessage\"i\202\323\344\223\002c\"-/walletexte" +
+      "nsion/gettransactionsfromthiscount:\001*Z/\022" +
+      "-/walletextension/gettransactionsfromthi" +
+      "scount\022\257\001\n\032GetTransactionsToThisCount\022\021." +
+      "protocol.Account\032\027.protocol.NumberMessag" +
+      "e\"e\202\323\344\223\002_\"+/walletextension/gettransacti" +
+      "onstothiscount:\001*Z-\022+/walletextension/ge" +
+      "ttransactionstothiscount2\231\002\n\010Database\022G\n" +
+      "\021getBlockReference\022\026.protocol.EmptyMessa" +
+      "ge\032\030.protocol.BlockReference\"\000\022M\n\024GetDyn" +
+      "amicProperties\022\026.protocol.EmptyMessage\032\033" +
+      ".protocol.DynamicProperties\"\000\0228\n\013GetNowB" +
+      "lock\022\026.protocol.EmptyMessage\032\017.protocol." +
+      "Block\"\000\022;\n\rGetBlockByNum\022\027.protocol.Numb" +
+      "erMessage\032\017.protocol.Block\"\0002\t\n\007NetworkB" +
+      "A\n\014org.tron.apiB\007GrpcAPIZ(github.com/tro" +
+      "nprotocol/grpc-gateway/apib\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10911,6 +12175,24 @@ public final class GrpcAPI {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TimePaginatedMessage_descriptor,
         new java.lang.String[] { "TimeMessage", "Offset", "Limit", });
+    internal_static_protocol_AccountNetMessage_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_protocol_AccountNetMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_AccountNetMessage_descriptor,
+        new java.lang.String[] { "FreeNetUsed", "FreeNetLimit", "NetUsed", "NetLimit", "AssetNetUsed", "AssetNetLimit", });
+    internal_static_protocol_AccountNetMessage_AssetNetUsedEntry_descriptor =
+      internal_static_protocol_AccountNetMessage_descriptor.getNestedTypes().get(0);
+    internal_static_protocol_AccountNetMessage_AssetNetUsedEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_AccountNetMessage_AssetNetUsedEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_protocol_AccountNetMessage_AssetNetLimitEntry_descriptor =
+      internal_static_protocol_AccountNetMessage_descriptor.getNestedTypes().get(1);
+    internal_static_protocol_AccountNetMessage_AssetNetLimitEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_AccountNetMessage_AssetNetLimitEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
