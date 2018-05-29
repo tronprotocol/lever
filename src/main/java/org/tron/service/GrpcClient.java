@@ -90,6 +90,10 @@ public class GrpcClient {
     return blockingStub.createWitness(contract);
   }
 
+  public Account getAccount(Account account) {
+    return blockingStub.getAccount(account);
+  }
+
   public boolean broadcastTransaction(Transaction signaturedTransaction) {
     GrpcAPI.Return response = blockingStub.broadcastTransaction(signaturedTransaction);
     if (!response.getResult()) {

@@ -21,6 +21,7 @@ import org.tron.core.config.Configuration;
 import org.tron.protos.Contract;
 import org.tron.protos.Contract.FreezeBalanceContract;
 import org.tron.protos.Contract.TransferContract;
+import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
 
 import javax.annotation.PostConstruct;
@@ -133,6 +134,10 @@ public class WalletClient {
 
   public boolean broadcastTransaction(Transaction transaction) {
     return rpcCli.broadcastTransaction(transaction);
+  }
+
+  public Account getAccount(Account account) {
+    return rpcCli.getAccount(account);
   }
 
   public Transaction signTransaction(Transaction transaction) {

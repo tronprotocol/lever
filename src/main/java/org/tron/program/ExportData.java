@@ -3,7 +3,6 @@ package org.tron.program;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.typesafe.config.Config;
-import com.typesafe.config.ConfigFactory;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -67,9 +66,12 @@ public class ExportData {
         Transaction transaction = walletClient
             .createTransaction(toAddressByteList.get(c % addressSize),
                 amount, privateKeyList.get(c % privateKeySize));
-        transactions.add(transaction);
+        if (null != transaction) {
+          transactions.add(transaction);
+        }
+
         if ((c + 1) % 1000 == 0) {
-          System.out.println("create transaction current: " + (c + 1));
+          System.out.println("create transaction current: " + (c + 1) + ", total nice transaction: " + transactions.size());
         }
       }
     });
@@ -153,7 +155,8 @@ class ExportDataArgs {
     }
 
     org.tron.common.config.Config configMap = new org.tron.common.config.ConfigImpl();
-    EnumMap<ConfigProperty, Object> configInfo = configMap.getConfig(configFilePath, DEFAULT_CONFIG_FILE_PATH);
+    EnumMap<ConfigProperty, Object> configInfo = configMap
+        .getConfig(configFilePath, DEFAULT_CONFIG_FILE_PATH);
 
     Config config = (Config) configInfo.get(ConfigProperty.CONFIG);
     String configTip = (String) configInfo.get(ConfigProperty.TIP);

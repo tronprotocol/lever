@@ -5,6 +5,7 @@ import com.beust.jcommander.Parameter;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.RateLimiter;
+import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,6 +16,7 @@ import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
@@ -25,8 +27,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.ss.formula.functions.T;
 import org.tron.common.config.Config.ConfigProperty;
-import org.tron.common.utils.Time;
+import org.tron.common.utils.Base58;
+import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
@@ -37,8 +41,16 @@ public class SendCoinLoop {
   private static List<WalletClient> walletClients = new ArrayList<>();
   private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
 
+  @Getter
+  private static ConcurrentHashMap<String, Long> startAccount = new ConcurrentHashMap<>();
+
+  @Getter
+  private static ConcurrentHashMap<String, Long> endAccount = new ConcurrentHashMap<>();
+
+  private static SendCoinArgs argsObj;
+
   public static void main(String[] args) throws IOException {
-    SendCoinArgs argsObj = SendCoinArgs.getInstance(args);
+    argsObj = SendCoinArgs.getInstance(args);
 
     double tps = argsObj.getTps();
 
@@ -59,7 +71,26 @@ public class SendCoinLoop {
       trxCount++;
     }
 
+    setStartAccountMap(walletClients.get(0));
     rateLimiter(tps);
+  }
+
+  private static void setStartAccountMap(WalletClient walletClient) {
+    List<String> accountAddressList = argsObj.getAccountAddress();
+    accountAddressList.forEach(a -> {
+      startAccount.put(a,
+          walletClient.getAccount(Account.newBuilder().setAddress(ByteString.copyFrom(Objects
+              .requireNonNull(Base58.decodeFromBase58Check(a)))).build()).getBalance());
+    });
+  }
+
+  public static void setEndAccountMap(WalletClient walletClient) {
+    List<String> accountAddressList = argsObj.getAccountAddress();
+    accountAddressList.forEach(a -> {
+      endAccount.put(a,
+          walletClient.getAccount(Account.newBuilder().setAddress(ByteString.copyFrom(Objects
+              .requireNonNull(Base58.decodeFromBase58Check(a)))).build()).getBalance());
+    });
   }
 
   public static void rateLimiter(double tps) {
@@ -92,7 +123,7 @@ class Task implements Runnable {
   private static ConcurrentHashMap<Long, LongAdder> resultMap = new ConcurrentHashMap<>();
   public static final ScheduledExecutorService service = Executors
       .newSingleThreadScheduledExecutor();
-  private WalletClient walletClient;
+  private static WalletClient walletClient;
   private RateLimiter limiter;
   private List<Transaction> transactions;
   private static LongAdder endCounts = new LongAdder();
@@ -112,8 +143,29 @@ class Task implements Runnable {
 
       if (endCounts.longValue() == threadCount) {
         endTime = new Date();
-        System.out.printf("start time: %tF %tT, end time: %tF %tT", startTime, startTime, endTime, endTime);
-        service.shutdown();
+        System.out.printf("start time: %tF %tT, end time: %tF %tT", startTime, startTime, endTime,
+            endTime);
+
+        try {
+          Thread.sleep(60 * 1_000);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        } finally {
+          SendCoinLoop.setEndAccountMap(walletClient);
+
+          System.out.println("start account:");
+          SendCoinLoop.getStartAccount().entrySet().stream().forEach(v -> {
+            System.out.println("address: " + v.getKey() + ", balance: " + v.getValue());
+          });
+
+          System.out.println();
+          System.out.println("end account:");
+          SendCoinLoop.getEndAccount().entrySet().stream().forEach(v -> {
+            System.out.println("address: " + v.getKey() + ", balance: " + v.getValue());
+          });
+
+          service.shutdown();
+        }
       }
     }, 5, 5, TimeUnit.SECONDS);
   }
@@ -161,6 +213,7 @@ class SendCoinArgs {
   private static final String GRPC_ADDRESS = "grpc.address";
   private static final String DATA_FILE = "data.file";
   private static final String TPS = "tps";
+  private static final String ACCOUNT_ADDRESS = "account.address";
 
   private static SendCoinArgs INSTANCE;
 
@@ -181,6 +234,10 @@ class SendCoinArgs {
   @Parameter(names = {
       "--tps"}, description = "tps")
   private int tps = 0;
+
+  @Getter
+  @Parameter(names = {"--accountAddress"}, description = "Get account address list")
+  private List<String> accountAddress = new ArrayList<>();
 
   private SendCoinArgs() {
 
@@ -203,7 +260,8 @@ class SendCoinArgs {
     }
 
     org.tron.common.config.Config configMap = new org.tron.common.config.ConfigImpl();
-    EnumMap<ConfigProperty, Object> configInfo = configMap.getConfig(configFilePath, DEFAULT_CONFIG_FILE_PATH);
+    EnumMap<ConfigProperty, Object> configInfo = configMap
+        .getConfig(configFilePath, DEFAULT_CONFIG_FILE_PATH);
 
     Config config = (Config) configInfo.get(ConfigProperty.CONFIG);
     String configTip = (String) configInfo.get(ConfigProperty.TIP);
@@ -230,6 +288,13 @@ class SendCoinArgs {
     }
 
     System.out.printf("TPS: \u001B[34m%s\u001B[0m", INSTANCE.tps);
+    System.out.println();
+
+    if (0 == INSTANCE.accountAddress.size()) {
+      INSTANCE.accountAddress = config.getStringList(ACCOUNT_ADDRESS);
+    }
+
+    System.out.printf("Account address: \u001B[34m%s\u001B[0m", INSTANCE.accountAddress);
     System.out.println();
   }
 }
