@@ -146,26 +146,12 @@ class Task implements Runnable {
         System.out.printf("start time: %tF %tT, end time: %tF %tT", startTime, startTime, endTime,
             endTime);
 
-        try {
-          Thread.sleep(60 * 1_000);
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        } finally {
-          SendCoinLoop.setEndAccountMap(walletClient);
+        System.out.println("start account:");
+        SendCoinLoop.getStartAccount().entrySet().stream().forEach(v -> {
+          System.out.println("address: " + v.getKey() + ", balance: " + v.getValue());
+        });
 
-          System.out.println("start account:");
-          SendCoinLoop.getStartAccount().entrySet().stream().forEach(v -> {
-            System.out.println("address: " + v.getKey() + ", balance: " + v.getValue());
-          });
-
-          System.out.println();
-          System.out.println("end account:");
-          SendCoinLoop.getEndAccount().entrySet().stream().forEach(v -> {
-            System.out.println("address: " + v.getKey() + ", balance: " + v.getValue());
-          });
-
-          service.shutdown();
-        }
+        service.shutdown();
       }
     }, 5, 5, TimeUnit.SECONDS);
   }
