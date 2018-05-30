@@ -123,7 +123,7 @@ class Task implements Runnable {
   private static ConcurrentHashMap<Long, LongAdder> resultMap = new ConcurrentHashMap<>();
   public static final ScheduledExecutorService service = Executors
       .newSingleThreadScheduledExecutor();
-  private static WalletClient walletClient;
+  private WalletClient walletClient;
   private RateLimiter limiter;
   private List<Transaction> transactions;
   private static LongAdder endCounts = new LongAdder();
