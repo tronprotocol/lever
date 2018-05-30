@@ -143,10 +143,10 @@ class Task implements Runnable {
 
       if (endCounts.longValue() == threadCount) {
         endTime = new Date();
-        System.out.printf("start time: %tF %tT, end time: %tF %tT\n", startTime, startTime, endTime,
+        System.out.printf("\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT\n", startTime, startTime, endTime,
             endTime);
 
-        System.out.println("start account:");
+        System.out.println("\u001B[36mstart account:\u001B[0m");
         SendCoinLoop.getStartAccount().entrySet().stream().forEach(v -> {
           System.out.println("\taddress: " + v.getKey() + ", balance: " + v.getValue());
         });
