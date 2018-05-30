@@ -53,9 +53,9 @@ public class SendCoinLoop {
     argsObj = SendCoinArgs.getInstance(args);
 
     List<String> grpcAddress = new ArrayList<>();
-    grpcAddress.add("47.52.243.22:50051");
-    grpcAddress.add("47.91.213.254:50051");
-    grpcAddress.add("47.254.68.236:50051");
+    grpcAddress.add("39.106.178.126:50051");
+    grpcAddress.add("47.93.33.201:50051");
+    grpcAddress.add("123.56.10.6:50051");
 
     double tps = argsObj.getTps();
 
