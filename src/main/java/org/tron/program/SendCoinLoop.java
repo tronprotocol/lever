@@ -36,7 +36,7 @@ import org.tron.service.WalletClient;
 
 public class SendCoinLoop {
 
-  private static final int THREAD_COUNT = 16;
+  private static final int THREAD_COUNT = 18;
 
   private static List<WalletClient> walletClients = new ArrayList<>();
   private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
@@ -52,11 +52,18 @@ public class SendCoinLoop {
   public static void main(String[] args) throws IOException {
     argsObj = SendCoinArgs.getInstance(args);
 
+    List<String> grpcAddress = new ArrayList<>();
+    grpcAddress.add("47.52.243.22:50051");
+    grpcAddress.add("47.91.213.254:50051");
+    grpcAddress.add("47.254.68.236:50051");
+
     double tps = argsObj.getTps();
 
+    LongAdder count = new LongAdder();
     walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
       WalletClient walletClient = new WalletClient();
-      walletClient.init(argsObj.getGRpcAddress());
+      walletClient.init(grpcAddress.get(count.intValue() % 3));
+      count.increment();
       return walletClient;
     }).collect(Collectors.toList());
 
