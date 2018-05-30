@@ -143,7 +143,7 @@ class Task implements Runnable {
 
       if (endCounts.longValue() == threadCount) {
         endTime = new Date();
-        System.out.printf("start time: %tF %tT, end time: %tF %tT", startTime, startTime, endTime,
+        System.out.printf("start time: %tF %tT, end time: %tF %tT\n", startTime, startTime, endTime,
             endTime);
 
         System.out.println("start account:");
