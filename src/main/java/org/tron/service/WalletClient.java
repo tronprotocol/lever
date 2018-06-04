@@ -6,14 +6,12 @@ import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
 import java.util.List;
-import java.util.Optional;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import lombok.extern.slf4j.Slf4j;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
@@ -23,9 +21,6 @@ import org.tron.protos.Contract.FreezeBalanceContract;
 import org.tron.protos.Contract.TransferContract;
 import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
-
-import javax.annotation.PostConstruct;
-import javax.ws.rs.GET;
 
 @Slf4j
 @Component
@@ -164,7 +159,8 @@ public class WalletClient {
   public boolean freezeBalance(String privateKey, long frozen_balance, long frozen_duration) {
     ECKey ecKey = ECKey.fromPrivate(ByteArray.fromHexString(privateKey));
 
-    Contract.FreezeBalanceContract contract = createFreezeBalanceContract(ecKey.getAddress(), frozen_balance,
+    Contract.FreezeBalanceContract contract = createFreezeBalanceContract(ecKey.getAddress(),
+        frozen_balance,
         frozen_duration);
 
     Transaction transaction = rpcCli.createTransaction(contract);
@@ -180,9 +176,9 @@ public class WalletClient {
   private FreezeBalanceContract createFreezeBalanceContract(byte[] address, long frozen_balance,
       long frozen_duration) {
     Contract.FreezeBalanceContract.Builder builder = Contract.FreezeBalanceContract.newBuilder();
-    ByteString byteAddreess = ByteString.copyFrom(address);
+    ByteString byteAddress = ByteString.copyFrom(address);
 
-    builder.setOwnerAddress(byteAddreess).setFrozenBalance(frozen_balance)
+    builder.setOwnerAddress(byteAddress).setFrozenBalance(frozen_balance)
         .setFrozenDuration(frozen_duration);
 
     return builder.build();
