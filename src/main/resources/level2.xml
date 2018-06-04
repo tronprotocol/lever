@@ -85,8 +85,8 @@
 
     <bean id="niceExpirationCurrentHalfDayCreator" class="org.tron.common.dispatch.creator.commonCase.NiceExpirationCurrentHalfDayCreator">
         <property name="name" value="niceExpirationCurrentHalfDayCreator"/>
-        <property name="begin" value="80"/>
-        <property name="end" value="89"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
     </bean>
 
     <bean id="niceRefBlockServerValueCreator" class="org.tron.common.dispatch.creator.commonCase.NiceRefBlockServerValueCreator">
