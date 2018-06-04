@@ -19,23 +19,23 @@ public final class Contract {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.protocol.AccountType type = 1;</code>
+     * <code>bytes owner_address = 1;</code>
+     */
+    com.google.protobuf.ByteString getOwnerAddress();
+
+    /**
+     * <code>bytes account_address = 2;</code>
+     */
+    com.google.protobuf.ByteString getAccountAddress();
+
+    /**
+     * <code>.protocol.AccountType type = 3;</code>
      */
     int getTypeValue();
     /**
-     * <code>.protocol.AccountType type = 1;</code>
+     * <code>.protocol.AccountType type = 3;</code>
      */
     org.tron.protos.Protocol.AccountType getType();
-
-    /**
-     * <code>bytes account_name = 2;</code>
-     */
-    com.google.protobuf.ByteString getAccountName();
-
-    /**
-     * <code>bytes owner_address = 3;</code>
-     */
-    com.google.protobuf.ByteString getOwnerAddress();
   }
   /**
    * Protobuf type {@code protocol.AccountCreateContract}
@@ -50,9 +50,9 @@ public final class Contract {
       super(builder);
     }
     private AccountCreateContract() {
-      type_ = 0;
-      accountName_ = com.google.protobuf.ByteString.EMPTY;
       ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
+      accountAddress_ = com.google.protobuf.ByteString.EMPTY;
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -86,20 +86,20 @@ public final class Contract {
               }
               break;
             }
-            case 8: {
-              int rawValue = input.readEnum();
+            case 10: {
 
-              type_ = rawValue;
+              ownerAddress_ = input.readBytes();
               break;
             }
             case 18: {
 
-              accountName_ = input.readBytes();
+              accountAddress_ = input.readBytes();
               break;
             }
-            case 26: {
+            case 24: {
+              int rawValue = input.readEnum();
 
-              ownerAddress_ = input.readBytes();
+              type_ = rawValue;
               break;
             }
           }
@@ -126,38 +126,38 @@ public final class Contract {
               org.tron.protos.Contract.AccountCreateContract.class, org.tron.protos.Contract.AccountCreateContract.Builder.class);
     }
 
-    public static final int TYPE_FIELD_NUMBER = 1;
+    public static final int OWNER_ADDRESS_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString ownerAddress_;
+    /**
+     * <code>bytes owner_address = 1;</code>
+     */
+    public com.google.protobuf.ByteString getOwnerAddress() {
+      return ownerAddress_;
+    }
+
+    public static final int ACCOUNT_ADDRESS_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString accountAddress_;
+    /**
+     * <code>bytes account_address = 2;</code>
+     */
+    public com.google.protobuf.ByteString getAccountAddress() {
+      return accountAddress_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 3;
     private int type_;
     /**
-     * <code>.protocol.AccountType type = 1;</code>
+     * <code>.protocol.AccountType type = 3;</code>
      */
     public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.protocol.AccountType type = 1;</code>
+     * <code>.protocol.AccountType type = 3;</code>
      */
     public org.tron.protos.Protocol.AccountType getType() {
       org.tron.protos.Protocol.AccountType result = org.tron.protos.Protocol.AccountType.valueOf(type_);
       return result == null ? org.tron.protos.Protocol.AccountType.UNRECOGNIZED : result;
-    }
-
-    public static final int ACCOUNT_NAME_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString accountName_;
-    /**
-     * <code>bytes account_name = 2;</code>
-     */
-    public com.google.protobuf.ByteString getAccountName() {
-      return accountName_;
-    }
-
-    public static final int OWNER_ADDRESS_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString ownerAddress_;
-    /**
-     * <code>bytes owner_address = 3;</code>
-     */
-    public com.google.protobuf.ByteString getOwnerAddress() {
-      return ownerAddress_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -172,14 +172,14 @@ public final class Contract {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != org.tron.protos.Protocol.AccountType.Normal.getNumber()) {
-        output.writeEnum(1, type_);
-      }
-      if (!accountName_.isEmpty()) {
-        output.writeBytes(2, accountName_);
-      }
       if (!ownerAddress_.isEmpty()) {
-        output.writeBytes(3, ownerAddress_);
+        output.writeBytes(1, ownerAddress_);
+      }
+      if (!accountAddress_.isEmpty()) {
+        output.writeBytes(2, accountAddress_);
+      }
+      if (type_ != org.tron.protos.Protocol.AccountType.Normal.getNumber()) {
+        output.writeEnum(3, type_);
       }
       unknownFields.writeTo(output);
     }
@@ -189,17 +189,17 @@ public final class Contract {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != org.tron.protos.Protocol.AccountType.Normal.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, type_);
-      }
-      if (!accountName_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, accountName_);
-      }
       if (!ownerAddress_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, ownerAddress_);
+          .computeBytesSize(1, ownerAddress_);
+      }
+      if (!accountAddress_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, accountAddress_);
+      }
+      if (type_ != org.tron.protos.Protocol.AccountType.Normal.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, type_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -217,11 +217,11 @@ public final class Contract {
       org.tron.protos.Contract.AccountCreateContract other = (org.tron.protos.Contract.AccountCreateContract) obj;
 
       boolean result = true;
-      result = result && type_ == other.type_;
-      result = result && getAccountName()
-          .equals(other.getAccountName());
       result = result && getOwnerAddress()
           .equals(other.getOwnerAddress());
+      result = result && getAccountAddress()
+          .equals(other.getAccountAddress());
+      result = result && type_ == other.type_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -233,12 +233,12 @@ public final class Contract {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + type_;
-      hash = (37 * hash) + ACCOUNT_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getAccountName().hashCode();
       hash = (37 * hash) + OWNER_ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getOwnerAddress().hashCode();
+      hash = (37 * hash) + ACCOUNT_ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountAddress().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -368,11 +368,11 @@ public final class Contract {
       }
       public Builder clear() {
         super.clear();
-        type_ = 0;
-
-        accountName_ = com.google.protobuf.ByteString.EMPTY;
-
         ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
+
+        accountAddress_ = com.google.protobuf.ByteString.EMPTY;
+
+        type_ = 0;
 
         return this;
       }
@@ -396,9 +396,9 @@ public final class Contract {
 
       public org.tron.protos.Contract.AccountCreateContract buildPartial() {
         org.tron.protos.Contract.AccountCreateContract result = new org.tron.protos.Contract.AccountCreateContract(this);
-        result.type_ = type_;
-        result.accountName_ = accountName_;
         result.ownerAddress_ = ownerAddress_;
+        result.accountAddress_ = accountAddress_;
+        result.type_ = type_;
         onBuilt();
         return result;
       }
@@ -440,14 +440,14 @@ public final class Contract {
 
       public Builder mergeFrom(org.tron.protos.Contract.AccountCreateContract other) {
         if (other == org.tron.protos.Contract.AccountCreateContract.getDefaultInstance()) return this;
-        if (other.type_ != 0) {
-          setTypeValue(other.getTypeValue());
-        }
-        if (other.getAccountName() != com.google.protobuf.ByteString.EMPTY) {
-          setAccountName(other.getAccountName());
-        }
         if (other.getOwnerAddress() != com.google.protobuf.ByteString.EMPTY) {
           setOwnerAddress(other.getOwnerAddress());
+        }
+        if (other.getAccountAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setAccountAddress(other.getAccountAddress());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -476,88 +476,15 @@ public final class Contract {
         return this;
       }
 
-      private int type_ = 0;
-      /**
-       * <code>.protocol.AccountType type = 1;</code>
-       */
-      public int getTypeValue() {
-        return type_;
-      }
-      /**
-       * <code>.protocol.AccountType type = 1;</code>
-       */
-      public Builder setTypeValue(int value) {
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.protocol.AccountType type = 1;</code>
-       */
-      public org.tron.protos.Protocol.AccountType getType() {
-        org.tron.protos.Protocol.AccountType result = org.tron.protos.Protocol.AccountType.valueOf(type_);
-        return result == null ? org.tron.protos.Protocol.AccountType.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.protocol.AccountType type = 1;</code>
-       */
-      public Builder setType(org.tron.protos.Protocol.AccountType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        type_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.protocol.AccountType type = 1;</code>
-       */
-      public Builder clearType() {
-        
-        type_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString accountName_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes account_name = 2;</code>
-       */
-      public com.google.protobuf.ByteString getAccountName() {
-        return accountName_;
-      }
-      /**
-       * <code>bytes account_name = 2;</code>
-       */
-      public Builder setAccountName(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        accountName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes account_name = 2;</code>
-       */
-      public Builder clearAccountName() {
-        
-        accountName_ = getDefaultInstance().getAccountName();
-        onChanged();
-        return this;
-      }
-
       private com.google.protobuf.ByteString ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes owner_address = 3;</code>
+       * <code>bytes owner_address = 1;</code>
        */
       public com.google.protobuf.ByteString getOwnerAddress() {
         return ownerAddress_;
       }
       /**
-       * <code>bytes owner_address = 3;</code>
+       * <code>bytes owner_address = 1;</code>
        */
       public Builder setOwnerAddress(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -569,11 +496,84 @@ public final class Contract {
         return this;
       }
       /**
-       * <code>bytes owner_address = 3;</code>
+       * <code>bytes owner_address = 1;</code>
        */
       public Builder clearOwnerAddress() {
         
         ownerAddress_ = getDefaultInstance().getOwnerAddress();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString accountAddress_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes account_address = 2;</code>
+       */
+      public com.google.protobuf.ByteString getAccountAddress() {
+        return accountAddress_;
+      }
+      /**
+       * <code>bytes account_address = 2;</code>
+       */
+      public Builder setAccountAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        accountAddress_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes account_address = 2;</code>
+       */
+      public Builder clearAccountAddress() {
+        
+        accountAddress_ = getDefaultInstance().getAccountAddress();
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.protocol.AccountType type = 3;</code>
+       */
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.protocol.AccountType type = 3;</code>
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountType type = 3;</code>
+       */
+      public org.tron.protos.Protocol.AccountType getType() {
+        org.tron.protos.Protocol.AccountType result = org.tron.protos.Protocol.AccountType.valueOf(type_);
+        return result == null ? org.tron.protos.Protocol.AccountType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.protocol.AccountType type = 3;</code>
+       */
+      public Builder setType(org.tron.protos.Protocol.AccountType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.protocol.AccountType type = 3;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -11787,53 +11787,53 @@ public final class Contract {
   static {
     java.lang.String[] descriptorData = {
       "\n\023core/Contract.proto\022\010protocol\032\017core/Tr" +
-      "on.proto\"i\n\025AccountCreateContract\022#\n\004typ" +
-      "e\030\001 \001(\0162\025.protocol.AccountType\022\024\n\014accoun" +
-      "t_name\030\002 \001(\014\022\025\n\rowner_address\030\003 \001(\014\"D\n\025A" +
-      "ccountUpdateContract\022\024\n\014account_name\030\001 \001" +
-      "(\014\022\025\n\rowner_address\030\002 \001(\014\"M\n\020TransferCon" +
-      "tract\022\025\n\rowner_address\030\001 \001(\014\022\022\n\nto_addre" +
-      "ss\030\002 \001(\014\022\016\n\006amount\030\003 \001(\003\"f\n\025TransferAsse" +
-      "tContract\022\022\n\nasset_name\030\001 \001(\014\022\025\n\rowner_a" +
-      "ddress\030\002 \001(\014\022\022\n\nto_address\030\003 \001(\014\022\016\n\006amou" +
-      "nt\030\004 \001(\003\"`\n\021VoteAssetContract\022\025\n\rowner_a" +
-      "ddress\030\001 \001(\014\022\024\n\014vote_address\030\002 \003(\014\022\017\n\007su" +
-      "pport\030\003 \001(\010\022\r\n\005count\030\005 \001(\005\"\242\001\n\023VoteWitne" +
-      "ssContract\022\025\n\rowner_address\030\001 \001(\014\0221\n\005vot" +
-      "es\030\002 \003(\0132\".protocol.VoteWitnessContract." +
-      "Vote\022\017\n\007support\030\003 \001(\010\0320\n\004Vote\022\024\n\014vote_ad" +
-      "dress\030\001 \001(\014\022\022\n\nvote_count\030\002 \001(\003\";\n\025Witne" +
-      "ssCreateContract\022\025\n\rowner_address\030\001 \001(\014\022" +
-      "\013\n\003url\030\002 \001(\014\"B\n\025WitnessUpdateContract\022\025\n" +
-      "\rowner_address\030\001 \001(\014\022\022\n\nupdate_url\030\014 \001(\014" +
-      "\"\342\003\n\022AssetIssueContract\022\025\n\rowner_address" +
-      "\030\001 \001(\014\022\014\n\004name\030\002 \001(\014\022\014\n\004abbr\030\003 \001(\014\022\024\n\014to" +
-      "tal_supply\030\004 \001(\003\022@\n\rfrozen_supply\030\005 \003(\0132" +
-      ").protocol.AssetIssueContract.FrozenSupp" +
-      "ly\022\017\n\007trx_num\030\006 \001(\005\022\013\n\003num\030\010 \001(\005\022\022\n\nstar" +
-      "t_time\030\t \001(\003\022\020\n\010end_time\030\n \001(\003\022\022\n\nvote_s" +
-      "core\030\020 \001(\005\022\023\n\013description\030\024 \001(\014\022\013\n\003url\030\025" +
-      " \001(\014\022\034\n\024free_asset_net_limit\030\026 \001(\003\022#\n\033pu" +
-      "blic_free_asset_net_limit\030\027 \001(\003\022#\n\033publi" +
-      "c_free_asset_net_usage\030\030 \001(\003\022#\n\033public_l" +
-      "atest_free_net_time\030\031 \001(\003\032:\n\014FrozenSuppl" +
-      "y\022\025\n\rfrozen_amount\030\001 \001(\003\022\023\n\013frozen_days\030" +
-      "\002 \001(\003\"n\n\035ParticipateAssetIssueContract\022\025" +
-      "\n\rowner_address\030\001 \001(\014\022\022\n\nto_address\030\002 \001(" +
-      "\014\022\022\n\nasset_name\030\003 \001(\014\022\016\n\006amount\030\004 \001(\003\"7\n" +
-      "\016DeployContract\022\025\n\rowner_address\030\001 \001(\014\022\016" +
-      "\n\006script\030\002 \001(\014\"_\n\025FreezeBalanceContract\022" +
-      "\025\n\rowner_address\030\001 \001(\014\022\026\n\016frozen_balance" +
-      "\030\002 \001(\003\022\027\n\017frozen_duration\030\003 \001(\003\"0\n\027Unfre" +
-      "ezeBalanceContract\022\025\n\rowner_address\030\001 \001(" +
-      "\014\".\n\025UnfreezeAssetContract\022\025\n\rowner_addr" +
-      "ess\030\001 \001(\014\"0\n\027WithdrawBalanceContract\022\025\n\r" +
-      "owner_address\030\001 \001(\014\"{\n\023UpdateAssetContra" +
-      "ct\022\025\n\rowner_address\030\001 \001(\014\022\023\n\013description" +
-      "\030\002 \001(\014\022\013\n\003url\030\003 \001(\014\022\021\n\tnew_limit\030\004 \001(\003\022\030" +
-      "\n\020new_public_limit\030\005 \001(\003BF\n\017org.tron.pro" +
-      "tosB\010ContractZ)github.com/tronprotocol/g" +
-      "rpc-gateway/coreb\006proto3"
+      "on.proto\"l\n\025AccountCreateContract\022\025\n\rown" +
+      "er_address\030\001 \001(\014\022\027\n\017account_address\030\002 \001(" +
+      "\014\022#\n\004type\030\003 \001(\0162\025.protocol.AccountType\"D" +
+      "\n\025AccountUpdateContract\022\024\n\014account_name\030" +
+      "\001 \001(\014\022\025\n\rowner_address\030\002 \001(\014\"M\n\020Transfer" +
+      "Contract\022\025\n\rowner_address\030\001 \001(\014\022\022\n\nto_ad" +
+      "dress\030\002 \001(\014\022\016\n\006amount\030\003 \001(\003\"f\n\025TransferA" +
+      "ssetContract\022\022\n\nasset_name\030\001 \001(\014\022\025\n\rowne" +
+      "r_address\030\002 \001(\014\022\022\n\nto_address\030\003 \001(\014\022\016\n\006a" +
+      "mount\030\004 \001(\003\"`\n\021VoteAssetContract\022\025\n\rowne" +
+      "r_address\030\001 \001(\014\022\024\n\014vote_address\030\002 \003(\014\022\017\n" +
+      "\007support\030\003 \001(\010\022\r\n\005count\030\005 \001(\005\"\242\001\n\023VoteWi" +
+      "tnessContract\022\025\n\rowner_address\030\001 \001(\014\0221\n\005" +
+      "votes\030\002 \003(\0132\".protocol.VoteWitnessContra" +
+      "ct.Vote\022\017\n\007support\030\003 \001(\010\0320\n\004Vote\022\024\n\014vote" +
+      "_address\030\001 \001(\014\022\022\n\nvote_count\030\002 \001(\003\";\n\025Wi" +
+      "tnessCreateContract\022\025\n\rowner_address\030\001 \001" +
+      "(\014\022\013\n\003url\030\002 \001(\014\"B\n\025WitnessUpdateContract" +
+      "\022\025\n\rowner_address\030\001 \001(\014\022\022\n\nupdate_url\030\014 " +
+      "\001(\014\"\342\003\n\022AssetIssueContract\022\025\n\rowner_addr" +
+      "ess\030\001 \001(\014\022\014\n\004name\030\002 \001(\014\022\014\n\004abbr\030\003 \001(\014\022\024\n" +
+      "\014total_supply\030\004 \001(\003\022@\n\rfrozen_supply\030\005 \003" +
+      "(\0132).protocol.AssetIssueContract.FrozenS" +
+      "upply\022\017\n\007trx_num\030\006 \001(\005\022\013\n\003num\030\010 \001(\005\022\022\n\ns" +
+      "tart_time\030\t \001(\003\022\020\n\010end_time\030\n \001(\003\022\022\n\nvot" +
+      "e_score\030\020 \001(\005\022\023\n\013description\030\024 \001(\014\022\013\n\003ur" +
+      "l\030\025 \001(\014\022\034\n\024free_asset_net_limit\030\026 \001(\003\022#\n" +
+      "\033public_free_asset_net_limit\030\027 \001(\003\022#\n\033pu" +
+      "blic_free_asset_net_usage\030\030 \001(\003\022#\n\033publi" +
+      "c_latest_free_net_time\030\031 \001(\003\032:\n\014FrozenSu" +
+      "pply\022\025\n\rfrozen_amount\030\001 \001(\003\022\023\n\013frozen_da" +
+      "ys\030\002 \001(\003\"n\n\035ParticipateAssetIssueContrac" +
+      "t\022\025\n\rowner_address\030\001 \001(\014\022\022\n\nto_address\030\002" +
+      " \001(\014\022\022\n\nasset_name\030\003 \001(\014\022\016\n\006amount\030\004 \001(\003" +
+      "\"7\n\016DeployContract\022\025\n\rowner_address\030\001 \001(" +
+      "\014\022\016\n\006script\030\002 \001(\014\"_\n\025FreezeBalanceContra" +
+      "ct\022\025\n\rowner_address\030\001 \001(\014\022\026\n\016frozen_bala" +
+      "nce\030\002 \001(\003\022\027\n\017frozen_duration\030\003 \001(\003\"0\n\027Un" +
+      "freezeBalanceContract\022\025\n\rowner_address\030\001" +
+      " \001(\014\".\n\025UnfreezeAssetContract\022\025\n\rowner_a" +
+      "ddress\030\001 \001(\014\"0\n\027WithdrawBalanceContract\022" +
+      "\025\n\rowner_address\030\001 \001(\014\"{\n\023UpdateAssetCon" +
+      "tract\022\025\n\rowner_address\030\001 \001(\014\022\023\n\013descript" +
+      "ion\030\002 \001(\014\022\013\n\003url\030\003 \001(\014\022\021\n\tnew_limit\030\004 \001(" +
+      "\003\022\030\n\020new_public_limit\030\005 \001(\003BF\n\017org.tron." +
+      "protosB\010ContractZ)github.com/tronprotoco" +
+      "l/grpc-gateway/coreb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11853,7 +11853,7 @@ public final class Contract {
     internal_static_protocol_AccountCreateContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AccountCreateContract_descriptor,
-        new java.lang.String[] { "Type", "AccountName", "OwnerAddress", });
+        new java.lang.String[] { "OwnerAddress", "AccountAddress", "Type", });
     internal_static_protocol_AccountUpdateContract_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protocol_AccountUpdateContract_fieldAccessorTable = new

@@ -12122,7 +12122,7 @@ public final class Protocol {
 
     /**
      * <pre>
-     * only support size = 1,  repeated list here for muti-sig extenstion
+     * only support size = 1,  repeated list here for muti-sig extension
      * </pre>
      *
      * <code>repeated bytes signature = 2;</code>
@@ -12130,7 +12130,7 @@ public final class Protocol {
     java.util.List<com.google.protobuf.ByteString> getSignatureList();
     /**
      * <pre>
-     * only support size = 1,  repeated list here for muti-sig extenstion
+     * only support size = 1,  repeated list here for muti-sig extension
      * </pre>
      *
      * <code>repeated bytes signature = 2;</code>
@@ -12138,7 +12138,7 @@ public final class Protocol {
     int getSignatureCount();
     /**
      * <pre>
-     * only support size = 1,  repeated list here for muti-sig extenstion
+     * only support size = 1,  repeated list here for muti-sig extension
      * </pre>
      *
      * <code>repeated bytes signature = 2;</code>
@@ -14037,7 +14037,7 @@ public final class Protocol {
 
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14046,7 +14046,7 @@ public final class Protocol {
           getContractList();
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14054,7 +14054,7 @@ public final class Protocol {
       org.tron.protos.Protocol.Transaction.Contract getContract(int index);
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14062,7 +14062,7 @@ public final class Protocol {
       int getContractCount();
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14071,7 +14071,7 @@ public final class Protocol {
           getContractOrBuilderList();
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14340,7 +14340,7 @@ public final class Protocol {
       private java.util.List<org.tron.protos.Protocol.Transaction.Contract> contract_;
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14350,7 +14350,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14361,7 +14361,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14371,7 +14371,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -14381,7 +14381,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       *only support size = 1,  repeated list here for extenstion
+       *only support size = 1,  repeated list here for extension
        * </pre>
        *
        * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15392,7 +15392,7 @@ public final class Protocol {
 
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15406,7 +15406,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15420,7 +15420,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15434,7 +15434,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15455,7 +15455,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15473,7 +15473,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15493,7 +15493,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15514,7 +15514,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15532,7 +15532,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15550,7 +15550,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15569,7 +15569,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15586,7 +15586,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15603,7 +15603,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15614,7 +15614,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15628,7 +15628,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15643,7 +15643,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15654,7 +15654,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15666,7 +15666,7 @@ public final class Protocol {
         }
         /**
          * <pre>
-         *only support size = 1,  repeated list here for extenstion
+         *only support size = 1,  repeated list here for extension
          * </pre>
          *
          * <code>repeated .protocol.Transaction.Contract contract = 11;</code>
@@ -15831,7 +15831,7 @@ public final class Protocol {
     private java.util.List<com.google.protobuf.ByteString> signature_;
     /**
      * <pre>
-     * only support size = 1,  repeated list here for muti-sig extenstion
+     * only support size = 1,  repeated list here for muti-sig extension
      * </pre>
      *
      * <code>repeated bytes signature = 2;</code>
@@ -15842,7 +15842,7 @@ public final class Protocol {
     }
     /**
      * <pre>
-     * only support size = 1,  repeated list here for muti-sig extenstion
+     * only support size = 1,  repeated list here for muti-sig extension
      * </pre>
      *
      * <code>repeated bytes signature = 2;</code>
@@ -15852,7 +15852,7 @@ public final class Protocol {
     }
     /**
      * <pre>
-     * only support size = 1,  repeated list here for muti-sig extenstion
+     * only support size = 1,  repeated list here for muti-sig extension
      * </pre>
      *
      * <code>repeated bytes signature = 2;</code>
@@ -16412,7 +16412,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       * only support size = 1,  repeated list here for muti-sig extenstion
+       * only support size = 1,  repeated list here for muti-sig extension
        * </pre>
        *
        * <code>repeated bytes signature = 2;</code>
@@ -16423,7 +16423,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       * only support size = 1,  repeated list here for muti-sig extenstion
+       * only support size = 1,  repeated list here for muti-sig extension
        * </pre>
        *
        * <code>repeated bytes signature = 2;</code>
@@ -16433,7 +16433,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       * only support size = 1,  repeated list here for muti-sig extenstion
+       * only support size = 1,  repeated list here for muti-sig extension
        * </pre>
        *
        * <code>repeated bytes signature = 2;</code>
@@ -16443,7 +16443,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       * only support size = 1,  repeated list here for muti-sig extenstion
+       * only support size = 1,  repeated list here for muti-sig extension
        * </pre>
        *
        * <code>repeated bytes signature = 2;</code>
@@ -16460,7 +16460,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       * only support size = 1,  repeated list here for muti-sig extenstion
+       * only support size = 1,  repeated list here for muti-sig extension
        * </pre>
        *
        * <code>repeated bytes signature = 2;</code>
@@ -16476,7 +16476,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       * only support size = 1,  repeated list here for muti-sig extenstion
+       * only support size = 1,  repeated list here for muti-sig extension
        * </pre>
        *
        * <code>repeated bytes signature = 2;</code>
@@ -16491,7 +16491,7 @@ public final class Protocol {
       }
       /**
        * <pre>
-       * only support size = 1,  repeated list here for muti-sig extenstion
+       * only support size = 1,  repeated list here for muti-sig extension
        * </pre>
        *
        * <code>repeated bytes signature = 2;</code>
