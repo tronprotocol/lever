@@ -26,8 +26,8 @@ import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.Getter;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ss.formula.functions.T;
 import org.tron.common.config.Config.ConfigProperty;
 import org.tron.common.utils.Base58;
 import org.tron.protos.Protocol.Account;
@@ -35,8 +35,6 @@ import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
 
 public class SendCoinLoop {
-
-  private static final int THREAD_COUNT = 18;
 
   private static List<WalletClient> walletClients = new ArrayList<>();
   private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
@@ -52,15 +50,14 @@ public class SendCoinLoop {
   public static void main(String[] args) throws IOException {
     argsObj = SendCoinArgs.getInstance(args);
 
-    List<String> grpcAddress = new ArrayList<>();
-    grpcAddress.add("39.106.178.126:50051");
-    grpcAddress.add("47.93.33.201:50051");
-    grpcAddress.add("123.56.10.6:50051");
+    List<String> grpcAddress = argsObj.getGRpcAddress();
+
+    final int threadCount = argsObj.getThreadCount();
 
     double tps = argsObj.getTps();
 
     LongAdder count = new LongAdder();
-    walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
+    walletClients = IntStream.range(0, threadCount).mapToObj(i -> {
       WalletClient walletClient = new WalletClient();
       walletClient.init(grpcAddress.get(count.intValue() % 3));
       count.increment();
@@ -73,13 +70,13 @@ public class SendCoinLoop {
     Transaction transaction;
     long trxCount = 0;
     while ((transaction = Transaction.parseDelimitedFrom(fis)) != null) {
-      transactionsMap.computeIfAbsent(trxCount % THREAD_COUNT, k -> new ArrayList<>())
+      transactionsMap.computeIfAbsent(trxCount % threadCount, k -> new ArrayList<>())
           .add(transaction);
       trxCount++;
     }
 
     setStartAccountMap(walletClients.get(0));
-    rateLimiter(tps);
+    rateLimiter(threadCount, tps);
   }
 
   private static void setStartAccountMap(WalletClient walletClient) {
@@ -100,15 +97,15 @@ public class SendCoinLoop {
     });
   }
 
-  public static void rateLimiter(double tps) {
+  public static void rateLimiter(int threadCount, double tps) {
     ListeningExecutorService executorService = MoreExecutors
-        .listeningDecorator(Executors.newFixedThreadPool(THREAD_COUNT));
-    CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
+        .listeningDecorator(Executors.newFixedThreadPool(threadCount));
+    CountDownLatch latch = new CountDownLatch(threadCount);
     RateLimiter limiter = RateLimiter.create(tps);
 
-    for (int i = 0; i < THREAD_COUNT; ++i) {
-      executorService.execute(new Task(walletClients.get(i % THREAD_COUNT), limiter,
-          transactionsMap.get((i % THREAD_COUNT * 1L)), THREAD_COUNT));
+    for (int i = 0; i < threadCount; ++i) {
+      executorService.execute(new Task(walletClients.get(i % threadCount), limiter,
+          transactionsMap.get((i % threadCount * 1L)), threadCount));
       latch.countDown();
     }
 
@@ -150,7 +147,9 @@ class Task implements Runnable {
 
       if (endCounts.longValue() == threadCount) {
         endTime = new Date();
-        System.out.printf("\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT\n", startTime, startTime, endTime,
+        System.out.printf(
+            "\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT\n",
+            startTime, startTime, endTime,
             endTime);
 
         System.out.println("\u001B[36mstart account:\u001B[0m");
@@ -204,6 +203,7 @@ class SendCoinArgs {
 
   private static final String DEFAULT_CONFIG_FILE_PATH = "config_send_coin_loop.conf";
   private static final String GRPC_ADDRESS = "grpc.address";
+  private static final String THREAD_COUNT = "thread.count";
   private static final String DATA_FILE = "data.file";
   private static final String TPS = "tps";
   private static final String ACCOUNT_ADDRESS = "account.address";
@@ -216,7 +216,11 @@ class SendCoinArgs {
 
   @Getter
   @Parameter(names = {"--gRpcAddress"}, description = "gRPC address, like: 127.0.0.1:50051")
-  private String gRpcAddress = "";
+  private List<String> gRpcAddress = new ArrayList<>();
+
+  @Getter
+  @Parameter(names = {"--threadCount"}, description = "Thread count")
+  private int threadCount = 0;
 
   @Getter
   @Parameter(names = {
@@ -262,11 +266,18 @@ class SendCoinArgs {
     System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configTip);
     System.out.println();
 
-    if (StringUtils.isBlank(INSTANCE.gRpcAddress)) {
-      INSTANCE.gRpcAddress = config.getString(GRPC_ADDRESS);
+    if (CollectionUtils.isEmpty(INSTANCE.gRpcAddress)) {
+      INSTANCE.gRpcAddress = config.getStringList(GRPC_ADDRESS);
     }
 
     System.out.printf("gRPC address: \u001B[34m%s\u001B[0m", INSTANCE.gRpcAddress);
+    System.out.println();
+
+    if (0 == INSTANCE.threadCount) {
+      INSTANCE.threadCount = config.getInt(THREAD_COUNT);
+    }
+
+    System.out.printf("Thread count: \u001B[34m%s\u001B[0m", INSTANCE.threadCount);
     System.out.println();
 
     if (StringUtils.isBlank(INSTANCE.dataFile)) {
