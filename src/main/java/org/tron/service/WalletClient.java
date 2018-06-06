@@ -19,6 +19,7 @@ import org.tron.core.config.Configuration;
 import org.tron.protos.Contract;
 import org.tron.protos.Contract.FreezeBalanceContract;
 import org.tron.protos.Contract.TransferContract;
+import org.tron.protos.Contract.VoteWitnessContract;
 import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
 
@@ -182,5 +183,9 @@ public class WalletClient {
         .setFrozenDuration(frozen_duration);
 
     return builder.build();
+  }
+
+  public Transaction voteWitnessTransaction(VoteWitnessContract contract) {
+    return rpcCli.voteWitnessAccount(contract);
   }
 }
