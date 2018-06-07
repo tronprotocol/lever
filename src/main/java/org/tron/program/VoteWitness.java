@@ -8,11 +8,14 @@ import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -34,6 +37,8 @@ public class VoteWitness {
 
   public static void main(String[] args) throws IOException {
     VoteWitnessArgs argsObj = VoteWitnessArgs.getInstance(args);
+
+    VoteWitnessTask.accountCount = argsObj.getAccountCount();
 
     int threadCount = argsObj.getThreadCount();
     String grpcAddress = argsObj.getGRpcAddress();
@@ -73,13 +78,16 @@ public class VoteWitness {
     return result;
   }
 
-  public static void start(int threadCount, int accountCount, String privateKey, int voteCount, List<String> voteWitness) {
+  public static void start(int threadCount, int accountCount, String privateKey, int voteCount,
+      List<String> voteWitness) {
     ListeningExecutorService executorService = MoreExecutors
         .listeningDecorator(Executors.newFixedThreadPool(threadCount));
     CountDownLatch latch = new CountDownLatch(threadCount);
 
     for (int count = 0; count < accountCount; ++count) {
-      executorService.execute(new VoteWitnessTask(walletClients.get(count % threadCount), privateKey, voteCount, voteWitness.get(count % voteWitness.size())));
+      executorService.execute(
+          new VoteWitnessTask(walletClients.get(count % threadCount), privateKey, voteCount,
+              voteWitness.get(count % voteWitness.size())));
       latch.countDown();
     }
 
@@ -99,17 +107,51 @@ class VoteWitnessTask implements Runnable {
 
   private String privateKey;
 
+  public static int accountCount;
+
   private int voteCount;
 
   private String witness;
 
-  private static LongAdder freezeCount = new LongAdder();
+  private static LongAdder voteSuccess = new LongAdder();
+  private static LongAdder voteFail = new LongAdder();
+  private static LongAdder freezeFail = new LongAdder();
+  private static LongAdder createFail = new LongAdder();
+  private static LongAdder total = new LongAdder();
+
+  private static Date startTime;
+  private static Date endTime;
+
+  public static final ScheduledExecutorService service = Executors
+      .newSingleThreadScheduledExecutor();
+
+  static {
+    service.scheduleAtFixedRate(() -> {
+      System.out.println(
+          "current: " + total.longValue()
+              + ", vote success: " + voteSuccess.longValue()
+              + ", vote fail: " + voteFail.longValue()
+              + ", freeze fail: " + freezeFail
+              + ", create fail: " + createFail);
+
+      if (total.longValue() == accountCount) {
+        endTime = new Date();
+        System.out.printf(
+            "\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT\n",
+            startTime, startTime, endTime,
+            endTime);
+
+        service.shutdown();
+      }
+    }, 5, 5, TimeUnit.SECONDS);
+  }
 
   public VoteWitnessTask() {
 
   }
 
-  public VoteWitnessTask(WalletClient walletClient, String privateKey, int voteCount, String witness) {
+  public VoteWitnessTask(WalletClient walletClient, String privateKey, int voteCount,
+      String witness) {
     this.walletClient = walletClient;
     this.privateKey = privateKey;
     this.voteCount = voteCount;
@@ -118,23 +160,34 @@ class VoteWitnessTask implements Runnable {
 
   @Override
   public void run() {
+    if (0L == total.longValue()) {
+      startTime = new Date();
+    }
+
     ECKey newKey = new ECKey();
 
-    Transaction transaction = walletClient.createTransaction(newKey.getAddress(), voteCount * 1_000_000, privateKey);
+    Transaction transaction = walletClient
+        .createTransaction(newKey.getAddress(), voteCount * 1_000_000, privateKey);
 
     boolean isSuccess = walletClient.broadcastTransaction(transaction);
 
     if (isSuccess) {
       boolean isFreezeSuccess = walletClient
-          .freezeBalance(ByteArray.toHexString(newKey.getPrivKeyBytes()), voteCount * 1_000_000, VoteWitness.FROZEN_DURATION);
+          .freezeBalance(ByteArray.toHexString(newKey.getPrivKeyBytes()), voteCount * 1_000_000,
+              VoteWitness.FROZEN_DURATION);
 
       if (isFreezeSuccess) {
         VoteWitnessTask voteWitnessTask = new VoteWitnessTask();
         HashMap<String, String> witnessMap = new HashMap<>();
-        witnessMap.put(witness, "1");
-        Contract.VoteWitnessContract voteWitnessContract = voteWitnessTask.createVoteWitnessContract(newKey.getAddress(), witnessMap);
-        Transaction voteWitnessTransaction = walletClient.voteWitnessTransaction(voteWitnessContract);
-        if (voteWitnessTransaction == null || voteWitnessTransaction.getRawData().getContractCount() == 0) {
+        witnessMap.put(witness, "" + voteCount);
+        Contract.VoteWitnessContract voteWitnessContract = voteWitnessTask
+            .createVoteWitnessContract(newKey.getAddress(), witnessMap);
+        Transaction voteWitnessTransaction = walletClient
+            .voteWitnessTransaction(voteWitnessContract);
+        if (voteWitnessTransaction == null
+            || voteWitnessTransaction.getRawData().getContractCount() == 0) {
+          voteFail.increment();
+          total.increment();
           return;
         }
 
@@ -143,17 +196,18 @@ class VoteWitnessTask implements Runnable {
         boolean isVoteSuccess = walletClient.broadcastTransaction(voteWitnessTransaction);
 
         if (isVoteSuccess) {
-          System.out.println("vote success");
+          voteSuccess.increment();
         } else {
-          System.out.println("vote fail");
+          voteFail.increment();
         }
       } else {
-        freezeCount.increment();
-        System.out.println(freezeCount.intValue() + " freeze balance fail: " + Base58.encode58Check(newKey.getAddress()) + " " + ByteArray.toHexString(newKey.getAddress()));
+        freezeFail.increment();
       }
     } else {
-      System.out.println("create account fail");
+      createFail.increment();
     }
+
+    total.increment();
   }
 
   public Contract.VoteWitnessContract createVoteWitnessContract(byte[] owner,
