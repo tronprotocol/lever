@@ -75,7 +75,7 @@ public class VoteWitness {
   }
 
   public static long getFreezeBalance(int accountCount, int voteCount) {
-    long result = accountCount * voteCount * 1_000_000;
+    long result = accountCount * voteCount * 1_000_000L;
 
     return result;
   }
