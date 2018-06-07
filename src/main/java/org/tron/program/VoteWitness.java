@@ -4,6 +4,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
+import com.google.common.util.concurrent.RateLimiter;
 import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
 import java.io.IOException;
@@ -46,6 +47,7 @@ public class VoteWitness {
     String privateKey = argsObj.getOwnerPrivateKey();
     int voteCount = argsObj.getVoteCount();
     List<String> voteWitness = argsObj.getVoteWitness();
+    double tps = argsObj.getTps();
 
     LongAdder count = new LongAdder();
     walletClients = IntStream.range(0, threadCount).mapToObj(i -> {
@@ -63,7 +65,7 @@ public class VoteWitness {
       return;
     }
 
-    start(threadCount, accountCount, privateKey, voteCount, voteWitness);
+    start(threadCount, accountCount, privateKey, voteCount, voteWitness, tps);
   }
 
   public static boolean freezeBalance(WalletClient walletClient, String privateKey,
@@ -79,14 +81,15 @@ public class VoteWitness {
   }
 
   public static void start(int threadCount, int accountCount, String privateKey, int voteCount,
-      List<String> voteWitness) {
+      List<String> voteWitness, double tps) {
     ListeningExecutorService executorService = MoreExecutors
         .listeningDecorator(Executors.newFixedThreadPool(threadCount));
     CountDownLatch latch = new CountDownLatch(threadCount);
+    RateLimiter limiter = RateLimiter.create(tps);
 
     for (int count = 0; count < accountCount; ++count) {
       executorService.execute(
-          new VoteWitnessTask(walletClients.get(count % threadCount), privateKey, voteCount,
+          new VoteWitnessTask(walletClients.get(count % threadCount), limiter, privateKey, voteCount,
               voteWitness.get(count % voteWitness.size())));
       latch.countDown();
     }
@@ -112,6 +115,8 @@ class VoteWitnessTask implements Runnable {
   private int voteCount;
 
   private String witness;
+
+  private RateLimiter limiter;
 
   private static LongAdder voteSuccess = new LongAdder();
   private static LongAdder voteFail = new LongAdder();
@@ -150,9 +155,10 @@ class VoteWitnessTask implements Runnable {
 
   }
 
-  public VoteWitnessTask(WalletClient walletClient, String privateKey, int voteCount,
+  public VoteWitnessTask(WalletClient walletClient, RateLimiter limiter, String privateKey, int voteCount,
       String witness) {
     this.walletClient = walletClient;
+    this.limiter = limiter;
     this.privateKey = privateKey;
     this.voteCount = voteCount;
     this.witness = witness;
@@ -160,6 +166,8 @@ class VoteWitnessTask implements Runnable {
 
   @Override
   public void run() {
+    limiter.acquire();
+
     if (0L == total.longValue()) {
       startTime = new Date();
     }
@@ -241,6 +249,7 @@ class VoteWitnessArgs {
   private static final String OWNER_PRIVATE_KEY = "owner.private.key";
   private static final String VOTE_COUNT = "vote.count";
   private static final String VOTE_WITNESS = "vote.witness";
+  private static final String TPS = "tps";
 
   private static VoteWitnessArgs INSTANCE;
 
@@ -271,6 +280,10 @@ class VoteWitnessArgs {
   @Getter
   @Parameter(names = {"--voteWitness"}, description = "Vote witness")
   private List<String> voteWitness = new ArrayList<>();
+
+  @Getter
+  @Parameter(names = {"--tps"}, description = "TPS")
+  private int tps = 0;
 
   private VoteWitnessArgs() {
 
@@ -343,6 +356,13 @@ class VoteWitnessArgs {
     }
 
     System.out.printf("Vote witness: \u001B[34m%s\u001B[0m", INSTANCE.voteWitness);
+    System.out.println();
+
+    if (0 == INSTANCE.tps) {
+      INSTANCE.tps = config.getInt(TPS);
+    }
+
+    System.out.printf("TPS: \u001B[34m%s\u001B[0m", INSTANCE.tps);
     System.out.println();
   }
 }
