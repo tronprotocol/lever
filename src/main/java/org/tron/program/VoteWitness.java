@@ -180,7 +180,7 @@ class VoteWitnessTask implements Runnable {
 
 class VoteWitnessArgs {
 
-  private static final String DEFAULT_CONFIG_FILE_PATH = "config_generate_account.conf";
+  private static final String DEFAULT_CONFIG_FILE_PATH = "config_vote_witness.conf";
   private static final String GRPC_ADDRESS = "grpc.address";
   private static final String THREAD_COUNT = "thread.count";
   private static final String ACCOUNT_COUNT = "account.count";
