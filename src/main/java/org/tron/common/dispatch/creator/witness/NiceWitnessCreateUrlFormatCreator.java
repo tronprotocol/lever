@@ -8,7 +8,6 @@ import org.tron.common.dispatch.BadCaseTransactionCreator;
 import org.tron.common.dispatch.TransactionFactory;
 import org.tron.common.dispatch.creator.CreatorCounter;
 import org.tron.common.dispatch.creator.TransactionUtils;
-import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.Utils;
 import org.tron.protos.Contract;

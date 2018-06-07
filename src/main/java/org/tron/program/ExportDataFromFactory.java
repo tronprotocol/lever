@@ -6,9 +6,11 @@ import lombok.Getter;
 import org.apache.commons.csv.CSVRecord;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
+import org.tron.common.crypto.Hash;
 import org.tron.common.dispatch.TransactionFactory;
 import org.tron.common.dispatch.creator.CreatorCounter;
 import org.tron.common.utils.CsvUtils;
+import org.tron.core.config.Parameter.CommonConstant;
 import org.tron.protos.Protocol.Transaction;
 
 import java.io.File;
@@ -32,6 +34,10 @@ public class ExportDataFromFactory {
     AtomicLong counter = new AtomicLong(0);
     Args argsObj = new Args();
     JCommander.newBuilder().addObject(argsObj).build().parse(args);
+
+    if (CommonConstant.NET_TYPE_MAINNET.equals(argsObj.getNetType())) {
+      Hash.changeAddressPrefixMainnet();
+    }
 
     ConcurrentLinkedQueue<Transaction> transactions = new ConcurrentLinkedQueue<>();
 
@@ -93,6 +99,10 @@ public class ExportDataFromFactory {
     @Parameter(names = {"--output",
         "-o"}, description = "Save data file", required = true, validateWith = StringValidator.class)
     private String output;
+
+    @Getter
+    @Parameter(names = {"--netType"}, description = "Net type", required = true, validateWith = StringValidator.class)
+    private String netType;
   }
 }
 

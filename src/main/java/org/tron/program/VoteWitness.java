@@ -24,8 +24,10 @@ import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.tron.common.config.Config.ConfigProperty;
 import org.tron.common.crypto.ECKey;
+import org.tron.common.crypto.Hash;
 import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
+import org.tron.core.config.Parameter.CommonConstant;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
@@ -38,6 +40,10 @@ public class VoteWitness {
 
   public static void main(String[] args) throws IOException {
     VoteWitnessArgs argsObj = VoteWitnessArgs.getInstance(args);
+
+    if (CommonConstant.NET_TYPE_MAINNET.equals(argsObj.getNetType())) {
+      Hash.changeAddressPrefixMainnet();
+    }
 
     VoteWitnessTask.accountCount = argsObj.getAccountCount();
 
@@ -250,6 +256,7 @@ class VoteWitnessArgs {
   private static final String VOTE_COUNT = "vote.count";
   private static final String VOTE_WITNESS = "vote.witness";
   private static final String TPS = "tps";
+  private static final String NET_TYPE = "net.type";
 
   private static VoteWitnessArgs INSTANCE;
 
@@ -284,6 +291,10 @@ class VoteWitnessArgs {
   @Getter
   @Parameter(names = {"--tps"}, description = "TPS")
   private int tps = 0;
+
+  @Getter
+  @Parameter(names = {"--netType"}, description = "Net type: testnet/mainnet")
+  private String netType = "";
 
   private VoteWitnessArgs() {
 
@@ -363,6 +374,13 @@ class VoteWitnessArgs {
     }
 
     System.out.printf("TPS: \u001B[34m%s\u001B[0m", INSTANCE.tps);
+    System.out.println();
+
+    if (StringUtils.isBlank(INSTANCE.netType)) {
+      INSTANCE.netType = config.getString(NET_TYPE);
+    }
+
+    System.out.printf("Net type: \u001B[34m%s\u001B[0m", INSTANCE.netType);
     System.out.println();
   }
 }
