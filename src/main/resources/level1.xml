@@ -99,11 +99,7 @@
         <property name="end" value="99"/>
         <property name="source">
             <list>
-                <ref bean="badWitnessCreateExistCreator"/>
-                <ref bean="badWitnessCreateUrlFormatInvalidCreator"/>
-                <ref bean="badWitnessUpdateUrlFormatInvalidCreator"/>
-                <ref bean="niceWitnessCreateUrlFormatCreator"/>
-                <ref bean="niceWitnessUpdateUrlFormatCreator"/>
+                <ref bean="niceVoteWitnessCreator"/>
             </list>
         </property>
     </bean>

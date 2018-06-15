@@ -2,6 +2,7 @@ package org.tron.common.dispatch;
 
 import com.google.common.base.Charsets;
 import com.google.protobuf.ByteString;
+import java.util.HashMap;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tron.common.dispatch.strategy.Level2Strategy;
@@ -20,4 +21,13 @@ public abstract class AbstractTransactionCreator extends Level2Strategy {
   protected ByteString assetName = ByteString.copyFrom("pressure1", Charsets.UTF_8);
   @Autowired
   protected WalletClient client;
+  protected HashMap<String, String> voteWitnessMap = new HashMap<String, String>() {
+    {
+      put("27QAUYjg5FXfxcvyHcWF3Aokd5eu9iYgs1c", "1");
+      put("27g8BKC65R7qsnEr2vf7R2Nm7MQfvuJ7im4", "1");
+      put("27Uoo1DVmYT1fFYPdnTtueyqHkjR3DaDjwo", "1");
+      put("27mEGtrpetip67KuXHFShryhGWd8nbSfLRW", "1");
+      put("27jvZ4iJ7LQ8UP3VKPGQLp3oj7c7jFf6Q32", "1");
+    }
+  };
 }

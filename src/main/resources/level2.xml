@@ -185,4 +185,10 @@
         <property name="end" value="99"/>
     </bean>
 
+    <bean id="niceVoteWitnessCreator" class="org.tron.common.dispatch.creator.witness.NiceVoteWitnessCreator">
+        <property name="name" value="niceVoteWitnessCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+    </bean>
+
 </beans>

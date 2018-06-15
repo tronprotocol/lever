@@ -2,6 +2,9 @@ package org.tron.program;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.util.concurrent.atomic.AtomicInteger;
 import lombok.Getter;
 import org.apache.commons.csv.CSVRecord;
 import org.tron.Validator.LongValidator;
@@ -11,6 +14,7 @@ import org.tron.common.dispatch.TransactionFactory;
 import org.tron.common.dispatch.creator.CreatorCounter;
 import org.tron.common.utils.CsvUtils;
 import org.tron.core.config.Parameter.CommonConstant;
+import org.tron.module.Account;
 import org.tron.protos.Protocol.Transaction;
 
 import java.io.File;
@@ -26,6 +30,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.LongStream;
 
 public class ExportDataFromFactory {
+  public static List<Account> accounts = new ArrayList<>();
 
   //Example:
   //--toaddress toaddress.csv --amount 1 --output trxsdata.csv --count 10000 --privatekey privatekey.csv
@@ -37,7 +42,23 @@ public class ExportDataFromFactory {
 
     if (CommonConstant.NET_TYPE_MAINNET.equals(argsObj.getNetType())) {
       Hash.changeAddressPrefixMainnet();
+    } else {
+      Hash.changeAddressPrefixTestnet();
     }
+
+    File ff = new File("accounts.txt");
+    FileInputStream fis = new FileInputStream(ff);
+    ObjectInputStream ois = new ObjectInputStream(fis);
+
+    while (fis.available() > 0) {
+      long c = counter.incrementAndGet();
+      Account account = (Account) ois.readObject();
+      accounts.add(account);
+      if ((c + 1) % 100000 == 0) {
+        System.out.println("read account current: " + (c + 1));
+      }
+    }
+    counter.getAndSet(0);
 
     ConcurrentLinkedQueue<Transaction> transactions = new ConcurrentLinkedQueue<>();
 
