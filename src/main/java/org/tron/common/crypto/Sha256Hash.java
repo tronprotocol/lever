@@ -1,4 +1,4 @@
-package org.tron.common.utils;
+package org.tron.common.crypto;
 
 /*
  * Copyright 2011 Google Inc.
@@ -31,6 +31,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import org.tron.common.utils.ByteArray;
 
 
 /**

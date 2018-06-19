@@ -15,28 +15,21 @@
 
 package org.tron.common.utils;
 
-import static org.tron.common.crypto.Hash.sha256;
-
 import com.google.protobuf.ByteString;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.spongycastle.util.encoders.Base64;
-import org.tron.common.crypto.ECKey;
-import org.tron.common.crypto.ECKey.ECDSASignature;
-import org.tron.protos.Protocol.TXInput;
-import org.tron.protos.Protocol.Transaction;
-import org.tron.protos.Protocol.Transaction.Contract;
-
-import java.io.FileWriter;
-import java.io.IOException;
 import java.security.SignatureException;
 import java.util.Arrays;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.tron.common.crypto.ECKey;
+import org.tron.common.crypto.ECKey.ECDSASignature;
+import org.tron.common.crypto.Sha256Hash;
+import org.tron.protos.Protocol.Transaction;
+import org.tron.protos.Protocol.Transaction.Contract;
 
 public class TransactionUtils {
 
   private static final Logger logger = LoggerFactory.getLogger("Transaction");
-  private final static int RESERVE_BALANCE = 10;
 
   /**
    * Obtain a data bytes after removing the id and SHA-256(data)
@@ -48,10 +41,10 @@ public class TransactionUtils {
     Transaction.Builder tmp = transaction.toBuilder();
     //tmp.clearId();
 
-    return sha256(tmp.build().toByteArray());
+    return Sha256Hash.hash(tmp.build().toByteArray());
   }
 
-  public static byte[] getOwner(Contract contract) {
+  public static byte[] getOwner(Transaction.Contract contract) {
     ByteString owner;
     try {
       switch (contract.getType()) {
@@ -94,6 +87,10 @@ public class TransactionUtils {
         case WithdrawBalanceContract:
           owner = contract.getParameter().unpack(org.tron.protos.Contract.WithdrawBalanceContract.class).getOwnerAddress();
           break;
+        case UpdateAssetContract:
+          owner = contract.getParameter().unpack(org.tron.protos.Contract.UpdateAssetContract.class).getOwnerAddress();
+          break;
+
         default:
           return null;
       }
@@ -125,14 +122,14 @@ public class TransactionUtils {
     assert (signedTransaction.getSignatureCount() ==
         signedTransaction.getRawData().getContractCount());
     List<Contract> listContract = signedTransaction.getRawData().getContractList();
-    byte[] hash = sha256(signedTransaction.getRawData().toByteArray());
+    byte[] hash = Sha256Hash.hash(signedTransaction.getRawData().toByteArray());
     int count = signedTransaction.getSignatureCount();
     if (count == 0) {
       return false;
     }
     for (int i = 0; i < count; ++i) {
       try {
-        Contract contract = listContract.get(i);
+        Transaction.Contract contract = listContract.get(i);
         byte[] owner = getOwner(contract);
         byte[] address = ECKey
             .signatureToAddress(hash, getBase64FromByteString(signedTransaction.getSignature(i)));
@@ -148,10 +145,8 @@ public class TransactionUtils {
   }
 
   public static Transaction sign(Transaction transaction, ECKey myKey) {
-    ByteString lockSript = ByteString.copyFrom(myKey.getAddress());
     Transaction.Builder transactionBuilderSigned = transaction.toBuilder();
-
-    byte[] hash = sha256(transaction.getRawData().toByteArray());
+    byte[] hash = Sha256Hash.hash(transaction.getRawData().toByteArray());
     List<Contract> listContract = transaction.getRawData().getContractList();
     for (int i = 0; i < listContract.size(); i++) {
       ECDSASignature signature = myKey.sign(hash);
@@ -164,10 +159,10 @@ public class TransactionUtils {
     return transaction;
   }
 
-  public static synchronized Transaction setTimestamp(Transaction transaction) {
-    long currentTime = System.currentTimeMillis()*1000000 + System.nanoTime()%1000000;
+  public static Transaction setTimestamp(Transaction transaction) {
+    long currentTime = System.currentTimeMillis();//*1000000 + System.nanoTime()%1000000;
     Transaction.Builder builder = transaction.toBuilder();
-    Transaction.raw.Builder rowBuilder = transaction.getRawData()
+    org.tron.protos.Protocol.Transaction.raw.Builder rowBuilder = transaction.getRawData()
         .toBuilder();
     rowBuilder.setTimestamp(currentTime);
     builder.setRawData(rowBuilder.build());

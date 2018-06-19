@@ -2,12 +2,8 @@ package org.tron.common.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
-import org.tron.common.crypto.Hash;
 
 public class Base58 {
-  private static final int BASE58CHECK_ADDRESS_SIZE = 35;
-  private static final int ADDRESS_SIZE = 21;
-  private static final byte ADD_PRE_FIX_BYTE = (byte) 0xa0;
 
   public static final char[] ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
       .toCharArray();
@@ -114,9 +110,9 @@ public class Base58 {
     return new BigInteger(1, decode(input));
   }
 
-  //
-  // number -> number / 58, returns number % 58
-  //
+  /**
+   *  number -> number / 58, returns number % 58
+   */
   private static byte divmod58(byte[] number, int startAt) {
     int remainder = 0;
     for (int i = startAt; i < number.length; i++) {
@@ -131,9 +127,9 @@ public class Base58 {
     return (byte) remainder;
   }
 
-  //
-  // number -> number / 256, returns number % 256
-  //
+  /**
+   * number -> number / 256, returns number % 256
+   */
   private static byte divmod256(byte[] number58, int startAt) {
     int remainder = 0;
     for (int i = startAt; i < number58.length; i++) {
@@ -155,70 +151,4 @@ public class Base58 {
     return range;
   }
 
-  public static byte[] decodeFromBase58Check(String addressBase58) {
-    if (addressBase58 == null || addressBase58.length() == 0) {
-      System.out.println("Warning: Address is empty !!");
-      return null;
-    }
-    if (addressBase58.length() != BASE58CHECK_ADDRESS_SIZE) {
-      System.out.println(
-          "Warning: Base58 address length need " + BASE58CHECK_ADDRESS_SIZE + " but "
-              + addressBase58.length()
-              + " !!");
-      return null;
-    }
-    byte[] address = decode58Check(addressBase58);
-    if (!addressValid(address)) {
-      return null;
-    }
-    return address;
-  }
-
-  private static byte[] decode58Check(String input) {
-    byte[] decodeCheck = Base58.decode(input);
-    if (decodeCheck.length <= 4) {
-      return null;
-    }
-    byte[] decodeData = new byte[decodeCheck.length - 4];
-    System.arraycopy(decodeCheck, 0, decodeData, 0, decodeData.length);
-    byte[] hash0 = Hash.sha256(decodeData);
-    byte[] hash1 = Hash.sha256(hash0);
-    if (hash1[0] == decodeCheck[decodeData.length] &&
-        hash1[1] == decodeCheck[decodeData.length + 1] &&
-        hash1[2] == decodeCheck[decodeData.length + 2] &&
-        hash1[3] == decodeCheck[decodeData.length + 3]) {
-      return decodeData;
-    }
-    return null;
-  }
-
-  public static boolean addressValid(byte[] address) {
-    if (address == null || address.length == 0) {
-      System.out.println("Warning: Address is empty !!");
-      return false;
-    }
-    if (address.length != ADDRESS_SIZE) {
-      System.out.println(
-          "Warning: Address length need " + ADDRESS_SIZE + " but " + address.length
-              + " !!");
-      return false;
-    }
-    byte preFixbyte = address[0];
-    if (preFixbyte != ADD_PRE_FIX_BYTE) {
-      System.out.println("Warning: Address need prefix with " + ADD_PRE_FIX_BYTE + " but "
-          + preFixbyte + " !!");
-      return false;
-    }
-    //Other rule;
-    return true;
-  }
-
-  public static String encode58Check(byte[] input) {
-    byte[] hash0 = Hash.sha256(input);
-    byte[] hash1 = Hash.sha256(hash0);
-    byte[] inputCheck = new byte[input.length + 4];
-    System.arraycopy(input, 0, inputCheck, 0, input.length);
-    System.arraycopy(hash1, 0, inputCheck, input.length, 4);
-    return Base58.encode(inputCheck);
-  }
 }
