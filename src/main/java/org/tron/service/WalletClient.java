@@ -7,11 +7,13 @@ import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
 import java.util.List;
 
+import java.util.Optional;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.tron.api.GrpcAPI.WitnessList;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
@@ -54,6 +56,20 @@ public class WalletClient {
     ByteString bsOwner = ByteString.copyFrom(owner);
     builder.setToAddress(bsTo);
     builder.setOwnerAddress(bsOwner);
+    builder.setAmount(amount);
+
+    return builder.build();
+  }
+
+  public static Contract.TransferAssetContract createTransferAssetContract(byte[] to, byte[] owner,
+      byte[] assetName, long amount) {
+    Contract.TransferAssetContract.Builder builder = Contract.TransferAssetContract.newBuilder();
+    ByteString bsTo = ByteString.copyFrom(to);
+    ByteString bsOwner = ByteString.copyFrom(owner);
+    ByteString bsAssetName = ByteString.copyFrom(assetName);
+    builder.setToAddress(bsTo);
+    builder.setOwnerAddress(bsOwner);
+    builder.setAssetName(bsAssetName);
     builder.setAmount(amount);
 
     return builder.build();
@@ -128,8 +144,27 @@ public class WalletClient {
     return transaction;
   }
 
+  public Transaction createTransferAssetTransaction(byte[] to, byte[] assetName, long amount, String privateKey) {
+    ECKey ecKey = ECKey.fromPrivate(ByteArray.fromHexString(privateKey));
+
+    byte[] owner = ecKey.getAddress();
+
+    Contract.TransferAssetContract contract = createTransferAssetContract(to, owner, assetName, amount);
+    Transaction transaction = rpcCli.createTransaction(contract);
+    if (transaction == null || transaction.getRawData().getContractCount() == 0) {
+      return null;
+    }
+
+    transaction = signTransaction(transaction, ecKey);
+    return transaction;
+  }
+
   public boolean broadcastTransaction(Transaction transaction) {
     return rpcCli.broadcastTransaction(transaction);
+  }
+
+  public Optional<WitnessList> listWitness() {
+    return rpcCli.listWitnesses();
   }
 
   public Account getAccount(Account account) {
