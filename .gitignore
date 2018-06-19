@@ -7,3 +7,4 @@ out
 *.csv
 /generate-data.sh
 *.dat
+*.txt
