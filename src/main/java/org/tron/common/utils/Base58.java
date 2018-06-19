@@ -160,13 +160,7 @@ public class Base58 {
       System.out.println("Warning: Address is empty !!");
       return null;
     }
-    if (addressBase58.length() != BASE58CHECK_ADDRESS_SIZE) {
-      System.out.println(
-          "Warning: Base58 address length need " + BASE58CHECK_ADDRESS_SIZE + " but "
-              + addressBase58.length()
-              + " !!");
-      return null;
-    }
+
     byte[] address = decode58Check(addressBase58);
     if (!addressValid(address)) {
       return null;
@@ -197,15 +191,10 @@ public class Base58 {
       System.out.println("Warning: Address is empty !!");
       return false;
     }
-    if (address.length != ADDRESS_SIZE) {
-      System.out.println(
-          "Warning: Address length need " + ADDRESS_SIZE + " but " + address.length
-              + " !!");
-      return false;
-    }
+
     byte preFixbyte = address[0];
-    if (preFixbyte != ADD_PRE_FIX_BYTE) {
-      System.out.println("Warning: Address need prefix with " + ADD_PRE_FIX_BYTE + " but "
+    if (preFixbyte != Hash.addressPrefix) {
+      System.out.println("Warning: Address need prefix with " + Hash.addressPrefix + " but "
           + preFixbyte + " !!");
       return false;
     }
