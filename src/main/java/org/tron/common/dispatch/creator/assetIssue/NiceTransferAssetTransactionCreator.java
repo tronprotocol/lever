@@ -25,12 +25,6 @@ public class NiceTransferAssetTransactionCreator extends AbstractTransactionCrea
         .setAmount(amount)
         .build();
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.AssetIssueContract);
-    transaction = transaction.toBuilder()
-        .setRawData(transaction.getRawData().toBuilder()
-            .setExpiration(transaction.getRawData().getExpiration() + 12 * 60 * 60 * 1_000L)
-            .setTimestamp(serialNum.getAndIncrement())
-            .build())
-        .build();
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
   }
