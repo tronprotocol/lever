@@ -77,16 +77,9 @@
     <bean id="transfer" parent="level1Strategy">
         <property name="name" value="transfer"/>
         <property name="begin" value="0"/>
-        <property name="end" value="30"/>
+        <property name="end" value="99"/>
         <property name="source">
             <list>
-                <ref bean="badTransferAmountMaxLongValueCreator"/>
-                <ref bean="badTransferAmountMinLongValueCreator"/>
-                <ref bean="badTransferAmountNegativeCreator"/>
-                <ref bean="badTransferAmountZeroCreator"/>
-                <ref bean="badTransferOwnerNotFoundCreator"/>
-                <ref bean="badTransferToNotFoundAmountLessThanOneTrx"/>
-                <ref bean="niceTransferToNotFoundAmountOneTrx"/>
                 <ref bean="niceTransferTransaction"/>
             </list>
         </property>

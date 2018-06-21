@@ -155,7 +155,7 @@
 
     <bean id="niceTransferTransaction" class="org.tron.common.dispatch.creator.transfer.NiceTransferTransactionCreator">
         <property name="name" value="niceTransferTransaction"/>
-        <property name="begin" value="93"/>
+        <property name="begin" value="0"/>
         <property name="end" value="99"/>
     </bean>
 
