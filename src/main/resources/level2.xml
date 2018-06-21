@@ -150,6 +150,12 @@
     <bean id="niceTransferToNotFoundAmountOneTrx" class="org.tron.common.dispatch.creator.transfer.NiceTransferToNotFoundAmountOneTrxCreator">
         <property name="name" value="niceTransferToNotFoundAmountOneTrx"/>
         <property name="begin" value="90"/>
+        <property name="end" value="92"/>
+    </bean>
+
+    <bean id="niceTransferTransaction" class="org.tron.common.dispatch.creator.transfer.NiceTransferTransactionCreator">
+        <property name="name" value="niceTransferTransaction"/>
+        <property name="begin" value="93"/>
         <property name="end" value="99"/>
     </bean>
 

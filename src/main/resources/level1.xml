@@ -87,6 +87,7 @@
                 <ref bean="badTransferOwnerNotFoundCreator"/>
                 <ref bean="badTransferToNotFoundAmountLessThanOneTrx"/>
                 <ref bean="niceTransferToNotFoundAmountOneTrx"/>
+                <ref bean="niceTransferTransaction"/>
             </list>
         </property>
     </bean>
