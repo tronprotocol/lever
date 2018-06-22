@@ -24,7 +24,7 @@ public class NiceTransferAssetTransactionCreator extends AbstractTransactionCrea
         .setToAddress(toAddress)
         .setAmount(amount)
         .build();
-    Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.AssetIssueContract);
+    Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TransferAssetContract);
     transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
   }
