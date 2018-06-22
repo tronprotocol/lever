@@ -21,6 +21,9 @@ public class sum {
     long sum = 0;
     while((str = bufferedReader.readLine()) != null)
     {
+      if(str.equalsIgnoreCase("")){
+        continue;
+      }
       System.err.println("\nAfter Transaction");
       Protocol.Account account = WalletClient.queryAccount(WalletClient.decodeFromBase58Check(str));
       sum += account.getBalance();

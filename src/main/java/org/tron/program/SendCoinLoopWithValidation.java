@@ -9,6 +9,7 @@ import java.io.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
@@ -68,17 +69,19 @@ public class SendCoinLoopWithValidation {
 
         byte[] privateKey = ByteArray.fromHexString(privateKeyList.get(0));
         WalletClient rootClient = new WalletClient(privateKey);
-        rootClient.init();
+        rootClient.init(0);
 
         int accountNum = (int)Math.sqrt(count/THREAD_COUNT) + 1;
 
         // increase bandwidth
         try {
             GrpcAPI.Return response = null;
-            response = rootClient.freezeBalanceResponse((long) 500000000 * (long) 1000, 3);
+            response = rootClient.freezeBalanceResponse((long) 500_000_000 * (long) 1000, 3);
         }catch (Exception e){
             e.printStackTrace();
         }
+        //500_000_000_029
+        //4000_000_000_000
 
         walletClients = IntStream.range(0, THREAD_COUNT).mapToObj(i -> {
             WalletClient walletClient = null;
@@ -88,7 +91,7 @@ public class SendCoinLoopWithValidation {
             } catch (CipherException e) {
                 e.printStackTrace();
             }
-            walletClient.init();
+            walletClient.init(THREAD_COUNT % 5);
             return walletClient;
         }).collect(Collectors.toList());
 
@@ -106,7 +109,7 @@ public class SendCoinLoopWithValidation {
                     }
                 }
                 try {
-                    response= rootClient.sendCoinResponse(key.getAddress(), (long) 100 * (long) 1000000);
+                    response= rootClient.sendCoinResponse(key.getAddress(), (long) 10 * (long) 1_000_000);
 //                    System.err.println(response.getMessage().toStringUtf8());
 //                    System.err.println(response.getMessage());
 //                    System.err.println(response.toString());
@@ -130,7 +133,7 @@ public class SendCoinLoopWithValidation {
 
             // sendCoinAmount >= Transaction * amount + freezeTRX
             try {
-                rootClient.sendCoin(key.getAddress(), (long) 70_0010 * (long) 1_000_000 - (long) 10 * (long) 1_000_000);
+                rootClient.sendCoinResponse(key.getAddress(), (long) 500_020 * (long) 1_000_000 - (long) 10 * (long) 1_000_000);
             } catch (CipherException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -180,7 +183,7 @@ public class SendCoinLoopWithValidation {
 
                 }
                 try {
-                    freezeResult = walletClient.freezeBalanceResponse((long)20*1000000,3);
+                    freezeResult = walletClient.freezeBalanceResponse((long)20*1000_000,3);
                 } catch (CipherException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -221,7 +224,9 @@ public class SendCoinLoopWithValidation {
         }
         System.err.println("\n Before Transaction sum: "+sum1);
 
-
+        //THmtHi1Rzq4gSKYGEKv1DPkV7au6xU1AUB
+        Protocol.Account accountBlackHole = WalletClient.queryAccount(WalletClient.decodeFromBase58Check("THmtHi1Rzq4gSKYGEKv1DPkV7au6xU1AUB"));
+        System.err.println("\nBlackholeBefore" +" : " + accountBlackHole.getBalance());
         rateLimiter(tps, keys ,amount, count,rootClient, fos, counter);
 
         long sum2 =0;
@@ -232,6 +237,8 @@ public class SendCoinLoopWithValidation {
             System.err.println("\n" + WalletClient.encode58Check(keys.get(i).getAddress()) + " : " + account.getBalance());
         }
         System.err.println("\nAfter Transaction sum: "+sum2);
+        accountBlackHole = WalletClient.queryAccount(WalletClient.decodeFromBase58Check("THmtHi1Rzq4gSKYGEKv1DPkV7au6xU1AUB"));
+        System.err.println("\nBlackholeAfter" +" : " + accountBlackHole.getBalance());
 
     }
 

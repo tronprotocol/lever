@@ -74,8 +74,8 @@ public class WalletClient {
   private byte[] address = null;
   private static byte addressPreFixByte = CommonConstant.ADD_PRE_FIX_BYTE_TESTNET;
   public ECKey eckey = null;
-
-  private static GrpcClient rpcCli = init();
+  public static int nodeListSize = 0;
+  private static GrpcClient rpcCli = init(0);
 
 //  static {
 //    new Timer().schedule(new TimerTask() {
@@ -88,17 +88,39 @@ public class WalletClient {
 //      }
 //    }, 3 * 60 * 1000, 3 * 60 * 1000);
 //  }
+public static GrpcClient init() throws CipherException {
+  Config config = Configuration.getByPath("config.conf");
 
-  public static GrpcClient init() {
+  String fullNode = "";
+  String solidityNode = "";
+  if (config.hasPath("soliditynode.ip.list")) {
+    solidityNode = config.getStringList("soliditynode.ip.list").get(0);
+    nodeListSize =config.getStringList("soliditynode.ip.list").size();
+  }
+  if (config.hasPath("fullnode.ip.list")) {
+    fullNode = config.getStringList("fullnode.ip.list").get(0);
+    nodeListSize = config.getStringList("fullnode.ip.list").size();
+  }
+  if (config.hasPath("net.type") && "mainnet".equalsIgnoreCase(config.getString("net.type"))) {
+    WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_MAINNET);
+  } else {
+    WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_TESTNET);
+  }
+  return new GrpcClient(fullNode, solidityNode);
+}
+
+  public static GrpcClient init(int i) {
     Config config = Configuration.getByPath("config.conf");
 
     String fullNode = "";
     String solidityNode = "";
     if (config.hasPath("soliditynode.ip.list")) {
-      solidityNode = config.getStringList("soliditynode.ip.list").get(0);
+      solidityNode = config.getStringList("soliditynode.ip.list").get(i);
+      nodeListSize =config.getStringList("soliditynode.ip.list").size();
     }
     if (config.hasPath("fullnode.ip.list")) {
-      fullNode = config.getStringList("fullnode.ip.list").get(0);
+      fullNode = config.getStringList("fullnode.ip.list").get(i);
+      nodeListSize = config.getStringList("fullnode.ip.list").size();
     }
     if (config.hasPath("net.type") && "mainnet".equalsIgnoreCase(config.getString("net.type"))) {
       WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_MAINNET);
@@ -982,4 +1004,17 @@ public class WalletClient {
   public static Optional<BlockList> getBlockByLatestNum(long num) {
     return rpcCli.getBlockByLatestNum(num);
   }
+
+  public GrpcAPI.Return sendBadTransactionWithoutSign (byte[] to, long amount)
+      throws CipherException, IOException, CancelException {
+    byte[] owner = getAddress();
+    Contract.TransferContract contract = createTransferContract(to, owner, amount);
+    Transaction transaction = rpcCli.createTransaction(contract);
+    if (transaction == null || transaction.getRawData().getContractCount() == 0) {
+      return null;
+    }
+
+    return rpcCli.broadcastTransactionResponse(transaction);
+  }
+
 }

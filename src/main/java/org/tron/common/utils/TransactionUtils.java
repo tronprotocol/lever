@@ -159,8 +159,8 @@ public class TransactionUtils {
     return transaction;
   }
 
-  public static Transaction setTimestamp(Transaction transaction) {
-    long currentTime = System.currentTimeMillis();//*1000000 + System.nanoTime()%1000000;
+  public synchronized static Transaction setTimestamp(Transaction transaction) {
+    long currentTime = System.currentTimeMillis()*1000000 + System.nanoTime()%1000000;
     Transaction.Builder builder = transaction.toBuilder();
     org.tron.protos.Protocol.Transaction.raw.Builder rowBuilder = transaction.getRawData()
         .toBuilder();
