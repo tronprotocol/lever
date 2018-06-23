@@ -14025,7 +14025,7 @@ public final class GrpcAPI {
       "\022\035.protocol.EasyTransferMessage\032\036.protoc" +
       "ol.EasyTransferResponse\"7\202\323\344\223\0021\"\024/wallet" +
       "/easytransfer:\001*Z\026\022\024/wallet/easytransfer" +
-      "2\373\007\n\016WalletSolidity\022w\n\nGetAccount\022\021.prot" +
+      "2\266\t\n\016WalletSolidity\022w\n\nGetAccount\022\021.prot" +
       "ocol.Account\032\021.protocol.Account\"C\202\323\344\223\002=\"" +
       "\032/walletsolidity/getaccount:\001*Z\034\022\032/walle" +
       "tsolidity/getaccount\022\211\001\n\rListWitnesses\022\026" +
@@ -14047,29 +14047,33 @@ public final class GrpcAPI {
       "kByNum\022\027.protocol.NumberMessage\032\017.protoc" +
       "ol.Block\"I\202\323\344\223\002C\"\035/walletsolidity/getblo" +
       "ckbynum:\001*Z\037\022\035/walletsolidity/getblockby" +
-      "num\022\210\001\n\022GetTransactionById\022\026.protocol.By" +
-      "tesMessage\032\025.protocol.Transaction\"C\202\323\344\223\002" +
-      "=\"\032/wallet/gettransactionbyid:\001*Z\034\022\032/wal" +
-      "let/gettransactionbyid2\363\002\n\017WalletExtensi" +
-      "on\022\261\001\n\027GetTransactionsFromThis\022\032.protoco" +
-      "l.AccountPaginated\032\031.protocol.Transactio" +
-      "nList\"_\202\323\344\223\002Y\"(/walletextension/gettrans" +
-      "actionsfromthis:\001*Z*\022(/walletextension/g" +
-      "ettransactionsfromthis\022\253\001\n\025GetTransactio" +
-      "nsToThis\022\032.protocol.AccountPaginated\032\031.p" +
-      "rotocol.TransactionList\"[\202\323\344\223\002U\"&/wallet" +
-      "extension/gettransactionstothis:\001*Z(\022&/w" +
-      "alletextension/gettransactionstothis2\231\002\n" +
-      "\010Database\022G\n\021getBlockReference\022\026.protoco" +
-      "l.EmptyMessage\032\030.protocol.BlockReference" +
-      "\"\000\022M\n\024GetDynamicProperties\022\026.protocol.Em" +
-      "ptyMessage\032\033.protocol.DynamicProperties\"" +
-      "\000\0228\n\013GetNowBlock\022\026.protocol.EmptyMessage" +
-      "\032\017.protocol.Block\"\000\022;\n\rGetBlockByNum\022\027.p" +
-      "rotocol.NumberMessage\032\017.protocol.Block\"\000" +
-      "2\t\n\007NetworkBA\n\014org.tron.apiB\007GrpcAPIZ(gi" +
-      "thub.com/tronprotocol/grpc-gateway/apib\006" +
-      "proto3"
+      "num\022\230\001\n\022GetTransactionById\022\026.protocol.By" +
+      "tesMessage\032\025.protocol.Transaction\"S\202\323\344\223\002" +
+      "M\"\"/walletsolidity/gettransactionbyid:\001*" +
+      "Z$\022\"/walletsolidity/gettransactionbyid\022\250" +
+      "\001\n\026GetTransactionInfoById\022\026.protocol.Byt" +
+      "esMessage\032\031.protocol.TransactionInfo\"[\202\323" +
+      "\344\223\002U\"&/walletsolidity/gettransactioninfo" +
+      "byid:\001*Z(\022&/walletsolidity/gettransactio" +
+      "ninfobyid2\363\002\n\017WalletExtension\022\261\001\n\027GetTra" +
+      "nsactionsFromThis\022\032.protocol.AccountPagi" +
+      "nated\032\031.protocol.TransactionList\"_\202\323\344\223\002Y" +
+      "\"(/walletextension/gettransactionsfromth" +
+      "is:\001*Z*\022(/walletextension/gettransaction" +
+      "sfromthis\022\253\001\n\025GetTransactionsToThis\022\032.pr" +
+      "otocol.AccountPaginated\032\031.protocol.Trans" +
+      "actionList\"[\202\323\344\223\002U\"&/walletextension/get" +
+      "transactionstothis:\001*Z(\022&/walletextensio" +
+      "n/gettransactionstothis2\231\002\n\010Database\022G\n\021" +
+      "getBlockReference\022\026.protocol.EmptyMessag" +
+      "e\032\030.protocol.BlockReference\"\000\022M\n\024GetDyna" +
+      "micProperties\022\026.protocol.EmptyMessage\032\033." +
+      "protocol.DynamicProperties\"\000\0228\n\013GetNowBl" +
+      "ock\022\026.protocol.EmptyMessage\032\017.protocol.B" +
+      "lock\"\000\022;\n\rGetBlockByNum\022\027.protocol.Numbe" +
+      "rMessage\032\017.protocol.Block\"\0002\t\n\007NetworkBA" +
+      "\n\014org.tron.apiB\007GrpcAPIZ(github.com/tron" +
+      "protocol/grpc-gateway/apib\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

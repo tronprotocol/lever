@@ -16791,6 +16791,652 @@ public final class Protocol {
 
   }
 
+  public interface TransactionInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.TransactionInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes id = 1;</code>
+     */
+    com.google.protobuf.ByteString getId();
+
+    /**
+     * <code>int64 fee = 2;</code>
+     */
+    long getFee();
+
+    /**
+     * <code>int64 blockNumber = 3;</code>
+     */
+    long getBlockNumber();
+
+    /**
+     * <code>int64 blockTimeStamp = 4;</code>
+     */
+    long getBlockTimeStamp();
+  }
+  /**
+   * Protobuf type {@code protocol.TransactionInfo}
+   */
+  public  static final class TransactionInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.TransactionInfo)
+      TransactionInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TransactionInfo.newBuilder() to construct.
+    private TransactionInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TransactionInfo() {
+      id_ = com.google.protobuf.ByteString.EMPTY;
+      fee_ = 0L;
+      blockNumber_ = 0L;
+      blockTimeStamp_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TransactionInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              id_ = input.readBytes();
+              break;
+            }
+            case 16: {
+
+              fee_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              blockNumber_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              blockTimeStamp_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.protos.Protocol.internal_static_protocol_TransactionInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.protos.Protocol.internal_static_protocol_TransactionInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.protos.Protocol.TransactionInfo.class, org.tron.protos.Protocol.TransactionInfo.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString id_;
+    /**
+     * <code>bytes id = 1;</code>
+     */
+    public com.google.protobuf.ByteString getId() {
+      return id_;
+    }
+
+    public static final int FEE_FIELD_NUMBER = 2;
+    private long fee_;
+    /**
+     * <code>int64 fee = 2;</code>
+     */
+    public long getFee() {
+      return fee_;
+    }
+
+    public static final int BLOCKNUMBER_FIELD_NUMBER = 3;
+    private long blockNumber_;
+    /**
+     * <code>int64 blockNumber = 3;</code>
+     */
+    public long getBlockNumber() {
+      return blockNumber_;
+    }
+
+    public static final int BLOCKTIMESTAMP_FIELD_NUMBER = 4;
+    private long blockTimeStamp_;
+    /**
+     * <code>int64 blockTimeStamp = 4;</code>
+     */
+    public long getBlockTimeStamp() {
+      return blockTimeStamp_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!id_.isEmpty()) {
+        output.writeBytes(1, id_);
+      }
+      if (fee_ != 0L) {
+        output.writeInt64(2, fee_);
+      }
+      if (blockNumber_ != 0L) {
+        output.writeInt64(3, blockNumber_);
+      }
+      if (blockTimeStamp_ != 0L) {
+        output.writeInt64(4, blockTimeStamp_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!id_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, id_);
+      }
+      if (fee_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, fee_);
+      }
+      if (blockNumber_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, blockNumber_);
+      }
+      if (blockTimeStamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, blockTimeStamp_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.protos.Protocol.TransactionInfo)) {
+        return super.equals(obj);
+      }
+      org.tron.protos.Protocol.TransactionInfo other = (org.tron.protos.Protocol.TransactionInfo) obj;
+
+      boolean result = true;
+      result = result && getId()
+          .equals(other.getId());
+      result = result && (getFee()
+          == other.getFee());
+      result = result && (getBlockNumber()
+          == other.getBlockNumber());
+      result = result && (getBlockTimeStamp()
+          == other.getBlockTimeStamp());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + FEE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFee());
+      hash = (37 * hash) + BLOCKNUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getBlockNumber());
+      hash = (37 * hash) + BLOCKTIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getBlockTimeStamp());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.TransactionInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.protos.Protocol.TransactionInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.TransactionInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.TransactionInfo)
+        org.tron.protos.Protocol.TransactionInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.protos.Protocol.internal_static_protocol_TransactionInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.protos.Protocol.internal_static_protocol_TransactionInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.protos.Protocol.TransactionInfo.class, org.tron.protos.Protocol.TransactionInfo.Builder.class);
+      }
+
+      // Construct using org.tron.protos.Protocol.TransactionInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        id_ = com.google.protobuf.ByteString.EMPTY;
+
+        fee_ = 0L;
+
+        blockNumber_ = 0L;
+
+        blockTimeStamp_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.protos.Protocol.internal_static_protocol_TransactionInfo_descriptor;
+      }
+
+      public org.tron.protos.Protocol.TransactionInfo getDefaultInstanceForType() {
+        return org.tron.protos.Protocol.TransactionInfo.getDefaultInstance();
+      }
+
+      public org.tron.protos.Protocol.TransactionInfo build() {
+        org.tron.protos.Protocol.TransactionInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.protos.Protocol.TransactionInfo buildPartial() {
+        org.tron.protos.Protocol.TransactionInfo result = new org.tron.protos.Protocol.TransactionInfo(this);
+        result.id_ = id_;
+        result.fee_ = fee_;
+        result.blockNumber_ = blockNumber_;
+        result.blockTimeStamp_ = blockTimeStamp_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.protos.Protocol.TransactionInfo) {
+          return mergeFrom((org.tron.protos.Protocol.TransactionInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.protos.Protocol.TransactionInfo other) {
+        if (other == org.tron.protos.Protocol.TransactionInfo.getDefaultInstance()) return this;
+        if (other.getId() != com.google.protobuf.ByteString.EMPTY) {
+          setId(other.getId());
+        }
+        if (other.getFee() != 0L) {
+          setFee(other.getFee());
+        }
+        if (other.getBlockNumber() != 0L) {
+          setBlockNumber(other.getBlockNumber());
+        }
+        if (other.getBlockTimeStamp() != 0L) {
+          setBlockTimeStamp(other.getBlockTimeStamp());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.protos.Protocol.TransactionInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.protos.Protocol.TransactionInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString id_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes id = 1;</code>
+       */
+      public com.google.protobuf.ByteString getId() {
+        return id_;
+      }
+      /**
+       * <code>bytes id = 1;</code>
+       */
+      public Builder setId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+
+      private long fee_ ;
+      /**
+       * <code>int64 fee = 2;</code>
+       */
+      public long getFee() {
+        return fee_;
+      }
+      /**
+       * <code>int64 fee = 2;</code>
+       */
+      public Builder setFee(long value) {
+        
+        fee_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 fee = 2;</code>
+       */
+      public Builder clearFee() {
+        
+        fee_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long blockNumber_ ;
+      /**
+       * <code>int64 blockNumber = 3;</code>
+       */
+      public long getBlockNumber() {
+        return blockNumber_;
+      }
+      /**
+       * <code>int64 blockNumber = 3;</code>
+       */
+      public Builder setBlockNumber(long value) {
+        
+        blockNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 blockNumber = 3;</code>
+       */
+      public Builder clearBlockNumber() {
+        
+        blockNumber_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long blockTimeStamp_ ;
+      /**
+       * <code>int64 blockTimeStamp = 4;</code>
+       */
+      public long getBlockTimeStamp() {
+        return blockTimeStamp_;
+      }
+      /**
+       * <code>int64 blockTimeStamp = 4;</code>
+       */
+      public Builder setBlockTimeStamp(long value) {
+        
+        blockTimeStamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 blockTimeStamp = 4;</code>
+       */
+      public Builder clearBlockTimeStamp() {
+        
+        blockTimeStamp_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.TransactionInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.TransactionInfo)
+    private static final org.tron.protos.Protocol.TransactionInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.protos.Protocol.TransactionInfo();
+    }
+
+    public static org.tron.protos.Protocol.TransactionInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TransactionInfo>
+        PARSER = new com.google.protobuf.AbstractParser<TransactionInfo>() {
+      public TransactionInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TransactionInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TransactionInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TransactionInfo> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.protos.Protocol.TransactionInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface TransactionsOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protocol.Transactions)
       com.google.protobuf.MessageOrBuilder {
@@ -28720,6 +29366,11 @@ public final class Protocol {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Transaction_raw_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_TransactionInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_TransactionInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Transactions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -28873,59 +29524,61 @@ public final class Protocol {
       "uths\030\t \003(\0132\023.protocol.acuthrity\022\014\n\004data\030" +
       "\n \001(\014\0220\n\010contract\030\013 \003(\0132\036.protocol.Trans" +
       "action.Contract\022\017\n\007scripts\030\014 \001(\014\022\021\n\ttime" +
-      "stamp\030\016 \001(\003\";\n\014Transactions\022+\n\014transacti" +
-      "ons\030\001 \003(\0132\025.protocol.Transaction\"Q\n\017Tran" +
-      "sactionSign\022*\n\013transaction\030\001 \001(\0132\025.proto" +
-      "col.Transaction\022\022\n\nprivateKey\030\002 \001(\014\"\324\001\n\013" +
-      "BlockHeader\022+\n\010raw_data\030\001 \001(\0132\031.protocol" +
-      ".BlockHeader.raw\022\031\n\021witness_signature\030\002 " +
-      "\001(\014\032}\n\003raw\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\ntxTrieR" +
-      "oot\030\002 \001(\014\022\022\n\nparentHash\030\003 \001(\014\022\016\n\006number\030" +
-      "\007 \001(\003\022\022\n\nwitness_id\030\010 \001(\003\022\027\n\017witness_add" +
-      "ress\030\t \001(\014\"a\n\005Block\022+\n\014transactions\030\001 \003(" +
-      "\0132\025.protocol.Transaction\022+\n\014block_header" +
-      "\030\002 \001(\0132\025.protocol.BlockHeader\"|\n\016ChainIn" +
-      "ventory\022-\n\003ids\030\001 \003(\0132 .protocol.ChainInv" +
-      "entory.BlockId\022\022\n\nremain_num\030\002 \001(\003\032\'\n\007Bl" +
-      "ockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"\277\001\n\016" +
-      "BlockInventory\022-\n\003ids\030\001 \003(\0132 .protocol.B" +
-      "lockInventory.BlockId\022+\n\004type\030\002 \001(\0162\035.pr" +
-      "otocol.BlockInventory.Type\032\'\n\007BlockId\022\014\n" +
-      "\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"(\n\004Type\022\010\n\004S" +
-      "YNC\020\000\022\013\n\007ADVTISE\020\001\022\t\n\005FETCH\020\002\"n\n\tInvento" +
-      "ry\022/\n\004type\030\001 \001(\0162!.protocol.Inventory.In" +
-      "ventoryType\022\013\n\003ids\030\002 \003(\014\"#\n\rInventoryTyp" +
-      "e\022\007\n\003TRX\020\000\022\t\n\005BLOCK\020\001\"\345\001\n\005Items\022&\n\004type\030" +
-      "\001 \001(\0162\030.protocol.Items.ItemType\022\037\n\006block" +
-      "s\030\002 \003(\0132\017.protocol.Block\022,\n\rblock_header" +
-      "s\030\003 \003(\0132\025.protocol.BlockHeader\022+\n\014transa" +
-      "ctions\030\004 \003(\0132\025.protocol.Transaction\"8\n\010I" +
-      "temType\022\007\n\003ERR\020\000\022\007\n\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013" +
-      "BLOCKHEADER\020\003\"4\n\021DynamicProperties\022\037\n\027la" +
-      "st_solidity_block_num\030\001 \001(\003\"9\n\021Disconnec" +
-      "tMessage\022$\n\006reason\030\001 \001(\0162\024.protocol.Reas" +
-      "onCode\"\240\002\n\014HelloMessage\022 \n\004from\030\001 \001(\0132\022." +
-      "protocol.Endpoint\022\017\n\007version\030\002 \001(\005\022\021\n\tti" +
-      "mestamp\030\003 \001(\003\0226\n\016genesisBlockId\030\004 \001(\0132\036." +
-      "protocol.HelloMessage.BlockId\0224\n\014solidBl" +
-      "ockId\030\005 \001(\0132\036.protocol.HelloMessage.Bloc" +
-      "kId\0223\n\013headBlockId\030\006 \001(\0132\036.protocol.Hell" +
-      "oMessage.BlockId\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(" +
-      "\014\022\016\n\006number\030\002 \001(\003*7\n\013AccountType\022\n\n\006Norm" +
-      "al\020\000\022\016\n\nAssetIssue\020\001\022\014\n\010Contract\020\002*\246\003\n\nR" +
-      "easonCode\022\r\n\tREQUESTED\020\000\022\020\n\014BAD_PROTOCOL" +
-      "\020\002\022\022\n\016TOO_MANY_PEERS\020\004\022\022\n\016DUPLICATE_PEER" +
-      "\020\005\022\031\n\025INCOMPATIBLE_PROTOCOL\020\006\022\021\n\rNULL_ID" +
-      "ENTITY\020\007\022\020\n\014PEER_QUITING\020\010\022\027\n\023UNEXPECTED" +
-      "_IDENTITY\020\t\022\022\n\016LOCAL_IDENTITY\020\n\022\020\n\014PING_" +
-      "TIMEOUT\020\013\022\017\n\013USER_REASON\020\020\022\t\n\005RESET\020\021\022\r\n" +
-      "\tSYNC_FAIL\020\022\022\016\n\nFETCH_FAIL\020\023\022\n\n\006BAD_TX\020\024" +
-      "\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FORKED\020\026\022\016\n\nUNLINKABL" +
-      "E\020\027\022\030\n\024INCOMPATIBLE_VERSION\020\030\022\026\n\022INCOMPA" +
-      "TIBLE_CHAIN\020\031\022\014\n\010TIME_OUT\020 \022\020\n\014CONNECT_F" +
-      "AIL\020!\022\014\n\007UNKNOWN\020\377\001BF\n\017org.tron.protosB\010" +
-      "ProtocolZ)github.com/tronprotocol/grpc-g" +
-      "ateway/coreb\006proto3"
+      "stamp\030\016 \001(\003\"W\n\017TransactionInfo\022\n\n\002id\030\001 \001" +
+      "(\014\022\013\n\003fee\030\002 \001(\003\022\023\n\013blockNumber\030\003 \001(\003\022\026\n\016" +
+      "blockTimeStamp\030\004 \001(\003\";\n\014Transactions\022+\n\014" +
+      "transactions\030\001 \003(\0132\025.protocol.Transactio" +
+      "n\"Q\n\017TransactionSign\022*\n\013transaction\030\001 \001(" +
+      "\0132\025.protocol.Transaction\022\022\n\nprivateKey\030\002" +
+      " \001(\014\"\324\001\n\013BlockHeader\022+\n\010raw_data\030\001 \001(\0132\031" +
+      ".protocol.BlockHeader.raw\022\031\n\021witness_sig" +
+      "nature\030\002 \001(\014\032}\n\003raw\022\021\n\ttimestamp\030\001 \001(\003\022\022" +
+      "\n\ntxTrieRoot\030\002 \001(\014\022\022\n\nparentHash\030\003 \001(\014\022\016" +
+      "\n\006number\030\007 \001(\003\022\022\n\nwitness_id\030\010 \001(\003\022\027\n\017wi" +
+      "tness_address\030\t \001(\014\"a\n\005Block\022+\n\014transact" +
+      "ions\030\001 \003(\0132\025.protocol.Transaction\022+\n\014blo" +
+      "ck_header\030\002 \001(\0132\025.protocol.BlockHeader\"|" +
+      "\n\016ChainInventory\022-\n\003ids\030\001 \003(\0132 .protocol" +
+      ".ChainInventory.BlockId\022\022\n\nremain_num\030\002 " +
+      "\001(\003\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002" +
+      " \001(\003\"\277\001\n\016BlockInventory\022-\n\003ids\030\001 \003(\0132 .p" +
+      "rotocol.BlockInventory.BlockId\022+\n\004type\030\002" +
+      " \001(\0162\035.protocol.BlockInventory.Type\032\'\n\007B" +
+      "lockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"(\n\004" +
+      "Type\022\010\n\004SYNC\020\000\022\013\n\007ADVTISE\020\001\022\t\n\005FETCH\020\002\"n" +
+      "\n\tInventory\022/\n\004type\030\001 \001(\0162!.protocol.Inv" +
+      "entory.InventoryType\022\013\n\003ids\030\002 \003(\014\"#\n\rInv" +
+      "entoryType\022\007\n\003TRX\020\000\022\t\n\005BLOCK\020\001\"\345\001\n\005Items" +
+      "\022&\n\004type\030\001 \001(\0162\030.protocol.Items.ItemType" +
+      "\022\037\n\006blocks\030\002 \003(\0132\017.protocol.Block\022,\n\rblo" +
+      "ck_headers\030\003 \003(\0132\025.protocol.BlockHeader\022" +
+      "+\n\014transactions\030\004 \003(\0132\025.protocol.Transac" +
+      "tion\"8\n\010ItemType\022\007\n\003ERR\020\000\022\007\n\003TRX\020\001\022\t\n\005BL" +
+      "OCK\020\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021DynamicPropert" +
+      "ies\022\037\n\027last_solidity_block_num\030\001 \001(\003\"9\n\021" +
+      "DisconnectMessage\022$\n\006reason\030\001 \001(\0162\024.prot" +
+      "ocol.ReasonCode\"\240\002\n\014HelloMessage\022 \n\004from" +
+      "\030\001 \001(\0132\022.protocol.Endpoint\022\017\n\007version\030\002 " +
+      "\001(\005\022\021\n\ttimestamp\030\003 \001(\003\0226\n\016genesisBlockId" +
+      "\030\004 \001(\0132\036.protocol.HelloMessage.BlockId\0224" +
+      "\n\014solidBlockId\030\005 \001(\0132\036.protocol.HelloMes" +
+      "sage.BlockId\0223\n\013headBlockId\030\006 \001(\0132\036.prot" +
+      "ocol.HelloMessage.BlockId\032\'\n\007BlockId\022\014\n\004" +
+      "hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003*7\n\013AccountTyp" +
+      "e\022\n\n\006Normal\020\000\022\016\n\nAssetIssue\020\001\022\014\n\010Contrac" +
+      "t\020\002*\246\003\n\nReasonCode\022\r\n\tREQUESTED\020\000\022\020\n\014BAD" +
+      "_PROTOCOL\020\002\022\022\n\016TOO_MANY_PEERS\020\004\022\022\n\016DUPLI" +
+      "CATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PROTOCOL\020\006\022\021" +
+      "\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITING\020\010\022\027\n\023U" +
+      "NEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_IDENTITY\020\n" +
+      "\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REASON\020\020\022\t\n\005R" +
+      "ESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\016\n\nFETCH_FAIL\020\023\022\n\n" +
+      "\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FORKED\020\026\022\016\n\n" +
+      "UNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VERSION\020\030\022\026" +
+      "\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\010TIME_OUT\020 \022\020\n\014" +
+      "CONNECT_FAIL\020!\022\014\n\007UNKNOWN\020\377\001BF\n\017org.tron" +
+      ".protosB\010ProtocolZ)github.com/tronprotoc" +
+      "ol/grpc-gateway/coreb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -29055,20 +29708,26 @@ public final class Protocol {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transaction_raw_descriptor,
         new java.lang.String[] { "RefBlockBytes", "RefBlockNum", "RefBlockHash", "Expiration", "Auths", "Data", "Contract", "Scripts", "Timestamp", });
-    internal_static_protocol_Transactions_descriptor =
+    internal_static_protocol_TransactionInfo_descriptor =
       getDescriptor().getMessageTypes().get(11);
+    internal_static_protocol_TransactionInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_TransactionInfo_descriptor,
+        new java.lang.String[] { "Id", "Fee", "BlockNumber", "BlockTimeStamp", });
+    internal_static_protocol_Transactions_descriptor =
+      getDescriptor().getMessageTypes().get(12);
     internal_static_protocol_Transactions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transactions_descriptor,
         new java.lang.String[] { "Transactions", });
     internal_static_protocol_TransactionSign_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_protocol_TransactionSign_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransactionSign_descriptor,
         new java.lang.String[] { "Transaction", "PrivateKey", });
     internal_static_protocol_BlockHeader_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_protocol_BlockHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockHeader_descriptor,
@@ -29080,13 +29739,13 @@ public final class Protocol {
         internal_static_protocol_BlockHeader_raw_descriptor,
         new java.lang.String[] { "Timestamp", "TxTrieRoot", "ParentHash", "Number", "WitnessId", "WitnessAddress", });
     internal_static_protocol_Block_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_protocol_Block_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Block_descriptor,
         new java.lang.String[] { "Transactions", "BlockHeader", });
     internal_static_protocol_ChainInventory_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_protocol_ChainInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ChainInventory_descriptor,
@@ -29098,7 +29757,7 @@ public final class Protocol {
         internal_static_protocol_ChainInventory_BlockId_descriptor,
         new java.lang.String[] { "Hash", "Number", });
     internal_static_protocol_BlockInventory_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_protocol_BlockInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockInventory_descriptor,
@@ -29110,31 +29769,31 @@ public final class Protocol {
         internal_static_protocol_BlockInventory_BlockId_descriptor,
         new java.lang.String[] { "Hash", "Number", });
     internal_static_protocol_Inventory_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_protocol_Inventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Inventory_descriptor,
         new java.lang.String[] { "Type", "Ids", });
     internal_static_protocol_Items_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_protocol_Items_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Items_descriptor,
         new java.lang.String[] { "Type", "Blocks", "BlockHeaders", "Transactions", });
     internal_static_protocol_DynamicProperties_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_protocol_DynamicProperties_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DynamicProperties_descriptor,
         new java.lang.String[] { "LastSolidityBlockNum", });
     internal_static_protocol_DisconnectMessage_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_protocol_DisconnectMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DisconnectMessage_descriptor,
         new java.lang.String[] { "Reason", });
     internal_static_protocol_HelloMessage_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_protocol_HelloMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_HelloMessage_descriptor,
