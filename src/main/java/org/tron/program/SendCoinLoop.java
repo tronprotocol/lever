@@ -148,9 +148,9 @@ class Task implements Runnable {
       if (endCounts.longValue() == threadCount) {
         endTime = new Date();
         System.out.printf(
-            "\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT\n",
+            "\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT, \u001B[36mseconds:\u001B[0m %d\n",
             startTime, startTime, endTime,
-            endTime);
+            endTime, ((endTime.getTime() - startTime.getTime()) / 1000));
 
         System.out.println("\u001B[36mstart account:\u001B[0m");
         SendCoinLoop.getStartAccount().entrySet().stream().forEach(v -> {
