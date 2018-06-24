@@ -215,6 +215,10 @@ public final class Protocol {
      */
     CONNECT_FAIL(33),
     /**
+     * <code>TOO_MANY_PEERS_WITH_SAME_IP = 34;</code>
+     */
+    TOO_MANY_PEERS_WITH_SAME_IP(34),
+    /**
      * <code>UNKNOWN = 255;</code>
      */
     UNKNOWN(255),
@@ -310,6 +314,10 @@ public final class Protocol {
      */
     public static final int CONNECT_FAIL_VALUE = 33;
     /**
+     * <code>TOO_MANY_PEERS_WITH_SAME_IP = 34;</code>
+     */
+    public static final int TOO_MANY_PEERS_WITH_SAME_IP_VALUE = 34;
+    /**
      * <code>UNKNOWN = 255;</code>
      */
     public static final int UNKNOWN_VALUE = 255;
@@ -355,6 +363,7 @@ public final class Protocol {
         case 25: return INCOMPATIBLE_CHAIN;
         case 32: return TIME_OUT;
         case 33: return CONNECT_FAIL;
+        case 34: return TOO_MANY_PEERS_WITH_SAME_IP;
         case 255: return UNKNOWN;
         default: return null;
       }
@@ -29566,7 +29575,7 @@ public final class Protocol {
       "ocol.HelloMessage.BlockId\032\'\n\007BlockId\022\014\n\004" +
       "hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003*7\n\013AccountTyp" +
       "e\022\n\n\006Normal\020\000\022\016\n\nAssetIssue\020\001\022\014\n\010Contrac" +
-      "t\020\002*\246\003\n\nReasonCode\022\r\n\tREQUESTED\020\000\022\020\n\014BAD" +
+      "t\020\002*\307\003\n\nReasonCode\022\r\n\tREQUESTED\020\000\022\020\n\014BAD" +
       "_PROTOCOL\020\002\022\022\n\016TOO_MANY_PEERS\020\004\022\022\n\016DUPLI" +
       "CATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PROTOCOL\020\006\022\021" +
       "\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITING\020\010\022\027\n\023U" +
@@ -29576,9 +29585,10 @@ public final class Protocol {
       "\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FORKED\020\026\022\016\n\n" +
       "UNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VERSION\020\030\022\026" +
       "\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\010TIME_OUT\020 \022\020\n\014" +
-      "CONNECT_FAIL\020!\022\014\n\007UNKNOWN\020\377\001BF\n\017org.tron" +
-      ".protosB\010ProtocolZ)github.com/tronprotoc" +
-      "ol/grpc-gateway/coreb\006proto3"
+      "CONNECT_FAIL\020!\022\037\n\033TOO_MANY_PEERS_WITH_SA" +
+      "ME_IP\020\"\022\014\n\007UNKNOWN\020\377\001BF\n\017org.tron.protos" +
+      "B\010ProtocolZ)github.com/tronprotocol/grpc" +
+      "-gateway/coreb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
