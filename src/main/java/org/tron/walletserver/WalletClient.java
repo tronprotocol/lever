@@ -71,11 +71,11 @@ public class WalletClient {
   private static final String FilePath = "Wallet";
   private WalletFile walletFile = null;
   private boolean loginState = false;
-  private byte[] address = null;
-  private static byte addressPreFixByte = CommonConstant.ADD_PRE_FIX_BYTE_TESTNET;
+  public byte[] address = null;
+  public static byte addressPreFixByte = CommonConstant.ADD_PRE_FIX_BYTE_TESTNET;
   public ECKey eckey = null;
   public static int nodeListSize = 0;
-  private static GrpcClient rpcCli = init(0);
+  private  GrpcClient rpcCli = init(0);
 
 //  static {
 //    new Timer().schedule(new TimerTask() {
@@ -88,7 +88,7 @@ public class WalletClient {
 //      }
 //    }, 3 * 60 * 1000, 3 * 60 * 1000);
 //  }
-public static GrpcClient init() throws CipherException {
+public  GrpcClient init() throws CipherException {
   Config config = Configuration.getByPath("config.conf");
 
   String fullNode = "";
@@ -106,10 +106,36 @@ public static GrpcClient init() throws CipherException {
   } else {
     WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_TESTNET);
   }
-  return new GrpcClient(fullNode, solidityNode);
+  this.rpcCli = new GrpcClient(fullNode, solidityNode);
+  return rpcCli;
 }
 
-  public static GrpcClient init(int i) {
+  public  GrpcClient init(String path, int i) throws CipherException {
+  if(null==path || path.equalsIgnoreCase("")){
+    return init(i);
+  }
+    Config config = Configuration.getByPath("config.conf");
+
+    String fullNode = "";
+    String solidityNode = "";
+    if (config.hasPath("soliditynode.ip.list")) {
+      solidityNode = config.getStringList("soliditynode.ip.list").get(i);
+      nodeListSize =config.getStringList("soliditynode.ip.list").size();
+    }
+    if (config.hasPath("fullnode.ip.list")) {
+      fullNode = config.getStringList("fullnode.ip.list").get(i);
+      nodeListSize = config.getStringList("fullnode.ip.list").size();
+    }
+    if (config.hasPath("net.type") && "mainnet".equalsIgnoreCase(config.getString("net.type"))) {
+      WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_MAINNET);
+    } else {
+      WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_TESTNET);
+    }
+    this.rpcCli = new GrpcClient(fullNode, solidityNode);
+    return rpcCli;
+  }
+
+  public  GrpcClient init(int i) {
     Config config = Configuration.getByPath("config.conf");
 
     String fullNode = "";
@@ -130,7 +156,7 @@ public static GrpcClient init() throws CipherException {
     return new GrpcClient(fullNode, solidityNode);
   }
 
-  public static String selectFullNode() {
+  public  String selectFullNode() {
     Map<String, String> witnessMap = new HashMap<>();
     Config config = Configuration.getByPath("config.conf");
     List list = config.getObjectList("witnesses.witnessList");
@@ -348,7 +374,7 @@ public static GrpcClient init() throws CipherException {
     return queryAccount(getAddress());
   }
 
-  public static Account queryAccount(byte[] address) {
+  public  Account queryAccount(byte[] address) {
     return rpcCli.queryAccount(address);//call rpc
   }
 
@@ -433,7 +459,7 @@ public static GrpcClient init() throws CipherException {
     return rpcCli.broadcastTransaction(transaction);
   }
 
-  public static Transaction createTransferAssetTransaction(byte[] to, byte[] assertName,
+  public  Transaction createTransferAssetTransaction(byte[] to, byte[] assertName,
       byte[] owner, long amount) {
     Contract.TransferAssetContract contract = createTransferAssetContract(to, assertName, owner,
         amount);
@@ -452,20 +478,20 @@ public static GrpcClient init() throws CipherException {
     return rpcCli.broadcastTransaction(transaction);
   }
 
-  public static Transaction participateAssetIssueTransaction(byte[] to, byte[] assertName,
+  public  Transaction participateAssetIssueTransaction(byte[] to, byte[] assertName,
       byte[] owner, long amount) {
     Contract.ParticipateAssetIssueContract contract = participateAssetIssueContract(to, assertName,
         owner, amount);
     return rpcCli.createParticipateAssetIssueTransaction(contract);
   }
 
-  public static Transaction updateAccountTransaction(byte[] addressBytes, byte[] accountNameBytes) {
+  public  Transaction updateAccountTransaction(byte[] addressBytes, byte[] accountNameBytes) {
     Contract.AccountUpdateContract contract = createAccountUpdateContract(accountNameBytes,
         addressBytes);
     return rpcCli.createTransaction(contract);
   }
 
-  public static boolean broadcastTransaction(byte[] transactionBytes)
+  public  boolean broadcastTransaction(byte[] transactionBytes)
       throws InvalidProtocolBufferException {
     Transaction transaction = Transaction.parseFrom(transactionBytes);
     return TransactionUtils.validTransaction(transaction)
@@ -517,32 +543,32 @@ public static GrpcClient init() throws CipherException {
     return rpcCli.broadcastTransaction(transaction);
   }
 
-  public static Transaction createAccountTransaction(byte[] owner, byte[] address) {
+  public  Transaction createAccountTransaction(byte[] owner, byte[] address) {
     Contract.AccountCreateContract contract = createAccountCreateContract(owner, address);
     return rpcCli.createAccount(contract);
   }
 
-  public static Transaction createWitnessTransaction(byte[] owner, byte[] url) {
+  public  Transaction createWitnessTransaction(byte[] owner, byte[] url) {
     Contract.WitnessCreateContract contract = createWitnessCreateContract(owner, url);
     return rpcCli.createWitness(contract);
   }
 
-  public static Transaction updateWitnessTransaction(byte[] owner, byte[] url) {
+  public  Transaction updateWitnessTransaction(byte[] owner, byte[] url) {
     Contract.WitnessUpdateContract contract = createWitnessUpdateContract(owner, url);
     return rpcCli.updateWitness(contract);
   }
 
-  public static Transaction createVoteWitnessTransaction(byte[] owner,
+  public  Transaction createVoteWitnessTransaction(byte[] owner,
       HashMap<String, String> witness) {
     Contract.VoteWitnessContract contract = createVoteWitnessContract(owner, witness);
     return rpcCli.voteWitnessAccount(contract);
   }
 
-  public static Transaction createAssetIssueTransaction(Contract.AssetIssueContract contract) {
+  public  Transaction createAssetIssueTransaction(Contract.AssetIssueContract contract) {
     return rpcCli.createAssetIssue(contract);
   }
 
-  public static Block getBlock(long blockNum) {
+  public  Block getBlock(long blockNum) {
     return rpcCli.getBlock(blockNum);
   }
 
@@ -602,7 +628,7 @@ public static GrpcClient init() throws CipherException {
     return builder.build();
   }
 
-  public static Transaction createTransaction4Transfer(Contract.TransferContract contract) {
+  public  Transaction createTransaction4Transfer(Contract.TransferContract contract) {
     Transaction transaction = rpcCli.createTransaction(contract);
     return transaction;
   }
@@ -811,7 +837,7 @@ public static GrpcClient init() throws CipherException {
 //    return result;
 //  }
 
-  public static Optional<WitnessList> listWitnesses() {
+  public  Optional<WitnessList> listWitnesses() {
     Optional<WitnessList> result = rpcCli.listWitnesses();
     if (result.isPresent()) {
       WitnessList witnessList = result.get();
@@ -839,39 +865,39 @@ public static GrpcClient init() throws CipherException {
 //    return rpcCli.getTransactionsByTimestampCount(start, end);
 //  }
 
-  public static Optional<AssetIssueList> getAssetIssueList() {
+  public  Optional<AssetIssueList> getAssetIssueList() {
     return rpcCli.getAssetIssueList();
   }
 
-  public static Optional<AssetIssueList> getAssetIssueList(long offset, long limit) {
+  public  Optional<AssetIssueList> getAssetIssueList(long offset, long limit) {
     return rpcCli.getAssetIssueList(offset, limit);
   }
 
-  public static Optional<NodeList> listNodes() {
+  public  Optional<NodeList> listNodes() {
     return rpcCli.listNodes();
   }
 
-  public static Optional<AssetIssueList> getAssetIssueByAccount(byte[] address) {
+  public  Optional<AssetIssueList> getAssetIssueByAccount(byte[] address) {
     return rpcCli.getAssetIssueByAccount(address);
   }
 
-  public static AccountNetMessage getAccountNet(byte[] address) {
+  public  AccountNetMessage getAccountNet(byte[] address) {
     return rpcCli.getAccountNet(address);
   }
 
-  public static AssetIssueContract getAssetIssueByName(String assetName) {
+  public  AssetIssueContract getAssetIssueByName(String assetName) {
     return rpcCli.getAssetIssueByName(assetName);
   }
 
-  public static GrpcAPI.NumberMessage getTotalTransaction() {
+  public  GrpcAPI.NumberMessage getTotalTransaction() {
     return rpcCli.getTotalTransaction();
   }
 
-  public static GrpcAPI.NumberMessage getNextMaintenanceTime() {
+  public  GrpcAPI.NumberMessage getNextMaintenanceTime() {
     return rpcCli.getNextMaintenanceTime();
   }
 
-  public static Optional<TransactionList> getTransactionsFromThis(byte[] address, int offset,
+  public  Optional<TransactionList> getTransactionsFromThis(byte[] address, int offset,
       int limit) {
     return rpcCli.getTransactionsFromThis(address, offset, limit);
   }
@@ -880,7 +906,7 @@ public static GrpcClient init() throws CipherException {
 //    return rpcCli.getTransactionsFromThisCount(address);
 //  }
 
-  public static Optional<TransactionList> getTransactionsToThis(byte[] address, int offset,
+  public  Optional<TransactionList> getTransactionsToThis(byte[] address, int offset,
       int limit) {
     return rpcCli.getTransactionsToThis(address, offset, limit);
   }
@@ -889,7 +915,7 @@ public static GrpcClient init() throws CipherException {
 //    return rpcCli.getTransactionsToThisCount(address);
 //  }
 
-  public static Optional<Transaction> getTransactionById(String txID) {
+  public  Optional<Transaction> getTransactionById(String txID) {
     return rpcCli.getTransactionById(txID);
   }
 
@@ -993,15 +1019,15 @@ public static GrpcClient init() throws CipherException {
     return builder.build();
   }
 
-  public static Optional<Block> getBlockById(String blockID) {
+  public  Optional<Block> getBlockById(String blockID) {
     return rpcCli.getBlockById(blockID);
   }
 
-  public static Optional<BlockList> getBlockByLimitNext(long start, long end) {
+  public  Optional<BlockList> getBlockByLimitNext(long start, long end) {
     return rpcCli.getBlockByLimitNext(start, end);
   }
 
-  public static Optional<BlockList> getBlockByLatestNum(long num) {
+  public  Optional<BlockList> getBlockByLatestNum(long num) {
     return rpcCli.getBlockByLatestNum(num);
   }
 
