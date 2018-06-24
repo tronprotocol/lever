@@ -72,10 +72,10 @@ public class WalletClient {
   private WalletFile walletFile = null;
   private boolean loginState = false;
   public byte[] address = null;
-  public static byte addressPreFixByte = CommonConstant.ADD_PRE_FIX_BYTE_TESTNET;
+  public static byte addressPreFixByte = CommonConstant.ADD_PRE_FIX_BYTE_MAINNET;
   public ECKey eckey = null;
   public static int nodeListSize = 0;
-  private  GrpcClient rpcCli = init(0);
+  private  GrpcClient rpcCli;
 
 //  static {
 //    new Timer().schedule(new TimerTask() {
@@ -88,33 +88,33 @@ public class WalletClient {
 //      }
 //    }, 3 * 60 * 1000, 3 * 60 * 1000);
 //  }
-public  GrpcClient init() throws CipherException {
-  Config config = Configuration.getByPath("config.conf");
+//public  GrpcClient init() throws CipherException {
+//  Config config = Configuration.getByPath("config.conf");
+//
+//  String fullNode = "";
+//  String solidityNode = "";
+//  if (config.hasPath("soliditynode.ip.list")) {
+//    solidityNode = config.getStringList("soliditynode.ip.list").get(0);
+//    nodeListSize =config.getStringList("soliditynode.ip.list").size();
+//  }
+//  if (config.hasPath("fullnode.ip.list")) {
+//    fullNode = config.getStringList("fullnode.ip.list").get(0);
+//    nodeListSize = config.getStringList("fullnode.ip.list").size();
+//  }
+//  if (config.hasPath("net.type") && "mainnet".equalsIgnoreCase(config.getString("net.type"))) {
+//    WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_MAINNET);
+//  } else {
+//    WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_TESTNET);
+//  }
+//  this.rpcCli = new GrpcClient(fullNode, solidityNode);
+//  return rpcCli;
+//}
 
-  String fullNode = "";
-  String solidityNode = "";
-  if (config.hasPath("soliditynode.ip.list")) {
-    solidityNode = config.getStringList("soliditynode.ip.list").get(0);
-    nodeListSize =config.getStringList("soliditynode.ip.list").size();
-  }
-  if (config.hasPath("fullnode.ip.list")) {
-    fullNode = config.getStringList("fullnode.ip.list").get(0);
-    nodeListSize = config.getStringList("fullnode.ip.list").size();
-  }
-  if (config.hasPath("net.type") && "mainnet".equalsIgnoreCase(config.getString("net.type"))) {
-    WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_MAINNET);
-  } else {
-    WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_TESTNET);
-  }
-  this.rpcCli = new GrpcClient(fullNode, solidityNode);
-  return rpcCli;
-}
-
-  public  GrpcClient init(String path, int i) throws CipherException {
+public  GrpcClient init(String path, int i) throws CipherException {
   if(null==path || path.equalsIgnoreCase("")){
     return init(i);
   }
-    Config config = Configuration.getByPath("config.conf");
+    Config config = Configuration.getByPath(path);
 
     String fullNode = "";
     String solidityNode = "";
@@ -153,7 +153,8 @@ public  GrpcClient init() throws CipherException {
     } else {
       WalletClient.setAddressPreFixByte(CommonConstant.ADD_PRE_FIX_BYTE_TESTNET);
     }
-    return new GrpcClient(fullNode, solidityNode);
+    this.rpcCli= new GrpcClient(fullNode, solidityNode);
+    return rpcCli;
   }
 
   public  String selectFullNode() {
@@ -224,6 +225,15 @@ public  GrpcClient init() throws CipherException {
     ECKey ecKey = ECKey.fromPrivate(priKey);
     this.eckey = ecKey;
     this.address = ecKey.getAddress();
+
+  }
+
+  public WalletClient(byte[] priKey, int i) throws CipherException {
+    ECKey ecKey = ECKey.fromPrivate(priKey);
+    this.eckey = ecKey;
+    this.address = ecKey.getAddress();
+    this.rpcCli = init(i);
+
   }
 
   public boolean isLoginState() {

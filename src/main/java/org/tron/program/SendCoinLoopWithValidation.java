@@ -128,7 +128,7 @@ public class SendCoinLoopWithValidation {
             }
         });
 
-        walletClients = IntStream.range(0, rootClient.nodeListSize).mapToObj(i -> {
+        walletClients = IntStream.range(0, 5).mapToObj(i -> {
             WalletClient walletClient = null;
             try {
                 ECKey walletkey =  new ECKey(Utils.getRandom());
@@ -146,15 +146,13 @@ public class SendCoinLoopWithValidation {
         List<ECKey> failedKey = new ArrayList<>();
         keys.forEach(key->{
             WalletClient walletClient = null;
-            try {
-                walletClient = new WalletClient(key.getPrivKeyBytes());
-            } catch (CipherException e) {
-                e.printStackTrace();
-            }
+            rootClient.eckey = key;
+            rootClient.address = key.getAddress();
+
 
             GrpcAPI.Return freezeResult = null;
             try {
-                freezeResult = walletClient.freezeBalanceResponse((long)20*1_000_000,3);
+                freezeResult = rootClient.freezeBalanceResponse((long)20*1_000_000,3);
             } catch (CipherException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -172,7 +170,7 @@ public class SendCoinLoopWithValidation {
 
                 }
                 try {
-                    freezeResult = walletClient.freezeBalanceResponse((long)20*1000_000,3);
+                    freezeResult = rootClient.freezeBalanceResponse((long)20*1000_000,3);
                 } catch (CipherException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
