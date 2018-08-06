@@ -95,6 +95,14 @@
         <property name="end" value="99"/>
     </bean>
 
+    <!--contract transaction-->
+
+    <bean id="deployContractTransactionCreator" class="org.tron.common.dispatch.creator.contract.DeployContractTransactionCreator">
+        <property name="name" value="deployContractTransactionCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+    </bean>
+
     <!--freezeBalance transaction-->
 
     <bean id="niceFreezeBalanceTransactionCreator" class="org.tron.common.dispatch.creator.freezeBalance.NiceFreezeBalanceTransactionCreator">

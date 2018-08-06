@@ -57,6 +57,19 @@
         </property>
     </bean>
 
+    <!--contract-->
+
+    <bean id="contract" parent="level1Strategy">
+        <property name="name" value="contract"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+        <property name="source">
+            <list>
+                <ref bean="deployContractTransactionCreator"/>
+            </list>
+        </property>
+    </bean>
+
     <!--freezeBalance-->
 
     <bean id="freezeBalance" parent="level1Strategy">
