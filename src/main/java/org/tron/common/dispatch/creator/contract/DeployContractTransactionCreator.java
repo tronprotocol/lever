@@ -1,0 +1,210 @@
+package org.tron.common.dispatch.creator.contract;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.protobuf.ByteString;
+import java.io.UnsupportedEncodingException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.spongycastle.util.encoders.Hex;
+import org.tron.common.crypto.ECKey;
+import org.tron.common.dispatch.GoodCaseTransactonCreator;
+import org.tron.common.dispatch.TransactionFactory;
+import org.tron.common.dispatch.creator.CreatorCounter;
+import org.tron.common.dispatch.creator.TransactionUtils;
+import org.tron.common.dispatch.creator.transfer.AbstractTransferTransactionCreator;
+import org.tron.common.utils.ByteArray;
+import org.tron.protos.Contract.CreateSmartContract;
+import org.tron.protos.Protocol;
+import org.tron.protos.Protocol.SmartContract;
+import org.tron.protos.Protocol.Transaction.Contract.ContractType;
+
+public class DeployContractTransactionCreator extends AbstractTransferTransactionCreator implements GoodCaseTransactonCreator {
+  @Override
+  protected Protocol.Transaction create() {
+    TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
+
+    CreateSmartContract contract = createContractDeployContract(contractName, ownerAddress.toByteArray(),
+        ABI, code, data, value, consumeUserResourcePercent, libraryAddress);
+
+    Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.CreateSmartContract);
+
+    transaction = transaction.toBuilder().setRawData(transaction.getRawData().toBuilder().setFeeLimit(10000000).build()).build();
+
+    transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
+    return transaction;
+  }
+
+  public static CreateSmartContract createContractDeployContract(String contractName, byte[] address,
+      String ABI, String code, String data, long value, long consumeUserResourcePercent,
+      byte[] libraryAddress) {
+    SmartContract.ABI abi = jsonStr2ABI(ABI);
+    if (abi == null) {
+      System.out.println("abi is null");
+      return null;
+    }
+
+    SmartContract.Builder builder = SmartContract.newBuilder();
+    builder.setName(contractName);
+    builder.setOriginAddress(ByteString.copyFrom(address));
+    builder.setAbi(abi);
+    builder.setConsumeUserResourcePercent(consumeUserResourcePercent);
+    if (data != null) {
+      builder.setData(ByteString.copyFrom(Hex.decode(data)));
+    }
+    if (value != 0) {
+
+      builder.setCallValue(value);
+    }
+    byte[] byteCode;
+    if (null != libraryAddress) {
+      byteCode = replaceLibraryAddress(code, libraryAddress);
+    } else {
+      byteCode = Hex.decode(code);
+    }
+    builder.setBytecode(ByteString.copyFrom(byteCode));
+    return CreateSmartContract.newBuilder().setOwnerAddress(ByteString.copyFrom(address)).
+        setNewContract(builder.build()).build();
+  }
+
+  private static byte[] replaceLibraryAddress(String code, byte[] libraryAddress) {
+
+    String libraryAddressHex;
+    try {
+      libraryAddressHex = (new String(Hex.encode(libraryAddress), "US-ASCII")).substring(2);
+    } catch (UnsupportedEncodingException e) {
+      throw new RuntimeException(e);  // now ignore
+    }
+
+    Matcher m = Pattern.compile("__.{36}__").matcher(code);
+    code = m.replaceAll(libraryAddressHex);
+    return Hex.decode(code);
+  }
+
+  public static SmartContract.ABI jsonStr2ABI(String jsonStr) {
+    if (jsonStr == null) {
+      return null;
+    }
+
+    JsonParser jsonParser = new JsonParser();
+    JsonElement jsonElementRoot = jsonParser.parse(jsonStr);
+    JsonArray jsonRoot = jsonElementRoot.getAsJsonArray();
+    SmartContract.ABI.Builder abiBuilder = SmartContract.ABI.newBuilder();
+    for (int index = 0; index < jsonRoot.size(); index++) {
+      JsonElement abiItem = jsonRoot.get(index);
+      boolean anonymous = abiItem.getAsJsonObject().get("anonymous") != null ?
+          abiItem.getAsJsonObject().get("anonymous").getAsBoolean() : false;
+      boolean constant = abiItem.getAsJsonObject().get("constant") != null ?
+          abiItem.getAsJsonObject().get("constant").getAsBoolean() : false;
+      String name = abiItem.getAsJsonObject().get("name") != null ?
+          abiItem.getAsJsonObject().get("name").getAsString() : null;
+      JsonArray inputs = abiItem.getAsJsonObject().get("inputs") != null ?
+          abiItem.getAsJsonObject().get("inputs").getAsJsonArray() : null;
+      JsonArray outputs = abiItem.getAsJsonObject().get("outputs") != null ?
+          abiItem.getAsJsonObject().get("outputs").getAsJsonArray() : null;
+      String type = abiItem.getAsJsonObject().get("type") != null ?
+          abiItem.getAsJsonObject().get("type").getAsString() : null;
+      boolean payable = abiItem.getAsJsonObject().get("payable") != null ?
+          abiItem.getAsJsonObject().get("payable").getAsBoolean() : false;
+      String stateMutability = abiItem.getAsJsonObject().get("stateMutability") != null ?
+          abiItem.getAsJsonObject().get("stateMutability").getAsString() : null;
+      if (type == null) {
+        System.out.println("No type!");
+        return null;
+      }
+      if (!type.equalsIgnoreCase("fallback") && null == inputs) {
+        System.out.println("No inputs!");
+        return null;
+      }
+
+      SmartContract.ABI.Entry.Builder entryBuilder = SmartContract.ABI.Entry.newBuilder();
+      entryBuilder.setAnonymous(anonymous);
+      entryBuilder.setConstant(constant);
+      if (name != null) {
+        entryBuilder.setName(name);
+      }
+
+      /* { inputs : optional } since fallback function not requires inputs*/
+      if (null != inputs) {
+        for (int j = 0; j < inputs.size(); j++) {
+          JsonElement inputItem = inputs.get(j);
+          if (inputItem.getAsJsonObject().get("name") == null ||
+              inputItem.getAsJsonObject().get("type") == null) {
+            System.out.println("Input argument invalid due to no name or no type!");
+            return null;
+          }
+          String inputName = inputItem.getAsJsonObject().get("name").getAsString();
+          String inputType = inputItem.getAsJsonObject().get("type").getAsString();
+          SmartContract.ABI.Entry.Param.Builder paramBuilder = SmartContract.ABI.Entry.Param
+              .newBuilder();
+          paramBuilder.setIndexed(false);
+          paramBuilder.setName(inputName);
+          paramBuilder.setType(inputType);
+          entryBuilder.addInputs(paramBuilder.build());
+        }
+      }
+
+      /* { outputs : optional } */
+      if (outputs != null) {
+        for (int k = 0; k < outputs.size(); k++) {
+          JsonElement outputItem = outputs.get(k);
+          if (outputItem.getAsJsonObject().get("name") == null ||
+              outputItem.getAsJsonObject().get("type") == null) {
+            System.out.println("Output argument invalid due to no name or no type!");
+            return null;
+          }
+          String outputName = outputItem.getAsJsonObject().get("name").getAsString();
+          String outputType = outputItem.getAsJsonObject().get("type").getAsString();
+          SmartContract.ABI.Entry.Param.Builder paramBuilder = SmartContract.ABI.Entry.Param
+              .newBuilder();
+          paramBuilder.setIndexed(false);
+          paramBuilder.setName(outputName);
+          paramBuilder.setType(outputType);
+          entryBuilder.addOutputs(paramBuilder.build());
+        }
+      }
+
+      entryBuilder.setType(getEntryType(type));
+      entryBuilder.setPayable(payable);
+      if (stateMutability != null) {
+        entryBuilder.setStateMutability(getStateMutability(stateMutability));
+      }
+
+      abiBuilder.addEntrys(entryBuilder.build());
+    }
+
+    return abiBuilder.build();
+  }
+
+  public static SmartContract.ABI.Entry.EntryType getEntryType(String type) {
+    switch (type) {
+      case "constructor":
+        return SmartContract.ABI.Entry.EntryType.Constructor;
+      case "function":
+        return SmartContract.ABI.Entry.EntryType.Function;
+      case "event":
+        return SmartContract.ABI.Entry.EntryType.Event;
+      case "fallback":
+        return SmartContract.ABI.Entry.EntryType.Fallback;
+      default:
+        return SmartContract.ABI.Entry.EntryType.UNRECOGNIZED;
+    }
+  }
+
+  public static SmartContract.ABI.Entry.StateMutabilityType getStateMutability(
+      String stateMutability) {
+    switch (stateMutability) {
+      case "pure":
+        return SmartContract.ABI.Entry.StateMutabilityType.Pure;
+      case "view":
+        return SmartContract.ABI.Entry.StateMutabilityType.View;
+      case "nonpayable":
+        return SmartContract.ABI.Entry.StateMutabilityType.Nonpayable;
+      case "payable":
+        return SmartContract.ABI.Entry.StateMutabilityType.Payable;
+      default:
+        return SmartContract.ABI.Entry.StateMutabilityType.UNRECOGNIZED;
+    }
+  }
+}
