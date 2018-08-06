@@ -72,6 +72,7 @@ dependencies {
 
     compile group: 'org.springframework', name: 'spring-tx', version: '4.2.0.RELEASE'
 
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.2'
 }
 
 sourceSets {

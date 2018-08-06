@@ -103,6 +103,12 @@
         <property name="end" value="99"/>
     </bean>
 
+    <bean id="triggerContractTransactionCreator" class="org.tron.common.dispatch.creator.contract.TriggerContractTransactionCreator">
+        <property name="name" value="triggerContractTransactionCreator"/>
+        <property name="begin" value="0"/>
+        <property name="end" value="99"/>
+    </bean>
+
     <!--freezeBalance transaction-->
 
     <bean id="niceFreezeBalanceTransactionCreator" class="org.tron.common.dispatch.creator.freezeBalance.NiceFreezeBalanceTransactionCreator">

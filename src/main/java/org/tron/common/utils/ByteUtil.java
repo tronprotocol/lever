@@ -198,4 +198,42 @@ public class ByteUtil {
     return ByteBuffer.allocate(4).putInt(val).array();
   }
 
+  public static byte[] stripLeadingZeroes(byte[] data) {
+
+    if (data == null)
+      return null;
+
+    final int firstNonZero = firstNonZeroByte(data);
+    switch (firstNonZero) {
+      case -1:
+        return ZERO_BYTE_ARRAY;
+
+      case 0:
+        return data;
+
+      default:
+        byte[] result = new byte[data.length - firstNonZero];
+        System.arraycopy(data, firstNonZero, result, 0, data.length - firstNonZero);
+
+        return result;
+    }
+  }
+
+  public static int firstNonZeroByte(byte[] data) {
+    for (int i = 0; i < data.length; ++i) {
+      if (data[i] != 0) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public static byte[] copyToArray(BigInteger value) {
+    byte[] dest = ByteBuffer.allocate(32).array();
+    byte[] src = ByteUtil.bigIntegerToBytes(value);
+    if(src != null) {
+      System.arraycopy(src, 0, dest, dest.length - src.length, src.length);
+    }
+    return dest;
+  }
 }
