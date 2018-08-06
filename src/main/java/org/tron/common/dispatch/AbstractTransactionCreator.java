@@ -30,7 +30,7 @@ public abstract class AbstractTransactionCreator extends Level2Strategy {
   protected byte[] libraryAddress = null;
 
   // trigger contract
-  protected byte[] contractAddress = Base58.decodeFromBase58Check("27WeimuUchYevq9hM7i4ZpHFv8aPwsYLNvP");
+  protected byte[] contractAddress = Base58.decodeFromBase58Check("27WeimuUchYevq9hM7i4ZpHFv8aPwsYLNvP"); // 通过wallet-cli部署合约后得到合约地址
   protected long callValue = 0;
   protected String methodStr = "multiply(int256,int256)";
   protected String argsStr = "3,4";
