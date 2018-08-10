@@ -14,6 +14,7 @@ import org.tron.common.dispatch.TransactionFactory;
 import org.tron.common.dispatch.creator.CreatorCounter;
 import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.dispatch.creator.transfer.AbstractTransferTransactionCreator;
+import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract.CreateSmartContract;
 import org.tron.protos.Protocol;
@@ -26,7 +27,7 @@ public class DeployContractTransactionCreator extends AbstractTransferTransactio
     TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
 
     CreateSmartContract contract = createContractDeployContract(contractName, ownerAddress.toByteArray(),
-        ABI, code, data, value, consumeUserResourcePercent, libraryAddress);
+        ABI, code, value, consumeUserResourcePercent, libraryAddress);
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.CreateSmartContract);
 
@@ -36,9 +37,10 @@ public class DeployContractTransactionCreator extends AbstractTransferTransactio
     return transaction;
   }
 
-  public static CreateSmartContract createContractDeployContract(String contractName, byte[] address,
-      String ABI, String code, String data, long value, long consumeUserResourcePercent,
-      byte[] libraryAddress) {
+  public static CreateSmartContract createContractDeployContract(String contractName,
+      byte[] address,
+      String ABI, String code, long value, long consumeUserResourcePercent,
+      String libraryAddressPair) {
     SmartContract.ABI abi = jsonStr2ABI(ABI);
     if (abi == null) {
       System.out.println("abi is null");
@@ -50,35 +52,49 @@ public class DeployContractTransactionCreator extends AbstractTransferTransactio
     builder.setOriginAddress(ByteString.copyFrom(address));
     builder.setAbi(abi);
     builder.setConsumeUserResourcePercent(consumeUserResourcePercent);
-    if (data != null) {
-      builder.setData(ByteString.copyFrom(Hex.decode(data)));
-    }
+
     if (value != 0) {
 
       builder.setCallValue(value);
     }
     byte[] byteCode;
-    if (null != libraryAddress) {
-      byteCode = replaceLibraryAddress(code, libraryAddress);
+    if (null != libraryAddressPair) {
+      byteCode = replaceLibraryAddress(code, libraryAddressPair);
     } else {
       byteCode = Hex.decode(code);
     }
+
     builder.setBytecode(ByteString.copyFrom(byteCode));
     return CreateSmartContract.newBuilder().setOwnerAddress(ByteString.copyFrom(address)).
         setNewContract(builder.build()).build();
   }
 
-  private static byte[] replaceLibraryAddress(String code, byte[] libraryAddress) {
+  private static byte[] replaceLibraryAddress(String code, String libraryAddressPair) {
 
-    String libraryAddressHex;
-    try {
-      libraryAddressHex = (new String(Hex.encode(libraryAddress), "US-ASCII")).substring(2);
-    } catch (UnsupportedEncodingException e) {
-      throw new RuntimeException(e);  // now ignore
+    String[] libraryAddressList = libraryAddressPair.split("[,]");
+
+    for (int i = 0; i < libraryAddressList.length; i++) {
+      String cur = libraryAddressList[i];
+
+      int lastPosition = cur.lastIndexOf(":");
+      if (-1 == lastPosition) {
+        throw new RuntimeException("libraryAddress delimit by ':'");
+      }
+      String libraryName = cur.substring(0, lastPosition);
+      String addr = cur.substring(lastPosition + 1);
+      String libraryAddressHex;
+      try {
+        libraryAddressHex = (new String(Hex.encode(Base58.decodeFromBase58Check(addr)),
+            "US-ASCII")).substring(2);
+      } catch (UnsupportedEncodingException e) {
+        throw new RuntimeException(e);  // now ignore
+      }
+      String repeated = new String(new char[40 - libraryName.length() - 2]).replace("\0", "_");
+      String beReplaced = "__" + libraryName + repeated;
+      Matcher m = Pattern.compile(beReplaced).matcher(code);
+      code = m.replaceAll(libraryAddressHex);
     }
 
-    Matcher m = Pattern.compile("__.{36}__").matcher(code);
-    code = m.replaceAll(libraryAddressHex);
     return Hex.decode(code);
   }
 

@@ -5162,8 +5162,8 @@ public final class Contract {
 
   }
 
-  public interface ConsumeUserResourcePercentContractOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protocol.ConsumeUserResourcePercentContract)
+  public interface UpdateSettingContractOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.UpdateSettingContract)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -5182,18 +5182,18 @@ public final class Contract {
     long getConsumeUserResourcePercent();
   }
   /**
-   * Protobuf type {@code protocol.ConsumeUserResourcePercentContract}
+   * Protobuf type {@code protocol.UpdateSettingContract}
    */
-  public  static final class ConsumeUserResourcePercentContract extends
+  public  static final class UpdateSettingContract extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protocol.ConsumeUserResourcePercentContract)
-      ConsumeUserResourcePercentContractOrBuilder {
+      // @@protoc_insertion_point(message_implements:protocol.UpdateSettingContract)
+      UpdateSettingContractOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ConsumeUserResourcePercentContract.newBuilder() to construct.
-    private ConsumeUserResourcePercentContract(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use UpdateSettingContract.newBuilder() to construct.
+    private UpdateSettingContract(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ConsumeUserResourcePercentContract() {
+    private UpdateSettingContract() {
       ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
       contractAddress_ = com.google.protobuf.ByteString.EMPTY;
       consumeUserResourcePercent_ = 0L;
@@ -5204,7 +5204,7 @@ public final class Contract {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ConsumeUserResourcePercentContract(
+    private UpdateSettingContract(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5259,14 +5259,14 @@ public final class Contract {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.tron.protos.Contract.internal_static_protocol_ConsumeUserResourcePercentContract_descriptor;
+      return org.tron.protos.Contract.internal_static_protocol_UpdateSettingContract_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.tron.protos.Contract.internal_static_protocol_ConsumeUserResourcePercentContract_fieldAccessorTable
+      return org.tron.protos.Contract.internal_static_protocol_UpdateSettingContract_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.tron.protos.Contract.ConsumeUserResourcePercentContract.class, org.tron.protos.Contract.ConsumeUserResourcePercentContract.Builder.class);
+              org.tron.protos.Contract.UpdateSettingContract.class, org.tron.protos.Contract.UpdateSettingContract.Builder.class);
     }
 
     public static final int OWNER_ADDRESS_FIELD_NUMBER = 1;
@@ -5347,10 +5347,10 @@ public final class Contract {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.tron.protos.Contract.ConsumeUserResourcePercentContract)) {
+      if (!(obj instanceof org.tron.protos.Contract.UpdateSettingContract)) {
         return super.equals(obj);
       }
-      org.tron.protos.Contract.ConsumeUserResourcePercentContract other = (org.tron.protos.Contract.ConsumeUserResourcePercentContract) obj;
+      org.tron.protos.Contract.UpdateSettingContract other = (org.tron.protos.Contract.UpdateSettingContract) obj;
 
       boolean result = true;
       result = result && getOwnerAddress()
@@ -5382,69 +5382,69 @@ public final class Contract {
       return hash;
     }
 
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(byte[] data)
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(java.io.InputStream input)
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseDelimitedFrom(java.io.InputStream input)
+    public static org.tron.protos.Contract.UpdateSettingContract parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseDelimitedFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract parseFrom(
+    public static org.tron.protos.Contract.UpdateSettingContract parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5456,7 +5456,7 @@ public final class Contract {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.tron.protos.Contract.ConsumeUserResourcePercentContract prototype) {
+    public static Builder newBuilder(org.tron.protos.Contract.UpdateSettingContract prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -5471,25 +5471,25 @@ public final class Contract {
       return builder;
     }
     /**
-     * Protobuf type {@code protocol.ConsumeUserResourcePercentContract}
+     * Protobuf type {@code protocol.UpdateSettingContract}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protocol.ConsumeUserResourcePercentContract)
-        org.tron.protos.Contract.ConsumeUserResourcePercentContractOrBuilder {
+        // @@protoc_insertion_point(builder_implements:protocol.UpdateSettingContract)
+        org.tron.protos.Contract.UpdateSettingContractOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.tron.protos.Contract.internal_static_protocol_ConsumeUserResourcePercentContract_descriptor;
+        return org.tron.protos.Contract.internal_static_protocol_UpdateSettingContract_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.tron.protos.Contract.internal_static_protocol_ConsumeUserResourcePercentContract_fieldAccessorTable
+        return org.tron.protos.Contract.internal_static_protocol_UpdateSettingContract_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.tron.protos.Contract.ConsumeUserResourcePercentContract.class, org.tron.protos.Contract.ConsumeUserResourcePercentContract.Builder.class);
+                org.tron.protos.Contract.UpdateSettingContract.class, org.tron.protos.Contract.UpdateSettingContract.Builder.class);
       }
 
-      // Construct using org.tron.protos.Contract.ConsumeUserResourcePercentContract.newBuilder()
+      // Construct using org.tron.protos.Contract.UpdateSettingContract.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5517,23 +5517,23 @@ public final class Contract {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.tron.protos.Contract.internal_static_protocol_ConsumeUserResourcePercentContract_descriptor;
+        return org.tron.protos.Contract.internal_static_protocol_UpdateSettingContract_descriptor;
       }
 
-      public org.tron.protos.Contract.ConsumeUserResourcePercentContract getDefaultInstanceForType() {
-        return org.tron.protos.Contract.ConsumeUserResourcePercentContract.getDefaultInstance();
+      public org.tron.protos.Contract.UpdateSettingContract getDefaultInstanceForType() {
+        return org.tron.protos.Contract.UpdateSettingContract.getDefaultInstance();
       }
 
-      public org.tron.protos.Contract.ConsumeUserResourcePercentContract build() {
-        org.tron.protos.Contract.ConsumeUserResourcePercentContract result = buildPartial();
+      public org.tron.protos.Contract.UpdateSettingContract build() {
+        org.tron.protos.Contract.UpdateSettingContract result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.tron.protos.Contract.ConsumeUserResourcePercentContract buildPartial() {
-        org.tron.protos.Contract.ConsumeUserResourcePercentContract result = new org.tron.protos.Contract.ConsumeUserResourcePercentContract(this);
+      public org.tron.protos.Contract.UpdateSettingContract buildPartial() {
+        org.tron.protos.Contract.UpdateSettingContract result = new org.tron.protos.Contract.UpdateSettingContract(this);
         result.ownerAddress_ = ownerAddress_;
         result.contractAddress_ = contractAddress_;
         result.consumeUserResourcePercent_ = consumeUserResourcePercent_;
@@ -5568,16 +5568,16 @@ public final class Contract {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Contract.ConsumeUserResourcePercentContract) {
-          return mergeFrom((org.tron.protos.Contract.ConsumeUserResourcePercentContract)other);
+        if (other instanceof org.tron.protos.Contract.UpdateSettingContract) {
+          return mergeFrom((org.tron.protos.Contract.UpdateSettingContract)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.tron.protos.Contract.ConsumeUserResourcePercentContract other) {
-        if (other == org.tron.protos.Contract.ConsumeUserResourcePercentContract.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.tron.protos.Contract.UpdateSettingContract other) {
+        if (other == org.tron.protos.Contract.UpdateSettingContract.getDefaultInstance()) return this;
         if (other.getOwnerAddress() != com.google.protobuf.ByteString.EMPTY) {
           setOwnerAddress(other.getOwnerAddress());
         }
@@ -5600,11 +5600,11 @@ public final class Contract {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.tron.protos.Contract.ConsumeUserResourcePercentContract parsedMessage = null;
+        org.tron.protos.Contract.UpdateSettingContract parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Contract.ConsumeUserResourcePercentContract) e.getUnfinishedMessage();
+          parsedMessage = (org.tron.protos.Contract.UpdateSettingContract) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5708,39 +5708,39 @@ public final class Contract {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:protocol.ConsumeUserResourcePercentContract)
+      // @@protoc_insertion_point(builder_scope:protocol.UpdateSettingContract)
     }
 
-    // @@protoc_insertion_point(class_scope:protocol.ConsumeUserResourcePercentContract)
-    private static final org.tron.protos.Contract.ConsumeUserResourcePercentContract DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:protocol.UpdateSettingContract)
+    private static final org.tron.protos.Contract.UpdateSettingContract DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.tron.protos.Contract.ConsumeUserResourcePercentContract();
+      DEFAULT_INSTANCE = new org.tron.protos.Contract.UpdateSettingContract();
     }
 
-    public static org.tron.protos.Contract.ConsumeUserResourcePercentContract getDefaultInstance() {
+    public static org.tron.protos.Contract.UpdateSettingContract getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ConsumeUserResourcePercentContract>
-        PARSER = new com.google.protobuf.AbstractParser<ConsumeUserResourcePercentContract>() {
-      public ConsumeUserResourcePercentContract parsePartialFrom(
+    private static final com.google.protobuf.Parser<UpdateSettingContract>
+        PARSER = new com.google.protobuf.AbstractParser<UpdateSettingContract>() {
+      public UpdateSettingContract parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ConsumeUserResourcePercentContract(input, extensionRegistry);
+        return new UpdateSettingContract(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ConsumeUserResourcePercentContract> parser() {
+    public static com.google.protobuf.Parser<UpdateSettingContract> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ConsumeUserResourcePercentContract> getParserForType() {
+    public com.google.protobuf.Parser<UpdateSettingContract> getParserForType() {
       return PARSER;
     }
 
-    public org.tron.protos.Contract.ConsumeUserResourcePercentContract getDefaultInstanceForType() {
+    public org.tron.protos.Contract.UpdateSettingContract getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -16366,6 +16366,544 @@ public final class Contract {
 
   }
 
+  public interface BuyStorageBytesContractOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.BuyStorageBytesContract)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes owner_address = 1;</code>
+     */
+    com.google.protobuf.ByteString getOwnerAddress();
+
+    /**
+     * <pre>
+     * storage bytes for buy
+     * </pre>
+     *
+     * <code>int64 bytes = 2;</code>
+     */
+    long getBytes();
+  }
+  /**
+   * Protobuf type {@code protocol.BuyStorageBytesContract}
+   */
+  public  static final class BuyStorageBytesContract extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.BuyStorageBytesContract)
+      BuyStorageBytesContractOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BuyStorageBytesContract.newBuilder() to construct.
+    private BuyStorageBytesContract(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BuyStorageBytesContract() {
+      ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
+      bytes_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BuyStorageBytesContract(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              ownerAddress_ = input.readBytes();
+              break;
+            }
+            case 16: {
+
+              bytes_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.protos.Contract.internal_static_protocol_BuyStorageBytesContract_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.protos.Contract.internal_static_protocol_BuyStorageBytesContract_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.protos.Contract.BuyStorageBytesContract.class, org.tron.protos.Contract.BuyStorageBytesContract.Builder.class);
+    }
+
+    public static final int OWNER_ADDRESS_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString ownerAddress_;
+    /**
+     * <code>bytes owner_address = 1;</code>
+     */
+    public com.google.protobuf.ByteString getOwnerAddress() {
+      return ownerAddress_;
+    }
+
+    public static final int BYTES_FIELD_NUMBER = 2;
+    private long bytes_;
+    /**
+     * <pre>
+     * storage bytes for buy
+     * </pre>
+     *
+     * <code>int64 bytes = 2;</code>
+     */
+    public long getBytes() {
+      return bytes_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!ownerAddress_.isEmpty()) {
+        output.writeBytes(1, ownerAddress_);
+      }
+      if (bytes_ != 0L) {
+        output.writeInt64(2, bytes_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!ownerAddress_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, ownerAddress_);
+      }
+      if (bytes_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, bytes_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.protos.Contract.BuyStorageBytesContract)) {
+        return super.equals(obj);
+      }
+      org.tron.protos.Contract.BuyStorageBytesContract other = (org.tron.protos.Contract.BuyStorageBytesContract) obj;
+
+      boolean result = true;
+      result = result && getOwnerAddress()
+          .equals(other.getOwnerAddress());
+      result = result && (getBytes()
+          == other.getBytes());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + OWNER_ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getOwnerAddress().hashCode();
+      hash = (37 * hash) + BYTES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getBytes());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Contract.BuyStorageBytesContract parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.protos.Contract.BuyStorageBytesContract prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.BuyStorageBytesContract}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.BuyStorageBytesContract)
+        org.tron.protos.Contract.BuyStorageBytesContractOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.protos.Contract.internal_static_protocol_BuyStorageBytesContract_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.protos.Contract.internal_static_protocol_BuyStorageBytesContract_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.protos.Contract.BuyStorageBytesContract.class, org.tron.protos.Contract.BuyStorageBytesContract.Builder.class);
+      }
+
+      // Construct using org.tron.protos.Contract.BuyStorageBytesContract.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
+
+        bytes_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.protos.Contract.internal_static_protocol_BuyStorageBytesContract_descriptor;
+      }
+
+      public org.tron.protos.Contract.BuyStorageBytesContract getDefaultInstanceForType() {
+        return org.tron.protos.Contract.BuyStorageBytesContract.getDefaultInstance();
+      }
+
+      public org.tron.protos.Contract.BuyStorageBytesContract build() {
+        org.tron.protos.Contract.BuyStorageBytesContract result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.protos.Contract.BuyStorageBytesContract buildPartial() {
+        org.tron.protos.Contract.BuyStorageBytesContract result = new org.tron.protos.Contract.BuyStorageBytesContract(this);
+        result.ownerAddress_ = ownerAddress_;
+        result.bytes_ = bytes_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.protos.Contract.BuyStorageBytesContract) {
+          return mergeFrom((org.tron.protos.Contract.BuyStorageBytesContract)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.protos.Contract.BuyStorageBytesContract other) {
+        if (other == org.tron.protos.Contract.BuyStorageBytesContract.getDefaultInstance()) return this;
+        if (other.getOwnerAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setOwnerAddress(other.getOwnerAddress());
+        }
+        if (other.getBytes() != 0L) {
+          setBytes(other.getBytes());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.protos.Contract.BuyStorageBytesContract parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.protos.Contract.BuyStorageBytesContract) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString ownerAddress_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes owner_address = 1;</code>
+       */
+      public com.google.protobuf.ByteString getOwnerAddress() {
+        return ownerAddress_;
+      }
+      /**
+       * <code>bytes owner_address = 1;</code>
+       */
+      public Builder setOwnerAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        ownerAddress_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes owner_address = 1;</code>
+       */
+      public Builder clearOwnerAddress() {
+        
+        ownerAddress_ = getDefaultInstance().getOwnerAddress();
+        onChanged();
+        return this;
+      }
+
+      private long bytes_ ;
+      /**
+       * <pre>
+       * storage bytes for buy
+       * </pre>
+       *
+       * <code>int64 bytes = 2;</code>
+       */
+      public long getBytes() {
+        return bytes_;
+      }
+      /**
+       * <pre>
+       * storage bytes for buy
+       * </pre>
+       *
+       * <code>int64 bytes = 2;</code>
+       */
+      public Builder setBytes(long value) {
+        
+        bytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * storage bytes for buy
+       * </pre>
+       *
+       * <code>int64 bytes = 2;</code>
+       */
+      public Builder clearBytes() {
+        
+        bytes_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.BuyStorageBytesContract)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.BuyStorageBytesContract)
+    private static final org.tron.protos.Contract.BuyStorageBytesContract DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.protos.Contract.BuyStorageBytesContract();
+    }
+
+    public static org.tron.protos.Contract.BuyStorageBytesContract getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BuyStorageBytesContract>
+        PARSER = new com.google.protobuf.AbstractParser<BuyStorageBytesContract>() {
+      public BuyStorageBytesContract parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BuyStorageBytesContract(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BuyStorageBytesContract> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BuyStorageBytesContract> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.protos.Contract.BuyStorageBytesContract getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface SellStorageContractOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protocol.SellStorageContract)
       com.google.protobuf.MessageOrBuilder {
@@ -16925,10 +17463,10 @@ public final class Contract {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_VoteWitnessContract_Vote_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protocol_ConsumeUserResourcePercentContract_descriptor;
+    internal_static_protocol_UpdateSettingContract_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protocol_ConsumeUserResourcePercentContract_fieldAccessorTable;
+      internal_static_protocol_UpdateSettingContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_WitnessCreateContract_descriptor;
   private static final 
@@ -17015,6 +17553,11 @@ public final class Contract {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_BuyStorageContract_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_BuyStorageBytesContract_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_BuyStorageBytesContract_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_SellStorageContract_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17046,60 +17589,61 @@ public final class Contract {
       "\022\025\n\rowner_address\030\001 \001(\014\0221\n\005votes\030\002 \003(\0132\"" +
       ".protocol.VoteWitnessContract.Vote\022\017\n\007su" +
       "pport\030\003 \001(\010\0320\n\004Vote\022\024\n\014vote_address\030\001 \001(" +
-      "\014\022\022\n\nvote_count\030\002 \001(\003\"|\n\"ConsumeUserReso" +
-      "urcePercentContract\022\025\n\rowner_address\030\001 \001" +
-      "(\014\022\030\n\020contract_address\030\002 \001(\014\022%\n\035consume_" +
-      "user_resource_percent\030\003 \001(\003\";\n\025WitnessCr" +
-      "eateContract\022\025\n\rowner_address\030\001 \001(\014\022\013\n\003u" +
-      "rl\030\002 \001(\014\"B\n\025WitnessUpdateContract\022\025\n\rown" +
-      "er_address\030\001 \001(\014\022\022\n\nupdate_url\030\014 \001(\014\"\361\003\n" +
-      "\022AssetIssueContract\022\025\n\rowner_address\030\001 \001" +
-      "(\014\022\014\n\004name\030\002 \001(\014\022\014\n\004abbr\030\003 \001(\014\022\024\n\014total_" +
-      "supply\030\004 \001(\003\022@\n\rfrozen_supply\030\005 \003(\0132).pr" +
-      "otocol.AssetIssueContract.FrozenSupply\022\017" +
-      "\n\007trx_num\030\006 \001(\005\022\013\n\003num\030\010 \001(\005\022\022\n\nstart_ti" +
-      "me\030\t \001(\003\022\020\n\010end_time\030\n \001(\003\022\r\n\005order\030\013 \001(" +
-      "\003\022\022\n\nvote_score\030\020 \001(\005\022\023\n\013description\030\024 \001" +
-      "(\014\022\013\n\003url\030\025 \001(\014\022\034\n\024free_asset_net_limit\030" +
-      "\026 \001(\003\022#\n\033public_free_asset_net_limit\030\027 \001" +
-      "(\003\022#\n\033public_free_asset_net_usage\030\030 \001(\003\022" +
-      "#\n\033public_latest_free_net_time\030\031 \001(\003\032:\n\014" +
-      "FrozenSupply\022\025\n\rfrozen_amount\030\001 \001(\003\022\023\n\013f" +
-      "rozen_days\030\002 \001(\003\"n\n\035ParticipateAssetIssu" +
-      "eContract\022\025\n\rowner_address\030\001 \001(\014\022\022\n\nto_a" +
-      "ddress\030\002 \001(\014\022\022\n\nasset_name\030\003 \001(\014\022\016\n\006amou" +
-      "nt\030\004 \001(\003\"\211\001\n\025FreezeBalanceContract\022\025\n\row" +
-      "ner_address\030\001 \001(\014\022\026\n\016frozen_balance\030\002 \001(" +
-      "\003\022\027\n\017frozen_duration\030\003 \001(\003\022(\n\010resource\030\n" +
-      " \001(\0162\026.protocol.ResourceCode\"Z\n\027Unfreeze" +
-      "BalanceContract\022\025\n\rowner_address\030\001 \001(\014\022(" +
-      "\n\010resource\030\n \001(\0162\026.protocol.ResourceCode" +
-      "\".\n\025UnfreezeAssetContract\022\025\n\rowner_addre" +
-      "ss\030\001 \001(\014\"0\n\027WithdrawBalanceContract\022\025\n\ro" +
-      "wner_address\030\001 \001(\014\"{\n\023UpdateAssetContrac" +
-      "t\022\025\n\rowner_address\030\001 \001(\014\022\023\n\013description\030" +
-      "\002 \001(\014\022\013\n\003url\030\003 \001(\014\022\021\n\tnew_limit\030\004 \001(\003\022\030\n" +
-      "\020new_public_limit\030\005 \001(\003\"\250\001\n\026ProposalCrea" +
-      "teContract\022\025\n\rowner_address\030\001 \001(\014\022D\n\npar" +
-      "ameters\030\002 \003(\01320.protocol.ProposalCreateC" +
-      "ontract.ParametersEntry\0321\n\017ParametersEnt" +
-      "ry\022\013\n\003key\030\001 \001(\003\022\r\n\005value\030\002 \001(\003:\0028\001\"^\n\027Pr" +
-      "oposalApproveContract\022\025\n\rowner_address\030\001" +
-      " \001(\014\022\023\n\013proposal_id\030\002 \001(\003\022\027\n\017is_add_appr" +
-      "oval\030\003 \001(\010\"D\n\026ProposalDeleteContract\022\025\n\r" +
-      "owner_address\030\001 \001(\014\022\023\n\013proposal_id\030\002 \001(\003" +
-      "\"[\n\023CreateSmartContract\022\025\n\rowner_address" +
-      "\030\001 \001(\014\022-\n\014new_contract\030\002 \001(\0132\027.protocol." +
-      "SmartContract\"i\n\024TriggerSmartContract\022\025\n" +
-      "\rowner_address\030\001 \001(\014\022\030\n\020contract_address" +
-      "\030\002 \001(\014\022\022\n\ncall_value\030\003 \001(\003\022\014\n\004data\030\004 \001(\014" +
-      "\":\n\022BuyStorageContract\022\025\n\rowner_address\030" +
-      "\001 \001(\014\022\r\n\005quant\030\002 \001(\003\"C\n\023SellStorageContr" +
-      "act\022\025\n\rowner_address\030\001 \001(\014\022\025\n\rstorage_by" +
-      "tes\030\002 \001(\003*&\n\014ResourceCode\022\r\n\tBANDWIDTH\020\000" +
-      "\022\007\n\003CPU\020\001BF\n\017org.tron.protosB\010ContractZ)" +
-      "github.com/tronprotocol/grpc-gateway/cor" +
-      "eb\006proto3"
+      "\014\022\022\n\nvote_count\030\002 \001(\003\"o\n\025UpdateSettingCo" +
+      "ntract\022\025\n\rowner_address\030\001 \001(\014\022\030\n\020contrac" +
+      "t_address\030\002 \001(\014\022%\n\035consume_user_resource" +
+      "_percent\030\003 \001(\003\";\n\025WitnessCreateContract\022" +
+      "\025\n\rowner_address\030\001 \001(\014\022\013\n\003url\030\002 \001(\014\"B\n\025W" +
+      "itnessUpdateContract\022\025\n\rowner_address\030\001 " +
+      "\001(\014\022\022\n\nupdate_url\030\014 \001(\014\"\361\003\n\022AssetIssueCo" +
+      "ntract\022\025\n\rowner_address\030\001 \001(\014\022\014\n\004name\030\002 " +
+      "\001(\014\022\014\n\004abbr\030\003 \001(\014\022\024\n\014total_supply\030\004 \001(\003\022" +
+      "@\n\rfrozen_supply\030\005 \003(\0132).protocol.AssetI" +
+      "ssueContract.FrozenSupply\022\017\n\007trx_num\030\006 \001" +
+      "(\005\022\013\n\003num\030\010 \001(\005\022\022\n\nstart_time\030\t \001(\003\022\020\n\010e" +
+      "nd_time\030\n \001(\003\022\r\n\005order\030\013 \001(\003\022\022\n\nvote_sco" +
+      "re\030\020 \001(\005\022\023\n\013description\030\024 \001(\014\022\013\n\003url\030\025 \001" +
+      "(\014\022\034\n\024free_asset_net_limit\030\026 \001(\003\022#\n\033publ" +
+      "ic_free_asset_net_limit\030\027 \001(\003\022#\n\033public_" +
+      "free_asset_net_usage\030\030 \001(\003\022#\n\033public_lat" +
+      "est_free_net_time\030\031 \001(\003\032:\n\014FrozenSupply\022" +
+      "\025\n\rfrozen_amount\030\001 \001(\003\022\023\n\013frozen_days\030\002 " +
+      "\001(\003\"n\n\035ParticipateAssetIssueContract\022\025\n\r" +
+      "owner_address\030\001 \001(\014\022\022\n\nto_address\030\002 \001(\014\022" +
+      "\022\n\nasset_name\030\003 \001(\014\022\016\n\006amount\030\004 \001(\003\"\211\001\n\025" +
+      "FreezeBalanceContract\022\025\n\rowner_address\030\001" +
+      " \001(\014\022\026\n\016frozen_balance\030\002 \001(\003\022\027\n\017frozen_d" +
+      "uration\030\003 \001(\003\022(\n\010resource\030\n \001(\0162\026.protoc" +
+      "ol.ResourceCode\"Z\n\027UnfreezeBalanceContra" +
+      "ct\022\025\n\rowner_address\030\001 \001(\014\022(\n\010resource\030\n " +
+      "\001(\0162\026.protocol.ResourceCode\".\n\025UnfreezeA" +
+      "ssetContract\022\025\n\rowner_address\030\001 \001(\014\"0\n\027W" +
+      "ithdrawBalanceContract\022\025\n\rowner_address\030" +
+      "\001 \001(\014\"{\n\023UpdateAssetContract\022\025\n\rowner_ad" +
+      "dress\030\001 \001(\014\022\023\n\013description\030\002 \001(\014\022\013\n\003url\030" +
+      "\003 \001(\014\022\021\n\tnew_limit\030\004 \001(\003\022\030\n\020new_public_l" +
+      "imit\030\005 \001(\003\"\250\001\n\026ProposalCreateContract\022\025\n" +
+      "\rowner_address\030\001 \001(\014\022D\n\nparameters\030\002 \003(\013" +
+      "20.protocol.ProposalCreateContract.Param" +
+      "etersEntry\0321\n\017ParametersEntry\022\013\n\003key\030\001 \001" +
+      "(\003\022\r\n\005value\030\002 \001(\003:\0028\001\"^\n\027ProposalApprove" +
+      "Contract\022\025\n\rowner_address\030\001 \001(\014\022\023\n\013propo" +
+      "sal_id\030\002 \001(\003\022\027\n\017is_add_approval\030\003 \001(\010\"D\n" +
+      "\026ProposalDeleteContract\022\025\n\rowner_address" +
+      "\030\001 \001(\014\022\023\n\013proposal_id\030\002 \001(\003\"[\n\023CreateSma" +
+      "rtContract\022\025\n\rowner_address\030\001 \001(\014\022-\n\014new" +
+      "_contract\030\002 \001(\0132\027.protocol.SmartContract" +
+      "\"i\n\024TriggerSmartContract\022\025\n\rowner_addres" +
+      "s\030\001 \001(\014\022\030\n\020contract_address\030\002 \001(\014\022\022\n\ncal" +
+      "l_value\030\003 \001(\003\022\014\n\004data\030\004 \001(\014\":\n\022BuyStorag" +
+      "eContract\022\025\n\rowner_address\030\001 \001(\014\022\r\n\005quan" +
+      "t\030\002 \001(\003\"?\n\027BuyStorageBytesContract\022\025\n\row" +
+      "ner_address\030\001 \001(\014\022\r\n\005bytes\030\002 \001(\003\"C\n\023Sell" +
+      "StorageContract\022\025\n\rowner_address\030\001 \001(\014\022\025" +
+      "\n\rstorage_bytes\030\002 \001(\003*&\n\014ResourceCode\022\r\n" +
+      "\tBANDWIDTH\020\000\022\007\n\003CPU\020\001BF\n\017org.tron.protos" +
+      "B\010ContractZ)github.com/tronprotocol/grpc" +
+      "-gateway/coreb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17162,11 +17706,11 @@ public final class Contract {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_VoteWitnessContract_Vote_descriptor,
         new java.lang.String[] { "VoteAddress", "VoteCount", });
-    internal_static_protocol_ConsumeUserResourcePercentContract_descriptor =
+    internal_static_protocol_UpdateSettingContract_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_protocol_ConsumeUserResourcePercentContract_fieldAccessorTable = new
+    internal_static_protocol_UpdateSettingContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protocol_ConsumeUserResourcePercentContract_descriptor,
+        internal_static_protocol_UpdateSettingContract_descriptor,
         new java.lang.String[] { "OwnerAddress", "ContractAddress", "ConsumeUserResourcePercent", });
     internal_static_protocol_WitnessCreateContract_descriptor =
       getDescriptor().getMessageTypes().get(8);
@@ -17270,8 +17814,14 @@ public final class Contract {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BuyStorageContract_descriptor,
         new java.lang.String[] { "OwnerAddress", "Quant", });
-    internal_static_protocol_SellStorageContract_descriptor =
+    internal_static_protocol_BuyStorageBytesContract_descriptor =
       getDescriptor().getMessageTypes().get(23);
+    internal_static_protocol_BuyStorageBytesContract_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_BuyStorageBytesContract_descriptor,
+        new java.lang.String[] { "OwnerAddress", "Bytes", });
+    internal_static_protocol_SellStorageContract_descriptor =
+      getDescriptor().getMessageTypes().get(24);
     internal_static_protocol_SellStorageContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_SellStorageContract_descriptor,

@@ -11,6 +11,7 @@ import org.tron.api.GrpcAPI.BytesMessage;
 import org.tron.api.GrpcAPI.EmptyMessage;
 import org.tron.api.GrpcAPI.NodeList;
 import org.tron.api.GrpcAPI.NumberMessage;
+import org.tron.api.GrpcAPI.TransactionExtention;
 import org.tron.api.GrpcAPI.WitnessList;
 import org.tron.api.WalletGrpc;
 import org.tron.common.utils.Sha256Hash;
@@ -64,6 +65,10 @@ public class GrpcClient {
 
   public Transaction createTransaction(Contract.UnfreezeBalanceContract contract) {
     return blockingStub.unfreezeBalance(contract);
+  }
+
+  public TransactionExtention triggerContract(Contract.TriggerSmartContract request) {
+    return blockingStub.triggerContract(request);
   }
 
   public Transaction createTransferAssetTransaction(Contract.TransferAssetContract contract) {

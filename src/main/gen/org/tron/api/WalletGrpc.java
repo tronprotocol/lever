@@ -316,36 +316,36 @@ public final class WalletGrpc {
      return getVoteWitnessAccountMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  @java.lang.Deprecated // Use {@link #getModifyContractPercentMethod()} instead. 
-  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.ConsumeUserResourcePercentContract,
-      org.tron.api.GrpcAPI.TransactionExtention> METHOD_MODIFY_CONTRACT_PERCENT = getModifyContractPercentMethod();
+  @java.lang.Deprecated // Use {@link #getUpdateSettingMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.UpdateSettingContract,
+      org.tron.api.GrpcAPI.TransactionExtention> METHOD_UPDATE_SETTING = getUpdateSettingMethod();
 
-  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.ConsumeUserResourcePercentContract,
-      org.tron.api.GrpcAPI.TransactionExtention> getModifyContractPercentMethod;
+  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.UpdateSettingContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getUpdateSettingMethod;
 
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.ConsumeUserResourcePercentContract,
-      org.tron.api.GrpcAPI.TransactionExtention> getModifyContractPercentMethod() {
-    io.grpc.MethodDescriptor<org.tron.protos.Contract.ConsumeUserResourcePercentContract, org.tron.api.GrpcAPI.TransactionExtention> getModifyContractPercentMethod;
-    if ((getModifyContractPercentMethod = WalletGrpc.getModifyContractPercentMethod) == null) {
+  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.UpdateSettingContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getUpdateSettingMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Contract.UpdateSettingContract, org.tron.api.GrpcAPI.TransactionExtention> getUpdateSettingMethod;
+    if ((getUpdateSettingMethod = WalletGrpc.getUpdateSettingMethod) == null) {
       synchronized (WalletGrpc.class) {
-        if ((getModifyContractPercentMethod = WalletGrpc.getModifyContractPercentMethod) == null) {
-          WalletGrpc.getModifyContractPercentMethod = getModifyContractPercentMethod = 
-              io.grpc.MethodDescriptor.<org.tron.protos.Contract.ConsumeUserResourcePercentContract, org.tron.api.GrpcAPI.TransactionExtention>newBuilder()
+        if ((getUpdateSettingMethod = WalletGrpc.getUpdateSettingMethod) == null) {
+          WalletGrpc.getUpdateSettingMethod = getUpdateSettingMethod = 
+              io.grpc.MethodDescriptor.<org.tron.protos.Contract.UpdateSettingContract, org.tron.api.GrpcAPI.TransactionExtention>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "protocol.Wallet", "modifyContractPercent"))
+                  "protocol.Wallet", "UpdateSetting"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.tron.protos.Contract.ConsumeUserResourcePercentContract.getDefaultInstance()))
+                  org.tron.protos.Contract.UpdateSettingContract.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.tron.api.GrpcAPI.TransactionExtention.getDefaultInstance()))
-                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("modifyContractPercent"))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("UpdateSetting"))
                   .build();
           }
         }
      }
-     return getModifyContractPercentMethod;
+     return getUpdateSettingMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getVoteWitnessAccount2Method()} instead. 
@@ -1210,6 +1210,38 @@ public final class WalletGrpc {
         }
      }
      return getBuyStorageMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getBuyStorageBytesMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.BuyStorageBytesContract,
+      org.tron.api.GrpcAPI.TransactionExtention> METHOD_BUY_STORAGE_BYTES = getBuyStorageBytesMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.BuyStorageBytesContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getBuyStorageBytesMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.BuyStorageBytesContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getBuyStorageBytesMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Contract.BuyStorageBytesContract, org.tron.api.GrpcAPI.TransactionExtention> getBuyStorageBytesMethod;
+    if ((getBuyStorageBytesMethod = WalletGrpc.getBuyStorageBytesMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getBuyStorageBytesMethod = WalletGrpc.getBuyStorageBytesMethod) == null) {
+          WalletGrpc.getBuyStorageBytesMethod = getBuyStorageBytesMethod = 
+              io.grpc.MethodDescriptor.<org.tron.protos.Contract.BuyStorageBytesContract, org.tron.api.GrpcAPI.TransactionExtention>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "BuyStorageBytes"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Contract.BuyStorageBytesContract.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.TransactionExtention.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("BuyStorageBytes"))
+                  .build();
+          }
+        }
+     }
+     return getBuyStorageBytesMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getSellStorageMethod()} instead. 
@@ -2442,9 +2474,9 @@ public final class WalletGrpc {
      *modify the consume_user_resource_percent
      * </pre>
      */
-    public void modifyContractPercent(org.tron.protos.Contract.ConsumeUserResourcePercentContract request,
+    public void updateSetting(org.tron.protos.Contract.UpdateSettingContract request,
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
-      asyncUnimplementedUnaryCall(getModifyContractPercentMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getUpdateSettingMethod(), responseObserver);
     }
 
     /**
@@ -2703,6 +2735,13 @@ public final class WalletGrpc {
     public void buyStorage(org.tron.protos.Contract.BuyStorageContract request,
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
       asyncUnimplementedUnaryCall(getBuyStorageMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void buyStorageBytes(org.tron.protos.Contract.BuyStorageBytesContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnimplementedUnaryCall(getBuyStorageBytesMethod(), responseObserver);
     }
 
     /**
@@ -3060,12 +3099,12 @@ public final class WalletGrpc {
                 org.tron.protos.Protocol.Transaction>(
                   this, METHODID_VOTE_WITNESS_ACCOUNT)))
           .addMethod(
-            getModifyContractPercentMethod(),
+            getUpdateSettingMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.tron.protos.Contract.ConsumeUserResourcePercentContract,
+                org.tron.protos.Contract.UpdateSettingContract,
                 org.tron.api.GrpcAPI.TransactionExtention>(
-                  this, METHODID_MODIFY_CONTRACT_PERCENT)))
+                  this, METHODID_UPDATE_SETTING)))
           .addMethod(
             getVoteWitnessAccount2Method(),
             asyncUnaryCall(
@@ -3255,6 +3294,13 @@ public final class WalletGrpc {
                 org.tron.protos.Contract.BuyStorageContract,
                 org.tron.api.GrpcAPI.TransactionExtention>(
                   this, METHODID_BUY_STORAGE)))
+          .addMethod(
+            getBuyStorageBytesMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.protos.Contract.BuyStorageBytesContract,
+                org.tron.api.GrpcAPI.TransactionExtention>(
+                  this, METHODID_BUY_STORAGE_BYTES)))
           .addMethod(
             getSellStorageMethod(),
             asyncUnaryCall(
@@ -3614,10 +3660,10 @@ public final class WalletGrpc {
      *modify the consume_user_resource_percent
      * </pre>
      */
-    public void modifyContractPercent(org.tron.protos.Contract.ConsumeUserResourcePercentContract request,
+    public void updateSetting(org.tron.protos.Contract.UpdateSettingContract request,
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getModifyContractPercentMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getUpdateSettingMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -3903,6 +3949,14 @@ public final class WalletGrpc {
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getBuyStorageMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void buyStorageBytes(org.tron.protos.Contract.BuyStorageBytesContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getBuyStorageBytesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4331,9 +4385,9 @@ public final class WalletGrpc {
      *modify the consume_user_resource_percent
      * </pre>
      */
-    public org.tron.api.GrpcAPI.TransactionExtention modifyContractPercent(org.tron.protos.Contract.ConsumeUserResourcePercentContract request) {
+    public org.tron.api.GrpcAPI.TransactionExtention updateSetting(org.tron.protos.Contract.UpdateSettingContract request) {
       return blockingUnaryCall(
-          getChannel(), getModifyContractPercentMethod(), getCallOptions(), request);
+          getChannel(), getUpdateSettingMethod(), getCallOptions(), request);
     }
 
     /**
@@ -4592,6 +4646,13 @@ public final class WalletGrpc {
     public org.tron.api.GrpcAPI.TransactionExtention buyStorage(org.tron.protos.Contract.BuyStorageContract request) {
       return blockingUnaryCall(
           getChannel(), getBuyStorageMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.api.GrpcAPI.TransactionExtention buyStorageBytes(org.tron.protos.Contract.BuyStorageBytesContract request) {
+      return blockingUnaryCall(
+          getChannel(), getBuyStorageBytesMethod(), getCallOptions(), request);
     }
 
     /**
@@ -4994,10 +5055,10 @@ public final class WalletGrpc {
      *modify the consume_user_resource_percent
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionExtention> modifyContractPercent(
-        org.tron.protos.Contract.ConsumeUserResourcePercentContract request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionExtention> updateSetting(
+        org.tron.protos.Contract.UpdateSettingContract request) {
       return futureUnaryCall(
-          getChannel().newCall(getModifyContractPercentMethod(), getCallOptions()), request);
+          getChannel().newCall(getUpdateSettingMethod(), getCallOptions()), request);
     }
 
     /**
@@ -5283,6 +5344,14 @@ public final class WalletGrpc {
         org.tron.protos.Contract.BuyStorageContract request) {
       return futureUnaryCall(
           getChannel().newCall(getBuyStorageMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionExtention> buyStorageBytes(
+        org.tron.protos.Contract.BuyStorageBytesContract request) {
+      return futureUnaryCall(
+          getChannel().newCall(getBuyStorageBytesMethod(), getCallOptions()), request);
     }
 
     /**
@@ -5619,7 +5688,7 @@ public final class WalletGrpc {
   private static final int METHODID_SET_ACCOUNT_ID = 6;
   private static final int METHODID_UPDATE_ACCOUNT2 = 7;
   private static final int METHODID_VOTE_WITNESS_ACCOUNT = 8;
-  private static final int METHODID_MODIFY_CONTRACT_PERCENT = 9;
+  private static final int METHODID_UPDATE_SETTING = 9;
   private static final int METHODID_VOTE_WITNESS_ACCOUNT2 = 10;
   private static final int METHODID_CREATE_ASSET_ISSUE = 11;
   private static final int METHODID_CREATE_ASSET_ISSUE2 = 12;
@@ -5647,41 +5716,42 @@ public final class WalletGrpc {
   private static final int METHODID_PROPOSAL_APPROVE = 34;
   private static final int METHODID_PROPOSAL_DELETE = 35;
   private static final int METHODID_BUY_STORAGE = 36;
-  private static final int METHODID_SELL_STORAGE = 37;
-  private static final int METHODID_LIST_NODES = 38;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 39;
-  private static final int METHODID_GET_ACCOUNT_NET = 40;
-  private static final int METHODID_GET_ACCOUNT_RESOURCE = 41;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 42;
-  private static final int METHODID_GET_NOW_BLOCK = 43;
-  private static final int METHODID_GET_NOW_BLOCK2 = 44;
-  private static final int METHODID_GET_BLOCK_BY_NUM = 45;
-  private static final int METHODID_GET_BLOCK_BY_NUM2 = 46;
-  private static final int METHODID_GET_TRANSACTION_COUNT_BY_BLOCK_NUM = 47;
-  private static final int METHODID_GET_BLOCK_BY_ID = 48;
-  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 49;
-  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT2 = 50;
-  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 51;
-  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM2 = 52;
-  private static final int METHODID_GET_TRANSACTION_BY_ID = 53;
-  private static final int METHODID_DEPLOY_CONTRACT = 54;
-  private static final int METHODID_GET_CONTRACT = 55;
-  private static final int METHODID_TRIGGER_CONTRACT = 56;
-  private static final int METHODID_LIST_WITNESSES = 57;
-  private static final int METHODID_LIST_PROPOSALS = 58;
-  private static final int METHODID_GET_PROPOSAL_BY_ID = 59;
-  private static final int METHODID_GET_CHAIN_PARAMETERS = 60;
-  private static final int METHODID_GET_ASSET_ISSUE_LIST = 61;
-  private static final int METHODID_GET_PAGINATED_ASSET_ISSUE_LIST = 62;
-  private static final int METHODID_TOTAL_TRANSACTION = 63;
-  private static final int METHODID_GET_NEXT_MAINTENANCE_TIME = 64;
-  private static final int METHODID_GET_TRANSACTION_SIGN = 65;
-  private static final int METHODID_GET_TRANSACTION_SIGN2 = 66;
-  private static final int METHODID_CREATE_ADDRESS = 67;
-  private static final int METHODID_EASY_TRANSFER = 68;
-  private static final int METHODID_EASY_TRANSFER_BY_PRIVATE = 69;
-  private static final int METHODID_GENERATE_ADDRESS = 70;
-  private static final int METHODID_GET_TRANSACTION_INFO_BY_ID = 71;
+  private static final int METHODID_BUY_STORAGE_BYTES = 37;
+  private static final int METHODID_SELL_STORAGE = 38;
+  private static final int METHODID_LIST_NODES = 39;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 40;
+  private static final int METHODID_GET_ACCOUNT_NET = 41;
+  private static final int METHODID_GET_ACCOUNT_RESOURCE = 42;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 43;
+  private static final int METHODID_GET_NOW_BLOCK = 44;
+  private static final int METHODID_GET_NOW_BLOCK2 = 45;
+  private static final int METHODID_GET_BLOCK_BY_NUM = 46;
+  private static final int METHODID_GET_BLOCK_BY_NUM2 = 47;
+  private static final int METHODID_GET_TRANSACTION_COUNT_BY_BLOCK_NUM = 48;
+  private static final int METHODID_GET_BLOCK_BY_ID = 49;
+  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 50;
+  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT2 = 51;
+  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 52;
+  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM2 = 53;
+  private static final int METHODID_GET_TRANSACTION_BY_ID = 54;
+  private static final int METHODID_DEPLOY_CONTRACT = 55;
+  private static final int METHODID_GET_CONTRACT = 56;
+  private static final int METHODID_TRIGGER_CONTRACT = 57;
+  private static final int METHODID_LIST_WITNESSES = 58;
+  private static final int METHODID_LIST_PROPOSALS = 59;
+  private static final int METHODID_GET_PROPOSAL_BY_ID = 60;
+  private static final int METHODID_GET_CHAIN_PARAMETERS = 61;
+  private static final int METHODID_GET_ASSET_ISSUE_LIST = 62;
+  private static final int METHODID_GET_PAGINATED_ASSET_ISSUE_LIST = 63;
+  private static final int METHODID_TOTAL_TRANSACTION = 64;
+  private static final int METHODID_GET_NEXT_MAINTENANCE_TIME = 65;
+  private static final int METHODID_GET_TRANSACTION_SIGN = 66;
+  private static final int METHODID_GET_TRANSACTION_SIGN2 = 67;
+  private static final int METHODID_CREATE_ADDRESS = 68;
+  private static final int METHODID_EASY_TRANSFER = 69;
+  private static final int METHODID_EASY_TRANSFER_BY_PRIVATE = 70;
+  private static final int METHODID_GENERATE_ADDRESS = 71;
+  private static final int METHODID_GET_TRANSACTION_INFO_BY_ID = 72;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -5736,8 +5806,8 @@ public final class WalletGrpc {
           serviceImpl.voteWitnessAccount((org.tron.protos.Contract.VoteWitnessContract) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Transaction>) responseObserver);
           break;
-        case METHODID_MODIFY_CONTRACT_PERCENT:
-          serviceImpl.modifyContractPercent((org.tron.protos.Contract.ConsumeUserResourcePercentContract) request,
+        case METHODID_UPDATE_SETTING:
+          serviceImpl.updateSetting((org.tron.protos.Contract.UpdateSettingContract) request,
               (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
           break;
         case METHODID_VOTE_WITNESS_ACCOUNT2:
@@ -5846,6 +5916,10 @@ public final class WalletGrpc {
           break;
         case METHODID_BUY_STORAGE:
           serviceImpl.buyStorage((org.tron.protos.Contract.BuyStorageContract) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
+          break;
+        case METHODID_BUY_STORAGE_BYTES:
+          serviceImpl.buyStorageBytes((org.tron.protos.Contract.BuyStorageBytesContract) request,
               (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
           break;
         case METHODID_SELL_STORAGE:
@@ -6058,7 +6132,7 @@ public final class WalletGrpc {
               .addMethod(getSetAccountIdMethod())
               .addMethod(getUpdateAccount2Method())
               .addMethod(getVoteWitnessAccountMethod())
-              .addMethod(getModifyContractPercentMethod())
+              .addMethod(getUpdateSettingMethod())
               .addMethod(getVoteWitnessAccount2Method())
               .addMethod(getCreateAssetIssueMethod())
               .addMethod(getCreateAssetIssue2Method())
@@ -6086,6 +6160,7 @@ public final class WalletGrpc {
               .addMethod(getProposalApproveMethod())
               .addMethod(getProposalDeleteMethod())
               .addMethod(getBuyStorageMethod())
+              .addMethod(getBuyStorageBytesMethod())
               .addMethod(getSellStorageMethod())
               .addMethod(getListNodesMethod())
               .addMethod(getGetAssetIssueByAccountMethod())
