@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.tron.api.GrpcAPI.TransactionExtention;
 import org.tron.api.GrpcAPI.WitnessList;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
@@ -222,5 +223,9 @@ public class WalletClient {
 
   public Transaction voteWitnessTransaction(VoteWitnessContract contract) {
     return rpcCli.voteWitnessAccount(contract);
+  }
+
+  public TransactionExtention triggerContract(Contract.TriggerSmartContract request) {
+    return rpcCli.triggerContract(request);
   }
 }
