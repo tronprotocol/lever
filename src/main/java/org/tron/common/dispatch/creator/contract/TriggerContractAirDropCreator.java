@@ -24,7 +24,7 @@ public class TriggerContractAirDropCreator extends AbstractTransferTransactionCr
   @Override
   protected Protocol.Transaction create() {
     TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
-    Account account = ExportDataFromFactory.accounts.get(count.intValue() % ExportDataFromFactory.accounts.size());
+    Account account = ExportDataFromFactory.getAccounts().get(count.intValue() % ExportDataFromFactory.getAccounts().size());
     String addressBase58 = Base58.encode58Check(ByteArray.fromHexString(account.getAddress()));
     count.increment();
 

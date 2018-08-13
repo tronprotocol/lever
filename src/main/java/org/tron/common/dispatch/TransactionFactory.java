@@ -1,7 +1,7 @@
 package org.tron.common.dispatch;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.tron.common.dispatch.creator.account.BadAccountUpdateNameEmptyCreator;
 import org.tron.common.dispatch.creator.account.BadAccountUpdateNameHiddenCharactersCreator;
 import org.tron.common.dispatch.creator.commonCase.BadExpirationCurrentOneDayCreator;
@@ -30,6 +30,7 @@ import org.tron.common.dispatch.creator.witness.NiceWitnessUpdateUrlFormatCreato
 import org.tron.common.dispatch.strategy.Dispatcher;
 import org.tron.common.dispatch.strategy.Level1Strategy;
 import org.tron.common.dispatch.strategy.Level2Strategy;
+import org.tron.program.ExportDataFromFactory;
 import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletClient;
@@ -37,7 +38,7 @@ import org.tron.service.WalletClient;
 import java.io.IOException;
 
 public class TransactionFactory {
-  public static final ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+  public static final ApplicationContext context = new FileSystemXmlApplicationContext(ExportDataFromFactory.getArgsObj().getContext());
 
   private static final Dispatcher dispatcher = context.getBean(Dispatcher.class);
 

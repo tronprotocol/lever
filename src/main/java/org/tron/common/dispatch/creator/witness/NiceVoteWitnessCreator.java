@@ -26,7 +26,7 @@ public class NiceVoteWitnessCreator extends AbstractTransactionCreator implement
 
   @Override
   protected Protocol.Transaction create() {
-    Account account = ExportDataFromFactory.accounts.get(count.intValue() % ExportDataFromFactory.accounts.size());
+    Account account = ExportDataFromFactory.getAccounts().get(count.intValue() % ExportDataFromFactory.getAccounts().size());
     ByteString bytes = ByteString
         .copyFrom(ByteArray.fromHexString(account.getAddress()));
     count.increment();
