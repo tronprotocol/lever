@@ -13,7 +13,7 @@ import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
 import org.tron.module.Account;
-import org.tron.program.ExportDataFromFactory;
+import org.tron.program.GenerateTransaction;
 import org.tron.protos.Contract.TriggerSmartContract;
 import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction.Contract.ContractType;
@@ -24,7 +24,8 @@ public class TriggerContractAirDropCreator extends AbstractTransferTransactionCr
   @Override
   protected Protocol.Transaction create() {
     TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
-    Account account = ExportDataFromFactory.getAccounts().get(count.intValue() % ExportDataFromFactory.getAccounts().size());
+    Account account = GenerateTransaction
+        .getAccounts().get(count.intValue() % GenerateTransaction.getAccounts().size());
     String addressBase58 = Base58.encode58Check(ByteArray.fromHexString(account.getAddress()));
     count.increment();
 

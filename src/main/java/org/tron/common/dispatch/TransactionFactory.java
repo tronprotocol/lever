@@ -5,13 +5,14 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.tron.common.dispatch.strategy.Dispatcher;
 import org.tron.common.dispatch.strategy.Level1Strategy;
 import org.tron.common.dispatch.strategy.Level2Strategy;
-import org.tron.program.ExportDataFromFactory;
+import org.tron.program.GenerateTransaction;
 import org.tron.protos.Protocol;
 
 import java.io.IOException;
 
 public class TransactionFactory {
-  public static final ApplicationContext context = new FileSystemXmlApplicationContext(ExportDataFromFactory.getArgsObj().getContext());
+  public static final ApplicationContext context = new FileSystemXmlApplicationContext(GenerateTransaction
+      .getArgsObj().getContext());
 
   private static final Dispatcher dispatcher = context.getBean(Dispatcher.class);
 

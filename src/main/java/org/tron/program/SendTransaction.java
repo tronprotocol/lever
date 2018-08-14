@@ -34,7 +34,7 @@ import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletGrpcClient;
 
-public class SendCoinLoop {
+public class SendTransaction {
 
   private static List<WalletGrpcClient> clients = new ArrayList<>();
   private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
@@ -151,7 +151,7 @@ public class SendCoinLoop {
               endTime, ((endTime.getTime() - startTime.getTime()) / 1000));
 
           System.out.println("\u001B[36mstart account:\u001B[0m");
-          SendCoinLoop.getStartAccount().entrySet().stream().forEach(v -> {
+          SendTransaction.getStartAccount().entrySet().stream().forEach(v -> {
             System.out.println("\taddress: " + v.getKey() + ", balance: " + v.getValue());
           });
 

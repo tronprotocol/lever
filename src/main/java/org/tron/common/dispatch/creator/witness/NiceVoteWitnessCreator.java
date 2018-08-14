@@ -12,7 +12,7 @@ import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
 import org.tron.module.Account;
-import org.tron.program.ExportDataFromFactory;
+import org.tron.program.GenerateTransaction;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction.Contract.ContractType;
@@ -26,7 +26,8 @@ public class NiceVoteWitnessCreator extends AbstractTransactionCreator implement
 
   @Override
   protected Protocol.Transaction create() {
-    Account account = ExportDataFromFactory.getAccounts().get(count.intValue() % ExportDataFromFactory.getAccounts().size());
+    Account account = GenerateTransaction
+        .getAccounts().get(count.intValue() % GenerateTransaction.getAccounts().size());
     ByteString bytes = ByteString
         .copyFrom(ByteArray.fromHexString(account.getAddress()));
     count.increment();

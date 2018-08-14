@@ -14,7 +14,7 @@ import org.tron.common.utils.Sha256Hash;
 import org.tron.protos.Protocol.Transaction;
 
 //Example --datafile [path to trxsdata.csv]
-public class ShowData {
+public class CheckDuplicateTransaction {
 
   private static Map<Sha256Hash, LongAdder> transactionsMap = new HashMap<>();
 

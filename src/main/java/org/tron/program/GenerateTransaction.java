@@ -28,7 +28,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.LongStream;
 
-public class ExportDataFromFactory {
+public class GenerateTransaction {
 
   private static List<Account> accounts = new ArrayList<>();
 
@@ -37,7 +37,7 @@ public class ExportDataFromFactory {
   public static void main(String[] args) {
     long start = System.currentTimeMillis();
 
-    ExportDataFromFactory exportDataFromFactory = new ExportDataFromFactory();
+    GenerateTransaction exportDataFromFactory = new GenerateTransaction();
 
     exportDataFromFactory.initArgs(args);
 
