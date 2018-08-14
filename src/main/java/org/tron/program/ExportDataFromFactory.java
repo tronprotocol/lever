@@ -34,7 +34,7 @@ public class ExportDataFromFactory {
 
   private static Args argsObj;
 
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) {
     long start = System.currentTimeMillis();
 
     ExportDataFromFactory exportDataFromFactory = new ExportDataFromFactory();
