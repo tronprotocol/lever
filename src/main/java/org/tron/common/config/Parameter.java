@@ -1,4 +1,4 @@
-package org.tron.core.config;
+package org.tron.common.config;
 
 public interface Parameter {
 

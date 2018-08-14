@@ -12,7 +12,7 @@ import org.tron.Validator.StringValidator;
 import org.tron.common.crypto.Hash;
 import org.tron.common.dispatch.TransactionFactory;
 import org.tron.common.dispatch.creator.CreatorCounter;
-import org.tron.core.config.Parameter.CommonConstant;
+import org.tron.common.config.Parameter.CommonConstant;
 import org.tron.module.Account;
 import org.tron.protos.Protocol.Transaction;
 
