@@ -7,8 +7,8 @@ import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.BadCaseTransactionCreator;
 import org.tron.common.dispatch.TransactionFactory;
 import org.tron.common.dispatch.creator.CreatorCounter;
-import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.ByteArray;
+import org.tron.common.utils.TransactionUtils;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction.Contract.ContractType;
@@ -24,7 +24,7 @@ public class BadWitnessCreateUrlFormatInvalidCreator extends AbstractTransaction
         .setUrl(ByteString.copyFrom(ByteArray.fromString("invalidUrl")))
         .build();
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.WitnessCreateContract);
-    transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(witnessPrivateKey)));
+    transaction = TransactionUtils.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(witnessPrivateKey)));
     return transaction;
   }
 }

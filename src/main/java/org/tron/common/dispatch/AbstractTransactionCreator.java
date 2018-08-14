@@ -7,7 +7,7 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tron.common.dispatch.strategy.Level2Strategy;
 import org.tron.common.utils.Base58;
-import org.tron.service.WalletClient;
+import org.tron.service.WalletGrpcClient;
 
 @Getter
 public abstract class AbstractTransactionCreator extends Level2Strategy {
@@ -38,8 +38,6 @@ public abstract class AbstractTransactionCreator extends Level2Strategy {
   // trigger contract airdrop
   protected String airDropMethodStr = "transfer(address,uint256)";
 
-  @Autowired
-  protected WalletClient client;
   protected HashMap<String, String> voteWitnessMap = new HashMap<String, String>() {
     {
       put("27QAUYjg5FXfxcvyHcWF3Aokd5eu9iYgs1c", "1");

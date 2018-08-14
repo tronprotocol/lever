@@ -7,9 +7,8 @@ import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.BadCaseTransactionCreator;
 import org.tron.common.dispatch.TransactionFactory;
 import org.tron.common.dispatch.creator.CreatorCounter;
-import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.ByteArray;
-import org.tron.common.utils.Time;
+import org.tron.common.utils.TransactionUtils;
 import org.tron.protos.Contract;
 import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction.Contract.ContractType;
@@ -35,7 +34,7 @@ public class BadRefBlockNullValueCreator extends AbstractTransactionCreator impl
                 .build()
         )
         .build();
-    transaction = client.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
+    transaction = TransactionUtils.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
 
   }

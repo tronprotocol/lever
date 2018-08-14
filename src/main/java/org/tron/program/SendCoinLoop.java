@@ -32,11 +32,11 @@ import org.tron.common.config.Config.ConfigProperty;
 import org.tron.common.utils.Base58;
 import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
-import org.tron.service.WalletClient;
+import org.tron.service.WalletGrpcClient;
 
 public class SendCoinLoop {
 
-  private static List<WalletClient> walletClients = new ArrayList<>();
+  private static List<WalletGrpcClient> clients = new ArrayList<>();
   private static Map<Long, List<Transaction>> transactionsMap = new HashMap<>();
 
   @Getter
@@ -57,11 +57,10 @@ public class SendCoinLoop {
     double tps = argsObj.getTps();
 
     LongAdder count = new LongAdder();
-    walletClients = IntStream.range(0, threadCount).mapToObj(i -> {
-      WalletClient walletClient = new WalletClient();
-      walletClient.init(grpcAddress.get(count.intValue() % 3));
+    clients = IntStream.range(0, threadCount).mapToObj(i -> {
+      WalletGrpcClient client = new WalletGrpcClient(grpcAddress.get(count.intValue() % 3));
       count.increment();
-      return walletClient;
+      return client;
     }).collect(Collectors.toList());
 
     File f = new File(argsObj.getDataFile());
@@ -75,24 +74,24 @@ public class SendCoinLoop {
       trxCount++;
     }
 
-    setStartAccountMap(walletClients.get(0));
+    setStartAccountMap(clients.get(0));
     rateLimiter(threadCount, tps);
   }
 
-  private static void setStartAccountMap(WalletClient walletClient) {
+  private static void setStartAccountMap(WalletGrpcClient client) {
     List<String> accountAddressList = argsObj.getAccountAddress();
     accountAddressList.forEach(a -> {
       startAccount.put(a,
-          walletClient.getAccount(Account.newBuilder().setAddress(ByteString.copyFrom(Objects
+          client.getAccount(Account.newBuilder().setAddress(ByteString.copyFrom(Objects
               .requireNonNull(Base58.decodeFromBase58Check(a)))).build()).getBalance());
     });
   }
 
-  public static void setEndAccountMap(WalletClient walletClient) {
+  public static void setEndAccountMap(WalletGrpcClient client) {
     List<String> accountAddressList = argsObj.getAccountAddress();
     accountAddressList.forEach(a -> {
       endAccount.put(a,
-          walletClient.getAccount(Account.newBuilder().setAddress(ByteString.copyFrom(Objects
+          client.getAccount(Account.newBuilder().setAddress(ByteString.copyFrom(Objects
               .requireNonNull(Base58.decodeFromBase58Check(a)))).build()).getBalance());
     });
   }
@@ -104,7 +103,7 @@ public class SendCoinLoop {
     RateLimiter limiter = RateLimiter.create(tps);
 
     for (int i = 0; i < threadCount; ++i) {
-      executorService.execute(new Task(walletClients.get(i % threadCount), limiter,
+      executorService.execute(new Task(clients.get(i % threadCount), limiter,
           transactionsMap.get((i % threadCount * 1L)), threadCount));
       latch.countDown();
     }
@@ -126,7 +125,7 @@ public class SendCoinLoop {
     private static ConcurrentHashMap<Long, LongAdder> resultMap = new ConcurrentHashMap<>();
     public static final ScheduledExecutorService service = Executors
         .newSingleThreadScheduledExecutor();
-    private WalletClient walletClient;
+    private WalletGrpcClient client;
     private RateLimiter limiter;
     private List<Transaction> transactions;
     private static LongAdder endCounts = new LongAdder();
@@ -161,9 +160,9 @@ public class SendCoinLoop {
       }, 5, 5, TimeUnit.SECONDS);
     }
 
-    public Task(final WalletClient walletClient, RateLimiter limiter,
+    public Task(final WalletGrpcClient client, RateLimiter limiter,
         List<Transaction> transactions, int threadCount) {
-      this.walletClient = walletClient;
+      this.client = client;
       this.limiter = limiter;
       this.transactions = transactions;
       this.threadCount = threadCount;
@@ -178,7 +177,7 @@ public class SendCoinLoop {
 
         this.transactions.forEach(t -> {
           limiter.acquire();
-          boolean b = walletClient.broadcastTransaction(t);
+          boolean b = client.broadcastTransaction(t);
 
           if (b) {
             trueCount.increment();
@@ -193,7 +192,11 @@ public class SendCoinLoop {
           resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
         });
       }
-      this.walletClient.shutdown();
+      try {
+        this.client.shutdown();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
       this.endCounts.increment();
     }
   }

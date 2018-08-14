@@ -15,6 +15,7 @@
 
 package org.tron.common.utils;
 
+import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import java.security.SignatureException;
 import java.util.Arrays;
@@ -26,6 +27,7 @@ import org.tron.common.crypto.ECKey.ECDSASignature;
 import org.tron.common.crypto.Sha256Hash;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.protos.Protocol.Transaction.Contract;
+import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 
 public class TransactionUtils {
 
@@ -163,6 +165,15 @@ public class TransactionUtils {
     return true;
   }
 
+  public static synchronized Transaction signTransaction(Transaction transaction, ECKey ecKey) {
+    if (ecKey == null || ecKey.getPrivKey() == null) {
+      return null;
+    }
+
+    transaction = TransactionUtils.setTimestamp(transaction);
+    return TransactionUtils.sign(transaction, ecKey);
+  }
+
   public static Transaction sign(Transaction transaction, ECKey myKey) {
     Transaction.Builder transactionBuilderSigned = transaction.toBuilder();
     byte[] hash = Sha256Hash.hash(transaction.getRawData().toByteArray());
@@ -186,5 +197,33 @@ public class TransactionUtils {
     rowBuilder.setTimestamp(currentTime);
     builder.setRawData(rowBuilder.build());
     return builder.build();
+  }
+
+  public synchronized static Transaction createTransaction(com.google.protobuf.Message message, ContractType contractType) {
+    Transaction.raw.Builder transactionBuilder = Transaction.raw.newBuilder().addContract(
+        Transaction.Contract.newBuilder().setType(contractType).setParameter(
+            Any.pack(message)).build());
+    Transaction transaction = Transaction.newBuilder().setRawData(transactionBuilder.build()).build();
+
+    transaction = setReference(transaction, 0L, ByteArray.fromHexString("000000000000000019ed34554c93e7d1ff7e950ae22370e05679445bcb22edd5"));
+
+    transaction = setExpiration(transaction, System.currentTimeMillis() + 12 * 3600 * 1_000L);
+
+    return transaction;
+  }
+
+  private static Transaction setReference(Transaction transaction, long blockNum, byte[] blockHash) {
+    byte[] refBlockNum = ByteArray.fromLong(blockNum);
+    Transaction.raw rawData = transaction.getRawData().toBuilder()
+        .setRefBlockHash(ByteString.copyFrom(ByteArray.subArray(blockHash, 8, 16)))
+        .setRefBlockBytes(ByteString.copyFrom(ByteArray.subArray(refBlockNum, 6, 8)))
+        .build();
+    return transaction.toBuilder().setRawData(rawData).build();
+  }
+
+  public static Transaction setExpiration(Transaction transaction, long expiration) {
+    Transaction.raw rawData = transaction.getRawData().toBuilder().setExpiration(expiration)
+        .build();
+    return transaction.toBuilder().setRawData(rawData).build();
   }
 }

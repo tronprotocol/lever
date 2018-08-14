@@ -8,9 +8,9 @@ import org.tron.common.dispatch.AbstractTransactionCreator;
 import org.tron.common.dispatch.BadCaseTransactionCreator;
 import org.tron.common.dispatch.TransactionFactory;
 import org.tron.common.dispatch.creator.CreatorCounter;
-import org.tron.common.dispatch.creator.TransactionUtils;
 import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
+import org.tron.common.utils.TransactionUtils;
 import org.tron.module.Account;
 import org.tron.program.ExportDataFromFactory;
 import org.tron.protos.Contract;
@@ -53,7 +53,7 @@ public class NiceVoteWitnessCreator extends AbstractTransactionCreator implement
 
     Protocol.Transaction transaction = TransactionUtils
         .createTransaction(contract, ContractType.VoteWitnessContract);
-    transaction = client.signTransaction(transaction,
+    transaction = TransactionUtils.signTransaction(transaction,
         ECKey.fromPrivate(ByteArray.fromHexString(account.getPrivateKey())));
     return transaction;
   }
