@@ -58,7 +58,7 @@ public class SendCoinLoop {
 
     LongAdder count = new LongAdder();
     clients = IntStream.range(0, threadCount).mapToObj(i -> {
-      WalletGrpcClient client = new WalletGrpcClient(grpcAddress.get(count.intValue() % 3));
+      WalletGrpcClient client = new WalletGrpcClient(grpcAddress.get(count.intValue() % grpcAddress.size()));
       count.increment();
       return client;
     }).collect(Collectors.toList());
