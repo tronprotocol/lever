@@ -16,7 +16,7 @@ public class FreezeBalance {
     JCommander.newBuilder().addObject(argsObj).build().parse(args);
 
     WalletClient walletClient = new WalletClient();
-    walletClient.init(0);
+    walletClient.init(argsObj.getGRPC());
 
     boolean isSuccess = walletClient
         .freezeBalance(argsObj.getPrivateKey(), argsObj.getFrozenBalance(), FROZEN_DURATION);
@@ -29,6 +29,11 @@ public class FreezeBalance {
   }
 
   public static class FreezeBalanceArgs {
+
+    @Getter
+    @Parameter(names = {
+        "--grpc"}, description = "gRPC host", required = true, validateWith = StringValidator.class)
+    private String gRPC;
 
     @Getter
     @Parameter(names = {
