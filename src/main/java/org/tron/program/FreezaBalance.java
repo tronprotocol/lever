@@ -27,17 +27,18 @@ public class FreezaBalance {
       System.out.println("failed");
     }
   }
+
+  public static class FreezaBalanceArgs {
+
+    @Getter
+    @Parameter(names = {
+        "--privatekey"}, description = "Private key", required = true, validateWith = StringValidator.class)
+    private String privateKey;
+
+    @Getter
+    @Parameter(names = {
+        "--frozenbalance"}, description = "Frozenbalance", required = true, validateWith = LongValidator.class)
+    private long frozenBalance;
+  }
 }
 
-class FreezaBalanceArgs {
-
-  @Getter
-  @Parameter(names = {
-      "--privatekey"}, description = "Private key", required = true, validateWith = StringValidator.class)
-  private String privateKey;
-
-  @Getter
-  @Parameter(names = {
-      "--frozenbalance"}, description = "Frozenbalance", required = true, validateWith = LongValidator.class)
-  private long frozenBalance;
-}

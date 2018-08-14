@@ -117,188 +117,188 @@ public class SendCoinLoop {
       executorService.shutdown();
     }
   }
-}
 
-class Task implements Runnable {
+  public static class Task implements Runnable {
 
-  private static LongAdder trueCount = new LongAdder();
-  private static LongAdder falseCount = new LongAdder();
-  private static LongAdder currentCount = new LongAdder();
-  private static ConcurrentHashMap<Long, LongAdder> resultMap = new ConcurrentHashMap<>();
-  public static final ScheduledExecutorService service = Executors
-      .newSingleThreadScheduledExecutor();
-  private WalletClient walletClient;
-  private RateLimiter limiter;
-  private List<Transaction> transactions;
-  private static LongAdder endCounts = new LongAdder();
-  private static int threadCount;
+    private static LongAdder trueCount = new LongAdder();
+    private static LongAdder falseCount = new LongAdder();
+    private static LongAdder currentCount = new LongAdder();
+    private static ConcurrentHashMap<Long, LongAdder> resultMap = new ConcurrentHashMap<>();
+    public static final ScheduledExecutorService service = Executors
+        .newSingleThreadScheduledExecutor();
+    private WalletClient walletClient;
+    private RateLimiter limiter;
+    private List<Transaction> transactions;
+    private static LongAdder endCounts = new LongAdder();
+    private static int threadCount;
 
-  private static Date startTime;
-  private static Date endTime;
+    private static Date startTime;
+    private static Date endTime;
 
-  static {
-    service.scheduleAtFixedRate(() -> {
-      System.out.println(
-          "current: " + currentCount.longValue()
-              + ", true: " + trueCount.longValue()
-              + ", false: " + falseCount.longValue()
-              + ", timestamp: " + (System.currentTimeMillis() / 1000)
-              + ", map: " + resultMap);
+    static {
+      service.scheduleAtFixedRate(() -> {
+        System.out.println(
+            "current: " + currentCount.longValue()
+                + ", true: " + trueCount.longValue()
+                + ", false: " + falseCount.longValue()
+                + ", timestamp: " + (System.currentTimeMillis() / 1000)
+                + ", map: " + resultMap);
 
-      if (endCounts.longValue() == threadCount) {
-        endTime = new Date();
-        System.out.printf(
-            "\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT, \u001B[36mseconds:\u001B[0m %d\n",
-            startTime, startTime, endTime,
-            endTime, ((endTime.getTime() - startTime.getTime()) / 1000));
+        if (endCounts.longValue() == threadCount) {
+          endTime = new Date();
+          System.out.printf(
+              "\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT, \u001B[36mseconds:\u001B[0m %d\n",
+              startTime, startTime, endTime,
+              endTime, ((endTime.getTime() - startTime.getTime()) / 1000));
 
-        System.out.println("\u001B[36mstart account:\u001B[0m");
-        SendCoinLoop.getStartAccount().entrySet().stream().forEach(v -> {
-          System.out.println("\taddress: " + v.getKey() + ", balance: " + v.getValue());
-        });
+          System.out.println("\u001B[36mstart account:\u001B[0m");
+          SendCoinLoop.getStartAccount().entrySet().stream().forEach(v -> {
+            System.out.println("\taddress: " + v.getKey() + ", balance: " + v.getValue());
+          });
 
-        service.shutdown();
-      }
-    }, 5, 5, TimeUnit.SECONDS);
-  }
+          service.shutdown();
+        }
+      }, 5, 5, TimeUnit.SECONDS);
+    }
 
-  public Task(final WalletClient walletClient, RateLimiter limiter,
-      List<Transaction> transactions, int threadCount) {
-    this.walletClient = walletClient;
-    this.limiter = limiter;
-    this.transactions = transactions;
-    this.threadCount = threadCount;
-  }
+    public Task(final WalletClient walletClient, RateLimiter limiter,
+        List<Transaction> transactions, int threadCount) {
+      this.walletClient = walletClient;
+      this.limiter = limiter;
+      this.transactions = transactions;
+      this.threadCount = threadCount;
+    }
 
-  @Override
-  public void run() {
-    if (this.transactions != null) {
-      if (endCounts.longValue() == 0) {
-        startTime = new Date();
-      }
-
-      this.transactions.forEach(t -> {
-        limiter.acquire();
-        boolean b = walletClient.broadcastTransaction(t);
-
-        if (b) {
-          trueCount.increment();
-        } else {
-          falseCount.increment();
+    @Override
+    public void run() {
+      if (this.transactions != null) {
+        if (endCounts.longValue() == 0) {
+          startTime = new Date();
         }
 
-        currentCount.increment();
+        this.transactions.forEach(t -> {
+          limiter.acquire();
+          boolean b = walletClient.broadcastTransaction(t);
 
-        long currentMinutes = System.currentTimeMillis() / 1000L / 60;
+          if (b) {
+            trueCount.increment();
+          } else {
+            falseCount.increment();
+          }
 
-        resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
-      });
+          currentCount.increment();
+
+          long currentMinutes = System.currentTimeMillis() / 1000L / 60;
+
+          resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
+        });
+      }
+      this.walletClient.shutdown();
+      this.endCounts.increment();
     }
-    this.walletClient.shutdown();
-    this.endCounts.increment();
-  }
-}
-
-class SendCoinArgs {
-
-  private static final String DEFAULT_CONFIG_FILE_PATH = "config_send_coin_loop.conf";
-  private static final String GRPC_ADDRESS = "grpc.address";
-  private static final String THREAD_COUNT = "thread.count";
-  private static final String DATA_FILE = "data.file";
-  private static final String TPS = "tps";
-  private static final String ACCOUNT_ADDRESS = "account.address";
-
-  private static SendCoinArgs INSTANCE;
-
-  @Getter
-  @Parameter(names = {"--config"}, description = "Config file path")
-  private String config = "";
-
-  @Getter
-  @Parameter(names = {"--gRpcAddress"}, description = "gRPC address, like: 127.0.0.1:50051")
-  private List<String> gRpcAddress = new ArrayList<>();
-
-  @Getter
-  @Parameter(names = {"--threadCount"}, description = "Thread count")
-  private int threadCount = 0;
-
-  @Getter
-  @Parameter(names = {
-      "--dataFile"}, description = "Data file")
-  private String dataFile = "";
-
-  @Getter
-  @Parameter(names = {
-      "--tps"}, description = "tps")
-  private int tps = 0;
-
-  @Getter
-  @Parameter(names = {"--accountAddress"}, description = "Get account address list")
-  private List<String> accountAddress = new ArrayList<>();
-
-  private SendCoinArgs() {
-
   }
 
-  public static SendCoinArgs getInstance(String[] args) {
-    if (null == INSTANCE) {
-      INSTANCE = new SendCoinArgs();
-      JCommander.newBuilder().addObject(INSTANCE).build().parse(args);
-      INSTANCE.initArgs();
+  public static class SendCoinArgs {
+
+    private static final String DEFAULT_CONFIG_FILE_PATH = "config_send_coin_loop.conf";
+    private static final String GRPC_ADDRESS = "grpc.address";
+    private static final String THREAD_COUNT = "thread.count";
+    private static final String DATA_FILE = "data.file";
+    private static final String TPS = "tps";
+    private static final String ACCOUNT_ADDRESS = "account.address";
+
+    private static SendCoinArgs INSTANCE;
+
+    @Getter
+    @Parameter(names = {"--config"}, description = "Config file path")
+    private String config = "";
+
+    @Getter
+    @Parameter(names = {"--gRpcAddress"}, description = "gRPC address, like: 127.0.0.1:50051")
+    private List<String> gRpcAddress = new ArrayList<>();
+
+    @Getter
+    @Parameter(names = {"--threadCount"}, description = "Thread count")
+    private int threadCount = 0;
+
+    @Getter
+    @Parameter(names = {
+        "--dataFile"}, description = "Data file")
+    private String dataFile = "";
+
+    @Getter
+    @Parameter(names = {
+        "--tps"}, description = "tps")
+    private int tps = 0;
+
+    @Getter
+    @Parameter(names = {"--accountAddress"}, description = "Get account address list")
+    private List<String> accountAddress = new ArrayList<>();
+
+    private SendCoinArgs() {
+
     }
 
-    return INSTANCE;
-  }
+    public static SendCoinArgs getInstance(String[] args) {
+      if (null == INSTANCE) {
+        INSTANCE = new SendCoinArgs();
+        JCommander.newBuilder().addObject(INSTANCE).build().parse(args);
+        INSTANCE.initArgs();
+      }
 
-  private void initArgs() {
-    String configFilePath = INSTANCE.config;
-    if (StringUtils.isBlank(configFilePath)) {
-      configFilePath = DEFAULT_CONFIG_FILE_PATH;
+      return INSTANCE;
     }
 
-    org.tron.common.config.Config configMap = new org.tron.common.config.ConfigImpl();
-    EnumMap<ConfigProperty, Object> configInfo = configMap
-        .getConfig(configFilePath, DEFAULT_CONFIG_FILE_PATH);
+    private void initArgs() {
+      String configFilePath = INSTANCE.config;
+      if (StringUtils.isBlank(configFilePath)) {
+        configFilePath = DEFAULT_CONFIG_FILE_PATH;
+      }
 
-    Config config = (Config) configInfo.get(ConfigProperty.CONFIG);
-    String configTip = (String) configInfo.get(ConfigProperty.TIP);
+      org.tron.common.config.Config configMap = new org.tron.common.config.ConfigImpl();
+      EnumMap<ConfigProperty, Object> configInfo = configMap
+          .getConfig(configFilePath, DEFAULT_CONFIG_FILE_PATH);
 
-    System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configTip);
-    System.out.println();
+      Config config = (Config) configInfo.get(ConfigProperty.CONFIG);
+      String configTip = (String) configInfo.get(ConfigProperty.TIP);
 
-    if (CollectionUtils.isEmpty(INSTANCE.gRpcAddress)) {
-      INSTANCE.gRpcAddress = config.getStringList(GRPC_ADDRESS);
+      System.out.printf("Loading config file: \u001B[34m%s\u001B[0m", configTip);
+      System.out.println();
+
+      if (CollectionUtils.isEmpty(INSTANCE.gRpcAddress)) {
+        INSTANCE.gRpcAddress = config.getStringList(GRPC_ADDRESS);
+      }
+
+      System.out.printf("gRPC address: \u001B[34m%s\u001B[0m", INSTANCE.gRpcAddress);
+      System.out.println();
+
+      if (0 == INSTANCE.threadCount) {
+        INSTANCE.threadCount = config.getInt(THREAD_COUNT);
+      }
+
+      System.out.printf("Thread count: \u001B[34m%s\u001B[0m", INSTANCE.threadCount);
+      System.out.println();
+
+      if (StringUtils.isBlank(INSTANCE.dataFile)) {
+        INSTANCE.dataFile = config.getString(DATA_FILE);
+      }
+
+      System.out.printf("Data file: \u001B[34m%s\u001B[0m", INSTANCE.dataFile);
+      System.out.println();
+
+      if (0 == INSTANCE.tps) {
+        INSTANCE.tps = config.getInt(TPS);
+      }
+
+      System.out.printf("TPS: \u001B[34m%s\u001B[0m", INSTANCE.tps);
+      System.out.println();
+
+      if (0 == INSTANCE.accountAddress.size()) {
+        INSTANCE.accountAddress = config.getStringList(ACCOUNT_ADDRESS);
+      }
+
+      System.out.printf("Account address: \u001B[34m%s\u001B[0m", INSTANCE.accountAddress);
+      System.out.println();
     }
-
-    System.out.printf("gRPC address: \u001B[34m%s\u001B[0m", INSTANCE.gRpcAddress);
-    System.out.println();
-
-    if (0 == INSTANCE.threadCount) {
-      INSTANCE.threadCount = config.getInt(THREAD_COUNT);
-    }
-
-    System.out.printf("Thread count: \u001B[34m%s\u001B[0m", INSTANCE.threadCount);
-    System.out.println();
-
-    if (StringUtils.isBlank(INSTANCE.dataFile)) {
-      INSTANCE.dataFile = config.getString(DATA_FILE);
-    }
-
-    System.out.printf("Data file: \u001B[34m%s\u001B[0m", INSTANCE.dataFile);
-    System.out.println();
-
-    if (0 == INSTANCE.tps) {
-      INSTANCE.tps = config.getInt(TPS);
-    }
-
-    System.out.printf("TPS: \u001B[34m%s\u001B[0m", INSTANCE.tps);
-    System.out.println();
-
-    if (0 == INSTANCE.accountAddress.size()) {
-      INSTANCE.accountAddress = config.getStringList(ACCOUNT_ADDRESS);
-    }
-
-    System.out.printf("Account address: \u001B[34m%s\u001B[0m", INSTANCE.accountAddress);
-    System.out.println();
   }
 }

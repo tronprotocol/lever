@@ -40,12 +40,12 @@ public class ShowData {
 
     System.out.println("map size:" + transactionsMap.size());
   }
-}
 
-class ShowDataArgs {
+  private static class ShowDataArgs {
 
-  @Getter
-  @Parameter(names = {
-      "--datafile"}, description = "Data file", required = true, validateWith = StringValidator.class)
-  private String dataFile;
+    @Getter
+    @Parameter(names = {
+        "--datafile"}, description = "Data file", required = true, validateWith = StringValidator.class)
+    private String dataFile;
+  }
 }
