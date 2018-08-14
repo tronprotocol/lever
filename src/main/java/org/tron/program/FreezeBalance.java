@@ -7,12 +7,12 @@ import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
 import org.tron.service.WalletClient;
 
-public class FreezaBalance {
+public class FreezeBalance {
 
   private static final long FROZEN_DURATION = 3L;
 
   public static void main(String[] args) {
-    FreezaBalanceArgs argsObj = new FreezaBalanceArgs();
+    FreezeBalanceArgs argsObj = new FreezeBalanceArgs();
     JCommander.newBuilder().addObject(argsObj).build().parse(args);
 
     WalletClient walletClient = new WalletClient();
@@ -28,7 +28,7 @@ public class FreezaBalance {
     }
   }
 
-  public static class FreezaBalanceArgs {
+  public static class FreezeBalanceArgs {
 
     @Getter
     @Parameter(names = {
