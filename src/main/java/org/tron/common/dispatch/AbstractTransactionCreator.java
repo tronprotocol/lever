@@ -4,10 +4,8 @@ import com.google.common.base.Charsets;
 import com.google.protobuf.ByteString;
 import java.util.HashMap;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.tron.common.dispatch.strategy.Level2Strategy;
 import org.tron.common.utils.Base58;
-import org.tron.service.WalletGrpcClient;
 
 @Getter
 public abstract class AbstractTransactionCreator extends Level2Strategy {
