@@ -226,4 +226,8 @@ public class TransactionUtils {
         .build();
     return transaction.toBuilder().setRawData(rawData).build();
   }
+
+  public static Sha256Hash getID(Transaction transaction) {
+    return Sha256Hash.of(transaction.getRawData().toByteArray());
+  }
 }

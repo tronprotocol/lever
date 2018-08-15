@@ -7,8 +7,10 @@ import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.RateLimiter;
 import com.google.protobuf.ByteString;
 import com.typesafe.config.Config;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,6 +32,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.tron.common.config.Config.ConfigProperty;
 import org.tron.common.utils.Base58;
+import org.tron.common.utils.TransactionUtils;
 import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletGrpcClient;
@@ -58,7 +61,8 @@ public class SendTransaction {
 
     LongAdder count = new LongAdder();
     clients = IntStream.range(0, threadCount).mapToObj(i -> {
-      WalletGrpcClient client = new WalletGrpcClient(grpcAddress.get(count.intValue() % grpcAddress.size()));
+      WalletGrpcClient client = new WalletGrpcClient(
+          grpcAddress.get(count.intValue() % grpcAddress.size()));
       count.increment();
       return client;
     }).collect(Collectors.toList());
@@ -119,6 +123,8 @@ public class SendTransaction {
 
   public static class Task implements Runnable {
 
+    private static Map<String, Boolean> successTransactionID = new ConcurrentHashMap<>();
+
     private static LongAdder trueCount = new LongAdder();
     private static LongAdder falseCount = new LongAdder();
     private static LongAdder currentCount = new LongAdder();
@@ -138,8 +144,8 @@ public class SendTransaction {
       service.scheduleAtFixedRate(() -> {
         System.out.println(
             "current: " + currentCount.longValue()
-                + ", true: " + trueCount.longValue()
-                + ", false: " + falseCount.longValue()
+                + ", success: " + trueCount.longValue()
+                + ", failed: " + falseCount.longValue()
                 + ", timestamp: " + (System.currentTimeMillis() / 1000)
                 + ", map: " + resultMap);
 
@@ -154,6 +160,29 @@ public class SendTransaction {
           SendTransaction.getStartAccount().entrySet().stream().forEach(v -> {
             System.out.println("\taddress: " + v.getKey() + ", balance: " + v.getValue());
           });
+
+          // save successTransactionID for check by getTransactionInfoById
+          BufferedWriter bufferedWriter = null;
+          try {
+            bufferedWriter = new BufferedWriter(
+                new FileWriter("transactionsID.csv"));
+
+            for (String key : successTransactionID.keySet()) {
+              bufferedWriter.write(key);
+              bufferedWriter.newLine();
+            }
+
+          } catch (IOException e) {
+            e.printStackTrace();
+          } finally {
+            if (bufferedWriter != null) {
+              try {
+                bufferedWriter.close();
+              } catch (IOException e) {
+                e.printStackTrace();
+              }
+            }
+          }
 
           service.shutdown();
         }
@@ -181,6 +210,7 @@ public class SendTransaction {
 
           if (b) {
             trueCount.increment();
+            successTransactionID.put(TransactionUtils.getID(t).toString(), true);
           } else {
             falseCount.increment();
           }
