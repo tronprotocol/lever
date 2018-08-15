@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import lombok.Getter;
+import me.tongfei.progressbar.ProgressBar;
+import me.tongfei.progressbar.ProgressBarStyle;
 import org.tron.Validator.LongValidator;
 import org.tron.Validator.StringValidator;
 import org.tron.common.crypto.Hash;
@@ -25,7 +27,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.LongStream;
 
 public class GenerateTransaction {
@@ -42,6 +43,8 @@ public class GenerateTransaction {
     exportDataFromFactory.initArgs(args);
 
     exportDataFromFactory.initNetType();
+
+    TransactionFactory.init();
 
     exportDataFromFactory.initAccounts("accounts.txt");
 
@@ -69,23 +72,24 @@ public class GenerateTransaction {
     File ff = new File(file);
     FileInputStream fis = null;
 
+    System.out.println();
+
+    ProgressBar pb = new ProgressBar("Reading accounts file", -1, ProgressBarStyle.ASCII);
+
     try {
       fis = new FileInputStream(ff);
       ObjectInputStream ois = new ObjectInputStream(fis);
-      int count = 0;
 
       while (fis.available() > 0) {
         Account account = (Account) ois.readObject();
         accounts.add(account);
-
-        if (((count + 1) % 100000) == 0) {
-          System.out.println("read accounts current: " + (count + 1));
-        }
-
-        count++;
+        pb.step();
       }
 
-    } catch (IOException | ClassNotFoundException e) {
+      pb.close();
+      Thread.sleep(1000);
+      System.out.println();
+    } catch (IOException | ClassNotFoundException | InterruptedException e) {
       e.printStackTrace();
     } finally {
       if (fis != null) {
@@ -101,7 +105,6 @@ public class GenerateTransaction {
   private void createTransactions() {
     ConcurrentLinkedQueue<Transaction> transactions = new ConcurrentLinkedQueue<>();
 
-    AtomicLong counter = new AtomicLong(0);
     File f = new File(argsObj.getOutput());
     FileOutputStream fos;
     CountDownLatch countDownLatch = new CountDownLatch((int) argsObj.getCount());
@@ -110,29 +113,31 @@ public class GenerateTransaction {
     try {
       fos = new FileOutputStream(f);
 
+      ProgressBar generationPb = new ProgressBar("Generating transactions", argsObj.getCount(), ProgressBarStyle.ASCII);
+
       LongStream.range(0L, argsObj.getCount()).forEach(l -> {
         service.execute(() -> {
-          long c = counter.incrementAndGet();
-          if ((c + 1) % 1000 == 0) {
-            System.out.println("create transactions current: " + (c + 1));
-          }
-
+          generationPb.step();
           Optional.ofNullable(TransactionFactory.newTransaction()).ifPresent(transactions::add);
           countDownLatch.countDown();
         });
       });
 
       countDownLatch.await();
-      counter.set(0L);
+      generationPb.close();
+      Thread.sleep(1000);
+      System.out.println();
+
+      ProgressBar savePb = new ProgressBar("Writing transactions", transactions.size(), ProgressBarStyle.ASCII);
 
       for (Transaction transaction : transactions) {
         transaction.writeDelimitedTo(fos);
-        long c = counter.incrementAndGet();
-
-        if ((c + 1) % 1000 == 0) {
-          System.out.println("write file current: " + (c + 1));
-        }
+        savePb.step();
       }
+
+      savePb.close();
+      Thread.sleep(1000);
+      System.out.println();
 
       fos.flush();
       fos.close();

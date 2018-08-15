@@ -11,10 +11,15 @@ import org.tron.protos.Protocol;
 import java.io.IOException;
 
 public class TransactionFactory {
-  public static final ApplicationContext context = new FileSystemXmlApplicationContext(GenerateTransaction
-      .getArgsObj().getContext());
+  public static ApplicationContext context;
 
-  private static final Dispatcher dispatcher = context.getBean(Dispatcher.class);
+  private static Dispatcher dispatcher;
+
+  public static void init() {
+    context = new FileSystemXmlApplicationContext(GenerateTransaction
+        .getArgsObj().getContext());
+    dispatcher = context.getBean(Dispatcher.class);
+  }
 
   public static Protocol.Transaction newTransaction() {
     Level1Strategy level1Strategy = dispatcher.dispatch();

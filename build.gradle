@@ -73,6 +73,9 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-tx', version: '4.2.0.RELEASE'
 
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.2'
+
+    // progress bar
+    compile group: 'me.tongfei', name: 'progressbar', version: '0.7.1'
 }
 
 sourceSets {
