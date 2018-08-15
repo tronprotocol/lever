@@ -32,6 +32,11 @@ public class GetAccountBalance {
     );
 
     System.out.println(account.getBalance());
+    try {
+      client.shutdown();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   public static class Args {
