@@ -152,14 +152,11 @@ public class SendTransaction {
         if (endCounts.longValue() == threadCount) {
           endTime = new Date();
           System.out.printf(
-              "\u001B[36mstart time:\u001B[0m %tF %tT, \u001B[36mend time:\u001B[0m %tF %tT, \u001B[36mseconds:\u001B[0m %d\n",
-              startTime, startTime, endTime,
-              endTime, ((endTime.getTime() - startTime.getTime()) / 1000));
-
-          System.out.println("\u001B[36mstart account:\u001B[0m");
-          SendTransaction.getStartAccount().entrySet().stream().forEach(v -> {
-            System.out.println("\taddress: " + v.getKey() + ", balance: " + v.getValue());
-          });
+              "total:%d,success:%d,failed:%d,seconds:%d\n",
+              currentCount.longValue(),
+              trueCount.longValue(),
+              falseCount.longValue(),
+              ((endTime.getTime() - startTime.getTime()) / 1000));
 
           // save successTransactionID for check by getTransactionInfoById
           BufferedWriter bufferedWriter = null;
