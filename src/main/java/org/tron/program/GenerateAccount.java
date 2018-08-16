@@ -1,5 +1,7 @@
 package org.tron.program;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
 import io.netty.util.internal.ConcurrentSet;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -8,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import lombok.Getter;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
 import org.tron.module.Account;
@@ -15,7 +18,10 @@ import org.tron.module.Account;
 public class GenerateAccount {
 
   public static void main(String[] args) throws IOException {
-    int accountCount = 1_000_000;
+    Args argsObj = new Args();
+    JCommander.newBuilder().addObject(argsObj).build().parse(args);
+
+    int accountCount = argsObj.getCount();
 
     ConcurrentSet<Account> accounts = new ConcurrentSet<>();
     AtomicInteger counter = new AtomicInteger(0);
@@ -59,5 +65,12 @@ public class GenerateAccount {
 
     oos.flush();
     oos.close();
+  }
+
+  public static class Args {
+    @Getter
+    @Parameter(names = {
+        "--count"}, description = "Account count", required = true)
+    private int count;
   }
 }
