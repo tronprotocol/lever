@@ -95,7 +95,7 @@ public class CheckTransactionInfo {
       fee += entry.getValue().getFee();
     }
 
-    System.out.println("Total fee: " + fee);
+    System.out.println("fee:" + fee);
 
     System.exit(0);
   }
