@@ -33,9 +33,19 @@ public class GetAccountAsset {
             ).build()
     );
 
+    if (account.getAssetMap().size() > 0) {
+      Set<Entry<String, Long>> entries = account.getAssetMap().entrySet();
+      for (Entry<String, Long> entry : entries) {
+        System.out.println(entry.getValue());
+        break;
+      }
+    } else {
+      System.out.println(0);
+    }
+
     Set<Entry<String, Long>> entries = account.getAssetMap().entrySet();
     for (Entry<String, Long> entry : entries) {
-      System.out.println(entry.getKey() + ":" + entry.getValue());
+      System.out.println(entry.getValue());
     }
     try {
       client.shutdown();
