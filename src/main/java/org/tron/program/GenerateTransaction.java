@@ -191,6 +191,11 @@ public class GenerateTransaction {
     @Parameter(names = {
         "--context"}, description = "Application context", required = true, validateWith = StringValidator.class)
     private String context;
+
+    @Getter
+    @Parameter(names = {
+        "--contract-address"}, required = false)
+    private String contractAddress = "";
   }
 }
 
