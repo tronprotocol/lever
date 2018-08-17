@@ -6,10 +6,12 @@ import io.grpc.ManagedChannelBuilder;
 import java.util.concurrent.TimeUnit;
 import org.tron.api.GrpcAPI;
 import org.tron.api.GrpcAPI.BytesMessage;
+import org.tron.api.GrpcAPI.TransactionExtention;
 import org.tron.api.WalletGrpc;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.Sha256Hash;
 import org.tron.protos.Contract;
+import org.tron.protos.Contract.AssetIssueContract;
 import org.tron.protos.Contract.FreezeBalanceContract;
 import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
@@ -58,5 +60,9 @@ public class WalletGrpcClient {
     BytesMessage request = BytesMessage.newBuilder().setValue(bsTxId).build();
 
     return stub.getTransactionInfoById(request);
+  }
+
+  public TransactionExtention createAssetIssue2(AssetIssueContract contract) {
+    return stub.createAssetIssue2(contract);
   }
 }
