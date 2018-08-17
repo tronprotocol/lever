@@ -43,10 +43,6 @@ public class GetAccountAsset {
       System.out.println(0);
     }
 
-    Set<Entry<String, Long>> entries = account.getAssetMap().entrySet();
-    for (Entry<String, Long> entry : entries) {
-      System.out.println(entry.getValue());
-    }
     try {
       client.shutdown();
     } catch (InterruptedException e) {
