@@ -1,6 +1,6 @@
 package org.tron.common.dispatch.creator.contract;
 
-import static org.tron.common.dispatch.creator.contract.TriggerContractTransactionCreator.triggerCallContract;
+import static org.tron.core.contract.CreateSmartContract.triggerCallContract;
 
 import java.util.concurrent.atomic.LongAdder;
 import org.tron.common.crypto.ECKey;

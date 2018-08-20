@@ -1,6 +1,7 @@
 package org.tron.common.dispatch.creator.contract;
 
-import com.google.protobuf.ByteString;
+import static org.tron.core.contract.CreateSmartContract.triggerCallContract;
+
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.GoodCaseTransactonCreator;
 import org.tron.common.dispatch.TransactionFactory;
@@ -11,7 +12,6 @@ import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
 import org.tron.program.GenerateTransaction;
-import org.tron.protos.Contract;
 import org.tron.protos.Contract.TriggerSmartContract;
 import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction.Contract.ContractType;
@@ -33,14 +33,4 @@ public class TriggerContractTransactionCreator extends AbstractTransferTransacti
     return transaction;
   }
 
-  public static Contract.TriggerSmartContract triggerCallContract(byte[] address,
-      byte[] contractAddress,
-      long callValue, byte[] data) {
-    Contract.TriggerSmartContract.Builder builder = Contract.TriggerSmartContract.newBuilder();
-    builder.setOwnerAddress(ByteString.copyFrom(address));
-    builder.setContractAddress(ByteString.copyFrom(contractAddress));
-    builder.setData(ByteString.copyFrom(data));
-    builder.setCallValue(callValue);
-    return builder.build();
-  }
 }

@@ -13,6 +13,7 @@ import org.tron.common.utils.Sha256Hash;
 import org.tron.protos.Contract;
 import org.tron.protos.Contract.AssetIssueContract;
 import org.tron.protos.Contract.FreezeBalanceContract;
+import org.tron.protos.Contract.TriggerSmartContract;
 import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.protos.Protocol.TransactionInfo;
@@ -64,5 +65,9 @@ public class WalletGrpcClient {
 
   public TransactionExtention createAssetIssue2(AssetIssueContract contract) {
     return stub.createAssetIssue2(contract);
+  }
+
+  public TransactionExtention triggerContract(TriggerSmartContract contract) {
+    return stub.triggerContract(contract);
   }
 }
