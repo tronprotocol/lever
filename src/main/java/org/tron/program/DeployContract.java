@@ -56,7 +56,12 @@ public class DeployContract {
     boolean isSuccess = client.broadcastTransaction(transaction);
 
     if (isSuccess) {
-      System.out.println("success:" + TransactionUtils.getID(transaction));
+      System.out.println(
+          "success:" + Base58
+              .encode58Check(TransactionUtils.generateContractAddress(Objects
+                  .requireNonNull(Base58.decodeFromBase58Check(
+                      argsObj.getOwnerAddress()
+                  )), transaction)));
     } else {
       System.out.println("failed");
     }
