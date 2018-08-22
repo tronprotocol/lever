@@ -1276,6 +1276,134 @@ public final class WalletGrpc {
      return getSellStorageMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getExchangeCreateMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeCreateContract,
+      org.tron.api.GrpcAPI.TransactionExtention> METHOD_EXCHANGE_CREATE = getExchangeCreateMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeCreateContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getExchangeCreateMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeCreateContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getExchangeCreateMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeCreateContract, org.tron.api.GrpcAPI.TransactionExtention> getExchangeCreateMethod;
+    if ((getExchangeCreateMethod = WalletGrpc.getExchangeCreateMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getExchangeCreateMethod = WalletGrpc.getExchangeCreateMethod) == null) {
+          WalletGrpc.getExchangeCreateMethod = getExchangeCreateMethod = 
+              io.grpc.MethodDescriptor.<org.tron.protos.Contract.ExchangeCreateContract, org.tron.api.GrpcAPI.TransactionExtention>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "ExchangeCreate"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Contract.ExchangeCreateContract.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.TransactionExtention.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("ExchangeCreate"))
+                  .build();
+          }
+        }
+     }
+     return getExchangeCreateMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getExchangeInjectMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeInjectContract,
+      org.tron.api.GrpcAPI.TransactionExtention> METHOD_EXCHANGE_INJECT = getExchangeInjectMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeInjectContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getExchangeInjectMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeInjectContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getExchangeInjectMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeInjectContract, org.tron.api.GrpcAPI.TransactionExtention> getExchangeInjectMethod;
+    if ((getExchangeInjectMethod = WalletGrpc.getExchangeInjectMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getExchangeInjectMethod = WalletGrpc.getExchangeInjectMethod) == null) {
+          WalletGrpc.getExchangeInjectMethod = getExchangeInjectMethod = 
+              io.grpc.MethodDescriptor.<org.tron.protos.Contract.ExchangeInjectContract, org.tron.api.GrpcAPI.TransactionExtention>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "ExchangeInject"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Contract.ExchangeInjectContract.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.TransactionExtention.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("ExchangeInject"))
+                  .build();
+          }
+        }
+     }
+     return getExchangeInjectMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getExchangeWithdrawMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeWithdrawContract,
+      org.tron.api.GrpcAPI.TransactionExtention> METHOD_EXCHANGE_WITHDRAW = getExchangeWithdrawMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeWithdrawContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getExchangeWithdrawMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeWithdrawContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getExchangeWithdrawMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeWithdrawContract, org.tron.api.GrpcAPI.TransactionExtention> getExchangeWithdrawMethod;
+    if ((getExchangeWithdrawMethod = WalletGrpc.getExchangeWithdrawMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getExchangeWithdrawMethod = WalletGrpc.getExchangeWithdrawMethod) == null) {
+          WalletGrpc.getExchangeWithdrawMethod = getExchangeWithdrawMethod = 
+              io.grpc.MethodDescriptor.<org.tron.protos.Contract.ExchangeWithdrawContract, org.tron.api.GrpcAPI.TransactionExtention>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "ExchangeWithdraw"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Contract.ExchangeWithdrawContract.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.TransactionExtention.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("ExchangeWithdraw"))
+                  .build();
+          }
+        }
+     }
+     return getExchangeWithdrawMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getExchangeTransactionMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeTransactionContract,
+      org.tron.api.GrpcAPI.TransactionExtention> METHOD_EXCHANGE_TRANSACTION = getExchangeTransactionMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeTransactionContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getExchangeTransactionMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeTransactionContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getExchangeTransactionMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Contract.ExchangeTransactionContract, org.tron.api.GrpcAPI.TransactionExtention> getExchangeTransactionMethod;
+    if ((getExchangeTransactionMethod = WalletGrpc.getExchangeTransactionMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getExchangeTransactionMethod = WalletGrpc.getExchangeTransactionMethod) == null) {
+          WalletGrpc.getExchangeTransactionMethod = getExchangeTransactionMethod = 
+              io.grpc.MethodDescriptor.<org.tron.protos.Contract.ExchangeTransactionContract, org.tron.api.GrpcAPI.TransactionExtention>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "ExchangeTransaction"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Contract.ExchangeTransactionContract.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.TransactionExtention.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("ExchangeTransaction"))
+                  .build();
+          }
+        }
+     }
+     return getExchangeTransactionMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getListNodesMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.api.GrpcAPI.NodeList> METHOD_LIST_NODES = getListNodesMethod();
@@ -1978,6 +2106,70 @@ public final class WalletGrpc {
         }
      }
      return getGetProposalByIdMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getListExchangesMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.ExchangeList> METHOD_LIST_EXCHANGES = getListExchangesMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.ExchangeList> getListExchangesMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
+      org.tron.api.GrpcAPI.ExchangeList> getListExchangesMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.ExchangeList> getListExchangesMethod;
+    if ((getListExchangesMethod = WalletGrpc.getListExchangesMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getListExchangesMethod = WalletGrpc.getListExchangesMethod) == null) {
+          WalletGrpc.getListExchangesMethod = getListExchangesMethod = 
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.EmptyMessage, org.tron.api.GrpcAPI.ExchangeList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "ListExchanges"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.EmptyMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.ExchangeList.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("ListExchanges"))
+                  .build();
+          }
+        }
+     }
+     return getListExchangesMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getGetExchangeByIdMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
+      org.tron.protos.Protocol.Exchange> METHOD_GET_EXCHANGE_BY_ID = getGetExchangeByIdMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
+      org.tron.protos.Protocol.Exchange> getGetExchangeByIdMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
+      org.tron.protos.Protocol.Exchange> getGetExchangeByIdMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Protocol.Exchange> getGetExchangeByIdMethod;
+    if ((getGetExchangeByIdMethod = WalletGrpc.getGetExchangeByIdMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getGetExchangeByIdMethod = WalletGrpc.getGetExchangeByIdMethod) == null) {
+          WalletGrpc.getGetExchangeByIdMethod = getGetExchangeByIdMethod = 
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Protocol.Exchange>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "GetExchangeById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.BytesMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Protocol.Exchange.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("GetExchangeById"))
+                  .build();
+          }
+        }
+     }
+     return getGetExchangeByIdMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getGetChainParametersMethod()} instead. 
@@ -2753,6 +2945,34 @@ public final class WalletGrpc {
 
     /**
      */
+    public void exchangeCreate(org.tron.protos.Contract.ExchangeCreateContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnimplementedUnaryCall(getExchangeCreateMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void exchangeInject(org.tron.protos.Contract.ExchangeInjectContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnimplementedUnaryCall(getExchangeInjectMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void exchangeWithdraw(org.tron.protos.Contract.ExchangeWithdrawContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnimplementedUnaryCall(getExchangeWithdrawMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void exchangeTransaction(org.tron.protos.Contract.ExchangeTransactionContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnimplementedUnaryCall(getExchangeTransactionMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void listNodes(org.tron.api.GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.NodeList> responseObserver) {
       asyncUnimplementedUnaryCall(getListNodesMethod(), responseObserver);
@@ -2927,6 +3147,20 @@ public final class WalletGrpc {
     public void getProposalById(org.tron.api.GrpcAPI.BytesMessage request,
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Proposal> responseObserver) {
       asyncUnimplementedUnaryCall(getGetProposalByIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listExchanges(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList> responseObserver) {
+      asyncUnimplementedUnaryCall(getListExchangesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getExchangeById(org.tron.api.GrpcAPI.BytesMessage request,
+        io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Exchange> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetExchangeByIdMethod(), responseObserver);
     }
 
     /**
@@ -3309,6 +3543,34 @@ public final class WalletGrpc {
                 org.tron.api.GrpcAPI.TransactionExtention>(
                   this, METHODID_SELL_STORAGE)))
           .addMethod(
+            getExchangeCreateMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.protos.Contract.ExchangeCreateContract,
+                org.tron.api.GrpcAPI.TransactionExtention>(
+                  this, METHODID_EXCHANGE_CREATE)))
+          .addMethod(
+            getExchangeInjectMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.protos.Contract.ExchangeInjectContract,
+                org.tron.api.GrpcAPI.TransactionExtention>(
+                  this, METHODID_EXCHANGE_INJECT)))
+          .addMethod(
+            getExchangeWithdrawMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.protos.Contract.ExchangeWithdrawContract,
+                org.tron.api.GrpcAPI.TransactionExtention>(
+                  this, METHODID_EXCHANGE_WITHDRAW)))
+          .addMethod(
+            getExchangeTransactionMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.protos.Contract.ExchangeTransactionContract,
+                org.tron.api.GrpcAPI.TransactionExtention>(
+                  this, METHODID_EXCHANGE_TRANSACTION)))
+          .addMethod(
             getListNodesMethod(),
             asyncUnaryCall(
               new MethodHandlers<
@@ -3462,6 +3724,20 @@ public final class WalletGrpc {
                 org.tron.api.GrpcAPI.BytesMessage,
                 org.tron.protos.Protocol.Proposal>(
                   this, METHODID_GET_PROPOSAL_BY_ID)))
+          .addMethod(
+            getListExchangesMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.api.GrpcAPI.EmptyMessage,
+                org.tron.api.GrpcAPI.ExchangeList>(
+                  this, METHODID_LIST_EXCHANGES)))
+          .addMethod(
+            getGetExchangeByIdMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.api.GrpcAPI.BytesMessage,
+                org.tron.protos.Protocol.Exchange>(
+                  this, METHODID_GET_EXCHANGE_BY_ID)))
           .addMethod(
             getGetChainParametersMethod(),
             asyncUnaryCall(
@@ -3969,6 +4245,38 @@ public final class WalletGrpc {
 
     /**
      */
+    public void exchangeCreate(org.tron.protos.Contract.ExchangeCreateContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getExchangeCreateMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void exchangeInject(org.tron.protos.Contract.ExchangeInjectContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getExchangeInjectMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void exchangeWithdraw(org.tron.protos.Contract.ExchangeWithdrawContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getExchangeWithdrawMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void exchangeTransaction(org.tron.protos.Contract.ExchangeTransactionContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getExchangeTransactionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void listNodes(org.tron.api.GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.NodeList> responseObserver) {
       asyncUnaryCall(
@@ -4165,6 +4473,22 @@ public final class WalletGrpc {
         io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Proposal> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetProposalByIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listExchanges(org.tron.api.GrpcAPI.EmptyMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getListExchangesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getExchangeById(org.tron.api.GrpcAPI.BytesMessage request,
+        io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Exchange> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetExchangeByIdMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4664,6 +4988,34 @@ public final class WalletGrpc {
 
     /**
      */
+    public org.tron.api.GrpcAPI.TransactionExtention exchangeCreate(org.tron.protos.Contract.ExchangeCreateContract request) {
+      return blockingUnaryCall(
+          getChannel(), getExchangeCreateMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.api.GrpcAPI.TransactionExtention exchangeInject(org.tron.protos.Contract.ExchangeInjectContract request) {
+      return blockingUnaryCall(
+          getChannel(), getExchangeInjectMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.api.GrpcAPI.TransactionExtention exchangeWithdraw(org.tron.protos.Contract.ExchangeWithdrawContract request) {
+      return blockingUnaryCall(
+          getChannel(), getExchangeWithdrawMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.api.GrpcAPI.TransactionExtention exchangeTransaction(org.tron.protos.Contract.ExchangeTransactionContract request) {
+      return blockingUnaryCall(
+          getChannel(), getExchangeTransactionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public org.tron.api.GrpcAPI.NodeList listNodes(org.tron.api.GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getListNodesMethod(), getCallOptions(), request);
@@ -4838,6 +5190,20 @@ public final class WalletGrpc {
     public org.tron.protos.Protocol.Proposal getProposalById(org.tron.api.GrpcAPI.BytesMessage request) {
       return blockingUnaryCall(
           getChannel(), getGetProposalByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.api.GrpcAPI.ExchangeList listExchanges(org.tron.api.GrpcAPI.EmptyMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getListExchangesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.protos.Protocol.Exchange getExchangeById(org.tron.api.GrpcAPI.BytesMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getGetExchangeByIdMethod(), getCallOptions(), request);
     }
 
     /**
@@ -5364,6 +5730,38 @@ public final class WalletGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionExtention> exchangeCreate(
+        org.tron.protos.Contract.ExchangeCreateContract request) {
+      return futureUnaryCall(
+          getChannel().newCall(getExchangeCreateMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionExtention> exchangeInject(
+        org.tron.protos.Contract.ExchangeInjectContract request) {
+      return futureUnaryCall(
+          getChannel().newCall(getExchangeInjectMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionExtention> exchangeWithdraw(
+        org.tron.protos.Contract.ExchangeWithdrawContract request) {
+      return futureUnaryCall(
+          getChannel().newCall(getExchangeWithdrawMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionExtention> exchangeTransaction(
+        org.tron.protos.Contract.ExchangeTransactionContract request) {
+      return futureUnaryCall(
+          getChannel().newCall(getExchangeTransactionMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.NodeList> listNodes(
         org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
@@ -5564,6 +5962,22 @@ public final class WalletGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.ExchangeList> listExchanges(
+        org.tron.api.GrpcAPI.EmptyMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getListExchangesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.Exchange> getExchangeById(
+        org.tron.api.GrpcAPI.BytesMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetExchangeByIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.ChainParameters> getChainParameters(
         org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
@@ -5718,40 +6132,46 @@ public final class WalletGrpc {
   private static final int METHODID_BUY_STORAGE = 36;
   private static final int METHODID_BUY_STORAGE_BYTES = 37;
   private static final int METHODID_SELL_STORAGE = 38;
-  private static final int METHODID_LIST_NODES = 39;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 40;
-  private static final int METHODID_GET_ACCOUNT_NET = 41;
-  private static final int METHODID_GET_ACCOUNT_RESOURCE = 42;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 43;
-  private static final int METHODID_GET_NOW_BLOCK = 44;
-  private static final int METHODID_GET_NOW_BLOCK2 = 45;
-  private static final int METHODID_GET_BLOCK_BY_NUM = 46;
-  private static final int METHODID_GET_BLOCK_BY_NUM2 = 47;
-  private static final int METHODID_GET_TRANSACTION_COUNT_BY_BLOCK_NUM = 48;
-  private static final int METHODID_GET_BLOCK_BY_ID = 49;
-  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 50;
-  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT2 = 51;
-  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 52;
-  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM2 = 53;
-  private static final int METHODID_GET_TRANSACTION_BY_ID = 54;
-  private static final int METHODID_DEPLOY_CONTRACT = 55;
-  private static final int METHODID_GET_CONTRACT = 56;
-  private static final int METHODID_TRIGGER_CONTRACT = 57;
-  private static final int METHODID_LIST_WITNESSES = 58;
-  private static final int METHODID_LIST_PROPOSALS = 59;
-  private static final int METHODID_GET_PROPOSAL_BY_ID = 60;
-  private static final int METHODID_GET_CHAIN_PARAMETERS = 61;
-  private static final int METHODID_GET_ASSET_ISSUE_LIST = 62;
-  private static final int METHODID_GET_PAGINATED_ASSET_ISSUE_LIST = 63;
-  private static final int METHODID_TOTAL_TRANSACTION = 64;
-  private static final int METHODID_GET_NEXT_MAINTENANCE_TIME = 65;
-  private static final int METHODID_GET_TRANSACTION_SIGN = 66;
-  private static final int METHODID_GET_TRANSACTION_SIGN2 = 67;
-  private static final int METHODID_CREATE_ADDRESS = 68;
-  private static final int METHODID_EASY_TRANSFER = 69;
-  private static final int METHODID_EASY_TRANSFER_BY_PRIVATE = 70;
-  private static final int METHODID_GENERATE_ADDRESS = 71;
-  private static final int METHODID_GET_TRANSACTION_INFO_BY_ID = 72;
+  private static final int METHODID_EXCHANGE_CREATE = 39;
+  private static final int METHODID_EXCHANGE_INJECT = 40;
+  private static final int METHODID_EXCHANGE_WITHDRAW = 41;
+  private static final int METHODID_EXCHANGE_TRANSACTION = 42;
+  private static final int METHODID_LIST_NODES = 43;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 44;
+  private static final int METHODID_GET_ACCOUNT_NET = 45;
+  private static final int METHODID_GET_ACCOUNT_RESOURCE = 46;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 47;
+  private static final int METHODID_GET_NOW_BLOCK = 48;
+  private static final int METHODID_GET_NOW_BLOCK2 = 49;
+  private static final int METHODID_GET_BLOCK_BY_NUM = 50;
+  private static final int METHODID_GET_BLOCK_BY_NUM2 = 51;
+  private static final int METHODID_GET_TRANSACTION_COUNT_BY_BLOCK_NUM = 52;
+  private static final int METHODID_GET_BLOCK_BY_ID = 53;
+  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 54;
+  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT2 = 55;
+  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 56;
+  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM2 = 57;
+  private static final int METHODID_GET_TRANSACTION_BY_ID = 58;
+  private static final int METHODID_DEPLOY_CONTRACT = 59;
+  private static final int METHODID_GET_CONTRACT = 60;
+  private static final int METHODID_TRIGGER_CONTRACT = 61;
+  private static final int METHODID_LIST_WITNESSES = 62;
+  private static final int METHODID_LIST_PROPOSALS = 63;
+  private static final int METHODID_GET_PROPOSAL_BY_ID = 64;
+  private static final int METHODID_LIST_EXCHANGES = 65;
+  private static final int METHODID_GET_EXCHANGE_BY_ID = 66;
+  private static final int METHODID_GET_CHAIN_PARAMETERS = 67;
+  private static final int METHODID_GET_ASSET_ISSUE_LIST = 68;
+  private static final int METHODID_GET_PAGINATED_ASSET_ISSUE_LIST = 69;
+  private static final int METHODID_TOTAL_TRANSACTION = 70;
+  private static final int METHODID_GET_NEXT_MAINTENANCE_TIME = 71;
+  private static final int METHODID_GET_TRANSACTION_SIGN = 72;
+  private static final int METHODID_GET_TRANSACTION_SIGN2 = 73;
+  private static final int METHODID_CREATE_ADDRESS = 74;
+  private static final int METHODID_EASY_TRANSFER = 75;
+  private static final int METHODID_EASY_TRANSFER_BY_PRIVATE = 76;
+  private static final int METHODID_GENERATE_ADDRESS = 77;
+  private static final int METHODID_GET_TRANSACTION_INFO_BY_ID = 78;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -5926,6 +6346,22 @@ public final class WalletGrpc {
           serviceImpl.sellStorage((org.tron.protos.Contract.SellStorageContract) request,
               (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
           break;
+        case METHODID_EXCHANGE_CREATE:
+          serviceImpl.exchangeCreate((org.tron.protos.Contract.ExchangeCreateContract) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
+          break;
+        case METHODID_EXCHANGE_INJECT:
+          serviceImpl.exchangeInject((org.tron.protos.Contract.ExchangeInjectContract) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
+          break;
+        case METHODID_EXCHANGE_WITHDRAW:
+          serviceImpl.exchangeWithdraw((org.tron.protos.Contract.ExchangeWithdrawContract) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
+          break;
+        case METHODID_EXCHANGE_TRANSACTION:
+          serviceImpl.exchangeTransaction((org.tron.protos.Contract.ExchangeTransactionContract) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
+          break;
         case METHODID_LIST_NODES:
           serviceImpl.listNodes((org.tron.api.GrpcAPI.EmptyMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.NodeList>) responseObserver);
@@ -6013,6 +6449,14 @@ public final class WalletGrpc {
         case METHODID_GET_PROPOSAL_BY_ID:
           serviceImpl.getProposalById((org.tron.api.GrpcAPI.BytesMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Proposal>) responseObserver);
+          break;
+        case METHODID_LIST_EXCHANGES:
+          serviceImpl.listExchanges((org.tron.api.GrpcAPI.EmptyMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList>) responseObserver);
+          break;
+        case METHODID_GET_EXCHANGE_BY_ID:
+          serviceImpl.getExchangeById((org.tron.api.GrpcAPI.BytesMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.Exchange>) responseObserver);
           break;
         case METHODID_GET_CHAIN_PARAMETERS:
           serviceImpl.getChainParameters((org.tron.api.GrpcAPI.EmptyMessage) request,
@@ -6162,6 +6606,10 @@ public final class WalletGrpc {
               .addMethod(getBuyStorageMethod())
               .addMethod(getBuyStorageBytesMethod())
               .addMethod(getSellStorageMethod())
+              .addMethod(getExchangeCreateMethod())
+              .addMethod(getExchangeInjectMethod())
+              .addMethod(getExchangeWithdrawMethod())
+              .addMethod(getExchangeTransactionMethod())
               .addMethod(getListNodesMethod())
               .addMethod(getGetAssetIssueByAccountMethod())
               .addMethod(getGetAccountNetMethod())
@@ -6184,6 +6632,8 @@ public final class WalletGrpc {
               .addMethod(getListWitnessesMethod())
               .addMethod(getListProposalsMethod())
               .addMethod(getGetProposalByIdMethod())
+              .addMethod(getListExchangesMethod())
+              .addMethod(getGetExchangeByIdMethod())
               .addMethod(getGetChainParametersMethod())
               .addMethod(getGetAssetIssueListMethod())
               .addMethod(getGetPaginatedAssetIssueListMethod())

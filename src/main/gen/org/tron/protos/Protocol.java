@@ -2838,6 +2838,856 @@ public final class Protocol {
 
   }
 
+  public interface ExchangeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.Exchange)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 exchange_id = 1;</code>
+     */
+    long getExchangeId();
+
+    /**
+     * <code>bytes creator_address = 2;</code>
+     */
+    com.google.protobuf.ByteString getCreatorAddress();
+
+    /**
+     * <code>int64 create_time = 3;</code>
+     */
+    long getCreateTime();
+
+    /**
+     * <code>bytes first_token_id = 6;</code>
+     */
+    com.google.protobuf.ByteString getFirstTokenId();
+
+    /**
+     * <code>int64 first_token_balance = 7;</code>
+     */
+    long getFirstTokenBalance();
+
+    /**
+     * <code>bytes second_token_id = 8;</code>
+     */
+    com.google.protobuf.ByteString getSecondTokenId();
+
+    /**
+     * <code>int64 second_token_balance = 9;</code>
+     */
+    long getSecondTokenBalance();
+  }
+  /**
+   * <pre>
+   * Exchange
+   * </pre>
+   *
+   * Protobuf type {@code protocol.Exchange}
+   */
+  public  static final class Exchange extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.Exchange)
+      ExchangeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Exchange.newBuilder() to construct.
+    private Exchange(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Exchange() {
+      exchangeId_ = 0L;
+      creatorAddress_ = com.google.protobuf.ByteString.EMPTY;
+      createTime_ = 0L;
+      firstTokenId_ = com.google.protobuf.ByteString.EMPTY;
+      firstTokenBalance_ = 0L;
+      secondTokenId_ = com.google.protobuf.ByteString.EMPTY;
+      secondTokenBalance_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Exchange(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              exchangeId_ = input.readInt64();
+              break;
+            }
+            case 18: {
+
+              creatorAddress_ = input.readBytes();
+              break;
+            }
+            case 24: {
+
+              createTime_ = input.readInt64();
+              break;
+            }
+            case 50: {
+
+              firstTokenId_ = input.readBytes();
+              break;
+            }
+            case 56: {
+
+              firstTokenBalance_ = input.readInt64();
+              break;
+            }
+            case 66: {
+
+              secondTokenId_ = input.readBytes();
+              break;
+            }
+            case 72: {
+
+              secondTokenBalance_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.protos.Protocol.internal_static_protocol_Exchange_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.protos.Protocol.internal_static_protocol_Exchange_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.protos.Protocol.Exchange.class, org.tron.protos.Protocol.Exchange.Builder.class);
+    }
+
+    public static final int EXCHANGE_ID_FIELD_NUMBER = 1;
+    private long exchangeId_;
+    /**
+     * <code>int64 exchange_id = 1;</code>
+     */
+    public long getExchangeId() {
+      return exchangeId_;
+    }
+
+    public static final int CREATOR_ADDRESS_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString creatorAddress_;
+    /**
+     * <code>bytes creator_address = 2;</code>
+     */
+    public com.google.protobuf.ByteString getCreatorAddress() {
+      return creatorAddress_;
+    }
+
+    public static final int CREATE_TIME_FIELD_NUMBER = 3;
+    private long createTime_;
+    /**
+     * <code>int64 create_time = 3;</code>
+     */
+    public long getCreateTime() {
+      return createTime_;
+    }
+
+    public static final int FIRST_TOKEN_ID_FIELD_NUMBER = 6;
+    private com.google.protobuf.ByteString firstTokenId_;
+    /**
+     * <code>bytes first_token_id = 6;</code>
+     */
+    public com.google.protobuf.ByteString getFirstTokenId() {
+      return firstTokenId_;
+    }
+
+    public static final int FIRST_TOKEN_BALANCE_FIELD_NUMBER = 7;
+    private long firstTokenBalance_;
+    /**
+     * <code>int64 first_token_balance = 7;</code>
+     */
+    public long getFirstTokenBalance() {
+      return firstTokenBalance_;
+    }
+
+    public static final int SECOND_TOKEN_ID_FIELD_NUMBER = 8;
+    private com.google.protobuf.ByteString secondTokenId_;
+    /**
+     * <code>bytes second_token_id = 8;</code>
+     */
+    public com.google.protobuf.ByteString getSecondTokenId() {
+      return secondTokenId_;
+    }
+
+    public static final int SECOND_TOKEN_BALANCE_FIELD_NUMBER = 9;
+    private long secondTokenBalance_;
+    /**
+     * <code>int64 second_token_balance = 9;</code>
+     */
+    public long getSecondTokenBalance() {
+      return secondTokenBalance_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (exchangeId_ != 0L) {
+        output.writeInt64(1, exchangeId_);
+      }
+      if (!creatorAddress_.isEmpty()) {
+        output.writeBytes(2, creatorAddress_);
+      }
+      if (createTime_ != 0L) {
+        output.writeInt64(3, createTime_);
+      }
+      if (!firstTokenId_.isEmpty()) {
+        output.writeBytes(6, firstTokenId_);
+      }
+      if (firstTokenBalance_ != 0L) {
+        output.writeInt64(7, firstTokenBalance_);
+      }
+      if (!secondTokenId_.isEmpty()) {
+        output.writeBytes(8, secondTokenId_);
+      }
+      if (secondTokenBalance_ != 0L) {
+        output.writeInt64(9, secondTokenBalance_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (exchangeId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, exchangeId_);
+      }
+      if (!creatorAddress_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, creatorAddress_);
+      }
+      if (createTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, createTime_);
+      }
+      if (!firstTokenId_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, firstTokenId_);
+      }
+      if (firstTokenBalance_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, firstTokenBalance_);
+      }
+      if (!secondTokenId_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(8, secondTokenId_);
+      }
+      if (secondTokenBalance_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, secondTokenBalance_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.protos.Protocol.Exchange)) {
+        return super.equals(obj);
+      }
+      org.tron.protos.Protocol.Exchange other = (org.tron.protos.Protocol.Exchange) obj;
+
+      boolean result = true;
+      result = result && (getExchangeId()
+          == other.getExchangeId());
+      result = result && getCreatorAddress()
+          .equals(other.getCreatorAddress());
+      result = result && (getCreateTime()
+          == other.getCreateTime());
+      result = result && getFirstTokenId()
+          .equals(other.getFirstTokenId());
+      result = result && (getFirstTokenBalance()
+          == other.getFirstTokenBalance());
+      result = result && getSecondTokenId()
+          .equals(other.getSecondTokenId());
+      result = result && (getSecondTokenBalance()
+          == other.getSecondTokenBalance());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EXCHANGE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExchangeId());
+      hash = (37 * hash) + CREATOR_ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getCreatorAddress().hashCode();
+      hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCreateTime());
+      hash = (37 * hash) + FIRST_TOKEN_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getFirstTokenId().hashCode();
+      hash = (37 * hash) + FIRST_TOKEN_BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFirstTokenBalance());
+      hash = (37 * hash) + SECOND_TOKEN_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getSecondTokenId().hashCode();
+      hash = (37 * hash) + SECOND_TOKEN_BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSecondTokenBalance());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.protos.Protocol.Exchange parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Exchange parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Exchange parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.Exchange parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.protos.Protocol.Exchange prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Exchange
+     * </pre>
+     *
+     * Protobuf type {@code protocol.Exchange}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.Exchange)
+        org.tron.protos.Protocol.ExchangeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.protos.Protocol.internal_static_protocol_Exchange_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.protos.Protocol.internal_static_protocol_Exchange_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.protos.Protocol.Exchange.class, org.tron.protos.Protocol.Exchange.Builder.class);
+      }
+
+      // Construct using org.tron.protos.Protocol.Exchange.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        exchangeId_ = 0L;
+
+        creatorAddress_ = com.google.protobuf.ByteString.EMPTY;
+
+        createTime_ = 0L;
+
+        firstTokenId_ = com.google.protobuf.ByteString.EMPTY;
+
+        firstTokenBalance_ = 0L;
+
+        secondTokenId_ = com.google.protobuf.ByteString.EMPTY;
+
+        secondTokenBalance_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.protos.Protocol.internal_static_protocol_Exchange_descriptor;
+      }
+
+      public org.tron.protos.Protocol.Exchange getDefaultInstanceForType() {
+        return org.tron.protos.Protocol.Exchange.getDefaultInstance();
+      }
+
+      public org.tron.protos.Protocol.Exchange build() {
+        org.tron.protos.Protocol.Exchange result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.protos.Protocol.Exchange buildPartial() {
+        org.tron.protos.Protocol.Exchange result = new org.tron.protos.Protocol.Exchange(this);
+        result.exchangeId_ = exchangeId_;
+        result.creatorAddress_ = creatorAddress_;
+        result.createTime_ = createTime_;
+        result.firstTokenId_ = firstTokenId_;
+        result.firstTokenBalance_ = firstTokenBalance_;
+        result.secondTokenId_ = secondTokenId_;
+        result.secondTokenBalance_ = secondTokenBalance_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.protos.Protocol.Exchange) {
+          return mergeFrom((org.tron.protos.Protocol.Exchange)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.protos.Protocol.Exchange other) {
+        if (other == org.tron.protos.Protocol.Exchange.getDefaultInstance()) return this;
+        if (other.getExchangeId() != 0L) {
+          setExchangeId(other.getExchangeId());
+        }
+        if (other.getCreatorAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setCreatorAddress(other.getCreatorAddress());
+        }
+        if (other.getCreateTime() != 0L) {
+          setCreateTime(other.getCreateTime());
+        }
+        if (other.getFirstTokenId() != com.google.protobuf.ByteString.EMPTY) {
+          setFirstTokenId(other.getFirstTokenId());
+        }
+        if (other.getFirstTokenBalance() != 0L) {
+          setFirstTokenBalance(other.getFirstTokenBalance());
+        }
+        if (other.getSecondTokenId() != com.google.protobuf.ByteString.EMPTY) {
+          setSecondTokenId(other.getSecondTokenId());
+        }
+        if (other.getSecondTokenBalance() != 0L) {
+          setSecondTokenBalance(other.getSecondTokenBalance());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.protos.Protocol.Exchange parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.protos.Protocol.Exchange) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long exchangeId_ ;
+      /**
+       * <code>int64 exchange_id = 1;</code>
+       */
+      public long getExchangeId() {
+        return exchangeId_;
+      }
+      /**
+       * <code>int64 exchange_id = 1;</code>
+       */
+      public Builder setExchangeId(long value) {
+        
+        exchangeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 exchange_id = 1;</code>
+       */
+      public Builder clearExchangeId() {
+        
+        exchangeId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString creatorAddress_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes creator_address = 2;</code>
+       */
+      public com.google.protobuf.ByteString getCreatorAddress() {
+        return creatorAddress_;
+      }
+      /**
+       * <code>bytes creator_address = 2;</code>
+       */
+      public Builder setCreatorAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        creatorAddress_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes creator_address = 2;</code>
+       */
+      public Builder clearCreatorAddress() {
+        
+        creatorAddress_ = getDefaultInstance().getCreatorAddress();
+        onChanged();
+        return this;
+      }
+
+      private long createTime_ ;
+      /**
+       * <code>int64 create_time = 3;</code>
+       */
+      public long getCreateTime() {
+        return createTime_;
+      }
+      /**
+       * <code>int64 create_time = 3;</code>
+       */
+      public Builder setCreateTime(long value) {
+        
+        createTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 create_time = 3;</code>
+       */
+      public Builder clearCreateTime() {
+        
+        createTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString firstTokenId_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes first_token_id = 6;</code>
+       */
+      public com.google.protobuf.ByteString getFirstTokenId() {
+        return firstTokenId_;
+      }
+      /**
+       * <code>bytes first_token_id = 6;</code>
+       */
+      public Builder setFirstTokenId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        firstTokenId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes first_token_id = 6;</code>
+       */
+      public Builder clearFirstTokenId() {
+        
+        firstTokenId_ = getDefaultInstance().getFirstTokenId();
+        onChanged();
+        return this;
+      }
+
+      private long firstTokenBalance_ ;
+      /**
+       * <code>int64 first_token_balance = 7;</code>
+       */
+      public long getFirstTokenBalance() {
+        return firstTokenBalance_;
+      }
+      /**
+       * <code>int64 first_token_balance = 7;</code>
+       */
+      public Builder setFirstTokenBalance(long value) {
+        
+        firstTokenBalance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 first_token_balance = 7;</code>
+       */
+      public Builder clearFirstTokenBalance() {
+        
+        firstTokenBalance_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString secondTokenId_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes second_token_id = 8;</code>
+       */
+      public com.google.protobuf.ByteString getSecondTokenId() {
+        return secondTokenId_;
+      }
+      /**
+       * <code>bytes second_token_id = 8;</code>
+       */
+      public Builder setSecondTokenId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        secondTokenId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes second_token_id = 8;</code>
+       */
+      public Builder clearSecondTokenId() {
+        
+        secondTokenId_ = getDefaultInstance().getSecondTokenId();
+        onChanged();
+        return this;
+      }
+
+      private long secondTokenBalance_ ;
+      /**
+       * <code>int64 second_token_balance = 9;</code>
+       */
+      public long getSecondTokenBalance() {
+        return secondTokenBalance_;
+      }
+      /**
+       * <code>int64 second_token_balance = 9;</code>
+       */
+      public Builder setSecondTokenBalance(long value) {
+        
+        secondTokenBalance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 second_token_balance = 9;</code>
+       */
+      public Builder clearSecondTokenBalance() {
+        
+        secondTokenBalance_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.Exchange)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.Exchange)
+    private static final org.tron.protos.Protocol.Exchange DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.protos.Protocol.Exchange();
+    }
+
+    public static org.tron.protos.Protocol.Exchange getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Exchange>
+        PARSER = new com.google.protobuf.AbstractParser<Exchange>() {
+      public Exchange parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Exchange(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Exchange> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Exchange> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.protos.Protocol.Exchange getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ChainParametersOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protocol.ChainParameters)
       com.google.protobuf.MessageOrBuilder {
@@ -5444,42 +6294,42 @@ public final class Protocol {
 
       /**
        * <pre>
-       * cpu resource, get from frozen
+       * energy resource, get from frozen
        * </pre>
        *
-       * <code>int64 cpu_usage = 1;</code>
+       * <code>int64 energy_usage = 1;</code>
        */
-      long getCpuUsage();
+      long getEnergyUsage();
 
       /**
        * <pre>
-       * the frozen balance for cpu
+       * the frozen balance for energy
        * </pre>
        *
-       * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+       * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
        */
-      boolean hasFrozenBalanceForCpu();
+      boolean hasFrozenBalanceForEnergy();
       /**
        * <pre>
-       * the frozen balance for cpu
+       * the frozen balance for energy
        * </pre>
        *
-       * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+       * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
        */
-      org.tron.protos.Protocol.Account.Frozen getFrozenBalanceForCpu();
+      org.tron.protos.Protocol.Account.Frozen getFrozenBalanceForEnergy();
       /**
        * <pre>
-       * the frozen balance for cpu
+       * the frozen balance for energy
        * </pre>
        *
-       * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+       * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
        */
-      org.tron.protos.Protocol.Account.FrozenOrBuilder getFrozenBalanceForCpuOrBuilder();
+      org.tron.protos.Protocol.Account.FrozenOrBuilder getFrozenBalanceForEnergyOrBuilder();
 
       /**
-       * <code>int64 latest_consume_time_for_cpu = 3;</code>
+       * <code>int64 latest_consume_time_for_energy = 3;</code>
        */
-      long getLatestConsumeTimeForCpu();
+      long getLatestConsumeTimeForEnergy();
 
       /**
        * <pre>
@@ -5513,8 +6363,8 @@ public final class Protocol {
         super(builder);
       }
       private AccountResource() {
-        cpuUsage_ = 0L;
-        latestConsumeTimeForCpu_ = 0L;
+        energyUsage_ = 0L;
+        latestConsumeTimeForEnergy_ = 0L;
         storageLimit_ = 0L;
         storageUsage_ = 0L;
         latestExchangeStorageTime_ = 0L;
@@ -5553,25 +6403,25 @@ public final class Protocol {
               }
               case 8: {
 
-                cpuUsage_ = input.readInt64();
+                energyUsage_ = input.readInt64();
                 break;
               }
               case 18: {
                 org.tron.protos.Protocol.Account.Frozen.Builder subBuilder = null;
-                if (frozenBalanceForCpu_ != null) {
-                  subBuilder = frozenBalanceForCpu_.toBuilder();
+                if (frozenBalanceForEnergy_ != null) {
+                  subBuilder = frozenBalanceForEnergy_.toBuilder();
                 }
-                frozenBalanceForCpu_ = input.readMessage(org.tron.protos.Protocol.Account.Frozen.parser(), extensionRegistry);
+                frozenBalanceForEnergy_ = input.readMessage(org.tron.protos.Protocol.Account.Frozen.parser(), extensionRegistry);
                 if (subBuilder != null) {
-                  subBuilder.mergeFrom(frozenBalanceForCpu_);
-                  frozenBalanceForCpu_ = subBuilder.buildPartial();
+                  subBuilder.mergeFrom(frozenBalanceForEnergy_);
+                  frozenBalanceForEnergy_ = subBuilder.buildPartial();
                 }
 
                 break;
               }
               case 24: {
 
-                latestConsumeTimeForCpu_ = input.readInt64();
+                latestConsumeTimeForEnergy_ = input.readInt64();
                 break;
               }
               case 48: {
@@ -5613,59 +6463,59 @@ public final class Protocol {
                 org.tron.protos.Protocol.Account.AccountResource.class, org.tron.protos.Protocol.Account.AccountResource.Builder.class);
       }
 
-      public static final int CPU_USAGE_FIELD_NUMBER = 1;
-      private long cpuUsage_;
+      public static final int ENERGY_USAGE_FIELD_NUMBER = 1;
+      private long energyUsage_;
       /**
        * <pre>
-       * cpu resource, get from frozen
+       * energy resource, get from frozen
        * </pre>
        *
-       * <code>int64 cpu_usage = 1;</code>
+       * <code>int64 energy_usage = 1;</code>
        */
-      public long getCpuUsage() {
-        return cpuUsage_;
+      public long getEnergyUsage() {
+        return energyUsage_;
       }
 
-      public static final int FROZEN_BALANCE_FOR_CPU_FIELD_NUMBER = 2;
-      private org.tron.protos.Protocol.Account.Frozen frozenBalanceForCpu_;
+      public static final int FROZEN_BALANCE_FOR_ENERGY_FIELD_NUMBER = 2;
+      private org.tron.protos.Protocol.Account.Frozen frozenBalanceForEnergy_;
       /**
        * <pre>
-       * the frozen balance for cpu
+       * the frozen balance for energy
        * </pre>
        *
-       * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+       * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
        */
-      public boolean hasFrozenBalanceForCpu() {
-        return frozenBalanceForCpu_ != null;
+      public boolean hasFrozenBalanceForEnergy() {
+        return frozenBalanceForEnergy_ != null;
       }
       /**
        * <pre>
-       * the frozen balance for cpu
+       * the frozen balance for energy
        * </pre>
        *
-       * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+       * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
        */
-      public org.tron.protos.Protocol.Account.Frozen getFrozenBalanceForCpu() {
-        return frozenBalanceForCpu_ == null ? org.tron.protos.Protocol.Account.Frozen.getDefaultInstance() : frozenBalanceForCpu_;
+      public org.tron.protos.Protocol.Account.Frozen getFrozenBalanceForEnergy() {
+        return frozenBalanceForEnergy_ == null ? org.tron.protos.Protocol.Account.Frozen.getDefaultInstance() : frozenBalanceForEnergy_;
       }
       /**
        * <pre>
-       * the frozen balance for cpu
+       * the frozen balance for energy
        * </pre>
        *
-       * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+       * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
        */
-      public org.tron.protos.Protocol.Account.FrozenOrBuilder getFrozenBalanceForCpuOrBuilder() {
-        return getFrozenBalanceForCpu();
+      public org.tron.protos.Protocol.Account.FrozenOrBuilder getFrozenBalanceForEnergyOrBuilder() {
+        return getFrozenBalanceForEnergy();
       }
 
-      public static final int LATEST_CONSUME_TIME_FOR_CPU_FIELD_NUMBER = 3;
-      private long latestConsumeTimeForCpu_;
+      public static final int LATEST_CONSUME_TIME_FOR_ENERGY_FIELD_NUMBER = 3;
+      private long latestConsumeTimeForEnergy_;
       /**
-       * <code>int64 latest_consume_time_for_cpu = 3;</code>
+       * <code>int64 latest_consume_time_for_energy = 3;</code>
        */
-      public long getLatestConsumeTimeForCpu() {
-        return latestConsumeTimeForCpu_;
+      public long getLatestConsumeTimeForEnergy() {
+        return latestConsumeTimeForEnergy_;
       }
 
       public static final int STORAGE_LIMIT_FIELD_NUMBER = 6;
@@ -5711,14 +6561,14 @@ public final class Protocol {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (cpuUsage_ != 0L) {
-          output.writeInt64(1, cpuUsage_);
+        if (energyUsage_ != 0L) {
+          output.writeInt64(1, energyUsage_);
         }
-        if (frozenBalanceForCpu_ != null) {
-          output.writeMessage(2, getFrozenBalanceForCpu());
+        if (frozenBalanceForEnergy_ != null) {
+          output.writeMessage(2, getFrozenBalanceForEnergy());
         }
-        if (latestConsumeTimeForCpu_ != 0L) {
-          output.writeInt64(3, latestConsumeTimeForCpu_);
+        if (latestConsumeTimeForEnergy_ != 0L) {
+          output.writeInt64(3, latestConsumeTimeForEnergy_);
         }
         if (storageLimit_ != 0L) {
           output.writeInt64(6, storageLimit_);
@@ -5737,17 +6587,17 @@ public final class Protocol {
         if (size != -1) return size;
 
         size = 0;
-        if (cpuUsage_ != 0L) {
+        if (energyUsage_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(1, cpuUsage_);
+            .computeInt64Size(1, energyUsage_);
         }
-        if (frozenBalanceForCpu_ != null) {
+        if (frozenBalanceForEnergy_ != null) {
           size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, getFrozenBalanceForCpu());
+            .computeMessageSize(2, getFrozenBalanceForEnergy());
         }
-        if (latestConsumeTimeForCpu_ != 0L) {
+        if (latestConsumeTimeForEnergy_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(3, latestConsumeTimeForCpu_);
+            .computeInt64Size(3, latestConsumeTimeForEnergy_);
         }
         if (storageLimit_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
@@ -5777,15 +6627,15 @@ public final class Protocol {
         org.tron.protos.Protocol.Account.AccountResource other = (org.tron.protos.Protocol.Account.AccountResource) obj;
 
         boolean result = true;
-        result = result && (getCpuUsage()
-            == other.getCpuUsage());
-        result = result && (hasFrozenBalanceForCpu() == other.hasFrozenBalanceForCpu());
-        if (hasFrozenBalanceForCpu()) {
-          result = result && getFrozenBalanceForCpu()
-              .equals(other.getFrozenBalanceForCpu());
+        result = result && (getEnergyUsage()
+            == other.getEnergyUsage());
+        result = result && (hasFrozenBalanceForEnergy() == other.hasFrozenBalanceForEnergy());
+        if (hasFrozenBalanceForEnergy()) {
+          result = result && getFrozenBalanceForEnergy()
+              .equals(other.getFrozenBalanceForEnergy());
         }
-        result = result && (getLatestConsumeTimeForCpu()
-            == other.getLatestConsumeTimeForCpu());
+        result = result && (getLatestConsumeTimeForEnergy()
+            == other.getLatestConsumeTimeForEnergy());
         result = result && (getStorageLimit()
             == other.getStorageLimit());
         result = result && (getStorageUsage()
@@ -5803,16 +6653,16 @@ public final class Protocol {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + CPU_USAGE_FIELD_NUMBER;
+        hash = (37 * hash) + ENERGY_USAGE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getCpuUsage());
-        if (hasFrozenBalanceForCpu()) {
-          hash = (37 * hash) + FROZEN_BALANCE_FOR_CPU_FIELD_NUMBER;
-          hash = (53 * hash) + getFrozenBalanceForCpu().hashCode();
+            getEnergyUsage());
+        if (hasFrozenBalanceForEnergy()) {
+          hash = (37 * hash) + FROZEN_BALANCE_FOR_ENERGY_FIELD_NUMBER;
+          hash = (53 * hash) + getFrozenBalanceForEnergy().hashCode();
         }
-        hash = (37 * hash) + LATEST_CONSUME_TIME_FOR_CPU_FIELD_NUMBER;
+        hash = (37 * hash) + LATEST_CONSUME_TIME_FOR_ENERGY_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getLatestConsumeTimeForCpu());
+            getLatestConsumeTimeForEnergy());
         hash = (37 * hash) + STORAGE_LIMIT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getStorageLimit());
@@ -5951,15 +6801,15 @@ public final class Protocol {
         }
         public Builder clear() {
           super.clear();
-          cpuUsage_ = 0L;
+          energyUsage_ = 0L;
 
-          if (frozenBalanceForCpuBuilder_ == null) {
-            frozenBalanceForCpu_ = null;
+          if (frozenBalanceForEnergyBuilder_ == null) {
+            frozenBalanceForEnergy_ = null;
           } else {
-            frozenBalanceForCpu_ = null;
-            frozenBalanceForCpuBuilder_ = null;
+            frozenBalanceForEnergy_ = null;
+            frozenBalanceForEnergyBuilder_ = null;
           }
-          latestConsumeTimeForCpu_ = 0L;
+          latestConsumeTimeForEnergy_ = 0L;
 
           storageLimit_ = 0L;
 
@@ -5989,13 +6839,13 @@ public final class Protocol {
 
         public org.tron.protos.Protocol.Account.AccountResource buildPartial() {
           org.tron.protos.Protocol.Account.AccountResource result = new org.tron.protos.Protocol.Account.AccountResource(this);
-          result.cpuUsage_ = cpuUsage_;
-          if (frozenBalanceForCpuBuilder_ == null) {
-            result.frozenBalanceForCpu_ = frozenBalanceForCpu_;
+          result.energyUsage_ = energyUsage_;
+          if (frozenBalanceForEnergyBuilder_ == null) {
+            result.frozenBalanceForEnergy_ = frozenBalanceForEnergy_;
           } else {
-            result.frozenBalanceForCpu_ = frozenBalanceForCpuBuilder_.build();
+            result.frozenBalanceForEnergy_ = frozenBalanceForEnergyBuilder_.build();
           }
-          result.latestConsumeTimeForCpu_ = latestConsumeTimeForCpu_;
+          result.latestConsumeTimeForEnergy_ = latestConsumeTimeForEnergy_;
           result.storageLimit_ = storageLimit_;
           result.storageUsage_ = storageUsage_;
           result.latestExchangeStorageTime_ = latestExchangeStorageTime_;
@@ -6040,14 +6890,14 @@ public final class Protocol {
 
         public Builder mergeFrom(org.tron.protos.Protocol.Account.AccountResource other) {
           if (other == org.tron.protos.Protocol.Account.AccountResource.getDefaultInstance()) return this;
-          if (other.getCpuUsage() != 0L) {
-            setCpuUsage(other.getCpuUsage());
+          if (other.getEnergyUsage() != 0L) {
+            setEnergyUsage(other.getEnergyUsage());
           }
-          if (other.hasFrozenBalanceForCpu()) {
-            mergeFrozenBalanceForCpu(other.getFrozenBalanceForCpu());
+          if (other.hasFrozenBalanceForEnergy()) {
+            mergeFrozenBalanceForEnergy(other.getFrozenBalanceForEnergy());
           }
-          if (other.getLatestConsumeTimeForCpu() != 0L) {
-            setLatestConsumeTimeForCpu(other.getLatestConsumeTimeForCpu());
+          if (other.getLatestConsumeTimeForEnergy() != 0L) {
+            setLatestConsumeTimeForEnergy(other.getLatestConsumeTimeForEnergy());
           }
           if (other.getStorageLimit() != 0L) {
             setStorageLimit(other.getStorageLimit());
@@ -6085,219 +6935,219 @@ public final class Protocol {
           return this;
         }
 
-        private long cpuUsage_ ;
+        private long energyUsage_ ;
         /**
          * <pre>
-         * cpu resource, get from frozen
+         * energy resource, get from frozen
          * </pre>
          *
-         * <code>int64 cpu_usage = 1;</code>
+         * <code>int64 energy_usage = 1;</code>
          */
-        public long getCpuUsage() {
-          return cpuUsage_;
+        public long getEnergyUsage() {
+          return energyUsage_;
         }
         /**
          * <pre>
-         * cpu resource, get from frozen
+         * energy resource, get from frozen
          * </pre>
          *
-         * <code>int64 cpu_usage = 1;</code>
+         * <code>int64 energy_usage = 1;</code>
          */
-        public Builder setCpuUsage(long value) {
+        public Builder setEnergyUsage(long value) {
           
-          cpuUsage_ = value;
+          energyUsage_ = value;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * cpu resource, get from frozen
+         * energy resource, get from frozen
          * </pre>
          *
-         * <code>int64 cpu_usage = 1;</code>
+         * <code>int64 energy_usage = 1;</code>
          */
-        public Builder clearCpuUsage() {
+        public Builder clearEnergyUsage() {
           
-          cpuUsage_ = 0L;
+          energyUsage_ = 0L;
           onChanged();
           return this;
         }
 
-        private org.tron.protos.Protocol.Account.Frozen frozenBalanceForCpu_ = null;
+        private org.tron.protos.Protocol.Account.Frozen frozenBalanceForEnergy_ = null;
         private com.google.protobuf.SingleFieldBuilderV3<
-            org.tron.protos.Protocol.Account.Frozen, org.tron.protos.Protocol.Account.Frozen.Builder, org.tron.protos.Protocol.Account.FrozenOrBuilder> frozenBalanceForCpuBuilder_;
+            org.tron.protos.Protocol.Account.Frozen, org.tron.protos.Protocol.Account.Frozen.Builder, org.tron.protos.Protocol.Account.FrozenOrBuilder> frozenBalanceForEnergyBuilder_;
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
-        public boolean hasFrozenBalanceForCpu() {
-          return frozenBalanceForCpuBuilder_ != null || frozenBalanceForCpu_ != null;
+        public boolean hasFrozenBalanceForEnergy() {
+          return frozenBalanceForEnergyBuilder_ != null || frozenBalanceForEnergy_ != null;
         }
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
-        public org.tron.protos.Protocol.Account.Frozen getFrozenBalanceForCpu() {
-          if (frozenBalanceForCpuBuilder_ == null) {
-            return frozenBalanceForCpu_ == null ? org.tron.protos.Protocol.Account.Frozen.getDefaultInstance() : frozenBalanceForCpu_;
+        public org.tron.protos.Protocol.Account.Frozen getFrozenBalanceForEnergy() {
+          if (frozenBalanceForEnergyBuilder_ == null) {
+            return frozenBalanceForEnergy_ == null ? org.tron.protos.Protocol.Account.Frozen.getDefaultInstance() : frozenBalanceForEnergy_;
           } else {
-            return frozenBalanceForCpuBuilder_.getMessage();
+            return frozenBalanceForEnergyBuilder_.getMessage();
           }
         }
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
-        public Builder setFrozenBalanceForCpu(org.tron.protos.Protocol.Account.Frozen value) {
-          if (frozenBalanceForCpuBuilder_ == null) {
+        public Builder setFrozenBalanceForEnergy(org.tron.protos.Protocol.Account.Frozen value) {
+          if (frozenBalanceForEnergyBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
             }
-            frozenBalanceForCpu_ = value;
+            frozenBalanceForEnergy_ = value;
             onChanged();
           } else {
-            frozenBalanceForCpuBuilder_.setMessage(value);
+            frozenBalanceForEnergyBuilder_.setMessage(value);
           }
 
           return this;
         }
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
-        public Builder setFrozenBalanceForCpu(
+        public Builder setFrozenBalanceForEnergy(
             org.tron.protos.Protocol.Account.Frozen.Builder builderForValue) {
-          if (frozenBalanceForCpuBuilder_ == null) {
-            frozenBalanceForCpu_ = builderForValue.build();
+          if (frozenBalanceForEnergyBuilder_ == null) {
+            frozenBalanceForEnergy_ = builderForValue.build();
             onChanged();
           } else {
-            frozenBalanceForCpuBuilder_.setMessage(builderForValue.build());
+            frozenBalanceForEnergyBuilder_.setMessage(builderForValue.build());
           }
 
           return this;
         }
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
-        public Builder mergeFrozenBalanceForCpu(org.tron.protos.Protocol.Account.Frozen value) {
-          if (frozenBalanceForCpuBuilder_ == null) {
-            if (frozenBalanceForCpu_ != null) {
-              frozenBalanceForCpu_ =
-                org.tron.protos.Protocol.Account.Frozen.newBuilder(frozenBalanceForCpu_).mergeFrom(value).buildPartial();
+        public Builder mergeFrozenBalanceForEnergy(org.tron.protos.Protocol.Account.Frozen value) {
+          if (frozenBalanceForEnergyBuilder_ == null) {
+            if (frozenBalanceForEnergy_ != null) {
+              frozenBalanceForEnergy_ =
+                org.tron.protos.Protocol.Account.Frozen.newBuilder(frozenBalanceForEnergy_).mergeFrom(value).buildPartial();
             } else {
-              frozenBalanceForCpu_ = value;
+              frozenBalanceForEnergy_ = value;
             }
             onChanged();
           } else {
-            frozenBalanceForCpuBuilder_.mergeFrom(value);
+            frozenBalanceForEnergyBuilder_.mergeFrom(value);
           }
 
           return this;
         }
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
-        public Builder clearFrozenBalanceForCpu() {
-          if (frozenBalanceForCpuBuilder_ == null) {
-            frozenBalanceForCpu_ = null;
+        public Builder clearFrozenBalanceForEnergy() {
+          if (frozenBalanceForEnergyBuilder_ == null) {
+            frozenBalanceForEnergy_ = null;
             onChanged();
           } else {
-            frozenBalanceForCpu_ = null;
-            frozenBalanceForCpuBuilder_ = null;
+            frozenBalanceForEnergy_ = null;
+            frozenBalanceForEnergyBuilder_ = null;
           }
 
           return this;
         }
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
-        public org.tron.protos.Protocol.Account.Frozen.Builder getFrozenBalanceForCpuBuilder() {
+        public org.tron.protos.Protocol.Account.Frozen.Builder getFrozenBalanceForEnergyBuilder() {
           
           onChanged();
-          return getFrozenBalanceForCpuFieldBuilder().getBuilder();
+          return getFrozenBalanceForEnergyFieldBuilder().getBuilder();
         }
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
-        public org.tron.protos.Protocol.Account.FrozenOrBuilder getFrozenBalanceForCpuOrBuilder() {
-          if (frozenBalanceForCpuBuilder_ != null) {
-            return frozenBalanceForCpuBuilder_.getMessageOrBuilder();
+        public org.tron.protos.Protocol.Account.FrozenOrBuilder getFrozenBalanceForEnergyOrBuilder() {
+          if (frozenBalanceForEnergyBuilder_ != null) {
+            return frozenBalanceForEnergyBuilder_.getMessageOrBuilder();
           } else {
-            return frozenBalanceForCpu_ == null ?
-                org.tron.protos.Protocol.Account.Frozen.getDefaultInstance() : frozenBalanceForCpu_;
+            return frozenBalanceForEnergy_ == null ?
+                org.tron.protos.Protocol.Account.Frozen.getDefaultInstance() : frozenBalanceForEnergy_;
           }
         }
         /**
          * <pre>
-         * the frozen balance for cpu
+         * the frozen balance for energy
          * </pre>
          *
-         * <code>.protocol.Account.Frozen frozen_balance_for_cpu = 2;</code>
+         * <code>.protocol.Account.Frozen frozen_balance_for_energy = 2;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
             org.tron.protos.Protocol.Account.Frozen, org.tron.protos.Protocol.Account.Frozen.Builder, org.tron.protos.Protocol.Account.FrozenOrBuilder> 
-            getFrozenBalanceForCpuFieldBuilder() {
-          if (frozenBalanceForCpuBuilder_ == null) {
-            frozenBalanceForCpuBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            getFrozenBalanceForEnergyFieldBuilder() {
+          if (frozenBalanceForEnergyBuilder_ == null) {
+            frozenBalanceForEnergyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
                 org.tron.protos.Protocol.Account.Frozen, org.tron.protos.Protocol.Account.Frozen.Builder, org.tron.protos.Protocol.Account.FrozenOrBuilder>(
-                    getFrozenBalanceForCpu(),
+                    getFrozenBalanceForEnergy(),
                     getParentForChildren(),
                     isClean());
-            frozenBalanceForCpu_ = null;
+            frozenBalanceForEnergy_ = null;
           }
-          return frozenBalanceForCpuBuilder_;
+          return frozenBalanceForEnergyBuilder_;
         }
 
-        private long latestConsumeTimeForCpu_ ;
+        private long latestConsumeTimeForEnergy_ ;
         /**
-         * <code>int64 latest_consume_time_for_cpu = 3;</code>
+         * <code>int64 latest_consume_time_for_energy = 3;</code>
          */
-        public long getLatestConsumeTimeForCpu() {
-          return latestConsumeTimeForCpu_;
+        public long getLatestConsumeTimeForEnergy() {
+          return latestConsumeTimeForEnergy_;
         }
         /**
-         * <code>int64 latest_consume_time_for_cpu = 3;</code>
+         * <code>int64 latest_consume_time_for_energy = 3;</code>
          */
-        public Builder setLatestConsumeTimeForCpu(long value) {
+        public Builder setLatestConsumeTimeForEnergy(long value) {
           
-          latestConsumeTimeForCpu_ = value;
+          latestConsumeTimeForEnergy_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int64 latest_consume_time_for_cpu = 3;</code>
+         * <code>int64 latest_consume_time_for_energy = 3;</code>
          */
-        public Builder clearLatestConsumeTimeForCpu() {
+        public Builder clearLatestConsumeTimeForEnergy() {
           
-          latestConsumeTimeForCpu_ = 0L;
+          latestConsumeTimeForEnergy_ = 0L;
           onChanged();
           return this;
         }
@@ -16074,34 +16924,34 @@ public final class Protocol {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 cpu_usage = 1;</code>
+     * <code>int64 energy_usage = 1;</code>
      */
-    long getCpuUsage();
+    long getEnergyUsage();
 
     /**
-     * <code>int64 cpu_fee = 2;</code>
+     * <code>int64 energy_fee = 2;</code>
      */
-    long getCpuFee();
+    long getEnergyFee();
 
     /**
-     * <code>int64 net_usage = 3;</code>
+     * <code>int64 origin_energy_usage = 3;</code>
+     */
+    long getOriginEnergyUsage();
+
+    /**
+     * <code>int64 energy_usage_total = 4;</code>
+     */
+    long getEnergyUsageTotal();
+
+    /**
+     * <code>int64 net_usage = 5;</code>
      */
     long getNetUsage();
 
     /**
-     * <code>int64 net_fee = 4;</code>
+     * <code>int64 net_fee = 6;</code>
      */
     long getNetFee();
-
-    /**
-     * <code>int64 storage_delta = 5;</code>
-     */
-    long getStorageDelta();
-
-    /**
-     * <code>int64 storage_fee = 6;</code>
-     */
-    long getStorageFee();
   }
   /**
    * Protobuf type {@code protocol.ResourceReceipt}
@@ -16116,12 +16966,12 @@ public final class Protocol {
       super(builder);
     }
     private ResourceReceipt() {
-      cpuUsage_ = 0L;
-      cpuFee_ = 0L;
+      energyUsage_ = 0L;
+      energyFee_ = 0L;
+      originEnergyUsage_ = 0L;
+      energyUsageTotal_ = 0L;
       netUsage_ = 0L;
       netFee_ = 0L;
-      storageDelta_ = 0L;
-      storageFee_ = 0L;
     }
 
     @java.lang.Override
@@ -16157,32 +17007,32 @@ public final class Protocol {
             }
             case 8: {
 
-              cpuUsage_ = input.readInt64();
+              energyUsage_ = input.readInt64();
               break;
             }
             case 16: {
 
-              cpuFee_ = input.readInt64();
+              energyFee_ = input.readInt64();
               break;
             }
             case 24: {
 
-              netUsage_ = input.readInt64();
+              originEnergyUsage_ = input.readInt64();
               break;
             }
             case 32: {
 
-              netFee_ = input.readInt64();
+              energyUsageTotal_ = input.readInt64();
               break;
             }
             case 40: {
 
-              storageDelta_ = input.readInt64();
+              netUsage_ = input.readInt64();
               break;
             }
             case 48: {
 
-              storageFee_ = input.readInt64();
+              netFee_ = input.readInt64();
               break;
             }
           }
@@ -16307,58 +17157,58 @@ public final class Protocol {
       // @@protoc_insertion_point(enum_scope:protocol.ResourceReceipt.code)
     }
 
-    public static final int CPU_USAGE_FIELD_NUMBER = 1;
-    private long cpuUsage_;
+    public static final int ENERGY_USAGE_FIELD_NUMBER = 1;
+    private long energyUsage_;
     /**
-     * <code>int64 cpu_usage = 1;</code>
+     * <code>int64 energy_usage = 1;</code>
      */
-    public long getCpuUsage() {
-      return cpuUsage_;
+    public long getEnergyUsage() {
+      return energyUsage_;
     }
 
-    public static final int CPU_FEE_FIELD_NUMBER = 2;
-    private long cpuFee_;
+    public static final int ENERGY_FEE_FIELD_NUMBER = 2;
+    private long energyFee_;
     /**
-     * <code>int64 cpu_fee = 2;</code>
+     * <code>int64 energy_fee = 2;</code>
      */
-    public long getCpuFee() {
-      return cpuFee_;
+    public long getEnergyFee() {
+      return energyFee_;
     }
 
-    public static final int NET_USAGE_FIELD_NUMBER = 3;
+    public static final int ORIGIN_ENERGY_USAGE_FIELD_NUMBER = 3;
+    private long originEnergyUsage_;
+    /**
+     * <code>int64 origin_energy_usage = 3;</code>
+     */
+    public long getOriginEnergyUsage() {
+      return originEnergyUsage_;
+    }
+
+    public static final int ENERGY_USAGE_TOTAL_FIELD_NUMBER = 4;
+    private long energyUsageTotal_;
+    /**
+     * <code>int64 energy_usage_total = 4;</code>
+     */
+    public long getEnergyUsageTotal() {
+      return energyUsageTotal_;
+    }
+
+    public static final int NET_USAGE_FIELD_NUMBER = 5;
     private long netUsage_;
     /**
-     * <code>int64 net_usage = 3;</code>
+     * <code>int64 net_usage = 5;</code>
      */
     public long getNetUsage() {
       return netUsage_;
     }
 
-    public static final int NET_FEE_FIELD_NUMBER = 4;
+    public static final int NET_FEE_FIELD_NUMBER = 6;
     private long netFee_;
     /**
-     * <code>int64 net_fee = 4;</code>
+     * <code>int64 net_fee = 6;</code>
      */
     public long getNetFee() {
       return netFee_;
-    }
-
-    public static final int STORAGE_DELTA_FIELD_NUMBER = 5;
-    private long storageDelta_;
-    /**
-     * <code>int64 storage_delta = 5;</code>
-     */
-    public long getStorageDelta() {
-      return storageDelta_;
-    }
-
-    public static final int STORAGE_FEE_FIELD_NUMBER = 6;
-    private long storageFee_;
-    /**
-     * <code>int64 storage_fee = 6;</code>
-     */
-    public long getStorageFee() {
-      return storageFee_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -16373,23 +17223,23 @@ public final class Protocol {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (cpuUsage_ != 0L) {
-        output.writeInt64(1, cpuUsage_);
+      if (energyUsage_ != 0L) {
+        output.writeInt64(1, energyUsage_);
       }
-      if (cpuFee_ != 0L) {
-        output.writeInt64(2, cpuFee_);
+      if (energyFee_ != 0L) {
+        output.writeInt64(2, energyFee_);
+      }
+      if (originEnergyUsage_ != 0L) {
+        output.writeInt64(3, originEnergyUsage_);
+      }
+      if (energyUsageTotal_ != 0L) {
+        output.writeInt64(4, energyUsageTotal_);
       }
       if (netUsage_ != 0L) {
-        output.writeInt64(3, netUsage_);
+        output.writeInt64(5, netUsage_);
       }
       if (netFee_ != 0L) {
-        output.writeInt64(4, netFee_);
-      }
-      if (storageDelta_ != 0L) {
-        output.writeInt64(5, storageDelta_);
-      }
-      if (storageFee_ != 0L) {
-        output.writeInt64(6, storageFee_);
+        output.writeInt64(6, netFee_);
       }
       unknownFields.writeTo(output);
     }
@@ -16399,29 +17249,29 @@ public final class Protocol {
       if (size != -1) return size;
 
       size = 0;
-      if (cpuUsage_ != 0L) {
+      if (energyUsage_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, cpuUsage_);
+          .computeInt64Size(1, energyUsage_);
       }
-      if (cpuFee_ != 0L) {
+      if (energyFee_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, cpuFee_);
+          .computeInt64Size(2, energyFee_);
+      }
+      if (originEnergyUsage_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, originEnergyUsage_);
+      }
+      if (energyUsageTotal_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, energyUsageTotal_);
       }
       if (netUsage_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, netUsage_);
+          .computeInt64Size(5, netUsage_);
       }
       if (netFee_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, netFee_);
-      }
-      if (storageDelta_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, storageDelta_);
-      }
-      if (storageFee_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, storageFee_);
+          .computeInt64Size(6, netFee_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -16439,18 +17289,18 @@ public final class Protocol {
       org.tron.protos.Protocol.ResourceReceipt other = (org.tron.protos.Protocol.ResourceReceipt) obj;
 
       boolean result = true;
-      result = result && (getCpuUsage()
-          == other.getCpuUsage());
-      result = result && (getCpuFee()
-          == other.getCpuFee());
+      result = result && (getEnergyUsage()
+          == other.getEnergyUsage());
+      result = result && (getEnergyFee()
+          == other.getEnergyFee());
+      result = result && (getOriginEnergyUsage()
+          == other.getOriginEnergyUsage());
+      result = result && (getEnergyUsageTotal()
+          == other.getEnergyUsageTotal());
       result = result && (getNetUsage()
           == other.getNetUsage());
       result = result && (getNetFee()
           == other.getNetFee());
-      result = result && (getStorageDelta()
-          == other.getStorageDelta());
-      result = result && (getStorageFee()
-          == other.getStorageFee());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -16462,24 +17312,24 @@ public final class Protocol {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CPU_USAGE_FIELD_NUMBER;
+      hash = (37 * hash) + ENERGY_USAGE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getCpuUsage());
-      hash = (37 * hash) + CPU_FEE_FIELD_NUMBER;
+          getEnergyUsage());
+      hash = (37 * hash) + ENERGY_FEE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getCpuFee());
+          getEnergyFee());
+      hash = (37 * hash) + ORIGIN_ENERGY_USAGE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getOriginEnergyUsage());
+      hash = (37 * hash) + ENERGY_USAGE_TOTAL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEnergyUsageTotal());
       hash = (37 * hash) + NET_USAGE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getNetUsage());
       hash = (37 * hash) + NET_FEE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getNetFee());
-      hash = (37 * hash) + STORAGE_DELTA_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getStorageDelta());
-      hash = (37 * hash) + STORAGE_FEE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getStorageFee());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -16609,17 +17459,17 @@ public final class Protocol {
       }
       public Builder clear() {
         super.clear();
-        cpuUsage_ = 0L;
+        energyUsage_ = 0L;
 
-        cpuFee_ = 0L;
+        energyFee_ = 0L;
+
+        originEnergyUsage_ = 0L;
+
+        energyUsageTotal_ = 0L;
 
         netUsage_ = 0L;
 
         netFee_ = 0L;
-
-        storageDelta_ = 0L;
-
-        storageFee_ = 0L;
 
         return this;
       }
@@ -16643,12 +17493,12 @@ public final class Protocol {
 
       public org.tron.protos.Protocol.ResourceReceipt buildPartial() {
         org.tron.protos.Protocol.ResourceReceipt result = new org.tron.protos.Protocol.ResourceReceipt(this);
-        result.cpuUsage_ = cpuUsage_;
-        result.cpuFee_ = cpuFee_;
+        result.energyUsage_ = energyUsage_;
+        result.energyFee_ = energyFee_;
+        result.originEnergyUsage_ = originEnergyUsage_;
+        result.energyUsageTotal_ = energyUsageTotal_;
         result.netUsage_ = netUsage_;
         result.netFee_ = netFee_;
-        result.storageDelta_ = storageDelta_;
-        result.storageFee_ = storageFee_;
         onBuilt();
         return result;
       }
@@ -16690,23 +17540,23 @@ public final class Protocol {
 
       public Builder mergeFrom(org.tron.protos.Protocol.ResourceReceipt other) {
         if (other == org.tron.protos.Protocol.ResourceReceipt.getDefaultInstance()) return this;
-        if (other.getCpuUsage() != 0L) {
-          setCpuUsage(other.getCpuUsage());
+        if (other.getEnergyUsage() != 0L) {
+          setEnergyUsage(other.getEnergyUsage());
         }
-        if (other.getCpuFee() != 0L) {
-          setCpuFee(other.getCpuFee());
+        if (other.getEnergyFee() != 0L) {
+          setEnergyFee(other.getEnergyFee());
+        }
+        if (other.getOriginEnergyUsage() != 0L) {
+          setOriginEnergyUsage(other.getOriginEnergyUsage());
+        }
+        if (other.getEnergyUsageTotal() != 0L) {
+          setEnergyUsageTotal(other.getEnergyUsageTotal());
         }
         if (other.getNetUsage() != 0L) {
           setNetUsage(other.getNetUsage());
         }
         if (other.getNetFee() != 0L) {
           setNetFee(other.getNetFee());
-        }
-        if (other.getStorageDelta() != 0L) {
-          setStorageDelta(other.getStorageDelta());
-        }
-        if (other.getStorageFee() != 0L) {
-          setStorageFee(other.getStorageFee());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -16735,67 +17585,119 @@ public final class Protocol {
         return this;
       }
 
-      private long cpuUsage_ ;
+      private long energyUsage_ ;
       /**
-       * <code>int64 cpu_usage = 1;</code>
+       * <code>int64 energy_usage = 1;</code>
        */
-      public long getCpuUsage() {
-        return cpuUsage_;
+      public long getEnergyUsage() {
+        return energyUsage_;
       }
       /**
-       * <code>int64 cpu_usage = 1;</code>
+       * <code>int64 energy_usage = 1;</code>
        */
-      public Builder setCpuUsage(long value) {
+      public Builder setEnergyUsage(long value) {
         
-        cpuUsage_ = value;
+        energyUsage_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 cpu_usage = 1;</code>
+       * <code>int64 energy_usage = 1;</code>
        */
-      public Builder clearCpuUsage() {
+      public Builder clearEnergyUsage() {
         
-        cpuUsage_ = 0L;
+        energyUsage_ = 0L;
         onChanged();
         return this;
       }
 
-      private long cpuFee_ ;
+      private long energyFee_ ;
       /**
-       * <code>int64 cpu_fee = 2;</code>
+       * <code>int64 energy_fee = 2;</code>
        */
-      public long getCpuFee() {
-        return cpuFee_;
+      public long getEnergyFee() {
+        return energyFee_;
       }
       /**
-       * <code>int64 cpu_fee = 2;</code>
+       * <code>int64 energy_fee = 2;</code>
        */
-      public Builder setCpuFee(long value) {
+      public Builder setEnergyFee(long value) {
         
-        cpuFee_ = value;
+        energyFee_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 cpu_fee = 2;</code>
+       * <code>int64 energy_fee = 2;</code>
        */
-      public Builder clearCpuFee() {
+      public Builder clearEnergyFee() {
         
-        cpuFee_ = 0L;
+        energyFee_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long originEnergyUsage_ ;
+      /**
+       * <code>int64 origin_energy_usage = 3;</code>
+       */
+      public long getOriginEnergyUsage() {
+        return originEnergyUsage_;
+      }
+      /**
+       * <code>int64 origin_energy_usage = 3;</code>
+       */
+      public Builder setOriginEnergyUsage(long value) {
+        
+        originEnergyUsage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 origin_energy_usage = 3;</code>
+       */
+      public Builder clearOriginEnergyUsage() {
+        
+        originEnergyUsage_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long energyUsageTotal_ ;
+      /**
+       * <code>int64 energy_usage_total = 4;</code>
+       */
+      public long getEnergyUsageTotal() {
+        return energyUsageTotal_;
+      }
+      /**
+       * <code>int64 energy_usage_total = 4;</code>
+       */
+      public Builder setEnergyUsageTotal(long value) {
+        
+        energyUsageTotal_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 energy_usage_total = 4;</code>
+       */
+      public Builder clearEnergyUsageTotal() {
+        
+        energyUsageTotal_ = 0L;
         onChanged();
         return this;
       }
 
       private long netUsage_ ;
       /**
-       * <code>int64 net_usage = 3;</code>
+       * <code>int64 net_usage = 5;</code>
        */
       public long getNetUsage() {
         return netUsage_;
       }
       /**
-       * <code>int64 net_usage = 3;</code>
+       * <code>int64 net_usage = 5;</code>
        */
       public Builder setNetUsage(long value) {
         
@@ -16804,7 +17706,7 @@ public final class Protocol {
         return this;
       }
       /**
-       * <code>int64 net_usage = 3;</code>
+       * <code>int64 net_usage = 5;</code>
        */
       public Builder clearNetUsage() {
         
@@ -16815,13 +17717,13 @@ public final class Protocol {
 
       private long netFee_ ;
       /**
-       * <code>int64 net_fee = 4;</code>
+       * <code>int64 net_fee = 6;</code>
        */
       public long getNetFee() {
         return netFee_;
       }
       /**
-       * <code>int64 net_fee = 4;</code>
+       * <code>int64 net_fee = 6;</code>
        */
       public Builder setNetFee(long value) {
         
@@ -16830,63 +17732,11 @@ public final class Protocol {
         return this;
       }
       /**
-       * <code>int64 net_fee = 4;</code>
+       * <code>int64 net_fee = 6;</code>
        */
       public Builder clearNetFee() {
         
         netFee_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long storageDelta_ ;
-      /**
-       * <code>int64 storage_delta = 5;</code>
-       */
-      public long getStorageDelta() {
-        return storageDelta_;
-      }
-      /**
-       * <code>int64 storage_delta = 5;</code>
-       */
-      public Builder setStorageDelta(long value) {
-        
-        storageDelta_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 storage_delta = 5;</code>
-       */
-      public Builder clearStorageDelta() {
-        
-        storageDelta_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long storageFee_ ;
-      /**
-       * <code>int64 storage_fee = 6;</code>
-       */
-      public long getStorageFee() {
-        return storageFee_;
-      }
-      /**
-       * <code>int64 storage_fee = 6;</code>
-       */
-      public Builder setStorageFee(long value) {
-        
-        storageFee_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 storage_fee = 6;</code>
-       */
-      public Builder clearStorageFee() {
-        
-        storageFee_ = 0L;
         onChanged();
         return this;
       }
@@ -17337,18 +18187,12 @@ public final class Protocol {
          */
         CustomContract(20),
         /**
-         * <code>BuyStorageContract = 21;</code>
-         */
-        BuyStorageContract(21),
-        /**
-         * <code>BuyStorageBytesContract = 22;</code>
-         */
-        BuyStorageBytesContract(22),
-        /**
-         * <code>SellStorageContract = 23;</code>
-         */
-        SellStorageContract(23),
-        /**
+         * <pre>
+         * BuyStorageContract = 21;
+         * BuyStorageBytesContract = 22;
+         * SellStorageContract = 23;
+         * </pre>
+         *
          * <code>CreateSmartContract = 30;</code>
          */
         CreateSmartContract(30),
@@ -17364,6 +18208,22 @@ public final class Protocol {
          * <code>UpdateSettingContract = 33;</code>
          */
         UpdateSettingContract(33),
+        /**
+         * <code>ExchangeCreateContract = 41;</code>
+         */
+        ExchangeCreateContract(41),
+        /**
+         * <code>ExchangeInjectContract = 42;</code>
+         */
+        ExchangeInjectContract(42),
+        /**
+         * <code>ExchangeWithdrawContract = 43;</code>
+         */
+        ExchangeWithdrawContract(43),
+        /**
+         * <code>ExchangeTransactionContract = 44;</code>
+         */
+        ExchangeTransactionContract(44),
         UNRECOGNIZED(-1),
         ;
 
@@ -17448,18 +18308,12 @@ public final class Protocol {
          */
         public static final int CustomContract_VALUE = 20;
         /**
-         * <code>BuyStorageContract = 21;</code>
-         */
-        public static final int BuyStorageContract_VALUE = 21;
-        /**
-         * <code>BuyStorageBytesContract = 22;</code>
-         */
-        public static final int BuyStorageBytesContract_VALUE = 22;
-        /**
-         * <code>SellStorageContract = 23;</code>
-         */
-        public static final int SellStorageContract_VALUE = 23;
-        /**
+         * <pre>
+         * BuyStorageContract = 21;
+         * BuyStorageBytesContract = 22;
+         * SellStorageContract = 23;
+         * </pre>
+         *
          * <code>CreateSmartContract = 30;</code>
          */
         public static final int CreateSmartContract_VALUE = 30;
@@ -17475,6 +18329,22 @@ public final class Protocol {
          * <code>UpdateSettingContract = 33;</code>
          */
         public static final int UpdateSettingContract_VALUE = 33;
+        /**
+         * <code>ExchangeCreateContract = 41;</code>
+         */
+        public static final int ExchangeCreateContract_VALUE = 41;
+        /**
+         * <code>ExchangeInjectContract = 42;</code>
+         */
+        public static final int ExchangeInjectContract_VALUE = 42;
+        /**
+         * <code>ExchangeWithdrawContract = 43;</code>
+         */
+        public static final int ExchangeWithdrawContract_VALUE = 43;
+        /**
+         * <code>ExchangeTransactionContract = 44;</code>
+         */
+        public static final int ExchangeTransactionContract_VALUE = 44;
 
 
         public final int getNumber() {
@@ -17515,13 +18385,14 @@ public final class Protocol {
             case 18: return ProposalDeleteContract;
             case 19: return SetAccountIdContract;
             case 20: return CustomContract;
-            case 21: return BuyStorageContract;
-            case 22: return BuyStorageBytesContract;
-            case 23: return SellStorageContract;
             case 30: return CreateSmartContract;
             case 31: return TriggerSmartContract;
             case 32: return GetContract;
             case 33: return UpdateSettingContract;
+            case 41: return ExchangeCreateContract;
+            case 42: return ExchangeInjectContract;
+            case 43: return ExchangeWithdrawContract;
+            case 44: return ExchangeTransactionContract;
             default: return null;
           }
         }
@@ -36890,6 +37761,546 @@ public final class Protocol {
 
   }
 
+  public interface StorageRowOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.StorageRow)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * composition of contract_address and storage_key
+     * </pre>
+     *
+     * <code>bytes key = 1;</code>
+     */
+    com.google.protobuf.ByteString getKey();
+
+    /**
+     * <code>bytes value = 2;</code>
+     */
+    com.google.protobuf.ByteString getValue();
+  }
+  /**
+   * Protobuf type {@code protocol.StorageRow}
+   */
+  public  static final class StorageRow extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.StorageRow)
+      StorageRowOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StorageRow.newBuilder() to construct.
+    private StorageRow(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StorageRow() {
+      key_ = com.google.protobuf.ByteString.EMPTY;
+      value_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StorageRow(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              key_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              value_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.protos.Protocol.internal_static_protocol_StorageRow_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.protos.Protocol.internal_static_protocol_StorageRow_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.protos.Protocol.StorageRow.class, org.tron.protos.Protocol.StorageRow.Builder.class);
+    }
+
+    public static final int KEY_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString key_;
+    /**
+     * <pre>
+     * composition of contract_address and storage_key
+     * </pre>
+     *
+     * <code>bytes key = 1;</code>
+     */
+    public com.google.protobuf.ByteString getKey() {
+      return key_;
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString value_;
+    /**
+     * <code>bytes value = 2;</code>
+     */
+    public com.google.protobuf.ByteString getValue() {
+      return value_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!key_.isEmpty()) {
+        output.writeBytes(1, key_);
+      }
+      if (!value_.isEmpty()) {
+        output.writeBytes(2, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!key_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, key_);
+      }
+      if (!value_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.protos.Protocol.StorageRow)) {
+        return super.equals(obj);
+      }
+      org.tron.protos.Protocol.StorageRow other = (org.tron.protos.Protocol.StorageRow) obj;
+
+      boolean result = true;
+      result = result && getKey()
+          .equals(other.getKey());
+      result = result && getValue()
+          .equals(other.getValue());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getKey().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.protos.Protocol.StorageRow parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.protos.Protocol.StorageRow parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.protos.Protocol.StorageRow prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.StorageRow}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.StorageRow)
+        org.tron.protos.Protocol.StorageRowOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.protos.Protocol.internal_static_protocol_StorageRow_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.protos.Protocol.internal_static_protocol_StorageRow_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.protos.Protocol.StorageRow.class, org.tron.protos.Protocol.StorageRow.Builder.class);
+      }
+
+      // Construct using org.tron.protos.Protocol.StorageRow.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        key_ = com.google.protobuf.ByteString.EMPTY;
+
+        value_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.protos.Protocol.internal_static_protocol_StorageRow_descriptor;
+      }
+
+      public org.tron.protos.Protocol.StorageRow getDefaultInstanceForType() {
+        return org.tron.protos.Protocol.StorageRow.getDefaultInstance();
+      }
+
+      public org.tron.protos.Protocol.StorageRow build() {
+        org.tron.protos.Protocol.StorageRow result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.protos.Protocol.StorageRow buildPartial() {
+        org.tron.protos.Protocol.StorageRow result = new org.tron.protos.Protocol.StorageRow(this);
+        result.key_ = key_;
+        result.value_ = value_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.protos.Protocol.StorageRow) {
+          return mergeFrom((org.tron.protos.Protocol.StorageRow)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.protos.Protocol.StorageRow other) {
+        if (other == org.tron.protos.Protocol.StorageRow.getDefaultInstance()) return this;
+        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
+          setKey(other.getKey());
+        }
+        if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.protos.Protocol.StorageRow parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.protos.Protocol.StorageRow) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * composition of contract_address and storage_key
+       * </pre>
+       *
+       * <code>bytes key = 1;</code>
+       */
+      public com.google.protobuf.ByteString getKey() {
+        return key_;
+      }
+      /**
+       * <pre>
+       * composition of contract_address and storage_key
+       * </pre>
+       *
+       * <code>bytes key = 1;</code>
+       */
+      public Builder setKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        key_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * composition of contract_address and storage_key
+       * </pre>
+       *
+       * <code>bytes key = 1;</code>
+       */
+      public Builder clearKey() {
+        
+        key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes value = 2;</code>
+       */
+      public com.google.protobuf.ByteString getValue() {
+        return value_;
+      }
+      /**
+       * <code>bytes value = 2;</code>
+       */
+      public Builder setValue(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes value = 2;</code>
+       */
+      public Builder clearValue() {
+        
+        value_ = getDefaultInstance().getValue();
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.StorageRow)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.StorageRow)
+    private static final org.tron.protos.Protocol.StorageRow DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.protos.Protocol.StorageRow();
+    }
+
+    public static org.tron.protos.Protocol.StorageRow getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StorageRow>
+        PARSER = new com.google.protobuf.AbstractParser<StorageRow>() {
+      public StorageRow parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StorageRow(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StorageRow> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StorageRow> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.protos.Protocol.StorageRow getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface SmartContractOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protocol.SmartContract)
       com.google.protobuf.MessageOrBuilder {
@@ -41365,6 +42776,11 @@ public final class Protocol {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Proposal_ParametersEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_Exchange_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_Exchange_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_ChainParameters_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -41565,6 +42981,11 @@ public final class Protocol {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_StorageItem_ItemsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_StorageRow_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_StorageRow_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_SmartContract_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -41605,185 +43026,193 @@ public final class Protocol {
       "\007 \001(\0162\030.protocol.Proposal.State\0321\n\017Param" +
       "etersEntry\022\013\n\003key\030\001 \001(\003\022\r\n\005value\030\002 \001(\003:\002" +
       "8\001\"A\n\005State\022\013\n\007PENDING\020\000\022\017\n\013DISAPPROVED\020" +
-      "\001\022\014\n\010APPROVED\020\002\022\014\n\010CANCELED\020\003\"\201\001\n\017ChainP" +
-      "arameters\022@\n\016chainParameter\030\001 \003(\0132(.prot" +
-      "ocol.ChainParameters.ChainParameter\032,\n\016C" +
-      "hainParameter\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\003\"\351\t\n\007Account\022\024\n\014account_name\030\001 \001(\014\022#\n\004t" +
-      "ype\030\002 \001(\0162\025.protocol.AccountType\022\017\n\007addr" +
-      "ess\030\003 \001(\014\022\017\n\007balance\030\004 \001(\003\022\035\n\005votes\030\005 \003(" +
-      "\0132\016.protocol.Vote\022+\n\005asset\030\006 \003(\0132\034.proto" +
-      "col.Account.AssetEntry\022(\n\006frozen\030\007 \003(\0132\030" +
-      ".protocol.Account.Frozen\022\021\n\tnet_usage\030\010 " +
-      "\001(\003\022\023\n\013create_time\030\t \001(\003\022\034\n\024latest_oprat" +
-      "ion_time\030\n \001(\003\022\021\n\tallowance\030\013 \001(\003\022\034\n\024lat" +
-      "est_withdraw_time\030\014 \001(\003\022\014\n\004code\030\r \001(\014\022\022\n" +
-      "\nis_witness\030\016 \001(\010\022\024\n\014is_committee\030\017 \001(\010\022" +
-      "/\n\rfrozen_supply\030\020 \003(\0132\030.protocol.Accoun" +
-      "t.Frozen\022\031\n\021asset_issued_name\030\021 \001(\014\022T\n\033l" +
-      "atest_asset_operation_time\030\022 \003(\0132/.proto" +
-      "col.Account.LatestAssetOperationTimeEntr" +
-      "y\022\026\n\016free_net_usage\030\023 \001(\003\022F\n\024free_asset_" +
-      "net_usage\030\024 \003(\0132(.protocol.Account.FreeA" +
-      "ssetNetUsageEntry\022\033\n\023latest_consume_time" +
-      "\030\025 \001(\003\022 \n\030latest_consume_free_time\030\026 \001(\003" +
-      "\022\022\n\naccount_id\030\027 \001(\014\022;\n\020account_resource" +
-      "\030\032 \001(\0132!.protocol.Account.AccountResourc" +
-      "e\022\020\n\010codeHash\030\036 \001(\014\0325\n\006Frozen\022\026\n\016frozen_" +
-      "balance\030\001 \001(\003\022\023\n\013expire_time\030\002 \001(\003\032,\n\nAs" +
-      "setEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001" +
-      "\032?\n\035LatestAssetOperationTimeEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\0328\n\026FreeAssetNe" +
-      "tUsageEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:" +
-      "\0028\001\032\327\001\n\017AccountResource\022\021\n\tcpu_usage\030\001 \001" +
-      "(\003\0228\n\026frozen_balance_for_cpu\030\002 \001(\0132\030.pro" +
-      "tocol.Account.Frozen\022#\n\033latest_consume_t" +
-      "ime_for_cpu\030\003 \001(\003\022\025\n\rstorage_limit\030\006 \001(\003" +
-      "\022\025\n\rstorage_usage\030\007 \001(\003\022$\n\034latest_exchan" +
-      "ge_storage_time\030\010 \001(\003\"J\n\tauthority\022$\n\007ac" +
-      "count\030\001 \001(\0132\023.protocol.AccountId\022\027\n\017perm" +
-      "ission_name\030\002 \001(\014\"2\n\npermission\022$\n\007accou" +
-      "nt\030\001 \001(\0132\023.protocol.AccountId\"\265\001\n\007Witnes" +
-      "s\022\017\n\007address\030\001 \001(\014\022\021\n\tvoteCount\030\002 \001(\003\022\016\n" +
-      "\006pubKey\030\003 \001(\014\022\013\n\003url\030\004 \001(\t\022\025\n\rtotalProdu" +
-      "ced\030\005 \001(\003\022\023\n\013totalMissed\030\006 \001(\003\022\026\n\016latest" +
-      "BlockNum\030\007 \001(\003\022\025\n\rlatestSlotNum\030\010 \001(\003\022\016\n" +
-      "\006isJobs\030\t \001(\010\"^\n\005Votes\022\017\n\007address\030\001 \001(\014\022" +
-      "!\n\told_votes\030\002 \003(\0132\016.protocol.Vote\022!\n\tne" +
-      "w_votes\030\003 \003(\0132\016.protocol.Vote\"-\n\010TXOutpu" +
-      "t\022\r\n\005value\030\001 \001(\003\022\022\n\npubKeyHash\030\002 \001(\014\"x\n\007" +
-      "TXInput\022\'\n\010raw_data\030\001 \001(\0132\025.protocol.TXI" +
-      "nput.raw\022\021\n\tsignature\030\004 \001(\014\0321\n\003raw\022\014\n\004tx" +
-      "ID\030\001 \001(\014\022\014\n\004vout\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\"0" +
-      "\n\tTXOutputs\022#\n\007outputs\030\001 \003(\0132\022.protocol." +
-      "TXOutput\"\246\001\n\017ResourceReceipt\022\021\n\tcpu_usag" +
-      "e\030\001 \001(\003\022\017\n\007cpu_fee\030\002 \001(\003\022\021\n\tnet_usage\030\003 " +
-      "\001(\003\022\017\n\007net_fee\030\004 \001(\003\022\025\n\rstorage_delta\030\005 " +
-      "\001(\003\022\023\n\013storage_fee\030\006 \001(\003\"\037\n\004code\022\013\n\007SUCC" +
-      "ESS\020\000\022\n\n\006FAILED\020\001\"\374\n\n\013Transaction\022+\n\010raw" +
-      "_data\030\001 \001(\0132\031.protocol.Transaction.raw\022\021" +
-      "\n\tsignature\030\002 \003(\014\022)\n\003ret\030\005 \003(\0132\034.protoco" +
-      "l.Transaction.Result\032\350\006\n\010Contract\0229\n\004typ" +
-      "e\030\001 \001(\0162+.protocol.Transaction.Contract." +
-      "ContractType\022\'\n\tparameter\030\002 \001(\0132\024.google" +
-      ".protobuf.Any\022\020\n\010provider\030\003 \001(\014\022\024\n\014Contr" +
-      "actName\030\004 \001(\014\"\317\005\n\014ContractType\022\031\n\025Accoun" +
-      "tCreateContract\020\000\022\024\n\020TransferContract\020\001\022" +
-      "\031\n\025TransferAssetContract\020\002\022\025\n\021VoteAssetC" +
-      "ontract\020\003\022\027\n\023VoteWitnessContract\020\004\022\031\n\025Wi" +
-      "tnessCreateContract\020\005\022\026\n\022AssetIssueContr" +
-      "act\020\006\022\031\n\025WitnessUpdateContract\020\010\022!\n\035Part" +
-      "icipateAssetIssueContract\020\t\022\031\n\025AccountUp" +
-      "dateContract\020\n\022\031\n\025FreezeBalanceContract\020" +
-      "\013\022\033\n\027UnfreezeBalanceContract\020\014\022\033\n\027Withdr" +
-      "awBalanceContract\020\r\022\031\n\025UnfreezeAssetCont" +
-      "ract\020\016\022\027\n\023UpdateAssetContract\020\017\022\032\n\026Propo" +
-      "salCreateContract\020\020\022\033\n\027ProposalApproveCo" +
-      "ntract\020\021\022\032\n\026ProposalDeleteContract\020\022\022\030\n\024" +
-      "SetAccountIdContract\020\023\022\022\n\016CustomContract" +
-      "\020\024\022\026\n\022BuyStorageContract\020\025\022\033\n\027BuyStorage" +
-      "BytesContract\020\026\022\027\n\023SellStorageContract\020\027" +
-      "\022\027\n\023CreateSmartContract\020\036\022\030\n\024TriggerSmar" +
-      "tContract\020\037\022\017\n\013GetContract\020 \022\031\n\025UpdateSe" +
-      "ttingContract\020!\032\227\001\n\006Result\022\013\n\003fee\030\001 \001(\003\022" +
-      ".\n\003ret\030\002 \001(\0162!.protocol.Transaction.Resu" +
-      "lt.code\022\027\n\017withdraw_amount\030\017 \001(\003\022\027\n\017unfr" +
-      "eeze_amount\030\020 \001(\003\"\036\n\004code\022\n\n\006SUCESS\020\000\022\n\n" +
-      "\006FAILED\020\001\032\374\001\n\003raw\022\027\n\017ref_block_bytes\030\001 \001" +
-      "(\014\022\025\n\rref_block_num\030\003 \001(\003\022\026\n\016ref_block_h" +
-      "ash\030\004 \001(\014\022\022\n\nexpiration\030\010 \001(\003\022\"\n\005auths\030\t" +
-      " \003(\0132\023.protocol.authority\022\014\n\004data\030\n \001(\014\022" +
-      "0\n\010contract\030\013 \003(\0132\036.protocol.Transaction" +
-      ".Contract\022\017\n\007scripts\030\014 \001(\014\022\021\n\ttimestamp\030" +
-      "\016 \001(\003\022\021\n\tfee_limit\030\022 \001(\003\"\255\003\n\017Transaction" +
-      "Info\022\n\n\002id\030\001 \001(\014\022\013\n\003fee\030\002 \001(\003\022\023\n\013blockNu" +
-      "mber\030\003 \001(\003\022\026\n\016blockTimeStamp\030\004 \001(\003\022\026\n\016co" +
-      "ntractResult\030\005 \003(\014\022\030\n\020contract_address\030\006" +
-      " \001(\014\022*\n\007receipt\030\007 \001(\0132\031.protocol.Resourc" +
-      "eReceipt\022*\n\003log\030\010 \003(\0132\035.protocol.Transac" +
-      "tionInfo.Log\022.\n\006result\030\t \001(\0162\036.protocol." +
-      "TransactionInfo.code\022\022\n\nresMessage\030\n \001(\014" +
-      "\022\027\n\017withdraw_amount\030\017 \001(\003\022\027\n\017unfreeze_am" +
-      "ount\030\020 \001(\003\0324\n\003Log\022\017\n\007address\030\001 \001(\014\022\016\n\006to" +
-      "pics\030\002 \003(\014\022\014\n\004data\030\003 \001(\014\"\036\n\004code\022\n\n\006SUCE" +
-      "SS\020\000\022\n\n\006FAILED\020\001\";\n\014Transactions\022+\n\014tran" +
-      "sactions\030\001 \003(\0132\025.protocol.Transaction\"Q\n" +
-      "\017TransactionSign\022*\n\013transaction\030\001 \001(\0132\025." +
-      "protocol.Transaction\022\022\n\nprivateKey\030\002 \001(\014" +
-      "\"\324\001\n\013BlockHeader\022+\n\010raw_data\030\001 \001(\0132\031.pro" +
-      "tocol.BlockHeader.raw\022\031\n\021witness_signatu" +
-      "re\030\002 \001(\014\032}\n\003raw\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\ntx" +
-      "TrieRoot\030\002 \001(\014\022\022\n\nparentHash\030\003 \001(\014\022\016\n\006nu" +
-      "mber\030\007 \001(\003\022\022\n\nwitness_id\030\010 \001(\003\022\027\n\017witnes" +
-      "s_address\030\t \001(\014\"a\n\005Block\022+\n\014transactions" +
-      "\030\001 \003(\0132\025.protocol.Transaction\022+\n\014block_h" +
-      "eader\030\002 \001(\0132\025.protocol.BlockHeader\"|\n\016Ch" +
-      "ainInventory\022-\n\003ids\030\001 \003(\0132 .protocol.Cha" +
-      "inInventory.BlockId\022\022\n\nremain_num\030\002 \001(\003\032" +
-      "\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003" +
-      "\"\277\001\n\016BlockInventory\022-\n\003ids\030\001 \003(\0132 .proto" +
-      "col.BlockInventory.BlockId\022+\n\004type\030\002 \001(\016" +
-      "2\035.protocol.BlockInventory.Type\032\'\n\007Block" +
-      "Id\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"(\n\004Type" +
-      "\022\010\n\004SYNC\020\000\022\013\n\007ADVTISE\020\001\022\t\n\005FETCH\020\002\"n\n\tIn" +
-      "ventory\022/\n\004type\030\001 \001(\0162!.protocol.Invento" +
-      "ry.InventoryType\022\013\n\003ids\030\002 \003(\014\"#\n\rInvento" +
-      "ryType\022\007\n\003TRX\020\000\022\t\n\005BLOCK\020\001\"\345\001\n\005Items\022&\n\004" +
-      "type\030\001 \001(\0162\030.protocol.Items.ItemType\022\037\n\006" +
-      "blocks\030\002 \003(\0132\017.protocol.Block\022,\n\rblock_h" +
-      "eaders\030\003 \003(\0132\025.protocol.BlockHeader\022+\n\014t" +
-      "ransactions\030\004 \003(\0132\025.protocol.Transaction" +
-      "\"8\n\010ItemType\022\007\n\003ERR\020\000\022\007\n\003TRX\020\001\022\t\n\005BLOCK\020" +
-      "\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021DynamicProperties\022" +
-      "\037\n\027last_solidity_block_num\030\001 \001(\003\"9\n\021Disc" +
-      "onnectMessage\022$\n\006reason\030\001 \001(\0162\024.protocol" +
-      ".ReasonCode\"\240\002\n\014HelloMessage\022 \n\004from\030\001 \001" +
-      "(\0132\022.protocol.Endpoint\022\017\n\007version\030\002 \001(\005\022" +
-      "\021\n\ttimestamp\030\003 \001(\003\0226\n\016genesisBlockId\030\004 \001" +
-      "(\0132\036.protocol.HelloMessage.BlockId\0224\n\014so" +
-      "lidBlockId\030\005 \001(\0132\036.protocol.HelloMessage" +
-      ".BlockId\0223\n\013headBlockId\030\006 \001(\0132\036.protocol" +
-      ".HelloMessage.BlockId\032\'\n\007BlockId\022\014\n\004hash" +
-      "\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"\206\001\n\013StorageItem\022\030" +
-      "\n\020contract_address\030\001 \001(\014\022/\n\005items\030\002 \003(\0132" +
-      " .protocol.StorageItem.ItemsEntry\032,\n\nIte" +
-      "msEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"" +
-      "\301\006\n\rSmartContract\022\026\n\016origin_address\030\001 \001(" +
-      "\014\022\030\n\020contract_address\030\002 \001(\014\022(\n\003abi\030\003 \001(\013" +
-      "2\033.protocol.SmartContract.ABI\022\020\n\010bytecod" +
-      "e\030\004 \001(\014\022\022\n\ncall_value\030\005 \001(\003\022%\n\035consume_u" +
-      "ser_resource_percent\030\006 \001(\003\022\014\n\004name\030\007 \001(\t" +
-      "\032\370\004\n\003ABI\0221\n\006entrys\030\001 \003(\0132!.protocol.Smar" +
-      "tContract.ABI.Entry\032\275\004\n\005Entry\022\021\n\tanonymo" +
-      "us\030\001 \001(\010\022\020\n\010constant\030\002 \001(\010\022\014\n\004name\030\003 \001(\t" +
-      "\0227\n\006inputs\030\004 \003(\0132\'.protocol.SmartContrac" +
-      "t.ABI.Entry.Param\0228\n\007outputs\030\005 \003(\0132\'.pro" +
-      "tocol.SmartContract.ABI.Entry.Param\0229\n\004t" +
-      "ype\030\006 \001(\0162+.protocol.SmartContract.ABI.E" +
-      "ntry.EntryType\022\017\n\007payable\030\007 \001(\010\022N\n\017state" +
-      "Mutability\030\010 \001(\01625.protocol.SmartContrac" +
-      "t.ABI.Entry.StateMutabilityType\0324\n\005Param" +
-      "\022\017\n\007indexed\030\001 \001(\010\022\014\n\004name\030\002 \001(\t\022\014\n\004type\030" +
-      "\003 \001(\t\"Y\n\tEntryType\022\024\n\020UnknownEntryType\020\000" +
-      "\022\017\n\013Constructor\020\001\022\014\n\010Function\020\002\022\t\n\005Event" +
-      "\020\003\022\014\n\010Fallback\020\004\"a\n\023StateMutabilityType\022" +
-      "\031\n\025UnknownMutabilityType\020\000\022\010\n\004Pure\020\001\022\010\n\004" +
-      "View\020\002\022\016\n\nNonpayable\020\003\022\013\n\007Payable\020\004*7\n\013A" +
-      "ccountType\022\n\n\006Normal\020\000\022\016\n\nAssetIssue\020\001\022\014" +
-      "\n\010Contract\020\002*\307\003\n\nReasonCode\022\r\n\tREQUESTED" +
-      "\020\000\022\020\n\014BAD_PROTOCOL\020\002\022\022\n\016TOO_MANY_PEERS\020\004" +
-      "\022\022\n\016DUPLICATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PRO" +
-      "TOCOL\020\006\022\021\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITI" +
-      "NG\020\010\022\027\n\023UNEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_I" +
-      "DENTITY\020\n\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REAS" +
-      "ON\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\016\n\nFETCH_" +
-      "FAIL\020\023\022\n\n\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FOR" +
-      "KED\020\026\022\016\n\nUNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VE" +
-      "RSION\020\030\022\026\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\010TIME_" +
-      "OUT\020 \022\020\n\014CONNECT_FAIL\020!\022\037\n\033TOO_MANY_PEER" +
-      "S_WITH_SAME_IP\020\"\022\014\n\007UNKNOWN\020\377\001BF\n\017org.tr" +
-      "on.protosB\010ProtocolZ)github.com/tronprot" +
-      "ocol/grpc-gateway/coreb\006proto3"
+      "\001\022\014\n\010APPROVED\020\002\022\014\n\010CANCELED\020\003\"\271\001\n\010Exchan" +
+      "ge\022\023\n\013exchange_id\030\001 \001(\003\022\027\n\017creator_addre" +
+      "ss\030\002 \001(\014\022\023\n\013create_time\030\003 \001(\003\022\026\n\016first_t" +
+      "oken_id\030\006 \001(\014\022\033\n\023first_token_balance\030\007 \001" +
+      "(\003\022\027\n\017second_token_id\030\010 \001(\014\022\034\n\024second_to" +
+      "ken_balance\030\t \001(\003\"\201\001\n\017ChainParameters\022@\n" +
+      "\016chainParameter\030\001 \003(\0132(.protocol.ChainPa" +
+      "rameters.ChainParameter\032,\n\016ChainParamete" +
+      "r\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003\"\362\t\n\007Accoun" +
+      "t\022\024\n\014account_name\030\001 \001(\014\022#\n\004type\030\002 \001(\0162\025." +
+      "protocol.AccountType\022\017\n\007address\030\003 \001(\014\022\017\n" +
+      "\007balance\030\004 \001(\003\022\035\n\005votes\030\005 \003(\0132\016.protocol" +
+      ".Vote\022+\n\005asset\030\006 \003(\0132\034.protocol.Account." +
+      "AssetEntry\022(\n\006frozen\030\007 \003(\0132\030.protocol.Ac" +
+      "count.Frozen\022\021\n\tnet_usage\030\010 \001(\003\022\023\n\013creat" +
+      "e_time\030\t \001(\003\022\034\n\024latest_opration_time\030\n \001" +
+      "(\003\022\021\n\tallowance\030\013 \001(\003\022\034\n\024latest_withdraw" +
+      "_time\030\014 \001(\003\022\014\n\004code\030\r \001(\014\022\022\n\nis_witness\030" +
+      "\016 \001(\010\022\024\n\014is_committee\030\017 \001(\010\022/\n\rfrozen_su" +
+      "pply\030\020 \003(\0132\030.protocol.Account.Frozen\022\031\n\021" +
+      "asset_issued_name\030\021 \001(\014\022T\n\033latest_asset_" +
+      "operation_time\030\022 \003(\0132/.protocol.Account." +
+      "LatestAssetOperationTimeEntry\022\026\n\016free_ne" +
+      "t_usage\030\023 \001(\003\022F\n\024free_asset_net_usage\030\024 " +
+      "\003(\0132(.protocol.Account.FreeAssetNetUsage" +
+      "Entry\022\033\n\023latest_consume_time\030\025 \001(\003\022 \n\030la" +
+      "test_consume_free_time\030\026 \001(\003\022\022\n\naccount_" +
+      "id\030\027 \001(\014\022;\n\020account_resource\030\032 \001(\0132!.pro" +
+      "tocol.Account.AccountResource\022\020\n\010codeHas" +
+      "h\030\036 \001(\014\0325\n\006Frozen\022\026\n\016frozen_balance\030\001 \001(" +
+      "\003\022\023\n\013expire_time\030\002 \001(\003\032,\n\nAssetEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\032?\n\035LatestAs" +
+      "setOperationTimeEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\003:\0028\001\0328\n\026FreeAssetNetUsageEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\032\340\001\n\017Acco" +
+      "untResource\022\024\n\014energy_usage\030\001 \001(\003\022;\n\031fro" +
+      "zen_balance_for_energy\030\002 \001(\0132\030.protocol." +
+      "Account.Frozen\022&\n\036latest_consume_time_fo" +
+      "r_energy\030\003 \001(\003\022\025\n\rstorage_limit\030\006 \001(\003\022\025\n" +
+      "\rstorage_usage\030\007 \001(\003\022$\n\034latest_exchange_" +
+      "storage_time\030\010 \001(\003\"J\n\tauthority\022$\n\007accou" +
+      "nt\030\001 \001(\0132\023.protocol.AccountId\022\027\n\017permiss" +
+      "ion_name\030\002 \001(\014\"2\n\npermission\022$\n\007account\030" +
+      "\001 \001(\0132\023.protocol.AccountId\"\265\001\n\007Witness\022\017" +
+      "\n\007address\030\001 \001(\014\022\021\n\tvoteCount\030\002 \001(\003\022\016\n\006pu" +
+      "bKey\030\003 \001(\014\022\013\n\003url\030\004 \001(\t\022\025\n\rtotalProduced" +
+      "\030\005 \001(\003\022\023\n\013totalMissed\030\006 \001(\003\022\026\n\016latestBlo" +
+      "ckNum\030\007 \001(\003\022\025\n\rlatestSlotNum\030\010 \001(\003\022\016\n\006is" +
+      "Jobs\030\t \001(\010\"^\n\005Votes\022\017\n\007address\030\001 \001(\014\022!\n\t" +
+      "old_votes\030\002 \003(\0132\016.protocol.Vote\022!\n\tnew_v" +
+      "otes\030\003 \003(\0132\016.protocol.Vote\"-\n\010TXOutput\022\r" +
+      "\n\005value\030\001 \001(\003\022\022\n\npubKeyHash\030\002 \001(\014\"x\n\007TXI" +
+      "nput\022\'\n\010raw_data\030\001 \001(\0132\025.protocol.TXInpu" +
+      "t.raw\022\021\n\tsignature\030\004 \001(\014\0321\n\003raw\022\014\n\004txID\030" +
+      "\001 \001(\014\022\014\n\004vout\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\"0\n\tT" +
+      "XOutputs\022#\n\007outputs\030\001 \003(\0132\022.protocol.TXO" +
+      "utput\"\271\001\n\017ResourceReceipt\022\024\n\014energy_usag" +
+      "e\030\001 \001(\003\022\022\n\nenergy_fee\030\002 \001(\003\022\033\n\023origin_en" +
+      "ergy_usage\030\003 \001(\003\022\032\n\022energy_usage_total\030\004" +
+      " \001(\003\022\021\n\tnet_usage\030\005 \001(\003\022\017\n\007net_fee\030\006 \001(\003" +
+      "\"\037\n\004code\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020\001\"\245\013\n\013Tr" +
+      "ansaction\022+\n\010raw_data\030\001 \001(\0132\031.protocol.T" +
+      "ransaction.raw\022\021\n\tsignature\030\002 \003(\014\022)\n\003ret" +
+      "\030\005 \003(\0132\034.protocol.Transaction.Result\032\221\007\n" +
+      "\010Contract\0229\n\004type\030\001 \001(\0162+.protocol.Trans" +
+      "action.Contract.ContractType\022\'\n\tparamete" +
+      "r\030\002 \001(\0132\024.google.protobuf.Any\022\020\n\010provide" +
+      "r\030\003 \001(\014\022\024\n\014ContractName\030\004 \001(\014\"\370\005\n\014Contra" +
+      "ctType\022\031\n\025AccountCreateContract\020\000\022\024\n\020Tra" +
+      "nsferContract\020\001\022\031\n\025TransferAssetContract" +
+      "\020\002\022\025\n\021VoteAssetContract\020\003\022\027\n\023VoteWitness" +
+      "Contract\020\004\022\031\n\025WitnessCreateContract\020\005\022\026\n" +
+      "\022AssetIssueContract\020\006\022\031\n\025WitnessUpdateCo" +
+      "ntract\020\010\022!\n\035ParticipateAssetIssueContrac" +
+      "t\020\t\022\031\n\025AccountUpdateContract\020\n\022\031\n\025Freeze" +
+      "BalanceContract\020\013\022\033\n\027UnfreezeBalanceCont" +
+      "ract\020\014\022\033\n\027WithdrawBalanceContract\020\r\022\031\n\025U" +
+      "nfreezeAssetContract\020\016\022\027\n\023UpdateAssetCon" +
+      "tract\020\017\022\032\n\026ProposalCreateContract\020\020\022\033\n\027P" +
+      "roposalApproveContract\020\021\022\032\n\026ProposalDele" +
+      "teContract\020\022\022\030\n\024SetAccountIdContract\020\023\022\022" +
+      "\n\016CustomContract\020\024\022\027\n\023CreateSmartContrac" +
+      "t\020\036\022\030\n\024TriggerSmartContract\020\037\022\017\n\013GetCont" +
+      "ract\020 \022\031\n\025UpdateSettingContract\020!\022\032\n\026Exc" +
+      "hangeCreateContract\020)\022\032\n\026ExchangeInjectC" +
+      "ontract\020*\022\034\n\030ExchangeWithdrawContract\020+\022" +
+      "\037\n\033ExchangeTransactionContract\020,\032\227\001\n\006Res" +
+      "ult\022\013\n\003fee\030\001 \001(\003\022.\n\003ret\030\002 \001(\0162!.protocol" +
+      ".Transaction.Result.code\022\027\n\017withdraw_amo" +
+      "unt\030\017 \001(\003\022\027\n\017unfreeze_amount\030\020 \001(\003\"\036\n\004co" +
+      "de\022\n\n\006SUCESS\020\000\022\n\n\006FAILED\020\001\032\374\001\n\003raw\022\027\n\017re" +
+      "f_block_bytes\030\001 \001(\014\022\025\n\rref_block_num\030\003 \001" +
+      "(\003\022\026\n\016ref_block_hash\030\004 \001(\014\022\022\n\nexpiration" +
+      "\030\010 \001(\003\022\"\n\005auths\030\t \003(\0132\023.protocol.authori" +
+      "ty\022\014\n\004data\030\n \001(\014\0220\n\010contract\030\013 \003(\0132\036.pro" +
+      "tocol.Transaction.Contract\022\017\n\007scripts\030\014 " +
+      "\001(\014\022\021\n\ttimestamp\030\016 \001(\003\022\021\n\tfee_limit\030\022 \001(" +
+      "\003\"\255\003\n\017TransactionInfo\022\n\n\002id\030\001 \001(\014\022\013\n\003fee" +
+      "\030\002 \001(\003\022\023\n\013blockNumber\030\003 \001(\003\022\026\n\016blockTime" +
+      "Stamp\030\004 \001(\003\022\026\n\016contractResult\030\005 \003(\014\022\030\n\020c" +
+      "ontract_address\030\006 \001(\014\022*\n\007receipt\030\007 \001(\0132\031" +
+      ".protocol.ResourceReceipt\022*\n\003log\030\010 \003(\0132\035" +
+      ".protocol.TransactionInfo.Log\022.\n\006result\030" +
+      "\t \001(\0162\036.protocol.TransactionInfo.code\022\022\n" +
+      "\nresMessage\030\n \001(\014\022\027\n\017withdraw_amount\030\017 \001" +
+      "(\003\022\027\n\017unfreeze_amount\030\020 \001(\003\0324\n\003Log\022\017\n\007ad" +
+      "dress\030\001 \001(\014\022\016\n\006topics\030\002 \003(\014\022\014\n\004data\030\003 \001(" +
+      "\014\"\036\n\004code\022\n\n\006SUCESS\020\000\022\n\n\006FAILED\020\001\";\n\014Tra" +
+      "nsactions\022+\n\014transactions\030\001 \003(\0132\025.protoc" +
+      "ol.Transaction\"Q\n\017TransactionSign\022*\n\013tra" +
+      "nsaction\030\001 \001(\0132\025.protocol.Transaction\022\022\n" +
+      "\nprivateKey\030\002 \001(\014\"\324\001\n\013BlockHeader\022+\n\010raw" +
+      "_data\030\001 \001(\0132\031.protocol.BlockHeader.raw\022\031" +
+      "\n\021witness_signature\030\002 \001(\014\032}\n\003raw\022\021\n\ttime" +
+      "stamp\030\001 \001(\003\022\022\n\ntxTrieRoot\030\002 \001(\014\022\022\n\nparen" +
+      "tHash\030\003 \001(\014\022\016\n\006number\030\007 \001(\003\022\022\n\nwitness_i" +
+      "d\030\010 \001(\003\022\027\n\017witness_address\030\t \001(\014\"a\n\005Bloc" +
+      "k\022+\n\014transactions\030\001 \003(\0132\025.protocol.Trans" +
+      "action\022+\n\014block_header\030\002 \001(\0132\025.protocol." +
+      "BlockHeader\"|\n\016ChainInventory\022-\n\003ids\030\001 \003" +
+      "(\0132 .protocol.ChainInventory.BlockId\022\022\n\n" +
+      "remain_num\030\002 \001(\003\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(" +
+      "\014\022\016\n\006number\030\002 \001(\003\"\277\001\n\016BlockInventory\022-\n\003" +
+      "ids\030\001 \003(\0132 .protocol.BlockInventory.Bloc" +
+      "kId\022+\n\004type\030\002 \001(\0162\035.protocol.BlockInvent" +
+      "ory.Type\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006num" +
+      "ber\030\002 \001(\003\"(\n\004Type\022\010\n\004SYNC\020\000\022\013\n\007ADVTISE\020\001" +
+      "\022\t\n\005FETCH\020\002\"n\n\tInventory\022/\n\004type\030\001 \001(\0162!" +
+      ".protocol.Inventory.InventoryType\022\013\n\003ids" +
+      "\030\002 \003(\014\"#\n\rInventoryType\022\007\n\003TRX\020\000\022\t\n\005BLOC" +
+      "K\020\001\"\345\001\n\005Items\022&\n\004type\030\001 \001(\0162\030.protocol.I" +
+      "tems.ItemType\022\037\n\006blocks\030\002 \003(\0132\017.protocol" +
+      ".Block\022,\n\rblock_headers\030\003 \003(\0132\025.protocol" +
+      ".BlockHeader\022+\n\014transactions\030\004 \003(\0132\025.pro" +
+      "tocol.Transaction\"8\n\010ItemType\022\007\n\003ERR\020\000\022\007" +
+      "\n\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021D" +
+      "ynamicProperties\022\037\n\027last_solidity_block_" +
+      "num\030\001 \001(\003\"9\n\021DisconnectMessage\022$\n\006reason" +
+      "\030\001 \001(\0162\024.protocol.ReasonCode\"\240\002\n\014HelloMe" +
+      "ssage\022 \n\004from\030\001 \001(\0132\022.protocol.Endpoint\022" +
+      "\017\n\007version\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\003\0226\n\016g" +
+      "enesisBlockId\030\004 \001(\0132\036.protocol.HelloMess" +
+      "age.BlockId\0224\n\014solidBlockId\030\005 \001(\0132\036.prot" +
+      "ocol.HelloMessage.BlockId\0223\n\013headBlockId" +
+      "\030\006 \001(\0132\036.protocol.HelloMessage.BlockId\032\'" +
+      "\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"" +
+      "\206\001\n\013StorageItem\022\030\n\020contract_address\030\001 \001(" +
+      "\014\022/\n\005items\030\002 \003(\0132 .protocol.StorageItem." +
+      "ItemsEntry\032,\n\nItemsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\014:\0028\001\"(\n\nStorageRow\022\013\n\003key\030\001 " +
+      "\001(\014\022\r\n\005value\030\002 \001(\014\"\301\006\n\rSmartContract\022\026\n\016" +
+      "origin_address\030\001 \001(\014\022\030\n\020contract_address" +
+      "\030\002 \001(\014\022(\n\003abi\030\003 \001(\0132\033.protocol.SmartCont" +
+      "ract.ABI\022\020\n\010bytecode\030\004 \001(\014\022\022\n\ncall_value" +
+      "\030\005 \001(\003\022%\n\035consume_user_resource_percent\030" +
+      "\006 \001(\003\022\014\n\004name\030\007 \001(\t\032\370\004\n\003ABI\0221\n\006entrys\030\001 " +
+      "\003(\0132!.protocol.SmartContract.ABI.Entry\032\275" +
+      "\004\n\005Entry\022\021\n\tanonymous\030\001 \001(\010\022\020\n\010constant\030" +
+      "\002 \001(\010\022\014\n\004name\030\003 \001(\t\0227\n\006inputs\030\004 \003(\0132\'.pr" +
+      "otocol.SmartContract.ABI.Entry.Param\0228\n\007" +
+      "outputs\030\005 \003(\0132\'.protocol.SmartContract.A" +
+      "BI.Entry.Param\0229\n\004type\030\006 \001(\0162+.protocol." +
+      "SmartContract.ABI.Entry.EntryType\022\017\n\007pay" +
+      "able\030\007 \001(\010\022N\n\017stateMutability\030\010 \001(\01625.pr" +
+      "otocol.SmartContract.ABI.Entry.StateMuta" +
+      "bilityType\0324\n\005Param\022\017\n\007indexed\030\001 \001(\010\022\014\n\004" +
+      "name\030\002 \001(\t\022\014\n\004type\030\003 \001(\t\"Y\n\tEntryType\022\024\n" +
+      "\020UnknownEntryType\020\000\022\017\n\013Constructor\020\001\022\014\n\010" +
+      "Function\020\002\022\t\n\005Event\020\003\022\014\n\010Fallback\020\004\"a\n\023S" +
+      "tateMutabilityType\022\031\n\025UnknownMutabilityT" +
+      "ype\020\000\022\010\n\004Pure\020\001\022\010\n\004View\020\002\022\016\n\nNonpayable\020" +
+      "\003\022\013\n\007Payable\020\004*7\n\013AccountType\022\n\n\006Normal\020" +
+      "\000\022\016\n\nAssetIssue\020\001\022\014\n\010Contract\020\002*\307\003\n\nReas" +
+      "onCode\022\r\n\tREQUESTED\020\000\022\020\n\014BAD_PROTOCOL\020\002\022" +
+      "\022\n\016TOO_MANY_PEERS\020\004\022\022\n\016DUPLICATE_PEER\020\005\022" +
+      "\031\n\025INCOMPATIBLE_PROTOCOL\020\006\022\021\n\rNULL_IDENT" +
+      "ITY\020\007\022\020\n\014PEER_QUITING\020\010\022\027\n\023UNEXPECTED_ID" +
+      "ENTITY\020\t\022\022\n\016LOCAL_IDENTITY\020\n\022\020\n\014PING_TIM" +
+      "EOUT\020\013\022\017\n\013USER_REASON\020\020\022\t\n\005RESET\020\021\022\r\n\tSY" +
+      "NC_FAIL\020\022\022\016\n\nFETCH_FAIL\020\023\022\n\n\006BAD_TX\020\024\022\r\n" +
+      "\tBAD_BLOCK\020\025\022\n\n\006FORKED\020\026\022\016\n\nUNLINKABLE\020\027" +
+      "\022\030\n\024INCOMPATIBLE_VERSION\020\030\022\026\n\022INCOMPATIB" +
+      "LE_CHAIN\020\031\022\014\n\010TIME_OUT\020 \022\020\n\014CONNECT_FAIL" +
+      "\020!\022\037\n\033TOO_MANY_PEERS_WITH_SAME_IP\020\"\022\014\n\007U" +
+      "NKNOWN\020\377\001BF\n\017org.tron.protosB\010ProtocolZ)" +
+      "github.com/tronprotocol/grpc-gateway/cor" +
+      "eb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -41823,8 +43252,14 @@ public final class Protocol {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Proposal_ParametersEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_protocol_ChainParameters_descriptor =
+    internal_static_protocol_Exchange_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_protocol_Exchange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_Exchange_descriptor,
+        new java.lang.String[] { "ExchangeId", "CreatorAddress", "CreateTime", "FirstTokenId", "FirstTokenBalance", "SecondTokenId", "SecondTokenBalance", });
+    internal_static_protocol_ChainParameters_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_protocol_ChainParameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ChainParameters_descriptor,
@@ -41836,7 +43271,7 @@ public final class Protocol {
         internal_static_protocol_ChainParameters_ChainParameter_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_protocol_Account_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_protocol_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_descriptor,
@@ -41870,39 +43305,39 @@ public final class Protocol {
     internal_static_protocol_Account_AccountResource_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Account_AccountResource_descriptor,
-        new java.lang.String[] { "CpuUsage", "FrozenBalanceForCpu", "LatestConsumeTimeForCpu", "StorageLimit", "StorageUsage", "LatestExchangeStorageTime", });
+        new java.lang.String[] { "EnergyUsage", "FrozenBalanceForEnergy", "LatestConsumeTimeForEnergy", "StorageLimit", "StorageUsage", "LatestExchangeStorageTime", });
     internal_static_protocol_authority_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_protocol_authority_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_authority_descriptor,
         new java.lang.String[] { "Account", "PermissionName", });
     internal_static_protocol_permission_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_protocol_permission_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_permission_descriptor,
         new java.lang.String[] { "Account", });
     internal_static_protocol_Witness_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_protocol_Witness_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Witness_descriptor,
         new java.lang.String[] { "Address", "VoteCount", "PubKey", "Url", "TotalProduced", "TotalMissed", "LatestBlockNum", "LatestSlotNum", "IsJobs", });
     internal_static_protocol_Votes_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_protocol_Votes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Votes_descriptor,
         new java.lang.String[] { "Address", "OldVotes", "NewVotes", });
     internal_static_protocol_TXOutput_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_protocol_TXOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXOutput_descriptor,
         new java.lang.String[] { "Value", "PubKeyHash", });
     internal_static_protocol_TXInput_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_protocol_TXInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXInput_descriptor,
@@ -41914,19 +43349,19 @@ public final class Protocol {
         internal_static_protocol_TXInput_raw_descriptor,
         new java.lang.String[] { "TxID", "Vout", "PubKey", });
     internal_static_protocol_TXOutputs_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_protocol_TXOutputs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TXOutputs_descriptor,
         new java.lang.String[] { "Outputs", });
     internal_static_protocol_ResourceReceipt_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_protocol_ResourceReceipt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ResourceReceipt_descriptor,
-        new java.lang.String[] { "CpuUsage", "CpuFee", "NetUsage", "NetFee", "StorageDelta", "StorageFee", });
+        new java.lang.String[] { "EnergyUsage", "EnergyFee", "OriginEnergyUsage", "EnergyUsageTotal", "NetUsage", "NetFee", });
     internal_static_protocol_Transaction_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_protocol_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transaction_descriptor,
@@ -41950,7 +43385,7 @@ public final class Protocol {
         internal_static_protocol_Transaction_raw_descriptor,
         new java.lang.String[] { "RefBlockBytes", "RefBlockNum", "RefBlockHash", "Expiration", "Auths", "Data", "Contract", "Scripts", "Timestamp", "FeeLimit", });
     internal_static_protocol_TransactionInfo_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_protocol_TransactionInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransactionInfo_descriptor,
@@ -41962,19 +43397,19 @@ public final class Protocol {
         internal_static_protocol_TransactionInfo_Log_descriptor,
         new java.lang.String[] { "Address", "Topics", "Data", });
     internal_static_protocol_Transactions_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_protocol_Transactions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transactions_descriptor,
         new java.lang.String[] { "Transactions", });
     internal_static_protocol_TransactionSign_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_protocol_TransactionSign_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransactionSign_descriptor,
         new java.lang.String[] { "Transaction", "PrivateKey", });
     internal_static_protocol_BlockHeader_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_protocol_BlockHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockHeader_descriptor,
@@ -41986,13 +43421,13 @@ public final class Protocol {
         internal_static_protocol_BlockHeader_raw_descriptor,
         new java.lang.String[] { "Timestamp", "TxTrieRoot", "ParentHash", "Number", "WitnessId", "WitnessAddress", });
     internal_static_protocol_Block_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_protocol_Block_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Block_descriptor,
         new java.lang.String[] { "Transactions", "BlockHeader", });
     internal_static_protocol_ChainInventory_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_protocol_ChainInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ChainInventory_descriptor,
@@ -42004,7 +43439,7 @@ public final class Protocol {
         internal_static_protocol_ChainInventory_BlockId_descriptor,
         new java.lang.String[] { "Hash", "Number", });
     internal_static_protocol_BlockInventory_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_protocol_BlockInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockInventory_descriptor,
@@ -42016,31 +43451,31 @@ public final class Protocol {
         internal_static_protocol_BlockInventory_BlockId_descriptor,
         new java.lang.String[] { "Hash", "Number", });
     internal_static_protocol_Inventory_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_protocol_Inventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Inventory_descriptor,
         new java.lang.String[] { "Type", "Ids", });
     internal_static_protocol_Items_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_protocol_Items_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Items_descriptor,
         new java.lang.String[] { "Type", "Blocks", "BlockHeaders", "Transactions", });
     internal_static_protocol_DynamicProperties_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_protocol_DynamicProperties_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DynamicProperties_descriptor,
         new java.lang.String[] { "LastSolidityBlockNum", });
     internal_static_protocol_DisconnectMessage_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_protocol_DisconnectMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_DisconnectMessage_descriptor,
         new java.lang.String[] { "Reason", });
     internal_static_protocol_HelloMessage_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_protocol_HelloMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_HelloMessage_descriptor,
@@ -42052,7 +43487,7 @@ public final class Protocol {
         internal_static_protocol_HelloMessage_BlockId_descriptor,
         new java.lang.String[] { "Hash", "Number", });
     internal_static_protocol_StorageItem_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_protocol_StorageItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_StorageItem_descriptor,
@@ -42063,8 +43498,14 @@ public final class Protocol {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_StorageItem_ItemsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_protocol_StorageRow_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_protocol_StorageRow_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_StorageRow_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_protocol_SmartContract_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_protocol_SmartContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_SmartContract_descriptor,
