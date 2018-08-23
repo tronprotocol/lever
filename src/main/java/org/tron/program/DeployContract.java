@@ -45,7 +45,7 @@ public class DeployContract {
         .createTransaction(contract, ContractType.CreateSmartContract);
 
     transaction = transaction.toBuilder()
-        .setRawData(transaction.getRawData().toBuilder().setFeeLimit(10000000).build()).build();
+        .setRawData(transaction.getRawData().toBuilder().setFeeLimit(argsObj.getFeeLimit()).build()).build();
 
     transaction = TransactionUtils
         .signTransaction(transaction,
@@ -98,5 +98,10 @@ public class DeployContract {
     @Parameter(names = {
         "--code"}, required = true)
     private String code;
+
+    @Getter
+    @Parameter(names = {
+        "--feeLimit"}, required = true)
+    private long feeLimit;
   }
 }
