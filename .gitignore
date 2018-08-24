@@ -8,3 +8,4 @@ out
 /generate-data.sh
 *.dat
 *.txt
+/script/error.log
