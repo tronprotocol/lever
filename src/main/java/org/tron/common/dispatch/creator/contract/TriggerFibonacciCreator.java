@@ -23,7 +23,7 @@ public class TriggerFibonacciCreator extends AbstractTransferTransactionCreator 
 
     TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58
         .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
-        .decode(AbiUtil.parseMethod("fibonacciNotify(uint256)", "20", false)));
+        .decode(AbiUtil.parseMethod("fibonacciNotify(uint256)", "10", false)));
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TriggerSmartContract);
 
