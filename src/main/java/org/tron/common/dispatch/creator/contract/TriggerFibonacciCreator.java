@@ -22,7 +22,7 @@ public class TriggerFibonacciCreator extends AbstractTransferTransactionCreator 
   protected Protocol.Transaction create() {
     TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
 
-    String param = "2000";
+    String param = "20000";
 
     TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58
         .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
