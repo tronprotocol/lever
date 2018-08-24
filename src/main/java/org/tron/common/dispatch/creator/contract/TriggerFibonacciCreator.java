@@ -2,6 +2,7 @@ package org.tron.common.dispatch.creator.contract;
 
 import static org.tron.core.contract.CreateSmartContract.triggerCallContract;
 
+import java.util.Random;
 import org.tron.common.crypto.ECKey;
 import org.tron.common.dispatch.GoodCaseTransactonCreator;
 import org.tron.common.dispatch.TransactionFactory;
@@ -21,9 +22,12 @@ public class TriggerFibonacciCreator extends AbstractTransferTransactionCreator 
   protected Protocol.Transaction create() {
     TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
 
+    Random random = new Random();
+    String param = "" + random.nextInt(20);
+
     TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58
         .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
-        .decode(AbiUtil.parseMethod("fibonacciNotify(uint256)", "10", false)));
+        .decode(AbiUtil.parseMethod("fibonacciNotify(uint256)", param, false)));
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TriggerSmartContract);
 
