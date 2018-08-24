@@ -29,12 +29,6 @@ public abstract class AbstractTransactionCreator extends Level2Strategy {
 
   // trigger contract
   protected byte[] contractAddress = Base58.decodeFromBase58Check("27UscVhqkUcCmZzzG1UQthRdiAtY4X4LiUD"); // 通过wallet-cli部署合约后得到合约地址
-  protected long callValue = 0;
-  protected String methodStr = "multiply(int256,int256)";
-  protected String argsStr = "3,4";
-
-  // trigger contract airdrop
-  protected String airDropMethodStr = "transfer(address,uint256)";
 
   protected HashMap<String, String> voteWitnessMap = new HashMap<String, String>() {
     {

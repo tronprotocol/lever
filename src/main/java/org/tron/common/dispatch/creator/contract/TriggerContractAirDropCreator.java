@@ -31,8 +31,8 @@ public class TriggerContractAirDropCreator extends AbstractTransferTransactionCr
 
     String airDropMArgsStr = "\""+ addressBase58 +"\",\"1\"";
 
-    TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58.decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), callValue, org.bouncycastle.util.encoders.Hex
-        .decode(AbiUtil.parseMethod(airDropMethodStr, airDropMArgsStr, false)));
+    TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58.decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
+        .decode(AbiUtil.parseMethod("transfer(address,uint256)", airDropMArgsStr, false)));
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TriggerSmartContract);
 

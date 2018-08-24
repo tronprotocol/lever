@@ -16,18 +16,18 @@ import org.tron.protos.Contract.TriggerSmartContract;
 import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 
-public class TriggerContractTransactionCreator extends AbstractTransferTransactionCreator implements GoodCaseTransactonCreator {
+public class TriggerFibonacciCreator extends AbstractTransferTransactionCreator implements GoodCaseTransactonCreator {
   @Override
   protected Protocol.Transaction create() {
     TransactionFactory.context.getBean(CreatorCounter.class).put(this.getClass().getName());
 
     TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58
         .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
-        .decode(AbiUtil.parseMethod("multiply(int256,int256)", "3,4", false)));
+        .decode(AbiUtil.parseMethod("fibonacciNotify(uint256)", "20", false)));
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TriggerSmartContract);
 
-    transaction = transaction.toBuilder().setRawData(transaction.getRawData().toBuilder().setFeeLimit(10000000).build()).build();
+    transaction = transaction.toBuilder().setRawData(transaction.getRawData().toBuilder().setFeeLimit(1000000000).build()).build();
 
     transaction = TransactionUtils.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
