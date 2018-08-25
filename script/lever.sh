@@ -15,8 +15,6 @@
 TYPE=""
 COUNT=0
 TPS=0
-BRANCH=""
-COMMIT_ID=""
 
 # -----------------------------------------------------------------------------
 # Input --!>
@@ -54,18 +52,6 @@ XMS="40g"
 # -----------------------------------------------------------------------------
 # <!-- Variable
 # -----------------------------------------------------------------------------
-
-# Flag
-DC_FLAG=1
-
-# Deploy contract
-DC_GRPC=${NODES[0]}
-DC_PRIVATE_KEY="cbe57d98134c118ed0d219c0c8bc4154372c02c1e13b5cce30dd22ecd7bed19e"
-DC_CONTRACT_NAME="test"
-DC_OWNER_ADDRESS="27meR2d4HodFPYX2V8YRDrLuFpYdbLvBEWi"
-DC_ABI=""
-DC_CODE=""
-DC_FEE_LIMIT=0
 
 # -----------------------------------------------------------------------------
 # Variable --!>
@@ -172,40 +158,6 @@ checkNodesTronStatus() {
   done
 }
 
-searchLatestBlockNum() {
-  printTask "Searching latest block number of $1"
-
-  result=`ssh -p 22008 tron@$1 "cd /data/java-tron/logs && cat tron.log | grep\
-         'update latest block header number' | tail -n 1 | grep -o -n '[0-9]*'\
-         | tail -n 1" 2> ${LOG_ERROR_FILE} | awk -F ':' '{print $2}'`
-
-  checkError
-
-  printResult "Latest block number of $1: ${result}"
-  return ${result}
-}
-
-checkLatestBlockNum() {
-  printTask "Checking latest block number"
-  successCount=0
-
-  until [ ! ${successCount} -lt ${#NODES[@]} ]
-  do
-    successCount=0
-
-    for node in ${NODES[@]}; do
-      result=`ssh -p 22008 tron@${node} "cd /data/java-tron/logs && cat tron.log|grep \"$1\""`
-
-      if [ "${result}" != "" ]; then
-        let "successCount++"
-      fi
-    done
-
-    printResult "Current success count: $successCount, need: ${#NODES[@]}"
-    sleep 3
-  done
-}
-
 init() {
   printTask "Init"
   echo "" > ${LOG_ERROR_FILE}
@@ -244,26 +196,6 @@ parse() {
         fi
       ;;
 
-      --branch)
-        if [ -n "$2" ]; then
-          BRANCH=$2
-          shift 2
-        else
-          printError "Please input <--branch [branch] or --commit-id [commit-id]>"
-          exit 1
-        fi
-      ;;
-
-      --commit-id)
-        if [ -n "$2" ]; then
-          COMMIT_ID=$2
-          shift 2
-        else
-          printError "Please input <--branch [branch] or --commit-id [commit-id]>"
-          exit 1
-        fi
-      ;;
-
       *)
         shift
       ;;
@@ -298,11 +230,6 @@ parse() {
     printError "--tps must > 0"
     exit
   fi
-
-  if [[ ( ${BRANCH} == "" ) && ( ${COMMIT_ID} == "" ) ]]; then
-    printError "--branch or --commit-id must have one"
-    exit
-  fi
 }
 
 updateLever() {
@@ -319,55 +246,6 @@ updateLever() {
   git clean -d -f
   git pull --rebase
 }
-
-buildDeployContract() {
-  printTask "Building deploy contract tool"
-
-  if [ ! -e ${TOOLS_PATH} ]; then
-    mkdir -p ${TOOLS_PATH}
-  fi
-
-  cd ${LEVER_PATH}
-  ./gradlew clean shadowJar -PmainClass=org.tron.program.DeployContract
-  cp build/libs/org.tron.program.DeployContract.jar ${TOOLS_PATH}/deploy-contract.jar
-}
-
-buildGenerateAccount() {
-  printTask "Building generate account tool"
-
-  if [ ! -e ${TOOLS_PATH} ]; then
-    mkdir -p ${TOOLS_PATH}
-  fi
-
-  cd ${LEVER_PATH}
-  ./gradlew clean shadowJar -PmainClass=org.tron.program.GenerateAccount
-  cp build/libs/org.tron.program.GenerateAccount.jar ${TOOLS_PATH}/generate-account.jar
-}
-
-deployContract() {
-  printTask "Deploying contract"
-
-  cd ${TOOLS_PATH}
-
-  result=`java -jar Xms${XMS} -Xmx40g${XMX} deploy-contract.jar --grpc \
- ${DC_GRPC}:50051 --private-key ${DC_PRIVATE_KEY} --contract-name \
- ${DC_CONTRACT_NAME} --owner-address ${DC_OWNER_ADDRESS} \
- --abi ${DC_ABI} --code ${DC_CODE} --feeLimit \
- ${DC_FEE_LIMIT}`
-
-  echo ${result}
-}
-
-generateAccount() {
-  printTask "Generating ${1} accounts"
-
-  cd ${TOOLS_PATH}
-  java -jar Xms${XMS} -Xmx40g${XMX} generate-account.jar --count "${1}"
-}
-
-#getNextBlockNum() {
-#
-#}
 
 # -----------------------------------------------------------------------------
 # Function --!>
@@ -389,6 +267,3 @@ init
 
 # updateLever
 
-
-
-# checkLatestBlockNum "update latest block header number = 1"
