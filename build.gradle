@@ -8,7 +8,7 @@ apply plugin: 'idea'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = 1.8
-mainClassName = "org.tron.program.RpcHunterListAccount"
+mainClassName = "org.tron.program.Lever"
 if (project.hasProperty("mainClass")) {
     mainClassName = mainClass
 }
@@ -38,8 +38,6 @@ buildscript {
 }
 
 dependencies {
-    compile group: 'org.apache.jmeter', name: 'ApacheJMeter_java', version: '4.0'
-
     // google grpc
     compile group: 'io.grpc', name: 'grpc-netty', version: '1.9.0'
     compile group: 'io.grpc', name: 'grpc-protobuf', version: '1.9.0'
@@ -58,9 +56,6 @@ dependencies {
 
     compile "org.projectlombok:lombok:1.16.18"
 
-    // csv
-    compile group: 'org.apache.commons', name: 'commons-csv', version: '1.5'
-
     // command
     compile group: 'com.beust', name: 'jcommander', version: '1.72'
 
@@ -74,8 +69,7 @@ dependencies {
 
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.2'
 
-    // progress bar
-    compile group: 'me.tongfei', name: 'progressbar', version: '0.7.1'
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.54'
 }
 
 sourceSets {

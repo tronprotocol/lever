@@ -27,7 +27,6 @@ import java.security.Security;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tron.common.crypto.jce.TronCastleProvider;
-import org.tron.common.config.Parameter.CommonConstant;
 
 public class Hash {
 
@@ -37,7 +36,7 @@ public class Hash {
   private static final String HASH_256_ALGORITHM_NAME;
   private static final String HASH_512_ALGORITHM_NAME;
 
-  public static byte addressPrefix = CommonConstant.ADD_PRE_FIX_BYTE_TESTNET;
+  public static byte addressPrefix = (byte) 0xa0;
 
   private static final MessageDigest sha256digest;
 
@@ -139,10 +138,10 @@ public class Hash {
   }
 
   public static void changeAddressPrefixTestnet() {
-    addressPrefix = CommonConstant.ADD_PRE_FIX_BYTE_TESTNET;
+    addressPrefix = (byte) 0xa0;
   }
 
   public static void changeAddressPrefixMainnet() {
-    addressPrefix = CommonConstant.ADD_PRE_FIX_BYTE_MAINNET;
+    addressPrefix = (byte) 0x41;
   }
 }
