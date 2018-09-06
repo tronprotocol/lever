@@ -39,6 +39,15 @@ public class Args {
     instance = null;
   }
 
+  @Getter
   @Parameter(names = {"--grpcs"}, description = "gRPC host like: 127.0.0.1:50051", required = true)
   private List<String> grpcs = new ArrayList<>();
+
+  @Getter
+  @Parameter(names = {"--net-type"}, description = "Net type")
+  private String netType = "testnet";
+
+  @Getter
+  @Parameter(names = {"--contract-address"}, description = "Contract address")
+  private String contractAddress = "";
 }

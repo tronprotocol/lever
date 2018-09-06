@@ -16952,6 +16952,15 @@ public final class Protocol {
      * <code>int64 net_fee = 6;</code>
      */
     long getNetFee();
+
+    /**
+     * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+     */
+    int getResultValue();
+    /**
+     * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+     */
+    org.tron.protos.Protocol.Transaction.Result.contractResult getResult();
   }
   /**
    * Protobuf type {@code protocol.ResourceReceipt}
@@ -16972,6 +16981,7 @@ public final class Protocol {
       energyUsageTotal_ = 0L;
       netUsage_ = 0L;
       netFee_ = 0L;
+      result_ = 0;
     }
 
     @java.lang.Override
@@ -17035,6 +17045,12 @@ public final class Protocol {
               netFee_ = input.readInt64();
               break;
             }
+            case 56: {
+              int rawValue = input.readEnum();
+
+              result_ = rawValue;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -17057,104 +17073,6 @@ public final class Protocol {
       return org.tron.protos.Protocol.internal_static_protocol_ResourceReceipt_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.tron.protos.Protocol.ResourceReceipt.class, org.tron.protos.Protocol.ResourceReceipt.Builder.class);
-    }
-
-    /**
-     * Protobuf enum {@code protocol.ResourceReceipt.code}
-     */
-    public enum code
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>SUCCESS = 0;</code>
-       */
-      SUCCESS(0),
-      /**
-       * <code>FAILED = 1;</code>
-       */
-      FAILED(1),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>SUCCESS = 0;</code>
-       */
-      public static final int SUCCESS_VALUE = 0;
-      /**
-       * <code>FAILED = 1;</code>
-       */
-      public static final int FAILED_VALUE = 1;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static code valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static code forNumber(int value) {
-        switch (value) {
-          case 0: return SUCCESS;
-          case 1: return FAILED;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<code>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          code> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<code>() {
-              public code findValueByNumber(int number) {
-                return code.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return org.tron.protos.Protocol.ResourceReceipt.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final code[] VALUES = values();
-
-      public static code valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private code(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:protocol.ResourceReceipt.code)
     }
 
     public static final int ENERGY_USAGE_FIELD_NUMBER = 1;
@@ -17211,6 +17129,22 @@ public final class Protocol {
       return netFee_;
     }
 
+    public static final int RESULT_FIELD_NUMBER = 7;
+    private int result_;
+    /**
+     * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+     */
+    public int getResultValue() {
+      return result_;
+    }
+    /**
+     * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+     */
+    public org.tron.protos.Protocol.Transaction.Result.contractResult getResult() {
+      org.tron.protos.Protocol.Transaction.Result.contractResult result = org.tron.protos.Protocol.Transaction.Result.contractResult.valueOf(result_);
+      return result == null ? org.tron.protos.Protocol.Transaction.Result.contractResult.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -17240,6 +17174,9 @@ public final class Protocol {
       }
       if (netFee_ != 0L) {
         output.writeInt64(6, netFee_);
+      }
+      if (result_ != org.tron.protos.Protocol.Transaction.Result.contractResult.DEFAULT.getNumber()) {
+        output.writeEnum(7, result_);
       }
       unknownFields.writeTo(output);
     }
@@ -17273,6 +17210,10 @@ public final class Protocol {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, netFee_);
       }
+      if (result_ != org.tron.protos.Protocol.Transaction.Result.contractResult.DEFAULT.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(7, result_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -17301,6 +17242,7 @@ public final class Protocol {
           == other.getNetUsage());
       result = result && (getNetFee()
           == other.getNetFee());
+      result = result && result_ == other.result_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -17330,6 +17272,8 @@ public final class Protocol {
       hash = (37 * hash) + NET_FEE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getNetFee());
+      hash = (37 * hash) + RESULT_FIELD_NUMBER;
+      hash = (53 * hash) + result_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -17471,6 +17415,8 @@ public final class Protocol {
 
         netFee_ = 0L;
 
+        result_ = 0;
+
         return this;
       }
 
@@ -17499,6 +17445,7 @@ public final class Protocol {
         result.energyUsageTotal_ = energyUsageTotal_;
         result.netUsage_ = netUsage_;
         result.netFee_ = netFee_;
+        result.result_ = result_;
         onBuilt();
         return result;
       }
@@ -17557,6 +17504,9 @@ public final class Protocol {
         }
         if (other.getNetFee() != 0L) {
           setNetFee(other.getNetFee());
+        }
+        if (other.result_ != 0) {
+          setResultValue(other.getResultValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -17737,6 +17687,50 @@ public final class Protocol {
       public Builder clearNetFee() {
         
         netFee_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int result_ = 0;
+      /**
+       * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+       */
+      public int getResultValue() {
+        return result_;
+      }
+      /**
+       * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+       */
+      public Builder setResultValue(int value) {
+        result_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+       */
+      public org.tron.protos.Protocol.Transaction.Result.contractResult getResult() {
+        org.tron.protos.Protocol.Transaction.Result.contractResult result = org.tron.protos.Protocol.Transaction.Result.contractResult.valueOf(result_);
+        return result == null ? org.tron.protos.Protocol.Transaction.Result.contractResult.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+       */
+      public Builder setResult(org.tron.protos.Protocol.Transaction.Result.contractResult value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        result_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.protocol.Transaction.Result.contractResult result = 7;</code>
+       */
+      public Builder clearResult() {
+        
+        result_ = 0;
         onChanged();
         return this;
       }
@@ -19132,6 +19126,15 @@ public final class Protocol {
       org.tron.protos.Protocol.Transaction.Result.code getRet();
 
       /**
+       * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+       */
+      int getContractRetValue();
+      /**
+       * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+       */
+      org.tron.protos.Protocol.Transaction.Result.contractResult getContractRet();
+
+      /**
        * <code>int64 withdraw_amount = 15;</code>
        */
       long getWithdrawAmount();
@@ -19156,6 +19159,7 @@ public final class Protocol {
       private Result() {
         fee_ = 0L;
         ret_ = 0;
+        contractRet_ = 0;
         withdrawAmount_ = 0L;
         unfreezeAmount_ = 0L;
       }
@@ -19200,6 +19204,12 @@ public final class Protocol {
                 int rawValue = input.readEnum();
 
                 ret_ = rawValue;
+                break;
+              }
+              case 24: {
+                int rawValue = input.readEnum();
+
+                contractRet_ = rawValue;
                 break;
               }
               case 120: {
@@ -19334,6 +19344,212 @@ public final class Protocol {
         // @@protoc_insertion_point(enum_scope:protocol.Transaction.Result.code)
       }
 
+      /**
+       * Protobuf enum {@code protocol.Transaction.Result.contractResult}
+       */
+      public enum contractResult
+          implements com.google.protobuf.ProtocolMessageEnum {
+        /**
+         * <code>DEFAULT = 0;</code>
+         */
+        DEFAULT(0),
+        /**
+         * <code>SUCCESS = 1;</code>
+         */
+        SUCCESS(1),
+        /**
+         * <code>REVERT = 2;</code>
+         */
+        REVERT(2),
+        /**
+         * <code>BAD_JUMP_DESTINATION = 3;</code>
+         */
+        BAD_JUMP_DESTINATION(3),
+        /**
+         * <code>OUT_OF_MEMORY = 4;</code>
+         */
+        OUT_OF_MEMORY(4),
+        /**
+         * <code>PRECOMPILED_CONTRACT = 5;</code>
+         */
+        PRECOMPILED_CONTRACT(5),
+        /**
+         * <code>STACK_TOO_SMALL = 6;</code>
+         */
+        STACK_TOO_SMALL(6),
+        /**
+         * <code>STACK_TOO_LARGE = 7;</code>
+         */
+        STACK_TOO_LARGE(7),
+        /**
+         * <code>ILLEGAL_OPERATION = 8;</code>
+         */
+        ILLEGAL_OPERATION(8),
+        /**
+         * <code>STACK_OVERFLOW = 9;</code>
+         */
+        STACK_OVERFLOW(9),
+        /**
+         * <code>OUT_OF_ENERGY = 10;</code>
+         */
+        OUT_OF_ENERGY(10),
+        /**
+         * <code>OUT_OF_TIME = 11;</code>
+         */
+        OUT_OF_TIME(11),
+        /**
+         * <code>JVM_STACK_OVER_FLOW = 12;</code>
+         */
+        JVM_STACK_OVER_FLOW(12),
+        /**
+         * <code>UNKNOWN = 13;</code>
+         */
+        UNKNOWN(13),
+        UNRECOGNIZED(-1),
+        ;
+
+        /**
+         * <code>DEFAULT = 0;</code>
+         */
+        public static final int DEFAULT_VALUE = 0;
+        /**
+         * <code>SUCCESS = 1;</code>
+         */
+        public static final int SUCCESS_VALUE = 1;
+        /**
+         * <code>REVERT = 2;</code>
+         */
+        public static final int REVERT_VALUE = 2;
+        /**
+         * <code>BAD_JUMP_DESTINATION = 3;</code>
+         */
+        public static final int BAD_JUMP_DESTINATION_VALUE = 3;
+        /**
+         * <code>OUT_OF_MEMORY = 4;</code>
+         */
+        public static final int OUT_OF_MEMORY_VALUE = 4;
+        /**
+         * <code>PRECOMPILED_CONTRACT = 5;</code>
+         */
+        public static final int PRECOMPILED_CONTRACT_VALUE = 5;
+        /**
+         * <code>STACK_TOO_SMALL = 6;</code>
+         */
+        public static final int STACK_TOO_SMALL_VALUE = 6;
+        /**
+         * <code>STACK_TOO_LARGE = 7;</code>
+         */
+        public static final int STACK_TOO_LARGE_VALUE = 7;
+        /**
+         * <code>ILLEGAL_OPERATION = 8;</code>
+         */
+        public static final int ILLEGAL_OPERATION_VALUE = 8;
+        /**
+         * <code>STACK_OVERFLOW = 9;</code>
+         */
+        public static final int STACK_OVERFLOW_VALUE = 9;
+        /**
+         * <code>OUT_OF_ENERGY = 10;</code>
+         */
+        public static final int OUT_OF_ENERGY_VALUE = 10;
+        /**
+         * <code>OUT_OF_TIME = 11;</code>
+         */
+        public static final int OUT_OF_TIME_VALUE = 11;
+        /**
+         * <code>JVM_STACK_OVER_FLOW = 12;</code>
+         */
+        public static final int JVM_STACK_OVER_FLOW_VALUE = 12;
+        /**
+         * <code>UNKNOWN = 13;</code>
+         */
+        public static final int UNKNOWN_VALUE = 13;
+
+
+        public final int getNumber() {
+          if (this == UNRECOGNIZED) {
+            throw new java.lang.IllegalArgumentException(
+                "Can't get the number of an unknown enum value.");
+          }
+          return value;
+        }
+
+        /**
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static contractResult valueOf(int value) {
+          return forNumber(value);
+        }
+
+        public static contractResult forNumber(int value) {
+          switch (value) {
+            case 0: return DEFAULT;
+            case 1: return SUCCESS;
+            case 2: return REVERT;
+            case 3: return BAD_JUMP_DESTINATION;
+            case 4: return OUT_OF_MEMORY;
+            case 5: return PRECOMPILED_CONTRACT;
+            case 6: return STACK_TOO_SMALL;
+            case 7: return STACK_TOO_LARGE;
+            case 8: return ILLEGAL_OPERATION;
+            case 9: return STACK_OVERFLOW;
+            case 10: return OUT_OF_ENERGY;
+            case 11: return OUT_OF_TIME;
+            case 12: return JVM_STACK_OVER_FLOW;
+            case 13: return UNKNOWN;
+            default: return null;
+          }
+        }
+
+        public static com.google.protobuf.Internal.EnumLiteMap<contractResult>
+            internalGetValueMap() {
+          return internalValueMap;
+        }
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+            contractResult> internalValueMap =
+              new com.google.protobuf.Internal.EnumLiteMap<contractResult>() {
+                public contractResult findValueByNumber(int number) {
+                  return contractResult.forNumber(number);
+                }
+              };
+
+        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+            getValueDescriptor() {
+          return getDescriptor().getValues().get(ordinal());
+        }
+        public final com.google.protobuf.Descriptors.EnumDescriptor
+            getDescriptorForType() {
+          return getDescriptor();
+        }
+        public static final com.google.protobuf.Descriptors.EnumDescriptor
+            getDescriptor() {
+          return org.tron.protos.Protocol.Transaction.Result.getDescriptor().getEnumTypes().get(1);
+        }
+
+        private static final contractResult[] VALUES = values();
+
+        public static contractResult valueOf(
+            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+          if (desc.getType() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+              "EnumValueDescriptor is not for this type.");
+          }
+          if (desc.getIndex() == -1) {
+            return UNRECOGNIZED;
+          }
+          return VALUES[desc.getIndex()];
+        }
+
+        private final int value;
+
+        private contractResult(int value) {
+          this.value = value;
+        }
+
+        // @@protoc_insertion_point(enum_scope:protocol.Transaction.Result.contractResult)
+      }
+
       public static final int FEE_FIELD_NUMBER = 1;
       private long fee_;
       /**
@@ -19357,6 +19573,22 @@ public final class Protocol {
       public org.tron.protos.Protocol.Transaction.Result.code getRet() {
         org.tron.protos.Protocol.Transaction.Result.code result = org.tron.protos.Protocol.Transaction.Result.code.valueOf(ret_);
         return result == null ? org.tron.protos.Protocol.Transaction.Result.code.UNRECOGNIZED : result;
+      }
+
+      public static final int CONTRACTRET_FIELD_NUMBER = 3;
+      private int contractRet_;
+      /**
+       * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+       */
+      public int getContractRetValue() {
+        return contractRet_;
+      }
+      /**
+       * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+       */
+      public org.tron.protos.Protocol.Transaction.Result.contractResult getContractRet() {
+        org.tron.protos.Protocol.Transaction.Result.contractResult result = org.tron.protos.Protocol.Transaction.Result.contractResult.valueOf(contractRet_);
+        return result == null ? org.tron.protos.Protocol.Transaction.Result.contractResult.UNRECOGNIZED : result;
       }
 
       public static final int WITHDRAW_AMOUNT_FIELD_NUMBER = 15;
@@ -19395,6 +19627,9 @@ public final class Protocol {
         if (ret_ != org.tron.protos.Protocol.Transaction.Result.code.SUCESS.getNumber()) {
           output.writeEnum(2, ret_);
         }
+        if (contractRet_ != org.tron.protos.Protocol.Transaction.Result.contractResult.DEFAULT.getNumber()) {
+          output.writeEnum(3, contractRet_);
+        }
         if (withdrawAmount_ != 0L) {
           output.writeInt64(15, withdrawAmount_);
         }
@@ -19416,6 +19651,10 @@ public final class Protocol {
         if (ret_ != org.tron.protos.Protocol.Transaction.Result.code.SUCESS.getNumber()) {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(2, ret_);
+        }
+        if (contractRet_ != org.tron.protos.Protocol.Transaction.Result.contractResult.DEFAULT.getNumber()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeEnumSize(3, contractRet_);
         }
         if (withdrawAmount_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
@@ -19444,6 +19683,7 @@ public final class Protocol {
         result = result && (getFee()
             == other.getFee());
         result = result && ret_ == other.ret_;
+        result = result && contractRet_ == other.contractRet_;
         result = result && (getWithdrawAmount()
             == other.getWithdrawAmount());
         result = result && (getUnfreezeAmount()
@@ -19464,6 +19704,8 @@ public final class Protocol {
             getFee());
         hash = (37 * hash) + RET_FIELD_NUMBER;
         hash = (53 * hash) + ret_;
+        hash = (37 * hash) + CONTRACTRET_FIELD_NUMBER;
+        hash = (53 * hash) + contractRet_;
         hash = (37 * hash) + WITHDRAW_AMOUNT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getWithdrawAmount());
@@ -19603,6 +19845,8 @@ public final class Protocol {
 
           ret_ = 0;
 
+          contractRet_ = 0;
+
           withdrawAmount_ = 0L;
 
           unfreezeAmount_ = 0L;
@@ -19631,6 +19875,7 @@ public final class Protocol {
           org.tron.protos.Protocol.Transaction.Result result = new org.tron.protos.Protocol.Transaction.Result(this);
           result.fee_ = fee_;
           result.ret_ = ret_;
+          result.contractRet_ = contractRet_;
           result.withdrawAmount_ = withdrawAmount_;
           result.unfreezeAmount_ = unfreezeAmount_;
           onBuilt();
@@ -19679,6 +19924,9 @@ public final class Protocol {
           }
           if (other.ret_ != 0) {
             setRetValue(other.getRetValue());
+          }
+          if (other.contractRet_ != 0) {
+            setContractRetValue(other.getContractRetValue());
           }
           if (other.getWithdrawAmount() != 0L) {
             setWithdrawAmount(other.getWithdrawAmount());
@@ -19779,6 +20027,50 @@ public final class Protocol {
         public Builder clearRet() {
           
           ret_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private int contractRet_ = 0;
+        /**
+         * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+         */
+        public int getContractRetValue() {
+          return contractRet_;
+        }
+        /**
+         * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+         */
+        public Builder setContractRetValue(int value) {
+          contractRet_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+         */
+        public org.tron.protos.Protocol.Transaction.Result.contractResult getContractRet() {
+          org.tron.protos.Protocol.Transaction.Result.contractResult result = org.tron.protos.Protocol.Transaction.Result.contractResult.valueOf(contractRet_);
+          return result == null ? org.tron.protos.Protocol.Transaction.Result.contractResult.UNRECOGNIZED : result;
+        }
+        /**
+         * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+         */
+        public Builder setContractRet(org.tron.protos.Protocol.Transaction.Result.contractResult value) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          
+          contractRet_ = value.getNumber();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>.protocol.Transaction.Result.contractResult contractRet = 3;</code>
+         */
+        public Builder clearContractRet() {
+          
+          contractRet_ = 0;
           onChanged();
           return this;
         }
@@ -26717,6 +27009,11 @@ public final class Protocol {
        * <code>bytes witness_address = 9;</code>
        */
       com.google.protobuf.ByteString getWitnessAddress();
+
+      /**
+       * <code>int32 version = 10;</code>
+       */
+      int getVersion();
     }
     /**
      * Protobuf type {@code protocol.BlockHeader.raw}
@@ -26737,6 +27034,7 @@ public final class Protocol {
         number_ = 0L;
         witnessId_ = 0L;
         witnessAddress_ = com.google.protobuf.ByteString.EMPTY;
+        version_ = 0;
       }
 
       @java.lang.Override
@@ -26798,6 +27096,11 @@ public final class Protocol {
               case 74: {
 
                 witnessAddress_ = input.readBytes();
+                break;
+              }
+              case 80: {
+
+                version_ = input.readInt32();
                 break;
               }
             }
@@ -26883,6 +27186,15 @@ public final class Protocol {
         return witnessAddress_;
       }
 
+      public static final int VERSION_FIELD_NUMBER = 10;
+      private int version_;
+      /**
+       * <code>int32 version = 10;</code>
+       */
+      public int getVersion() {
+        return version_;
+      }
+
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -26912,6 +27224,9 @@ public final class Protocol {
         }
         if (!witnessAddress_.isEmpty()) {
           output.writeBytes(9, witnessAddress_);
+        }
+        if (version_ != 0) {
+          output.writeInt32(10, version_);
         }
         unknownFields.writeTo(output);
       }
@@ -26945,6 +27260,10 @@ public final class Protocol {
           size += com.google.protobuf.CodedOutputStream
             .computeBytesSize(9, witnessAddress_);
         }
+        if (version_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(10, version_);
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
@@ -26973,6 +27292,8 @@ public final class Protocol {
             == other.getWitnessId());
         result = result && getWitnessAddress()
             .equals(other.getWitnessAddress());
+        result = result && (getVersion()
+            == other.getVersion());
         result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
@@ -26999,6 +27320,8 @@ public final class Protocol {
             getWitnessId());
         hash = (37 * hash) + WITNESS_ADDRESS_FIELD_NUMBER;
         hash = (53 * hash) + getWitnessAddress().hashCode();
+        hash = (37 * hash) + VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getVersion();
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -27140,6 +27463,8 @@ public final class Protocol {
 
           witnessAddress_ = com.google.protobuf.ByteString.EMPTY;
 
+          version_ = 0;
+
           return this;
         }
 
@@ -27168,6 +27493,7 @@ public final class Protocol {
           result.number_ = number_;
           result.witnessId_ = witnessId_;
           result.witnessAddress_ = witnessAddress_;
+          result.version_ = version_;
           onBuilt();
           return result;
         }
@@ -27226,6 +27552,9 @@ public final class Protocol {
           }
           if (other.getWitnessAddress() != com.google.protobuf.ByteString.EMPTY) {
             setWitnessAddress(other.getWitnessAddress());
+          }
+          if (other.getVersion() != 0) {
+            setVersion(other.getVersion());
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -27430,6 +27759,32 @@ public final class Protocol {
         public Builder clearWitnessAddress() {
           
           witnessAddress_ = getDefaultInstance().getWitnessAddress();
+          onChanged();
+          return this;
+        }
+
+        private int version_ ;
+        /**
+         * <code>int32 version = 10;</code>
+         */
+        public int getVersion() {
+          return version_;
+        }
+        /**
+         * <code>int32 version = 10;</code>
+         */
+        public Builder setVersion(int value) {
+          
+          version_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>int32 version = 10;</code>
+         */
+        public Builder clearVersion() {
+          
+          version_ = 0;
           onChanged();
           return this;
         }
@@ -36996,1311 +37351,6 @@ public final class Protocol {
 
   }
 
-  public interface StorageItemOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protocol.StorageItem)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>bytes contract_address = 1;</code>
-     */
-    com.google.protobuf.ByteString getContractAddress();
-
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-    int getItemsCount();
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-    boolean containsItems(
-        java.lang.String key);
-    /**
-     * Use {@link #getItemsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, com.google.protobuf.ByteString>
-    getItems();
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-    java.util.Map<java.lang.String, com.google.protobuf.ByteString>
-    getItemsMap();
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-
-    com.google.protobuf.ByteString getItemsOrDefault(
-        java.lang.String key,
-        com.google.protobuf.ByteString defaultValue);
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-
-    com.google.protobuf.ByteString getItemsOrThrow(
-        java.lang.String key);
-  }
-  /**
-   * Protobuf type {@code protocol.StorageItem}
-   */
-  public  static final class StorageItem extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protocol.StorageItem)
-      StorageItemOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use StorageItem.newBuilder() to construct.
-    private StorageItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private StorageItem() {
-      contractAddress_ = com.google.protobuf.ByteString.EMPTY;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private StorageItem(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-
-              contractAddress_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                items_ = com.google.protobuf.MapField.newMapField(
-                    ItemsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
-              items__ = input.readMessage(
-                  ItemsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              items_.getMutableMap().put(
-                  items__.getKey(), items__.getValue());
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_StorageItem_descriptor;
-    }
-
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 2:
-          return internalGetItems();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_StorageItem_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.StorageItem.class, org.tron.protos.Protocol.StorageItem.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int CONTRACT_ADDRESS_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString contractAddress_;
-    /**
-     * <code>bytes contract_address = 1;</code>
-     */
-    public com.google.protobuf.ByteString getContractAddress() {
-      return contractAddress_;
-    }
-
-    public static final int ITEMS_FIELD_NUMBER = 2;
-    private static final class ItemsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, com.google.protobuf.ByteString> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, com.google.protobuf.ByteString>newDefaultInstance(
-                  org.tron.protos.Protocol.internal_static_protocol_StorageItem_ItemsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.BYTES,
-                  com.google.protobuf.ByteString.EMPTY);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, com.google.protobuf.ByteString> items_;
-    private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-    internalGetItems() {
-      if (items_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            ItemsDefaultEntryHolder.defaultEntry);
-      }
-      return items_;
-    }
-
-    public int getItemsCount() {
-      return internalGetItems().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-
-    public boolean containsItems(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetItems().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getItemsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getItems() {
-      return getItemsMap();
-    }
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-
-    public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getItemsMap() {
-      return internalGetItems().getMap();
-    }
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-
-    public com.google.protobuf.ByteString getItemsOrDefault(
-        java.lang.String key,
-        com.google.protobuf.ByteString defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
-          internalGetItems().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, bytes&gt; items = 2;</code>
-     */
-
-    public com.google.protobuf.ByteString getItemsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
-          internalGetItems().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!contractAddress_.isEmpty()) {
-        output.writeBytes(1, contractAddress_);
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetItems(),
-          ItemsDefaultEntryHolder.defaultEntry,
-          2);
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!contractAddress_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, contractAddress_);
-      }
-      for (java.util.Map.Entry<java.lang.String, com.google.protobuf.ByteString> entry
-           : internalGetItems().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
-        items__ = ItemsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, items__);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof org.tron.protos.Protocol.StorageItem)) {
-        return super.equals(obj);
-      }
-      org.tron.protos.Protocol.StorageItem other = (org.tron.protos.Protocol.StorageItem) obj;
-
-      boolean result = true;
-      result = result && getContractAddress()
-          .equals(other.getContractAddress());
-      result = result && internalGetItems().equals(
-          other.internalGetItems());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CONTRACT_ADDRESS_FIELD_NUMBER;
-      hash = (53 * hash) + getContractAddress().hashCode();
-      if (!internalGetItems().getMap().isEmpty()) {
-        hash = (37 * hash) + ITEMS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetItems().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static org.tron.protos.Protocol.StorageItem parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.tron.protos.Protocol.StorageItem parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(org.tron.protos.Protocol.StorageItem prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code protocol.StorageItem}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protocol.StorageItem)
-        org.tron.protos.Protocol.StorageItemOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_StorageItem_descriptor;
-      }
-
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetItems();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetMutableItems();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_StorageItem_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.StorageItem.class, org.tron.protos.Protocol.StorageItem.Builder.class);
-      }
-
-      // Construct using org.tron.protos.Protocol.StorageItem.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        contractAddress_ = com.google.protobuf.ByteString.EMPTY;
-
-        internalGetMutableItems().clear();
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_StorageItem_descriptor;
-      }
-
-      public org.tron.protos.Protocol.StorageItem getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.StorageItem.getDefaultInstance();
-      }
-
-      public org.tron.protos.Protocol.StorageItem build() {
-        org.tron.protos.Protocol.StorageItem result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public org.tron.protos.Protocol.StorageItem buildPartial() {
-        org.tron.protos.Protocol.StorageItem result = new org.tron.protos.Protocol.StorageItem(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.contractAddress_ = contractAddress_;
-        result.items_ = internalGetItems();
-        result.items_.makeImmutable();
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.StorageItem) {
-          return mergeFrom((org.tron.protos.Protocol.StorageItem)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(org.tron.protos.Protocol.StorageItem other) {
-        if (other == org.tron.protos.Protocol.StorageItem.getDefaultInstance()) return this;
-        if (other.getContractAddress() != com.google.protobuf.ByteString.EMPTY) {
-          setContractAddress(other.getContractAddress());
-        }
-        internalGetMutableItems().mergeFrom(
-            other.internalGetItems());
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        org.tron.protos.Protocol.StorageItem parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.StorageItem) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.ByteString contractAddress_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes contract_address = 1;</code>
-       */
-      public com.google.protobuf.ByteString getContractAddress() {
-        return contractAddress_;
-      }
-      /**
-       * <code>bytes contract_address = 1;</code>
-       */
-      public Builder setContractAddress(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        contractAddress_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes contract_address = 1;</code>
-       */
-      public Builder clearContractAddress() {
-        
-        contractAddress_ = getDefaultInstance().getContractAddress();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, com.google.protobuf.ByteString> items_;
-      private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-      internalGetItems() {
-        if (items_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              ItemsDefaultEntryHolder.defaultEntry);
-        }
-        return items_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-      internalGetMutableItems() {
-        onChanged();;
-        if (items_ == null) {
-          items_ = com.google.protobuf.MapField.newMapField(
-              ItemsDefaultEntryHolder.defaultEntry);
-        }
-        if (!items_.isMutable()) {
-          items_ = items_.copy();
-        }
-        return items_;
-      }
-
-      public int getItemsCount() {
-        return internalGetItems().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, bytes&gt; items = 2;</code>
-       */
-
-      public boolean containsItems(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetItems().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getItemsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getItems() {
-        return getItemsMap();
-      }
-      /**
-       * <code>map&lt;string, bytes&gt; items = 2;</code>
-       */
-
-      public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getItemsMap() {
-        return internalGetItems().getMap();
-      }
-      /**
-       * <code>map&lt;string, bytes&gt; items = 2;</code>
-       */
-
-      public com.google.protobuf.ByteString getItemsOrDefault(
-          java.lang.String key,
-          com.google.protobuf.ByteString defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
-            internalGetItems().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, bytes&gt; items = 2;</code>
-       */
-
-      public com.google.protobuf.ByteString getItemsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
-            internalGetItems().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearItems() {
-        internalGetMutableItems().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, bytes&gt; items = 2;</code>
-       */
-
-      public Builder removeItems(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableItems().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, com.google.protobuf.ByteString>
-      getMutableItems() {
-        return internalGetMutableItems().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, bytes&gt; items = 2;</code>
-       */
-      public Builder putItems(
-          java.lang.String key,
-          com.google.protobuf.ByteString value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableItems().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, bytes&gt; items = 2;</code>
-       */
-
-      public Builder putAllItems(
-          java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
-        internalGetMutableItems().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:protocol.StorageItem)
-    }
-
-    // @@protoc_insertion_point(class_scope:protocol.StorageItem)
-    private static final org.tron.protos.Protocol.StorageItem DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.StorageItem();
-    }
-
-    public static org.tron.protos.Protocol.StorageItem getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<StorageItem>
-        PARSER = new com.google.protobuf.AbstractParser<StorageItem>() {
-      public StorageItem parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StorageItem(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<StorageItem> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<StorageItem> getParserForType() {
-      return PARSER;
-    }
-
-    public org.tron.protos.Protocol.StorageItem getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface StorageRowOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protocol.StorageRow)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * composition of contract_address and storage_key
-     * </pre>
-     *
-     * <code>bytes key = 1;</code>
-     */
-    com.google.protobuf.ByteString getKey();
-
-    /**
-     * <code>bytes value = 2;</code>
-     */
-    com.google.protobuf.ByteString getValue();
-  }
-  /**
-   * Protobuf type {@code protocol.StorageRow}
-   */
-  public  static final class StorageRow extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protocol.StorageRow)
-      StorageRowOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use StorageRow.newBuilder() to construct.
-    private StorageRow(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private StorageRow() {
-      key_ = com.google.protobuf.ByteString.EMPTY;
-      value_ = com.google.protobuf.ByteString.EMPTY;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private StorageRow(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-
-              key_ = input.readBytes();
-              break;
-            }
-            case 18: {
-
-              value_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.tron.protos.Protocol.internal_static_protocol_StorageRow_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.tron.protos.Protocol.internal_static_protocol_StorageRow_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.tron.protos.Protocol.StorageRow.class, org.tron.protos.Protocol.StorageRow.Builder.class);
-    }
-
-    public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_;
-    /**
-     * <pre>
-     * composition of contract_address and storage_key
-     * </pre>
-     *
-     * <code>bytes key = 1;</code>
-     */
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
-    }
-
-    public static final int VALUE_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString value_;
-    /**
-     * <code>bytes value = 2;</code>
-     */
-    public com.google.protobuf.ByteString getValue() {
-      return value_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!key_.isEmpty()) {
-        output.writeBytes(1, key_);
-      }
-      if (!value_.isEmpty()) {
-        output.writeBytes(2, value_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!key_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, key_);
-      }
-      if (!value_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, value_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof org.tron.protos.Protocol.StorageRow)) {
-        return super.equals(obj);
-      }
-      org.tron.protos.Protocol.StorageRow other = (org.tron.protos.Protocol.StorageRow) obj;
-
-      boolean result = true;
-      result = result && getKey()
-          .equals(other.getKey());
-      result = result && getValue()
-          .equals(other.getValue());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + KEY_FIELD_NUMBER;
-      hash = (53 * hash) + getKey().hashCode();
-      hash = (37 * hash) + VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static org.tron.protos.Protocol.StorageRow parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.tron.protos.Protocol.StorageRow parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(org.tron.protos.Protocol.StorageRow prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code protocol.StorageRow}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protocol.StorageRow)
-        org.tron.protos.Protocol.StorageRowOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.tron.protos.Protocol.internal_static_protocol_StorageRow_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.tron.protos.Protocol.internal_static_protocol_StorageRow_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.tron.protos.Protocol.StorageRow.class, org.tron.protos.Protocol.StorageRow.Builder.class);
-      }
-
-      // Construct using org.tron.protos.Protocol.StorageRow.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        key_ = com.google.protobuf.ByteString.EMPTY;
-
-        value_ = com.google.protobuf.ByteString.EMPTY;
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.tron.protos.Protocol.internal_static_protocol_StorageRow_descriptor;
-      }
-
-      public org.tron.protos.Protocol.StorageRow getDefaultInstanceForType() {
-        return org.tron.protos.Protocol.StorageRow.getDefaultInstance();
-      }
-
-      public org.tron.protos.Protocol.StorageRow build() {
-        org.tron.protos.Protocol.StorageRow result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public org.tron.protos.Protocol.StorageRow buildPartial() {
-        org.tron.protos.Protocol.StorageRow result = new org.tron.protos.Protocol.StorageRow(this);
-        result.key_ = key_;
-        result.value_ = value_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.tron.protos.Protocol.StorageRow) {
-          return mergeFrom((org.tron.protos.Protocol.StorageRow)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(org.tron.protos.Protocol.StorageRow other) {
-        if (other == org.tron.protos.Protocol.StorageRow.getDefaultInstance()) return this;
-        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
-          setKey(other.getKey());
-        }
-        if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
-          setValue(other.getValue());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        org.tron.protos.Protocol.StorageRow parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.tron.protos.Protocol.StorageRow) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <pre>
-       * composition of contract_address and storage_key
-       * </pre>
-       *
-       * <code>bytes key = 1;</code>
-       */
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
-      }
-      /**
-       * <pre>
-       * composition of contract_address and storage_key
-       * </pre>
-       *
-       * <code>bytes key = 1;</code>
-       */
-      public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        key_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * composition of contract_address and storage_key
-       * </pre>
-       *
-       * <code>bytes key = 1;</code>
-       */
-      public Builder clearKey() {
-        
-        key_ = getDefaultInstance().getKey();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes value = 2;</code>
-       */
-      public com.google.protobuf.ByteString getValue() {
-        return value_;
-      }
-      /**
-       * <code>bytes value = 2;</code>
-       */
-      public Builder setValue(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes value = 2;</code>
-       */
-      public Builder clearValue() {
-        
-        value_ = getDefaultInstance().getValue();
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:protocol.StorageRow)
-    }
-
-    // @@protoc_insertion_point(class_scope:protocol.StorageRow)
-    private static final org.tron.protos.Protocol.StorageRow DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new org.tron.protos.Protocol.StorageRow();
-    }
-
-    public static org.tron.protos.Protocol.StorageRow getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<StorageRow>
-        PARSER = new com.google.protobuf.AbstractParser<StorageRow>() {
-      public StorageRow parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StorageRow(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<StorageRow> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<StorageRow> getParserForType() {
-      return PARSER;
-    }
-
-    public org.tron.protos.Protocol.StorageRow getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface SmartContractOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protocol.SmartContract)
       com.google.protobuf.MessageOrBuilder {
@@ -42971,21 +42021,6 @@ public final class Protocol {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_HelloMessage_BlockId_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protocol_StorageItem_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protocol_StorageItem_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protocol_StorageItem_ItemsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protocol_StorageItem_ItemsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protocol_StorageRow_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protocol_StorageRow_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_SmartContract_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -43082,137 +42117,142 @@ public final class Protocol {
       "t.raw\022\021\n\tsignature\030\004 \001(\014\0321\n\003raw\022\014\n\004txID\030" +
       "\001 \001(\014\022\014\n\004vout\030\002 \001(\003\022\016\n\006pubKey\030\003 \001(\014\"0\n\tT" +
       "XOutputs\022#\n\007outputs\030\001 \003(\0132\022.protocol.TXO" +
-      "utput\"\271\001\n\017ResourceReceipt\022\024\n\014energy_usag" +
+      "utput\"\325\001\n\017ResourceReceipt\022\024\n\014energy_usag" +
       "e\030\001 \001(\003\022\022\n\nenergy_fee\030\002 \001(\003\022\033\n\023origin_en" +
       "ergy_usage\030\003 \001(\003\022\032\n\022energy_usage_total\030\004" +
       " \001(\003\022\021\n\tnet_usage\030\005 \001(\003\022\017\n\007net_fee\030\006 \001(\003" +
-      "\"\037\n\004code\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020\001\"\245\013\n\013Tr" +
-      "ansaction\022+\n\010raw_data\030\001 \001(\0132\031.protocol.T" +
-      "ransaction.raw\022\021\n\tsignature\030\002 \003(\014\022)\n\003ret" +
-      "\030\005 \003(\0132\034.protocol.Transaction.Result\032\221\007\n" +
-      "\010Contract\0229\n\004type\030\001 \001(\0162+.protocol.Trans" +
-      "action.Contract.ContractType\022\'\n\tparamete" +
-      "r\030\002 \001(\0132\024.google.protobuf.Any\022\020\n\010provide" +
-      "r\030\003 \001(\014\022\024\n\014ContractName\030\004 \001(\014\"\370\005\n\014Contra" +
-      "ctType\022\031\n\025AccountCreateContract\020\000\022\024\n\020Tra" +
-      "nsferContract\020\001\022\031\n\025TransferAssetContract" +
-      "\020\002\022\025\n\021VoteAssetContract\020\003\022\027\n\023VoteWitness" +
-      "Contract\020\004\022\031\n\025WitnessCreateContract\020\005\022\026\n" +
-      "\022AssetIssueContract\020\006\022\031\n\025WitnessUpdateCo" +
-      "ntract\020\010\022!\n\035ParticipateAssetIssueContrac" +
-      "t\020\t\022\031\n\025AccountUpdateContract\020\n\022\031\n\025Freeze" +
-      "BalanceContract\020\013\022\033\n\027UnfreezeBalanceCont" +
-      "ract\020\014\022\033\n\027WithdrawBalanceContract\020\r\022\031\n\025U" +
-      "nfreezeAssetContract\020\016\022\027\n\023UpdateAssetCon" +
-      "tract\020\017\022\032\n\026ProposalCreateContract\020\020\022\033\n\027P" +
-      "roposalApproveContract\020\021\022\032\n\026ProposalDele" +
-      "teContract\020\022\022\030\n\024SetAccountIdContract\020\023\022\022" +
-      "\n\016CustomContract\020\024\022\027\n\023CreateSmartContrac" +
-      "t\020\036\022\030\n\024TriggerSmartContract\020\037\022\017\n\013GetCont" +
-      "ract\020 \022\031\n\025UpdateSettingContract\020!\022\032\n\026Exc" +
-      "hangeCreateContract\020)\022\032\n\026ExchangeInjectC" +
-      "ontract\020*\022\034\n\030ExchangeWithdrawContract\020+\022" +
-      "\037\n\033ExchangeTransactionContract\020,\032\227\001\n\006Res" +
-      "ult\022\013\n\003fee\030\001 \001(\003\022.\n\003ret\030\002 \001(\0162!.protocol" +
-      ".Transaction.Result.code\022\027\n\017withdraw_amo" +
-      "unt\030\017 \001(\003\022\027\n\017unfreeze_amount\030\020 \001(\003\"\036\n\004co" +
-      "de\022\n\n\006SUCESS\020\000\022\n\n\006FAILED\020\001\032\374\001\n\003raw\022\027\n\017re" +
-      "f_block_bytes\030\001 \001(\014\022\025\n\rref_block_num\030\003 \001" +
-      "(\003\022\026\n\016ref_block_hash\030\004 \001(\014\022\022\n\nexpiration" +
-      "\030\010 \001(\003\022\"\n\005auths\030\t \003(\0132\023.protocol.authori" +
-      "ty\022\014\n\004data\030\n \001(\014\0220\n\010contract\030\013 \003(\0132\036.pro" +
-      "tocol.Transaction.Contract\022\017\n\007scripts\030\014 " +
-      "\001(\014\022\021\n\ttimestamp\030\016 \001(\003\022\021\n\tfee_limit\030\022 \001(" +
-      "\003\"\255\003\n\017TransactionInfo\022\n\n\002id\030\001 \001(\014\022\013\n\003fee" +
-      "\030\002 \001(\003\022\023\n\013blockNumber\030\003 \001(\003\022\026\n\016blockTime" +
-      "Stamp\030\004 \001(\003\022\026\n\016contractResult\030\005 \003(\014\022\030\n\020c" +
-      "ontract_address\030\006 \001(\014\022*\n\007receipt\030\007 \001(\0132\031" +
-      ".protocol.ResourceReceipt\022*\n\003log\030\010 \003(\0132\035" +
-      ".protocol.TransactionInfo.Log\022.\n\006result\030" +
-      "\t \001(\0162\036.protocol.TransactionInfo.code\022\022\n" +
-      "\nresMessage\030\n \001(\014\022\027\n\017withdraw_amount\030\017 \001" +
-      "(\003\022\027\n\017unfreeze_amount\030\020 \001(\003\0324\n\003Log\022\017\n\007ad" +
-      "dress\030\001 \001(\014\022\016\n\006topics\030\002 \003(\014\022\014\n\004data\030\003 \001(" +
-      "\014\"\036\n\004code\022\n\n\006SUCESS\020\000\022\n\n\006FAILED\020\001\";\n\014Tra" +
-      "nsactions\022+\n\014transactions\030\001 \003(\0132\025.protoc" +
-      "ol.Transaction\"Q\n\017TransactionSign\022*\n\013tra" +
-      "nsaction\030\001 \001(\0132\025.protocol.Transaction\022\022\n" +
-      "\nprivateKey\030\002 \001(\014\"\324\001\n\013BlockHeader\022+\n\010raw" +
-      "_data\030\001 \001(\0132\031.protocol.BlockHeader.raw\022\031" +
-      "\n\021witness_signature\030\002 \001(\014\032}\n\003raw\022\021\n\ttime" +
-      "stamp\030\001 \001(\003\022\022\n\ntxTrieRoot\030\002 \001(\014\022\022\n\nparen" +
-      "tHash\030\003 \001(\014\022\016\n\006number\030\007 \001(\003\022\022\n\nwitness_i" +
-      "d\030\010 \001(\003\022\027\n\017witness_address\030\t \001(\014\"a\n\005Bloc" +
-      "k\022+\n\014transactions\030\001 \003(\0132\025.protocol.Trans" +
-      "action\022+\n\014block_header\030\002 \001(\0132\025.protocol." +
-      "BlockHeader\"|\n\016ChainInventory\022-\n\003ids\030\001 \003" +
-      "(\0132 .protocol.ChainInventory.BlockId\022\022\n\n" +
-      "remain_num\030\002 \001(\003\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(" +
-      "\014\022\016\n\006number\030\002 \001(\003\"\277\001\n\016BlockInventory\022-\n\003" +
-      "ids\030\001 \003(\0132 .protocol.BlockInventory.Bloc" +
-      "kId\022+\n\004type\030\002 \001(\0162\035.protocol.BlockInvent" +
-      "ory.Type\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006num" +
-      "ber\030\002 \001(\003\"(\n\004Type\022\010\n\004SYNC\020\000\022\013\n\007ADVTISE\020\001" +
-      "\022\t\n\005FETCH\020\002\"n\n\tInventory\022/\n\004type\030\001 \001(\0162!" +
-      ".protocol.Inventory.InventoryType\022\013\n\003ids" +
-      "\030\002 \003(\014\"#\n\rInventoryType\022\007\n\003TRX\020\000\022\t\n\005BLOC" +
-      "K\020\001\"\345\001\n\005Items\022&\n\004type\030\001 \001(\0162\030.protocol.I" +
-      "tems.ItemType\022\037\n\006blocks\030\002 \003(\0132\017.protocol" +
-      ".Block\022,\n\rblock_headers\030\003 \003(\0132\025.protocol" +
-      ".BlockHeader\022+\n\014transactions\030\004 \003(\0132\025.pro" +
-      "tocol.Transaction\"8\n\010ItemType\022\007\n\003ERR\020\000\022\007" +
-      "\n\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021D" +
-      "ynamicProperties\022\037\n\027last_solidity_block_" +
-      "num\030\001 \001(\003\"9\n\021DisconnectMessage\022$\n\006reason" +
-      "\030\001 \001(\0162\024.protocol.ReasonCode\"\240\002\n\014HelloMe" +
-      "ssage\022 \n\004from\030\001 \001(\0132\022.protocol.Endpoint\022" +
-      "\017\n\007version\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\003\0226\n\016g" +
-      "enesisBlockId\030\004 \001(\0132\036.protocol.HelloMess" +
-      "age.BlockId\0224\n\014solidBlockId\030\005 \001(\0132\036.prot" +
-      "ocol.HelloMessage.BlockId\0223\n\013headBlockId" +
-      "\030\006 \001(\0132\036.protocol.HelloMessage.BlockId\032\'" +
-      "\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"" +
-      "\206\001\n\013StorageItem\022\030\n\020contract_address\030\001 \001(" +
-      "\014\022/\n\005items\030\002 \003(\0132 .protocol.StorageItem." +
-      "ItemsEntry\032,\n\nItemsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\014:\0028\001\"(\n\nStorageRow\022\013\n\003key\030\001 " +
-      "\001(\014\022\r\n\005value\030\002 \001(\014\"\301\006\n\rSmartContract\022\026\n\016" +
-      "origin_address\030\001 \001(\014\022\030\n\020contract_address" +
-      "\030\002 \001(\014\022(\n\003abi\030\003 \001(\0132\033.protocol.SmartCont" +
-      "ract.ABI\022\020\n\010bytecode\030\004 \001(\014\022\022\n\ncall_value" +
-      "\030\005 \001(\003\022%\n\035consume_user_resource_percent\030" +
-      "\006 \001(\003\022\014\n\004name\030\007 \001(\t\032\370\004\n\003ABI\0221\n\006entrys\030\001 " +
-      "\003(\0132!.protocol.SmartContract.ABI.Entry\032\275" +
-      "\004\n\005Entry\022\021\n\tanonymous\030\001 \001(\010\022\020\n\010constant\030" +
-      "\002 \001(\010\022\014\n\004name\030\003 \001(\t\0227\n\006inputs\030\004 \003(\0132\'.pr" +
-      "otocol.SmartContract.ABI.Entry.Param\0228\n\007" +
-      "outputs\030\005 \003(\0132\'.protocol.SmartContract.A" +
-      "BI.Entry.Param\0229\n\004type\030\006 \001(\0162+.protocol." +
-      "SmartContract.ABI.Entry.EntryType\022\017\n\007pay" +
-      "able\030\007 \001(\010\022N\n\017stateMutability\030\010 \001(\01625.pr" +
-      "otocol.SmartContract.ABI.Entry.StateMuta" +
-      "bilityType\0324\n\005Param\022\017\n\007indexed\030\001 \001(\010\022\014\n\004" +
-      "name\030\002 \001(\t\022\014\n\004type\030\003 \001(\t\"Y\n\tEntryType\022\024\n" +
-      "\020UnknownEntryType\020\000\022\017\n\013Constructor\020\001\022\014\n\010" +
-      "Function\020\002\022\t\n\005Event\020\003\022\014\n\010Fallback\020\004\"a\n\023S" +
-      "tateMutabilityType\022\031\n\025UnknownMutabilityT" +
-      "ype\020\000\022\010\n\004Pure\020\001\022\010\n\004View\020\002\022\016\n\nNonpayable\020" +
-      "\003\022\013\n\007Payable\020\004*7\n\013AccountType\022\n\n\006Normal\020" +
-      "\000\022\016\n\nAssetIssue\020\001\022\014\n\010Contract\020\002*\307\003\n\nReas" +
-      "onCode\022\r\n\tREQUESTED\020\000\022\020\n\014BAD_PROTOCOL\020\002\022" +
-      "\022\n\016TOO_MANY_PEERS\020\004\022\022\n\016DUPLICATE_PEER\020\005\022" +
-      "\031\n\025INCOMPATIBLE_PROTOCOL\020\006\022\021\n\rNULL_IDENT" +
-      "ITY\020\007\022\020\n\014PEER_QUITING\020\010\022\027\n\023UNEXPECTED_ID" +
-      "ENTITY\020\t\022\022\n\016LOCAL_IDENTITY\020\n\022\020\n\014PING_TIM" +
-      "EOUT\020\013\022\017\n\013USER_REASON\020\020\022\t\n\005RESET\020\021\022\r\n\tSY" +
-      "NC_FAIL\020\022\022\016\n\nFETCH_FAIL\020\023\022\n\n\006BAD_TX\020\024\022\r\n" +
-      "\tBAD_BLOCK\020\025\022\n\n\006FORKED\020\026\022\016\n\nUNLINKABLE\020\027" +
-      "\022\030\n\024INCOMPATIBLE_VERSION\020\030\022\026\n\022INCOMPATIB" +
-      "LE_CHAIN\020\031\022\014\n\010TIME_OUT\020 \022\020\n\014CONNECT_FAIL" +
-      "\020!\022\037\n\033TOO_MANY_PEERS_WITH_SAME_IP\020\"\022\014\n\007U" +
-      "NKNOWN\020\377\001BF\n\017org.tron.protosB\010ProtocolZ)" +
-      "github.com/tronprotocol/grpc-gateway/cor" +
-      "eb\006proto3"
+      "\022;\n\006result\030\007 \001(\0162+.protocol.Transaction." +
+      "Result.contractResult\"\206\016\n\013Transaction\022+\n" +
+      "\010raw_data\030\001 \001(\0132\031.protocol.Transaction.r" +
+      "aw\022\021\n\tsignature\030\002 \003(\014\022)\n\003ret\030\005 \003(\0132\034.pro" +
+      "tocol.Transaction.Result\032\221\007\n\010Contract\0229\n" +
+      "\004type\030\001 \001(\0162+.protocol.Transaction.Contr" +
+      "act.ContractType\022\'\n\tparameter\030\002 \001(\0132\024.go" +
+      "ogle.protobuf.Any\022\020\n\010provider\030\003 \001(\014\022\024\n\014C" +
+      "ontractName\030\004 \001(\014\"\370\005\n\014ContractType\022\031\n\025Ac" +
+      "countCreateContract\020\000\022\024\n\020TransferContrac" +
+      "t\020\001\022\031\n\025TransferAssetContract\020\002\022\025\n\021VoteAs" +
+      "setContract\020\003\022\027\n\023VoteWitnessContract\020\004\022\031" +
+      "\n\025WitnessCreateContract\020\005\022\026\n\022AssetIssueC" +
+      "ontract\020\006\022\031\n\025WitnessUpdateContract\020\010\022!\n\035" +
+      "ParticipateAssetIssueContract\020\t\022\031\n\025Accou" +
+      "ntUpdateContract\020\n\022\031\n\025FreezeBalanceContr" +
+      "act\020\013\022\033\n\027UnfreezeBalanceContract\020\014\022\033\n\027Wi" +
+      "thdrawBalanceContract\020\r\022\031\n\025UnfreezeAsset" +
+      "Contract\020\016\022\027\n\023UpdateAssetContract\020\017\022\032\n\026P" +
+      "roposalCreateContract\020\020\022\033\n\027ProposalAppro" +
+      "veContract\020\021\022\032\n\026ProposalDeleteContract\020\022" +
+      "\022\030\n\024SetAccountIdContract\020\023\022\022\n\016CustomCont" +
+      "ract\020\024\022\027\n\023CreateSmartContract\020\036\022\030\n\024Trigg" +
+      "erSmartContract\020\037\022\017\n\013GetContract\020 \022\031\n\025Up" +
+      "dateSettingContract\020!\022\032\n\026ExchangeCreateC" +
+      "ontract\020)\022\032\n\026ExchangeInjectContract\020*\022\034\n" +
+      "\030ExchangeWithdrawContract\020+\022\037\n\033ExchangeT" +
+      "ransactionContract\020,\032\370\003\n\006Result\022\013\n\003fee\030\001" +
+      " \001(\003\022.\n\003ret\030\002 \001(\0162!.protocol.Transaction" +
+      ".Result.code\022@\n\013contractRet\030\003 \001(\0162+.prot" +
+      "ocol.Transaction.Result.contractResult\022\027" +
+      "\n\017withdraw_amount\030\017 \001(\003\022\027\n\017unfreeze_amou" +
+      "nt\030\020 \001(\003\"\036\n\004code\022\n\n\006SUCESS\020\000\022\n\n\006FAILED\020\001" +
+      "\"\234\002\n\016contractResult\022\013\n\007DEFAULT\020\000\022\013\n\007SUCC" +
+      "ESS\020\001\022\n\n\006REVERT\020\002\022\030\n\024BAD_JUMP_DESTINATIO" +
+      "N\020\003\022\021\n\rOUT_OF_MEMORY\020\004\022\030\n\024PRECOMPILED_CO" +
+      "NTRACT\020\005\022\023\n\017STACK_TOO_SMALL\020\006\022\023\n\017STACK_T" +
+      "OO_LARGE\020\007\022\025\n\021ILLEGAL_OPERATION\020\010\022\022\n\016STA" +
+      "CK_OVERFLOW\020\t\022\021\n\rOUT_OF_ENERGY\020\n\022\017\n\013OUT_" +
+      "OF_TIME\020\013\022\027\n\023JVM_STACK_OVER_FLOW\020\014\022\013\n\007UN" +
+      "KNOWN\020\r\032\374\001\n\003raw\022\027\n\017ref_block_bytes\030\001 \001(\014" +
+      "\022\025\n\rref_block_num\030\003 \001(\003\022\026\n\016ref_block_has" +
+      "h\030\004 \001(\014\022\022\n\nexpiration\030\010 \001(\003\022\"\n\005auths\030\t \003" +
+      "(\0132\023.protocol.authority\022\014\n\004data\030\n \001(\014\0220\n" +
+      "\010contract\030\013 \003(\0132\036.protocol.Transaction.C" +
+      "ontract\022\017\n\007scripts\030\014 \001(\014\022\021\n\ttimestamp\030\016 " +
+      "\001(\003\022\021\n\tfee_limit\030\022 \001(\003\"\255\003\n\017TransactionIn" +
+      "fo\022\n\n\002id\030\001 \001(\014\022\013\n\003fee\030\002 \001(\003\022\023\n\013blockNumb" +
+      "er\030\003 \001(\003\022\026\n\016blockTimeStamp\030\004 \001(\003\022\026\n\016cont" +
+      "ractResult\030\005 \003(\014\022\030\n\020contract_address\030\006 \001" +
+      "(\014\022*\n\007receipt\030\007 \001(\0132\031.protocol.ResourceR" +
+      "eceipt\022*\n\003log\030\010 \003(\0132\035.protocol.Transacti" +
+      "onInfo.Log\022.\n\006result\030\t \001(\0162\036.protocol.Tr" +
+      "ansactionInfo.code\022\022\n\nresMessage\030\n \001(\014\022\027" +
+      "\n\017withdraw_amount\030\017 \001(\003\022\027\n\017unfreeze_amou" +
+      "nt\030\020 \001(\003\0324\n\003Log\022\017\n\007address\030\001 \001(\014\022\016\n\006topi" +
+      "cs\030\002 \003(\014\022\014\n\004data\030\003 \001(\014\"\036\n\004code\022\n\n\006SUCESS" +
+      "\020\000\022\n\n\006FAILED\020\001\";\n\014Transactions\022+\n\014transa" +
+      "ctions\030\001 \003(\0132\025.protocol.Transaction\"Q\n\017T" +
+      "ransactionSign\022*\n\013transaction\030\001 \001(\0132\025.pr" +
+      "otocol.Transaction\022\022\n\nprivateKey\030\002 \001(\014\"\346" +
+      "\001\n\013BlockHeader\022+\n\010raw_data\030\001 \001(\0132\031.proto" +
+      "col.BlockHeader.raw\022\031\n\021witness_signature" +
+      "\030\002 \001(\014\032\216\001\n\003raw\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\ntxT" +
+      "rieRoot\030\002 \001(\014\022\022\n\nparentHash\030\003 \001(\014\022\016\n\006num" +
+      "ber\030\007 \001(\003\022\022\n\nwitness_id\030\010 \001(\003\022\027\n\017witness" +
+      "_address\030\t \001(\014\022\017\n\007version\030\n \001(\005\"a\n\005Block" +
+      "\022+\n\014transactions\030\001 \003(\0132\025.protocol.Transa" +
+      "ction\022+\n\014block_header\030\002 \001(\0132\025.protocol.B" +
+      "lockHeader\"|\n\016ChainInventory\022-\n\003ids\030\001 \003(" +
+      "\0132 .protocol.ChainInventory.BlockId\022\022\n\nr" +
+      "emain_num\030\002 \001(\003\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014" +
+      "\022\016\n\006number\030\002 \001(\003\"\277\001\n\016BlockInventory\022-\n\003i" +
+      "ds\030\001 \003(\0132 .protocol.BlockInventory.Block" +
+      "Id\022+\n\004type\030\002 \001(\0162\035.protocol.BlockInvento" +
+      "ry.Type\032\'\n\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006numb" +
+      "er\030\002 \001(\003\"(\n\004Type\022\010\n\004SYNC\020\000\022\013\n\007ADVTISE\020\001\022" +
+      "\t\n\005FETCH\020\002\"n\n\tInventory\022/\n\004type\030\001 \001(\0162!." +
+      "protocol.Inventory.InventoryType\022\013\n\003ids\030" +
+      "\002 \003(\014\"#\n\rInventoryType\022\007\n\003TRX\020\000\022\t\n\005BLOCK" +
+      "\020\001\"\345\001\n\005Items\022&\n\004type\030\001 \001(\0162\030.protocol.It" +
+      "ems.ItemType\022\037\n\006blocks\030\002 \003(\0132\017.protocol." +
+      "Block\022,\n\rblock_headers\030\003 \003(\0132\025.protocol." +
+      "BlockHeader\022+\n\014transactions\030\004 \003(\0132\025.prot" +
+      "ocol.Transaction\"8\n\010ItemType\022\007\n\003ERR\020\000\022\007\n" +
+      "\003TRX\020\001\022\t\n\005BLOCK\020\002\022\017\n\013BLOCKHEADER\020\003\"4\n\021Dy" +
+      "namicProperties\022\037\n\027last_solidity_block_n" +
+      "um\030\001 \001(\003\"9\n\021DisconnectMessage\022$\n\006reason\030" +
+      "\001 \001(\0162\024.protocol.ReasonCode\"\240\002\n\014HelloMes" +
+      "sage\022 \n\004from\030\001 \001(\0132\022.protocol.Endpoint\022\017" +
+      "\n\007version\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\003\0226\n\016ge" +
+      "nesisBlockId\030\004 \001(\0132\036.protocol.HelloMessa" +
+      "ge.BlockId\0224\n\014solidBlockId\030\005 \001(\0132\036.proto" +
+      "col.HelloMessage.BlockId\0223\n\013headBlockId\030" +
+      "\006 \001(\0132\036.protocol.HelloMessage.BlockId\032\'\n" +
+      "\007BlockId\022\014\n\004hash\030\001 \001(\014\022\016\n\006number\030\002 \001(\003\"\301" +
+      "\006\n\rSmartContract\022\026\n\016origin_address\030\001 \001(\014" +
+      "\022\030\n\020contract_address\030\002 \001(\014\022(\n\003abi\030\003 \001(\0132" +
+      "\033.protocol.SmartContract.ABI\022\020\n\010bytecode" +
+      "\030\004 \001(\014\022\022\n\ncall_value\030\005 \001(\003\022%\n\035consume_us" +
+      "er_resource_percent\030\006 \001(\003\022\014\n\004name\030\007 \001(\t\032" +
+      "\370\004\n\003ABI\0221\n\006entrys\030\001 \003(\0132!.protocol.Smart" +
+      "Contract.ABI.Entry\032\275\004\n\005Entry\022\021\n\tanonymou" +
+      "s\030\001 \001(\010\022\020\n\010constant\030\002 \001(\010\022\014\n\004name\030\003 \001(\t\022" +
+      "7\n\006inputs\030\004 \003(\0132\'.protocol.SmartContract" +
+      ".ABI.Entry.Param\0228\n\007outputs\030\005 \003(\0132\'.prot" +
+      "ocol.SmartContract.ABI.Entry.Param\0229\n\004ty" +
+      "pe\030\006 \001(\0162+.protocol.SmartContract.ABI.En" +
+      "try.EntryType\022\017\n\007payable\030\007 \001(\010\022N\n\017stateM" +
+      "utability\030\010 \001(\01625.protocol.SmartContract" +
+      ".ABI.Entry.StateMutabilityType\0324\n\005Param\022" +
+      "\017\n\007indexed\030\001 \001(\010\022\014\n\004name\030\002 \001(\t\022\014\n\004type\030\003" +
+      " \001(\t\"Y\n\tEntryType\022\024\n\020UnknownEntryType\020\000\022" +
+      "\017\n\013Constructor\020\001\022\014\n\010Function\020\002\022\t\n\005Event\020" +
+      "\003\022\014\n\010Fallback\020\004\"a\n\023StateMutabilityType\022\031" +
+      "\n\025UnknownMutabilityType\020\000\022\010\n\004Pure\020\001\022\010\n\004V" +
+      "iew\020\002\022\016\n\nNonpayable\020\003\022\013\n\007Payable\020\004*7\n\013Ac" +
+      "countType\022\n\n\006Normal\020\000\022\016\n\nAssetIssue\020\001\022\014\n" +
+      "\010Contract\020\002*\307\003\n\nReasonCode\022\r\n\tREQUESTED\020" +
+      "\000\022\020\n\014BAD_PROTOCOL\020\002\022\022\n\016TOO_MANY_PEERS\020\004\022" +
+      "\022\n\016DUPLICATE_PEER\020\005\022\031\n\025INCOMPATIBLE_PROT" +
+      "OCOL\020\006\022\021\n\rNULL_IDENTITY\020\007\022\020\n\014PEER_QUITIN" +
+      "G\020\010\022\027\n\023UNEXPECTED_IDENTITY\020\t\022\022\n\016LOCAL_ID" +
+      "ENTITY\020\n\022\020\n\014PING_TIMEOUT\020\013\022\017\n\013USER_REASO" +
+      "N\020\020\022\t\n\005RESET\020\021\022\r\n\tSYNC_FAIL\020\022\022\016\n\nFETCH_F" +
+      "AIL\020\023\022\n\n\006BAD_TX\020\024\022\r\n\tBAD_BLOCK\020\025\022\n\n\006FORK" +
+      "ED\020\026\022\016\n\nUNLINKABLE\020\027\022\030\n\024INCOMPATIBLE_VER" +
+      "SION\020\030\022\026\n\022INCOMPATIBLE_CHAIN\020\031\022\014\n\010TIME_O" +
+      "UT\020 \022\020\n\014CONNECT_FAIL\020!\022\037\n\033TOO_MANY_PEERS" +
+      "_WITH_SAME_IP\020\"\022\014\n\007UNKNOWN\020\377\001BF\n\017org.tro" +
+      "n.protosB\010ProtocolZ)github.com/tronproto" +
+      "col/grpc-gateway/coreb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -43359,7 +42399,7 @@ public final class Protocol {
     internal_static_protocol_ResourceReceipt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ResourceReceipt_descriptor,
-        new java.lang.String[] { "EnergyUsage", "EnergyFee", "OriginEnergyUsage", "EnergyUsageTotal", "NetUsage", "NetFee", });
+        new java.lang.String[] { "EnergyUsage", "EnergyFee", "OriginEnergyUsage", "EnergyUsageTotal", "NetUsage", "NetFee", "Result", });
     internal_static_protocol_Transaction_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_protocol_Transaction_fieldAccessorTable = new
@@ -43377,7 +42417,7 @@ public final class Protocol {
     internal_static_protocol_Transaction_Result_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Transaction_Result_descriptor,
-        new java.lang.String[] { "Fee", "Ret", "WithdrawAmount", "UnfreezeAmount", });
+        new java.lang.String[] { "Fee", "Ret", "ContractRet", "WithdrawAmount", "UnfreezeAmount", });
     internal_static_protocol_Transaction_raw_descriptor =
       internal_static_protocol_Transaction_descriptor.getNestedTypes().get(2);
     internal_static_protocol_Transaction_raw_fieldAccessorTable = new
@@ -43419,7 +42459,7 @@ public final class Protocol {
     internal_static_protocol_BlockHeader_raw_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockHeader_raw_descriptor,
-        new java.lang.String[] { "Timestamp", "TxTrieRoot", "ParentHash", "Number", "WitnessId", "WitnessAddress", });
+        new java.lang.String[] { "Timestamp", "TxTrieRoot", "ParentHash", "Number", "WitnessId", "WitnessAddress", "Version", });
     internal_static_protocol_Block_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_protocol_Block_fieldAccessorTable = new
@@ -43486,26 +42526,8 @@ public final class Protocol {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_HelloMessage_BlockId_descriptor,
         new java.lang.String[] { "Hash", "Number", });
-    internal_static_protocol_StorageItem_descriptor =
-      getDescriptor().getMessageTypes().get(27);
-    internal_static_protocol_StorageItem_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protocol_StorageItem_descriptor,
-        new java.lang.String[] { "ContractAddress", "Items", });
-    internal_static_protocol_StorageItem_ItemsEntry_descriptor =
-      internal_static_protocol_StorageItem_descriptor.getNestedTypes().get(0);
-    internal_static_protocol_StorageItem_ItemsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protocol_StorageItem_ItemsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_protocol_StorageRow_descriptor =
-      getDescriptor().getMessageTypes().get(28);
-    internal_static_protocol_StorageRow_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protocol_StorageRow_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_protocol_SmartContract_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_protocol_SmartContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_SmartContract_descriptor,

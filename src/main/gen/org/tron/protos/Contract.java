@@ -19455,6 +19455,11 @@ public final class Contract {
      * <code>int64 quant = 4;</code>
      */
     long getQuant();
+
+    /**
+     * <code>int64 expected = 5;</code>
+     */
+    long getExpected();
   }
   /**
    * Protobuf type {@code protocol.ExchangeTransactionContract}
@@ -19473,6 +19478,7 @@ public final class Contract {
       exchangeId_ = 0L;
       tokenId_ = com.google.protobuf.ByteString.EMPTY;
       quant_ = 0L;
+      expected_ = 0L;
     }
 
     @java.lang.Override
@@ -19524,6 +19530,11 @@ public final class Contract {
             case 32: {
 
               quant_ = input.readInt64();
+              break;
+            }
+            case 40: {
+
+              expected_ = input.readInt64();
               break;
             }
           }
@@ -19586,6 +19597,15 @@ public final class Contract {
       return quant_;
     }
 
+    public static final int EXPECTED_FIELD_NUMBER = 5;
+    private long expected_;
+    /**
+     * <code>int64 expected = 5;</code>
+     */
+    public long getExpected() {
+      return expected_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -19609,6 +19629,9 @@ public final class Contract {
       }
       if (quant_ != 0L) {
         output.writeInt64(4, quant_);
+      }
+      if (expected_ != 0L) {
+        output.writeInt64(5, expected_);
       }
       unknownFields.writeTo(output);
     }
@@ -19634,6 +19657,10 @@ public final class Contract {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, quant_);
       }
+      if (expected_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(5, expected_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -19658,6 +19685,8 @@ public final class Contract {
           .equals(other.getTokenId());
       result = result && (getQuant()
           == other.getQuant());
+      result = result && (getExpected()
+          == other.getExpected());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -19679,6 +19708,9 @@ public final class Contract {
       hash = (37 * hash) + QUANT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getQuant());
+      hash = (37 * hash) + EXPECTED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExpected());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -19816,6 +19848,8 @@ public final class Contract {
 
         quant_ = 0L;
 
+        expected_ = 0L;
+
         return this;
       }
 
@@ -19842,6 +19876,7 @@ public final class Contract {
         result.exchangeId_ = exchangeId_;
         result.tokenId_ = tokenId_;
         result.quant_ = quant_;
+        result.expected_ = expected_;
         onBuilt();
         return result;
       }
@@ -19894,6 +19929,9 @@ public final class Contract {
         }
         if (other.getQuant() != 0L) {
           setQuant(other.getQuant());
+        }
+        if (other.getExpected() != 0L) {
+          setExpected(other.getExpected());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -20028,6 +20066,32 @@ public final class Contract {
       public Builder clearQuant() {
         
         quant_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long expected_ ;
+      /**
+       * <code>int64 expected = 5;</code>
+       */
+      public long getExpected() {
+        return expected_;
+      }
+      /**
+       * <code>int64 expected = 5;</code>
+       */
+      public Builder setExpected(long value) {
+        
+        expected_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 expected = 5;</code>
+       */
+      public Builder clearExpected() {
+        
+        expected_ = 0L;
         onChanged();
         return this;
       }
@@ -20327,13 +20391,13 @@ public final class Contract {
       "_id\030\002 \001(\003\022\020\n\010token_id\030\003 \001(\014\022\r\n\005quant\030\004 \001" +
       "(\003\"g\n\030ExchangeWithdrawContract\022\025\n\rowner_" +
       "address\030\001 \001(\014\022\023\n\013exchange_id\030\002 \001(\003\022\020\n\010to" +
-      "ken_id\030\003 \001(\014\022\r\n\005quant\030\004 \001(\003\"j\n\033ExchangeT" +
+      "ken_id\030\003 \001(\014\022\r\n\005quant\030\004 \001(\003\"|\n\033ExchangeT" +
       "ransactionContract\022\025\n\rowner_address\030\001 \001(" +
       "\014\022\023\n\013exchange_id\030\002 \001(\003\022\020\n\010token_id\030\003 \001(\014" +
-      "\022\r\n\005quant\030\004 \001(\003*)\n\014ResourceCode\022\r\n\tBANDW" +
-      "IDTH\020\000\022\n\n\006ENERGY\020\001BF\n\017org.tron.protosB\010C" +
-      "ontractZ)github.com/tronprotocol/grpc-ga" +
-      "teway/coreb\006proto3"
+      "\022\r\n\005quant\030\004 \001(\003\022\020\n\010expected\030\005 \001(\003*)\n\014Res" +
+      "ourceCode\022\r\n\tBANDWIDTH\020\000\022\n\n\006ENERGY\020\001BF\n\017" +
+      "org.tron.protosB\010ContractZ)github.com/tr" +
+      "onprotocol/grpc-gateway/coreb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -20539,7 +20603,7 @@ public final class Contract {
     internal_static_protocol_ExchangeTransactionContract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_ExchangeTransactionContract_descriptor,
-        new java.lang.String[] { "OwnerAddress", "ExchangeId", "TokenId", "Quant", });
+        new java.lang.String[] { "OwnerAddress", "ExchangeId", "TokenId", "Quant", "Expected", });
     org.tron.protos.Protocol.getDescriptor();
   }
 
