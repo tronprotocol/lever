@@ -93,6 +93,9 @@ public class CheckTransactionInfo {
 
     for (Entry<String, TransactionInfo> entry : transactionInfoMap.entrySet()) {
       fee += entry.getValue().getFee();
+      if (entry.getValue().getResult().getNumber() != 0) {
+        System.err.println(entry.getValue().getResult().getNumber()+":"+ByteArray.toStr(entry.getValue().getResMessage().toByteArray()));
+      }
     }
 
     System.out.println("fee:" + fee);
