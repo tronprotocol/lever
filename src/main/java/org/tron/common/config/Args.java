@@ -34,6 +34,11 @@ public class Args {
     return getInstance(null);
   }
 
+  // Only for test.
+  public static void clear() {
+    instance = null;
+  }
+
   @Parameter(names = {"--grpcs"}, description = "gRPC host like: 127.0.0.1:50051", required = true)
   private List<String> grpcs = new ArrayList<>();
 }

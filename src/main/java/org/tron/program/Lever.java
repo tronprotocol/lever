@@ -1,8 +1,6 @@
 package org.tron.program;
 
-import com.beust.jcommander.JCommander;
 import lombok.extern.slf4j.Slf4j;
-import org.tron.common.config.Args;
 
 @Slf4j
 public class Lever {
