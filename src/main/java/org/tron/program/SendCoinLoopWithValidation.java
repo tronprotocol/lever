@@ -94,7 +94,7 @@ public class SendCoinLoopWithValidation {
 
                     }
                 }
-                response= rootClient.sendCoinResponse(key.getAddress(), (long) 10 * (long) 1000000);
+                response= rootClient.sendCoinResponse(key.getAddress(), (long) 1000 * (long) 1000000);
                 b = response.getResult();
                 loop++;
                 if(b==false){
@@ -106,7 +106,7 @@ public class SendCoinLoopWithValidation {
             }
 
             // sendCoinAmount >= Transaction * amount + freezeTRX
-            rootClient.sendCoin(key.getAddress(), (long) 1000 * (long) 1000000 - (long) 10 * (long) 1000000);
+            rootClient.sendCoin(key.getAddress(), (long) 100 * (long) 1000000 - (long) 10 * (long) 1000000);
         });
 
 
