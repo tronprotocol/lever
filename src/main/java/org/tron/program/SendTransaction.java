@@ -203,20 +203,24 @@ public class SendTransaction {
 
         this.transactions.forEach(t -> {
           limiter.acquire();
-          boolean b = client.broadcastTransaction(t);
+          boolean b;
+          do {
+            b = client.broadcastTransaction(t);
 
-          if (b) {
-            trueCount.increment();
-            successTransactionID.put(TransactionUtils.getID(t).toString(), true);
-          } else {
-            falseCount.increment();
-          }
+            if (b) {
+              trueCount.increment();
+              successTransactionID.put(TransactionUtils.getID(t).toString(), true);
+            } else {
+              falseCount.increment();
+            }
 
-          currentCount.increment();
+            currentCount.increment();
 
-          long currentMinutes = System.currentTimeMillis() / 1000L / 60;
+            long currentMinutes = System.currentTimeMillis() / 1000L / 60;
 
-          resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
+            resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
+          } while (argsObj.isRetry() && !b);
+
         });
       }
       try {
@@ -236,6 +240,7 @@ public class SendTransaction {
     private static final String DATA_FILE = "data.file";
     private static final String TPS = "tps";
     private static final String ACCOUNT_ADDRESS = "account.address";
+    private static final String RETRY = "retry";
 
     private static SendCoinArgs INSTANCE;
 
@@ -264,6 +269,10 @@ public class SendTransaction {
     @Getter
     @Parameter(names = {"--accountAddress"}, description = "Get account address list")
     private List<String> accountAddress = new ArrayList<>();
+
+    @Getter
+    @Parameter(names = {"--retry"}, description = "Retry")
+    private boolean retry = false;
 
     private SendCoinArgs() {
 
@@ -328,6 +337,15 @@ public class SendTransaction {
       }
 
       System.out.printf("Account address: \u001B[34m%s\u001B[0m", INSTANCE.accountAddress);
+      System.out.println();
+
+      if (false == INSTANCE.retry) {
+        if (config.hasPath(RETRY)) {
+          INSTANCE.retry = config.getBoolean(RETRY);
+        }
+      }
+
+      System.out.printf("Retry: \u001B[34m%s\u001B[0m", INSTANCE.retry);
       System.out.println();
     }
   }
