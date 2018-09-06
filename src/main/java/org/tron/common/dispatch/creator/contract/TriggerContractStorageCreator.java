@@ -28,7 +28,7 @@ public class TriggerContractStorageCreator extends AbstractTransferTransactionCr
 
     TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58
         .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
-        .decode(AbiUtil.parseMethod("testInt2Str(uint256,string)", String.format("%d,%d_index_string_abcabcabc", andIncrement, andIncrement), false)));
+        .decode(AbiUtil.parseMethod("testInt2Str(uint256,string)", String.format("\"%d\",\"%d_index_string_abcabcabc\"", andIncrement, andIncrement), false)));
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TriggerSmartContract);
 
