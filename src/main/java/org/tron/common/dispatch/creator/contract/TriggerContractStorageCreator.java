@@ -12,6 +12,7 @@ import org.tron.common.utils.AbiUtil;
 import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
+import org.tron.core.exception.EncodingException;
 import org.tron.program.GenerateTransaction;
 import org.tron.protos.Contract.TriggerSmartContract;
 import org.tron.protos.Protocol;
@@ -26,9 +27,14 @@ public class TriggerContractStorageCreator extends AbstractTransferTransactionCr
 
     int andIncrement = count.getAndIncrement();
 
-    TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58
-        .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
-        .decode(AbiUtil.parseMethod("testInt2Str(uint256,string)", String.format("\"%d\",\"%d_index_string_abcabcabc\"", andIncrement, andIncrement), false)));
+    TriggerSmartContract contract = null;
+    try {
+      contract = triggerCallContract(ownerAddress.toByteArray(), Base58
+          .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
+          .decode(AbiUtil.parseMethod("testInt2Str(uint256,string)", String.format("\"%d\",\"%d_index_string_abcabcabc\"", andIncrement, andIncrement), false)));
+    } catch (EncodingException e) {
+      e.printStackTrace();
+    }
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TriggerSmartContract);
 

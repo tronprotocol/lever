@@ -12,6 +12,7 @@ import org.tron.common.utils.AbiUtil;
 import org.tron.common.utils.Base58;
 import org.tron.common.utils.ByteArray;
 import org.tron.common.utils.TransactionUtils;
+import org.tron.core.exception.EncodingException;
 import org.tron.module.Account;
 import org.tron.program.GenerateTransaction;
 import org.tron.protos.Contract.TriggerSmartContract;
@@ -31,8 +32,14 @@ public class TriggerContractAirDropCreator extends AbstractTransferTransactionCr
 
     String airDropMArgsStr = "\""+ addressBase58 +"\",\"1\"";
 
-    TriggerSmartContract contract = triggerCallContract(ownerAddress.toByteArray(), Base58.decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
-        .decode(AbiUtil.parseMethod("transfer(address,uint256)", airDropMArgsStr, false)));
+    TriggerSmartContract contract = null;
+    try {
+      contract = triggerCallContract(ownerAddress.toByteArray(), Base58
+          .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
+          .decode(AbiUtil.parseMethod("transfer(address,uint256)", airDropMArgsStr, false)));
+    } catch (EncodingException e) {
+      e.printStackTrace();
+    }
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TriggerSmartContract);
 
