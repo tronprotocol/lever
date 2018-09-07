@@ -32,7 +32,7 @@ public class TriggerContractStorageCreator extends AbstractTransferTransactionCr
 
     Protocol.Transaction transaction = TransactionUtils.createTransaction(contract, ContractType.TriggerSmartContract);
 
-    transaction = transaction.toBuilder().setRawData(transaction.getRawData().toBuilder().setFeeLimit(10L).build()).build();
+    transaction = transaction.toBuilder().setRawData(transaction.getRawData().toBuilder().setFeeLimit(1000000000L).build()).build();
 
     transaction = TransactionUtils.signTransaction(transaction, ECKey.fromPrivate(ByteArray.fromHexString(privateKey)));
     return transaction;
