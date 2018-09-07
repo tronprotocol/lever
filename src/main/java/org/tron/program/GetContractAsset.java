@@ -12,6 +12,7 @@ import org.tron.Validator.StringValidator;
 import org.tron.api.GrpcAPI.TransactionExtention;
 import org.tron.common.utils.AbiUtil;
 import org.tron.common.utils.Base58;
+import org.tron.core.exception.EncodingException;
 import org.tron.protos.Contract.TriggerSmartContract;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletGrpcClient;
@@ -24,22 +25,27 @@ public class GetContractAsset {
     Args argsObj = new Args();
     JCommander.newBuilder().addObject(argsObj).build().parse(args);
 
-    TriggerSmartContract contract = triggerCallContract(
-        ByteString.copyFrom(
-            Objects.requireNonNull(
-                Base58.decodeFromBase58Check(
-                    argsObj.getOwnerAddress()
-                )
-            )
-        ).toByteArray(),
-        Base58.decodeFromBase58Check(
-            argsObj.getContractAddress()
-        ),
-        0L,
-        org.bouncycastle.util.encoders.Hex.decode(
-            AbiUtil.parseMethod(argsObj.getMethodStr(), String.format("\"%s\"", argsObj.getArgsStr()), false)
-        )
-    );
+    TriggerSmartContract contract = null;
+    try {
+      contract = triggerCallContract(
+          ByteString.copyFrom(
+              Objects.requireNonNull(
+                  Base58.decodeFromBase58Check(
+                      argsObj.getOwnerAddress()
+                  )
+              )
+          ).toByteArray(),
+          Base58.decodeFromBase58Check(
+              argsObj.getContractAddress()
+          ),
+          0L,
+          org.bouncycastle.util.encoders.Hex.decode(
+              AbiUtil.parseMethod(argsObj.getMethodStr(), String.format("\"%s\"", argsObj.getArgsStr()), false)
+          )
+      );
+    } catch (EncodingException e) {
+      e.printStackTrace();
+    }
 
     client = new WalletGrpcClient(argsObj.getGRPC());
 
