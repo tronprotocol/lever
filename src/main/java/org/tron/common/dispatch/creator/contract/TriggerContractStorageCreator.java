@@ -21,7 +21,7 @@ import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 public class TriggerContractStorageCreator extends AbstractTransferTransactionCreator implements
     GoodCaseTransactonCreator {
 
-  private static AtomicInteger count = new AtomicInteger();
+  private static AtomicInteger count = new AtomicInteger(0);
 
   @Override
   protected Protocol.Transaction create() {
