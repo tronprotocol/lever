@@ -12,6 +12,7 @@ import org.tron.common.crypto.ECKey;
 import org.tron.common.utils.ByteArray;
 import org.tron.protos.Contract;
 import org.tron.protos.Contract.FreezeBalanceContract;
+import org.tron.protos.Contract.ResourceCode;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.service.WalletGrpcClient;
 
@@ -26,7 +27,8 @@ public class FreezeBalance {
 
     client = new WalletGrpcClient(argsObj.getGRPC());
 
-    boolean isSuccess = freezeBalance(argsObj.getPrivateKey(), argsObj.getFrozenBalance(), FROZEN_DURATION);
+    boolean isSuccess = freezeBalance(argsObj.getPrivateKey(), argsObj.getFrozenBalance(),
+        FROZEN_DURATION);
 
     if (isSuccess) {
       System.out.println("success");
@@ -35,7 +37,8 @@ public class FreezeBalance {
     }
   }
 
-  public static boolean freezeBalance(String privateKey, long frozen_balance, long frozen_duration) {
+  public static boolean freezeBalance(String privateKey, long frozen_balance,
+      long frozen_duration) {
     ECKey ecKey = ECKey.fromPrivate(ByteArray.fromHexString(privateKey));
 
     Contract.FreezeBalanceContract contract = createFreezeBalanceContract(ecKey.getAddress(),
@@ -52,13 +55,15 @@ public class FreezeBalance {
     return client.broadcastTransaction(transaction);
   }
 
-  private static FreezeBalanceContract createFreezeBalanceContract(byte[] address, long frozen_balance,
+  private static FreezeBalanceContract createFreezeBalanceContract(byte[] address,
+      long frozen_balance,
       long frozen_duration) {
     Contract.FreezeBalanceContract.Builder builder = Contract.FreezeBalanceContract.newBuilder();
     ByteString byteAddress = ByteString.copyFrom(address);
 
     builder.setOwnerAddress(byteAddress).setFrozenBalance(frozen_balance)
-        .setFrozenDuration(frozen_duration);
+        .setFrozenDuration(frozen_duration)
+        .setResource(ResourceCode.ENERGY);
 
     return builder.build();
   }
