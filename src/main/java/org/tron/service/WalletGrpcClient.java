@@ -6,6 +6,7 @@ import io.grpc.ManagedChannelBuilder;
 import java.util.concurrent.TimeUnit;
 import org.tron.api.GrpcAPI;
 import org.tron.api.GrpcAPI.BytesMessage;
+import org.tron.api.GrpcAPI.Return.response_code;
 import org.tron.api.GrpcAPI.TransactionExtention;
 import org.tron.api.WalletGrpc;
 import org.tron.common.utils.ByteArray;
@@ -54,6 +55,23 @@ public class WalletGrpcClient {
           "hash:" + hash + ",code:" + response.getCode() + ",msg:" + response.getMessage());
     }
     return response.getResult();
+  }
+
+  public int broadcastTransactionRetry(Transaction signaturedTransaction) {
+    GrpcAPI.Return response = stub.broadcastTransaction(signaturedTransaction);
+    if (!response.getResult()) {
+      String hash = Sha256Hash.of(signaturedTransaction.getRawData().toByteArray()).toString();
+      System.err.println(
+          "hash:" + hash + ",code:" + response.getCode() + ",msg:" + response.getMessage());
+    }
+
+    if (response.getCode() == response_code.SERVER_BUSY) {
+      return 1;
+    } else if (!response.getResult()) {
+      return 2;
+    }
+
+    return 0;
   }
 
   public TransactionInfo getTransactionInfoById(String txID) {

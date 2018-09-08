@@ -203,14 +203,14 @@ public class SendTransaction {
 
         this.transactions.forEach(t -> {
           limiter.acquire();
-          boolean b;
+          int b;
           do {
-            b = client.broadcastTransaction(t);
+            b = client.broadcastTransactionRetry(t);
 
-            if (b) {
+            if (b == 0) {
               trueCount.increment();
               successTransactionID.put(TransactionUtils.getID(t).toString(), true);
-            } else {
+            } else if (b == 2) {
               falseCount.increment();
             }
 
@@ -219,7 +219,7 @@ public class SendTransaction {
             long currentMinutes = System.currentTimeMillis() / 1000L / 60;
 
             resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
-          } while (argsObj.isRetry() && !b);
+          } while (argsObj.isRetry() && (b == 1));
 
         });
       }
