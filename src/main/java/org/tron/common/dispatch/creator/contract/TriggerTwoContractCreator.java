@@ -35,8 +35,8 @@ public class TriggerTwoContractCreator extends AbstractTransferTransactionCreato
               .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L,
           org.bouncycastle.util.encoders.Hex
               .decode(AbiUtil.parseMethod("callOther(uint,string)", String.format(
-                  "\"%d\",\"final\"",
-                  andIncrement), false)));
+                  "\"%d\",\"%d_final\"",
+                  andIncrement, andIncrement), false)));
     } catch (EncodingException e) {
       e.printStackTrace();
     }
