@@ -34,7 +34,7 @@ public class TriggerTwoContractCreator extends AbstractTransferTransactionCreato
       contract = triggerCallContract(ownerAddress.toByteArray(), Base58
               .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L,
           org.bouncycastle.util.encoders.Hex
-              .decode(AbiUtil.parseMethod("callOther(uint,string)", String.format(
+              .decode(AbiUtil.parseMethod("callPut(uint256,string)", String.format(
                   "\"%d\",\"%d_final\"",
                   andIncrement, andIncrement), false)));
     } catch (EncodingException e) {
