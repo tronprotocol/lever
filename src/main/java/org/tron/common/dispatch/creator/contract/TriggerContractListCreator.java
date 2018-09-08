@@ -34,8 +34,8 @@ public class TriggerContractListCreator extends AbstractTransferTransactionCreat
       contract = triggerCallContract(ownerAddress.toByteArray(), Base58
               .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L,
           org.bouncycastle.util.encoders.Hex
-              .decode(AbiUtil.parseMethod("testArray(uint256 i, string s)", String.format(
-                  "\"%d\",\"%d\"",
+              .decode(AbiUtil.parseMethod("testArray(uint256,string)", String.format(
+                  "%d,\"%d\"",
                   andIncrement, andIncrement), false)));
     } catch (EncodingException e) {
       e.printStackTrace();
