@@ -62,7 +62,7 @@ public class WalletGrpcClient {
     if (!response.getResult()) {
       String hash = Sha256Hash.of(signaturedTransaction.getRawData().toByteArray()).toString();
       System.err.println(
-          "hash:" + hash + ",code:" + response.getCode() + ",msg:" + response.getMessage());
+          "hash:" + hash + ",code:" + response.getCode() + ",msg:" + ByteArray.toStr(response.getMessage().toByteArray()));
     }
 
     if (response.getCode() == response_code.SERVER_BUSY) {
