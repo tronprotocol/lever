@@ -4,6 +4,8 @@ import com.google.protobuf.ByteString;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import java.util.concurrent.TimeUnit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tron.api.GrpcAPI;
 import org.tron.api.GrpcAPI.BytesMessage;
 import org.tron.api.GrpcAPI.Return.response_code;
@@ -21,10 +23,14 @@ import org.tron.protos.Protocol.TransactionInfo;
 
 public class WalletGrpcClient {
 
+  private static final Logger logger = LoggerFactory.getLogger("WalletGrpcClient");
+
   private final ManagedChannel channel;
   private final WalletGrpc.WalletBlockingStub stub;
 
   public WalletGrpcClient(String host) {
+    logger.info("Create gRPC client: {}.", host);
+
     channel = ManagedChannelBuilder.forTarget(host)
         .usePlaintext(true)
         .build();
@@ -62,7 +68,8 @@ public class WalletGrpcClient {
     if (!response.getResult()) {
       String hash = Sha256Hash.of(signaturedTransaction.getRawData().toByteArray()).toString();
       System.err.println(
-          "hash:" + hash + ",code:" + response.getCode() + ",msg:" + ByteArray.toStr(response.getMessage().toByteArray()));
+          "hash:" + hash + ",code:" + response.getCode() + ",msg:" + ByteArray
+              .toStr(response.getMessage().toByteArray()));
     }
 
     if (response.getCode() == response_code.SERVER_BUSY) {
