@@ -4,8 +4,7 @@ import com.google.protobuf.ByteString;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import java.util.concurrent.TimeUnit;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.tron.api.GrpcAPI;
 import org.tron.api.GrpcAPI.BytesMessage;
 import org.tron.api.GrpcAPI.Return.response_code;
@@ -21,9 +20,8 @@ import org.tron.protos.Protocol.Account;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.protos.Protocol.TransactionInfo;
 
+@Slf4j
 public class WalletGrpcClient {
-
-  private static final Logger logger = LoggerFactory.getLogger("WalletGrpcClient");
 
   private final ManagedChannel channel;
   private final WalletGrpc.WalletBlockingStub stub;

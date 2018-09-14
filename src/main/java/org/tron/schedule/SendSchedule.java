@@ -49,7 +49,9 @@ public class SendSchedule implements Runnable {
 
       } while (retry && (b == 1));
     }
-    pb.step();
+    synchronized (this) {
+      pb.step();
+    }
     latch.countDown();
   }
 }

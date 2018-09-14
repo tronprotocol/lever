@@ -6,17 +6,15 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.LongStream;
+import lombok.extern.slf4j.Slf4j;
 import me.tongfei.progressbar.ProgressBar;
 import me.tongfei.progressbar.ProgressBarStyle;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.tron.common.config.Args;
 import org.tron.common.dispatch.TransactionFactory;
 import org.tron.protos.Protocol.Transaction;
 
+@Slf4j
 public class GenerateTransactionTask implements Task {
-
-  private static final Logger logger = LoggerFactory.getLogger("GenerateTransactionTask");
 
   private ConcurrentLinkedQueue<Transaction> transactions = new ConcurrentLinkedQueue<>();
 
@@ -56,7 +54,7 @@ public class GenerateTransactionTask implements Task {
     logger.info("Start generate transaction.");
 
     CountDownLatch countDownLatch = new CountDownLatch(this.count);
-    ExecutorService service = Executors.newFixedThreadPool(50);
+    ExecutorService service = Executors.newFixedThreadPool(100);
 
     ProgressBar generationPb = new ProgressBar("Generating transactions", this.count,
         ProgressBarStyle.ASCII);
@@ -76,6 +74,20 @@ public class GenerateTransactionTask implements Task {
       System.out.println();
     } catch (InterruptedException e) {
       e.printStackTrace();
+    } finally {
+      service.shutdown();
+
+      while (true) {
+        if (service.isTerminated()) {
+          break;
+        }
+
+        try {
+          Thread.sleep(1000);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
     }
   }
 

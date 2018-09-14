@@ -2,8 +2,7 @@ package org.tron.module;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.tron.common.config.Args;
 import org.tron.common.crypto.Hash;
 import org.tron.task.CheckResultTask;
@@ -12,9 +11,8 @@ import org.tron.task.GenerateTransactionTask;
 import org.tron.task.SendTransactionTask;
 import org.tron.task.Task;
 
+@Slf4j
 public class Application {
-
-  private static final Logger logger = LoggerFactory.getLogger("Application");
 
   private List<Task> taskList;
 

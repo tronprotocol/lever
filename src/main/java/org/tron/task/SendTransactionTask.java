@@ -8,18 +8,16 @@ import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
+import lombok.extern.slf4j.Slf4j;
 import me.tongfei.progressbar.ProgressBar;
 import me.tongfei.progressbar.ProgressBarStyle;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.tron.common.config.Args;
 import org.tron.protos.Protocol.Transaction;
 import org.tron.schedule.SendSchedule;
 import org.tron.service.WalletGrpcClient;
 
+@Slf4j
 public class SendTransactionTask implements Task {
-
-  private static final Logger logger = LoggerFactory.getLogger("SendTransactionTask");
 
   private static List<WalletGrpcClient> clients = new ArrayList<>();
 
@@ -54,7 +52,7 @@ public class SendTransactionTask implements Task {
     initGrpcClients();
 
     executorService = MoreExecutors
-        .listeningDecorator(Executors.newFixedThreadPool(50));
+        .listeningDecorator(Executors.newFixedThreadPool(100));
   }
 
   private void initGrpcClients() {
@@ -76,10 +74,13 @@ public class SendTransactionTask implements Task {
     ProgressBar pb = new ProgressBar("Send transactions", transactions.size(),
         ProgressBarStyle.ASCII);
 
-    for (int i = 0; i < transactions.size(); i++) {
+    int i = 0;
+    while (transactions.size() > 0) {
       executorService
           .execute(new SendSchedule(clients.get(i % grpcHosts.size()), limiter, latch, pb,
               transactions.poll(), retry));
+
+      i++;
     }
 
     try {
@@ -92,11 +93,32 @@ public class SendTransactionTask implements Task {
       System.out.println();
     } catch (InterruptedException e) {
       e.printStackTrace();
+    } finally {
+      executorService.shutdown();
+
+      while (true) {
+        if (executorService.isTerminated()) {
+          break;
+        }
+
+        try {
+          Thread.sleep(1000);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
     }
   }
 
   @Override
   public void shutdown() {
-
+    for (WalletGrpcClient client :
+        clients) {
+      try {
+        client.shutdown();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
   }
 }
