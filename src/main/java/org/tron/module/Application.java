@@ -3,11 +3,14 @@ package org.tron.module;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import org.tron.check.CheckTransferBalanceResult;
 import org.tron.common.config.Args;
 import org.tron.common.crypto.Hash;
 import org.tron.task.CheckResultTask;
-import org.tron.task.CreateAssetTask;
+import org.tron.task.CheckStableTransaction;
 import org.tron.task.GenerateTransactionTask;
+import org.tron.task.GetAccountTask;
+import org.tron.task.GetTotalFeeTask;
 import org.tron.task.SendTransactionTask;
 import org.tron.task.Task;
 
@@ -51,6 +54,12 @@ public class Application {
     String stressType = args.getStressType();
 
     if (stressType.equalsIgnoreCase("transfer.balance")) {
+      GetAccountTask getStartOwnerAccountTask = new GetAccountTask(args.getGRpcCheckAddress(),
+          args.getCheckOwnerAccountAddress());
+
+      GetAccountTask getStartToAccountTask = new GetAccountTask(args.getGRpcCheckAddress(),
+          args.getCheckToAccountAddress());
+
       GenerateTransactionTask generateTransactionTask = new GenerateTransactionTask(
           args.getStressCount());
 
@@ -60,29 +69,31 @@ public class Application {
           args.getStressTps(),
           args.isRetry());
 
-      CheckResultTask checkResultTask = new CheckResultTask();
+      CheckStableTransaction checkStableTransaction = new CheckStableTransaction(
+          args.getGRpcCheckAddress());
 
+      GetAccountTask getEndOwnerAccountTask = new GetAccountTask(args.getGRpcCheckAddress(),
+          args.getCheckOwnerAccountAddress());
+      GetAccountTask getEndToAccountTask = new GetAccountTask(args.getGRpcCheckAddress(),
+          args.getCheckToAccountAddress());
+
+      GetTotalFeeTask getTotalFeeTask = new GetTotalFeeTask();
+
+      CheckResultTask checkResultTask = new CheckResultTask(new CheckTransferBalanceResult(),
+          getStartOwnerAccountTask, getStartToAccountTask, getEndOwnerAccountTask,
+          getEndToAccountTask, getTotalFeeTask);
+
+      this.taskList.add(getStartOwnerAccountTask);
+      this.taskList.add(getStartToAccountTask);
       this.taskList.add(generateTransactionTask);
       this.taskList.add(sendTransactionTask);
+      this.taskList.add(checkStableTransaction);
+      this.taskList.add(getEndOwnerAccountTask);
+      this.taskList.add(getEndToAccountTask);
+      this.taskList.add(getTotalFeeTask);
       this.taskList.add(checkResultTask);
     } else if (stressType.equalsIgnoreCase("transfer.asset")) {
-      CreateAssetTask createAssetTask = new CreateAssetTask();
-
-      GenerateTransactionTask generateTransactionTask = new GenerateTransactionTask(
-          args.getStressCount());
-
-      SendTransactionTask sendTransactionTask = new SendTransactionTask(
-          generateTransactionTask.getTransactions(),
-          args.getGRpcStressAddress(),
-          args.getStressTps(),
-          args.isRetry());
-
-      CheckResultTask checkResultTask = new CheckResultTask();
-
-      this.taskList.add(createAssetTask);
-      this.taskList.add(generateTransactionTask);
-      this.taskList.add(sendTransactionTask);
-      this.taskList.add(checkResultTask);
+      // TODO
     }
   }
 

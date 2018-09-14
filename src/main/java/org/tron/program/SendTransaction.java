@@ -30,6 +30,7 @@ import java.util.stream.IntStream;
 import lombok.Getter;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.tron.api.GrpcAPI.Return.response_code;
 import org.tron.common.config.Config.ConfigProperty;
 import org.tron.common.utils.Base58;
 import org.tron.common.utils.TransactionUtils;
@@ -203,15 +204,13 @@ public class SendTransaction {
 
         this.transactions.forEach(t -> {
           limiter.acquire();
-          int b;
+          response_code b;
           do {
             b = client.broadcastTransactionRetry(t);
 
-            if (b == 0) {
+            if (b == response_code.SUCCESS) {
               trueCount.increment();
               successTransactionID.put(TransactionUtils.getID(t).toString(), true);
-            } else if (b == 2) {
-              falseCount.increment();
             }
 
             currentCount.increment();
@@ -219,7 +218,7 @@ public class SendTransaction {
             long currentMinutes = System.currentTimeMillis() / 1000L / 60;
 
             resultMap.computeIfAbsent(currentMinutes, k -> new LongAdder()).increment();
-          } while (argsObj.isRetry() && (b == 1));
+          } while (argsObj.isRetry() && (b == response_code.SERVER_BUSY));
 
         });
       }

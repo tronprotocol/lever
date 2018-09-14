@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.tron.api.GrpcAPI;
 import org.tron.api.GrpcAPI.BytesMessage;
+import org.tron.api.GrpcAPI.EmptyMessage;
+import org.tron.api.GrpcAPI.NumberMessage;
 import org.tron.api.GrpcAPI.Return.response_code;
 import org.tron.api.GrpcAPI.TransactionExtention;
 import org.tron.api.WalletGrpc;
@@ -25,9 +27,12 @@ public class WalletGrpcClient {
 
   private final ManagedChannel channel;
   private final WalletGrpc.WalletBlockingStub stub;
+  private String host;
 
   public WalletGrpcClient(String host) {
     logger.info("Create gRPC client: {}.", host);
+
+    this.host = host;
 
     channel = ManagedChannelBuilder.forTarget(host)
         .usePlaintext(true)
@@ -61,22 +66,9 @@ public class WalletGrpcClient {
     return response.getResult();
   }
 
-  public int broadcastTransactionRetry(Transaction signaturedTransaction) {
+  public response_code broadcastTransactionRetry(Transaction signaturedTransaction) {
     GrpcAPI.Return response = stub.broadcastTransaction(signaturedTransaction);
-    if (!response.getResult()) {
-      String hash = Sha256Hash.of(signaturedTransaction.getRawData().toByteArray()).toString();
-      System.err.println(
-          "hash:" + hash + ",code:" + response.getCode() + ",msg:" + ByteArray
-              .toStr(response.getMessage().toByteArray()));
-    }
-
-    if (response.getCode() == response_code.SERVER_BUSY) {
-      return 1;
-    } else if (!response.getResult()) {
-      return 2;
-    }
-
-    return 0;
+    return response.getCode();
   }
 
   public TransactionInfo getTransactionInfoById(String txID) {
@@ -86,11 +78,19 @@ public class WalletGrpcClient {
     return stub.getTransactionInfoById(request);
   }
 
+  public NumberMessage getTotalTransaction() {
+    return stub.totalTransaction(EmptyMessage.newBuilder().build());
+  }
+
   public TransactionExtention createAssetIssue2(AssetIssueContract contract) {
     return stub.createAssetIssue2(contract);
   }
 
   public TransactionExtention triggerContract(TriggerSmartContract contract) {
     return stub.triggerContract(contract);
+  }
+
+  public String getHost() {
+    return host;
   }
 }

@@ -93,7 +93,7 @@ public class GenerateTransactionTask implements Task {
 
   @Override
   public void shutdown() {
-
+    logger.info("Shutdown generate transaction task.");
   }
 
   public ConcurrentLinkedQueue<Transaction> getTransactions() {

@@ -21,6 +21,8 @@ public class Args {
   private static final String STRESS_COUNT = "stress.count";
   private static final String STRESS_TPS = "stress.tps";
   private static final String STRESS_RETRY = "stress.retry";
+  private static final String CHECK_OWNER_ACCOUNT_ADDRESS = "check.owner.account.address";
+  private static final String CHECK_TO_ACCOUNT_ADDRESS = "check.to.account.address";
 
   private static Args INSTANCE;
 
@@ -65,6 +67,16 @@ public class Args {
   @Getter
   @Parameter(names = {"--stress-retry"}, description = "Retry")
   private boolean retry = false;
+
+  @Getter
+  @com.beust.jcommander.Parameter(names = {
+      "--check-owner-account-address"}, description = "Check owner account address")
+  private String checkOwnerAccountAddress = "";
+
+  @Getter
+  @com.beust.jcommander.Parameter(names = {
+      "--check-to-account-address"}, description = "Check to account address")
+  private String checkToAccountAddress = "";
 
   private Args() {
 
@@ -151,6 +163,24 @@ public class Args {
     System.out.println();
 
     System.out.printf("Retry: \u001B[34m%s\u001B[0m", INSTANCE.retry);
+    System.out.println();
+
+    if ("" == INSTANCE.checkOwnerAccountAddress) {
+      INSTANCE.checkOwnerAccountAddress = config.getString(CHECK_OWNER_ACCOUNT_ADDRESS);
+    }
+
+    System.out
+        .printf("Check owner account address: \u001B[34m%s\u001B[0m",
+            INSTANCE.checkOwnerAccountAddress);
+    System.out.println();
+
+    if ("" == INSTANCE.checkToAccountAddress) {
+      INSTANCE.checkToAccountAddress = config.getString(CHECK_TO_ACCOUNT_ADDRESS);
+    }
+
+    System.out
+        .printf("Check to account address: \u001B[34m%s\u001B[0m",
+            INSTANCE.checkToAccountAddress);
     System.out.println();
   }
 }

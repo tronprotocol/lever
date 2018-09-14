@@ -19,7 +19,7 @@ import org.tron.service.WalletGrpcClient;
 @Slf4j
 public class SendTransactionTask implements Task {
 
-  private static List<WalletGrpcClient> clients = new ArrayList<>();
+  private List<WalletGrpcClient> clients = new ArrayList<>();
 
   private ListeningExecutorService executorService;
 
@@ -68,6 +68,8 @@ public class SendTransactionTask implements Task {
 
   @Override
   public void start() {
+    logger.info("Start send transaction task.");
+
     RateLimiter limiter = RateLimiter.create(tps);
     CountDownLatch latch = new CountDownLatch(transactions.size());
 
@@ -112,6 +114,8 @@ public class SendTransactionTask implements Task {
 
   @Override
   public void shutdown() {
+    logger.info("Shutdown send transaction task.");
+
     for (WalletGrpcClient client :
         clients) {
       try {
@@ -121,4 +125,5 @@ public class SendTransactionTask implements Task {
       }
     }
   }
+
 }
