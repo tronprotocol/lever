@@ -113,7 +113,8 @@ public class CheckStableTransaction implements Task {
       try {
         client.shutdown();
       } catch (InterruptedException e) {
-        e.printStackTrace();
+        logger.error(e.getMessage());
+        Thread.currentThread().interrupt();
       }
     }
   }
