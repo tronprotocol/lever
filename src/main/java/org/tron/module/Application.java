@@ -54,6 +54,9 @@ public class Application {
     String stressType = args.getStressType();
 
     if (stressType.equalsIgnoreCase("transfer.balance")) {
+      CheckStableTransaction checkStableTransaction1 = new CheckStableTransaction(
+          args.getGRpcCheckAddress());
+
       GetAccountTask getStartOwnerAccountTask = new GetAccountTask(args.getGRpcCheckAddress(),
           args.getCheckOwnerAccountAddress());
 
@@ -69,7 +72,7 @@ public class Application {
           args.getStressTps(),
           args.isRetry());
 
-      CheckStableTransaction checkStableTransaction = new CheckStableTransaction(
+      CheckStableTransaction checkStableTransaction2 = new CheckStableTransaction(
           args.getGRpcCheckAddress());
 
       GetAccountTask getEndOwnerAccountTask = new GetAccountTask(args.getGRpcCheckAddress(),
@@ -83,11 +86,12 @@ public class Application {
           getStartOwnerAccountTask, getStartToAccountTask, getEndOwnerAccountTask,
           getEndToAccountTask, getTotalFeeTask);
 
+      this.taskList.add(checkStableTransaction1);
       this.taskList.add(getStartOwnerAccountTask);
       this.taskList.add(getStartToAccountTask);
       this.taskList.add(generateTransactionTask);
       this.taskList.add(sendTransactionTask);
-      this.taskList.add(checkStableTransaction);
+      this.taskList.add(checkStableTransaction2);
       this.taskList.add(getEndOwnerAccountTask);
       this.taskList.add(getEndToAccountTask);
       this.taskList.add(getTotalFeeTask);

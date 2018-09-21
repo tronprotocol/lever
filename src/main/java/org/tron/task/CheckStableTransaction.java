@@ -52,7 +52,7 @@ public class CheckStableTransaction implements Task {
 
         List<Long> nums = result.get(client.getHost());
 
-        if (null == nums || 0 == nums.size()) {
+        if (null == nums || nums.isEmpty()) {
           List<Long> ns = new ArrayList<>();
           ns.add(num);
           result.put(client.getHost(), ns);
@@ -74,7 +74,7 @@ public class CheckStableTransaction implements Task {
           long second = nums.get(1);
           long third = nums.get(2);
 
-          if ((first != second) || (first != third) || (second != third)) {
+          if (first != second || first != third) {
             isStable = false;
             break;
           }
@@ -87,9 +87,20 @@ public class CheckStableTransaction implements Task {
 
       try {
         logger.info("Need check stable transaction.");
+        Set<Entry<String, List<Long>>> entries = result.entrySet();
+        for (Entry<String, List<Long>> entry : entries) {
+          List<Long> nums = entry.getValue();
+          StringBuilder tips = new StringBuilder();
+          for (Long n : nums) {
+            tips.append(n).append(" ");
+          }
+
+          logger.info("{}: {}", entry.getKey(), tips.toString());
+        }
         Thread.sleep(3000);
       } catch (InterruptedException e) {
-        e.printStackTrace();
+        logger.error(e.getMessage());
+        Thread.currentThread().interrupt();
       }
     } while (true);
   }
