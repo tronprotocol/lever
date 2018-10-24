@@ -1,11 +1,17 @@
 package org.tron.schedule;
 
 import com.google.common.util.concurrent.RateLimiter;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import me.tongfei.progressbar.ProgressBar;
 import org.tron.api.GrpcAPI.Return.response_code;
@@ -17,23 +23,47 @@ public class SendSchedule implements Runnable {
 
   private static volatile Map<String, Boolean> successTransactionID = new ConcurrentHashMap<>();
   private static volatile Map<String, AtomicInteger> statistics = new ConcurrentHashMap<>();
+  private static volatile ConcurrentLinkedQueue tps = new ConcurrentLinkedQueue();
 
   public static final ScheduledExecutorService service = Executors
       .newSingleThreadScheduledExecutor();
   private WalletGrpcClient client;
   private RateLimiter limiter;
   private CountDownLatch latch;
-  private ProgressBar pb;
+  private static ProgressBar pb;
   private Transaction transaction;
   private boolean retry;
 
+  static {
+    service.scheduleAtFixedRate(() -> {
+
+      long count = pb.getCurrent();
+      tps.offer(count);
+
+      long tip = 0L;
+      if (tps.size() < 2) {
+        tip = count;
+      } else {
+        long first = (long) tps.poll();
+        tip = count - first;
+      }
+
+      System.out.println("Current TPS: " + tip);
+
+      if (count == pb.getMax()) {
+        service.shutdown();
+      }
+    }, 1, 1, TimeUnit.SECONDS);
+  }
+
+  public SendSchedule() {
+  }
+
   public SendSchedule(final WalletGrpcClient client, RateLimiter limiter, CountDownLatch latch,
-      ProgressBar pb,
       Transaction transaction, boolean retry) {
     this.client = client;
     this.limiter = limiter;
     this.latch = latch;
-    this.pb = pb;
     this.transaction = transaction;
     this.retry = retry;
   }
@@ -123,5 +153,9 @@ public class SendSchedule implements Runnable {
 
   public static Map<String, Boolean> getSuccessTransactionID() {
     return successTransactionID;
+  }
+
+  public static void setPb(ProgressBar pb) {
+    SendSchedule.pb = pb;
   }
 }

@@ -42,7 +42,14 @@ public class GenerateTransactionTask implements Task {
       context = "context/TransferTRX.xml";
     } else if (stressType.equalsIgnoreCase("transfer.asset")) {
       context = "context/TransferAsset.xml";
+    }else if (stressType.equalsIgnoreCase("transfer.deploy.contract")){
+      context = "context/DeployContract.xml";
+    }else if (stressType.equalsIgnoreCase("transfer.trigger.contract")){
+      context = "context/TriggerContract.xml";
+    }else if (stressType.equalsIgnoreCase("transfer.airdrop")){
+      context = "context/AirdropContract.xml";
     }
+
 
     logger.info("Load context: {}.", context);
 

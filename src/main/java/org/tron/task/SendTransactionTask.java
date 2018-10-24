@@ -76,12 +76,12 @@ public class SendTransactionTask implements Task {
     ProgressBar pb = new ProgressBar("Send transactions", transactions.size(),
         ProgressBarStyle.ASCII);
 
+    new SendSchedule().setPb(pb);
     int i = 0;
     while (transactions.size() > 0) {
       executorService
-          .execute(new SendSchedule(clients.get(i % grpcHosts.size()), limiter, latch, pb,
+          .execute(new SendSchedule(clients.get(i % grpcHosts.size()), limiter, latch,
               transactions.poll(), retry));
-
       i++;
     }
 

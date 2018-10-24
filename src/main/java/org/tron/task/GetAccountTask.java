@@ -57,8 +57,8 @@ public class GetAccountTask implements Task {
     account = Account.newBuilder()
         .setAddress(ByteString.copyFrom(
             Objects.requireNonNull(
-                Base58.decodeFromBase58Check(accountAddress)
-            )
+        Base58.decodeFromBase58Check(accountAddress)
+    )
         ))
         .build();
   }

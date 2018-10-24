@@ -16,6 +16,8 @@ import org.tron.program.GenerateTransaction;
 import org.tron.protos.Contract.TriggerSmartContract;
 import org.tron.protos.Protocol;
 import org.tron.protos.Protocol.Transaction.Contract.ContractType;
+import org.tron.task.CreateAssetTask;
+import org.tron.task.DeployContractTask;
 
 public class TriggerContractTransactionCreator extends AbstractTransferTransactionCreator implements GoodCaseTransactonCreator {
   @Override
@@ -24,8 +26,10 @@ public class TriggerContractTransactionCreator extends AbstractTransferTransacti
 
     TriggerSmartContract contract = null;
     try {
-      contract = triggerCallContract(ownerAddress.toByteArray(), Base58
-          .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
+//      contract = triggerCallContract(ownerAddress.toByteArray(), Base58
+//          .decodeFromBase58Check(GenerateTransaction.getArgsObj().getContractAddress()), 0L, org.bouncycastle.util.encoders.Hex
+//          .decode(AbiUtil.parseMethod("multiply(int256,int256)", "3,4", false)));
+      contract = triggerCallContract(ownerAddress.toByteArray(), DeployContractTask.getContractId(), 0L, org.bouncycastle.util.encoders.Hex
           .decode(AbiUtil.parseMethod("multiply(int256,int256)", "3,4", false)));
     } catch (EncodingException e) {
       e.printStackTrace();

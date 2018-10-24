@@ -93,4 +93,8 @@ public class WalletGrpcClient {
   public String getHost() {
     return host;
   }
+
+  public Transaction createAssetIssue(AssetIssueContract contract) {
+    return stub.createAssetIssue(contract);
+  }
 }

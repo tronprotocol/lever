@@ -8,9 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.tron.protos.Protocol.Account;
 
 @Slf4j
-public class CheckTransferBalanceResult extends CheckResultImp {
+public class CheckAirDropContractResult extends CheckResultImp {
 
-  public CheckTransferBalanceResult() {
+  public CheckAirDropContractResult() {
   }
 
   public void setStatistics(
@@ -30,35 +30,22 @@ public class CheckTransferBalanceResult extends CheckResultImp {
       success = successai.get();
     }
 
-    System.out.println("Owner account:");
+    System.out.println("Owner account balance:");
     Set<Entry<String, Account>> entries = startOwnerAccount.entrySet();
     for (Entry<String, Account> entry : entries) {
       long startBalance = entry.getValue().getBalance();
       long endBalance = endOwnerAccount.get(entry.getKey()).getBalance();
 
+//      entry.getValue().
+
       System.out.println(
           "Host: " + entry.getKey() + ", Start Balance: " + startBalance + ", End Balance: "
-              + endBalance + ", Success: "
-              + success + ", Total Fee: " + totalFee);
-      if ((endBalance + success + totalFee) != startBalance) {
+              + endBalance + ", Total Fee: " + totalFee);
+      if ((endBalance + totalFee) != startBalance) {
         return false;
       }
     }
 
-    System.out.println();
-    System.out.println("To account:");
-    Set<Entry<String, Account>> entries1 = startToAccount.entrySet();
-    for (Entry<String, Account> entry :
-        entries1) {
-      long startBalance = entry.getValue().getBalance();
-      long endBalance = endToAccount.get(entry.getKey()).getBalance();
-      System.out.println(
-          "Start Balance: " + startBalance + ", End Balance: " + endBalance + ", Success: "
-              + success);
-      if ((startBalance + success) != endBalance) {
-        return false;
-      }
-    }
     System.out.println("---------------------------------------------");
 
     return true;
