@@ -94,12 +94,12 @@ public class Application {
           getStartOwnerAccountTask, getStartToAccountTask, getEndOwnerAccountTask,
           getEndToAccountTask, getTotalFeeTask);
 
-      this.taskList.add(checkStableTransaction1);
+      //this.taskList.add(checkStableTransaction1);
       this.taskList.add(getStartOwnerAccountTask);
       this.taskList.add(getStartToAccountTask);
       this.taskList.add(generateTransactionTask);
       this.taskList.add(sendTransactionTask);
-      this.taskList.add(checkStableTransaction2);
+      //this.taskList.add(checkStableTransaction2);
       this.taskList.add(getEndOwnerAccountTask);
       this.taskList.add(getEndToAccountTask);
       this.taskList.add(getTotalFeeTask);
