@@ -2,6 +2,7 @@ package org.tron.task;
 
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import org.tron.common.config.Args;
@@ -42,9 +43,10 @@ public class GetTotalFeeTask implements Task {
 
     Set<Entry<String, Boolean>> entries = successTransactionID.entrySet();
     for (Entry<String, Boolean> entry : entries) {
-      TransactionInfo transactionInfo = client.getTransactionInfoById(entry.getKey());
-      if (transactionInfo != null) {
-        totalFee += transactionInfo.getFee();
+      Optional<TransactionInfo> transactionInfo = client.getTransactionInfoById(entry.getKey());
+
+      if (transactionInfo.isPresent()) {
+        totalFee += transactionInfo.get().getFee();
       }
     }
   }

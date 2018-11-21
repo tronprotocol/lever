@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -21,6 +22,7 @@ import org.tron.protos.Protocol.TransactionInfo;
 import org.tron.service.WalletGrpcClient;
 
 public class CheckTransactionInfo {
+
   private static WalletGrpcClient client;
   private static List<String> transactionIds = new ArrayList<>();
   private static ConcurrentHashMap<String, TransactionInfo> transactionInfoMap = new ConcurrentHashMap<>();
@@ -69,12 +71,17 @@ public class CheckTransactionInfo {
     CountDownLatch countDownLatch = new CountDownLatch(transactionIds.size());
     ExecutorService service = Executors.newFixedThreadPool(50);
 
-    ProgressBar generationPb = new ProgressBar("Getting transaction info", transactionIds.size(), ProgressBarStyle.ASCII);
+    ProgressBar generationPb = new ProgressBar("Getting transaction info", transactionIds.size(),
+        ProgressBarStyle.ASCII);
 
     transactionIds.forEach(t -> {
       service.execute(() -> {
-        TransactionInfo transactionInfo = client.getTransactionInfoById(t);
-        transactionInfoMap.put(ByteArray.toHexString(transactionInfo.getId().toByteArray()), transactionInfo);
+        Optional<TransactionInfo> transactionInfo = client.getTransactionInfoById(t);
+        if (transactionInfo.isPresent()) {
+          transactionInfoMap
+              .put(ByteArray.toHexString(transactionInfo.get().getId().toByteArray()),
+                  transactionInfo.get());
+        }
         generationPb.step();
         countDownLatch.countDown();
       });
@@ -94,7 +101,8 @@ public class CheckTransactionInfo {
     for (Entry<String, TransactionInfo> entry : transactionInfoMap.entrySet()) {
       fee += entry.getValue().getFee();
       if (entry.getValue().getResult().getNumber() != 0) {
-        System.err.println(entry.getValue().getResult().getNumber()+":"+ByteArray.toStr(entry.getValue().getResMessage().toByteArray()));
+        System.err.println(entry.getValue().getResult().getNumber() + ":" + ByteArray
+            .toStr(entry.getValue().getResMessage().toByteArray()));
       }
     }
 

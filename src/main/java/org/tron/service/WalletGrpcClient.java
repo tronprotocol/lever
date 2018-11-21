@@ -3,6 +3,7 @@ package org.tron.service;
 import com.google.protobuf.ByteString;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.tron.api.GrpcAPI;
@@ -71,11 +72,18 @@ public class WalletGrpcClient {
     return response.getCode();
   }
 
-  public TransactionInfo getTransactionInfoById(String txID) {
+  public Optional<TransactionInfo> getTransactionInfoById(String txID) {
     ByteString bsTxId = ByteString.copyFrom(ByteArray.fromHexString(txID));
     BytesMessage request = BytesMessage.newBuilder().setValue(bsTxId).build();
 
-    return stub.getTransactionInfoById(request);
+    return Optional.ofNullable(stub.getTransactionInfoById(request));
+  }
+
+  public Optional<Transaction> getTransactionById(String txID) {
+    ByteString bsTxid = ByteString.copyFrom(ByteArray.fromHexString(txID));
+    BytesMessage request = BytesMessage.newBuilder().setValue(bsTxid).build();
+    Transaction transaction = stub.getTransactionById(request);
+    return Optional.ofNullable(transaction);
   }
 
   public NumberMessage getTotalTransaction() {

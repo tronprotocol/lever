@@ -348,6 +348,38 @@ public final class WalletGrpc {
      return getUpdateSettingMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getUpdateEnergyLimitMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.UpdateEnergyLimitContract,
+      org.tron.api.GrpcAPI.TransactionExtention> METHOD_UPDATE_ENERGY_LIMIT = getUpdateEnergyLimitMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.protos.Contract.UpdateEnergyLimitContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getUpdateEnergyLimitMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.protos.Contract.UpdateEnergyLimitContract,
+      org.tron.api.GrpcAPI.TransactionExtention> getUpdateEnergyLimitMethod() {
+    io.grpc.MethodDescriptor<org.tron.protos.Contract.UpdateEnergyLimitContract, org.tron.api.GrpcAPI.TransactionExtention> getUpdateEnergyLimitMethod;
+    if ((getUpdateEnergyLimitMethod = WalletGrpc.getUpdateEnergyLimitMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getUpdateEnergyLimitMethod = WalletGrpc.getUpdateEnergyLimitMethod) == null) {
+          WalletGrpc.getUpdateEnergyLimitMethod = getUpdateEnergyLimitMethod = 
+              io.grpc.MethodDescriptor.<org.tron.protos.Contract.UpdateEnergyLimitContract, org.tron.api.GrpcAPI.TransactionExtention>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "UpdateEnergyLimit"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Contract.UpdateEnergyLimitContract.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.TransactionExtention.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("UpdateEnergyLimit"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateEnergyLimitMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getVoteWitnessAccount2Method()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.protos.Contract.VoteWitnessContract,
       org.tron.api.GrpcAPI.TransactionExtention> METHOD_VOTE_WITNESS_ACCOUNT2 = getVoteWitnessAccount2Method();
@@ -2044,6 +2076,70 @@ public final class WalletGrpc {
      return getListWitnessesMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getGetDelegatedResourceMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.DelegatedResourceMessage,
+      org.tron.api.GrpcAPI.DelegatedResourceList> METHOD_GET_DELEGATED_RESOURCE = getGetDelegatedResourceMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.DelegatedResourceMessage,
+      org.tron.api.GrpcAPI.DelegatedResourceList> getGetDelegatedResourceMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.DelegatedResourceMessage,
+      org.tron.api.GrpcAPI.DelegatedResourceList> getGetDelegatedResourceMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.DelegatedResourceMessage, org.tron.api.GrpcAPI.DelegatedResourceList> getGetDelegatedResourceMethod;
+    if ((getGetDelegatedResourceMethod = WalletGrpc.getGetDelegatedResourceMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getGetDelegatedResourceMethod = WalletGrpc.getGetDelegatedResourceMethod) == null) {
+          WalletGrpc.getGetDelegatedResourceMethod = getGetDelegatedResourceMethod = 
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.DelegatedResourceMessage, org.tron.api.GrpcAPI.DelegatedResourceList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "GetDelegatedResource"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.DelegatedResourceMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.DelegatedResourceList.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("GetDelegatedResource"))
+                  .build();
+          }
+        }
+     }
+     return getGetDelegatedResourceMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getGetDelegatedResourceAccountIndexMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
+      org.tron.protos.Protocol.DelegatedResourceAccountIndex> METHOD_GET_DELEGATED_RESOURCE_ACCOUNT_INDEX = getGetDelegatedResourceAccountIndexMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
+      org.tron.protos.Protocol.DelegatedResourceAccountIndex> getGetDelegatedResourceAccountIndexMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage,
+      org.tron.protos.Protocol.DelegatedResourceAccountIndex> getGetDelegatedResourceAccountIndexMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Protocol.DelegatedResourceAccountIndex> getGetDelegatedResourceAccountIndexMethod;
+    if ((getGetDelegatedResourceAccountIndexMethod = WalletGrpc.getGetDelegatedResourceAccountIndexMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getGetDelegatedResourceAccountIndexMethod = WalletGrpc.getGetDelegatedResourceAccountIndexMethod) == null) {
+          WalletGrpc.getGetDelegatedResourceAccountIndexMethod = getGetDelegatedResourceAccountIndexMethod = 
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.BytesMessage, org.tron.protos.Protocol.DelegatedResourceAccountIndex>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "GetDelegatedResourceAccountIndex"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.BytesMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.protos.Protocol.DelegatedResourceAccountIndex.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("GetDelegatedResourceAccountIndex"))
+                  .build();
+          }
+        }
+     }
+     return getGetDelegatedResourceAccountIndexMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getListProposalsMethod()} instead. 
   public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.EmptyMessage,
       org.tron.api.GrpcAPI.ProposalList> METHOD_LIST_PROPOSALS = getListProposalsMethod();
@@ -2074,6 +2170,38 @@ public final class WalletGrpc {
         }
      }
      return getListProposalsMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getGetPaginatedProposalListMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.PaginatedMessage,
+      org.tron.api.GrpcAPI.ProposalList> METHOD_GET_PAGINATED_PROPOSAL_LIST = getGetPaginatedProposalListMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.PaginatedMessage,
+      org.tron.api.GrpcAPI.ProposalList> getGetPaginatedProposalListMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.PaginatedMessage,
+      org.tron.api.GrpcAPI.ProposalList> getGetPaginatedProposalListMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.PaginatedMessage, org.tron.api.GrpcAPI.ProposalList> getGetPaginatedProposalListMethod;
+    if ((getGetPaginatedProposalListMethod = WalletGrpc.getGetPaginatedProposalListMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getGetPaginatedProposalListMethod = WalletGrpc.getGetPaginatedProposalListMethod) == null) {
+          WalletGrpc.getGetPaginatedProposalListMethod = getGetPaginatedProposalListMethod = 
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.PaginatedMessage, org.tron.api.GrpcAPI.ProposalList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "GetPaginatedProposalList"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.PaginatedMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.ProposalList.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("GetPaginatedProposalList"))
+                  .build();
+          }
+        }
+     }
+     return getGetPaginatedProposalListMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getGetProposalByIdMethod()} instead. 
@@ -2138,6 +2266,38 @@ public final class WalletGrpc {
         }
      }
      return getListExchangesMethod;
+  }
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  @java.lang.Deprecated // Use {@link #getGetPaginatedExchangeListMethod()} instead. 
+  public static final io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.PaginatedMessage,
+      org.tron.api.GrpcAPI.ExchangeList> METHOD_GET_PAGINATED_EXCHANGE_LIST = getGetPaginatedExchangeListMethod();
+
+  private static volatile io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.PaginatedMessage,
+      org.tron.api.GrpcAPI.ExchangeList> getGetPaginatedExchangeListMethod;
+
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.PaginatedMessage,
+      org.tron.api.GrpcAPI.ExchangeList> getGetPaginatedExchangeListMethod() {
+    io.grpc.MethodDescriptor<org.tron.api.GrpcAPI.PaginatedMessage, org.tron.api.GrpcAPI.ExchangeList> getGetPaginatedExchangeListMethod;
+    if ((getGetPaginatedExchangeListMethod = WalletGrpc.getGetPaginatedExchangeListMethod) == null) {
+      synchronized (WalletGrpc.class) {
+        if ((getGetPaginatedExchangeListMethod = WalletGrpc.getGetPaginatedExchangeListMethod) == null) {
+          WalletGrpc.getGetPaginatedExchangeListMethod = getGetPaginatedExchangeListMethod = 
+              io.grpc.MethodDescriptor.<org.tron.api.GrpcAPI.PaginatedMessage, org.tron.api.GrpcAPI.ExchangeList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protocol.Wallet", "GetPaginatedExchangeList"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.PaginatedMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.tron.api.GrpcAPI.ExchangeList.getDefaultInstance()))
+                  .setSchemaDescriptor(new WalletMethodDescriptorSupplier("GetPaginatedExchangeList"))
+                  .build();
+          }
+        }
+     }
+     return getGetPaginatedExchangeListMethod;
   }
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   @java.lang.Deprecated // Use {@link #getGetExchangeByIdMethod()} instead. 
@@ -2673,6 +2833,16 @@ public final class WalletGrpc {
 
     /**
      * <pre>
+     *modify the energy_limit
+     * </pre>
+     */
+    public void updateEnergyLimit(org.tron.protos.Contract.UpdateEnergyLimitContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnimplementedUnaryCall(getUpdateEnergyLimitMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
      *Use this function instead of VoteWitnessAccount.
      * </pre>
      */
@@ -3137,9 +3307,30 @@ public final class WalletGrpc {
 
     /**
      */
+    public void getDelegatedResource(org.tron.api.GrpcAPI.DelegatedResourceMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.DelegatedResourceList> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetDelegatedResourceMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getDelegatedResourceAccountIndex(org.tron.api.GrpcAPI.BytesMessage request,
+        io.grpc.stub.StreamObserver<org.tron.protos.Protocol.DelegatedResourceAccountIndex> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetDelegatedResourceAccountIndexMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void listProposals(org.tron.api.GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ProposalList> responseObserver) {
       asyncUnimplementedUnaryCall(getListProposalsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getPaginatedProposalList(org.tron.api.GrpcAPI.PaginatedMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ProposalList> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetPaginatedProposalListMethod(), responseObserver);
     }
 
     /**
@@ -3154,6 +3345,13 @@ public final class WalletGrpc {
     public void listExchanges(org.tron.api.GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList> responseObserver) {
       asyncUnimplementedUnaryCall(getListExchangesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getPaginatedExchangeList(org.tron.api.GrpcAPI.PaginatedMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetPaginatedExchangeListMethod(), responseObserver);
     }
 
     /**
@@ -3339,6 +3537,13 @@ public final class WalletGrpc {
                 org.tron.protos.Contract.UpdateSettingContract,
                 org.tron.api.GrpcAPI.TransactionExtention>(
                   this, METHODID_UPDATE_SETTING)))
+          .addMethod(
+            getUpdateEnergyLimitMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.protos.Contract.UpdateEnergyLimitContract,
+                org.tron.api.GrpcAPI.TransactionExtention>(
+                  this, METHODID_UPDATE_ENERGY_LIMIT)))
           .addMethod(
             getVoteWitnessAccount2Method(),
             asyncUnaryCall(
@@ -3711,12 +3916,33 @@ public final class WalletGrpc {
                 org.tron.api.GrpcAPI.WitnessList>(
                   this, METHODID_LIST_WITNESSES)))
           .addMethod(
+            getGetDelegatedResourceMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.api.GrpcAPI.DelegatedResourceMessage,
+                org.tron.api.GrpcAPI.DelegatedResourceList>(
+                  this, METHODID_GET_DELEGATED_RESOURCE)))
+          .addMethod(
+            getGetDelegatedResourceAccountIndexMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.api.GrpcAPI.BytesMessage,
+                org.tron.protos.Protocol.DelegatedResourceAccountIndex>(
+                  this, METHODID_GET_DELEGATED_RESOURCE_ACCOUNT_INDEX)))
+          .addMethod(
             getListProposalsMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.tron.api.GrpcAPI.EmptyMessage,
                 org.tron.api.GrpcAPI.ProposalList>(
                   this, METHODID_LIST_PROPOSALS)))
+          .addMethod(
+            getGetPaginatedProposalListMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.api.GrpcAPI.PaginatedMessage,
+                org.tron.api.GrpcAPI.ProposalList>(
+                  this, METHODID_GET_PAGINATED_PROPOSAL_LIST)))
           .addMethod(
             getGetProposalByIdMethod(),
             asyncUnaryCall(
@@ -3731,6 +3957,13 @@ public final class WalletGrpc {
                 org.tron.api.GrpcAPI.EmptyMessage,
                 org.tron.api.GrpcAPI.ExchangeList>(
                   this, METHODID_LIST_EXCHANGES)))
+          .addMethod(
+            getGetPaginatedExchangeListMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.tron.api.GrpcAPI.PaginatedMessage,
+                org.tron.api.GrpcAPI.ExchangeList>(
+                  this, METHODID_GET_PAGINATED_EXCHANGE_LIST)))
           .addMethod(
             getGetExchangeByIdMethod(),
             asyncUnaryCall(
@@ -3940,6 +4173,17 @@ public final class WalletGrpc {
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getUpdateSettingMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *modify the energy_limit
+     * </pre>
+     */
+    public void updateEnergyLimit(org.tron.protos.Contract.UpdateEnergyLimitContract request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUpdateEnergyLimitMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4461,10 +4705,34 @@ public final class WalletGrpc {
 
     /**
      */
+    public void getDelegatedResource(org.tron.api.GrpcAPI.DelegatedResourceMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.DelegatedResourceList> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetDelegatedResourceMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getDelegatedResourceAccountIndex(org.tron.api.GrpcAPI.BytesMessage request,
+        io.grpc.stub.StreamObserver<org.tron.protos.Protocol.DelegatedResourceAccountIndex> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetDelegatedResourceAccountIndexMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void listProposals(org.tron.api.GrpcAPI.EmptyMessage request,
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ProposalList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getListProposalsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getPaginatedProposalList(org.tron.api.GrpcAPI.PaginatedMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ProposalList> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetPaginatedProposalListMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4481,6 +4749,14 @@ public final class WalletGrpc {
         io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getListExchangesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getPaginatedExchangeList(org.tron.api.GrpcAPI.PaginatedMessage request,
+        io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetPaginatedExchangeListMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4712,6 +4988,16 @@ public final class WalletGrpc {
     public org.tron.api.GrpcAPI.TransactionExtention updateSetting(org.tron.protos.Contract.UpdateSettingContract request) {
       return blockingUnaryCall(
           getChannel(), getUpdateSettingMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *modify the energy_limit
+     * </pre>
+     */
+    public org.tron.api.GrpcAPI.TransactionExtention updateEnergyLimit(org.tron.protos.Contract.UpdateEnergyLimitContract request) {
+      return blockingUnaryCall(
+          getChannel(), getUpdateEnergyLimitMethod(), getCallOptions(), request);
     }
 
     /**
@@ -5180,9 +5466,30 @@ public final class WalletGrpc {
 
     /**
      */
+    public org.tron.api.GrpcAPI.DelegatedResourceList getDelegatedResource(org.tron.api.GrpcAPI.DelegatedResourceMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getGetDelegatedResourceMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.protos.Protocol.DelegatedResourceAccountIndex getDelegatedResourceAccountIndex(org.tron.api.GrpcAPI.BytesMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getGetDelegatedResourceAccountIndexMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public org.tron.api.GrpcAPI.ProposalList listProposals(org.tron.api.GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getListProposalsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.api.GrpcAPI.ProposalList getPaginatedProposalList(org.tron.api.GrpcAPI.PaginatedMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getGetPaginatedProposalListMethod(), getCallOptions(), request);
     }
 
     /**
@@ -5197,6 +5504,13 @@ public final class WalletGrpc {
     public org.tron.api.GrpcAPI.ExchangeList listExchanges(org.tron.api.GrpcAPI.EmptyMessage request) {
       return blockingUnaryCall(
           getChannel(), getListExchangesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.tron.api.GrpcAPI.ExchangeList getPaginatedExchangeList(org.tron.api.GrpcAPI.PaginatedMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getGetPaginatedExchangeListMethod(), getCallOptions(), request);
     }
 
     /**
@@ -5425,6 +5739,17 @@ public final class WalletGrpc {
         org.tron.protos.Contract.UpdateSettingContract request) {
       return futureUnaryCall(
           getChannel().newCall(getUpdateSettingMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     *modify the energy_limit
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.TransactionExtention> updateEnergyLimit(
+        org.tron.protos.Contract.UpdateEnergyLimitContract request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUpdateEnergyLimitMethod(), getCallOptions()), request);
     }
 
     /**
@@ -5946,10 +6271,34 @@ public final class WalletGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.DelegatedResourceList> getDelegatedResource(
+        org.tron.api.GrpcAPI.DelegatedResourceMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetDelegatedResourceMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.protos.Protocol.DelegatedResourceAccountIndex> getDelegatedResourceAccountIndex(
+        org.tron.api.GrpcAPI.BytesMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetDelegatedResourceAccountIndexMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.ProposalList> listProposals(
         org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getListProposalsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.ProposalList> getPaginatedProposalList(
+        org.tron.api.GrpcAPI.PaginatedMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetPaginatedProposalListMethod(), getCallOptions()), request);
     }
 
     /**
@@ -5966,6 +6315,14 @@ public final class WalletGrpc {
         org.tron.api.GrpcAPI.EmptyMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getListExchangesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.tron.api.GrpcAPI.ExchangeList> getPaginatedExchangeList(
+        org.tron.api.GrpcAPI.PaginatedMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetPaginatedExchangeListMethod(), getCallOptions()), request);
     }
 
     /**
@@ -6103,75 +6460,80 @@ public final class WalletGrpc {
   private static final int METHODID_UPDATE_ACCOUNT2 = 7;
   private static final int METHODID_VOTE_WITNESS_ACCOUNT = 8;
   private static final int METHODID_UPDATE_SETTING = 9;
-  private static final int METHODID_VOTE_WITNESS_ACCOUNT2 = 10;
-  private static final int METHODID_CREATE_ASSET_ISSUE = 11;
-  private static final int METHODID_CREATE_ASSET_ISSUE2 = 12;
-  private static final int METHODID_UPDATE_WITNESS = 13;
-  private static final int METHODID_UPDATE_WITNESS2 = 14;
-  private static final int METHODID_CREATE_ACCOUNT = 15;
-  private static final int METHODID_CREATE_ACCOUNT2 = 16;
-  private static final int METHODID_CREATE_WITNESS = 17;
-  private static final int METHODID_CREATE_WITNESS2 = 18;
-  private static final int METHODID_TRANSFER_ASSET = 19;
-  private static final int METHODID_TRANSFER_ASSET2 = 20;
-  private static final int METHODID_PARTICIPATE_ASSET_ISSUE = 21;
-  private static final int METHODID_PARTICIPATE_ASSET_ISSUE2 = 22;
-  private static final int METHODID_FREEZE_BALANCE = 23;
-  private static final int METHODID_FREEZE_BALANCE2 = 24;
-  private static final int METHODID_UNFREEZE_BALANCE = 25;
-  private static final int METHODID_UNFREEZE_BALANCE2 = 26;
-  private static final int METHODID_UNFREEZE_ASSET = 27;
-  private static final int METHODID_UNFREEZE_ASSET2 = 28;
-  private static final int METHODID_WITHDRAW_BALANCE = 29;
-  private static final int METHODID_WITHDRAW_BALANCE2 = 30;
-  private static final int METHODID_UPDATE_ASSET = 31;
-  private static final int METHODID_UPDATE_ASSET2 = 32;
-  private static final int METHODID_PROPOSAL_CREATE = 33;
-  private static final int METHODID_PROPOSAL_APPROVE = 34;
-  private static final int METHODID_PROPOSAL_DELETE = 35;
-  private static final int METHODID_BUY_STORAGE = 36;
-  private static final int METHODID_BUY_STORAGE_BYTES = 37;
-  private static final int METHODID_SELL_STORAGE = 38;
-  private static final int METHODID_EXCHANGE_CREATE = 39;
-  private static final int METHODID_EXCHANGE_INJECT = 40;
-  private static final int METHODID_EXCHANGE_WITHDRAW = 41;
-  private static final int METHODID_EXCHANGE_TRANSACTION = 42;
-  private static final int METHODID_LIST_NODES = 43;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 44;
-  private static final int METHODID_GET_ACCOUNT_NET = 45;
-  private static final int METHODID_GET_ACCOUNT_RESOURCE = 46;
-  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 47;
-  private static final int METHODID_GET_NOW_BLOCK = 48;
-  private static final int METHODID_GET_NOW_BLOCK2 = 49;
-  private static final int METHODID_GET_BLOCK_BY_NUM = 50;
-  private static final int METHODID_GET_BLOCK_BY_NUM2 = 51;
-  private static final int METHODID_GET_TRANSACTION_COUNT_BY_BLOCK_NUM = 52;
-  private static final int METHODID_GET_BLOCK_BY_ID = 53;
-  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 54;
-  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT2 = 55;
-  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 56;
-  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM2 = 57;
-  private static final int METHODID_GET_TRANSACTION_BY_ID = 58;
-  private static final int METHODID_DEPLOY_CONTRACT = 59;
-  private static final int METHODID_GET_CONTRACT = 60;
-  private static final int METHODID_TRIGGER_CONTRACT = 61;
-  private static final int METHODID_LIST_WITNESSES = 62;
-  private static final int METHODID_LIST_PROPOSALS = 63;
-  private static final int METHODID_GET_PROPOSAL_BY_ID = 64;
-  private static final int METHODID_LIST_EXCHANGES = 65;
-  private static final int METHODID_GET_EXCHANGE_BY_ID = 66;
-  private static final int METHODID_GET_CHAIN_PARAMETERS = 67;
-  private static final int METHODID_GET_ASSET_ISSUE_LIST = 68;
-  private static final int METHODID_GET_PAGINATED_ASSET_ISSUE_LIST = 69;
-  private static final int METHODID_TOTAL_TRANSACTION = 70;
-  private static final int METHODID_GET_NEXT_MAINTENANCE_TIME = 71;
-  private static final int METHODID_GET_TRANSACTION_SIGN = 72;
-  private static final int METHODID_GET_TRANSACTION_SIGN2 = 73;
-  private static final int METHODID_CREATE_ADDRESS = 74;
-  private static final int METHODID_EASY_TRANSFER = 75;
-  private static final int METHODID_EASY_TRANSFER_BY_PRIVATE = 76;
-  private static final int METHODID_GENERATE_ADDRESS = 77;
-  private static final int METHODID_GET_TRANSACTION_INFO_BY_ID = 78;
+  private static final int METHODID_UPDATE_ENERGY_LIMIT = 10;
+  private static final int METHODID_VOTE_WITNESS_ACCOUNT2 = 11;
+  private static final int METHODID_CREATE_ASSET_ISSUE = 12;
+  private static final int METHODID_CREATE_ASSET_ISSUE2 = 13;
+  private static final int METHODID_UPDATE_WITNESS = 14;
+  private static final int METHODID_UPDATE_WITNESS2 = 15;
+  private static final int METHODID_CREATE_ACCOUNT = 16;
+  private static final int METHODID_CREATE_ACCOUNT2 = 17;
+  private static final int METHODID_CREATE_WITNESS = 18;
+  private static final int METHODID_CREATE_WITNESS2 = 19;
+  private static final int METHODID_TRANSFER_ASSET = 20;
+  private static final int METHODID_TRANSFER_ASSET2 = 21;
+  private static final int METHODID_PARTICIPATE_ASSET_ISSUE = 22;
+  private static final int METHODID_PARTICIPATE_ASSET_ISSUE2 = 23;
+  private static final int METHODID_FREEZE_BALANCE = 24;
+  private static final int METHODID_FREEZE_BALANCE2 = 25;
+  private static final int METHODID_UNFREEZE_BALANCE = 26;
+  private static final int METHODID_UNFREEZE_BALANCE2 = 27;
+  private static final int METHODID_UNFREEZE_ASSET = 28;
+  private static final int METHODID_UNFREEZE_ASSET2 = 29;
+  private static final int METHODID_WITHDRAW_BALANCE = 30;
+  private static final int METHODID_WITHDRAW_BALANCE2 = 31;
+  private static final int METHODID_UPDATE_ASSET = 32;
+  private static final int METHODID_UPDATE_ASSET2 = 33;
+  private static final int METHODID_PROPOSAL_CREATE = 34;
+  private static final int METHODID_PROPOSAL_APPROVE = 35;
+  private static final int METHODID_PROPOSAL_DELETE = 36;
+  private static final int METHODID_BUY_STORAGE = 37;
+  private static final int METHODID_BUY_STORAGE_BYTES = 38;
+  private static final int METHODID_SELL_STORAGE = 39;
+  private static final int METHODID_EXCHANGE_CREATE = 40;
+  private static final int METHODID_EXCHANGE_INJECT = 41;
+  private static final int METHODID_EXCHANGE_WITHDRAW = 42;
+  private static final int METHODID_EXCHANGE_TRANSACTION = 43;
+  private static final int METHODID_LIST_NODES = 44;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_ACCOUNT = 45;
+  private static final int METHODID_GET_ACCOUNT_NET = 46;
+  private static final int METHODID_GET_ACCOUNT_RESOURCE = 47;
+  private static final int METHODID_GET_ASSET_ISSUE_BY_NAME = 48;
+  private static final int METHODID_GET_NOW_BLOCK = 49;
+  private static final int METHODID_GET_NOW_BLOCK2 = 50;
+  private static final int METHODID_GET_BLOCK_BY_NUM = 51;
+  private static final int METHODID_GET_BLOCK_BY_NUM2 = 52;
+  private static final int METHODID_GET_TRANSACTION_COUNT_BY_BLOCK_NUM = 53;
+  private static final int METHODID_GET_BLOCK_BY_ID = 54;
+  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT = 55;
+  private static final int METHODID_GET_BLOCK_BY_LIMIT_NEXT2 = 56;
+  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM = 57;
+  private static final int METHODID_GET_BLOCK_BY_LATEST_NUM2 = 58;
+  private static final int METHODID_GET_TRANSACTION_BY_ID = 59;
+  private static final int METHODID_DEPLOY_CONTRACT = 60;
+  private static final int METHODID_GET_CONTRACT = 61;
+  private static final int METHODID_TRIGGER_CONTRACT = 62;
+  private static final int METHODID_LIST_WITNESSES = 63;
+  private static final int METHODID_GET_DELEGATED_RESOURCE = 64;
+  private static final int METHODID_GET_DELEGATED_RESOURCE_ACCOUNT_INDEX = 65;
+  private static final int METHODID_LIST_PROPOSALS = 66;
+  private static final int METHODID_GET_PAGINATED_PROPOSAL_LIST = 67;
+  private static final int METHODID_GET_PROPOSAL_BY_ID = 68;
+  private static final int METHODID_LIST_EXCHANGES = 69;
+  private static final int METHODID_GET_PAGINATED_EXCHANGE_LIST = 70;
+  private static final int METHODID_GET_EXCHANGE_BY_ID = 71;
+  private static final int METHODID_GET_CHAIN_PARAMETERS = 72;
+  private static final int METHODID_GET_ASSET_ISSUE_LIST = 73;
+  private static final int METHODID_GET_PAGINATED_ASSET_ISSUE_LIST = 74;
+  private static final int METHODID_TOTAL_TRANSACTION = 75;
+  private static final int METHODID_GET_NEXT_MAINTENANCE_TIME = 76;
+  private static final int METHODID_GET_TRANSACTION_SIGN = 77;
+  private static final int METHODID_GET_TRANSACTION_SIGN2 = 78;
+  private static final int METHODID_CREATE_ADDRESS = 79;
+  private static final int METHODID_EASY_TRANSFER = 80;
+  private static final int METHODID_EASY_TRANSFER_BY_PRIVATE = 81;
+  private static final int METHODID_GENERATE_ADDRESS = 82;
+  private static final int METHODID_GET_TRANSACTION_INFO_BY_ID = 83;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6228,6 +6590,10 @@ public final class WalletGrpc {
           break;
         case METHODID_UPDATE_SETTING:
           serviceImpl.updateSetting((org.tron.protos.Contract.UpdateSettingContract) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
+          break;
+        case METHODID_UPDATE_ENERGY_LIMIT:
+          serviceImpl.updateEnergyLimit((org.tron.protos.Contract.UpdateEnergyLimitContract) request,
               (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.TransactionExtention>) responseObserver);
           break;
         case METHODID_VOTE_WITNESS_ACCOUNT2:
@@ -6442,8 +6808,20 @@ public final class WalletGrpc {
           serviceImpl.listWitnesses((org.tron.api.GrpcAPI.EmptyMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.WitnessList>) responseObserver);
           break;
+        case METHODID_GET_DELEGATED_RESOURCE:
+          serviceImpl.getDelegatedResource((org.tron.api.GrpcAPI.DelegatedResourceMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.DelegatedResourceList>) responseObserver);
+          break;
+        case METHODID_GET_DELEGATED_RESOURCE_ACCOUNT_INDEX:
+          serviceImpl.getDelegatedResourceAccountIndex((org.tron.api.GrpcAPI.BytesMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.protos.Protocol.DelegatedResourceAccountIndex>) responseObserver);
+          break;
         case METHODID_LIST_PROPOSALS:
           serviceImpl.listProposals((org.tron.api.GrpcAPI.EmptyMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ProposalList>) responseObserver);
+          break;
+        case METHODID_GET_PAGINATED_PROPOSAL_LIST:
+          serviceImpl.getPaginatedProposalList((org.tron.api.GrpcAPI.PaginatedMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ProposalList>) responseObserver);
           break;
         case METHODID_GET_PROPOSAL_BY_ID:
@@ -6452,6 +6830,10 @@ public final class WalletGrpc {
           break;
         case METHODID_LIST_EXCHANGES:
           serviceImpl.listExchanges((org.tron.api.GrpcAPI.EmptyMessage) request,
+              (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList>) responseObserver);
+          break;
+        case METHODID_GET_PAGINATED_EXCHANGE_LIST:
+          serviceImpl.getPaginatedExchangeList((org.tron.api.GrpcAPI.PaginatedMessage) request,
               (io.grpc.stub.StreamObserver<org.tron.api.GrpcAPI.ExchangeList>) responseObserver);
           break;
         case METHODID_GET_EXCHANGE_BY_ID:
@@ -6577,6 +6959,7 @@ public final class WalletGrpc {
               .addMethod(getUpdateAccount2Method())
               .addMethod(getVoteWitnessAccountMethod())
               .addMethod(getUpdateSettingMethod())
+              .addMethod(getUpdateEnergyLimitMethod())
               .addMethod(getVoteWitnessAccount2Method())
               .addMethod(getCreateAssetIssueMethod())
               .addMethod(getCreateAssetIssue2Method())
@@ -6630,9 +7013,13 @@ public final class WalletGrpc {
               .addMethod(getGetContractMethod())
               .addMethod(getTriggerContractMethod())
               .addMethod(getListWitnessesMethod())
+              .addMethod(getGetDelegatedResourceMethod())
+              .addMethod(getGetDelegatedResourceAccountIndexMethod())
               .addMethod(getListProposalsMethod())
+              .addMethod(getGetPaginatedProposalListMethod())
               .addMethod(getGetProposalByIdMethod())
               .addMethod(getListExchangesMethod())
+              .addMethod(getGetPaginatedExchangeListMethod())
               .addMethod(getGetExchangeByIdMethod())
               .addMethod(getGetChainParametersMethod())
               .addMethod(getGetAssetIssueListMethod())

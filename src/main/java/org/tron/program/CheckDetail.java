@@ -19,11 +19,11 @@ import org.tron.protos.Protocol.Transaction;
 import org.tron.protos.Protocol.Transaction.Contract.ContractType;
 import org.tron.protos.Protocol.Transaction.Result.contractResult;
 import org.tron.protos.Protocol.TransactionInfo;
-import org.tron.walletserver.WalletApi;
+import org.tron.service.WalletGrpcClient;
 
-public class Main {
+public class CheckDetail {
 
-  private static WalletApi client;
+  private static WalletGrpcClient client;
   private static List<String> transactionIds = new ArrayList<>();
   private static ConcurrentLinkedQueue<Result> transactionResult = new ConcurrentLinkedQueue<>();
 
@@ -31,7 +31,7 @@ public class Main {
     Args argsObj = new Args();
     JCommander.newBuilder().addObject(argsObj).build().parse(args);
 
-    client = new WalletApi(new byte[]{});
+    client = new WalletGrpcClient("");
 
     BufferedReader bufferedReader = null;
 

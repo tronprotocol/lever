@@ -5871,6 +5871,1283 @@ public final class GrpcAPI {
 
   }
 
+  public interface DelegatedResourceMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.DelegatedResourceMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes fromAddress = 1;</code>
+     */
+    com.google.protobuf.ByteString getFromAddress();
+
+    /**
+     * <code>bytes toAddress = 2;</code>
+     */
+    com.google.protobuf.ByteString getToAddress();
+  }
+  /**
+   * Protobuf type {@code protocol.DelegatedResourceMessage}
+   */
+  public  static final class DelegatedResourceMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.DelegatedResourceMessage)
+      DelegatedResourceMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelegatedResourceMessage.newBuilder() to construct.
+    private DelegatedResourceMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelegatedResourceMessage() {
+      fromAddress_ = com.google.protobuf.ByteString.EMPTY;
+      toAddress_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelegatedResourceMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              fromAddress_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              toAddress_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.api.GrpcAPI.DelegatedResourceMessage.class, org.tron.api.GrpcAPI.DelegatedResourceMessage.Builder.class);
+    }
+
+    public static final int FROMADDRESS_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString fromAddress_;
+    /**
+     * <code>bytes fromAddress = 1;</code>
+     */
+    public com.google.protobuf.ByteString getFromAddress() {
+      return fromAddress_;
+    }
+
+    public static final int TOADDRESS_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString toAddress_;
+    /**
+     * <code>bytes toAddress = 2;</code>
+     */
+    public com.google.protobuf.ByteString getToAddress() {
+      return toAddress_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!fromAddress_.isEmpty()) {
+        output.writeBytes(1, fromAddress_);
+      }
+      if (!toAddress_.isEmpty()) {
+        output.writeBytes(2, toAddress_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!fromAddress_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, fromAddress_);
+      }
+      if (!toAddress_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, toAddress_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.api.GrpcAPI.DelegatedResourceMessage)) {
+        return super.equals(obj);
+      }
+      org.tron.api.GrpcAPI.DelegatedResourceMessage other = (org.tron.api.GrpcAPI.DelegatedResourceMessage) obj;
+
+      boolean result = true;
+      result = result && getFromAddress()
+          .equals(other.getFromAddress());
+      result = result && getToAddress()
+          .equals(other.getToAddress());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FROMADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getFromAddress().hashCode();
+      hash = (37 * hash) + TOADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getToAddress().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.api.GrpcAPI.DelegatedResourceMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.DelegatedResourceMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.DelegatedResourceMessage)
+        org.tron.api.GrpcAPI.DelegatedResourceMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.api.GrpcAPI.DelegatedResourceMessage.class, org.tron.api.GrpcAPI.DelegatedResourceMessage.Builder.class);
+      }
+
+      // Construct using org.tron.api.GrpcAPI.DelegatedResourceMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        fromAddress_ = com.google.protobuf.ByteString.EMPTY;
+
+        toAddress_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceMessage_descriptor;
+      }
+
+      public org.tron.api.GrpcAPI.DelegatedResourceMessage getDefaultInstanceForType() {
+        return org.tron.api.GrpcAPI.DelegatedResourceMessage.getDefaultInstance();
+      }
+
+      public org.tron.api.GrpcAPI.DelegatedResourceMessage build() {
+        org.tron.api.GrpcAPI.DelegatedResourceMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.api.GrpcAPI.DelegatedResourceMessage buildPartial() {
+        org.tron.api.GrpcAPI.DelegatedResourceMessage result = new org.tron.api.GrpcAPI.DelegatedResourceMessage(this);
+        result.fromAddress_ = fromAddress_;
+        result.toAddress_ = toAddress_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.api.GrpcAPI.DelegatedResourceMessage) {
+          return mergeFrom((org.tron.api.GrpcAPI.DelegatedResourceMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.api.GrpcAPI.DelegatedResourceMessage other) {
+        if (other == org.tron.api.GrpcAPI.DelegatedResourceMessage.getDefaultInstance()) return this;
+        if (other.getFromAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setFromAddress(other.getFromAddress());
+        }
+        if (other.getToAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setToAddress(other.getToAddress());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.api.GrpcAPI.DelegatedResourceMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.api.GrpcAPI.DelegatedResourceMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString fromAddress_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes fromAddress = 1;</code>
+       */
+      public com.google.protobuf.ByteString getFromAddress() {
+        return fromAddress_;
+      }
+      /**
+       * <code>bytes fromAddress = 1;</code>
+       */
+      public Builder setFromAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fromAddress_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes fromAddress = 1;</code>
+       */
+      public Builder clearFromAddress() {
+        
+        fromAddress_ = getDefaultInstance().getFromAddress();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString toAddress_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes toAddress = 2;</code>
+       */
+      public com.google.protobuf.ByteString getToAddress() {
+        return toAddress_;
+      }
+      /**
+       * <code>bytes toAddress = 2;</code>
+       */
+      public Builder setToAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        toAddress_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes toAddress = 2;</code>
+       */
+      public Builder clearToAddress() {
+        
+        toAddress_ = getDefaultInstance().getToAddress();
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.DelegatedResourceMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.DelegatedResourceMessage)
+    private static final org.tron.api.GrpcAPI.DelegatedResourceMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.api.GrpcAPI.DelegatedResourceMessage();
+    }
+
+    public static org.tron.api.GrpcAPI.DelegatedResourceMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DelegatedResourceMessage>
+        PARSER = new com.google.protobuf.AbstractParser<DelegatedResourceMessage>() {
+      public DelegatedResourceMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelegatedResourceMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelegatedResourceMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DelegatedResourceMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.api.GrpcAPI.DelegatedResourceMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DelegatedResourceListOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.DelegatedResourceList)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    java.util.List<org.tron.protos.Protocol.DelegatedResource> 
+        getDelegatedResourceList();
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    org.tron.protos.Protocol.DelegatedResource getDelegatedResource(int index);
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    int getDelegatedResourceCount();
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    java.util.List<? extends org.tron.protos.Protocol.DelegatedResourceOrBuilder> 
+        getDelegatedResourceOrBuilderList();
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    org.tron.protos.Protocol.DelegatedResourceOrBuilder getDelegatedResourceOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code protocol.DelegatedResourceList}
+   */
+  public  static final class DelegatedResourceList extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.DelegatedResourceList)
+      DelegatedResourceListOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelegatedResourceList.newBuilder() to construct.
+    private DelegatedResourceList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelegatedResourceList() {
+      delegatedResource_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelegatedResourceList(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                delegatedResource_ = new java.util.ArrayList<org.tron.protos.Protocol.DelegatedResource>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              delegatedResource_.add(
+                  input.readMessage(org.tron.protos.Protocol.DelegatedResource.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          delegatedResource_ = java.util.Collections.unmodifiableList(delegatedResource_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceList_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceList_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tron.api.GrpcAPI.DelegatedResourceList.class, org.tron.api.GrpcAPI.DelegatedResourceList.Builder.class);
+    }
+
+    public static final int DELEGATEDRESOURCE_FIELD_NUMBER = 1;
+    private java.util.List<org.tron.protos.Protocol.DelegatedResource> delegatedResource_;
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    public java.util.List<org.tron.protos.Protocol.DelegatedResource> getDelegatedResourceList() {
+      return delegatedResource_;
+    }
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    public java.util.List<? extends org.tron.protos.Protocol.DelegatedResourceOrBuilder> 
+        getDelegatedResourceOrBuilderList() {
+      return delegatedResource_;
+    }
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    public int getDelegatedResourceCount() {
+      return delegatedResource_.size();
+    }
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    public org.tron.protos.Protocol.DelegatedResource getDelegatedResource(int index) {
+      return delegatedResource_.get(index);
+    }
+    /**
+     * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+     */
+    public org.tron.protos.Protocol.DelegatedResourceOrBuilder getDelegatedResourceOrBuilder(
+        int index) {
+      return delegatedResource_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < delegatedResource_.size(); i++) {
+        output.writeMessage(1, delegatedResource_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < delegatedResource_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, delegatedResource_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tron.api.GrpcAPI.DelegatedResourceList)) {
+        return super.equals(obj);
+      }
+      org.tron.api.GrpcAPI.DelegatedResourceList other = (org.tron.api.GrpcAPI.DelegatedResourceList) obj;
+
+      boolean result = true;
+      result = result && getDelegatedResourceList()
+          .equals(other.getDelegatedResourceList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getDelegatedResourceCount() > 0) {
+        hash = (37 * hash) + DELEGATEDRESOURCE_FIELD_NUMBER;
+        hash = (53 * hash) + getDelegatedResourceList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tron.api.GrpcAPI.DelegatedResourceList parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tron.api.GrpcAPI.DelegatedResourceList prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.DelegatedResourceList}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.DelegatedResourceList)
+        org.tron.api.GrpcAPI.DelegatedResourceListOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceList_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceList_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tron.api.GrpcAPI.DelegatedResourceList.class, org.tron.api.GrpcAPI.DelegatedResourceList.Builder.class);
+      }
+
+      // Construct using org.tron.api.GrpcAPI.DelegatedResourceList.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDelegatedResourceFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (delegatedResourceBuilder_ == null) {
+          delegatedResource_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          delegatedResourceBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tron.api.GrpcAPI.internal_static_protocol_DelegatedResourceList_descriptor;
+      }
+
+      public org.tron.api.GrpcAPI.DelegatedResourceList getDefaultInstanceForType() {
+        return org.tron.api.GrpcAPI.DelegatedResourceList.getDefaultInstance();
+      }
+
+      public org.tron.api.GrpcAPI.DelegatedResourceList build() {
+        org.tron.api.GrpcAPI.DelegatedResourceList result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.tron.api.GrpcAPI.DelegatedResourceList buildPartial() {
+        org.tron.api.GrpcAPI.DelegatedResourceList result = new org.tron.api.GrpcAPI.DelegatedResourceList(this);
+        int from_bitField0_ = bitField0_;
+        if (delegatedResourceBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            delegatedResource_ = java.util.Collections.unmodifiableList(delegatedResource_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.delegatedResource_ = delegatedResource_;
+        } else {
+          result.delegatedResource_ = delegatedResourceBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tron.api.GrpcAPI.DelegatedResourceList) {
+          return mergeFrom((org.tron.api.GrpcAPI.DelegatedResourceList)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tron.api.GrpcAPI.DelegatedResourceList other) {
+        if (other == org.tron.api.GrpcAPI.DelegatedResourceList.getDefaultInstance()) return this;
+        if (delegatedResourceBuilder_ == null) {
+          if (!other.delegatedResource_.isEmpty()) {
+            if (delegatedResource_.isEmpty()) {
+              delegatedResource_ = other.delegatedResource_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDelegatedResourceIsMutable();
+              delegatedResource_.addAll(other.delegatedResource_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.delegatedResource_.isEmpty()) {
+            if (delegatedResourceBuilder_.isEmpty()) {
+              delegatedResourceBuilder_.dispose();
+              delegatedResourceBuilder_ = null;
+              delegatedResource_ = other.delegatedResource_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              delegatedResourceBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDelegatedResourceFieldBuilder() : null;
+            } else {
+              delegatedResourceBuilder_.addAllMessages(other.delegatedResource_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tron.api.GrpcAPI.DelegatedResourceList parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tron.api.GrpcAPI.DelegatedResourceList) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<org.tron.protos.Protocol.DelegatedResource> delegatedResource_ =
+        java.util.Collections.emptyList();
+      private void ensureDelegatedResourceIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          delegatedResource_ = new java.util.ArrayList<org.tron.protos.Protocol.DelegatedResource>(delegatedResource_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.tron.protos.Protocol.DelegatedResource, org.tron.protos.Protocol.DelegatedResource.Builder, org.tron.protos.Protocol.DelegatedResourceOrBuilder> delegatedResourceBuilder_;
+
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public java.util.List<org.tron.protos.Protocol.DelegatedResource> getDelegatedResourceList() {
+        if (delegatedResourceBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(delegatedResource_);
+        } else {
+          return delegatedResourceBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public int getDelegatedResourceCount() {
+        if (delegatedResourceBuilder_ == null) {
+          return delegatedResource_.size();
+        } else {
+          return delegatedResourceBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public org.tron.protos.Protocol.DelegatedResource getDelegatedResource(int index) {
+        if (delegatedResourceBuilder_ == null) {
+          return delegatedResource_.get(index);
+        } else {
+          return delegatedResourceBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder setDelegatedResource(
+          int index, org.tron.protos.Protocol.DelegatedResource value) {
+        if (delegatedResourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDelegatedResourceIsMutable();
+          delegatedResource_.set(index, value);
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder setDelegatedResource(
+          int index, org.tron.protos.Protocol.DelegatedResource.Builder builderForValue) {
+        if (delegatedResourceBuilder_ == null) {
+          ensureDelegatedResourceIsMutable();
+          delegatedResource_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder addDelegatedResource(org.tron.protos.Protocol.DelegatedResource value) {
+        if (delegatedResourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDelegatedResourceIsMutable();
+          delegatedResource_.add(value);
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder addDelegatedResource(
+          int index, org.tron.protos.Protocol.DelegatedResource value) {
+        if (delegatedResourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDelegatedResourceIsMutable();
+          delegatedResource_.add(index, value);
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder addDelegatedResource(
+          org.tron.protos.Protocol.DelegatedResource.Builder builderForValue) {
+        if (delegatedResourceBuilder_ == null) {
+          ensureDelegatedResourceIsMutable();
+          delegatedResource_.add(builderForValue.build());
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder addDelegatedResource(
+          int index, org.tron.protos.Protocol.DelegatedResource.Builder builderForValue) {
+        if (delegatedResourceBuilder_ == null) {
+          ensureDelegatedResourceIsMutable();
+          delegatedResource_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder addAllDelegatedResource(
+          java.lang.Iterable<? extends org.tron.protos.Protocol.DelegatedResource> values) {
+        if (delegatedResourceBuilder_ == null) {
+          ensureDelegatedResourceIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, delegatedResource_);
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder clearDelegatedResource() {
+        if (delegatedResourceBuilder_ == null) {
+          delegatedResource_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public Builder removeDelegatedResource(int index) {
+        if (delegatedResourceBuilder_ == null) {
+          ensureDelegatedResourceIsMutable();
+          delegatedResource_.remove(index);
+          onChanged();
+        } else {
+          delegatedResourceBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public org.tron.protos.Protocol.DelegatedResource.Builder getDelegatedResourceBuilder(
+          int index) {
+        return getDelegatedResourceFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public org.tron.protos.Protocol.DelegatedResourceOrBuilder getDelegatedResourceOrBuilder(
+          int index) {
+        if (delegatedResourceBuilder_ == null) {
+          return delegatedResource_.get(index);  } else {
+          return delegatedResourceBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public java.util.List<? extends org.tron.protos.Protocol.DelegatedResourceOrBuilder> 
+           getDelegatedResourceOrBuilderList() {
+        if (delegatedResourceBuilder_ != null) {
+          return delegatedResourceBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(delegatedResource_);
+        }
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public org.tron.protos.Protocol.DelegatedResource.Builder addDelegatedResourceBuilder() {
+        return getDelegatedResourceFieldBuilder().addBuilder(
+            org.tron.protos.Protocol.DelegatedResource.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public org.tron.protos.Protocol.DelegatedResource.Builder addDelegatedResourceBuilder(
+          int index) {
+        return getDelegatedResourceFieldBuilder().addBuilder(
+            index, org.tron.protos.Protocol.DelegatedResource.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .protocol.DelegatedResource delegatedResource = 1;</code>
+       */
+      public java.util.List<org.tron.protos.Protocol.DelegatedResource.Builder> 
+           getDelegatedResourceBuilderList() {
+        return getDelegatedResourceFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.tron.protos.Protocol.DelegatedResource, org.tron.protos.Protocol.DelegatedResource.Builder, org.tron.protos.Protocol.DelegatedResourceOrBuilder> 
+          getDelegatedResourceFieldBuilder() {
+        if (delegatedResourceBuilder_ == null) {
+          delegatedResourceBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.tron.protos.Protocol.DelegatedResource, org.tron.protos.Protocol.DelegatedResource.Builder, org.tron.protos.Protocol.DelegatedResourceOrBuilder>(
+                  delegatedResource_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          delegatedResource_ = null;
+        }
+        return delegatedResourceBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.DelegatedResourceList)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.DelegatedResourceList)
+    private static final org.tron.api.GrpcAPI.DelegatedResourceList DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tron.api.GrpcAPI.DelegatedResourceList();
+    }
+
+    public static org.tron.api.GrpcAPI.DelegatedResourceList getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DelegatedResourceList>
+        PARSER = new com.google.protobuf.AbstractParser<DelegatedResourceList>() {
+      public DelegatedResourceList parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelegatedResourceList(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelegatedResourceList> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DelegatedResourceList> getParserForType() {
+      return PARSER;
+    }
+
+    public org.tron.api.GrpcAPI.DelegatedResourceList getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface NodeListOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protocol.NodeList)
       com.google.protobuf.MessageOrBuilder {
@@ -21934,6 +23211,16 @@ public final class GrpcAPI {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_TransactionList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_DelegatedResourceMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_DelegatedResourceMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_DelegatedResourceList_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_DelegatedResourceList_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_NodeList_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -22093,353 +23380,377 @@ public final class GrpcAPI {
       "ssueContract\"+\n\tBlockList\022\036\n\005block\030\001 \003(\013" +
       "2\017.protocol.Block\"=\n\017TransactionList\022*\n\013" +
       "transaction\030\001 \003(\0132\025.protocol.Transaction" +
-      "\")\n\010NodeList\022\035\n\005nodes\030\001 \003(\0132\016.protocol.N" +
-      "ode\"*\n\004Node\022\"\n\007address\030\001 \001(\0132\021.protocol." +
-      "Address\"%\n\007Address\022\014\n\004host\030\001 \001(\014\022\014\n\004port" +
-      "\030\002 \001(\005\"\016\n\014EmptyMessage\"\034\n\rNumberMessage\022" +
-      "\013\n\003num\030\001 \001(\003\"\035\n\014BytesMessage\022\r\n\005value\030\001 " +
-      "\001(\014\"E\n\013TimeMessage\022\033\n\023beginInMillisecond" +
-      "s\030\001 \001(\003\022\031\n\021endInMilliseconds\030\002 \001(\003\".\n\nBl" +
-      "ockLimit\022\020\n\010startNum\030\001 \001(\003\022\016\n\006endNum\030\002 \001" +
-      "(\003\";\n\020TransactionLimit\022\025\n\rtransactionId\030" +
-      "\001 \001(\014\022\020\n\010limitNum\030\002 \001(\003\"U\n\020AccountPagina" +
-      "ted\022\"\n\007account\030\001 \001(\0132\021.protocol.Account\022" +
-      "\016\n\006offset\030\002 \001(\003\022\r\n\005limit\030\003 \001(\003\"a\n\024TimePa" +
-      "ginatedMessage\022*\n\013timeMessage\030\001 \001(\0132\025.pr" +
-      "otocol.TimeMessage\022\016\n\006offset\030\002 \001(\003\022\r\n\005li" +
-      "mit\030\003 \001(\003\"\207\003\n\021AccountNetMessage\022\023\n\013freeN" +
-      "etUsed\030\001 \001(\003\022\024\n\014freeNetLimit\030\002 \001(\003\022\017\n\007Ne" +
-      "tUsed\030\003 \001(\003\022\020\n\010NetLimit\030\004 \001(\003\022C\n\014assetNe" +
-      "tUsed\030\005 \003(\0132-.protocol.AccountNetMessage" +
-      ".AssetNetUsedEntry\022E\n\rassetNetLimit\030\006 \003(" +
-      "\0132..protocol.AccountNetMessage.AssetNetL" +
-      "imitEntry\022\025\n\rTotalNetLimit\030\007 \001(\003\022\026\n\016Tota" +
-      "lNetWeight\030\010 \001(\003\0323\n\021AssetNetUsedEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\0324\n\022AssetNe" +
-      "tLimitEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:" +
-      "\0028\001\"\237\004\n\026AccountResourceMessage\022\023\n\013freeNe" +
-      "tUsed\030\001 \001(\003\022\024\n\014freeNetLimit\030\002 \001(\003\022\017\n\007Net" +
-      "Used\030\003 \001(\003\022\020\n\010NetLimit\030\004 \001(\003\022H\n\014assetNet" +
-      "Used\030\005 \003(\01322.protocol.AccountResourceMes" +
-      "sage.AssetNetUsedEntry\022J\n\rassetNetLimit\030" +
-      "\006 \003(\01323.protocol.AccountResourceMessage." +
-      "AssetNetLimitEntry\022\025\n\rTotalNetLimit\030\007 \001(" +
-      "\003\022\026\n\016TotalNetWeight\030\010 \001(\003\022\022\n\nEnergyUsed\030" +
-      "\r \001(\003\022\023\n\013EnergyLimit\030\016 \001(\003\022\030\n\020TotalEnerg" +
-      "yLimit\030\017 \001(\003\022\031\n\021TotalEnergyWeight\030\020 \001(\003\022" +
-      "\023\n\013storageUsed\030\025 \001(\003\022\024\n\014storageLimit\030\026 \001" +
-      "(\003\0323\n\021AssetNetUsedEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\003:\0028\001\0324\n\022AssetNetLimitEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\"1\n\020Paginat" +
-      "edMessage\022\016\n\006offset\030\001 \001(\003\022\r\n\005limit\030\002 \001(\003" +
-      "\"L\n\023EasyTransferMessage\022\022\n\npassPhrase\030\001 " +
-      "\001(\014\022\021\n\ttoAddress\030\002 \001(\014\022\016\n\006amount\030\003 \001(\003\"U" +
-      "\n\034EasyTransferByPrivateMessage\022\022\n\nprivat" +
-      "eKey\030\001 \001(\014\022\021\n\ttoAddress\030\002 \001(\014\022\016\n\006amount\030" +
-      "\003 \001(\003\"r\n\024EasyTransferResponse\022*\n\013transac" +
-      "tion\030\001 \001(\0132\025.protocol.Transaction\022 \n\006res" +
-      "ult\030\002 \001(\0132\020.protocol.Return\022\014\n\004txid\030\003 \001(" +
-      "\014\">\n\027AddressPrKeyPairMessage\022\017\n\007address\030" +
-      "\001 \001(\t\022\022\n\nprivateKey\030\002 \001(\t\"\213\001\n\024Transactio" +
-      "nExtention\022*\n\013transaction\030\001 \001(\0132\025.protoc" +
-      "ol.Transaction\022\014\n\004txid\030\002 \001(\014\022\027\n\017constant" +
-      "_result\030\003 \003(\014\022 \n\006result\030\004 \001(\0132\020.protocol" +
-      ".Return\"\204\001\n\016BlockExtention\0224\n\014transactio" +
-      "ns\030\001 \003(\0132\036.protocol.TransactionExtention" +
-      "\022+\n\014block_header\030\002 \001(\0132\025.protocol.BlockH" +
-      "eader\022\017\n\007blockid\030\003 \001(\014\"=\n\022BlockListExten" +
-      "tion\022\'\n\005block\030\001 \003(\0132\030.protocol.BlockExte" +
-      "ntion\"O\n\030TransactionListExtention\0223\n\013tra" +
-      "nsaction\030\001 \003(\0132\036.protocol.TransactionExt" +
-      "ention2\271E\n\006Wallet\022g\n\nGetAccount\022\021.protoc" +
-      "ol.Account\032\021.protocol.Account\"3\202\323\344\223\002-\"\022/" +
-      "wallet/getaccount:\001*Z\024\022\022/wallet/getaccou" +
-      "nt\022s\n\016GetAccountById\022\021.protocol.Account\032" +
-      "\021.protocol.Account\";\202\323\344\223\0025\"\026/wallet/geta" +
-      "ccountbyid:\001*Z\030\022\026/wallet/getaccountbyid\022" +
-      "\211\001\n\021CreateTransaction\022\032.protocol.Transfe" +
-      "rContract\032\025.protocol.Transaction\"A\202\323\344\223\002;" +
-      "\"\031/wallet/createtransaction:\001*Z\033\022\031/walle" +
-      "t/createtransaction\022R\n\022CreateTransaction" +
-      "2\022\032.protocol.TransferContract\032\036.protocol" +
-      ".TransactionExtention\"\000\022\210\001\n\024BroadcastTra" +
-      "nsaction\022\025.protocol.Transaction\032\020.protoc" +
-      "ol.Return\"G\202\323\344\223\002A\"\034/wallet/broadcasttran" +
-      "saction:\001*Z\036\022\034/wallet/broadcasttransacti" +
-      "on\022\202\001\n\rUpdateAccount\022\037.protocol.AccountU" +
-      "pdateContract\032\025.protocol.Transaction\"9\202\323" +
-      "\344\223\0023\"\025/wallet/updateaccount:\001*Z\027\022\025/walle" +
-      "t/updateaccount\022~\n\014SetAccountId\022\036.protoc" +
-      "ol.SetAccountIdContract\032\025.protocol.Trans" +
-      "action\"7\202\323\344\223\0021\"\024/wallet/setaccountid:\001*Z" +
-      "\026\022\024/wallet/setaccountid\022S\n\016UpdateAccount" +
-      "2\022\037.protocol.AccountUpdateContract\032\036.pro" +
-      "tocol.TransactionExtention\"\000\022\217\001\n\022VoteWit" +
-      "nessAccount\022\035.protocol.VoteWitnessContra" +
-      "ct\032\025.protocol.Transaction\"C\202\323\344\223\002=\"\032/wall" +
-      "et/votewitnessaccount:\001*Z\034\022\032/wallet/vote" +
-      "witnessaccount\022R\n\rUpdateSetting\022\037.protoc" +
-      "ol.UpdateSettingContract\032\036.protocol.Tran" +
-      "sactionExtention\"\000\022V\n\023VoteWitnessAccount" +
-      "2\022\035.protocol.VoteWitnessContract\032\036.proto" +
-      "col.TransactionExtention\"\000\022\210\001\n\020CreateAss" +
-      "etIssue\022\034.protocol.AssetIssueContract\032\025." +
-      "protocol.Transaction\"?\202\323\344\223\0029\"\030/wallet/cr" +
-      "eateassetissue:\001*Z\032\022\030/wallet/createasset" +
-      "issue\022S\n\021CreateAssetIssue2\022\034.protocol.As" +
-      "setIssueContract\032\036.protocol.TransactionE" +
-      "xtention\"\000\022\202\001\n\rUpdateWitness\022\037.protocol." +
-      "WitnessUpdateContract\032\025.protocol.Transac" +
-      "tion\"9\202\323\344\223\0023\"\025/wallet/updatewitness:\001*Z\027" +
-      "\022\025/wallet/updatewitness\022S\n\016UpdateWitness" +
-      "2\022\037.protocol.WitnessUpdateContract\032\036.pro" +
-      "tocol.TransactionExtention\"\000\022\202\001\n\rCreateA" +
-      "ccount\022\037.protocol.AccountCreateContract\032" +
-      "\025.protocol.Transaction\"9\202\323\344\223\0023\"\025/wallet/" +
-      "createaccount:\001*Z\027\022\025/wallet/createaccoun" +
-      "t\022S\n\016CreateAccount2\022\037.protocol.AccountCr" +
-      "eateContract\032\036.protocol.TransactionExten" +
-      "tion\"\000\022\202\001\n\rCreateWitness\022\037.protocol.Witn" +
-      "essCreateContract\032\025.protocol.Transaction" +
-      "\"9\202\323\344\223\0023\"\025/wallet/createwitness:\001*Z\027\022\025/w" +
-      "allet/createwitness\022S\n\016CreateWitness2\022\037." +
-      "protocol.WitnessCreateContract\032\036.protoco" +
-      "l.TransactionExtention\"\000\022\202\001\n\rTransferAss" +
-      "et\022\037.protocol.TransferAssetContract\032\025.pr" +
-      "otocol.Transaction\"9\202\323\344\223\0023\"\025/wallet/tran" +
-      "sferasset:\001*Z\027\022\025/wallet/transferasset\022S\n" +
-      "\016TransferAsset2\022\037.protocol.TransferAsset" +
+      "\"B\n\030DelegatedResourceMessage\022\023\n\013fromAddr" +
+      "ess\030\001 \001(\014\022\021\n\ttoAddress\030\002 \001(\014\"O\n\025Delegate" +
+      "dResourceList\0226\n\021delegatedResource\030\001 \003(\013" +
+      "2\033.protocol.DelegatedResource\")\n\010NodeLis" +
+      "t\022\035\n\005nodes\030\001 \003(\0132\016.protocol.Node\"*\n\004Node" +
+      "\022\"\n\007address\030\001 \001(\0132\021.protocol.Address\"%\n\007" +
+      "Address\022\014\n\004host\030\001 \001(\014\022\014\n\004port\030\002 \001(\005\"\016\n\014E" +
+      "mptyMessage\"\034\n\rNumberMessage\022\013\n\003num\030\001 \001(" +
+      "\003\"\035\n\014BytesMessage\022\r\n\005value\030\001 \001(\014\"E\n\013Time" +
+      "Message\022\033\n\023beginInMilliseconds\030\001 \001(\003\022\031\n\021" +
+      "endInMilliseconds\030\002 \001(\003\".\n\nBlockLimit\022\020\n" +
+      "\010startNum\030\001 \001(\003\022\016\n\006endNum\030\002 \001(\003\";\n\020Trans" +
+      "actionLimit\022\025\n\rtransactionId\030\001 \001(\014\022\020\n\010li" +
+      "mitNum\030\002 \001(\003\"U\n\020AccountPaginated\022\"\n\007acco" +
+      "unt\030\001 \001(\0132\021.protocol.Account\022\016\n\006offset\030\002" +
+      " \001(\003\022\r\n\005limit\030\003 \001(\003\"a\n\024TimePaginatedMess" +
+      "age\022*\n\013timeMessage\030\001 \001(\0132\025.protocol.Time" +
+      "Message\022\016\n\006offset\030\002 \001(\003\022\r\n\005limit\030\003 \001(\003\"\207" +
+      "\003\n\021AccountNetMessage\022\023\n\013freeNetUsed\030\001 \001(" +
+      "\003\022\024\n\014freeNetLimit\030\002 \001(\003\022\017\n\007NetUsed\030\003 \001(\003" +
+      "\022\020\n\010NetLimit\030\004 \001(\003\022C\n\014assetNetUsed\030\005 \003(\013" +
+      "2-.protocol.AccountNetMessage.AssetNetUs" +
+      "edEntry\022E\n\rassetNetLimit\030\006 \003(\0132..protoco" +
+      "l.AccountNetMessage.AssetNetLimitEntry\022\025" +
+      "\n\rTotalNetLimit\030\007 \001(\003\022\026\n\016TotalNetWeight\030" +
+      "\010 \001(\003\0323\n\021AssetNetUsedEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\003:\0028\001\0324\n\022AssetNetLimitEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\"\237\004\n\026Acc" +
+      "ountResourceMessage\022\023\n\013freeNetUsed\030\001 \001(\003" +
+      "\022\024\n\014freeNetLimit\030\002 \001(\003\022\017\n\007NetUsed\030\003 \001(\003\022" +
+      "\020\n\010NetLimit\030\004 \001(\003\022H\n\014assetNetUsed\030\005 \003(\0132" +
+      "2.protocol.AccountResourceMessage.AssetN" +
+      "etUsedEntry\022J\n\rassetNetLimit\030\006 \003(\01323.pro" +
+      "tocol.AccountResourceMessage.AssetNetLim" +
+      "itEntry\022\025\n\rTotalNetLimit\030\007 \001(\003\022\026\n\016TotalN" +
+      "etWeight\030\010 \001(\003\022\022\n\nEnergyUsed\030\r \001(\003\022\023\n\013En" +
+      "ergyLimit\030\016 \001(\003\022\030\n\020TotalEnergyLimit\030\017 \001(" +
+      "\003\022\031\n\021TotalEnergyWeight\030\020 \001(\003\022\023\n\013storageU" +
+      "sed\030\025 \001(\003\022\024\n\014storageLimit\030\026 \001(\003\0323\n\021Asset" +
+      "NetUsedEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003" +
+      ":\0028\001\0324\n\022AssetNetLimitEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\003:\0028\001\"1\n\020PaginatedMessage\022\016" +
+      "\n\006offset\030\001 \001(\003\022\r\n\005limit\030\002 \001(\003\"L\n\023EasyTra" +
+      "nsferMessage\022\022\n\npassPhrase\030\001 \001(\014\022\021\n\ttoAd" +
+      "dress\030\002 \001(\014\022\016\n\006amount\030\003 \001(\003\"U\n\034EasyTrans" +
+      "ferByPrivateMessage\022\022\n\nprivateKey\030\001 \001(\014\022" +
+      "\021\n\ttoAddress\030\002 \001(\014\022\016\n\006amount\030\003 \001(\003\"r\n\024Ea" +
+      "syTransferResponse\022*\n\013transaction\030\001 \001(\0132" +
+      "\025.protocol.Transaction\022 \n\006result\030\002 \001(\0132\020" +
+      ".protocol.Return\022\014\n\004txid\030\003 \001(\014\">\n\027Addres" +
+      "sPrKeyPairMessage\022\017\n\007address\030\001 \001(\t\022\022\n\npr" +
+      "ivateKey\030\002 \001(\t\"\213\001\n\024TransactionExtention\022" +
+      "*\n\013transaction\030\001 \001(\0132\025.protocol.Transact" +
+      "ion\022\014\n\004txid\030\002 \001(\014\022\027\n\017constant_result\030\003 \003" +
+      "(\014\022 \n\006result\030\004 \001(\0132\020.protocol.Return\"\204\001\n" +
+      "\016BlockExtention\0224\n\014transactions\030\001 \003(\0132\036." +
+      "protocol.TransactionExtention\022+\n\014block_h" +
+      "eader\030\002 \001(\0132\025.protocol.BlockHeader\022\017\n\007bl" +
+      "ockid\030\003 \001(\014\"=\n\022BlockListExtention\022\'\n\005blo" +
+      "ck\030\001 \003(\0132\030.protocol.BlockExtention\"O\n\030Tr" +
+      "ansactionListExtention\0223\n\013transaction\030\001 " +
+      "\003(\0132\036.protocol.TransactionExtention2\307K\n\006" +
+      "Wallet\022g\n\nGetAccount\022\021.protocol.Account\032" +
+      "\021.protocol.Account\"3\202\323\344\223\002-\"\022/wallet/geta" +
+      "ccount:\001*Z\024\022\022/wallet/getaccount\022s\n\016GetAc" +
+      "countById\022\021.protocol.Account\032\021.protocol." +
+      "Account\";\202\323\344\223\0025\"\026/wallet/getaccountbyid:" +
+      "\001*Z\030\022\026/wallet/getaccountbyid\022\211\001\n\021CreateT" +
+      "ransaction\022\032.protocol.TransferContract\032\025" +
+      ".protocol.Transaction\"A\202\323\344\223\002;\"\031/wallet/c" +
+      "reatetransaction:\001*Z\033\022\031/wallet/createtra" +
+      "nsaction\022R\n\022CreateTransaction2\022\032.protoco" +
+      "l.TransferContract\032\036.protocol.Transactio" +
+      "nExtention\"\000\022\210\001\n\024BroadcastTransaction\022\025." +
+      "protocol.Transaction\032\020.protocol.Return\"G" +
+      "\202\323\344\223\002A\"\034/wallet/broadcasttransaction:\001*Z" +
+      "\036\022\034/wallet/broadcasttransaction\022\202\001\n\rUpda" +
+      "teAccount\022\037.protocol.AccountUpdateContra" +
+      "ct\032\025.protocol.Transaction\"9\202\323\344\223\0023\"\025/wall" +
+      "et/updateaccount:\001*Z\027\022\025/wallet/updateacc" +
+      "ount\022~\n\014SetAccountId\022\036.protocol.SetAccou" +
+      "ntIdContract\032\025.protocol.Transaction\"7\202\323\344" +
+      "\223\0021\"\024/wallet/setaccountid:\001*Z\026\022\024/wallet/" +
+      "setaccountid\022S\n\016UpdateAccount2\022\037.protoco" +
+      "l.AccountUpdateContract\032\036.protocol.Trans" +
+      "actionExtention\"\000\022\217\001\n\022VoteWitnessAccount" +
+      "\022\035.protocol.VoteWitnessContract\032\025.protoc" +
+      "ol.Transaction\"C\202\323\344\223\002=\"\032/wallet/votewitn" +
+      "essaccount:\001*Z\034\022\032/wallet/votewitnessacco" +
+      "unt\022R\n\rUpdateSetting\022\037.protocol.UpdateSe" +
+      "ttingContract\032\036.protocol.TransactionExte" +
+      "ntion\"\000\022Z\n\021UpdateEnergyLimit\022#.protocol." +
+      "UpdateEnergyLimitContract\032\036.protocol.Tra" +
+      "nsactionExtention\"\000\022V\n\023VoteWitnessAccoun" +
+      "t2\022\035.protocol.VoteWitnessContract\032\036.prot" +
+      "ocol.TransactionExtention\"\000\022\210\001\n\020CreateAs" +
+      "setIssue\022\034.protocol.AssetIssueContract\032\025" +
+      ".protocol.Transaction\"?\202\323\344\223\0029\"\030/wallet/c" +
+      "reateassetissue:\001*Z\032\022\030/wallet/createasse" +
+      "tissue\022S\n\021CreateAssetIssue2\022\034.protocol.A" +
+      "ssetIssueContract\032\036.protocol.Transaction" +
+      "Extention\"\000\022\202\001\n\rUpdateWitness\022\037.protocol" +
+      ".WitnessUpdateContract\032\025.protocol.Transa" +
+      "ction\"9\202\323\344\223\0023\"\025/wallet/updatewitness:\001*Z" +
+      "\027\022\025/wallet/updatewitness\022S\n\016UpdateWitnes" +
+      "s2\022\037.protocol.WitnessUpdateContract\032\036.pr" +
+      "otocol.TransactionExtention\"\000\022\202\001\n\rCreate" +
+      "Account\022\037.protocol.AccountCreateContract" +
+      "\032\025.protocol.Transaction\"9\202\323\344\223\0023\"\025/wallet" +
+      "/createaccount:\001*Z\027\022\025/wallet/createaccou" +
+      "nt\022S\n\016CreateAccount2\022\037.protocol.AccountC" +
+      "reateContract\032\036.protocol.TransactionExte" +
+      "ntion\"\000\022\202\001\n\rCreateWitness\022\037.protocol.Wit" +
+      "nessCreateContract\032\025.protocol.Transactio" +
+      "n\"9\202\323\344\223\0023\"\025/wallet/createwitness:\001*Z\027\022\025/" +
+      "wallet/createwitness\022S\n\016CreateWitness2\022\037" +
+      ".protocol.WitnessCreateContract\032\036.protoc" +
+      "ol.TransactionExtention\"\000\022\202\001\n\rTransferAs" +
+      "set\022\037.protocol.TransferAssetContract\032\025.p" +
+      "rotocol.Transaction\"9\202\323\344\223\0023\"\025/wallet/tra" +
+      "nsferasset:\001*Z\027\022\025/wallet/transferasset\022S" +
+      "\n\016TransferAsset2\022\037.protocol.TransferAsse" +
+      "tContract\032\036.protocol.TransactionExtentio" +
+      "n\"\000\022\242\001\n\025ParticipateAssetIssue\022\'.protocol" +
+      ".ParticipateAssetIssueContract\032\025.protoco" +
+      "l.Transaction\"I\202\323\344\223\002C\"\035/wallet/participa" +
+      "teassetissue:\001*Z\037\022\035/wallet/participateas" +
+      "setissue\022c\n\026ParticipateAssetIssue2\022\'.pro" +
+      "tocol.ParticipateAssetIssueContract\032\036.pr" +
+      "otocol.TransactionExtention\"\000\022\202\001\n\rFreeze" +
+      "Balance\022\037.protocol.FreezeBalanceContract" +
+      "\032\025.protocol.Transaction\"9\202\323\344\223\0023\"\025/wallet" +
+      "/freezebalance:\001*Z\027\022\025/wallet/freezebalan" +
+      "ce\022S\n\016FreezeBalance2\022\037.protocol.FreezeBa" +
+      "lanceContract\032\036.protocol.TransactionExte" +
+      "ntion\"\000\022\212\001\n\017UnfreezeBalance\022!.protocol.U" +
+      "nfreezeBalanceContract\032\025.protocol.Transa" +
+      "ction\"=\202\323\344\223\0027\"\027/wallet/unfreezebalance:\001" +
+      "*Z\031\022\027/wallet/unfreezebalance\022W\n\020Unfreeze" +
+      "Balance2\022!.protocol.UnfreezeBalanceContr" +
+      "act\032\036.protocol.TransactionExtention\"\000\022\202\001" +
+      "\n\rUnfreezeAsset\022\037.protocol.UnfreezeAsset" +
+      "Contract\032\025.protocol.Transaction\"9\202\323\344\223\0023\"" +
+      "\025/wallet/unfreezeasset:\001*Z\027\022\025/wallet/unf" +
+      "reezeasset\022S\n\016UnfreezeAsset2\022\037.protocol." +
+      "UnfreezeAssetContract\032\036.protocol.Transac" +
+      "tionExtention\"\000\022\212\001\n\017WithdrawBalance\022!.pr" +
+      "otocol.WithdrawBalanceContract\032\025.protoco" +
+      "l.Transaction\"=\202\323\344\223\0027\"\027/wallet/withdrawb" +
+      "alance:\001*Z\031\022\027/wallet/withdrawbalance\022W\n\020" +
+      "WithdrawBalance2\022!.protocol.WithdrawBala" +
+      "nceContract\032\036.protocol.TransactionExtent" +
+      "ion\"\000\022z\n\013UpdateAsset\022\035.protocol.UpdateAs" +
+      "setContract\032\025.protocol.Transaction\"5\202\323\344\223" +
+      "\002/\"\023/wallet/updateasset:\001*Z\025\022\023/wallet/up" +
+      "dateasset\022O\n\014UpdateAsset2\022\035.protocol.Upd" +
+      "ateAssetContract\032\036.protocol.TransactionE" +
+      "xtention\"\000\022T\n\016ProposalCreate\022 .protocol." +
+      "ProposalCreateContract\032\036.protocol.Transa" +
+      "ctionExtention\"\000\022V\n\017ProposalApprove\022!.pr" +
+      "otocol.ProposalApproveContract\032\036.protoco" +
+      "l.TransactionExtention\"\000\022T\n\016ProposalDele" +
+      "te\022 .protocol.ProposalDeleteContract\032\036.p" +
+      "rotocol.TransactionExtention\"\000\022L\n\nBuySto" +
+      "rage\022\034.protocol.BuyStorageContract\032\036.pro" +
+      "tocol.TransactionExtention\"\000\022V\n\017BuyStora" +
+      "geBytes\022!.protocol.BuyStorageBytesContra" +
+      "ct\032\036.protocol.TransactionExtention\"\000\022N\n\013" +
+      "SellStorage\022\035.protocol.SellStorageContra" +
+      "ct\032\036.protocol.TransactionExtention\"\000\022T\n\016" +
+      "ExchangeCreate\022 .protocol.ExchangeCreate" +
       "Contract\032\036.protocol.TransactionExtention" +
-      "\"\000\022\242\001\n\025ParticipateAssetIssue\022\'.protocol." +
-      "ParticipateAssetIssueContract\032\025.protocol" +
-      ".Transaction\"I\202\323\344\223\002C\"\035/wallet/participat" +
-      "eassetissue:\001*Z\037\022\035/wallet/participateass" +
-      "etissue\022c\n\026ParticipateAssetIssue2\022\'.prot" +
-      "ocol.ParticipateAssetIssueContract\032\036.pro" +
-      "tocol.TransactionExtention\"\000\022\202\001\n\rFreezeB" +
-      "alance\022\037.protocol.FreezeBalanceContract\032" +
-      "\025.protocol.Transaction\"9\202\323\344\223\0023\"\025/wallet/" +
-      "freezebalance:\001*Z\027\022\025/wallet/freezebalanc" +
-      "e\022S\n\016FreezeBalance2\022\037.protocol.FreezeBal" +
-      "anceContract\032\036.protocol.TransactionExten" +
-      "tion\"\000\022\212\001\n\017UnfreezeBalance\022!.protocol.Un" +
-      "freezeBalanceContract\032\025.protocol.Transac" +
-      "tion\"=\202\323\344\223\0027\"\027/wallet/unfreezebalance:\001*" +
-      "Z\031\022\027/wallet/unfreezebalance\022W\n\020UnfreezeB" +
-      "alance2\022!.protocol.UnfreezeBalanceContra" +
-      "ct\032\036.protocol.TransactionExtention\"\000\022\202\001\n" +
-      "\rUnfreezeAsset\022\037.protocol.UnfreezeAssetC" +
-      "ontract\032\025.protocol.Transaction\"9\202\323\344\223\0023\"\025" +
-      "/wallet/unfreezeasset:\001*Z\027\022\025/wallet/unfr" +
-      "eezeasset\022S\n\016UnfreezeAsset2\022\037.protocol.U" +
-      "nfreezeAssetContract\032\036.protocol.Transact" +
-      "ionExtention\"\000\022\212\001\n\017WithdrawBalance\022!.pro" +
-      "tocol.WithdrawBalanceContract\032\025.protocol" +
-      ".Transaction\"=\202\323\344\223\0027\"\027/wallet/withdrawba" +
-      "lance:\001*Z\031\022\027/wallet/withdrawbalance\022W\n\020W" +
-      "ithdrawBalance2\022!.protocol.WithdrawBalan" +
-      "ceContract\032\036.protocol.TransactionExtenti" +
-      "on\"\000\022z\n\013UpdateAsset\022\035.protocol.UpdateAss" +
-      "etContract\032\025.protocol.Transaction\"5\202\323\344\223\002" +
-      "/\"\023/wallet/updateasset:\001*Z\025\022\023/wallet/upd" +
-      "ateasset\022O\n\014UpdateAsset2\022\035.protocol.Upda" +
-      "teAssetContract\032\036.protocol.TransactionEx" +
-      "tention\"\000\022T\n\016ProposalCreate\022 .protocol.P" +
-      "roposalCreateContract\032\036.protocol.Transac" +
-      "tionExtention\"\000\022V\n\017ProposalApprove\022!.pro" +
-      "tocol.ProposalApproveContract\032\036.protocol" +
-      ".TransactionExtention\"\000\022T\n\016ProposalDelet" +
-      "e\022 .protocol.ProposalDeleteContract\032\036.pr" +
-      "otocol.TransactionExtention\"\000\022L\n\nBuyStor" +
-      "age\022\034.protocol.BuyStorageContract\032\036.prot" +
-      "ocol.TransactionExtention\"\000\022V\n\017BuyStorag" +
-      "eBytes\022!.protocol.BuyStorageBytesContrac" +
-      "t\032\036.protocol.TransactionExtention\"\000\022N\n\013S" +
-      "ellStorage\022\035.protocol.SellStorageContrac" +
-      "t\032\036.protocol.TransactionExtention\"\000\022T\n\016E" +
-      "xchangeCreate\022 .protocol.ExchangeCreateC" +
-      "ontract\032\036.protocol.TransactionExtention\"" +
-      "\000\022T\n\016ExchangeInject\022 .protocol.ExchangeI" +
-      "njectContract\032\036.protocol.TransactionExte" +
-      "ntion\"\000\022X\n\020ExchangeWithdraw\022\".protocol.E" +
-      "xchangeWithdrawContract\032\036.protocol.Trans" +
-      "actionExtention\"\000\022^\n\023ExchangeTransaction" +
-      "\022%.protocol.ExchangeTransactionContract\032" +
-      "\036.protocol.TransactionExtention\"\000\022j\n\tLis" +
-      "tNodes\022\026.protocol.EmptyMessage\032\022.protoco" +
-      "l.NodeList\"1\202\323\344\223\002+\"\021/wallet/listnodes:\001*" +
-      "Z\023\022\021/wallet/listnodes\022\222\001\n\026GetAssetIssueB" +
-      "yAccount\022\021.protocol.Account\032\030.protocol.A" +
-      "ssetIssueList\"K\202\323\344\223\002E\"\036/wallet/getasseti" +
-      "ssuebyaccount:\001*Z \022\036/wallet/getassetissu" +
-      "ebyaccount\022z\n\rGetAccountNet\022\021.protocol.A" +
-      "ccount\032\033.protocol.AccountNetMessage\"9\202\323\344" +
-      "\223\0023\"\025/wallet/getaccountnet:\001*Z\027\022\025/wallet" +
-      "/getaccountnet\022K\n\022GetAccountResource\022\021.p" +
-      "rotocol.Account\032 .protocol.AccountResour" +
-      "ceMessage\"\000\022\222\001\n\023GetAssetIssueByName\022\026.pr" +
-      "otocol.BytesMessage\032\034.protocol.AssetIssu" +
-      "eContract\"E\202\323\344\223\002?\"\033/wallet/getassetissue" +
-      "byname:\001*Z\035\022\033/wallet/getassetissuebyname" +
-      "\022m\n\013GetNowBlock\022\026.protocol.EmptyMessage\032" +
-      "\017.protocol.Block\"5\202\323\344\223\002/\"\023/wallet/getnow" +
-      "block:\001*Z\025\022\023/wallet/getnowblock\022B\n\014GetNo" +
+      "\"\000\022T\n\016ExchangeInject\022 .protocol.Exchange" +
+      "InjectContract\032\036.protocol.TransactionExt" +
+      "ention\"\000\022X\n\020ExchangeWithdraw\022\".protocol." +
+      "ExchangeWithdrawContract\032\036.protocol.Tran" +
+      "sactionExtention\"\000\022^\n\023ExchangeTransactio" +
+      "n\022%.protocol.ExchangeTransactionContract" +
+      "\032\036.protocol.TransactionExtention\"\000\022j\n\tLi" +
+      "stNodes\022\026.protocol.EmptyMessage\032\022.protoc" +
+      "ol.NodeList\"1\202\323\344\223\002+\"\021/wallet/listnodes:\001" +
+      "*Z\023\022\021/wallet/listnodes\022\222\001\n\026GetAssetIssue" +
+      "ByAccount\022\021.protocol.Account\032\030.protocol." +
+      "AssetIssueList\"K\202\323\344\223\002E\"\036/wallet/getasset" +
+      "issuebyaccount:\001*Z \022\036/wallet/getassetiss" +
+      "uebyaccount\022z\n\rGetAccountNet\022\021.protocol." +
+      "Account\032\033.protocol.AccountNetMessage\"9\202\323" +
+      "\344\223\0023\"\025/wallet/getaccountnet:\001*Z\027\022\025/walle" +
+      "t/getaccountnet\022K\n\022GetAccountResource\022\021." +
+      "protocol.Account\032 .protocol.AccountResou" +
+      "rceMessage\"\000\022\222\001\n\023GetAssetIssueByName\022\026.p" +
+      "rotocol.BytesMessage\032\034.protocol.AssetIss" +
+      "ueContract\"E\202\323\344\223\002?\"\033/wallet/getassetissu" +
+      "ebyname:\001*Z\035\022\033/wallet/getassetissuebynam" +
+      "e\022m\n\013GetNowBlock\022\026.protocol.EmptyMessage" +
+      "\032\017.protocol.Block\"5\202\323\344\223\002/\"\023/wallet/getno" +
+      "wblock:\001*Z\025\022\023/wallet/getnowblock\022B\n\014GetN" +
+      "owBlock2\022\026.protocol.EmptyMessage\032\030.proto" +
+      "col.BlockExtention\"\000\022t\n\rGetBlockByNum\022\027." +
+      "protocol.NumberMessage\032\017.protocol.Block\"" +
+      "9\202\323\344\223\0023\"\025/wallet/getblockbynum:\001*Z\027\022\025/wa" +
+      "llet/getblockbynum\022E\n\016GetBlockByNum2\022\027.p" +
+      "rotocol.NumberMessage\032\030.protocol.BlockEx" +
+      "tention\"\000\022S\n\035GetTransactionCountByBlockN" +
+      "um\022\027.protocol.NumberMessage\032\027.protocol.N" +
+      "umberMessage\"\000\022p\n\014GetBlockById\022\026.protoco" +
+      "l.BytesMessage\032\017.protocol.Block\"7\202\323\344\223\0021\"" +
+      "\024/wallet/getblockbyid:\001*Z\026\022\024/wallet/getb" +
+      "lockbyid\022\207\001\n\023GetBlockByLimitNext\022\024.proto" +
+      "col.BlockLimit\032\023.protocol.BlockList\"E\202\323\344" +
+      "\223\002?\"\033/wallet/getblockbylimitnext:\001*Z\035\022\033/" +
+      "wallet/getblockbylimitnext\022L\n\024GetBlockBy" +
+      "LimitNext2\022\024.protocol.BlockLimit\032\034.proto" +
+      "col.BlockListExtention\"\000\022\212\001\n\023GetBlockByL" +
+      "atestNum\022\027.protocol.NumberMessage\032\023.prot" +
+      "ocol.BlockList\"E\202\323\344\223\002?\"\033/wallet/getblock" +
+      "bylatestnum:\001*Z\035\022\033/wallet/getblockbylate" +
+      "stnum\022O\n\024GetBlockByLatestNum2\022\027.protocol" +
+      ".NumberMessage\032\034.protocol.BlockListExten" +
+      "tion\"\000\022\210\001\n\022GetTransactionById\022\026.protocol" +
+      ".BytesMessage\032\025.protocol.Transaction\"C\202\323" +
+      "\344\223\002=\"\032/wallet/gettransactionbyid:\001*Z\034\022\032/" +
+      "wallet/gettransactionbyid\022Q\n\016DeployContr" +
+      "act\022\035.protocol.CreateSmartContract\032\036.pro" +
+      "tocol.TransactionExtention\"\000\022@\n\013GetContr" +
+      "act\022\026.protocol.BytesMessage\032\027.protocol.S" +
+      "martContract\"\000\022S\n\017TriggerContract\022\036.prot" +
+      "ocol.TriggerSmartContract\032\036.protocol.Tra" +
+      "nsactionExtention\"\000\022y\n\rListWitnesses\022\026.p" +
+      "rotocol.EmptyMessage\032\025.protocol.WitnessL" +
+      "ist\"9\202\323\344\223\0023\"\025/wallet/listwitnesses:\001*Z\027\022" +
+      "\025/wallet/listwitnesses\022\244\001\n\024GetDelegatedR" +
+      "esource\022\".protocol.DelegatedResourceMess" +
+      "age\032\037.protocol.DelegatedResourceList\"G\202\323" +
+      "\344\223\002A\"\034/wallet/getdelegatedresource:\001*Z\036\022" +
+      "\034/wallet/getdelegatedresource\022\304\001\n GetDel" +
+      "egatedResourceAccountIndex\022\026.protocol.By" +
+      "tesMessage\032\'.protocol.DelegatedResourceA" +
+      "ccountIndex\"_\202\323\344\223\002Y\"(/wallet/getdelegate" +
+      "dresourceaccountindex:\001*Z*\022(/wallet/getd" +
+      "elegatedresourceaccountindex\022z\n\rListProp" +
+      "osals\022\026.protocol.EmptyMessage\032\026.protocol" +
+      ".ProposalList\"9\202\323\344\223\0023\"\025/wallet/listpropo" +
+      "sals:\001*Z\027\022\025/wallet/listproposals\022\237\001\n\030Get" +
+      "PaginatedProposalList\022\032.protocol.Paginat" +
+      "edMessage\032\026.protocol.ProposalList\"O\202\323\344\223\002" +
+      "I\" /wallet/getpaginatedproposallist:\001*Z\"" +
+      "\022 /wallet/getpaginatedproposallist\022|\n\017Ge" +
+      "tProposalById\022\026.protocol.BytesMessage\032\022." +
+      "protocol.Proposal\"=\202\323\344\223\0027\"\027/wallet/getpr" +
+      "oposalbyid:\001*Z\031\022\027/wallet/getproposalbyid" +
+      "\022z\n\rListExchanges\022\026.protocol.EmptyMessag" +
+      "e\032\026.protocol.ExchangeList\"9\202\323\344\223\0023\"\025/wall" +
+      "et/listexchanges:\001*Z\027\022\025/wallet/listexcha" +
+      "nges\022\237\001\n\030GetPaginatedExchangeList\022\032.prot" +
+      "ocol.PaginatedMessage\032\026.protocol.Exchang" +
+      "eList\"O\202\323\344\223\002I\" /wallet/getpaginatedexcha" +
+      "ngelist:\001*Z\"\022 /wallet/getpaginatedexchan" +
+      "gelist\022|\n\017GetExchangeById\022\026.protocol.Byt" +
+      "esMessage\032\022.protocol.Exchange\"=\202\323\344\223\0027\"\027/" +
+      "wallet/getexchangebyid:\001*Z\031\022\027/wallet/get" +
+      "exchangebyid\022\214\001\n\022GetChainParameters\022\026.pr" +
+      "otocol.EmptyMessage\032\031.protocol.ChainPara" +
+      "meters\"C\202\323\344\223\002=\"\032/wallet/getchainparamete" +
+      "rs:\001*Z\034\022\032/wallet/getchainparameters\022\210\001\n\021" +
+      "GetAssetIssueList\022\026.protocol.EmptyMessag" +
+      "e\032\030.protocol.AssetIssueList\"A\202\323\344\223\002;\"\031/wa" +
+      "llet/getassetissuelist:\001*Z\033\022\031/wallet/get" +
+      "assetissuelist\022\247\001\n\032GetPaginatedAssetIssu" +
+      "eList\022\032.protocol.PaginatedMessage\032\030.prot" +
+      "ocol.AssetIssueList\"S\202\323\344\223\002M\"\"/wallet/get" +
+      "paginatedassetissuelist:\001*Z$\022\"/wallet/ge" +
+      "tpaginatedassetissuelist\022\204\001\n\020TotalTransa" +
+      "ction\022\026.protocol.EmptyMessage\032\027.protocol" +
+      ".NumberMessage\"?\202\323\344\223\0029\"\030/wallet/totaltra" +
+      "nsaction:\001*Z\032\022\030/wallet/totaltransaction\022" +
+      "\226\001\n\026GetNextMaintenanceTime\022\026.protocol.Em" +
+      "ptyMessage\032\027.protocol.NumberMessage\"K\202\323\344" +
+      "\223\002E\"\036/wallet/getnextmaintenancetime:\001*Z " +
+      "\022\036/wallet/getnextmaintenancetime\022\213\001\n\022Get" +
+      "TransactionSign\022\031.protocol.TransactionSi" +
+      "gn\032\025.protocol.Transaction\"C\202\323\344\223\002=\"\032/wall" +
+      "et/gettransactionsign:\001*Z\034\022\032/wallet/gett" +
+      "ransactionsign\022R\n\023GetTransactionSign2\022\031." +
+      "protocol.TransactionSign\032\036.protocol.Tran" +
+      "sactionExtention\"\000\022z\n\rCreateAddress\022\026.pr" +
+      "otocol.BytesMessage\032\026.protocol.BytesMess" +
+      "age\"9\202\323\344\223\0023\"\025/wallet/createaddress:\001*Z\027\022" +
+      "\025/wallet/createaddress\022\206\001\n\014EasyTransfer\022" +
+      "\035.protocol.EasyTransferMessage\032\036.protoco" +
+      "l.EasyTransferResponse\"7\202\323\344\223\0021\"\024/wallet/" +
+      "easytransfer:\001*Z\026\022\024/wallet/easytransfer\022" +
+      "\252\001\n\025EasyTransferByPrivate\022&.protocol.Eas" +
+      "yTransferByPrivateMessage\032\036.protocol.Eas" +
+      "yTransferResponse\"I\202\323\344\223\002C\"\035/wallet/easyt" +
+      "ransferbyprivate:\001*Z\037\022\035/wallet/easytrans" +
+      "ferbyprivate\022\213\001\n\017GenerateAddress\022\026.proto" +
+      "col.EmptyMessage\032!.protocol.AddressPrKey" +
+      "PairMessage\"=\202\323\344\223\0027\"\027/wallet/generateadd" +
+      "ress:\001*Z\031\022\027/wallet/generateaddress\022\230\001\n\026G" +
+      "etTransactionInfoById\022\026.protocol.BytesMe" +
+      "ssage\032\031.protocol.TransactionInfo\"K\202\323\344\223\002E" +
+      "\"\036/wallet/gettransactioninfobyid:\001*Z \022\036/" +
+      "wallet/gettransactioninfobyid2\272\r\n\016Wallet" +
+      "Solidity\022w\n\nGetAccount\022\021.protocol.Accoun" +
+      "t\032\021.protocol.Account\"C\202\323\344\223\002=\"\032/walletsol" +
+      "idity/getaccount:\001*Z\034\022\032/walletsolidity/g" +
+      "etaccount\022\203\001\n\016GetAccountById\022\021.protocol." +
+      "Account\032\021.protocol.Account\"K\202\323\344\223\002E\"\036/wal" +
+      "letsolidity/getaccountbyid:\001*Z \022\036/wallet" +
+      "solidity/getaccountbyid\022\211\001\n\rListWitnesse" +
+      "s\022\026.protocol.EmptyMessage\032\025.protocol.Wit" +
+      "nessList\"I\202\323\344\223\002C\"\035/walletsolidity/listwi" +
+      "tnesses:\001*Z\037\022\035/walletsolidity/listwitnes" +
+      "ses\022\230\001\n\021GetAssetIssueList\022\026.protocol.Emp" +
+      "tyMessage\032\030.protocol.AssetIssueList\"Q\202\323\344" +
+      "\223\002K\"!/walletsolidity/getassetissuelist:\001" +
+      "*Z#\022!/walletsolidity/getassetissuelist\022\267" +
+      "\001\n\032GetPaginatedAssetIssueList\022\032.protocol" +
+      ".PaginatedMessage\032\030.protocol.AssetIssueL" +
+      "ist\"c\202\323\344\223\002]\"*/walletsolidity/getpaginate" +
+      "dassetissuelist:\001*Z,\022*/walletsolidity/ge" +
+      "tpaginatedassetissuelist\022}\n\013GetNowBlock\022" +
+      "\026.protocol.EmptyMessage\032\017.protocol.Block" +
+      "\"E\202\323\344\223\002?\"\033/walletsolidity/getnowblock:\001*" +
+      "Z\035\022\033/walletsolidity/getnowblock\022B\n\014GetNo" +
       "wBlock2\022\026.protocol.EmptyMessage\032\030.protoc" +
-      "ol.BlockExtention\"\000\022t\n\rGetBlockByNum\022\027.p" +
-      "rotocol.NumberMessage\032\017.protocol.Block\"9" +
-      "\202\323\344\223\0023\"\025/wallet/getblockbynum:\001*Z\027\022\025/wal" +
-      "let/getblockbynum\022E\n\016GetBlockByNum2\022\027.pr" +
-      "otocol.NumberMessage\032\030.protocol.BlockExt" +
-      "ention\"\000\022S\n\035GetTransactionCountByBlockNu" +
-      "m\022\027.protocol.NumberMessage\032\027.protocol.Nu" +
-      "mberMessage\"\000\022p\n\014GetBlockById\022\026.protocol" +
-      ".BytesMessage\032\017.protocol.Block\"7\202\323\344\223\0021\"\024" +
-      "/wallet/getblockbyid:\001*Z\026\022\024/wallet/getbl" +
-      "ockbyid\022\207\001\n\023GetBlockByLimitNext\022\024.protoc" +
-      "ol.BlockLimit\032\023.protocol.BlockList\"E\202\323\344\223" +
-      "\002?\"\033/wallet/getblockbylimitnext:\001*Z\035\022\033/w" +
-      "allet/getblockbylimitnext\022L\n\024GetBlockByL" +
-      "imitNext2\022\024.protocol.BlockLimit\032\034.protoc" +
-      "ol.BlockListExtention\"\000\022\212\001\n\023GetBlockByLa" +
-      "testNum\022\027.protocol.NumberMessage\032\023.proto" +
-      "col.BlockList\"E\202\323\344\223\002?\"\033/wallet/getblockb" +
-      "ylatestnum:\001*Z\035\022\033/wallet/getblockbylates" +
-      "tnum\022O\n\024GetBlockByLatestNum2\022\027.protocol." +
-      "NumberMessage\032\034.protocol.BlockListExtent" +
-      "ion\"\000\022\210\001\n\022GetTransactionById\022\026.protocol." +
-      "BytesMessage\032\025.protocol.Transaction\"C\202\323\344" +
-      "\223\002=\"\032/wallet/gettransactionbyid:\001*Z\034\022\032/w" +
-      "allet/gettransactionbyid\022Q\n\016DeployContra" +
-      "ct\022\035.protocol.CreateSmartContract\032\036.prot" +
-      "ocol.TransactionExtention\"\000\022@\n\013GetContra" +
-      "ct\022\026.protocol.BytesMessage\032\027.protocol.Sm" +
-      "artContract\"\000\022S\n\017TriggerContract\022\036.proto" +
-      "col.TriggerSmartContract\032\036.protocol.Tran" +
-      "sactionExtention\"\000\022y\n\rListWitnesses\022\026.pr" +
-      "otocol.EmptyMessage\032\025.protocol.WitnessLi" +
-      "st\"9\202\323\344\223\0023\"\025/wallet/listwitnesses:\001*Z\027\022\025" +
-      "/wallet/listwitnesses\022z\n\rListProposals\022\026" +
-      ".protocol.EmptyMessage\032\026.protocol.Propos" +
-      "alList\"9\202\323\344\223\0023\"\025/wallet/listproposals:\001*" +
-      "Z\027\022\025/wallet/listproposals\022|\n\017GetProposal" +
-      "ById\022\026.protocol.BytesMessage\032\022.protocol." +
-      "Proposal\"=\202\323\344\223\0027\"\027/wallet/getproposalbyi" +
-      "d:\001*Z\031\022\027/wallet/getproposalbyid\022z\n\rListE" +
-      "xchanges\022\026.protocol.EmptyMessage\032\026.proto" +
-      "col.ExchangeList\"9\202\323\344\223\0023\"\025/wallet/listex" +
-      "changes:\001*Z\027\022\025/wallet/listexchanges\022|\n\017G" +
-      "etExchangeById\022\026.protocol.BytesMessage\032\022" +
-      ".protocol.Exchange\"=\202\323\344\223\0027\"\027/wallet/gete" +
-      "xchangebyid:\001*Z\031\022\027/wallet/getexchangebyi" +
-      "d\022\214\001\n\022GetChainParameters\022\026.protocol.Empt" +
-      "yMessage\032\031.protocol.ChainParameters\"C\202\323\344" +
-      "\223\002=\"\032/wallet/getchainparameters:\001*Z\034\022\032/w" +
-      "allet/getchainparameters\022\210\001\n\021GetAssetIss" +
-      "ueList\022\026.protocol.EmptyMessage\032\030.protoco" +
-      "l.AssetIssueList\"A\202\323\344\223\002;\"\031/wallet/getass" +
-      "etissuelist:\001*Z\033\022\031/wallet/getassetissuel" +
-      "ist\022\247\001\n\032GetPaginatedAssetIssueList\022\032.pro" +
-      "tocol.PaginatedMessage\032\030.protocol.AssetI" +
-      "ssueList\"S\202\323\344\223\002M\"\"/wallet/getpaginatedas" +
-      "setissuelist:\001*Z$\022\"/wallet/getpaginateda" +
-      "ssetissuelist\022\204\001\n\020TotalTransaction\022\026.pro" +
-      "tocol.EmptyMessage\032\027.protocol.NumberMess" +
-      "age\"?\202\323\344\223\0029\"\030/wallet/totaltransaction:\001*" +
-      "Z\032\022\030/wallet/totaltransaction\022\226\001\n\026GetNext" +
-      "MaintenanceTime\022\026.protocol.EmptyMessage\032" +
-      "\027.protocol.NumberMessage\"K\202\323\344\223\002E\"\036/walle" +
-      "t/getnextmaintenancetime:\001*Z \022\036/wallet/g" +
-      "etnextmaintenancetime\022\213\001\n\022GetTransaction" +
-      "Sign\022\031.protocol.TransactionSign\032\025.protoc" +
-      "ol.Transaction\"C\202\323\344\223\002=\"\032/wallet/gettrans" +
-      "actionsign:\001*Z\034\022\032/wallet/gettransactions" +
-      "ign\022R\n\023GetTransactionSign2\022\031.protocol.Tr" +
-      "ansactionSign\032\036.protocol.TransactionExte" +
-      "ntion\"\000\022z\n\rCreateAddress\022\026.protocol.Byte" +
-      "sMessage\032\026.protocol.BytesMessage\"9\202\323\344\223\0023" +
-      "\"\025/wallet/createaddress:\001*Z\027\022\025/wallet/cr" +
-      "eateaddress\022\206\001\n\014EasyTransfer\022\035.protocol." +
-      "EasyTransferMessage\032\036.protocol.EasyTrans" +
-      "ferResponse\"7\202\323\344\223\0021\"\024/wallet/easytransfe" +
-      "r:\001*Z\026\022\024/wallet/easytransfer\022\252\001\n\025EasyTra" +
-      "nsferByPrivate\022&.protocol.EasyTransferBy" +
-      "PrivateMessage\032\036.protocol.EasyTransferRe" +
-      "sponse\"I\202\323\344\223\002C\"\035/wallet/easytransferbypr" +
-      "ivate:\001*Z\037\022\035/wallet/easytransferbyprivat" +
-      "e\022\213\001\n\017GenerateAddress\022\026.protocol.EmptyMe" +
-      "ssage\032!.protocol.AddressPrKeyPairMessage" +
-      "\"=\202\323\344\223\0027\"\027/wallet/generateaddress:\001*Z\031\022\027" +
-      "/wallet/generateaddress\022\230\001\n\026GetTransacti" +
-      "onInfoById\022\026.protocol.BytesMessage\032\031.pro" +
-      "tocol.TransactionInfo\"K\202\323\344\223\002E\"\036/wallet/g" +
-      "ettransactioninfobyid:\001*Z \022\036/wallet/gett" +
-      "ransactioninfobyid2\272\r\n\016WalletSolidity\022w\n" +
-      "\nGetAccount\022\021.protocol.Account\032\021.protoco" +
-      "l.Account\"C\202\323\344\223\002=\"\032/walletsolidity/getac" +
-      "count:\001*Z\034\022\032/walletsolidity/getaccount\022\203" +
-      "\001\n\016GetAccountById\022\021.protocol.Account\032\021.p" +
-      "rotocol.Account\"K\202\323\344\223\002E\"\036/walletsolidity" +
-      "/getaccountbyid:\001*Z \022\036/walletsolidity/ge" +
-      "taccountbyid\022\211\001\n\rListWitnesses\022\026.protoco" +
-      "l.EmptyMessage\032\025.protocol.WitnessList\"I\202" +
-      "\323\344\223\002C\"\035/walletsolidity/listwitnesses:\001*Z" +
-      "\037\022\035/walletsolidity/listwitnesses\022\230\001\n\021Get" +
-      "AssetIssueList\022\026.protocol.EmptyMessage\032\030" +
-      ".protocol.AssetIssueList\"Q\202\323\344\223\002K\"!/walle" +
-      "tsolidity/getassetissuelist:\001*Z#\022!/walle" +
-      "tsolidity/getassetissuelist\022\267\001\n\032GetPagin" +
-      "atedAssetIssueList\022\032.protocol.PaginatedM" +
-      "essage\032\030.protocol.AssetIssueList\"c\202\323\344\223\002]" +
-      "\"*/walletsolidity/getpaginatedassetissue" +
-      "list:\001*Z,\022*/walletsolidity/getpaginateda" +
-      "ssetissuelist\022}\n\013GetNowBlock\022\026.protocol." +
-      "EmptyMessage\032\017.protocol.Block\"E\202\323\344\223\002?\"\033/" +
-      "walletsolidity/getnowblock:\001*Z\035\022\033/wallet" +
-      "solidity/getnowblock\022B\n\014GetNowBlock2\022\026.p" +
-      "rotocol.EmptyMessage\032\030.protocol.BlockExt" +
-      "ention\"\000\022\204\001\n\rGetBlockByNum\022\027.protocol.Nu" +
-      "mberMessage\032\017.protocol.Block\"I\202\323\344\223\002C\"\035/w" +
-      "alletsolidity/getblockbynum:\001*Z\037\022\035/walle" +
-      "tsolidity/getblockbynum\022E\n\016GetBlockByNum" +
-      "2\022\027.protocol.NumberMessage\032\030.protocol.Bl" +
-      "ockExtention\"\000\022S\n\035GetTransactionCountByB" +
-      "lockNum\022\027.protocol.NumberMessage\032\027.proto" +
-      "col.NumberMessage\"\000\022\230\001\n\022GetTransactionBy" +
-      "Id\022\026.protocol.BytesMessage\032\025.protocol.Tr" +
-      "ansaction\"S\202\323\344\223\002M\"\"/walletsolidity/gettr" +
-      "ansactionbyid:\001*Z$\022\"/walletsolidity/gett" +
-      "ransactionbyid\022\250\001\n\026GetTransactionInfoByI" +
-      "d\022\026.protocol.BytesMessage\032\031.protocol.Tra" +
-      "nsactionInfo\"[\202\323\344\223\002U\"&/walletsolidity/ge" +
-      "ttransactioninfobyid:\001*Z(\022&/walletsolidi" +
-      "ty/gettransactioninfobyid\022\233\001\n\017GenerateAd" +
-      "dress\022\026.protocol.EmptyMessage\032!.protocol" +
-      ".AddressPrKeyPairMessage\"M\202\323\344\223\002G\"\037/walle" +
-      "tsolidity/generateaddress:\001*Z!\022\037/wallets" +
-      "olidity/generateaddress2\255\004\n\017WalletExtens" +
-      "ion\022\261\001\n\027GetTransactionsFromThis\022\032.protoc" +
-      "ol.AccountPaginated\032\031.protocol.Transacti" +
-      "onList\"_\202\323\344\223\002Y\"(/walletextension/gettran" +
-      "sactionsfromthis:\001*Z*\022(/walletextension/" +
-      "gettransactionsfromthis\022\\\n\030GetTransactio" +
-      "nsFromThis2\022\032.protocol.AccountPaginated\032" +
-      "\".protocol.TransactionListExtention\"\000\022\253\001" +
-      "\n\025GetTransactionsToThis\022\032.protocol.Accou" +
-      "ntPaginated\032\031.protocol.TransactionList\"[" +
-      "\202\323\344\223\002U\"&/walletextension/gettransactions" +
-      "tothis:\001*Z(\022&/walletextension/gettransac" +
-      "tionstothis\022Z\n\026GetTransactionsToThis2\022\032." +
-      "protocol.AccountPaginated\032\".protocol.Tra" +
-      "nsactionListExtention\"\0002\231\002\n\010Database\022G\n\021" +
-      "getBlockReference\022\026.protocol.EmptyMessag" +
-      "e\032\030.protocol.BlockReference\"\000\022M\n\024GetDyna" +
-      "micProperties\022\026.protocol.EmptyMessage\032\033." +
-      "protocol.DynamicProperties\"\000\0228\n\013GetNowBl" +
-      "ock\022\026.protocol.EmptyMessage\032\017.protocol.B" +
-      "lock\"\000\022;\n\rGetBlockByNum\022\027.protocol.Numbe" +
-      "rMessage\032\017.protocol.Block\"\0002\t\n\007NetworkBA" +
-      "\n\014org.tron.apiB\007GrpcAPIZ(github.com/tron" +
-      "protocol/grpc-gateway/apib\006proto3"
+      "ol.BlockExtention\"\000\022\204\001\n\rGetBlockByNum\022\027." +
+      "protocol.NumberMessage\032\017.protocol.Block\"" +
+      "I\202\323\344\223\002C\"\035/walletsolidity/getblockbynum:\001" +
+      "*Z\037\022\035/walletsolidity/getblockbynum\022E\n\016Ge" +
+      "tBlockByNum2\022\027.protocol.NumberMessage\032\030." +
+      "protocol.BlockExtention\"\000\022S\n\035GetTransact" +
+      "ionCountByBlockNum\022\027.protocol.NumberMess" +
+      "age\032\027.protocol.NumberMessage\"\000\022\230\001\n\022GetTr" +
+      "ansactionById\022\026.protocol.BytesMessage\032\025." +
+      "protocol.Transaction\"S\202\323\344\223\002M\"\"/walletsol" +
+      "idity/gettransactionbyid:\001*Z$\022\"/walletso" +
+      "lidity/gettransactionbyid\022\250\001\n\026GetTransac" +
+      "tionInfoById\022\026.protocol.BytesMessage\032\031.p" +
+      "rotocol.TransactionInfo\"[\202\323\344\223\002U\"&/wallet" +
+      "solidity/gettransactioninfobyid:\001*Z(\022&/w" +
+      "alletsolidity/gettransactioninfobyid\022\233\001\n" +
+      "\017GenerateAddress\022\026.protocol.EmptyMessage" +
+      "\032!.protocol.AddressPrKeyPairMessage\"M\202\323\344" +
+      "\223\002G\"\037/walletsolidity/generateaddress:\001*Z" +
+      "!\022\037/walletsolidity/generateaddress2\255\004\n\017W" +
+      "alletExtension\022\261\001\n\027GetTransactionsFromTh" +
+      "is\022\032.protocol.AccountPaginated\032\031.protoco" +
+      "l.TransactionList\"_\202\323\344\223\002Y\"(/walletextens" +
+      "ion/gettransactionsfromthis:\001*Z*\022(/walle" +
+      "textension/gettransactionsfromthis\022\\\n\030Ge" +
+      "tTransactionsFromThis2\022\032.protocol.Accoun" +
+      "tPaginated\032\".protocol.TransactionListExt" +
+      "ention\"\000\022\253\001\n\025GetTransactionsToThis\022\032.pro" +
+      "tocol.AccountPaginated\032\031.protocol.Transa" +
+      "ctionList\"[\202\323\344\223\002U\"&/walletextension/gett" +
+      "ransactionstothis:\001*Z(\022&/walletextension" +
+      "/gettransactionstothis\022Z\n\026GetTransaction" +
+      "sToThis2\022\032.protocol.AccountPaginated\032\".p" +
+      "rotocol.TransactionListExtention\"\0002\231\002\n\010D" +
+      "atabase\022G\n\021getBlockReference\022\026.protocol." +
+      "EmptyMessage\032\030.protocol.BlockReference\"\000" +
+      "\022M\n\024GetDynamicProperties\022\026.protocol.Empt" +
+      "yMessage\032\033.protocol.DynamicProperties\"\000\022" +
+      "8\n\013GetNowBlock\022\026.protocol.EmptyMessage\032\017" +
+      ".protocol.Block\"\000\022;\n\rGetBlockByNum\022\027.pro" +
+      "tocol.NumberMessage\032\017.protocol.Block\"\0002\t" +
+      "\n\007NetworkBA\n\014org.tron.apiB\007GrpcAPIZ(gith" +
+      "ub.com/tronprotocol/grpc-gateway/apib\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -22504,74 +23815,86 @@ public final class GrpcAPI {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransactionList_descriptor,
         new java.lang.String[] { "Transaction", });
-    internal_static_protocol_NodeList_descriptor =
+    internal_static_protocol_DelegatedResourceMessage_descriptor =
       getDescriptor().getMessageTypes().get(8);
+    internal_static_protocol_DelegatedResourceMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_DelegatedResourceMessage_descriptor,
+        new java.lang.String[] { "FromAddress", "ToAddress", });
+    internal_static_protocol_DelegatedResourceList_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_protocol_DelegatedResourceList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_DelegatedResourceList_descriptor,
+        new java.lang.String[] { "DelegatedResource", });
+    internal_static_protocol_NodeList_descriptor =
+      getDescriptor().getMessageTypes().get(10);
     internal_static_protocol_NodeList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_NodeList_descriptor,
         new java.lang.String[] { "Nodes", });
     internal_static_protocol_Node_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_protocol_Node_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Node_descriptor,
         new java.lang.String[] { "Address", });
     internal_static_protocol_Address_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_protocol_Address_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Address_descriptor,
         new java.lang.String[] { "Host", "Port", });
     internal_static_protocol_EmptyMessage_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_protocol_EmptyMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_EmptyMessage_descriptor,
         new java.lang.String[] { });
     internal_static_protocol_NumberMessage_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_protocol_NumberMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_NumberMessage_descriptor,
         new java.lang.String[] { "Num", });
     internal_static_protocol_BytesMessage_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_protocol_BytesMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BytesMessage_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_protocol_TimeMessage_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_protocol_TimeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TimeMessage_descriptor,
         new java.lang.String[] { "BeginInMilliseconds", "EndInMilliseconds", });
     internal_static_protocol_BlockLimit_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_protocol_BlockLimit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockLimit_descriptor,
         new java.lang.String[] { "StartNum", "EndNum", });
     internal_static_protocol_TransactionLimit_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_protocol_TransactionLimit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransactionLimit_descriptor,
         new java.lang.String[] { "TransactionId", "LimitNum", });
     internal_static_protocol_AccountPaginated_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_protocol_AccountPaginated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AccountPaginated_descriptor,
         new java.lang.String[] { "Account", "Offset", "Limit", });
     internal_static_protocol_TimePaginatedMessage_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_protocol_TimePaginatedMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TimePaginatedMessage_descriptor,
         new java.lang.String[] { "TimeMessage", "Offset", "Limit", });
     internal_static_protocol_AccountNetMessage_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_protocol_AccountNetMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AccountNetMessage_descriptor,
@@ -22589,7 +23912,7 @@ public final class GrpcAPI {
         internal_static_protocol_AccountNetMessage_AssetNetLimitEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_protocol_AccountResourceMessage_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_protocol_AccountResourceMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AccountResourceMessage_descriptor,
@@ -22607,55 +23930,55 @@ public final class GrpcAPI {
         internal_static_protocol_AccountResourceMessage_AssetNetLimitEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_protocol_PaginatedMessage_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_protocol_PaginatedMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_PaginatedMessage_descriptor,
         new java.lang.String[] { "Offset", "Limit", });
     internal_static_protocol_EasyTransferMessage_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_protocol_EasyTransferMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_EasyTransferMessage_descriptor,
         new java.lang.String[] { "PassPhrase", "ToAddress", "Amount", });
     internal_static_protocol_EasyTransferByPrivateMessage_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_protocol_EasyTransferByPrivateMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_EasyTransferByPrivateMessage_descriptor,
         new java.lang.String[] { "PrivateKey", "ToAddress", "Amount", });
     internal_static_protocol_EasyTransferResponse_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_protocol_EasyTransferResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_EasyTransferResponse_descriptor,
         new java.lang.String[] { "Transaction", "Result", "Txid", });
     internal_static_protocol_AddressPrKeyPairMessage_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_protocol_AddressPrKeyPairMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_AddressPrKeyPairMessage_descriptor,
         new java.lang.String[] { "Address", "PrivateKey", });
     internal_static_protocol_TransactionExtention_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_protocol_TransactionExtention_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransactionExtention_descriptor,
         new java.lang.String[] { "Transaction", "Txid", "ConstantResult", "Result", });
     internal_static_protocol_BlockExtention_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_protocol_BlockExtention_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockExtention_descriptor,
         new java.lang.String[] { "Transactions", "BlockHeader", "Blockid", });
     internal_static_protocol_BlockListExtention_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_protocol_BlockListExtention_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_BlockListExtention_descriptor,
         new java.lang.String[] { "Block", });
     internal_static_protocol_TransactionListExtention_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_protocol_TransactionListExtention_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_TransactionListExtention_descriptor,
